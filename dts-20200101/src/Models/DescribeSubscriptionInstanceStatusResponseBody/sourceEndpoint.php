@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\DescribeSubscriptionInstanceStatusResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class sourceEndpoint extends Model
 {
     /**
+     * @description The ID of the instance that hosts the source database.
+     *
+     * @example rm-bp1162kryivb8****
+     *
      * @var string
      */
     public $instanceID;
 
     /**
+     * @description The instance type of the source database.
+     *
+     * >  This parameter is returned only for change tracking instances of the new version.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $instanceType;
@@ -22,18 +32,14 @@ class sourceEndpoint extends Model
         'instanceType' => 'InstanceType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceID) {
             $res['InstanceID'] = $this->instanceID;
         }
-
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
@@ -41,18 +47,17 @@ class sourceEndpoint extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sourceEndpoint
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceID'])) {
             $model->instanceID = $map['InstanceID'];
         }
-
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }

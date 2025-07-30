@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDedicatedClusterRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * This parameter is required.
+     *
+     * @example dtsCluster****
+     *
      * @var string
      */
     public $dedicatedClusterId;
@@ -19,11 +25,19 @@ class DescribeDedicatedClusterRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region in which the instance resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -34,26 +48,20 @@ class DescribeDedicatedClusterRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dedicatedClusterId) {
             $res['DedicatedClusterId'] = $this->dedicatedClusterId;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -61,26 +69,23 @@ class DescribeDedicatedClusterRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDedicatedClusterRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DedicatedClusterId'])) {
             $model->dedicatedClusterId = $map['DedicatedClusterId'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

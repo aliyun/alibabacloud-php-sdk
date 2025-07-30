@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\ListDedicatedClusterResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ListDedicatedClusterResponseBody\dedicatedClusterStatusList\dedicatedClusterStatus;
+use AlibabaCloud\Tea\Model;
 
 class dedicatedClusterStatusList extends Model
 {
@@ -17,24 +17,17 @@ class dedicatedClusterStatusList extends Model
         'dedicatedClusterStatus' => 'DedicatedClusterStatus',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dedicatedClusterStatus)) {
-            Model::validateArray($this->dedicatedClusterStatus);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dedicatedClusterStatus) {
-            if (\is_array($this->dedicatedClusterStatus)) {
-                $res['DedicatedClusterStatus'] = [];
-                $n1 = 0;
-                foreach ($this->dedicatedClusterStatus as $item1) {
-                    $res['DedicatedClusterStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['DedicatedClusterStatus'] = [];
+            if (null !== $this->dedicatedClusterStatus && \is_array($this->dedicatedClusterStatus)) {
+                $n = 0;
+                foreach ($this->dedicatedClusterStatus as $item) {
+                    $res['DedicatedClusterStatus'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class dedicatedClusterStatusList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dedicatedClusterStatusList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DedicatedClusterStatus'])) {
             if (!empty($map['DedicatedClusterStatus'])) {
                 $model->dedicatedClusterStatus = [];
-                $n1 = 0;
-                foreach ($map['DedicatedClusterStatus'] as $item1) {
-                    $model->dedicatedClusterStatus[$n1] = dedicatedClusterStatus::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['DedicatedClusterStatus'] as $item) {
+                    $model->dedicatedClusterStatus[$n++] = null !== $item ? dedicatedClusterStatus::fromMap($item) : $item;
                 }
             }
         }

@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteMigrationJobRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description The ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query all data migration instances.
+     *
+     * This parameter is required.
+     *
+     * @example dtsyiwe9b0gp2p****
+     *
      * @var string
      */
     public $migrationJobId;
@@ -24,11 +34,19 @@ class DeleteMigrationJobRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the data migration instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -40,30 +58,23 @@ class DeleteMigrationJobRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
-
         if (null !== $this->migrationJobId) {
             $res['MigrationJobId'] = $this->migrationJobId;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -71,30 +82,26 @@ class DeleteMigrationJobRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteMigrationJobRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
-
         if (isset($map['MigrationJobId'])) {
             $model->migrationJobId = $map['MigrationJobId'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

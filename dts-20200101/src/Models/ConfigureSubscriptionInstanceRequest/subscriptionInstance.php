@@ -4,16 +4,28 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\ConfigureSubscriptionInstanceRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class subscriptionInstance extends Model
 {
     /**
+     * @description The ID of the VPC in which the change tracking instance is deployed.
+     *
+     * > This parameter is available and required only if the **SubscriptionInstanceNetworkType** parameter is set to **vpc**.
+     *
+     * @example vpc-bp1vwnn14rqpyiczj****
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @description The ID of the vSwitch in the specified VPC.
+     *
+     * > This parameter is available and required only if the **SubscriptionInstanceNetworkType** parameter is set to **vpc**.
+     *
+     * @example vsw-bp10df3mxae6lpmku****
+     *
      * @var string
      */
     public $vSwitchId;
@@ -22,18 +34,14 @@ class subscriptionInstance extends Model
         'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
         }
-
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -41,18 +49,17 @@ class subscriptionInstance extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return subscriptionInstance
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];
         }
-
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ConfigureDtsJobAdvanceRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ConfigureDtsJobRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ConfigureDtsJobResponse;
@@ -34,6 +35,9 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\CreateConsumerGroupRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CreateConsumerGroupResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CreateDedicatedClusterMonitorRuleRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CreateDedicatedClusterMonitorRuleResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\CreateDocParserJobAdvanceRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\CreateDocParserJobRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\CreateDocParserJobResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CreateDtsInstanceRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CreateDtsInstanceResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CreateJobMonitorRuleRequest;
@@ -84,6 +88,10 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDedicatedClusterMonitorRuleReq
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDedicatedClusterMonitorRuleResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDedicatedClusterRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDedicatedClusterResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDocParserJobResultRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDocParserJobResultResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDocParserJobStatusRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDocParserJobStatusResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsEtlJobVersionInfoRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsEtlJobVersionInfoResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDTSIPRequest;
@@ -253,18 +261,18 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\UpgradeTwoWayRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\UpgradeTwoWayResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\WhiteIpListRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\WhiteIpListResponse;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
-use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
-use AlibabaCloud\SDK\OSS\OSS;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
-use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
+use AlibabaCloud\Tea\Exception\TeaError;
+use AlibabaCloud\Tea\FileForm\FileForm;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
+use AlibabaCloud\Tea\Request;
+use AlibabaCloud\Tea\Tea;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use AlibabaCloud\Tea\XML\XML;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Dts extends OpenApiClient
 {
@@ -334,6 +342,53 @@ class Dts extends OpenApiClient
     }
 
     /**
+     * @param string  $bucketName
+     * @param mixed[] $data
+     *
+     * @return array
+     *
+     * @throws TeaError
+     */
+    public function _postOSSObject($bucketName, $data)
+    {
+        $_request = new Request();
+        $form = Utils::assertAsMap($data);
+        $boundary = FileForm::getBoundary();
+        $host = Utils::assertAsString(@$form['host']);
+        $_request->protocol = 'HTTPS';
+        $_request->method = 'POST';
+        $_request->pathname = '/';
+        $_request->headers = [
+            'host' => $host,
+            'date' => Utils::getDateUTCString(),
+            'user-agent' => Utils::getUserAgent(''),
+        ];
+        $_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
+        $_request->body = FileForm::toFileForm($form, $boundary);
+        $_lastRequest = $_request;
+        $_response = Tea::send($_request);
+        $respMap = null;
+        $bodyStr = Utils::readAsString($_response->body);
+        if (Utils::is4xx($_response->statusCode) || Utils::is5xx($_response->statusCode)) {
+            $respMap = XML::parseXml($bodyStr, null);
+            $err = Utils::assertAsMap(@$respMap['Error']);
+
+            throw new TeaError([
+                'code' => @$err['Code'],
+                'message' => @$err['Message'],
+                'data' => [
+                    'httpCode' => $_response->statusCode,
+                    'requestId' => @$err['RequestId'],
+                    'hostId' => @$err['HostId'],
+                ],
+            ]);
+        }
+        $respMap = XML::parseXml($bodyStr, null);
+
+        return Tea::merge($respMap);
+    }
+
+    /**
      * @param string   $productId
      * @param string   $regionId
      * @param string   $endpointRule
@@ -346,298 +401,227 @@ class Dts extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Configures a data migration or synchronization task.
+     * @summary Configures a data migration or synchronization task.
+     *  *
+     * @param ConfigureDtsJobRequest $request ConfigureDtsJobRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ConfigureDtsJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ConfigureDtsJobResponse
-     *
-     * @param ConfigureDtsJobRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ConfigureDtsJobResponse
+     * @return ConfigureDtsJobResponse ConfigureDtsJobResponse
      */
     public function configureDtsJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->checkpoint) {
-            @$query['Checkpoint'] = $request->checkpoint;
+        if (!Utils::isUnset($request->checkpoint)) {
+            $query['Checkpoint'] = $request->checkpoint;
         }
-
-        if (null !== $request->dataCheckConfigure) {
-            @$query['DataCheckConfigure'] = $request->dataCheckConfigure;
+        if (!Utils::isUnset($request->dataCheckConfigure)) {
+            $query['DataCheckConfigure'] = $request->dataCheckConfigure;
         }
-
-        if (null !== $request->dataInitialization) {
-            @$query['DataInitialization'] = $request->dataInitialization;
+        if (!Utils::isUnset($request->dataInitialization)) {
+            $query['DataInitialization'] = $request->dataInitialization;
         }
-
-        if (null !== $request->dataSynchronization) {
-            @$query['DataSynchronization'] = $request->dataSynchronization;
+        if (!Utils::isUnset($request->dataSynchronization)) {
+            $query['DataSynchronization'] = $request->dataSynchronization;
         }
-
-        if (null !== $request->dedicatedClusterId) {
-            @$query['DedicatedClusterId'] = $request->dedicatedClusterId;
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
         }
-
-        if (null !== $request->delayNotice) {
-            @$query['DelayNotice'] = $request->delayNotice;
+        if (!Utils::isUnset($request->delayNotice)) {
+            $query['DelayNotice'] = $request->delayNotice;
         }
-
-        if (null !== $request->delayPhone) {
-            @$query['DelayPhone'] = $request->delayPhone;
+        if (!Utils::isUnset($request->delayPhone)) {
+            $query['DelayPhone'] = $request->delayPhone;
         }
-
-        if (null !== $request->delayRuleTime) {
-            @$query['DelayRuleTime'] = $request->delayRuleTime;
+        if (!Utils::isUnset($request->delayRuleTime)) {
+            $query['DelayRuleTime'] = $request->delayRuleTime;
         }
-
-        if (null !== $request->destCaCertificateOssUrl) {
-            @$query['DestCaCertificateOssUrl'] = $request->destCaCertificateOssUrl;
+        if (!Utils::isUnset($request->destCaCertificateOssUrl)) {
+            $query['DestCaCertificateOssUrl'] = $request->destCaCertificateOssUrl;
         }
-
-        if (null !== $request->destCaCertificatePassword) {
-            @$query['DestCaCertificatePassword'] = $request->destCaCertificatePassword;
+        if (!Utils::isUnset($request->destCaCertificatePassword)) {
+            $query['DestCaCertificatePassword'] = $request->destCaCertificatePassword;
         }
-
-        if (null !== $request->destClientCertOssUrl) {
-            @$query['DestClientCertOssUrl'] = $request->destClientCertOssUrl;
+        if (!Utils::isUnset($request->destClientCertOssUrl)) {
+            $query['DestClientCertOssUrl'] = $request->destClientCertOssUrl;
         }
-
-        if (null !== $request->destClientKeyOssUrl) {
-            @$query['DestClientKeyOssUrl'] = $request->destClientKeyOssUrl;
+        if (!Utils::isUnset($request->destClientKeyOssUrl)) {
+            $query['DestClientKeyOssUrl'] = $request->destClientKeyOssUrl;
         }
-
-        if (null !== $request->destClientPassword) {
-            @$query['DestClientPassword'] = $request->destClientPassword;
+        if (!Utils::isUnset($request->destClientPassword)) {
+            $query['DestClientPassword'] = $request->destClientPassword;
         }
-
-        if (null !== $request->destPrimaryVswId) {
-            @$query['DestPrimaryVswId'] = $request->destPrimaryVswId;
+        if (!Utils::isUnset($request->destPrimaryVswId)) {
+            $query['DestPrimaryVswId'] = $request->destPrimaryVswId;
         }
-
-        if (null !== $request->destSecondaryVswId) {
-            @$query['DestSecondaryVswId'] = $request->destSecondaryVswId;
+        if (!Utils::isUnset($request->destSecondaryVswId)) {
+            $query['DestSecondaryVswId'] = $request->destSecondaryVswId;
         }
-
-        if (null !== $request->destinationEndpointDataBaseName) {
-            @$query['DestinationEndpointDataBaseName'] = $request->destinationEndpointDataBaseName;
+        if (!Utils::isUnset($request->destinationEndpointDataBaseName)) {
+            $query['DestinationEndpointDataBaseName'] = $request->destinationEndpointDataBaseName;
         }
-
-        if (null !== $request->destinationEndpointEngineName) {
-            @$query['DestinationEndpointEngineName'] = $request->destinationEndpointEngineName;
+        if (!Utils::isUnset($request->destinationEndpointEngineName)) {
+            $query['DestinationEndpointEngineName'] = $request->destinationEndpointEngineName;
         }
-
-        if (null !== $request->destinationEndpointIP) {
-            @$query['DestinationEndpointIP'] = $request->destinationEndpointIP;
+        if (!Utils::isUnset($request->destinationEndpointIP)) {
+            $query['DestinationEndpointIP'] = $request->destinationEndpointIP;
         }
-
-        if (null !== $request->destinationEndpointInstanceID) {
-            @$query['DestinationEndpointInstanceID'] = $request->destinationEndpointInstanceID;
+        if (!Utils::isUnset($request->destinationEndpointInstanceID)) {
+            $query['DestinationEndpointInstanceID'] = $request->destinationEndpointInstanceID;
         }
-
-        if (null !== $request->destinationEndpointInstanceType) {
-            @$query['DestinationEndpointInstanceType'] = $request->destinationEndpointInstanceType;
+        if (!Utils::isUnset($request->destinationEndpointInstanceType)) {
+            $query['DestinationEndpointInstanceType'] = $request->destinationEndpointInstanceType;
         }
-
-        if (null !== $request->destinationEndpointOracleSID) {
-            @$query['DestinationEndpointOracleSID'] = $request->destinationEndpointOracleSID;
+        if (!Utils::isUnset($request->destinationEndpointOracleSID)) {
+            $query['DestinationEndpointOracleSID'] = $request->destinationEndpointOracleSID;
         }
-
-        if (null !== $request->destinationEndpointOwnerID) {
-            @$query['DestinationEndpointOwnerID'] = $request->destinationEndpointOwnerID;
+        if (!Utils::isUnset($request->destinationEndpointOwnerID)) {
+            $query['DestinationEndpointOwnerID'] = $request->destinationEndpointOwnerID;
         }
-
-        if (null !== $request->destinationEndpointPassword) {
-            @$query['DestinationEndpointPassword'] = $request->destinationEndpointPassword;
+        if (!Utils::isUnset($request->destinationEndpointPassword)) {
+            $query['DestinationEndpointPassword'] = $request->destinationEndpointPassword;
         }
-
-        if (null !== $request->destinationEndpointPort) {
-            @$query['DestinationEndpointPort'] = $request->destinationEndpointPort;
+        if (!Utils::isUnset($request->destinationEndpointPort)) {
+            $query['DestinationEndpointPort'] = $request->destinationEndpointPort;
         }
-
-        if (null !== $request->destinationEndpointRegion) {
-            @$query['DestinationEndpointRegion'] = $request->destinationEndpointRegion;
+        if (!Utils::isUnset($request->destinationEndpointRegion)) {
+            $query['DestinationEndpointRegion'] = $request->destinationEndpointRegion;
         }
-
-        if (null !== $request->destinationEndpointRole) {
-            @$query['DestinationEndpointRole'] = $request->destinationEndpointRole;
+        if (!Utils::isUnset($request->destinationEndpointRole)) {
+            $query['DestinationEndpointRole'] = $request->destinationEndpointRole;
         }
-
-        if (null !== $request->destinationEndpointUserName) {
-            @$query['DestinationEndpointUserName'] = $request->destinationEndpointUserName;
+        if (!Utils::isUnset($request->destinationEndpointUserName)) {
+            $query['DestinationEndpointUserName'] = $request->destinationEndpointUserName;
         }
-
-        if (null !== $request->disasterRecoveryJob) {
-            @$query['DisasterRecoveryJob'] = $request->disasterRecoveryJob;
+        if (!Utils::isUnset($request->disasterRecoveryJob)) {
+            $query['DisasterRecoveryJob'] = $request->disasterRecoveryJob;
         }
-
-        if (null !== $request->dtsBisLabel) {
-            @$query['DtsBisLabel'] = $request->dtsBisLabel;
+        if (!Utils::isUnset($request->dtsBisLabel)) {
+            $query['DtsBisLabel'] = $request->dtsBisLabel;
         }
-
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->dtsJobName) {
-            @$query['DtsJobName'] = $request->dtsJobName;
+        if (!Utils::isUnset($request->dtsJobName)) {
+            $query['DtsJobName'] = $request->dtsJobName;
         }
-
-        if (null !== $request->errorNotice) {
-            @$query['ErrorNotice'] = $request->errorNotice;
+        if (!Utils::isUnset($request->errorNotice)) {
+            $query['ErrorNotice'] = $request->errorNotice;
         }
-
-        if (null !== $request->errorPhone) {
-            @$query['ErrorPhone'] = $request->errorPhone;
+        if (!Utils::isUnset($request->errorPhone)) {
+            $query['ErrorPhone'] = $request->errorPhone;
         }
-
-        if (null !== $request->fileOssUrl) {
-            @$query['FileOssUrl'] = $request->fileOssUrl;
+        if (!Utils::isUnset($request->fileOssUrl)) {
+            $query['FileOssUrl'] = $request->fileOssUrl;
         }
-
-        if (null !== $request->jobType) {
-            @$query['JobType'] = $request->jobType;
+        if (!Utils::isUnset($request->jobType)) {
+            $query['JobType'] = $request->jobType;
         }
-
-        if (null !== $request->maxDu) {
-            @$query['MaxDu'] = $request->maxDu;
+        if (!Utils::isUnset($request->maxDu)) {
+            $query['MaxDu'] = $request->maxDu;
         }
-
-        if (null !== $request->minDu) {
-            @$query['MinDu'] = $request->minDu;
+        if (!Utils::isUnset($request->minDu)) {
+            $query['MinDu'] = $request->minDu;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->sourceEndpointDatabaseName) {
-            @$query['SourceEndpointDatabaseName'] = $request->sourceEndpointDatabaseName;
+        if (!Utils::isUnset($request->sourceEndpointDatabaseName)) {
+            $query['SourceEndpointDatabaseName'] = $request->sourceEndpointDatabaseName;
         }
-
-        if (null !== $request->sourceEndpointEngineName) {
-            @$query['SourceEndpointEngineName'] = $request->sourceEndpointEngineName;
+        if (!Utils::isUnset($request->sourceEndpointEngineName)) {
+            $query['SourceEndpointEngineName'] = $request->sourceEndpointEngineName;
         }
-
-        if (null !== $request->sourceEndpointIP) {
-            @$query['SourceEndpointIP'] = $request->sourceEndpointIP;
+        if (!Utils::isUnset($request->sourceEndpointIP)) {
+            $query['SourceEndpointIP'] = $request->sourceEndpointIP;
         }
-
-        if (null !== $request->sourceEndpointInstanceID) {
-            @$query['SourceEndpointInstanceID'] = $request->sourceEndpointInstanceID;
+        if (!Utils::isUnset($request->sourceEndpointInstanceID)) {
+            $query['SourceEndpointInstanceID'] = $request->sourceEndpointInstanceID;
         }
-
-        if (null !== $request->sourceEndpointInstanceType) {
-            @$query['SourceEndpointInstanceType'] = $request->sourceEndpointInstanceType;
+        if (!Utils::isUnset($request->sourceEndpointInstanceType)) {
+            $query['SourceEndpointInstanceType'] = $request->sourceEndpointInstanceType;
         }
-
-        if (null !== $request->sourceEndpointOracleSID) {
-            @$query['SourceEndpointOracleSID'] = $request->sourceEndpointOracleSID;
+        if (!Utils::isUnset($request->sourceEndpointOracleSID)) {
+            $query['SourceEndpointOracleSID'] = $request->sourceEndpointOracleSID;
         }
-
-        if (null !== $request->sourceEndpointOwnerID) {
-            @$query['SourceEndpointOwnerID'] = $request->sourceEndpointOwnerID;
+        if (!Utils::isUnset($request->sourceEndpointOwnerID)) {
+            $query['SourceEndpointOwnerID'] = $request->sourceEndpointOwnerID;
         }
-
-        if (null !== $request->sourceEndpointPassword) {
-            @$query['SourceEndpointPassword'] = $request->sourceEndpointPassword;
+        if (!Utils::isUnset($request->sourceEndpointPassword)) {
+            $query['SourceEndpointPassword'] = $request->sourceEndpointPassword;
         }
-
-        if (null !== $request->sourceEndpointPort) {
-            @$query['SourceEndpointPort'] = $request->sourceEndpointPort;
+        if (!Utils::isUnset($request->sourceEndpointPort)) {
+            $query['SourceEndpointPort'] = $request->sourceEndpointPort;
         }
-
-        if (null !== $request->sourceEndpointRegion) {
-            @$query['SourceEndpointRegion'] = $request->sourceEndpointRegion;
+        if (!Utils::isUnset($request->sourceEndpointRegion)) {
+            $query['SourceEndpointRegion'] = $request->sourceEndpointRegion;
         }
-
-        if (null !== $request->sourceEndpointRole) {
-            @$query['SourceEndpointRole'] = $request->sourceEndpointRole;
+        if (!Utils::isUnset($request->sourceEndpointRole)) {
+            $query['SourceEndpointRole'] = $request->sourceEndpointRole;
         }
-
-        if (null !== $request->sourceEndpointUserName) {
-            @$query['SourceEndpointUserName'] = $request->sourceEndpointUserName;
+        if (!Utils::isUnset($request->sourceEndpointUserName)) {
+            $query['SourceEndpointUserName'] = $request->sourceEndpointUserName;
         }
-
-        if (null !== $request->sourceEndpointVSwitchID) {
-            @$query['SourceEndpointVSwitchID'] = $request->sourceEndpointVSwitchID;
+        if (!Utils::isUnset($request->sourceEndpointVSwitchID)) {
+            $query['SourceEndpointVSwitchID'] = $request->sourceEndpointVSwitchID;
         }
-
-        if (null !== $request->srcCaCertificateOssUrl) {
-            @$query['SrcCaCertificateOssUrl'] = $request->srcCaCertificateOssUrl;
+        if (!Utils::isUnset($request->srcCaCertificateOssUrl)) {
+            $query['SrcCaCertificateOssUrl'] = $request->srcCaCertificateOssUrl;
         }
-
-        if (null !== $request->srcCaCertificatePassword) {
-            @$query['SrcCaCertificatePassword'] = $request->srcCaCertificatePassword;
+        if (!Utils::isUnset($request->srcCaCertificatePassword)) {
+            $query['SrcCaCertificatePassword'] = $request->srcCaCertificatePassword;
         }
-
-        if (null !== $request->srcClientCertOssUrl) {
-            @$query['SrcClientCertOssUrl'] = $request->srcClientCertOssUrl;
+        if (!Utils::isUnset($request->srcClientCertOssUrl)) {
+            $query['SrcClientCertOssUrl'] = $request->srcClientCertOssUrl;
         }
-
-        if (null !== $request->srcClientKeyOssUrl) {
-            @$query['SrcClientKeyOssUrl'] = $request->srcClientKeyOssUrl;
+        if (!Utils::isUnset($request->srcClientKeyOssUrl)) {
+            $query['SrcClientKeyOssUrl'] = $request->srcClientKeyOssUrl;
         }
-
-        if (null !== $request->srcClientPassword) {
-            @$query['SrcClientPassword'] = $request->srcClientPassword;
+        if (!Utils::isUnset($request->srcClientPassword)) {
+            $query['SrcClientPassword'] = $request->srcClientPassword;
         }
-
-        if (null !== $request->srcPrimaryVswId) {
-            @$query['SrcPrimaryVswId'] = $request->srcPrimaryVswId;
+        if (!Utils::isUnset($request->srcPrimaryVswId)) {
+            $query['SrcPrimaryVswId'] = $request->srcPrimaryVswId;
         }
-
-        if (null !== $request->srcSecondaryVswId) {
-            @$query['SrcSecondaryVswId'] = $request->srcSecondaryVswId;
+        if (!Utils::isUnset($request->srcSecondaryVswId)) {
+            $query['SrcSecondaryVswId'] = $request->srcSecondaryVswId;
         }
-
-        if (null !== $request->structureInitialization) {
-            @$query['StructureInitialization'] = $request->structureInitialization;
+        if (!Utils::isUnset($request->structureInitialization)) {
+            $query['StructureInitialization'] = $request->structureInitialization;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
         $body = [];
-        if (null !== $request->dbList) {
-            @$body['DbList'] = $request->dbList;
+        if (!Utils::isUnset($request->dbList)) {
+            $body['DbList'] = $request->dbList;
         }
-
-        if (null !== $request->reserve) {
-            @$body['Reserve'] = $request->reserve;
+        if (!Utils::isUnset($request->reserve)) {
+            $body['Reserve'] = $request->reserve;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ConfigureDtsJob',
@@ -655,15 +639,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Configures a data migration or synchronization task.
+     * @summary Configures a data migration or synchronization task.
+     *  *
+     * @param ConfigureDtsJobRequest $request ConfigureDtsJobRequest
      *
-     * @param request - ConfigureDtsJobRequest
-     *
-     * @returns ConfigureDtsJobResponse
-     *
-     * @param ConfigureDtsJobRequest $request
-     *
-     * @return ConfigureDtsJobResponse
+     * @return ConfigureDtsJobResponse ConfigureDtsJobResponse
      */
     public function configureDtsJob($request)
     {
@@ -677,23 +657,31 @@ class Dts extends OpenApiClient
      * @param RuntimeOptions                $runtime
      *
      * @return ConfigureDtsJobResponse
+     *
+     * @throws TeaError
      */
     public function configureDtsJobAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        $credentialModel = null;
+        if (Utils::isUnset($this->_credential)) {
+            throw new TeaError([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-
-        if (null === $credentialType) {
+        if (Utils::isUnset($credentialType)) {
             $credentialType = 'access_key';
         }
-
         $authConfig = new Config([
             'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -703,125 +691,112 @@ class Dts extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'Dts',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'Dts',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $configureDtsJobReq = new ConfigureDtsJobRequest([]);
-        Utils::convert($request, $configureDtsJobReq);
-        if (null !== $request->fileOssUrlObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+        OpenApiUtilClient::convert($request, $configureDtsJobReq);
+        if (!Utils::isUnset($request->fileOssUrlObject)) {
+            $tmpResp0 = $authClient->callApi($authParams, $authReq, $runtime);
+            $authResponse = Utils::assertAsMap($tmpResp0);
+            $tmpBody = Utils::assertAsMap(@$authResponse['body']);
+            $useAccelerate = Utils::assertAsBoolean(@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->fileOssUrlObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . OpenApiUtilClient::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $configureDtsJobReq->fileOssUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $configureDtsJobReq->fileOssUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->configureDtsJobWithOptions($configureDtsJobReq, $runtime);
     }
 
     /**
-     * Configures a data migration task.
+     * @summary Configures a data migration task.
+     *  *
+     * @param ConfigureMigrationJobRequest $request ConfigureMigrationJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ConfigureMigrationJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ConfigureMigrationJobResponse
-     *
-     * @param ConfigureMigrationJobRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ConfigureMigrationJobResponse
+     * @return ConfigureMigrationJobResponse ConfigureMigrationJobResponse
      */
     public function configureMigrationJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->checkpoint) {
-            @$query['Checkpoint'] = $request->checkpoint;
+        if (!Utils::isUnset($request->checkpoint)) {
+            $query['Checkpoint'] = $request->checkpoint;
         }
-
-        if (null !== $request->migrationJobId) {
-            @$query['MigrationJobId'] = $request->migrationJobId;
+        if (!Utils::isUnset($request->migrationJobId)) {
+            $query['MigrationJobId'] = $request->migrationJobId;
         }
-
-        if (null !== $request->migrationJobName) {
-            @$query['MigrationJobName'] = $request->migrationJobName;
+        if (!Utils::isUnset($request->migrationJobName)) {
+            $query['MigrationJobName'] = $request->migrationJobName;
         }
-
-        if (null !== $request->migrationReserved) {
-            @$query['MigrationReserved'] = $request->migrationReserved;
+        if (!Utils::isUnset($request->migrationReserved)) {
+            $query['MigrationReserved'] = $request->migrationReserved;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->destinationEndpoint) {
-            @$query['DestinationEndpoint'] = $request->destinationEndpoint;
+        if (!Utils::isUnset($request->destinationEndpoint)) {
+            $query['DestinationEndpoint'] = $request->destinationEndpoint;
         }
-
-        if (null !== $request->migrationMode) {
-            @$query['MigrationMode'] = $request->migrationMode;
+        if (!Utils::isUnset($request->migrationMode)) {
+            $query['MigrationMode'] = $request->migrationMode;
         }
-
-        if (null !== $request->sourceEndpoint) {
-            @$query['SourceEndpoint'] = $request->sourceEndpoint;
+        if (!Utils::isUnset($request->sourceEndpoint)) {
+            $query['SourceEndpoint'] = $request->sourceEndpoint;
         }
-
         $body = [];
-        if (null !== $request->migrationObject) {
-            @$body['MigrationObject'] = $request->migrationObject;
+        if (!Utils::isUnset($request->migrationObject)) {
+            $body['MigrationObject'] = $request->migrationObject;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ConfigureMigrationJob',
@@ -839,15 +814,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Configures a data migration task.
+     * @summary Configures a data migration task.
+     *  *
+     * @param ConfigureMigrationJobRequest $request ConfigureMigrationJobRequest
      *
-     * @param request - ConfigureMigrationJobRequest
-     *
-     * @returns ConfigureMigrationJobResponse
-     *
-     * @param ConfigureMigrationJobRequest $request
-     *
-     * @return ConfigureMigrationJobResponse
+     * @return ConfigureMigrationJobResponse ConfigureMigrationJobResponse
      */
     public function configureMigrationJob($request)
     {
@@ -857,64 +828,49 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Configures alert settings to monitor a data migration instance.
+     * @summary Configures alert settings to monitor a data migration instance.
+     *  *
+     * @param ConfigureMigrationJobAlertRequest $request ConfigureMigrationJobAlertRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ConfigureMigrationJobAlertRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ConfigureMigrationJobAlertResponse
-     *
-     * @param ConfigureMigrationJobAlertRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ConfigureMigrationJobAlertResponse
+     * @return ConfigureMigrationJobAlertResponse ConfigureMigrationJobAlertResponse
      */
     public function configureMigrationJobAlertWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->delayAlertPhone) {
-            @$query['DelayAlertPhone'] = $request->delayAlertPhone;
+        if (!Utils::isUnset($request->delayAlertPhone)) {
+            $query['DelayAlertPhone'] = $request->delayAlertPhone;
         }
-
-        if (null !== $request->delayAlertStatus) {
-            @$query['DelayAlertStatus'] = $request->delayAlertStatus;
+        if (!Utils::isUnset($request->delayAlertStatus)) {
+            $query['DelayAlertStatus'] = $request->delayAlertStatus;
         }
-
-        if (null !== $request->delayOverSeconds) {
-            @$query['DelayOverSeconds'] = $request->delayOverSeconds;
+        if (!Utils::isUnset($request->delayOverSeconds)) {
+            $query['DelayOverSeconds'] = $request->delayOverSeconds;
         }
-
-        if (null !== $request->errorAlertPhone) {
-            @$query['ErrorAlertPhone'] = $request->errorAlertPhone;
+        if (!Utils::isUnset($request->errorAlertPhone)) {
+            $query['ErrorAlertPhone'] = $request->errorAlertPhone;
         }
-
-        if (null !== $request->errorAlertStatus) {
-            @$query['ErrorAlertStatus'] = $request->errorAlertStatus;
+        if (!Utils::isUnset($request->errorAlertStatus)) {
+            $query['ErrorAlertStatus'] = $request->errorAlertStatus;
         }
-
-        if (null !== $request->migrationJobId) {
-            @$query['MigrationJobId'] = $request->migrationJobId;
+        if (!Utils::isUnset($request->migrationJobId)) {
+            $query['MigrationJobId'] = $request->migrationJobId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ConfigureMigrationJobAlert',
@@ -932,15 +888,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Configures alert settings to monitor a data migration instance.
+     * @summary Configures alert settings to monitor a data migration instance.
+     *  *
+     * @param ConfigureMigrationJobAlertRequest $request ConfigureMigrationJobAlertRequest
      *
-     * @param request - ConfigureMigrationJobAlertRequest
-     *
-     * @returns ConfigureMigrationJobAlertResponse
-     *
-     * @param ConfigureMigrationJobAlertRequest $request
-     *
-     * @return ConfigureMigrationJobAlertResponse
+     * @return ConfigureMigrationJobAlertResponse ConfigureMigrationJobAlertResponse
      */
     public function configureMigrationJobAlert($request)
     {
@@ -950,183 +902,138 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Configures a change tracking task.
+     * @summary Configures a change tracking task.
+     *  *
+     * @description >  You can preview related API operation parameters when you configure a change tracking task in the Data Transmission Service (DTS) console. This helps you configure the request parameters of this API operation. For more information, see [Preview the request parameters of API operations](https://help.aliyun.com/document_detail/2851612.html).
+     *  *
+     * @param ConfigureSubscriptionRequest $request ConfigureSubscriptionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  You can preview related API operation parameters when you configure a change tracking task in the Data Transmission Service (DTS) console. This helps you configure the request parameters of this API operation. For more information, see [Preview the request parameters of API operations](https://help.aliyun.com/document_detail/2851612.html).
-     *
-     * @param request - ConfigureSubscriptionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ConfigureSubscriptionResponse
-     *
-     * @param ConfigureSubscriptionRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ConfigureSubscriptionResponse
+     * @return ConfigureSubscriptionResponse ConfigureSubscriptionResponse
      */
     public function configureSubscriptionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->checkpoint) {
-            @$query['Checkpoint'] = $request->checkpoint;
+        if (!Utils::isUnset($request->checkpoint)) {
+            $query['Checkpoint'] = $request->checkpoint;
         }
-
-        if (null !== $request->dbList) {
-            @$query['DbList'] = $request->dbList;
+        if (!Utils::isUnset($request->dbList)) {
+            $query['DbList'] = $request->dbList;
         }
-
-        if (null !== $request->dedicatedClusterId) {
-            @$query['DedicatedClusterId'] = $request->dedicatedClusterId;
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
         }
-
-        if (null !== $request->delayNotice) {
-            @$query['DelayNotice'] = $request->delayNotice;
+        if (!Utils::isUnset($request->delayNotice)) {
+            $query['DelayNotice'] = $request->delayNotice;
         }
-
-        if (null !== $request->delayPhone) {
-            @$query['DelayPhone'] = $request->delayPhone;
+        if (!Utils::isUnset($request->delayPhone)) {
+            $query['DelayPhone'] = $request->delayPhone;
         }
-
-        if (null !== $request->delayRuleTime) {
-            @$query['DelayRuleTime'] = $request->delayRuleTime;
+        if (!Utils::isUnset($request->delayRuleTime)) {
+            $query['DelayRuleTime'] = $request->delayRuleTime;
         }
-
-        if (null !== $request->dtsBisLabel) {
-            @$query['DtsBisLabel'] = $request->dtsBisLabel;
+        if (!Utils::isUnset($request->dtsBisLabel)) {
+            $query['DtsBisLabel'] = $request->dtsBisLabel;
         }
-
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->dtsJobName) {
-            @$query['DtsJobName'] = $request->dtsJobName;
+        if (!Utils::isUnset($request->dtsJobName)) {
+            $query['DtsJobName'] = $request->dtsJobName;
         }
-
-        if (null !== $request->errorNotice) {
-            @$query['ErrorNotice'] = $request->errorNotice;
+        if (!Utils::isUnset($request->errorNotice)) {
+            $query['ErrorNotice'] = $request->errorNotice;
         }
-
-        if (null !== $request->errorPhone) {
-            @$query['ErrorPhone'] = $request->errorPhone;
+        if (!Utils::isUnset($request->errorPhone)) {
+            $query['ErrorPhone'] = $request->errorPhone;
         }
-
-        if (null !== $request->maxDu) {
-            @$query['MaxDu'] = $request->maxDu;
+        if (!Utils::isUnset($request->maxDu)) {
+            $query['MaxDu'] = $request->maxDu;
         }
-
-        if (null !== $request->minDu) {
-            @$query['MinDu'] = $request->minDu;
+        if (!Utils::isUnset($request->minDu)) {
+            $query['MinDu'] = $request->minDu;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->reserve) {
-            @$query['Reserve'] = $request->reserve;
+        if (!Utils::isUnset($request->reserve)) {
+            $query['Reserve'] = $request->reserve;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->sourceEndpointDatabaseName) {
-            @$query['SourceEndpointDatabaseName'] = $request->sourceEndpointDatabaseName;
+        if (!Utils::isUnset($request->sourceEndpointDatabaseName)) {
+            $query['SourceEndpointDatabaseName'] = $request->sourceEndpointDatabaseName;
         }
-
-        if (null !== $request->sourceEndpointEngineName) {
-            @$query['SourceEndpointEngineName'] = $request->sourceEndpointEngineName;
+        if (!Utils::isUnset($request->sourceEndpointEngineName)) {
+            $query['SourceEndpointEngineName'] = $request->sourceEndpointEngineName;
         }
-
-        if (null !== $request->sourceEndpointIP) {
-            @$query['SourceEndpointIP'] = $request->sourceEndpointIP;
+        if (!Utils::isUnset($request->sourceEndpointIP)) {
+            $query['SourceEndpointIP'] = $request->sourceEndpointIP;
         }
-
-        if (null !== $request->sourceEndpointInstanceID) {
-            @$query['SourceEndpointInstanceID'] = $request->sourceEndpointInstanceID;
+        if (!Utils::isUnset($request->sourceEndpointInstanceID)) {
+            $query['SourceEndpointInstanceID'] = $request->sourceEndpointInstanceID;
         }
-
-        if (null !== $request->sourceEndpointInstanceType) {
-            @$query['SourceEndpointInstanceType'] = $request->sourceEndpointInstanceType;
+        if (!Utils::isUnset($request->sourceEndpointInstanceType)) {
+            $query['SourceEndpointInstanceType'] = $request->sourceEndpointInstanceType;
         }
-
-        if (null !== $request->sourceEndpointOracleSID) {
-            @$query['SourceEndpointOracleSID'] = $request->sourceEndpointOracleSID;
+        if (!Utils::isUnset($request->sourceEndpointOracleSID)) {
+            $query['SourceEndpointOracleSID'] = $request->sourceEndpointOracleSID;
         }
-
-        if (null !== $request->sourceEndpointOwnerID) {
-            @$query['SourceEndpointOwnerID'] = $request->sourceEndpointOwnerID;
+        if (!Utils::isUnset($request->sourceEndpointOwnerID)) {
+            $query['SourceEndpointOwnerID'] = $request->sourceEndpointOwnerID;
         }
-
-        if (null !== $request->sourceEndpointPassword) {
-            @$query['SourceEndpointPassword'] = $request->sourceEndpointPassword;
+        if (!Utils::isUnset($request->sourceEndpointPassword)) {
+            $query['SourceEndpointPassword'] = $request->sourceEndpointPassword;
         }
-
-        if (null !== $request->sourceEndpointPort) {
-            @$query['SourceEndpointPort'] = $request->sourceEndpointPort;
+        if (!Utils::isUnset($request->sourceEndpointPort)) {
+            $query['SourceEndpointPort'] = $request->sourceEndpointPort;
         }
-
-        if (null !== $request->sourceEndpointRegion) {
-            @$query['SourceEndpointRegion'] = $request->sourceEndpointRegion;
+        if (!Utils::isUnset($request->sourceEndpointRegion)) {
+            $query['SourceEndpointRegion'] = $request->sourceEndpointRegion;
         }
-
-        if (null !== $request->sourceEndpointRole) {
-            @$query['SourceEndpointRole'] = $request->sourceEndpointRole;
+        if (!Utils::isUnset($request->sourceEndpointRole)) {
+            $query['SourceEndpointRole'] = $request->sourceEndpointRole;
         }
-
-        if (null !== $request->sourceEndpointUserName) {
-            @$query['SourceEndpointUserName'] = $request->sourceEndpointUserName;
+        if (!Utils::isUnset($request->sourceEndpointUserName)) {
+            $query['SourceEndpointUserName'] = $request->sourceEndpointUserName;
         }
-
-        if (null !== $request->srcCaCertificateOssUrl) {
-            @$query['SrcCaCertificateOssUrl'] = $request->srcCaCertificateOssUrl;
+        if (!Utils::isUnset($request->srcCaCertificateOssUrl)) {
+            $query['SrcCaCertificateOssUrl'] = $request->srcCaCertificateOssUrl;
         }
-
-        if (null !== $request->srcCaCertificatePassword) {
-            @$query['SrcCaCertificatePassword'] = $request->srcCaCertificatePassword;
+        if (!Utils::isUnset($request->srcCaCertificatePassword)) {
+            $query['SrcCaCertificatePassword'] = $request->srcCaCertificatePassword;
         }
-
-        if (null !== $request->srcClientCertOssUrl) {
-            @$query['SrcClientCertOssUrl'] = $request->srcClientCertOssUrl;
+        if (!Utils::isUnset($request->srcClientCertOssUrl)) {
+            $query['SrcClientCertOssUrl'] = $request->srcClientCertOssUrl;
         }
-
-        if (null !== $request->srcClientKeyOssUrl) {
-            @$query['SrcClientKeyOssUrl'] = $request->srcClientKeyOssUrl;
+        if (!Utils::isUnset($request->srcClientKeyOssUrl)) {
+            $query['SrcClientKeyOssUrl'] = $request->srcClientKeyOssUrl;
         }
-
-        if (null !== $request->srcClientPassword) {
-            @$query['SrcClientPassword'] = $request->srcClientPassword;
+        if (!Utils::isUnset($request->srcClientPassword)) {
+            $query['SrcClientPassword'] = $request->srcClientPassword;
         }
-
-        if (null !== $request->subscriptionDataTypeDDL) {
-            @$query['SubscriptionDataTypeDDL'] = $request->subscriptionDataTypeDDL;
+        if (!Utils::isUnset($request->subscriptionDataTypeDDL)) {
+            $query['SubscriptionDataTypeDDL'] = $request->subscriptionDataTypeDDL;
         }
-
-        if (null !== $request->subscriptionDataTypeDML) {
-            @$query['SubscriptionDataTypeDML'] = $request->subscriptionDataTypeDML;
+        if (!Utils::isUnset($request->subscriptionDataTypeDML)) {
+            $query['SubscriptionDataTypeDML'] = $request->subscriptionDataTypeDML;
         }
-
-        if (null !== $request->subscriptionInstanceNetworkType) {
-            @$query['SubscriptionInstanceNetworkType'] = $request->subscriptionInstanceNetworkType;
+        if (!Utils::isUnset($request->subscriptionInstanceNetworkType)) {
+            $query['SubscriptionInstanceNetworkType'] = $request->subscriptionInstanceNetworkType;
         }
-
-        if (null !== $request->subscriptionInstanceVPCId) {
-            @$query['SubscriptionInstanceVPCId'] = $request->subscriptionInstanceVPCId;
+        if (!Utils::isUnset($request->subscriptionInstanceVPCId)) {
+            $query['SubscriptionInstanceVPCId'] = $request->subscriptionInstanceVPCId;
         }
-
-        if (null !== $request->subscriptionInstanceVSwitchId) {
-            @$query['SubscriptionInstanceVSwitchId'] = $request->subscriptionInstanceVSwitchId;
+        if (!Utils::isUnset($request->subscriptionInstanceVSwitchId)) {
+            $query['SubscriptionInstanceVSwitchId'] = $request->subscriptionInstanceVSwitchId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ConfigureSubscription',
@@ -1144,18 +1051,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Configures a change tracking task.
+     * @summary Configures a change tracking task.
+     *  *
+     * @description >  You can preview related API operation parameters when you configure a change tracking task in the Data Transmission Service (DTS) console. This helps you configure the request parameters of this API operation. For more information, see [Preview the request parameters of API operations](https://help.aliyun.com/document_detail/2851612.html).
+     *  *
+     * @param ConfigureSubscriptionRequest $request ConfigureSubscriptionRequest
      *
-     * @remarks
-     * >  You can preview related API operation parameters when you configure a change tracking task in the Data Transmission Service (DTS) console. This helps you configure the request parameters of this API operation. For more information, see [Preview the request parameters of API operations](https://help.aliyun.com/document_detail/2851612.html).
-     *
-     * @param request - ConfigureSubscriptionRequest
-     *
-     * @returns ConfigureSubscriptionResponse
-     *
-     * @param ConfigureSubscriptionRequest $request
-     *
-     * @return ConfigureSubscriptionResponse
+     * @return ConfigureSubscriptionResponse ConfigureSubscriptionResponse
      */
     public function configureSubscription($request)
     {
@@ -1165,73 +1067,56 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Configures a change tracking instance of the previous version.
+     * @summary Configures a change tracking instance of the previous version.
+     *  *
+     * @description Before you call this operation, you must call the [CreateSubscriptionInstance](https://help.aliyun.com/document_detail/49436.html) operation to create a change tracking instance.
+     *  *
+     * @param ConfigureSubscriptionInstanceRequest $request ConfigureSubscriptionInstanceRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Before you call this operation, you must call the [CreateSubscriptionInstance](https://help.aliyun.com/document_detail/49436.html) operation to create a change tracking instance.
-     *
-     * @param request - ConfigureSubscriptionInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ConfigureSubscriptionInstanceResponse
-     *
-     * @param ConfigureSubscriptionInstanceRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return ConfigureSubscriptionInstanceResponse
+     * @return ConfigureSubscriptionInstanceResponse ConfigureSubscriptionInstanceResponse
      */
     public function configureSubscriptionInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->subscriptionInstanceId) {
-            @$query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
+        if (!Utils::isUnset($request->subscriptionInstanceId)) {
+            $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
         }
-
-        if (null !== $request->subscriptionInstanceName) {
-            @$query['SubscriptionInstanceName'] = $request->subscriptionInstanceName;
+        if (!Utils::isUnset($request->subscriptionInstanceName)) {
+            $query['SubscriptionInstanceName'] = $request->subscriptionInstanceName;
         }
-
-        if (null !== $request->subscriptionInstanceNetworkType) {
-            @$query['SubscriptionInstanceNetworkType'] = $request->subscriptionInstanceNetworkType;
+        if (!Utils::isUnset($request->subscriptionInstanceNetworkType)) {
+            $query['SubscriptionInstanceNetworkType'] = $request->subscriptionInstanceNetworkType;
         }
-
-        if (null !== $request->sourceEndpoint) {
-            @$query['SourceEndpoint'] = $request->sourceEndpoint;
+        if (!Utils::isUnset($request->sourceEndpoint)) {
+            $query['SourceEndpoint'] = $request->sourceEndpoint;
         }
-
-        if (null !== $request->subscriptionDataType) {
-            @$query['SubscriptionDataType'] = $request->subscriptionDataType;
+        if (!Utils::isUnset($request->subscriptionDataType)) {
+            $query['SubscriptionDataType'] = $request->subscriptionDataType;
         }
-
-        if (null !== $request->subscriptionInstance) {
-            @$query['SubscriptionInstance'] = $request->subscriptionInstance;
+        if (!Utils::isUnset($request->subscriptionInstance)) {
+            $query['SubscriptionInstance'] = $request->subscriptionInstance;
         }
-
         $body = [];
-        if (null !== $request->subscriptionObject) {
-            @$body['SubscriptionObject'] = $request->subscriptionObject;
+        if (!Utils::isUnset($request->subscriptionObject)) {
+            $body['SubscriptionObject'] = $request->subscriptionObject;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ConfigureSubscriptionInstance',
@@ -1249,18 +1134,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Configures a change tracking instance of the previous version.
+     * @summary Configures a change tracking instance of the previous version.
+     *  *
+     * @description Before you call this operation, you must call the [CreateSubscriptionInstance](https://help.aliyun.com/document_detail/49436.html) operation to create a change tracking instance.
+     *  *
+     * @param ConfigureSubscriptionInstanceRequest $request ConfigureSubscriptionInstanceRequest
      *
-     * @remarks
-     * Before you call this operation, you must call the [CreateSubscriptionInstance](https://help.aliyun.com/document_detail/49436.html) operation to create a change tracking instance.
-     *
-     * @param request - ConfigureSubscriptionInstanceRequest
-     *
-     * @returns ConfigureSubscriptionInstanceResponse
-     *
-     * @param ConfigureSubscriptionInstanceRequest $request
-     *
-     * @return ConfigureSubscriptionInstanceResponse
+     * @return ConfigureSubscriptionInstanceResponse ConfigureSubscriptionInstanceResponse
      */
     public function configureSubscriptionInstance($request)
     {
@@ -1270,64 +1150,49 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Configures alert settings to monitor a change tracking instance.
+     * @summary Configures alert settings to monitor a change tracking instance.
+     *  *
+     * @param ConfigureSubscriptionInstanceAlertRequest $request ConfigureSubscriptionInstanceAlertRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ConfigureSubscriptionInstanceAlertRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ConfigureSubscriptionInstanceAlertResponse
-     *
-     * @param ConfigureSubscriptionInstanceAlertRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return ConfigureSubscriptionInstanceAlertResponse
+     * @return ConfigureSubscriptionInstanceAlertResponse ConfigureSubscriptionInstanceAlertResponse
      */
     public function configureSubscriptionInstanceAlertWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->delayAlertPhone) {
-            @$query['DelayAlertPhone'] = $request->delayAlertPhone;
+        if (!Utils::isUnset($request->delayAlertPhone)) {
+            $query['DelayAlertPhone'] = $request->delayAlertPhone;
         }
-
-        if (null !== $request->delayAlertStatus) {
-            @$query['DelayAlertStatus'] = $request->delayAlertStatus;
+        if (!Utils::isUnset($request->delayAlertStatus)) {
+            $query['DelayAlertStatus'] = $request->delayAlertStatus;
         }
-
-        if (null !== $request->delayOverSeconds) {
-            @$query['DelayOverSeconds'] = $request->delayOverSeconds;
+        if (!Utils::isUnset($request->delayOverSeconds)) {
+            $query['DelayOverSeconds'] = $request->delayOverSeconds;
         }
-
-        if (null !== $request->errorAlertPhone) {
-            @$query['ErrorAlertPhone'] = $request->errorAlertPhone;
+        if (!Utils::isUnset($request->errorAlertPhone)) {
+            $query['ErrorAlertPhone'] = $request->errorAlertPhone;
         }
-
-        if (null !== $request->errorAlertStatus) {
-            @$query['ErrorAlertStatus'] = $request->errorAlertStatus;
+        if (!Utils::isUnset($request->errorAlertStatus)) {
+            $query['ErrorAlertStatus'] = $request->errorAlertStatus;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->subscriptionInstanceId) {
-            @$query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
+        if (!Utils::isUnset($request->subscriptionInstanceId)) {
+            $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ConfigureSubscriptionInstanceAlert',
@@ -1345,15 +1210,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Configures alert settings to monitor a change tracking instance.
+     * @summary Configures alert settings to monitor a change tracking instance.
+     *  *
+     * @param ConfigureSubscriptionInstanceAlertRequest $request ConfigureSubscriptionInstanceAlertRequest
      *
-     * @param request - ConfigureSubscriptionInstanceAlertRequest
-     *
-     * @returns ConfigureSubscriptionInstanceAlertResponse
-     *
-     * @param ConfigureSubscriptionInstanceAlertRequest $request
-     *
-     * @return ConfigureSubscriptionInstanceAlertResponse
+     * @return ConfigureSubscriptionInstanceAlertResponse ConfigureSubscriptionInstanceAlertResponse
      */
     public function configureSubscriptionInstanceAlert($request)
     {
@@ -1363,92 +1224,71 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Configures a data synchronization task.
-     *
-     * @remarks
-     * Before you call this operation, you must call the [CreateSynchronizationJob](https://help.aliyun.com/document_detail/49446.html) operation to create a data synchronization instance.
+     * @summary Configures a data synchronization task.
+     *  *
+     * @description Before you call this operation, you must call the [CreateSynchronizationJob](https://help.aliyun.com/document_detail/49446.html) operation to create a data synchronization instance.
      * >
      * *   After you call this operation to configure a data synchronization task, the task will be automatically started and prechecked. You do not need to call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to start the task.
      * *   A data synchronization task may fail to be started due to precheck failures. You can call the [DescribeSynchronizationJobStatus](https://help.aliyun.com/document_detail/49453.html) operation to query the status of the task. Then, you can change parameter settings based on the error messages about the precheck failures. After you fix the issue, you must call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to restart the data synchronization task.
+     *  *
+     * @param ConfigureSynchronizationJobRequest $request ConfigureSynchronizationJobRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ConfigureSynchronizationJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ConfigureSynchronizationJobResponse
-     *
-     * @param ConfigureSynchronizationJobRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ConfigureSynchronizationJobResponse
+     * @return ConfigureSynchronizationJobResponse ConfigureSynchronizationJobResponse
      */
     public function configureSynchronizationJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->checkpoint) {
-            @$query['Checkpoint'] = $request->checkpoint;
+        if (!Utils::isUnset($request->checkpoint)) {
+            $query['Checkpoint'] = $request->checkpoint;
         }
-
-        if (null !== $request->dataInitialization) {
-            @$query['DataInitialization'] = $request->dataInitialization;
+        if (!Utils::isUnset($request->dataInitialization)) {
+            $query['DataInitialization'] = $request->dataInitialization;
         }
-
-        if (null !== $request->migrationReserved) {
-            @$query['MigrationReserved'] = $request->migrationReserved;
+        if (!Utils::isUnset($request->migrationReserved)) {
+            $query['MigrationReserved'] = $request->migrationReserved;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->structureInitialization) {
-            @$query['StructureInitialization'] = $request->structureInitialization;
+        if (!Utils::isUnset($request->structureInitialization)) {
+            $query['StructureInitialization'] = $request->structureInitialization;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
-        if (null !== $request->synchronizationJobId) {
-            @$query['SynchronizationJobId'] = $request->synchronizationJobId;
+        if (!Utils::isUnset($request->synchronizationJobId)) {
+            $query['SynchronizationJobId'] = $request->synchronizationJobId;
         }
-
-        if (null !== $request->synchronizationJobName) {
-            @$query['SynchronizationJobName'] = $request->synchronizationJobName;
+        if (!Utils::isUnset($request->synchronizationJobName)) {
+            $query['SynchronizationJobName'] = $request->synchronizationJobName;
         }
-
-        if (null !== $request->destinationEndpoint) {
-            @$query['DestinationEndpoint'] = $request->destinationEndpoint;
+        if (!Utils::isUnset($request->destinationEndpoint)) {
+            $query['DestinationEndpoint'] = $request->destinationEndpoint;
         }
-
-        if (null !== $request->partitionKey) {
-            @$query['PartitionKey'] = $request->partitionKey;
+        if (!Utils::isUnset($request->partitionKey)) {
+            $query['PartitionKey'] = $request->partitionKey;
         }
-
-        if (null !== $request->sourceEndpoint) {
-            @$query['SourceEndpoint'] = $request->sourceEndpoint;
+        if (!Utils::isUnset($request->sourceEndpoint)) {
+            $query['SourceEndpoint'] = $request->sourceEndpoint;
         }
-
         $body = [];
-        if (null !== $request->synchronizationObjects) {
-            @$body['SynchronizationObjects'] = $request->synchronizationObjects;
+        if (!Utils::isUnset($request->synchronizationObjects)) {
+            $body['SynchronizationObjects'] = $request->synchronizationObjects;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ConfigureSynchronizationJob',
@@ -1466,21 +1306,16 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Configures a data synchronization task.
-     *
-     * @remarks
-     * Before you call this operation, you must call the [CreateSynchronizationJob](https://help.aliyun.com/document_detail/49446.html) operation to create a data synchronization instance.
+     * @summary Configures a data synchronization task.
+     *  *
+     * @description Before you call this operation, you must call the [CreateSynchronizationJob](https://help.aliyun.com/document_detail/49446.html) operation to create a data synchronization instance.
      * >
      * *   After you call this operation to configure a data synchronization task, the task will be automatically started and prechecked. You do not need to call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to start the task.
      * *   A data synchronization task may fail to be started due to precheck failures. You can call the [DescribeSynchronizationJobStatus](https://help.aliyun.com/document_detail/49453.html) operation to query the status of the task. Then, you can change parameter settings based on the error messages about the precheck failures. After you fix the issue, you must call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to restart the data synchronization task.
+     *  *
+     * @param ConfigureSynchronizationJobRequest $request ConfigureSynchronizationJobRequest
      *
-     * @param request - ConfigureSynchronizationJobRequest
-     *
-     * @returns ConfigureSynchronizationJobResponse
-     *
-     * @param ConfigureSynchronizationJobRequest $request
-     *
-     * @return ConfigureSynchronizationJobResponse
+     * @return ConfigureSynchronizationJobResponse ConfigureSynchronizationJobResponse
      */
     public function configureSynchronizationJob($request)
     {
@@ -1490,68 +1325,52 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Configures alert settings to monitor a data synchronization instance.
+     * @summary Configures alert settings to monitor a data synchronization instance.
+     *  *
+     * @param ConfigureSynchronizationJobAlertRequest $request ConfigureSynchronizationJobAlertRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ConfigureSynchronizationJobAlertRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ConfigureSynchronizationJobAlertResponse
-     *
-     * @param ConfigureSynchronizationJobAlertRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return ConfigureSynchronizationJobAlertResponse
+     * @return ConfigureSynchronizationJobAlertResponse ConfigureSynchronizationJobAlertResponse
      */
     public function configureSynchronizationJobAlertWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->delayAlertPhone) {
-            @$query['DelayAlertPhone'] = $request->delayAlertPhone;
+        if (!Utils::isUnset($request->delayAlertPhone)) {
+            $query['DelayAlertPhone'] = $request->delayAlertPhone;
         }
-
-        if (null !== $request->delayAlertStatus) {
-            @$query['DelayAlertStatus'] = $request->delayAlertStatus;
+        if (!Utils::isUnset($request->delayAlertStatus)) {
+            $query['DelayAlertStatus'] = $request->delayAlertStatus;
         }
-
-        if (null !== $request->delayOverSeconds) {
-            @$query['DelayOverSeconds'] = $request->delayOverSeconds;
+        if (!Utils::isUnset($request->delayOverSeconds)) {
+            $query['DelayOverSeconds'] = $request->delayOverSeconds;
         }
-
-        if (null !== $request->errorAlertPhone) {
-            @$query['ErrorAlertPhone'] = $request->errorAlertPhone;
+        if (!Utils::isUnset($request->errorAlertPhone)) {
+            $query['ErrorAlertPhone'] = $request->errorAlertPhone;
         }
-
-        if (null !== $request->errorAlertStatus) {
-            @$query['ErrorAlertStatus'] = $request->errorAlertStatus;
+        if (!Utils::isUnset($request->errorAlertStatus)) {
+            $query['ErrorAlertStatus'] = $request->errorAlertStatus;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
-        if (null !== $request->synchronizationJobId) {
-            @$query['SynchronizationJobId'] = $request->synchronizationJobId;
+        if (!Utils::isUnset($request->synchronizationJobId)) {
+            $query['SynchronizationJobId'] = $request->synchronizationJobId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ConfigureSynchronizationJobAlert',
@@ -1569,15 +1388,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Configures alert settings to monitor a data synchronization instance.
+     * @summary Configures alert settings to monitor a data synchronization instance.
+     *  *
+     * @param ConfigureSynchronizationJobAlertRequest $request ConfigureSynchronizationJobAlertRequest
      *
-     * @param request - ConfigureSynchronizationJobAlertRequest
-     *
-     * @returns ConfigureSynchronizationJobAlertResponse
-     *
-     * @param ConfigureSynchronizationJobAlertRequest $request
-     *
-     * @return ConfigureSynchronizationJobAlertResponse
+     * @return ConfigureSynchronizationJobAlertResponse ConfigureSynchronizationJobAlertResponse
      */
     public function configureSynchronizationJobAlert($request)
     {
@@ -1587,56 +1402,43 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Enables or disables image matching for a data synchronization instance.
+     * @summary Enables or disables image matching for a data synchronization instance.
+     *  *
+     * @param ConfigureSynchronizationJobReplicatorCompareRequest $request ConfigureSynchronizationJobReplicatorCompareRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ConfigureSynchronizationJobReplicatorCompareRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ConfigureSynchronizationJobReplicatorCompareResponse
-     *
-     * @param ConfigureSynchronizationJobReplicatorCompareRequest $request
-     * @param RuntimeOptions                                      $runtime
-     *
-     * @return ConfigureSynchronizationJobReplicatorCompareResponse
+     * @return ConfigureSynchronizationJobReplicatorCompareResponse ConfigureSynchronizationJobReplicatorCompareResponse
      */
     public function configureSynchronizationJobReplicatorCompareWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
-        if (null !== $request->synchronizationJobId) {
-            @$query['SynchronizationJobId'] = $request->synchronizationJobId;
+        if (!Utils::isUnset($request->synchronizationJobId)) {
+            $query['SynchronizationJobId'] = $request->synchronizationJobId;
         }
-
-        if (null !== $request->synchronizationReplicatorCompareEnable) {
-            @$query['SynchronizationReplicatorCompareEnable'] = $request->synchronizationReplicatorCompareEnable;
+        if (!Utils::isUnset($request->synchronizationReplicatorCompareEnable)) {
+            $query['SynchronizationReplicatorCompareEnable'] = $request->synchronizationReplicatorCompareEnable;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ConfigureSynchronizationJobReplicatorCompare',
@@ -1654,15 +1456,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Enables or disables image matching for a data synchronization instance.
+     * @summary Enables or disables image matching for a data synchronization instance.
+     *  *
+     * @param ConfigureSynchronizationJobReplicatorCompareRequest $request ConfigureSynchronizationJobReplicatorCompareRequest
      *
-     * @param request - ConfigureSynchronizationJobReplicatorCompareRequest
-     *
-     * @returns ConfigureSynchronizationJobReplicatorCompareResponse
-     *
-     * @param ConfigureSynchronizationJobReplicatorCompareRequest $request
-     *
-     * @return ConfigureSynchronizationJobReplicatorCompareResponse
+     * @return ConfigureSynchronizationJobReplicatorCompareResponse ConfigureSynchronizationJobReplicatorCompareResponse
      */
     public function configureSynchronizationJobReplicatorCompare($request)
     {
@@ -1672,48 +1470,37 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Transfers resource groups of instance resources.
+     * @summary Transfers resource groups of instance resources.
+     *  *
+     * @param ConvertInstanceResourceGroupRequest $request ConvertInstanceResourceGroupRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ConvertInstanceResourceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ConvertInstanceResourceGroupResponse
-     *
-     * @param ConvertInstanceResourceGroupRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ConvertInstanceResourceGroupResponse
+     * @return ConvertInstanceResourceGroupResponse ConvertInstanceResourceGroupResponse
      */
     public function convertInstanceResourceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->newResourceGroupId) {
-            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ConvertInstanceResourceGroup',
@@ -1731,15 +1518,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Transfers resource groups of instance resources.
+     * @summary Transfers resource groups of instance resources.
+     *  *
+     * @param ConvertInstanceResourceGroupRequest $request ConvertInstanceResourceGroupRequest
      *
-     * @param request - ConvertInstanceResourceGroupRequest
-     *
-     * @returns ConvertInstanceResourceGroupResponse
-     *
-     * @param ConvertInstanceResourceGroupRequest $request
-     *
-     * @return ConvertInstanceResourceGroupResponse
+     * @return ConvertInstanceResourceGroupResponse ConvertInstanceResourceGroupResponse
      */
     public function convertInstanceResourceGroup($request)
     {
@@ -1749,64 +1532,49 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Counts tasks by condition.
+     * @summary Counts tasks by condition.
+     *  *
+     * @param CountJobByConditionRequest $request CountJobByConditionRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CountJobByConditionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CountJobByConditionResponse
-     *
-     * @param CountJobByConditionRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CountJobByConditionResponse
+     * @return CountJobByConditionResponse CountJobByConditionResponse
      */
     public function countJobByConditionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->destDbType) {
-            @$query['DestDbType'] = $request->destDbType;
+        if (!Utils::isUnset($request->destDbType)) {
+            $query['DestDbType'] = $request->destDbType;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->jobType) {
-            @$query['JobType'] = $request->jobType;
+        if (!Utils::isUnset($request->jobType)) {
+            $query['JobType'] = $request->jobType;
         }
-
-        if (null !== $request->params) {
-            @$query['Params'] = $request->params;
+        if (!Utils::isUnset($request->params)) {
+            $query['Params'] = $request->params;
         }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->srcDbType) {
-            @$query['SrcDbType'] = $request->srcDbType;
+        if (!Utils::isUnset($request->srcDbType)) {
+            $query['SrcDbType'] = $request->srcDbType;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CountJobByCondition',
@@ -1824,15 +1592,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Counts tasks by condition.
+     * @summary Counts tasks by condition.
+     *  *
+     * @param CountJobByConditionRequest $request CountJobByConditionRequest
      *
-     * @param request - CountJobByConditionRequest
-     *
-     * @returns CountJobByConditionResponse
-     *
-     * @param CountJobByConditionRequest $request
-     *
-     * @return CountJobByConditionResponse
+     * @return CountJobByConditionResponse CountJobByConditionResponse
      */
     public function countJobByCondition($request)
     {
@@ -1842,52 +1606,40 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Creates a consumer group for a change tracking task. Downstream clients can use the consumer group to consume tracked data.
+     * @summary Creates a consumer group for a change tracking task. Downstream clients can use the consumer group to consume tracked data.
+     *  *
+     * @param CreateConsumerChannelRequest $request CreateConsumerChannelRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateConsumerChannelRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateConsumerChannelResponse
-     *
-     * @param CreateConsumerChannelRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return CreateConsumerChannelResponse
+     * @return CreateConsumerChannelResponse CreateConsumerChannelResponse
      */
     public function createConsumerChannelWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->consumerGroupName) {
-            @$query['ConsumerGroupName'] = $request->consumerGroupName;
+        if (!Utils::isUnset($request->consumerGroupName)) {
+            $query['ConsumerGroupName'] = $request->consumerGroupName;
         }
-
-        if (null !== $request->consumerGroupPassword) {
-            @$query['ConsumerGroupPassword'] = $request->consumerGroupPassword;
+        if (!Utils::isUnset($request->consumerGroupPassword)) {
+            $query['ConsumerGroupPassword'] = $request->consumerGroupPassword;
         }
-
-        if (null !== $request->consumerGroupUserName) {
-            @$query['ConsumerGroupUserName'] = $request->consumerGroupUserName;
+        if (!Utils::isUnset($request->consumerGroupUserName)) {
+            $query['ConsumerGroupUserName'] = $request->consumerGroupUserName;
         }
-
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateConsumerChannel',
@@ -1905,15 +1657,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Creates a consumer group for a change tracking task. Downstream clients can use the consumer group to consume tracked data.
+     * @summary Creates a consumer group for a change tracking task. Downstream clients can use the consumer group to consume tracked data.
+     *  *
+     * @param CreateConsumerChannelRequest $request CreateConsumerChannelRequest
      *
-     * @param request - CreateConsumerChannelRequest
-     *
-     * @returns CreateConsumerChannelResponse
-     *
-     * @param CreateConsumerChannelRequest $request
-     *
-     * @return CreateConsumerChannelResponse
+     * @return CreateConsumerChannelResponse CreateConsumerChannelResponse
      */
     public function createConsumerChannel($request)
     {
@@ -1923,56 +1671,43 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Creates a consumer group for a change tracking instance.
+     * @summary Creates a consumer group for a change tracking instance.
+     *  *
+     * @param CreateConsumerGroupRequest $request CreateConsumerGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateConsumerGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateConsumerGroupResponse
-     *
-     * @param CreateConsumerGroupRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CreateConsumerGroupResponse
+     * @return CreateConsumerGroupResponse CreateConsumerGroupResponse
      */
     public function createConsumerGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->consumerGroupName) {
-            @$query['ConsumerGroupName'] = $request->consumerGroupName;
+        if (!Utils::isUnset($request->consumerGroupName)) {
+            $query['ConsumerGroupName'] = $request->consumerGroupName;
         }
-
-        if (null !== $request->consumerGroupPassword) {
-            @$query['ConsumerGroupPassword'] = $request->consumerGroupPassword;
+        if (!Utils::isUnset($request->consumerGroupPassword)) {
+            $query['ConsumerGroupPassword'] = $request->consumerGroupPassword;
         }
-
-        if (null !== $request->consumerGroupUserName) {
-            @$query['ConsumerGroupUserName'] = $request->consumerGroupUserName;
+        if (!Utils::isUnset($request->consumerGroupUserName)) {
+            $query['ConsumerGroupUserName'] = $request->consumerGroupUserName;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->subscriptionInstanceId) {
-            @$query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
+        if (!Utils::isUnset($request->subscriptionInstanceId)) {
+            $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateConsumerGroup',
@@ -1990,15 +1725,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Creates a consumer group for a change tracking instance.
+     * @summary Creates a consumer group for a change tracking instance.
+     *  *
+     * @param CreateConsumerGroupRequest $request CreateConsumerGroupRequest
      *
-     * @param request - CreateConsumerGroupRequest
-     *
-     * @returns CreateConsumerGroupResponse
-     *
-     * @param CreateConsumerGroupRequest $request
-     *
-     * @return CreateConsumerGroupResponse
+     * @return CreateConsumerGroupResponse CreateConsumerGroupResponse
      */
     public function createConsumerGroup($request)
     {
@@ -2008,68 +1739,52 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Creates an alert rule.
+     * @summary Creates an alert rule.
+     *  *
+     * @param CreateDedicatedClusterMonitorRuleRequest $request CreateDedicatedClusterMonitorRuleRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateDedicatedClusterMonitorRuleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateDedicatedClusterMonitorRuleResponse
-     *
-     * @param CreateDedicatedClusterMonitorRuleRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return CreateDedicatedClusterMonitorRuleResponse
+     * @return CreateDedicatedClusterMonitorRuleResponse CreateDedicatedClusterMonitorRuleResponse
      */
     public function createDedicatedClusterMonitorRuleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cpuAlarmThreshold) {
-            @$query['CpuAlarmThreshold'] = $request->cpuAlarmThreshold;
+        if (!Utils::isUnset($request->cpuAlarmThreshold)) {
+            $query['CpuAlarmThreshold'] = $request->cpuAlarmThreshold;
         }
-
-        if (null !== $request->dedicatedClusterId) {
-            @$query['DedicatedClusterId'] = $request->dedicatedClusterId;
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
         }
-
-        if (null !== $request->diskAlarmThreshold) {
-            @$query['DiskAlarmThreshold'] = $request->diskAlarmThreshold;
+        if (!Utils::isUnset($request->diskAlarmThreshold)) {
+            $query['DiskAlarmThreshold'] = $request->diskAlarmThreshold;
         }
-
-        if (null !== $request->duAlarmThreshold) {
-            @$query['DuAlarmThreshold'] = $request->duAlarmThreshold;
+        if (!Utils::isUnset($request->duAlarmThreshold)) {
+            $query['DuAlarmThreshold'] = $request->duAlarmThreshold;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->memAlarmThreshold) {
-            @$query['MemAlarmThreshold'] = $request->memAlarmThreshold;
+        if (!Utils::isUnset($request->memAlarmThreshold)) {
+            $query['MemAlarmThreshold'] = $request->memAlarmThreshold;
         }
-
-        if (null !== $request->noticeSwitch) {
-            @$query['NoticeSwitch'] = $request->noticeSwitch;
+        if (!Utils::isUnset($request->noticeSwitch)) {
+            $query['NoticeSwitch'] = $request->noticeSwitch;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->phones) {
-            @$query['Phones'] = $request->phones;
+        if (!Utils::isUnset($request->phones)) {
+            $query['Phones'] = $request->phones;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateDedicatedClusterMonitorRule',
@@ -2087,15 +1802,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Creates an alert rule.
+     * @summary Creates an alert rule.
+     *  *
+     * @param CreateDedicatedClusterMonitorRuleRequest $request CreateDedicatedClusterMonitorRuleRequest
      *
-     * @param request - CreateDedicatedClusterMonitorRuleRequest
-     *
-     * @returns CreateDedicatedClusterMonitorRuleResponse
-     *
-     * @param CreateDedicatedClusterMonitorRuleRequest $request
-     *
-     * @return CreateDedicatedClusterMonitorRuleResponse
+     * @return CreateDedicatedClusterMonitorRuleResponse CreateDedicatedClusterMonitorRuleResponse
      */
     public function createDedicatedClusterMonitorRule($request)
     {
@@ -2105,120 +1816,243 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Purchases a Data Transmission Service (DTS) instance.
+     * @summary 查看工作流任务结果
+     *  *
+     * @param CreateDocParserJobRequest $request CreateDocParserJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *   Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of DTS.
+     * @return CreateDocParserJobResponse CreateDocParserJobResponse
+     */
+    public function createDocParserJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->fileUrl)) {
+            $query['FileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resultType)) {
+            $query['ResultType'] = $request->resultType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDocParserJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDocParserJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看工作流任务结果
+     *  *
+     * @param CreateDocParserJobRequest $request CreateDocParserJobRequest
+     *
+     * @return CreateDocParserJobResponse CreateDocParserJobResponse
+     */
+    public function createDocParserJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDocParserJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDocParserJobAdvanceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateDocParserJobResponse
+     *
+     * @throws TeaError
+     */
+    public function createDocParserJobAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $credentialModel = null;
+        if (Utils::isUnset($this->_credential)) {
+            throw new TeaError([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::empty_($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId' => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
+        ]);
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'Dts',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($authRequest),
+        ]);
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        $authResponse = [];
+        $fileObj = new FileField([]);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
+        $createDocParserJobReq = new CreateDocParserJobRequest([]);
+        OpenApiUtilClient::convert($request, $createDocParserJobReq);
+        if (!Utils::isUnset($request->fileUrlObject)) {
+            $tmpResp0 = $authClient->callApi($authParams, $authReq, $runtime);
+            $authResponse = Utils::assertAsMap($tmpResp0);
+            $tmpBody = Utils::assertAsMap(@$authResponse['body']);
+            $useAccelerate = Utils::assertAsBoolean(@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
+            $fileObj = new FileField([
+                'filename' => @$authResponseBody['ObjectKey'],
+                'content' => $request->fileUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . OpenApiUtilClient::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
+                'file' => $fileObj,
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $createDocParserJobReq->fileUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
+        }
+
+        return $this->createDocParserJobWithOptions($createDocParserJobReq, $runtime);
+    }
+
+    /**
+     * @summary Purchases a Data Transmission Service (DTS) instance.
+     *  *
+     * @description *   Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of DTS.
      * *   If you want to run a DTS task on a DTS dedicated cluster, you must configure the task before you purchase a DTS instance. You can call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to configure a DTS task.
+     *  *
+     * @param CreateDtsInstanceRequest $request CreateDtsInstanceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateDtsInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateDtsInstanceResponse
-     *
-     * @param CreateDtsInstanceRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CreateDtsInstanceResponse
+     * @return CreateDtsInstanceResponse CreateDtsInstanceResponse
      */
     public function createDtsInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->autoStart) {
-            @$query['AutoStart'] = $request->autoStart;
+        if (!Utils::isUnset($request->autoStart)) {
+            $query['AutoStart'] = $request->autoStart;
         }
-
-        if (null !== $request->computeUnit) {
-            @$query['ComputeUnit'] = $request->computeUnit;
+        if (!Utils::isUnset($request->computeUnit)) {
+            $query['ComputeUnit'] = $request->computeUnit;
         }
-
-        if (null !== $request->databaseCount) {
-            @$query['DatabaseCount'] = $request->databaseCount;
+        if (!Utils::isUnset($request->databaseCount)) {
+            $query['DatabaseCount'] = $request->databaseCount;
         }
-
-        if (null !== $request->destinationEndpointEngineName) {
-            @$query['DestinationEndpointEngineName'] = $request->destinationEndpointEngineName;
+        if (!Utils::isUnset($request->destinationEndpointEngineName)) {
+            $query['DestinationEndpointEngineName'] = $request->destinationEndpointEngineName;
         }
-
-        if (null !== $request->destinationRegion) {
-            @$query['DestinationRegion'] = $request->destinationRegion;
+        if (!Utils::isUnset($request->destinationRegion)) {
+            $query['DestinationRegion'] = $request->destinationRegion;
         }
-
-        if (null !== $request->dtsRegion) {
-            @$query['DtsRegion'] = $request->dtsRegion;
+        if (!Utils::isUnset($request->dtsRegion)) {
+            $query['DtsRegion'] = $request->dtsRegion;
         }
-
-        if (null !== $request->du) {
-            @$query['Du'] = $request->du;
+        if (!Utils::isUnset($request->du)) {
+            $query['Du'] = $request->du;
         }
-
-        if (null !== $request->feeType) {
-            @$query['FeeType'] = $request->feeType;
+        if (!Utils::isUnset($request->feeType)) {
+            $query['FeeType'] = $request->feeType;
         }
-
-        if (null !== $request->instanceClass) {
-            @$query['InstanceClass'] = $request->instanceClass;
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
         }
-
-        if (null !== $request->jobId) {
-            @$query['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->maxDu) {
-            @$query['MaxDu'] = $request->maxDu;
+        if (!Utils::isUnset($request->maxDu)) {
+            $query['MaxDu'] = $request->maxDu;
         }
-
-        if (null !== $request->minDu) {
-            @$query['MinDu'] = $request->minDu;
+        if (!Utils::isUnset($request->minDu)) {
+            $query['MinDu'] = $request->minDu;
         }
-
-        if (null !== $request->payType) {
-            @$query['PayType'] = $request->payType;
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->quantity) {
-            @$query['Quantity'] = $request->quantity;
+        if (!Utils::isUnset($request->quantity)) {
+            $query['Quantity'] = $request->quantity;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->sourceEndpointEngineName) {
-            @$query['SourceEndpointEngineName'] = $request->sourceEndpointEngineName;
+        if (!Utils::isUnset($request->sourceEndpointEngineName)) {
+            $query['SourceEndpointEngineName'] = $request->sourceEndpointEngineName;
         }
-
-        if (null !== $request->sourceRegion) {
-            @$query['SourceRegion'] = $request->sourceRegion;
+        if (!Utils::isUnset($request->sourceRegion)) {
+            $query['SourceRegion'] = $request->sourceRegion;
         }
-
-        if (null !== $request->syncArchitecture) {
-            @$query['SyncArchitecture'] = $request->syncArchitecture;
+        if (!Utils::isUnset($request->syncArchitecture)) {
+            $query['SyncArchitecture'] = $request->syncArchitecture;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
-        if (null !== $request->usedTime) {
-            @$query['UsedTime'] = $request->usedTime;
+        if (!Utils::isUnset($request->usedTime)) {
+            $query['UsedTime'] = $request->usedTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateDtsInstance',
@@ -2236,19 +2070,14 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Purchases a Data Transmission Service (DTS) instance.
-     *
-     * @remarks
-     *   Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of DTS.
+     * @summary Purchases a Data Transmission Service (DTS) instance.
+     *  *
+     * @description *   Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of DTS.
      * *   If you want to run a DTS task on a DTS dedicated cluster, you must configure the task before you purchase a DTS instance. You can call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to configure a DTS task.
+     *  *
+     * @param CreateDtsInstanceRequest $request CreateDtsInstanceRequest
      *
-     * @param request - CreateDtsInstanceRequest
-     *
-     * @returns CreateDtsInstanceResponse
-     *
-     * @param CreateDtsInstanceRequest $request
-     *
-     * @return CreateDtsInstanceResponse
+     * @return CreateDtsInstanceResponse CreateDtsInstanceResponse
      */
     public function createDtsInstance($request)
     {
@@ -2258,70 +2087,54 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Creates or modifies an alert rule for a Data Transmission Service (DTS) task.
-     *
-     * @remarks
-     * DTS provides the following metrics for DTS tasks:************
+     * @summary Creates or modifies an alert rule for a Data Transmission Service (DTS) task.
+     *  *
+     * @description DTS provides the following metrics for DTS tasks:************
      * *   **Latency**: DTS monitors the latency of a DTS task. If the latency of the task exceeds the specified threshold, an alert is triggered. The threshold is specified in units of seconds.
      * *   **Status**: DTS monitors the status of a DTS task. If the state of the task changes to **Error** or **Restore**, an alert is triggered.
      * *   **Full Timeout**: DTS monitors the duration of a DTS task. If the duration of the task exceeds the specified threshold, an alert is triggered. The threshold is specified in units of hours.
+     *  *
+     * @param CreateJobMonitorRuleRequest $request CreateJobMonitorRuleRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateJobMonitorRuleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateJobMonitorRuleResponse
-     *
-     * @param CreateJobMonitorRuleRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CreateJobMonitorRuleResponse
+     * @return CreateJobMonitorRuleResponse CreateJobMonitorRuleResponse
      */
     public function createJobMonitorRuleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->delayRuleTime) {
-            @$query['DelayRuleTime'] = $request->delayRuleTime;
+        if (!Utils::isUnset($request->delayRuleTime)) {
+            $query['DelayRuleTime'] = $request->delayRuleTime;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->noticeValue) {
-            @$query['NoticeValue'] = $request->noticeValue;
+        if (!Utils::isUnset($request->noticeValue)) {
+            $query['NoticeValue'] = $request->noticeValue;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->phone) {
-            @$query['Phone'] = $request->phone;
+        if (!Utils::isUnset($request->phone)) {
+            $query['Phone'] = $request->phone;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->state) {
-            @$query['State'] = $request->state;
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
         }
-
-        if (null !== $request->times) {
-            @$query['Times'] = $request->times;
+        if (!Utils::isUnset($request->times)) {
+            $query['Times'] = $request->times;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateJobMonitorRule',
@@ -2339,21 +2152,16 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Creates or modifies an alert rule for a Data Transmission Service (DTS) task.
-     *
-     * @remarks
-     * DTS provides the following metrics for DTS tasks:************
+     * @summary Creates or modifies an alert rule for a Data Transmission Service (DTS) task.
+     *  *
+     * @description DTS provides the following metrics for DTS tasks:************
      * *   **Latency**: DTS monitors the latency of a DTS task. If the latency of the task exceeds the specified threshold, an alert is triggered. The threshold is specified in units of seconds.
      * *   **Status**: DTS monitors the status of a DTS task. If the state of the task changes to **Error** or **Restore**, an alert is triggered.
      * *   **Full Timeout**: DTS monitors the duration of a DTS task. If the duration of the task exceeds the specified threshold, an alert is triggered. The threshold is specified in units of hours.
+     *  *
+     * @param CreateJobMonitorRuleRequest $request CreateJobMonitorRuleRequest
      *
-     * @param request - CreateJobMonitorRuleRequest
-     *
-     * @returns CreateJobMonitorRuleResponse
-     *
-     * @param CreateJobMonitorRuleRequest $request
-     *
-     * @return CreateJobMonitorRuleResponse
+     * @return CreateJobMonitorRuleResponse CreateJobMonitorRuleResponse
      */
     public function createJobMonitorRule($request)
     {
@@ -2363,52 +2171,40 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Purchases a data migration instance.
+     * @summary Purchases a data migration instance.
+     *  *
+     * @param CreateMigrationJobRequest $request CreateMigrationJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateMigrationJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateMigrationJobResponse
-     *
-     * @param CreateMigrationJobRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateMigrationJobResponse
+     * @return CreateMigrationJobResponse CreateMigrationJobResponse
      */
     public function createMigrationJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->migrationJobClass) {
-            @$query['MigrationJobClass'] = $request->migrationJobClass;
+        if (!Utils::isUnset($request->migrationJobClass)) {
+            $query['MigrationJobClass'] = $request->migrationJobClass;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateMigrationJob',
@@ -2426,15 +2222,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Purchases a data migration instance.
+     * @summary Purchases a data migration instance.
+     *  *
+     * @param CreateMigrationJobRequest $request CreateMigrationJobRequest
      *
-     * @param request - CreateMigrationJobRequest
-     *
-     * @returns CreateMigrationJobResponse
-     *
-     * @param CreateMigrationJobRequest $request
-     *
-     * @return CreateMigrationJobResponse
+     * @return CreateMigrationJobResponse CreateMigrationJobResponse
      */
     public function createMigrationJob($request)
     {
@@ -2444,44 +2236,34 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Creates a reverse task for a data synchronization or migration task.
-     *
-     * @remarks
-     * 调用接口创建的反向任务会立即进行预检查，预检查通过后会进行增量数据采集，增量数据写入模块不会运行（需要调用**StartReverseWriter**接口运行）。
+     * @summary Creates a reverse task for a data synchronization or migration task.
+     *  *
+     * @description 调用接口创建的反向任务会立即进行预检查，预检查通过后会进行增量数据采集，增量数据写入模块不会运行（需要调用**StartReverseWriter**接口运行）。
      * > 创建的反向任务固定为同步任务，且只有增量写入模块。
+     *  *
+     * @param CreateReverseDtsJobRequest $request CreateReverseDtsJobRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateReverseDtsJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateReverseDtsJobResponse
-     *
-     * @param CreateReverseDtsJobRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CreateReverseDtsJobResponse
+     * @return CreateReverseDtsJobResponse CreateReverseDtsJobResponse
      */
     public function createReverseDtsJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->shardPassword) {
-            @$query['ShardPassword'] = $request->shardPassword;
+        if (!Utils::isUnset($request->shardPassword)) {
+            $query['ShardPassword'] = $request->shardPassword;
         }
-
-        if (null !== $request->shardUsername) {
-            @$query['ShardUsername'] = $request->shardUsername;
+        if (!Utils::isUnset($request->shardUsername)) {
+            $query['ShardUsername'] = $request->shardUsername;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateReverseDtsJob',
@@ -2499,19 +2281,14 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Creates a reverse task for a data synchronization or migration task.
-     *
-     * @remarks
-     * 调用接口创建的反向任务会立即进行预检查，预检查通过后会进行增量数据采集，增量数据写入模块不会运行（需要调用**StartReverseWriter**接口运行）。
+     * @summary Creates a reverse task for a data synchronization or migration task.
+     *  *
+     * @description 调用接口创建的反向任务会立即进行预检查，预检查通过后会进行增量数据采集，增量数据写入模块不会运行（需要调用**StartReverseWriter**接口运行）。
      * > 创建的反向任务固定为同步任务，且只有增量写入模块。
+     *  *
+     * @param CreateReverseDtsJobRequest $request CreateReverseDtsJobRequest
      *
-     * @param request - CreateReverseDtsJobRequest
-     *
-     * @returns CreateReverseDtsJobResponse
-     *
-     * @param CreateReverseDtsJobRequest $request
-     *
-     * @return CreateReverseDtsJobResponse
+     * @return CreateReverseDtsJobResponse CreateReverseDtsJobResponse
      */
     public function createReverseDtsJob($request)
     {
@@ -2521,64 +2298,49 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Purchases a change tracking instance.
+     * @summary Purchases a change tracking instance.
+     *  *
+     * @param CreateSubscriptionInstanceRequest $request CreateSubscriptionInstanceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateSubscriptionInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateSubscriptionInstanceResponse
-     *
-     * @param CreateSubscriptionInstanceRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return CreateSubscriptionInstanceResponse
+     * @return CreateSubscriptionInstanceResponse CreateSubscriptionInstanceResponse
      */
     public function createSubscriptionInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->payType) {
-            @$query['PayType'] = $request->payType;
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->usedTime) {
-            @$query['UsedTime'] = $request->usedTime;
+        if (!Utils::isUnset($request->usedTime)) {
+            $query['UsedTime'] = $request->usedTime;
         }
-
-        if (null !== $request->sourceEndpoint) {
-            @$query['SourceEndpoint'] = $request->sourceEndpoint;
+        if (!Utils::isUnset($request->sourceEndpoint)) {
+            $query['SourceEndpoint'] = $request->sourceEndpoint;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateSubscriptionInstance',
@@ -2596,15 +2358,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Purchases a change tracking instance.
+     * @summary Purchases a change tracking instance.
+     *  *
+     * @param CreateSubscriptionInstanceRequest $request CreateSubscriptionInstanceRequest
      *
-     * @param request - CreateSubscriptionInstanceRequest
-     *
-     * @returns CreateSubscriptionInstanceResponse
-     *
-     * @param CreateSubscriptionInstanceRequest $request
-     *
-     * @return CreateSubscriptionInstanceResponse
+     * @return CreateSubscriptionInstanceResponse CreateSubscriptionInstanceResponse
      */
     public function createSubscriptionInstance($request)
     {
@@ -2614,88 +2372,67 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Creates a data synchronization instance.
+     * @summary Creates a data synchronization instance.
+     *  *
+     * @param CreateSynchronizationJobRequest $request CreateSynchronizationJobRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateSynchronizationJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateSynchronizationJobResponse
-     *
-     * @param CreateSynchronizationJobRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return CreateSynchronizationJobResponse
+     * @return CreateSynchronizationJobResponse CreateSynchronizationJobResponse
      */
     public function createSynchronizationJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBInstanceCount) {
-            @$query['DBInstanceCount'] = $request->DBInstanceCount;
+        if (!Utils::isUnset($request->DBInstanceCount)) {
+            $query['DBInstanceCount'] = $request->DBInstanceCount;
         }
-
-        if (null !== $request->destRegion) {
-            @$query['DestRegion'] = $request->destRegion;
+        if (!Utils::isUnset($request->destRegion)) {
+            $query['DestRegion'] = $request->destRegion;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->payType) {
-            @$query['PayType'] = $request->payType;
+        if (!Utils::isUnset($request->payType)) {
+            $query['PayType'] = $request->payType;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->sourceRegion) {
-            @$query['SourceRegion'] = $request->sourceRegion;
+        if (!Utils::isUnset($request->sourceRegion)) {
+            $query['SourceRegion'] = $request->sourceRegion;
         }
-
-        if (null !== $request->synchronizationJobClass) {
-            @$query['SynchronizationJobClass'] = $request->synchronizationJobClass;
+        if (!Utils::isUnset($request->synchronizationJobClass)) {
+            $query['SynchronizationJobClass'] = $request->synchronizationJobClass;
         }
-
-        if (null !== $request->topology) {
-            @$query['Topology'] = $request->topology;
+        if (!Utils::isUnset($request->topology)) {
+            $query['Topology'] = $request->topology;
         }
-
-        if (null !== $request->usedTime) {
-            @$query['UsedTime'] = $request->usedTime;
+        if (!Utils::isUnset($request->usedTime)) {
+            $query['UsedTime'] = $request->usedTime;
         }
-
-        if (null !== $request->networkType) {
-            @$query['networkType'] = $request->networkType;
+        if (!Utils::isUnset($request->networkType)) {
+            $query['networkType'] = $request->networkType;
         }
-
-        if (null !== $request->destinationEndpoint) {
-            @$query['DestinationEndpoint'] = $request->destinationEndpoint;
+        if (!Utils::isUnset($request->destinationEndpoint)) {
+            $query['DestinationEndpoint'] = $request->destinationEndpoint;
         }
-
-        if (null !== $request->sourceEndpoint) {
-            @$query['SourceEndpoint'] = $request->sourceEndpoint;
+        if (!Utils::isUnset($request->sourceEndpoint)) {
+            $query['SourceEndpoint'] = $request->sourceEndpoint;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateSynchronizationJob',
@@ -2713,15 +2450,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Creates a data synchronization instance.
+     * @summary Creates a data synchronization instance.
+     *  *
+     * @param CreateSynchronizationJobRequest $request CreateSynchronizationJobRequest
      *
-     * @param request - CreateSynchronizationJobRequest
-     *
-     * @returns CreateSynchronizationJobResponse
-     *
-     * @param CreateSynchronizationJobRequest $request
-     *
-     * @return CreateSynchronizationJobResponse
+     * @return CreateSynchronizationJobResponse CreateSynchronizationJobResponse
      */
     public function createSynchronizationJob($request)
     {
@@ -2731,44 +2464,34 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Deletes a consumer group.
+     * @summary Deletes a consumer group.
+     *  *
+     * @param DeleteConsumerChannelRequest $request DeleteConsumerChannelRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteConsumerChannelRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteConsumerChannelResponse
-     *
-     * @param DeleteConsumerChannelRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DeleteConsumerChannelResponse
+     * @return DeleteConsumerChannelResponse DeleteConsumerChannelResponse
      */
     public function deleteConsumerChannelWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->consumerGroupId) {
-            @$query['ConsumerGroupId'] = $request->consumerGroupId;
+        if (!Utils::isUnset($request->consumerGroupId)) {
+            $query['ConsumerGroupId'] = $request->consumerGroupId;
         }
-
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteConsumerChannel',
@@ -2786,15 +2509,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Deletes a consumer group.
+     * @summary Deletes a consumer group.
+     *  *
+     * @param DeleteConsumerChannelRequest $request DeleteConsumerChannelRequest
      *
-     * @param request - DeleteConsumerChannelRequest
-     *
-     * @returns DeleteConsumerChannelResponse
-     *
-     * @param DeleteConsumerChannelRequest $request
-     *
-     * @return DeleteConsumerChannelResponse
+     * @return DeleteConsumerChannelResponse DeleteConsumerChannelResponse
      */
     public function deleteConsumerChannel($request)
     {
@@ -2804,48 +2523,37 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Deletes a consumer group.
+     * @summary Deletes a consumer group.
+     *  *
+     * @param DeleteConsumerGroupRequest $request DeleteConsumerGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteConsumerGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteConsumerGroupResponse
-     *
-     * @param DeleteConsumerGroupRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DeleteConsumerGroupResponse
+     * @return DeleteConsumerGroupResponse DeleteConsumerGroupResponse
      */
     public function deleteConsumerGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->consumerGroupID) {
-            @$query['ConsumerGroupID'] = $request->consumerGroupID;
+        if (!Utils::isUnset($request->consumerGroupID)) {
+            $query['ConsumerGroupID'] = $request->consumerGroupID;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->subscriptionInstanceId) {
-            @$query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
+        if (!Utils::isUnset($request->subscriptionInstanceId)) {
+            $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteConsumerGroup',
@@ -2863,15 +2571,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Deletes a consumer group.
+     * @summary Deletes a consumer group.
+     *  *
+     * @param DeleteConsumerGroupRequest $request DeleteConsumerGroupRequest
      *
-     * @param request - DeleteConsumerGroupRequest
-     *
-     * @returns DeleteConsumerGroupResponse
-     *
-     * @param DeleteConsumerGroupRequest $request
-     *
-     * @return DeleteConsumerGroupResponse
+     * @return DeleteConsumerGroupResponse DeleteConsumerGroupResponse
      */
     public function deleteConsumerGroup($request)
     {
@@ -2881,52 +2585,40 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Deletes a data migration, data synchronization, or change tracking task.
+     * @summary Deletes a data migration, data synchronization, or change tracking task.
+     *  *
+     * @param DeleteDtsJobRequest $request DeleteDtsJobRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteDtsJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteDtsJobResponse
-     *
-     * @param DeleteDtsJobRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DeleteDtsJobResponse
+     * @return DeleteDtsJobResponse DeleteDtsJobResponse
      */
     public function deleteDtsJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->jobType) {
-            @$query['JobType'] = $request->jobType;
+        if (!Utils::isUnset($request->jobType)) {
+            $query['JobType'] = $request->jobType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDtsJob',
@@ -2944,15 +2636,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Deletes a data migration, data synchronization, or change tracking task.
+     * @summary Deletes a data migration, data synchronization, or change tracking task.
+     *  *
+     * @param DeleteDtsJobRequest $request DeleteDtsJobRequest
      *
-     * @param request - DeleteDtsJobRequest
-     *
-     * @returns DeleteDtsJobResponse
-     *
-     * @param DeleteDtsJobRequest $request
-     *
-     * @return DeleteDtsJobResponse
+     * @return DeleteDtsJobResponse DeleteDtsJobResponse
      */
     public function deleteDtsJob($request)
     {
@@ -2962,40 +2650,31 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Deletes multiple data migration, data synchronization, or change tracking tasks.
+     * @summary Deletes multiple data migration, data synchronization, or change tracking tasks.
+     *  *
+     * @param DeleteDtsJobsRequest $request DeleteDtsJobsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteDtsJobsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteDtsJobsResponse
-     *
-     * @param DeleteDtsJobsRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteDtsJobsResponse
+     * @return DeleteDtsJobsResponse DeleteDtsJobsResponse
      */
     public function deleteDtsJobsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsJobIds) {
-            @$query['DtsJobIds'] = $request->dtsJobIds;
+        if (!Utils::isUnset($request->dtsJobIds)) {
+            $query['DtsJobIds'] = $request->dtsJobIds;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDtsJobs',
@@ -3013,15 +2692,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Deletes multiple data migration, data synchronization, or change tracking tasks.
+     * @summary Deletes multiple data migration, data synchronization, or change tracking tasks.
+     *  *
+     * @param DeleteDtsJobsRequest $request DeleteDtsJobsRequest
      *
-     * @param request - DeleteDtsJobsRequest
-     *
-     * @returns DeleteDtsJobsResponse
-     *
-     * @param DeleteDtsJobsRequest $request
-     *
-     * @return DeleteDtsJobsResponse
+     * @return DeleteDtsJobsResponse DeleteDtsJobsResponse
      */
     public function deleteDtsJobs($request)
     {
@@ -3031,44 +2706,34 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Releases a data migration instance.
+     * @summary Releases a data migration instance.
+     *  *
+     * @param DeleteMigrationJobRequest $request DeleteMigrationJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteMigrationJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteMigrationJobResponse
-     *
-     * @param DeleteMigrationJobRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteMigrationJobResponse
+     * @return DeleteMigrationJobResponse DeleteMigrationJobResponse
      */
     public function deleteMigrationJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->migrationJobId) {
-            @$query['MigrationJobId'] = $request->migrationJobId;
+        if (!Utils::isUnset($request->migrationJobId)) {
+            $query['MigrationJobId'] = $request->migrationJobId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteMigrationJob',
@@ -3086,15 +2751,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Releases a data migration instance.
+     * @summary Releases a data migration instance.
+     *  *
+     * @param DeleteMigrationJobRequest $request DeleteMigrationJobRequest
      *
-     * @param request - DeleteMigrationJobRequest
-     *
-     * @returns DeleteMigrationJobResponse
-     *
-     * @param DeleteMigrationJobRequest $request
-     *
-     * @return DeleteMigrationJobResponse
+     * @return DeleteMigrationJobResponse DeleteMigrationJobResponse
      */
     public function deleteMigrationJob($request)
     {
@@ -3104,44 +2765,34 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Releases a change tracking instance.
+     * @summary Releases a change tracking instance.
+     *  *
+     * @param DeleteSubscriptionInstanceRequest $request DeleteSubscriptionInstanceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteSubscriptionInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteSubscriptionInstanceResponse
-     *
-     * @param DeleteSubscriptionInstanceRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DeleteSubscriptionInstanceResponse
+     * @return DeleteSubscriptionInstanceResponse DeleteSubscriptionInstanceResponse
      */
     public function deleteSubscriptionInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->subscriptionInstanceId) {
-            @$query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
+        if (!Utils::isUnset($request->subscriptionInstanceId)) {
+            $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteSubscriptionInstance',
@@ -3159,15 +2810,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Releases a change tracking instance.
+     * @summary Releases a change tracking instance.
+     *  *
+     * @param DeleteSubscriptionInstanceRequest $request DeleteSubscriptionInstanceRequest
      *
-     * @param request - DeleteSubscriptionInstanceRequest
-     *
-     * @returns DeleteSubscriptionInstanceResponse
-     *
-     * @param DeleteSubscriptionInstanceRequest $request
-     *
-     * @return DeleteSubscriptionInstanceResponse
+     * @return DeleteSubscriptionInstanceResponse DeleteSubscriptionInstanceResponse
      */
     public function deleteSubscriptionInstance($request)
     {
@@ -3177,44 +2824,34 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Releases a data synchronization instance.
+     * @summary Releases a data synchronization instance.
+     *  *
+     * @param DeleteSynchronizationJobRequest $request DeleteSynchronizationJobRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteSynchronizationJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteSynchronizationJobResponse
-     *
-     * @param DeleteSynchronizationJobRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DeleteSynchronizationJobResponse
+     * @return DeleteSynchronizationJobResponse DeleteSynchronizationJobResponse
      */
     public function deleteSynchronizationJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationJobId) {
-            @$query['SynchronizationJobId'] = $request->synchronizationJobId;
+        if (!Utils::isUnset($request->synchronizationJobId)) {
+            $query['SynchronizationJobId'] = $request->synchronizationJobId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteSynchronizationJob',
@@ -3232,15 +2869,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Releases a data synchronization instance.
+     * @summary Releases a data synchronization instance.
+     *  *
+     * @param DeleteSynchronizationJobRequest $request DeleteSynchronizationJobRequest
      *
-     * @param request - DeleteSynchronizationJobRequest
-     *
-     * @returns DeleteSynchronizationJobResponse
-     *
-     * @param DeleteSynchronizationJobRequest $request
-     *
-     * @return DeleteSynchronizationJobResponse
+     * @return DeleteSynchronizationJobResponse DeleteSynchronizationJobResponse
      */
     public function deleteSynchronizationJob($request)
     {
@@ -3250,52 +2883,40 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查询数据投递链路store账号.
+     * @summary 查询数据投递链路store账号
+     *  *
+     * @param DescribeChannelAccountRequest $request DescribeChannelAccountRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeChannelAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeChannelAccountResponse
-     *
-     * @param DescribeChannelAccountRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeChannelAccountResponse
+     * @return DescribeChannelAccountResponse DescribeChannelAccountResponse
      */
     public function describeChannelAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->tags) {
-            @$query['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeChannelAccount',
@@ -3313,15 +2934,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查询数据投递链路store账号.
+     * @summary 查询数据投递链路store账号
+     *  *
+     * @param DescribeChannelAccountRequest $request DescribeChannelAccountRequest
      *
-     * @param request - DescribeChannelAccountRequest
-     *
-     * @returns DescribeChannelAccountResponse
-     *
-     * @param DescribeChannelAccountRequest $request
-     *
-     * @return DescribeChannelAccountResponse
+     * @return DescribeChannelAccountResponse DescribeChannelAccountResponse
      */
     public function describeChannelAccount($request)
     {
@@ -3331,52 +2948,40 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 请求所有数据校验任务数据.
+     * @summary 请求所有数据校验任务数据
+     *  *
+     * @param DescribeCheckJobsRequest $request DescribeCheckJobsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeCheckJobsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCheckJobsResponse
-     *
-     * @param DescribeCheckJobsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeCheckJobsResponse
+     * @return DescribeCheckJobsResponse DescribeCheckJobsResponse
      */
     public function describeCheckJobsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->checkJobId) {
-            @$query['CheckJobId'] = $request->checkJobId;
+        if (!Utils::isUnset($request->checkJobId)) {
+            $query['CheckJobId'] = $request->checkJobId;
         }
-
-        if (null !== $request->checkType) {
-            @$query['CheckType'] = $request->checkType;
+        if (!Utils::isUnset($request->checkType)) {
+            $query['CheckType'] = $request->checkType;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->jobName) {
-            @$query['JobName'] = $request->jobName;
+        if (!Utils::isUnset($request->jobName)) {
+            $query['JobName'] = $request->jobName;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCheckJobs',
@@ -3394,15 +2999,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 请求所有数据校验任务数据.
+     * @summary 请求所有数据校验任务数据
+     *  *
+     * @param DescribeCheckJobsRequest $request DescribeCheckJobsRequest
      *
-     * @param request - DescribeCheckJobsRequest
-     *
-     * @returns DescribeCheckJobsResponse
-     *
-     * @param DescribeCheckJobsRequest $request
-     *
-     * @return DescribeCheckJobsResponse
+     * @return DescribeCheckJobsResponse DescribeCheckJobsResponse
      */
     public function describeCheckJobs($request)
     {
@@ -3412,66 +3013,51 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries operation logs of a Data Transmission Service (DTS) dedicated cluster.
+     * @summary Queries operation logs of a Data Transmission Service (DTS) dedicated cluster.
+     *  *
+     * @param DescribeClusterOperateLogsRequest $request DescribeClusterOperateLogsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeClusterOperateLogsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterOperateLogsResponse
-     *
-     * @param DescribeClusterOperateLogsRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeClusterOperateLogsResponse
+     * @return DescribeClusterOperateLogsResponse DescribeClusterOperateLogsResponse
      */
     public function describeClusterOperateLogsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $body = [];
-        if (null !== $request->accountId) {
-            @$body['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $body['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dedicatedClusterId) {
-            @$body['DedicatedClusterId'] = $request->dedicatedClusterId;
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $body['DedicatedClusterId'] = $request->dedicatedClusterId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$body['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $body['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->endTime) {
-            @$body['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->ownerID) {
-            @$body['OwnerID'] = $request->ownerID;
+        if (!Utils::isUnset($request->ownerID)) {
+            $body['OwnerID'] = $request->ownerID;
         }
-
-        if (null !== $request->pageNumber) {
-            @$body['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->startTime) {
-            @$body['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeClusterOperateLogs',
@@ -3489,15 +3075,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries operation logs of a Data Transmission Service (DTS) dedicated cluster.
+     * @summary Queries operation logs of a Data Transmission Service (DTS) dedicated cluster.
+     *  *
+     * @param DescribeClusterOperateLogsRequest $request DescribeClusterOperateLogsRequest
      *
-     * @param request - DescribeClusterOperateLogsRequest
-     *
-     * @returns DescribeClusterOperateLogsResponse
-     *
-     * @param DescribeClusterOperateLogsRequest $request
-     *
-     * @return DescribeClusterOperateLogsResponse
+     * @return DescribeClusterOperateLogsResponse DescribeClusterOperateLogsResponse
      */
     public function describeClusterOperateLogs($request)
     {
@@ -3507,66 +3089,51 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the resource usage of a cluster.
+     * @summary Queries the resource usage of a cluster.
+     *  *
+     * @param DescribeClusterUsedUtilizationRequest $request DescribeClusterUsedUtilizationRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeClusterUsedUtilizationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterUsedUtilizationResponse
-     *
-     * @param DescribeClusterUsedUtilizationRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeClusterUsedUtilizationResponse
+     * @return DescribeClusterUsedUtilizationResponse DescribeClusterUsedUtilizationResponse
      */
     public function describeClusterUsedUtilizationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $body = [];
-        if (null !== $request->accountId) {
-            @$body['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $body['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dedicatedClusterId) {
-            @$body['DedicatedClusterId'] = $request->dedicatedClusterId;
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $body['DedicatedClusterId'] = $request->dedicatedClusterId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$body['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $body['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->env) {
-            @$body['Env'] = $request->env;
+        if (!Utils::isUnset($request->env)) {
+            $body['Env'] = $request->env;
         }
-
-        if (null !== $request->metricType) {
-            @$body['MetricType'] = $request->metricType;
+        if (!Utils::isUnset($request->metricType)) {
+            $body['MetricType'] = $request->metricType;
         }
-
-        if (null !== $request->ownerID) {
-            @$body['OwnerID'] = $request->ownerID;
+        if (!Utils::isUnset($request->ownerID)) {
+            $body['OwnerID'] = $request->ownerID;
         }
-
-        if (null !== $request->regionId) {
-            @$body['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->securityToken) {
-            @$body['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $body['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeClusterUsedUtilization',
@@ -3584,15 +3151,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the resource usage of a cluster.
+     * @summary Queries the resource usage of a cluster.
+     *  *
+     * @param DescribeClusterUsedUtilizationRequest $request DescribeClusterUsedUtilizationRequest
      *
-     * @param request - DescribeClusterUsedUtilizationRequest
-     *
-     * @returns DescribeClusterUsedUtilizationResponse
-     *
-     * @param DescribeClusterUsedUtilizationRequest $request
-     *
-     * @return DescribeClusterUsedUtilizationResponse
+     * @return DescribeClusterUsedUtilizationResponse DescribeClusterUsedUtilizationResponse
      */
     public function describeClusterUsedUtilization($request)
     {
@@ -3602,120 +3165,91 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the connectivity of Data Transmission Service (DTS) servers to the source and destination databases.
+     * @summary Queries the connectivity of Data Transmission Service (DTS) servers to the source and destination databases.
+     *  *
+     * @param DescribeConnectionStatusRequest $request DescribeConnectionStatusRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeConnectionStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeConnectionStatusResponse
-     *
-     * @param DescribeConnectionStatusRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeConnectionStatusResponse
+     * @return DescribeConnectionStatusResponse DescribeConnectionStatusResponse
      */
     public function describeConnectionStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->destinationEndpointArchitecture) {
-            @$query['DestinationEndpointArchitecture'] = $request->destinationEndpointArchitecture;
+        if (!Utils::isUnset($request->destinationEndpointArchitecture)) {
+            $query['DestinationEndpointArchitecture'] = $request->destinationEndpointArchitecture;
         }
-
-        if (null !== $request->destinationEndpointDatabaseName) {
-            @$query['DestinationEndpointDatabaseName'] = $request->destinationEndpointDatabaseName;
+        if (!Utils::isUnset($request->destinationEndpointDatabaseName)) {
+            $query['DestinationEndpointDatabaseName'] = $request->destinationEndpointDatabaseName;
         }
-
-        if (null !== $request->destinationEndpointEngineName) {
-            @$query['DestinationEndpointEngineName'] = $request->destinationEndpointEngineName;
+        if (!Utils::isUnset($request->destinationEndpointEngineName)) {
+            $query['DestinationEndpointEngineName'] = $request->destinationEndpointEngineName;
         }
-
-        if (null !== $request->destinationEndpointIP) {
-            @$query['DestinationEndpointIP'] = $request->destinationEndpointIP;
+        if (!Utils::isUnset($request->destinationEndpointIP)) {
+            $query['DestinationEndpointIP'] = $request->destinationEndpointIP;
         }
-
-        if (null !== $request->destinationEndpointInstanceID) {
-            @$query['DestinationEndpointInstanceID'] = $request->destinationEndpointInstanceID;
+        if (!Utils::isUnset($request->destinationEndpointInstanceID)) {
+            $query['DestinationEndpointInstanceID'] = $request->destinationEndpointInstanceID;
         }
-
-        if (null !== $request->destinationEndpointInstanceType) {
-            @$query['DestinationEndpointInstanceType'] = $request->destinationEndpointInstanceType;
+        if (!Utils::isUnset($request->destinationEndpointInstanceType)) {
+            $query['DestinationEndpointInstanceType'] = $request->destinationEndpointInstanceType;
         }
-
-        if (null !== $request->destinationEndpointOracleSID) {
-            @$query['DestinationEndpointOracleSID'] = $request->destinationEndpointOracleSID;
+        if (!Utils::isUnset($request->destinationEndpointOracleSID)) {
+            $query['DestinationEndpointOracleSID'] = $request->destinationEndpointOracleSID;
         }
-
-        if (null !== $request->destinationEndpointPassword) {
-            @$query['DestinationEndpointPassword'] = $request->destinationEndpointPassword;
+        if (!Utils::isUnset($request->destinationEndpointPassword)) {
+            $query['DestinationEndpointPassword'] = $request->destinationEndpointPassword;
         }
-
-        if (null !== $request->destinationEndpointPort) {
-            @$query['DestinationEndpointPort'] = $request->destinationEndpointPort;
+        if (!Utils::isUnset($request->destinationEndpointPort)) {
+            $query['DestinationEndpointPort'] = $request->destinationEndpointPort;
         }
-
-        if (null !== $request->destinationEndpointRegion) {
-            @$query['DestinationEndpointRegion'] = $request->destinationEndpointRegion;
+        if (!Utils::isUnset($request->destinationEndpointRegion)) {
+            $query['DestinationEndpointRegion'] = $request->destinationEndpointRegion;
         }
-
-        if (null !== $request->destinationEndpointUserName) {
-            @$query['DestinationEndpointUserName'] = $request->destinationEndpointUserName;
+        if (!Utils::isUnset($request->destinationEndpointUserName)) {
+            $query['DestinationEndpointUserName'] = $request->destinationEndpointUserName;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->sourceEndpointArchitecture) {
-            @$query['SourceEndpointArchitecture'] = $request->sourceEndpointArchitecture;
+        if (!Utils::isUnset($request->sourceEndpointArchitecture)) {
+            $query['SourceEndpointArchitecture'] = $request->sourceEndpointArchitecture;
         }
-
-        if (null !== $request->sourceEndpointDatabaseName) {
-            @$query['SourceEndpointDatabaseName'] = $request->sourceEndpointDatabaseName;
+        if (!Utils::isUnset($request->sourceEndpointDatabaseName)) {
+            $query['SourceEndpointDatabaseName'] = $request->sourceEndpointDatabaseName;
         }
-
-        if (null !== $request->sourceEndpointEngineName) {
-            @$query['SourceEndpointEngineName'] = $request->sourceEndpointEngineName;
+        if (!Utils::isUnset($request->sourceEndpointEngineName)) {
+            $query['SourceEndpointEngineName'] = $request->sourceEndpointEngineName;
         }
-
-        if (null !== $request->sourceEndpointIP) {
-            @$query['SourceEndpointIP'] = $request->sourceEndpointIP;
+        if (!Utils::isUnset($request->sourceEndpointIP)) {
+            $query['SourceEndpointIP'] = $request->sourceEndpointIP;
         }
-
-        if (null !== $request->sourceEndpointInstanceID) {
-            @$query['SourceEndpointInstanceID'] = $request->sourceEndpointInstanceID;
+        if (!Utils::isUnset($request->sourceEndpointInstanceID)) {
+            $query['SourceEndpointInstanceID'] = $request->sourceEndpointInstanceID;
         }
-
-        if (null !== $request->sourceEndpointInstanceType) {
-            @$query['SourceEndpointInstanceType'] = $request->sourceEndpointInstanceType;
+        if (!Utils::isUnset($request->sourceEndpointInstanceType)) {
+            $query['SourceEndpointInstanceType'] = $request->sourceEndpointInstanceType;
         }
-
-        if (null !== $request->sourceEndpointOracleSID) {
-            @$query['SourceEndpointOracleSID'] = $request->sourceEndpointOracleSID;
+        if (!Utils::isUnset($request->sourceEndpointOracleSID)) {
+            $query['SourceEndpointOracleSID'] = $request->sourceEndpointOracleSID;
         }
-
-        if (null !== $request->sourceEndpointPassword) {
-            @$query['SourceEndpointPassword'] = $request->sourceEndpointPassword;
+        if (!Utils::isUnset($request->sourceEndpointPassword)) {
+            $query['SourceEndpointPassword'] = $request->sourceEndpointPassword;
         }
-
-        if (null !== $request->sourceEndpointPort) {
-            @$query['SourceEndpointPort'] = $request->sourceEndpointPort;
+        if (!Utils::isUnset($request->sourceEndpointPort)) {
+            $query['SourceEndpointPort'] = $request->sourceEndpointPort;
         }
-
-        if (null !== $request->sourceEndpointRegion) {
-            @$query['SourceEndpointRegion'] = $request->sourceEndpointRegion;
+        if (!Utils::isUnset($request->sourceEndpointRegion)) {
+            $query['SourceEndpointRegion'] = $request->sourceEndpointRegion;
         }
-
-        if (null !== $request->sourceEndpointUserName) {
-            @$query['SourceEndpointUserName'] = $request->sourceEndpointUserName;
+        if (!Utils::isUnset($request->sourceEndpointUserName)) {
+            $query['SourceEndpointUserName'] = $request->sourceEndpointUserName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeConnectionStatus',
@@ -3733,15 +3267,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the connectivity of Data Transmission Service (DTS) servers to the source and destination databases.
+     * @summary Queries the connectivity of Data Transmission Service (DTS) servers to the source and destination databases.
+     *  *
+     * @param DescribeConnectionStatusRequest $request DescribeConnectionStatusRequest
      *
-     * @param request - DescribeConnectionStatusRequest
-     *
-     * @returns DescribeConnectionStatusResponse
-     *
-     * @param DescribeConnectionStatusRequest $request
-     *
-     * @return DescribeConnectionStatusResponse
+     * @return DescribeConnectionStatusResponse DescribeConnectionStatusResponse
      */
     public function describeConnectionStatus($request)
     {
@@ -3751,52 +3281,40 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the information of a consumer group, including the consumer group ID, consumer group name, username, and message latency.
+     * @summary Queries the information of a consumer group, including the consumer group ID, consumer group name, username, and message latency.
+     *  *
+     * @param DescribeConsumerChannelRequest $request DescribeConsumerChannelRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeConsumerChannelRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeConsumerChannelResponse
-     *
-     * @param DescribeConsumerChannelRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeConsumerChannelResponse
+     * @return DescribeConsumerChannelResponse DescribeConsumerChannelResponse
      */
     public function describeConsumerChannelWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->parentChannelId) {
-            @$query['ParentChannelId'] = $request->parentChannelId;
+        if (!Utils::isUnset($request->parentChannelId)) {
+            $query['ParentChannelId'] = $request->parentChannelId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeConsumerChannel',
@@ -3814,15 +3332,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the information of a consumer group, including the consumer group ID, consumer group name, username, and message latency.
+     * @summary Queries the information of a consumer group, including the consumer group ID, consumer group name, username, and message latency.
+     *  *
+     * @param DescribeConsumerChannelRequest $request DescribeConsumerChannelRequest
      *
-     * @param request - DescribeConsumerChannelRequest
-     *
-     * @returns DescribeConsumerChannelResponse
-     *
-     * @param DescribeConsumerChannelRequest $request
-     *
-     * @return DescribeConsumerChannelResponse
+     * @return DescribeConsumerChannelResponse DescribeConsumerChannelResponse
      */
     public function describeConsumerChannel($request)
     {
@@ -3832,52 +3346,40 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the details of consumer groups in a change tracking instance.
+     * @summary Queries the details of consumer groups in a change tracking instance.
+     *  *
+     * @param DescribeConsumerGroupRequest $request DescribeConsumerGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeConsumerGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeConsumerGroupResponse
-     *
-     * @param DescribeConsumerGroupRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeConsumerGroupResponse
+     * @return DescribeConsumerGroupResponse DescribeConsumerGroupResponse
      */
     public function describeConsumerGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['PageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->subscriptionInstanceId) {
-            @$query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
+        if (!Utils::isUnset($request->subscriptionInstanceId)) {
+            $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeConsumerGroup',
@@ -3895,15 +3397,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the details of consumer groups in a change tracking instance.
+     * @summary Queries the details of consumer groups in a change tracking instance.
+     *  *
+     * @param DescribeConsumerGroupRequest $request DescribeConsumerGroupRequest
      *
-     * @param request - DescribeConsumerGroupRequest
-     *
-     * @returns DescribeConsumerGroupResponse
-     *
-     * @param DescribeConsumerGroupRequest $request
-     *
-     * @return DescribeConsumerGroupResponse
+     * @return DescribeConsumerGroupResponse DescribeConsumerGroupResponse
      */
     public function describeConsumerGroup($request)
     {
@@ -3913,40 +3411,31 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the CIDR blocks of DTS servers.
+     * @summary Queries the CIDR blocks of DTS servers.
+     *  *
+     * @param DescribeDTSIPRequest $request DescribeDTSIPRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDTSIPRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDTSIPResponse
-     *
-     * @param DescribeDTSIPRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DescribeDTSIPResponse
+     * @return DescribeDTSIPResponse DescribeDTSIPResponse
      */
     public function describeDTSIPWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->destinationEndpointRegion) {
-            @$query['DestinationEndpointRegion'] = $request->destinationEndpointRegion;
+        if (!Utils::isUnset($request->destinationEndpointRegion)) {
+            $query['DestinationEndpointRegion'] = $request->destinationEndpointRegion;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->sourceEndpointRegion) {
-            @$query['SourceEndpointRegion'] = $request->sourceEndpointRegion;
+        if (!Utils::isUnset($request->sourceEndpointRegion)) {
+            $query['SourceEndpointRegion'] = $request->sourceEndpointRegion;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDTSIP',
@@ -3964,15 +3453,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the CIDR blocks of DTS servers.
+     * @summary Queries the CIDR blocks of DTS servers.
+     *  *
+     * @param DescribeDTSIPRequest $request DescribeDTSIPRequest
      *
-     * @param request - DescribeDTSIPRequest
-     *
-     * @returns DescribeDTSIPResponse
-     *
-     * @param DescribeDTSIPRequest $request
-     *
-     * @return DescribeDTSIPResponse
+     * @return DescribeDTSIPResponse DescribeDTSIPResponse
      */
     public function describeDTSIP($request)
     {
@@ -3982,44 +3467,34 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the download URL of the data consistency verification report.
+     * @summary Queries the download URL of the data consistency verification report.
+     *  *
+     * @param DescribeDataCheckReportUrlRequest $request DescribeDataCheckReportUrlRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDataCheckReportUrlRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDataCheckReportUrlResponse
-     *
-     * @param DescribeDataCheckReportUrlRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeDataCheckReportUrlResponse
+     * @return DescribeDataCheckReportUrlResponse DescribeDataCheckReportUrlResponse
      */
     public function describeDataCheckReportUrlWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->checkType) {
-            @$query['CheckType'] = $request->checkType;
+        if (!Utils::isUnset($request->checkType)) {
+            $query['CheckType'] = $request->checkType;
         }
-
-        if (null !== $request->dbName) {
-            @$query['DbName'] = $request->dbName;
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->tbName) {
-            @$query['TbName'] = $request->tbName;
+        if (!Utils::isUnset($request->tbName)) {
+            $query['TbName'] = $request->tbName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDataCheckReportUrl',
@@ -4037,15 +3512,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the download URL of the data consistency verification report.
+     * @summary Queries the download URL of the data consistency verification report.
+     *  *
+     * @param DescribeDataCheckReportUrlRequest $request DescribeDataCheckReportUrlRequest
      *
-     * @param request - DescribeDataCheckReportUrlRequest
-     *
-     * @returns DescribeDataCheckReportUrlResponse
-     *
-     * @param DescribeDataCheckReportUrlRequest $request
-     *
-     * @return DescribeDataCheckReportUrlResponse
+     * @return DescribeDataCheckReportUrlResponse DescribeDataCheckReportUrlResponse
      */
     public function describeDataCheckReportUrl($request)
     {
@@ -4055,56 +3526,43 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the details of a data verification task.
+     * @summary Queries the details of a data verification task.
+     *  *
+     * @param DescribeDataCheckTableDetailsRequest $request DescribeDataCheckTableDetailsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDataCheckTableDetailsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDataCheckTableDetailsResponse
-     *
-     * @param DescribeDataCheckTableDetailsRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeDataCheckTableDetailsResponse
+     * @return DescribeDataCheckTableDetailsResponse DescribeDataCheckTableDetailsResponse
      */
     public function describeDataCheckTableDetailsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->checkType) {
-            @$query['CheckType'] = $request->checkType;
+        if (!Utils::isUnset($request->checkType)) {
+            $query['CheckType'] = $request->checkType;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->schemaName) {
-            @$query['SchemaName'] = $request->schemaName;
+        if (!Utils::isUnset($request->schemaName)) {
+            $query['SchemaName'] = $request->schemaName;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->tableName) {
-            @$query['TableName'] = $request->tableName;
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDataCheckTableDetails',
@@ -4122,15 +3580,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the details of a data verification task.
+     * @summary Queries the details of a data verification task.
+     *  *
+     * @param DescribeDataCheckTableDetailsRequest $request DescribeDataCheckTableDetailsRequest
      *
-     * @param request - DescribeDataCheckTableDetailsRequest
-     *
-     * @returns DescribeDataCheckTableDetailsResponse
-     *
-     * @param DescribeDataCheckTableDetailsRequest $request
-     *
-     * @return DescribeDataCheckTableDetailsResponse
+     * @return DescribeDataCheckTableDetailsResponse DescribeDataCheckTableDetailsResponse
      */
     public function describeDataCheckTableDetails($request)
     {
@@ -4140,52 +3594,40 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the information about inconsistent data in the data verification task.
+     * @summary Queries the information about inconsistent data in the data verification task.
+     *  *
+     * @param DescribeDataCheckTableDiffDetailsRequest $request DescribeDataCheckTableDiffDetailsRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDataCheckTableDiffDetailsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDataCheckTableDiffDetailsResponse
-     *
-     * @param DescribeDataCheckTableDiffDetailsRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return DescribeDataCheckTableDiffDetailsResponse
+     * @return DescribeDataCheckTableDiffDetailsResponse DescribeDataCheckTableDiffDetailsResponse
      */
     public function describeDataCheckTableDiffDetailsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->checkType) {
-            @$query['CheckType'] = $request->checkType;
+        if (!Utils::isUnset($request->checkType)) {
+            $query['CheckType'] = $request->checkType;
         }
-
-        if (null !== $request->dbName) {
-            @$query['DbName'] = $request->dbName;
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->tbName) {
-            @$query['TbName'] = $request->tbName;
+        if (!Utils::isUnset($request->tbName)) {
+            $query['TbName'] = $request->tbName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDataCheckTableDiffDetails',
@@ -4203,15 +3645,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the information about inconsistent data in the data verification task.
+     * @summary Queries the information about inconsistent data in the data verification task.
+     *  *
+     * @param DescribeDataCheckTableDiffDetailsRequest $request DescribeDataCheckTableDiffDetailsRequest
      *
-     * @param request - DescribeDataCheckTableDiffDetailsRequest
-     *
-     * @returns DescribeDataCheckTableDiffDetailsResponse
-     *
-     * @param DescribeDataCheckTableDiffDetailsRequest $request
-     *
-     * @return DescribeDataCheckTableDiffDetailsResponse
+     * @return DescribeDataCheckTableDiffDetailsResponse DescribeDataCheckTableDiffDetailsResponse
      */
     public function describeDataCheckTableDiffDetails($request)
     {
@@ -4221,40 +3659,31 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the information about a dedicated cluster.
+     * @summary Queries the information about a dedicated cluster.
+     *  *
+     * @param DescribeDedicatedClusterRequest $request DescribeDedicatedClusterRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDedicatedClusterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDedicatedClusterResponse
-     *
-     * @param DescribeDedicatedClusterRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeDedicatedClusterResponse
+     * @return DescribeDedicatedClusterResponse DescribeDedicatedClusterResponse
      */
     public function describeDedicatedClusterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dedicatedClusterId) {
-            @$query['DedicatedClusterId'] = $request->dedicatedClusterId;
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDedicatedCluster',
@@ -4272,15 +3701,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the information about a dedicated cluster.
+     * @summary Queries the information about a dedicated cluster.
+     *  *
+     * @param DescribeDedicatedClusterRequest $request DescribeDedicatedClusterRequest
      *
-     * @param request - DescribeDedicatedClusterRequest
-     *
-     * @returns DescribeDedicatedClusterResponse
-     *
-     * @param DescribeDedicatedClusterRequest $request
-     *
-     * @return DescribeDedicatedClusterResponse
+     * @return DescribeDedicatedClusterResponse DescribeDedicatedClusterResponse
      */
     public function describeDedicatedCluster($request)
     {
@@ -4290,40 +3715,31 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the information about an alert rule.
+     * @summary Queries the information about an alert rule.
+     *  *
+     * @param DescribeDedicatedClusterMonitorRuleRequest $request DescribeDedicatedClusterMonitorRuleRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDedicatedClusterMonitorRuleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDedicatedClusterMonitorRuleResponse
-     *
-     * @param DescribeDedicatedClusterMonitorRuleRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return DescribeDedicatedClusterMonitorRuleResponse
+     * @return DescribeDedicatedClusterMonitorRuleResponse DescribeDedicatedClusterMonitorRuleResponse
      */
     public function describeDedicatedClusterMonitorRuleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dedicatedClusterId) {
-            @$query['DedicatedClusterId'] = $request->dedicatedClusterId;
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDedicatedClusterMonitorRule',
@@ -4341,15 +3757,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the information about an alert rule.
+     * @summary Queries the information about an alert rule.
+     *  *
+     * @param DescribeDedicatedClusterMonitorRuleRequest $request DescribeDedicatedClusterMonitorRuleRequest
      *
-     * @param request - DescribeDedicatedClusterMonitorRuleRequest
-     *
-     * @returns DescribeDedicatedClusterMonitorRuleResponse
-     *
-     * @param DescribeDedicatedClusterMonitorRuleRequest $request
-     *
-     * @return DescribeDedicatedClusterMonitorRuleResponse
+     * @return DescribeDedicatedClusterMonitorRuleResponse DescribeDedicatedClusterMonitorRuleResponse
      */
     public function describeDedicatedClusterMonitorRule($request)
     {
@@ -4359,48 +3771,143 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the details of extract, transform, and load (ETL) tasks.
+     * @summary 查看工作流任务结果
+     *  *
+     * @param DescribeDocParserJobResultRequest $request DescribeDocParserJobResultRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDtsEtlJobVersionInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return DescribeDocParserJobResultResponse DescribeDocParserJobResultResponse
+     */
+    public function describeDocParserJobResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDocParserJobResult',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDocParserJobResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看工作流任务结果
+     *  *
+     * @param DescribeDocParserJobResultRequest $request DescribeDocParserJobResultRequest
      *
-     * @returns DescribeDtsEtlJobVersionInfoResponse
+     * @return DescribeDocParserJobResultResponse DescribeDocParserJobResultResponse
+     */
+    public function describeDocParserJobResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDocParserJobResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查看工作流任务结果
+     *  *
+     * @param DescribeDocParserJobStatusRequest $request DescribeDocParserJobStatusRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param DescribeDtsEtlJobVersionInfoRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @return DescribeDocParserJobStatusResponse DescribeDocParserJobStatusResponse
+     */
+    public function describeDocParserJobStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDocParserJobStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDocParserJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看工作流任务结果
+     *  *
+     * @param DescribeDocParserJobStatusRequest $request DescribeDocParserJobStatusRequest
      *
-     * @return DescribeDtsEtlJobVersionInfoResponse
+     * @return DescribeDocParserJobStatusResponse DescribeDocParserJobStatusResponse
+     */
+    public function describeDocParserJobStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDocParserJobStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the details of extract, transform, and load (ETL) tasks.
+     *  *
+     * @param DescribeDtsEtlJobVersionInfoRequest $request DescribeDtsEtlJobVersionInfoRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDtsEtlJobVersionInfoResponse DescribeDtsEtlJobVersionInfoResponse
      */
     public function describeDtsEtlJobVersionInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDtsEtlJobVersionInfo',
@@ -4418,15 +3925,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the details of extract, transform, and load (ETL) tasks.
+     * @summary Queries the details of extract, transform, and load (ETL) tasks.
+     *  *
+     * @param DescribeDtsEtlJobVersionInfoRequest $request DescribeDtsEtlJobVersionInfoRequest
      *
-     * @param request - DescribeDtsEtlJobVersionInfoRequest
-     *
-     * @returns DescribeDtsEtlJobVersionInfoResponse
-     *
-     * @param DescribeDtsEtlJobVersionInfoRequest $request
-     *
-     * @return DescribeDtsEtlJobVersionInfoResponse
+     * @return DescribeDtsEtlJobVersionInfoResponse DescribeDtsEtlJobVersionInfoResponse
      */
     public function describeDtsEtlJobVersionInfo($request)
     {
@@ -4436,48 +3939,37 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查询DTS任务配置.
+     * @summary 查询DTS任务配置
+     *  *
+     * @param DescribeDtsJobConfigRequest $request DescribeDtsJobConfigRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDtsJobConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDtsJobConfigResponse
-     *
-     * @param DescribeDtsJobConfigRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeDtsJobConfigResponse
+     * @return DescribeDtsJobConfigResponse DescribeDtsJobConfigResponse
      */
     public function describeDtsJobConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->forAcceleration) {
-            @$query['ForAcceleration'] = $request->forAcceleration;
+        if (!Utils::isUnset($request->forAcceleration)) {
+            $query['ForAcceleration'] = $request->forAcceleration;
         }
-
-        if (null !== $request->module) {
-            @$query['Module'] = $request->module;
+        if (!Utils::isUnset($request->module)) {
+            $query['Module'] = $request->module;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDtsJobConfig',
@@ -4495,15 +3987,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查询DTS任务配置.
+     * @summary 查询DTS任务配置
+     *  *
+     * @param DescribeDtsJobConfigRequest $request DescribeDtsJobConfigRequest
      *
-     * @param request - DescribeDtsJobConfigRequest
-     *
-     * @returns DescribeDtsJobConfigResponse
-     *
-     * @param DescribeDtsJobConfigRequest $request
-     *
-     * @return DescribeDtsJobConfigResponse
+     * @return DescribeDtsJobConfigResponse DescribeDtsJobConfigResponse
      */
     public function describeDtsJobConfig($request)
     {
@@ -4513,53 +4001,41 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * The latency of incremental data migration or synchronization.
+     * @summary The latency of incremental data migration or synchronization.
      * \\\\\\\\\\>  If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
+     *  *
+     * @param DescribeDtsJobDetailRequest $request DescribeDtsJobDetailRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDtsJobDetailRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDtsJobDetailResponse
-     *
-     * @param DescribeDtsJobDetailRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeDtsJobDetailResponse
+     * @return DescribeDtsJobDetailResponse DescribeDtsJobDetailResponse
      */
     public function describeDtsJobDetailWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsInstanceID) {
-            @$query['DtsInstanceID'] = $request->dtsInstanceID;
+        if (!Utils::isUnset($request->dtsInstanceID)) {
+            $query['DtsInstanceID'] = $request->dtsInstanceID;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->syncSubJobHistory) {
-            @$query['SyncSubJobHistory'] = $request->syncSubJobHistory;
+        if (!Utils::isUnset($request->syncSubJobHistory)) {
+            $query['SyncSubJobHistory'] = $request->syncSubJobHistory;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDtsJobDetail',
@@ -4577,16 +4053,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * The latency of incremental data migration or synchronization.
+     * @summary The latency of incremental data migration or synchronization.
      * \\\\\\\\\\>  If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
+     *  *
+     * @param DescribeDtsJobDetailRequest $request DescribeDtsJobDetailRequest
      *
-     * @param request - DescribeDtsJobDetailRequest
-     *
-     * @returns DescribeDtsJobDetailResponse
-     *
-     * @param DescribeDtsJobDetailRequest $request
-     *
-     * @return DescribeDtsJobDetailResponse
+     * @return DescribeDtsJobDetailResponse DescribeDtsJobDetailResponse
      */
     public function describeDtsJobDetail($request)
     {
@@ -4596,124 +4068,94 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the list of Data Transmission Service (DTS) tasks and the details of each task.
-     *
-     * @remarks
-     * ## Debugging
+     * @summary Queries the list of Data Transmission Service (DTS) tasks and the details of each task.
+     *  *
+     * @description ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Dts\\&api=DescribeDtsJobs\\&type=RPC\\&version=2020-01-01)
+     *  *
+     * @param DescribeDtsJobsRequest $request DescribeDtsJobsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDtsJobsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDtsJobsResponse
-     *
-     * @param DescribeDtsJobsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeDtsJobsResponse
+     * @return DescribeDtsJobsResponse DescribeDtsJobsResponse
      */
     public function describeDtsJobsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dedicatedClusterId) {
-            @$query['DedicatedClusterId'] = $request->dedicatedClusterId;
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
         }
-
-        if (null !== $request->destProductType) {
-            @$query['DestProductType'] = $request->destProductType;
+        if (!Utils::isUnset($request->destProductType)) {
+            $query['DestProductType'] = $request->destProductType;
         }
-
-        if (null !== $request->dtsBisLabel) {
-            @$query['DtsBisLabel'] = $request->dtsBisLabel;
+        if (!Utils::isUnset($request->dtsBisLabel)) {
+            $query['DtsBisLabel'] = $request->dtsBisLabel;
         }
-
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->groupId) {
-            @$query['GroupId'] = $request->groupId;
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceType) {
-            @$query['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
-
-        if (null !== $request->jobType) {
-            @$query['JobType'] = $request->jobType;
+        if (!Utils::isUnset($request->jobType)) {
+            $query['JobType'] = $request->jobType;
         }
-
-        if (null !== $request->orderColumn) {
-            @$query['OrderColumn'] = $request->orderColumn;
+        if (!Utils::isUnset($request->orderColumn)) {
+            $query['OrderColumn'] = $request->orderColumn;
         }
-
-        if (null !== $request->orderDirection) {
-            @$query['OrderDirection'] = $request->orderDirection;
+        if (!Utils::isUnset($request->orderDirection)) {
+            $query['OrderDirection'] = $request->orderDirection;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->params) {
-            @$query['Params'] = $request->params;
+        if (!Utils::isUnset($request->params)) {
+            $query['Params'] = $request->params;
         }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->srcProductType) {
-            @$query['SrcProductType'] = $request->srcProductType;
+        if (!Utils::isUnset($request->srcProductType)) {
+            $query['SrcProductType'] = $request->srcProductType;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->tags) {
-            @$query['Tags'] = $request->tags;
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
-        if (null !== $request->withoutDbList) {
-            @$query['WithoutDbList'] = $request->withoutDbList;
+        if (!Utils::isUnset($request->withoutDbList)) {
+            $query['WithoutDbList'] = $request->withoutDbList;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDtsJobs',
@@ -4731,19 +4173,14 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the list of Data Transmission Service (DTS) tasks and the details of each task.
-     *
-     * @remarks
-     * ## Debugging
+     * @summary Queries the list of Data Transmission Service (DTS) tasks and the details of each task.
+     *  *
+     * @description ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Dts\\&api=DescribeDtsJobs\\&type=RPC\\&version=2020-01-01)
+     *  *
+     * @param DescribeDtsJobsRequest $request DescribeDtsJobsRequest
      *
-     * @param request - DescribeDtsJobsRequest
-     *
-     * @returns DescribeDtsJobsResponse
-     *
-     * @param DescribeDtsJobsRequest $request
-     *
-     * @return DescribeDtsJobsResponse
+     * @return DescribeDtsJobsResponse DescribeDtsJobsResponse
      */
     public function describeDtsJobs($request)
     {
@@ -4753,68 +4190,52 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the logs of a data migration or synchronization task.
+     * @summary Queries the logs of a data migration or synchronization task.
+     *  *
+     * @param DescribeDtsServiceLogRequest $request DescribeDtsServiceLogRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDtsServiceLogRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDtsServiceLogResponse
-     *
-     * @param DescribeDtsServiceLogRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeDtsServiceLogResponse
+     * @return DescribeDtsServiceLogResponse DescribeDtsServiceLogResponse
      */
     public function describeDtsServiceLogWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->keyword) {
-            @$query['Keyword'] = $request->keyword;
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->subJobType) {
-            @$query['SubJobType'] = $request->subJobType;
+        if (!Utils::isUnset($request->subJobType)) {
+            $query['SubJobType'] = $request->subJobType;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDtsServiceLog',
@@ -4832,15 +4253,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the logs of a data migration or synchronization task.
+     * @summary Queries the logs of a data migration or synchronization task.
+     *  *
+     * @param DescribeDtsServiceLogRequest $request DescribeDtsServiceLogRequest
      *
-     * @param request - DescribeDtsServiceLogRequest
-     *
-     * @returns DescribeDtsServiceLogResponse
-     *
-     * @param DescribeDtsServiceLogRequest $request
-     *
-     * @return DescribeDtsServiceLogResponse
+     * @return DescribeDtsServiceLogResponse DescribeDtsServiceLogResponse
      */
     public function describeDtsServiceLog($request)
     {
@@ -4850,48 +4267,37 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the status of the task that changes the database connection settings.
+     * @summary Queries the status of the task that changes the database connection settings.
+     *  *
+     * @param DescribeEndpointSwitchStatusRequest $request DescribeEndpointSwitchStatusRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeEndpointSwitchStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeEndpointSwitchStatusResponse
-     *
-     * @param DescribeEndpointSwitchStatusRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeEndpointSwitchStatusResponse
+     * @return DescribeEndpointSwitchStatusResponse DescribeEndpointSwitchStatusResponse
      */
     public function describeEndpointSwitchStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeEndpointSwitchStatus',
@@ -4909,15 +4315,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the status of the task that changes the database connection settings.
+     * @summary Queries the status of the task that changes the database connection settings.
+     *  *
+     * @param DescribeEndpointSwitchStatusRequest $request DescribeEndpointSwitchStatusRequest
      *
-     * @param request - DescribeEndpointSwitchStatusRequest
-     *
-     * @returns DescribeEndpointSwitchStatusResponse
-     *
-     * @param DescribeEndpointSwitchStatusRequest $request
-     *
-     * @return DescribeEndpointSwitchStatusResponse
+     * @return DescribeEndpointSwitchStatusResponse DescribeEndpointSwitchStatusResponse
      */
     public function describeEndpointSwitchStatus($request)
     {
@@ -4927,36 +4329,28 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the logs of extract, transform, and load (ETL) tasks.
+     * @summary Queries the logs of extract, transform, and load (ETL) tasks.
+     *  *
+     * @param DescribeEtlJobLogsRequest $request DescribeEtlJobLogsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeEtlJobLogsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeEtlJobLogsResponse
-     *
-     * @param DescribeEtlJobLogsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeEtlJobLogsResponse
+     * @return DescribeEtlJobLogsResponse DescribeEtlJobLogsResponse
      */
     public function describeEtlJobLogsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeEtlJobLogs',
@@ -4974,15 +4368,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the logs of extract, transform, and load (ETL) tasks.
+     * @summary Queries the logs of extract, transform, and load (ETL) tasks.
+     *  *
+     * @param DescribeEtlJobLogsRequest $request DescribeEtlJobLogsRequest
      *
-     * @param request - DescribeEtlJobLogsRequest
-     *
-     * @returns DescribeEtlJobLogsResponse
-     *
-     * @param DescribeEtlJobLogsRequest $request
-     *
-     * @return DescribeEtlJobLogsResponse
+     * @return DescribeEtlJobLogsResponse DescribeEtlJobLogsResponse
      */
     public function describeEtlJobLogs($request)
     {
@@ -4992,40 +4382,31 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries full data migration tasks.
+     * @summary Queries full data migration tasks.
+     *  *
+     * @param DescribeFullProcessListRequest $request DescribeFullProcessListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeFullProcessListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeFullProcessListResponse
-     *
-     * @param DescribeFullProcessListRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeFullProcessListResponse
+     * @return DescribeFullProcessListResponse DescribeFullProcessListResponse
      */
     public function describeFullProcessListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeFullProcessList',
@@ -5043,15 +4424,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries full data migration tasks.
+     * @summary Queries full data migration tasks.
+     *  *
+     * @param DescribeFullProcessListRequest $request DescribeFullProcessListRequest
      *
-     * @param request - DescribeFullProcessListRequest
-     *
-     * @returns DescribeFullProcessListResponse
-     *
-     * @param DescribeFullProcessListRequest $request
-     *
-     * @return DescribeFullProcessListResponse
+     * @return DescribeFullProcessListResponse DescribeFullProcessListResponse
      */
     public function describeFullProcessList($request)
     {
@@ -5061,56 +4438,46 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查询GAD实例列表.
+     * @summary 查询GAD实例列表
+     *  *
+     * @param DescribeGadInstancesRequest $request DescribeGadInstancesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGadInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeGadInstancesResponse
-     *
-     * @param DescribeGadInstancesRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeGadInstancesResponse
+     * @return DescribeGadInstancesResponse DescribeGadInstancesResponse
      */
     public function describeGadInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->dbEngineTypes)) {
+            $query['DbEngineTypes'] = $request->dbEngineTypes;
         }
-
-        if (null !== $request->masterDbInstanceId) {
-            @$query['MasterDbInstanceId'] = $request->masterDbInstanceId;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->masterDbInstanceId)) {
+            $query['MasterDbInstanceId'] = $request->masterDbInstanceId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->slaveDbInstanceId) {
-            @$query['SlaveDbInstanceId'] = $request->slaveDbInstanceId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
+        if (!Utils::isUnset($request->slaveDbInstanceId)) {
+            $query['SlaveDbInstanceId'] = $request->slaveDbInstanceId;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGadInstances',
@@ -5128,15 +4495,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查询GAD实例列表.
+     * @summary 查询GAD实例列表
+     *  *
+     * @param DescribeGadInstancesRequest $request DescribeGadInstancesRequest
      *
-     * @param request - DescribeGadInstancesRequest
-     *
-     * @returns DescribeGadInstancesResponse
-     *
-     * @param DescribeGadInstancesRequest $request
-     *
-     * @return DescribeGadInstancesResponse
+     * @return DescribeGadInstancesResponse DescribeGadInstancesResponse
      */
     public function describeGadInstances($request)
     {
@@ -5146,52 +4509,40 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the details of initial data synchronization, including the information about the schemas and historical data of the object to be synchronized.
+     * @summary Queries the details of initial data synchronization, including the information about the schemas and historical data of the object to be synchronized.
+     *  *
+     * @param DescribeInitializationStatusRequest $request DescribeInitializationStatusRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInitializationStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeInitializationStatusResponse
-     *
-     * @param DescribeInitializationStatusRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeInitializationStatusResponse
+     * @return DescribeInitializationStatusResponse DescribeInitializationStatusResponse
      */
     public function describeInitializationStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['PageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationJobId) {
-            @$query['SynchronizationJobId'] = $request->synchronizationJobId;
+        if (!Utils::isUnset($request->synchronizationJobId)) {
+            $query['SynchronizationJobId'] = $request->synchronizationJobId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeInitializationStatus',
@@ -5209,15 +4560,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the details of initial data synchronization, including the information about the schemas and historical data of the object to be synchronized.
+     * @summary Queries the details of initial data synchronization, including the information about the schemas and historical data of the object to be synchronized.
+     *  *
+     * @param DescribeInitializationStatusRequest $request DescribeInitializationStatusRequest
      *
-     * @param request - DescribeInitializationStatusRequest
-     *
-     * @returns DescribeInitializationStatusResponse
-     *
-     * @param DescribeInitializationStatusRequest $request
-     *
-     * @return DescribeInitializationStatusResponse
+     * @return DescribeInitializationStatusResponse DescribeInitializationStatusResponse
      */
     public function describeInitializationStatus($request)
     {
@@ -5227,36 +4574,28 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the monitoring rules of a Data Transmission Service (DTS) task.
+     * @summary Queries the monitoring rules of a Data Transmission Service (DTS) task.
+     *  *
+     * @param DescribeJobMonitorRuleRequest $request DescribeJobMonitorRuleRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeJobMonitorRuleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeJobMonitorRuleResponse
-     *
-     * @param DescribeJobMonitorRuleRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeJobMonitorRuleResponse
+     * @return DescribeJobMonitorRuleResponse DescribeJobMonitorRuleResponse
      */
     public function describeJobMonitorRuleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeJobMonitorRule',
@@ -5274,15 +4613,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the monitoring rules of a Data Transmission Service (DTS) task.
+     * @summary Queries the monitoring rules of a Data Transmission Service (DTS) task.
+     *  *
+     * @param DescribeJobMonitorRuleRequest $request DescribeJobMonitorRuleRequest
      *
-     * @param request - DescribeJobMonitorRuleRequest
-     *
-     * @returns DescribeJobMonitorRuleResponse
-     *
-     * @param DescribeJobMonitorRuleRequest $request
-     *
-     * @return DescribeJobMonitorRuleResponse
+     * @return DescribeJobMonitorRuleResponse DescribeJobMonitorRuleResponse
      */
     public function describeJobMonitorRule($request)
     {
@@ -5292,74 +4627,57 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the metrics of a cluster.
+     * @summary Queries the metrics of a cluster.
+     *  *
+     * @param DescribeMetricListRequest $request DescribeMetricListRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeMetricListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeMetricListResponse
-     *
-     * @param DescribeMetricListRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeMetricListResponse
+     * @return DescribeMetricListResponse DescribeMetricListResponse
      */
     public function describeMetricListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $body = [];
-        if (null !== $request->accountId) {
-            @$body['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $body['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$body['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$body['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $body['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->endTime) {
-            @$body['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->env) {
-            @$body['Env'] = $request->env;
+        if (!Utils::isUnset($request->env)) {
+            $body['Env'] = $request->env;
         }
-
-        if (null !== $request->metricName) {
-            @$body['MetricName'] = $request->metricName;
+        if (!Utils::isUnset($request->metricName)) {
+            $body['MetricName'] = $request->metricName;
         }
-
-        if (null !== $request->metricType) {
-            @$body['MetricType'] = $request->metricType;
+        if (!Utils::isUnset($request->metricType)) {
+            $body['MetricType'] = $request->metricType;
         }
-
-        if (null !== $request->ownerID) {
-            @$body['OwnerID'] = $request->ownerID;
+        if (!Utils::isUnset($request->ownerID)) {
+            $body['OwnerID'] = $request->ownerID;
         }
-
-        if (null !== $request->param) {
-            @$body['Param'] = $request->param;
+        if (!Utils::isUnset($request->param)) {
+            $body['Param'] = $request->param;
         }
-
-        if (null !== $request->period) {
-            @$body['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $body['Period'] = $request->period;
         }
-
-        if (null !== $request->startTime) {
-            @$body['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeMetricList',
@@ -5377,15 +4695,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the metrics of a cluster.
+     * @summary Queries the metrics of a cluster.
+     *  *
+     * @param DescribeMetricListRequest $request DescribeMetricListRequest
      *
-     * @param request - DescribeMetricListRequest
-     *
-     * @returns DescribeMetricListResponse
-     *
-     * @param DescribeMetricListRequest $request
-     *
-     * @return DescribeMetricListResponse
+     * @return DescribeMetricListResponse DescribeMetricListResponse
      */
     public function describeMetricList($request)
     {
@@ -5395,48 +4709,37 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the alert settings of a data migration instance.
+     * @summary Queries the alert settings of a data migration instance.
+     *  *
+     * @param DescribeMigrationJobAlertRequest $request DescribeMigrationJobAlertRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeMigrationJobAlertRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeMigrationJobAlertResponse
-     *
-     * @param DescribeMigrationJobAlertRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeMigrationJobAlertResponse
+     * @return DescribeMigrationJobAlertResponse DescribeMigrationJobAlertResponse
      */
     public function describeMigrationJobAlertWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->migrationJobId) {
-            @$query['MigrationJobId'] = $request->migrationJobId;
+        if (!Utils::isUnset($request->migrationJobId)) {
+            $query['MigrationJobId'] = $request->migrationJobId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeMigrationJobAlert',
@@ -5454,15 +4757,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the alert settings of a data migration instance.
+     * @summary Queries the alert settings of a data migration instance.
+     *  *
+     * @param DescribeMigrationJobAlertRequest $request DescribeMigrationJobAlertRequest
      *
-     * @param request - DescribeMigrationJobAlertRequest
-     *
-     * @returns DescribeMigrationJobAlertResponse
-     *
-     * @param DescribeMigrationJobAlertRequest $request
-     *
-     * @return DescribeMigrationJobAlertResponse
+     * @return DescribeMigrationJobAlertResponse DescribeMigrationJobAlertResponse
      */
     public function describeMigrationJobAlert($request)
     {
@@ -5472,60 +4771,46 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the details of a data migration task.
+     * @summary Queries the details of a data migration task.
+     *  *
+     * @param DescribeMigrationJobDetailRequest $request DescribeMigrationJobDetailRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeMigrationJobDetailRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeMigrationJobDetailResponse
-     *
-     * @param DescribeMigrationJobDetailRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeMigrationJobDetailResponse
+     * @return DescribeMigrationJobDetailResponse DescribeMigrationJobDetailResponse
      */
     public function describeMigrationJobDetailWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->migrationJobId) {
-            @$query['MigrationJobId'] = $request->migrationJobId;
+        if (!Utils::isUnset($request->migrationJobId)) {
+            $query['MigrationJobId'] = $request->migrationJobId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['PageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->migrationMode) {
-            @$query['MigrationMode'] = $request->migrationMode;
+        if (!Utils::isUnset($request->migrationMode)) {
+            $query['MigrationMode'] = $request->migrationMode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeMigrationJobDetail',
@@ -5543,15 +4828,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the details of a data migration task.
+     * @summary Queries the details of a data migration task.
+     *  *
+     * @param DescribeMigrationJobDetailRequest $request DescribeMigrationJobDetailRequest
      *
-     * @param request - DescribeMigrationJobDetailRequest
-     *
-     * @returns DescribeMigrationJobDetailResponse
-     *
-     * @param DescribeMigrationJobDetailRequest $request
-     *
-     * @return DescribeMigrationJobDetailResponse
+     * @return DescribeMigrationJobDetailResponse DescribeMigrationJobDetailResponse
      */
     public function describeMigrationJobDetail($request)
     {
@@ -5561,48 +4842,37 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the status of a data migration task.
+     * @summary Queries the status of a data migration task.
+     *  *
+     * @param DescribeMigrationJobStatusRequest $request DescribeMigrationJobStatusRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeMigrationJobStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeMigrationJobStatusResponse
-     *
-     * @param DescribeMigrationJobStatusRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeMigrationJobStatusResponse
+     * @return DescribeMigrationJobStatusResponse DescribeMigrationJobStatusResponse
      */
     public function describeMigrationJobStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->migrationJobId) {
-            @$query['MigrationJobId'] = $request->migrationJobId;
+        if (!Utils::isUnset($request->migrationJobId)) {
+            $query['MigrationJobId'] = $request->migrationJobId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeMigrationJobStatus',
@@ -5620,15 +4890,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the status of a data migration task.
+     * @summary Queries the status of a data migration task.
+     *  *
+     * @param DescribeMigrationJobStatusRequest $request DescribeMigrationJobStatusRequest
      *
-     * @param request - DescribeMigrationJobStatusRequest
-     *
-     * @returns DescribeMigrationJobStatusResponse
-     *
-     * @param DescribeMigrationJobStatusRequest $request
-     *
-     * @return DescribeMigrationJobStatusResponse
+     * @return DescribeMigrationJobStatusResponse DescribeMigrationJobStatusResponse
      */
     public function describeMigrationJobStatus($request)
     {
@@ -5638,56 +4904,43 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the list of data migration instances and the details of each instance.
+     * @summary Queries the list of data migration instances and the details of each instance.
+     *  *
+     * @param DescribeMigrationJobsRequest $request DescribeMigrationJobsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeMigrationJobsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeMigrationJobsResponse
-     *
-     * @param DescribeMigrationJobsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeMigrationJobsResponse
+     * @return DescribeMigrationJobsResponse DescribeMigrationJobsResponse
      */
     public function describeMigrationJobsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->migrationJobName) {
-            @$query['MigrationJobName'] = $request->migrationJobName;
+        if (!Utils::isUnset($request->migrationJobName)) {
+            $query['MigrationJobName'] = $request->migrationJobName;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['PageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeMigrationJobs',
@@ -5705,15 +4958,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the list of data migration instances and the details of each instance.
+     * @summary Queries the list of data migration instances and the details of each instance.
+     *  *
+     * @param DescribeMigrationJobsRequest $request DescribeMigrationJobsRequest
      *
-     * @param request - DescribeMigrationJobsRequest
-     *
-     * @returns DescribeMigrationJobsResponse
-     *
-     * @param DescribeMigrationJobsRequest $request
-     *
-     * @return DescribeMigrationJobsResponse
+     * @return DescribeMigrationJobsResponse DescribeMigrationJobsResponse
      */
     public function describeMigrationJobs($request)
     {
@@ -5723,44 +4972,34 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查询预检查创建GAD订单任务结果.
+     * @summary 查询预检查创建GAD订单任务结果
+     *  *
+     * @param DescribePreCheckCreateGadOrderResultRequest $request DescribePreCheckCreateGadOrderResultRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePreCheckCreateGadOrderResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePreCheckCreateGadOrderResultResponse
-     *
-     * @param DescribePreCheckCreateGadOrderResultRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return DescribePreCheckCreateGadOrderResultResponse
+     * @return DescribePreCheckCreateGadOrderResultResponse DescribePreCheckCreateGadOrderResultResponse
      */
     public function describePreCheckCreateGadOrderResultWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePreCheckCreateGadOrderResult',
@@ -5778,15 +5017,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查询预检查创建GAD订单任务结果.
+     * @summary 查询预检查创建GAD订单任务结果
+     *  *
+     * @param DescribePreCheckCreateGadOrderResultRequest $request DescribePreCheckCreateGadOrderResultRequest
      *
-     * @param request - DescribePreCheckCreateGadOrderResultRequest
-     *
-     * @returns DescribePreCheckCreateGadOrderResultResponse
-     *
-     * @param DescribePreCheckCreateGadOrderResultRequest $request
-     *
-     * @return DescribePreCheckCreateGadOrderResultResponse
+     * @return DescribePreCheckCreateGadOrderResultResponse DescribePreCheckCreateGadOrderResultResponse
      */
     public function describePreCheckCreateGadOrderResult($request)
     {
@@ -5796,64 +5031,49 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the status of a Data Transmission Service (DTS) subtask that performs precheck, schema migration, initial schema synchronization, full data migration, initial full data synchronization, incremental data migration, or incremental data synchronization.
+     * @summary Queries the status of a Data Transmission Service (DTS) subtask that performs precheck, schema migration, initial schema synchronization, full data migration, initial full data synchronization, incremental data migration, or incremental data synchronization.
+     *  *
+     * @param DescribePreCheckStatusRequest $request DescribePreCheckStatusRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePreCheckStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePreCheckStatusResponse
-     *
-     * @param DescribePreCheckStatusRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribePreCheckStatusResponse
+     * @return DescribePreCheckStatusResponse DescribePreCheckStatusResponse
      */
     public function describePreCheckStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->jobCode) {
-            @$query['JobCode'] = $request->jobCode;
+        if (!Utils::isUnset($request->jobCode)) {
+            $query['JobCode'] = $request->jobCode;
         }
-
-        if (null !== $request->name) {
-            @$query['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->structPhase) {
-            @$query['StructPhase'] = $request->structPhase;
+        if (!Utils::isUnset($request->structPhase)) {
+            $query['StructPhase'] = $request->structPhase;
         }
-
-        if (null !== $request->structType) {
-            @$query['StructType'] = $request->structType;
+        if (!Utils::isUnset($request->structType)) {
+            $query['StructType'] = $request->structType;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePreCheckStatus',
@@ -5871,15 +5091,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the status of a Data Transmission Service (DTS) subtask that performs precheck, schema migration, initial schema synchronization, full data migration, initial full data synchronization, incremental data migration, or incremental data synchronization.
+     * @summary Queries the status of a Data Transmission Service (DTS) subtask that performs precheck, schema migration, initial schema synchronization, full data migration, initial full data synchronization, incremental data migration, or incremental data synchronization.
+     *  *
+     * @param DescribePreCheckStatusRequest $request DescribePreCheckStatusRequest
      *
-     * @param request - DescribePreCheckStatusRequest
-     *
-     * @returns DescribePreCheckStatusResponse
-     *
-     * @param DescribePreCheckStatusRequest $request
-     *
-     * @return DescribePreCheckStatusResponse
+     * @return DescribePreCheckStatusResponse DescribePreCheckStatusResponse
      */
     public function describePreCheckStatus($request)
     {
@@ -5889,48 +5105,37 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the alert settings of a change tracking instance.
+     * @summary Queries the alert settings of a change tracking instance.
+     *  *
+     * @param DescribeSubscriptionInstanceAlertRequest $request DescribeSubscriptionInstanceAlertRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSubscriptionInstanceAlertRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSubscriptionInstanceAlertResponse
-     *
-     * @param DescribeSubscriptionInstanceAlertRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return DescribeSubscriptionInstanceAlertResponse
+     * @return DescribeSubscriptionInstanceAlertResponse DescribeSubscriptionInstanceAlertResponse
      */
     public function describeSubscriptionInstanceAlertWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->subscriptionInstanceId) {
-            @$query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
+        if (!Utils::isUnset($request->subscriptionInstanceId)) {
+            $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSubscriptionInstanceAlert',
@@ -5948,15 +5153,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the alert settings of a change tracking instance.
+     * @summary Queries the alert settings of a change tracking instance.
+     *  *
+     * @param DescribeSubscriptionInstanceAlertRequest $request DescribeSubscriptionInstanceAlertRequest
      *
-     * @param request - DescribeSubscriptionInstanceAlertRequest
-     *
-     * @returns DescribeSubscriptionInstanceAlertResponse
-     *
-     * @param DescribeSubscriptionInstanceAlertRequest $request
-     *
-     * @return DescribeSubscriptionInstanceAlertResponse
+     * @return DescribeSubscriptionInstanceAlertResponse DescribeSubscriptionInstanceAlertResponse
      */
     public function describeSubscriptionInstanceAlert($request)
     {
@@ -5966,44 +5167,34 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the status of a change tracking instance.
+     * @summary Queries the status of a change tracking instance.
+     *  *
+     * @param DescribeSubscriptionInstanceStatusRequest $request DescribeSubscriptionInstanceStatusRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSubscriptionInstanceStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSubscriptionInstanceStatusResponse
-     *
-     * @param DescribeSubscriptionInstanceStatusRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return DescribeSubscriptionInstanceStatusResponse
+     * @return DescribeSubscriptionInstanceStatusResponse DescribeSubscriptionInstanceStatusResponse
      */
     public function describeSubscriptionInstanceStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->subscriptionInstanceId) {
-            @$query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
+        if (!Utils::isUnset($request->subscriptionInstanceId)) {
+            $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSubscriptionInstanceStatus',
@@ -6021,15 +5212,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the status of a change tracking instance.
+     * @summary Queries the status of a change tracking instance.
+     *  *
+     * @param DescribeSubscriptionInstanceStatusRequest $request DescribeSubscriptionInstanceStatusRequest
      *
-     * @param request - DescribeSubscriptionInstanceStatusRequest
-     *
-     * @returns DescribeSubscriptionInstanceStatusResponse
-     *
-     * @param DescribeSubscriptionInstanceStatusRequest $request
-     *
-     * @return DescribeSubscriptionInstanceStatusResponse
+     * @return DescribeSubscriptionInstanceStatusResponse DescribeSubscriptionInstanceStatusResponse
      */
     public function describeSubscriptionInstanceStatus($request)
     {
@@ -6039,60 +5226,46 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the list of change tracking instances and the details of each instance.
+     * @summary Queries the list of change tracking instances and the details of each instance.
+     *  *
+     * @param DescribeSubscriptionInstancesRequest $request DescribeSubscriptionInstancesRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSubscriptionInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSubscriptionInstancesResponse
-     *
-     * @param DescribeSubscriptionInstancesRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeSubscriptionInstancesResponse
+     * @return DescribeSubscriptionInstancesResponse DescribeSubscriptionInstancesResponse
      */
     public function describeSubscriptionInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['PageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->subscriptionInstanceName) {
-            @$query['SubscriptionInstanceName'] = $request->subscriptionInstanceName;
+        if (!Utils::isUnset($request->subscriptionInstanceName)) {
+            $query['SubscriptionInstanceName'] = $request->subscriptionInstanceName;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSubscriptionInstances',
@@ -6110,15 +5283,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the list of change tracking instances and the details of each instance.
+     * @summary Queries the list of change tracking instances and the details of each instance.
+     *  *
+     * @param DescribeSubscriptionInstancesRequest $request DescribeSubscriptionInstancesRequest
      *
-     * @param request - DescribeSubscriptionInstancesRequest
-     *
-     * @returns DescribeSubscriptionInstancesResponse
-     *
-     * @param DescribeSubscriptionInstancesRequest $request
-     *
-     * @return DescribeSubscriptionInstancesResponse
+     * @return DescribeSubscriptionInstancesResponse DescribeSubscriptionInstancesResponse
      */
     public function describeSubscriptionInstances($request)
     {
@@ -6128,62 +5297,48 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the details of the subtasks in a distributed change tracking task for a PolarDB-X 1.0 instance.
-     *
-     * @remarks
-     *   When Data Transmission Service (DTS) tracks data changes from a PolarDB-X 1.0 instance, data is distributed across the attached ApsaraDB RDS for MySQL instances. DTS runs a subtask for each ApsaraDB RDS for MySQL instance. You can call this operation to query the details of the subtasks in a distributed change tracking task.
+     * @summary Queries the details of the subtasks in a distributed change tracking task for a PolarDB-X 1.0 instance.
+     *  *
+     * @description *   When Data Transmission Service (DTS) tracks data changes from a PolarDB-X 1.0 instance, data is distributed across the attached ApsaraDB RDS for MySQL instances. DTS runs a subtask for each ApsaraDB RDS for MySQL instance. You can call this operation to query the details of the subtasks in a distributed change tracking task.
      * *   You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the ID of the change tracking instance and the ID of the consumer group.
+     *  *
+     * @param DescribeSubscriptionMetaRequest $tmpReq  DescribeSubscriptionMetaRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - DescribeSubscriptionMetaRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSubscriptionMetaResponse
-     *
-     * @param DescribeSubscriptionMetaRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeSubscriptionMetaResponse
+     * @return DescribeSubscriptionMetaResponse DescribeSubscriptionMetaResponse
      */
     public function describeSubscriptionMetaWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DescribeSubscriptionMetaShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->subMigrationJobIds) {
-            $request->subMigrationJobIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->subMigrationJobIds, 'SubMigrationJobIds', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->subMigrationJobIds)) {
+            $request->subMigrationJobIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->subMigrationJobIds, 'SubMigrationJobIds', 'json');
         }
-
-        if (null !== $tmpReq->topics) {
-            $request->topicsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->topics, 'Topics', 'json');
+        if (!Utils::isUnset($tmpReq->topics)) {
+            $request->topicsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->topics, 'Topics', 'json');
         }
-
         $query = [];
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->sid) {
-            @$query['Sid'] = $request->sid;
+        if (!Utils::isUnset($request->sid)) {
+            $query['Sid'] = $request->sid;
         }
-
-        if (null !== $request->subMigrationJobIdsShrink) {
-            @$query['SubMigrationJobIds'] = $request->subMigrationJobIdsShrink;
+        if (!Utils::isUnset($request->subMigrationJobIdsShrink)) {
+            $query['SubMigrationJobIds'] = $request->subMigrationJobIdsShrink;
         }
-
-        if (null !== $request->topicsShrink) {
-            @$query['Topics'] = $request->topicsShrink;
+        if (!Utils::isUnset($request->topicsShrink)) {
+            $query['Topics'] = $request->topicsShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSubscriptionMeta',
@@ -6201,19 +5356,14 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the details of the subtasks in a distributed change tracking task for a PolarDB-X 1.0 instance.
-     *
-     * @remarks
-     *   When Data Transmission Service (DTS) tracks data changes from a PolarDB-X 1.0 instance, data is distributed across the attached ApsaraDB RDS for MySQL instances. DTS runs a subtask for each ApsaraDB RDS for MySQL instance. You can call this operation to query the details of the subtasks in a distributed change tracking task.
+     * @summary Queries the details of the subtasks in a distributed change tracking task for a PolarDB-X 1.0 instance.
+     *  *
+     * @description *   When Data Transmission Service (DTS) tracks data changes from a PolarDB-X 1.0 instance, data is distributed across the attached ApsaraDB RDS for MySQL instances. DTS runs a subtask for each ApsaraDB RDS for MySQL instance. You can call this operation to query the details of the subtasks in a distributed change tracking task.
      * *   You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the ID of the change tracking instance and the ID of the consumer group.
+     *  *
+     * @param DescribeSubscriptionMetaRequest $request DescribeSubscriptionMetaRequest
      *
-     * @param request - DescribeSubscriptionMetaRequest
-     *
-     * @returns DescribeSubscriptionMetaResponse
-     *
-     * @param DescribeSubscriptionMetaRequest $request
-     *
-     * @return DescribeSubscriptionMetaResponse
+     * @return DescribeSubscriptionMetaResponse DescribeSubscriptionMetaResponse
      */
     public function describeSubscriptionMeta($request)
     {
@@ -6223,44 +5373,34 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查看同步和迁移任务的增量写入延迟信息.
+     * @summary 查看同步和迁移任务的增量写入延迟信息
+     *  *
+     * @param DescribeSyncStatusRequest $request DescribeSyncStatusRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSyncStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSyncStatusResponse
-     *
-     * @param DescribeSyncStatusRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeSyncStatusResponse
+     * @return DescribeSyncStatusResponse DescribeSyncStatusResponse
      */
     public function describeSyncStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSyncStatus',
@@ -6278,15 +5418,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查看同步和迁移任务的增量写入延迟信息.
+     * @summary 查看同步和迁移任务的增量写入延迟信息
+     *  *
+     * @param DescribeSyncStatusRequest $request DescribeSyncStatusRequest
      *
-     * @param request - DescribeSyncStatusRequest
-     *
-     * @returns DescribeSyncStatusResponse
-     *
-     * @param DescribeSyncStatusRequest $request
-     *
-     * @return DescribeSyncStatusResponse
+     * @return DescribeSyncStatusResponse DescribeSyncStatusResponse
      */
     public function describeSyncStatus($request)
     {
@@ -6296,52 +5432,40 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the alert settings of a data synchronization instance.
+     * @summary Queries the alert settings of a data synchronization instance.
+     *  *
+     * @param DescribeSynchronizationJobAlertRequest $request DescribeSynchronizationJobAlertRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSynchronizationJobAlertRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSynchronizationJobAlertResponse
-     *
-     * @param DescribeSynchronizationJobAlertRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeSynchronizationJobAlertResponse
+     * @return DescribeSynchronizationJobAlertResponse DescribeSynchronizationJobAlertResponse
      */
     public function describeSynchronizationJobAlertWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
-        if (null !== $request->synchronizationJobId) {
-            @$query['SynchronizationJobId'] = $request->synchronizationJobId;
+        if (!Utils::isUnset($request->synchronizationJobId)) {
+            $query['SynchronizationJobId'] = $request->synchronizationJobId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSynchronizationJobAlert',
@@ -6359,15 +5483,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the alert settings of a data synchronization instance.
+     * @summary Queries the alert settings of a data synchronization instance.
+     *  *
+     * @param DescribeSynchronizationJobAlertRequest $request DescribeSynchronizationJobAlertRequest
      *
-     * @param request - DescribeSynchronizationJobAlertRequest
-     *
-     * @returns DescribeSynchronizationJobAlertResponse
-     *
-     * @param DescribeSynchronizationJobAlertRequest $request
-     *
-     * @return DescribeSynchronizationJobAlertResponse
+     * @return DescribeSynchronizationJobAlertResponse DescribeSynchronizationJobAlertResponse
      */
     public function describeSynchronizationJobAlert($request)
     {
@@ -6377,52 +5497,40 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries whether image matching is enabled for a data synchronization instance.
+     * @summary Queries whether image matching is enabled for a data synchronization instance.
+     *  *
+     * @param DescribeSynchronizationJobReplicatorCompareRequest $request DescribeSynchronizationJobReplicatorCompareRequest
+     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSynchronizationJobReplicatorCompareRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSynchronizationJobReplicatorCompareResponse
-     *
-     * @param DescribeSynchronizationJobReplicatorCompareRequest $request
-     * @param RuntimeOptions                                     $runtime
-     *
-     * @return DescribeSynchronizationJobReplicatorCompareResponse
+     * @return DescribeSynchronizationJobReplicatorCompareResponse DescribeSynchronizationJobReplicatorCompareResponse
      */
     public function describeSynchronizationJobReplicatorCompareWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
-        if (null !== $request->synchronizationJobId) {
-            @$query['SynchronizationJobId'] = $request->synchronizationJobId;
+        if (!Utils::isUnset($request->synchronizationJobId)) {
+            $query['SynchronizationJobId'] = $request->synchronizationJobId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSynchronizationJobReplicatorCompare',
@@ -6440,15 +5548,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries whether image matching is enabled for a data synchronization instance.
+     * @summary Queries whether image matching is enabled for a data synchronization instance.
+     *  *
+     * @param DescribeSynchronizationJobReplicatorCompareRequest $request DescribeSynchronizationJobReplicatorCompareRequest
      *
-     * @param request - DescribeSynchronizationJobReplicatorCompareRequest
-     *
-     * @returns DescribeSynchronizationJobReplicatorCompareResponse
-     *
-     * @param DescribeSynchronizationJobReplicatorCompareRequest $request
-     *
-     * @return DescribeSynchronizationJobReplicatorCompareResponse
+     * @return DescribeSynchronizationJobReplicatorCompareResponse DescribeSynchronizationJobReplicatorCompareResponse
      */
     public function describeSynchronizationJobReplicatorCompare($request)
     {
@@ -6458,52 +5562,40 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the status of a data synchronization instance.
+     * @summary Queries the status of a data synchronization instance.
+     *  *
+     * @param DescribeSynchronizationJobStatusRequest $request DescribeSynchronizationJobStatusRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSynchronizationJobStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSynchronizationJobStatusResponse
-     *
-     * @param DescribeSynchronizationJobStatusRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DescribeSynchronizationJobStatusResponse
+     * @return DescribeSynchronizationJobStatusResponse DescribeSynchronizationJobStatusResponse
      */
     public function describeSynchronizationJobStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
-        if (null !== $request->synchronizationJobId) {
-            @$query['SynchronizationJobId'] = $request->synchronizationJobId;
+        if (!Utils::isUnset($request->synchronizationJobId)) {
+            $query['SynchronizationJobId'] = $request->synchronizationJobId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSynchronizationJobStatus',
@@ -6521,15 +5613,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the status of a data synchronization instance.
+     * @summary Queries the status of a data synchronization instance.
+     *  *
+     * @param DescribeSynchronizationJobStatusRequest $request DescribeSynchronizationJobStatusRequest
      *
-     * @param request - DescribeSynchronizationJobStatusRequest
-     *
-     * @returns DescribeSynchronizationJobStatusResponse
-     *
-     * @param DescribeSynchronizationJobStatusRequest $request
-     *
-     * @return DescribeSynchronizationJobStatusResponse
+     * @return DescribeSynchronizationJobStatusResponse DescribeSynchronizationJobStatusResponse
      */
     public function describeSynchronizationJobStatus($request)
     {
@@ -6539,48 +5627,37 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the status of one or more data synchronization instances.
+     * @summary Queries the status of one or more data synchronization instances.
+     *  *
+     * @param DescribeSynchronizationJobStatusListRequest $request DescribeSynchronizationJobStatusListRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSynchronizationJobStatusListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSynchronizationJobStatusListResponse
-     *
-     * @param DescribeSynchronizationJobStatusListRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return DescribeSynchronizationJobStatusListResponse
+     * @return DescribeSynchronizationJobStatusListResponse DescribeSynchronizationJobStatusListResponse
      */
     public function describeSynchronizationJobStatusListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationJobIdListJsonStr) {
-            @$query['SynchronizationJobIdListJsonStr'] = $request->synchronizationJobIdListJsonStr;
+        if (!Utils::isUnset($request->synchronizationJobIdListJsonStr)) {
+            $query['SynchronizationJobIdListJsonStr'] = $request->synchronizationJobIdListJsonStr;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSynchronizationJobStatusList',
@@ -6598,15 +5675,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the status of one or more data synchronization instances.
+     * @summary Queries the status of one or more data synchronization instances.
+     *  *
+     * @param DescribeSynchronizationJobStatusListRequest $request DescribeSynchronizationJobStatusListRequest
      *
-     * @param request - DescribeSynchronizationJobStatusListRequest
-     *
-     * @returns DescribeSynchronizationJobStatusListResponse
-     *
-     * @param DescribeSynchronizationJobStatusListRequest $request
-     *
-     * @return DescribeSynchronizationJobStatusListResponse
+     * @return DescribeSynchronizationJobStatusListResponse DescribeSynchronizationJobStatusListResponse
      */
     public function describeSynchronizationJobStatusList($request)
     {
@@ -6616,60 +5689,46 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the list of data synchronization instances and the details of each instance.
+     * @summary Queries the list of data synchronization instances and the details of each instance.
+     *  *
+     * @param DescribeSynchronizationJobsRequest $request DescribeSynchronizationJobsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSynchronizationJobsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSynchronizationJobsResponse
-     *
-     * @param DescribeSynchronizationJobsRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeSynchronizationJobsResponse
+     * @return DescribeSynchronizationJobsResponse DescribeSynchronizationJobsResponse
      */
     public function describeSynchronizationJobsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['PageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationJobName) {
-            @$query['SynchronizationJobName'] = $request->synchronizationJobName;
+        if (!Utils::isUnset($request->synchronizationJobName)) {
+            $query['SynchronizationJobName'] = $request->synchronizationJobName;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSynchronizationJobs',
@@ -6687,15 +5746,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the list of data synchronization instances and the details of each instance.
+     * @summary Queries the list of data synchronization instances and the details of each instance.
+     *  *
+     * @param DescribeSynchronizationJobsRequest $request DescribeSynchronizationJobsRequest
      *
-     * @param request - DescribeSynchronizationJobsRequest
-     *
-     * @returns DescribeSynchronizationJobsResponse
-     *
-     * @param DescribeSynchronizationJobsRequest $request
-     *
-     * @return DescribeSynchronizationJobsResponse
+     * @return DescribeSynchronizationJobsResponse DescribeSynchronizationJobsResponse
      */
     public function describeSynchronizationJobs($request)
     {
@@ -6705,48 +5760,37 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the status of the task that changes the objects to be synchronized.
+     * @summary Queries the status of the task that changes the objects to be synchronized.
+     *  *
+     * @param DescribeSynchronizationObjectModifyStatusRequest $request DescribeSynchronizationObjectModifyStatusRequest
+     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSynchronizationObjectModifyStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSynchronizationObjectModifyStatusResponse
-     *
-     * @param DescribeSynchronizationObjectModifyStatusRequest $request
-     * @param RuntimeOptions                                   $runtime
-     *
-     * @return DescribeSynchronizationObjectModifyStatusResponse
+     * @return DescribeSynchronizationObjectModifyStatusResponse DescribeSynchronizationObjectModifyStatusResponse
      */
     public function describeSynchronizationObjectModifyStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSynchronizationObjectModifyStatus',
@@ -6764,15 +5808,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the status of the task that changes the objects to be synchronized.
+     * @summary Queries the status of the task that changes the objects to be synchronized.
+     *  *
+     * @param DescribeSynchronizationObjectModifyStatusRequest $request DescribeSynchronizationObjectModifyStatusRequest
      *
-     * @param request - DescribeSynchronizationObjectModifyStatusRequest
-     *
-     * @returns DescribeSynchronizationObjectModifyStatusResponse
-     *
-     * @param DescribeSynchronizationObjectModifyStatusRequest $request
-     *
-     * @return DescribeSynchronizationObjectModifyStatusResponse
+     * @return DescribeSynchronizationObjectModifyStatusResponse DescribeSynchronizationObjectModifyStatusResponse
      */
     public function describeSynchronizationObjectModifyStatus($request)
     {
@@ -6782,52 +5822,40 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries all the tags added to a data migration, data synchronization, or change tracking instance.
+     * @summary Queries all the tags added to a data migration, data synchronization, or change tracking instance.
+     *  *
+     * @param DescribeTagKeysRequest $request DescribeTagKeysRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeTagKeysRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTagKeysResponse
-     *
-     * @param DescribeTagKeysRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeTagKeysResponse
+     * @return DescribeTagKeysResponse DescribeTagKeysResponse
      */
     public function describeTagKeysWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->category) {
-            @$query['Category'] = $request->category;
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTagKeys',
@@ -6845,15 +5873,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries all the tags added to a data migration, data synchronization, or change tracking instance.
+     * @summary Queries all the tags added to a data migration, data synchronization, or change tracking instance.
+     *  *
+     * @param DescribeTagKeysRequest $request DescribeTagKeysRequest
      *
-     * @param request - DescribeTagKeysRequest
-     *
-     * @returns DescribeTagKeysResponse
-     *
-     * @param DescribeTagKeysRequest $request
-     *
-     * @return DescribeTagKeysResponse
+     * @return DescribeTagKeysResponse DescribeTagKeysResponse
      */
     public function describeTagKeys($request)
     {
@@ -6863,56 +5887,43 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries all the tag values of a tag bound to a data migration, data synchronization, or change tracking instance.
+     * @summary Queries all the tag values of a tag bound to a data migration, data synchronization, or change tracking instance.
+     *  *
+     * @param DescribeTagValuesRequest $request DescribeTagValuesRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeTagValuesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTagValuesResponse
-     *
-     * @param DescribeTagValuesRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeTagValuesResponse
+     * @return DescribeTagValuesResponse DescribeTagValuesResponse
      */
     public function describeTagValuesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->category) {
-            @$query['Category'] = $request->category;
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
         }
-
-        if (null !== $request->key) {
-            @$query['Key'] = $request->key;
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTagValues',
@@ -6930,15 +5941,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries all the tag values of a tag bound to a data migration, data synchronization, or change tracking instance.
+     * @summary Queries all the tag values of a tag bound to a data migration, data synchronization, or change tracking instance.
+     *  *
+     * @param DescribeTagValuesRequest $request DescribeTagValuesRequest
      *
-     * @param request - DescribeTagValuesRequest
-     *
-     * @returns DescribeTagValuesResponse
-     *
-     * @param DescribeTagValuesRequest $request
-     *
-     * @return DescribeTagValuesResponse
+     * @return DescribeTagValuesResponse DescribeTagValuesResponse
      */
     public function describeTagValues($request)
     {
@@ -6948,44 +5955,34 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 移除从角色.
+     * @summary 移除从角色
+     *  *
+     * @param DetachGadInstanceDbMemberRequest $request DetachGadInstanceDbMemberRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DetachGadInstanceDbMemberRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DetachGadInstanceDbMemberResponse
-     *
-     * @param DetachGadInstanceDbMemberRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DetachGadInstanceDbMemberResponse
+     * @return DetachGadInstanceDbMemberResponse DetachGadInstanceDbMemberResponse
      */
     public function detachGadInstanceDbMemberWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->slaveDbInstanceId) {
-            @$query['SlaveDbInstanceId'] = $request->slaveDbInstanceId;
+        if (!Utils::isUnset($request->slaveDbInstanceId)) {
+            $query['SlaveDbInstanceId'] = $request->slaveDbInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DetachGadInstanceDbMember',
@@ -7003,15 +6000,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 移除从角色.
+     * @summary 移除从角色
+     *  *
+     * @param DetachGadInstanceDbMemberRequest $request DetachGadInstanceDbMemberRequest
      *
-     * @param request - DetachGadInstanceDbMemberRequest
-     *
-     * @returns DetachGadInstanceDbMemberResponse
-     *
-     * @param DetachGadInstanceDbMemberRequest $request
-     *
-     * @return DetachGadInstanceDbMemberResponse
+     * @return DetachGadInstanceDbMemberResponse DetachGadInstanceDbMemberResponse
      */
     public function detachGadInstanceDbMember($request)
     {
@@ -7021,56 +6014,43 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Initializes a built-in account on a node of an active geo-redundancy database cluster. Data Transmission Service (DTS) uses the built-in account to connect to the node and perform data synchronization tasks.
-     *
-     * @remarks
-     *   The node must be an ApsaraDB RDS for MySQL instance or a self-managed MySQL database that is connected over Cloud Enterprise Network (CEN).
+     * @summary Initializes a built-in account on a node of an active geo-redundancy database cluster. Data Transmission Service (DTS) uses the built-in account to connect to the node and perform data synchronization tasks.
+     *  *
+     * @description *   The node must be an ApsaraDB RDS for MySQL instance or a self-managed MySQL database that is connected over Cloud Enterprise Network (CEN).
      * *   This operation is used to initialize the built-in account named rdsdt_dtsacct on a node of an active geo-redundancy database cluster. DTS uses this account to connect to the node and perform data synchronization tasks.
+     *  *
+     * @param InitDtsRdsInstanceRequest $request InitDtsRdsInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - InitDtsRdsInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns InitDtsRdsInstanceResponse
-     *
-     * @param InitDtsRdsInstanceRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return InitDtsRdsInstanceResponse
+     * @return InitDtsRdsInstanceResponse InitDtsRdsInstanceResponse
      */
     public function initDtsRdsInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->endpointCenId) {
-            @$query['EndpointCenId'] = $request->endpointCenId;
+        if (!Utils::isUnset($request->endpointCenId)) {
+            $query['EndpointCenId'] = $request->endpointCenId;
         }
-
-        if (null !== $request->endpointInstanceId) {
-            @$query['EndpointInstanceId'] = $request->endpointInstanceId;
+        if (!Utils::isUnset($request->endpointInstanceId)) {
+            $query['EndpointInstanceId'] = $request->endpointInstanceId;
         }
-
-        if (null !== $request->endpointInstanceType) {
-            @$query['EndpointInstanceType'] = $request->endpointInstanceType;
+        if (!Utils::isUnset($request->endpointInstanceType)) {
+            $query['EndpointInstanceType'] = $request->endpointInstanceType;
         }
-
-        if (null !== $request->endpointRegion) {
-            @$query['EndpointRegion'] = $request->endpointRegion;
+        if (!Utils::isUnset($request->endpointRegion)) {
+            $query['EndpointRegion'] = $request->endpointRegion;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'InitDtsRdsInstance',
@@ -7088,19 +6068,14 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Initializes a built-in account on a node of an active geo-redundancy database cluster. Data Transmission Service (DTS) uses the built-in account to connect to the node and perform data synchronization tasks.
-     *
-     * @remarks
-     *   The node must be an ApsaraDB RDS for MySQL instance or a self-managed MySQL database that is connected over Cloud Enterprise Network (CEN).
+     * @summary Initializes a built-in account on a node of an active geo-redundancy database cluster. Data Transmission Service (DTS) uses the built-in account to connect to the node and perform data synchronization tasks.
+     *  *
+     * @description *   The node must be an ApsaraDB RDS for MySQL instance or a self-managed MySQL database that is connected over Cloud Enterprise Network (CEN).
      * *   This operation is used to initialize the built-in account named rdsdt_dtsacct on a node of an active geo-redundancy database cluster. DTS uses this account to connect to the node and perform data synchronization tasks.
+     *  *
+     * @param InitDtsRdsInstanceRequest $request InitDtsRdsInstanceRequest
      *
-     * @param request - InitDtsRdsInstanceRequest
-     *
-     * @returns InitDtsRdsInstanceResponse
-     *
-     * @param InitDtsRdsInstanceRequest $request
-     *
-     * @return InitDtsRdsInstanceResponse
+     * @return InitDtsRdsInstanceResponse InitDtsRdsInstanceResponse
      */
     public function initDtsRdsInstance($request)
     {
@@ -7110,64 +6085,49 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries all clusters that are created within an Alibaba Cloud account. You can also query clusters based on the specified conditions.
+     * @summary Queries all clusters that are created within an Alibaba Cloud account. You can also query clusters based on the specified conditions.
+     *  *
+     * @param ListDedicatedClusterRequest $request ListDedicatedClusterRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListDedicatedClusterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListDedicatedClusterResponse
-     *
-     * @param ListDedicatedClusterRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListDedicatedClusterResponse
+     * @return ListDedicatedClusterResponse ListDedicatedClusterResponse
      */
     public function listDedicatedClusterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->orderColumn) {
-            @$query['OrderColumn'] = $request->orderColumn;
+        if (!Utils::isUnset($request->orderColumn)) {
+            $query['OrderColumn'] = $request->orderColumn;
         }
-
-        if (null !== $request->orderDirection) {
-            @$query['OrderDirection'] = $request->orderDirection;
+        if (!Utils::isUnset($request->orderDirection)) {
+            $query['OrderDirection'] = $request->orderDirection;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->params) {
-            @$query['Params'] = $request->params;
+        if (!Utils::isUnset($request->params)) {
+            $query['Params'] = $request->params;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->state) {
-            @$query['State'] = $request->state;
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDedicatedCluster',
@@ -7185,15 +6145,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries all clusters that are created within an Alibaba Cloud account. You can also query clusters based on the specified conditions.
+     * @summary Queries all clusters that are created within an Alibaba Cloud account. You can also query clusters based on the specified conditions.
+     *  *
+     * @param ListDedicatedClusterRequest $request ListDedicatedClusterRequest
      *
-     * @param request - ListDedicatedClusterRequest
-     *
-     * @returns ListDedicatedClusterResponse
-     *
-     * @param ListDedicatedClusterRequest $request
-     *
-     * @return ListDedicatedClusterResponse
+     * @return ListDedicatedClusterResponse ListDedicatedClusterResponse
      */
     public function listDedicatedCluster($request)
     {
@@ -7203,50 +6159,39 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are bound to specific data migration, data synchronization, or change tracking instances, or queries the instances to which specific tags are bound.
+     * @summary Queries the tags that are bound to specific data migration, data synchronization, or change tracking instances, or queries the instances to which specific tags are bound.
+     *  *
+     * @description ****
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *
-     * @param request - ListTagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTagResources',
@@ -7264,17 +6209,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the tags that are bound to specific data migration, data synchronization, or change tracking instances, or queries the instances to which specific tags are bound.
+     * @summary Queries the tags that are bound to specific data migration, data synchronization, or change tracking instances, or queries the instances to which specific tags are bound.
+     *  *
+     * @description ****
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @remarks
-     *
-     * @param request - ListTagResourcesRequest
-     *
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -7284,56 +6225,43 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Modifies the information of a consumer group, including the consumer group name, username, and password.
+     * @summary Modifies the information of a consumer group, including the consumer group name, username, and password.
+     *  *
+     * @param ModifyConsumerChannelRequest $request ModifyConsumerChannelRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyConsumerChannelRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyConsumerChannelResponse
-     *
-     * @param ModifyConsumerChannelRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ModifyConsumerChannelResponse
+     * @return ModifyConsumerChannelResponse ModifyConsumerChannelResponse
      */
     public function modifyConsumerChannelWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->consumerGroupId) {
-            @$query['ConsumerGroupId'] = $request->consumerGroupId;
+        if (!Utils::isUnset($request->consumerGroupId)) {
+            $query['ConsumerGroupId'] = $request->consumerGroupId;
         }
-
-        if (null !== $request->consumerGroupName) {
-            @$query['ConsumerGroupName'] = $request->consumerGroupName;
+        if (!Utils::isUnset($request->consumerGroupName)) {
+            $query['ConsumerGroupName'] = $request->consumerGroupName;
         }
-
-        if (null !== $request->consumerGroupPassword) {
-            @$query['ConsumerGroupPassword'] = $request->consumerGroupPassword;
+        if (!Utils::isUnset($request->consumerGroupPassword)) {
+            $query['ConsumerGroupPassword'] = $request->consumerGroupPassword;
         }
-
-        if (null !== $request->consumerGroupUserName) {
-            @$query['ConsumerGroupUserName'] = $request->consumerGroupUserName;
+        if (!Utils::isUnset($request->consumerGroupUserName)) {
+            $query['ConsumerGroupUserName'] = $request->consumerGroupUserName;
         }
-
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyConsumerChannel',
@@ -7351,15 +6279,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Modifies the information of a consumer group, including the consumer group name, username, and password.
+     * @summary Modifies the information of a consumer group, including the consumer group name, username, and password.
+     *  *
+     * @param ModifyConsumerChannelRequest $request ModifyConsumerChannelRequest
      *
-     * @param request - ModifyConsumerChannelRequest
-     *
-     * @returns ModifyConsumerChannelResponse
-     *
-     * @param ModifyConsumerChannelRequest $request
-     *
-     * @return ModifyConsumerChannelResponse
+     * @return ModifyConsumerChannelResponse ModifyConsumerChannelResponse
      */
     public function modifyConsumerChannel($request)
     {
@@ -7369,64 +6293,49 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Modifies the password of a consumer group.
+     * @summary Modifies the password of a consumer group
+     *  *
+     * @param ModifyConsumerGroupPasswordRequest $request ModifyConsumerGroupPasswordRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyConsumerGroupPasswordRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyConsumerGroupPasswordResponse
-     *
-     * @param ModifyConsumerGroupPasswordRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ModifyConsumerGroupPasswordResponse
+     * @return ModifyConsumerGroupPasswordResponse ModifyConsumerGroupPasswordResponse
      */
     public function modifyConsumerGroupPasswordWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->consumerGroupID) {
-            @$query['ConsumerGroupID'] = $request->consumerGroupID;
+        if (!Utils::isUnset($request->consumerGroupID)) {
+            $query['ConsumerGroupID'] = $request->consumerGroupID;
         }
-
-        if (null !== $request->consumerGroupName) {
-            @$query['ConsumerGroupName'] = $request->consumerGroupName;
+        if (!Utils::isUnset($request->consumerGroupName)) {
+            $query['ConsumerGroupName'] = $request->consumerGroupName;
         }
-
-        if (null !== $request->consumerGroupPassword) {
-            @$query['ConsumerGroupPassword'] = $request->consumerGroupPassword;
+        if (!Utils::isUnset($request->consumerGroupPassword)) {
+            $query['ConsumerGroupPassword'] = $request->consumerGroupPassword;
         }
-
-        if (null !== $request->consumerGroupUserName) {
-            @$query['ConsumerGroupUserName'] = $request->consumerGroupUserName;
+        if (!Utils::isUnset($request->consumerGroupUserName)) {
+            $query['ConsumerGroupUserName'] = $request->consumerGroupUserName;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->subscriptionInstanceId) {
-            @$query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
+        if (!Utils::isUnset($request->subscriptionInstanceId)) {
+            $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
         }
-
-        if (null !== $request->consumerGroupNewPassword) {
-            @$query['consumerGroupNewPassword'] = $request->consumerGroupNewPassword;
+        if (!Utils::isUnset($request->consumerGroupNewPassword)) {
+            $query['consumerGroupNewPassword'] = $request->consumerGroupNewPassword;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyConsumerGroupPassword',
@@ -7444,15 +6353,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Modifies the password of a consumer group.
+     * @summary Modifies the password of a consumer group
+     *  *
+     * @param ModifyConsumerGroupPasswordRequest $request ModifyConsumerGroupPasswordRequest
      *
-     * @param request - ModifyConsumerGroupPasswordRequest
-     *
-     * @returns ModifyConsumerGroupPasswordResponse
-     *
-     * @param ModifyConsumerGroupPasswordRequest $request
-     *
-     * @return ModifyConsumerGroupPasswordResponse
+     * @return ModifyConsumerGroupPasswordResponse ModifyConsumerGroupPasswordResponse
      */
     public function modifyConsumerGroupPassword($request)
     {
@@ -7462,48 +6367,37 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Modifies the consumption checkpoint of a change tracking instance.
+     * @summary Modifies the consumption checkpoint of a change tracking instance.
+     *  *
+     * @param ModifyConsumptionTimestampRequest $request ModifyConsumptionTimestampRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyConsumptionTimestampRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyConsumptionTimestampResponse
-     *
-     * @param ModifyConsumptionTimestampRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyConsumptionTimestampResponse
+     * @return ModifyConsumptionTimestampResponse ModifyConsumptionTimestampResponse
      */
     public function modifyConsumptionTimestampWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->consumptionTimestamp) {
-            @$query['ConsumptionTimestamp'] = $request->consumptionTimestamp;
+        if (!Utils::isUnset($request->consumptionTimestamp)) {
+            $query['ConsumptionTimestamp'] = $request->consumptionTimestamp;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->subscriptionInstanceId) {
-            @$query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
+        if (!Utils::isUnset($request->subscriptionInstanceId)) {
+            $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyConsumptionTimestamp',
@@ -7521,15 +6415,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Modifies the consumption checkpoint of a change tracking instance.
+     * @summary Modifies the consumption checkpoint of a change tracking instance.
+     *  *
+     * @param ModifyConsumptionTimestampRequest $request ModifyConsumptionTimestampRequest
      *
-     * @param request - ModifyConsumptionTimestampRequest
-     *
-     * @returns ModifyConsumptionTimestampResponse
-     *
-     * @param ModifyConsumptionTimestampRequest $request
-     *
-     * @return ModifyConsumptionTimestampResponse
+     * @return ModifyConsumptionTimestampResponse ModifyConsumptionTimestampResponse
      */
     public function modifyConsumptionTimestamp($request)
     {
@@ -7539,55 +6429,42 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a cluster.
+     * @summary Modifies the configuration of a cluster.
+     *  *
+     * @description You can modify only the overcommit ratio.
+     *  *
+     * @param ModifyDedicatedClusterRequest $request ModifyDedicatedClusterRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can modify only the overcommit ratio.
-     *
-     * @param request - ModifyDedicatedClusterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDedicatedClusterResponse
-     *
-     * @param ModifyDedicatedClusterRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ModifyDedicatedClusterResponse
+     * @return ModifyDedicatedClusterResponse ModifyDedicatedClusterResponse
      */
     public function modifyDedicatedClusterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dedicatedClusterId) {
-            @$query['DedicatedClusterId'] = $request->dedicatedClusterId;
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
         }
-
-        if (null !== $request->dedicatedClusterName) {
-            @$query['DedicatedClusterName'] = $request->dedicatedClusterName;
+        if (!Utils::isUnset($request->dedicatedClusterName)) {
+            $query['DedicatedClusterName'] = $request->dedicatedClusterName;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->oversoldRatio) {
-            @$query['OversoldRatio'] = $request->oversoldRatio;
+        if (!Utils::isUnset($request->oversoldRatio)) {
+            $query['OversoldRatio'] = $request->oversoldRatio;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDedicatedCluster',
@@ -7605,18 +6482,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a cluster.
+     * @summary Modifies the configuration of a cluster.
+     *  *
+     * @description You can modify only the overcommit ratio.
+     *  *
+     * @param ModifyDedicatedClusterRequest $request ModifyDedicatedClusterRequest
      *
-     * @remarks
-     * You can modify only the overcommit ratio.
-     *
-     * @param request - ModifyDedicatedClusterRequest
-     *
-     * @returns ModifyDedicatedClusterResponse
-     *
-     * @param ModifyDedicatedClusterRequest $request
-     *
-     * @return ModifyDedicatedClusterResponse
+     * @return ModifyDedicatedClusterResponse ModifyDedicatedClusterResponse
      */
     public function modifyDedicatedCluster($request)
     {
@@ -7626,99 +6498,76 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a data synchronization task.
+     * @summary Modifies the configurations of a data synchronization task.
+     *  *
+     * @description When you configure a data synchronization task in the Data Transmission Service (DTS) console, you can move the pointer over **Next: Save Task Settings and Precheck** in the **Advanced Settings** step and click **Preview OpenAPI parameters** to view the parameters that are used to configure the task by calling an API operation.
+     *  *
+     * @param ModifyDtsJobRequest $tmpReq  ModifyDtsJobRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * When you configure a data synchronization task in the Data Transmission Service (DTS) console, you can move the pointer over **Next: Save Task Settings and Precheck** in the **Advanced Settings** step and click **Preview OpenAPI parameters** to view the parameters that are used to configure the task by calling an API operation.
-     *
-     * @param tmpReq - ModifyDtsJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDtsJobResponse
-     *
-     * @param ModifyDtsJobRequest $tmpReq
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ModifyDtsJobResponse
+     * @return ModifyDtsJobResponse ModifyDtsJobResponse
      */
     public function modifyDtsJobWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ModifyDtsJobShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->dbList) {
-            $request->dbListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->dbList, 'DbList', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dbList)) {
+            $request->dbListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dbList, 'DbList', 'json');
         }
-
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->dataInitialization) {
-            @$query['DataInitialization'] = $request->dataInitialization;
+        if (!Utils::isUnset($request->dataInitialization)) {
+            $query['DataInitialization'] = $request->dataInitialization;
         }
-
-        if (null !== $request->dataSynchronization) {
-            @$query['DataSynchronization'] = $request->dataSynchronization;
+        if (!Utils::isUnset($request->dataSynchronization)) {
+            $query['DataSynchronization'] = $request->dataSynchronization;
         }
-
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->fileOssUrl) {
-            @$query['FileOssUrl'] = $request->fileOssUrl;
+        if (!Utils::isUnset($request->fileOssUrl)) {
+            $query['FileOssUrl'] = $request->fileOssUrl;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->structureInitialization) {
-            @$query['StructureInitialization'] = $request->structureInitialization;
+        if (!Utils::isUnset($request->structureInitialization)) {
+            $query['StructureInitialization'] = $request->structureInitialization;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $body = [];
-        if (null !== $request->dbListShrink) {
-            @$body['DbList'] = $request->dbListShrink;
+        if (!Utils::isUnset($request->dbListShrink)) {
+            $body['DbList'] = $request->dbListShrink;
         }
-
-        if (null !== $request->etlOperatorColumnReference) {
-            @$body['EtlOperatorColumnReference'] = $request->etlOperatorColumnReference;
+        if (!Utils::isUnset($request->etlOperatorColumnReference)) {
+            $body['EtlOperatorColumnReference'] = $request->etlOperatorColumnReference;
         }
-
-        if (null !== $request->filterTableName) {
-            @$body['FilterTableName'] = $request->filterTableName;
+        if (!Utils::isUnset($request->filterTableName)) {
+            $body['FilterTableName'] = $request->filterTableName;
         }
-
-        if (null !== $request->modifyTypeEnum) {
-            @$body['ModifyTypeEnum'] = $request->modifyTypeEnum;
+        if (!Utils::isUnset($request->modifyTypeEnum)) {
+            $body['ModifyTypeEnum'] = $request->modifyTypeEnum;
         }
-
-        if (null !== $request->reserved) {
-            @$body['Reserved'] = $request->reserved;
+        if (!Utils::isUnset($request->reserved)) {
+            $body['Reserved'] = $request->reserved;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyDtsJob',
@@ -7736,18 +6585,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a data synchronization task.
+     * @summary Modifies the configurations of a data synchronization task.
+     *  *
+     * @description When you configure a data synchronization task in the Data Transmission Service (DTS) console, you can move the pointer over **Next: Save Task Settings and Precheck** in the **Advanced Settings** step and click **Preview OpenAPI parameters** to view the parameters that are used to configure the task by calling an API operation.
+     *  *
+     * @param ModifyDtsJobRequest $request ModifyDtsJobRequest
      *
-     * @remarks
-     * When you configure a data synchronization task in the Data Transmission Service (DTS) console, you can move the pointer over **Next: Save Task Settings and Precheck** in the **Advanced Settings** step and click **Preview OpenAPI parameters** to view the parameters that are used to configure the task by calling an API operation.
-     *
-     * @param request - ModifyDtsJobRequest
-     *
-     * @returns ModifyDtsJobResponse
-     *
-     * @param ModifyDtsJobRequest $request
-     *
-     * @return ModifyDtsJobResponse
+     * @return ModifyDtsJobResponse ModifyDtsJobResponse
      */
     public function modifyDtsJob($request)
     {
@@ -7761,23 +6605,31 @@ class Dts extends OpenApiClient
      * @param RuntimeOptions             $runtime
      *
      * @return ModifyDtsJobResponse
+     *
+     * @throws TeaError
      */
     public function modifyDtsJobAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId = $this->_credential->getAccessKeyId();
-        $accessKeySecret = $this->_credential->getAccessKeySecret();
-        $securityToken = $this->_credential->getSecurityToken();
-        $credentialType = $this->_credential->getType();
+        $credentialModel = null;
+        if (Utils::isUnset($this->_credential)) {
+            throw new TeaError([
+                'code' => 'InvalidCredentials',
+                'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
+            ]);
+        }
+        $credentialModel = $this->_credential->getCredential();
+        $accessKeyId = $credentialModel->accessKeyId;
+        $accessKeySecret = $credentialModel->accessKeySecret;
+        $securityToken = $credentialModel->securityToken;
+        $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (null === $openPlatformEndpoint) {
+        if (Utils::empty_($openPlatformEndpoint)) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-
-        if (null === $credentialType) {
+        if (Utils::isUnset($credentialType)) {
             $credentialType = 'access_key';
         }
-
         $authConfig = new Config([
             'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -7787,95 +6639,89 @@ class Dts extends OpenApiClient
             'protocol' => $this->_protocol,
             'regionId' => $this->_regionId,
         ]);
-        $authClient = new OpenPlatform($authConfig);
-        $authRequest = new AuthorizeFileUploadRequest([
-            'product' => 'Dts',
-            'regionId' => $this->_regionId,
+        $authClient = new OpenApiClient($authConfig);
+        $authRequest = [
+            'Product' => 'Dts',
+            'RegionId' => $this->_regionId,
+        ];
+        $authReq = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($authRequest),
         ]);
-        $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig = new OSS\Config([
-            'accessKeyId' => $accessKeyId,
-            'accessKeySecret' => $accessKeySecret,
-            'type' => 'access_key',
-            'protocol' => $this->_protocol,
-            'regionId' => $this->_regionId,
+        $authParams = new Params([
+            'action' => 'AuthorizeFileUpload',
+            'version' => '2019-12-19',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
         ]);
-        $ossClient = new OSS($ossConfig);
+        $authResponse = [];
         $fileObj = new FileField([]);
-        $ossHeader = new header([]);
-        $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        Utils::convert($runtime, $ossRuntime);
+        $ossHeader = [];
+        $tmpBody = [];
+        $useAccelerate = false;
+        $authResponseBody = [];
         $modifyDtsJobReq = new ModifyDtsJobRequest([]);
-        Utils::convert($request, $modifyDtsJobReq);
-        if (null !== $request->fileOssUrlObject) {
-            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
-            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient = new OSS($ossConfig);
+        OpenApiUtilClient::convert($request, $modifyDtsJobReq);
+        if (!Utils::isUnset($request->fileOssUrlObject)) {
+            $tmpResp0 = $authClient->callApi($authParams, $authReq, $runtime);
+            $authResponse = Utils::assertAsMap($tmpResp0);
+            $tmpBody = Utils::assertAsMap(@$authResponse['body']);
+            $useAccelerate = Utils::assertAsBoolean(@$tmpBody['UseAccelerate']);
+            $authResponseBody = Utils::stringifyMapValue($tmpBody);
             $fileObj = new FileField([
-                'filename' => $authResponse->body->objectKey,
+                'filename' => @$authResponseBody['ObjectKey'],
                 'content' => $request->fileOssUrlObject,
                 'contentType' => '',
             ]);
-            $ossHeader = new header([
-                'accessKeyId' => $authResponse->body->accessKeyId,
-                'policy' => $authResponse->body->encodedPolicy,
-                'signature' => $authResponse->body->signature,
-                'key' => $authResponse->body->objectKey,
+            $ossHeader = [
+                'host' => '' . @$authResponseBody['Bucket'] . '.' . OpenApiUtilClient::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
+                'policy' => @$authResponseBody['EncodedPolicy'],
+                'Signature' => @$authResponseBody['Signature'],
+                'key' => @$authResponseBody['ObjectKey'],
                 'file' => $fileObj,
-                'successActionStatus' => '201',
-            ]);
-            $uploadRequest = new PostObjectRequest([
-                'bucketName' => $authResponse->body->bucket,
-                'header' => $ossHeader,
-            ]);
-            $ossClient->postObject($uploadRequest, $ossRuntime);
-            $modifyDtsJobReq->fileOssUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+                'success_action_status' => '201',
+            ];
+            $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
+            $modifyDtsJobReq->fileOssUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
         }
 
         return $this->modifyDtsJobWithOptions($modifyDtsJobReq, $runtime);
     }
 
     /**
-     * Modifies the parameters of a Data Transmission Service (DTS) task.
+     * @summary Modifies the parameters of a Data Transmission Service (DTS) task.
+     *  *
+     * @param ModifyDtsJobConfigRequest $request ModifyDtsJobConfigRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDtsJobConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDtsJobConfigResponse
-     *
-     * @param ModifyDtsJobConfigRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifyDtsJobConfigResponse
+     * @return ModifyDtsJobConfigResponse ModifyDtsJobConfigResponse
      */
     public function modifyDtsJobConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->parameters) {
-            @$query['Parameters'] = $request->parameters;
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDtsJobConfig',
@@ -7893,15 +6739,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Modifies the parameters of a Data Transmission Service (DTS) task.
+     * @summary Modifies the parameters of a Data Transmission Service (DTS) task.
+     *  *
+     * @param ModifyDtsJobConfigRequest $request ModifyDtsJobConfigRequest
      *
-     * @param request - ModifyDtsJobConfigRequest
-     *
-     * @returns ModifyDtsJobConfigResponse
-     *
-     * @param ModifyDtsJobConfigRequest $request
-     *
-     * @return ModifyDtsJobConfigResponse
+     * @return ModifyDtsJobConfigResponse ModifyDtsJobConfigResponse
      */
     public function modifyDtsJobConfig($request)
     {
@@ -7911,47 +6753,36 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Changes the dedicated cluster on which a Data Transmission Service (DTS) task runs.
+     * @summary Changes the dedicated cluster on which a Data Transmission Service (DTS) task runs.
+     *  *
+     * @description > After a DTS task is migrated from a dedicated cluster to a shared cluster, the task is billed on a pay-as-you-go basis.
+     *  *
+     * @param ModifyDtsJobDedicatedClusterRequest $request ModifyDtsJobDedicatedClusterRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * > After a DTS task is migrated from a dedicated cluster to a shared cluster, the task is billed on a pay-as-you-go basis.
-     *
-     * @param request - ModifyDtsJobDedicatedClusterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDtsJobDedicatedClusterResponse
-     *
-     * @param ModifyDtsJobDedicatedClusterRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ModifyDtsJobDedicatedClusterResponse
+     * @return ModifyDtsJobDedicatedClusterResponse ModifyDtsJobDedicatedClusterResponse
      */
     public function modifyDtsJobDedicatedClusterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dedicatedClusterId) {
-            @$query['DedicatedClusterId'] = $request->dedicatedClusterId;
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
         }
-
-        if (null !== $request->dtsJobIds) {
-            @$query['DtsJobIds'] = $request->dtsJobIds;
+        if (!Utils::isUnset($request->dtsJobIds)) {
+            $query['DtsJobIds'] = $request->dtsJobIds;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDtsJobDedicatedCluster',
@@ -7969,18 +6800,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Changes the dedicated cluster on which a Data Transmission Service (DTS) task runs.
+     * @summary Changes the dedicated cluster on which a Data Transmission Service (DTS) task runs.
+     *  *
+     * @description > After a DTS task is migrated from a dedicated cluster to a shared cluster, the task is billed on a pay-as-you-go basis.
+     *  *
+     * @param ModifyDtsJobDedicatedClusterRequest $request ModifyDtsJobDedicatedClusterRequest
      *
-     * @remarks
-     * > After a DTS task is migrated from a dedicated cluster to a shared cluster, the task is billed on a pay-as-you-go basis.
-     *
-     * @param request - ModifyDtsJobDedicatedClusterRequest
-     *
-     * @returns ModifyDtsJobDedicatedClusterResponse
-     *
-     * @param ModifyDtsJobDedicatedClusterRequest $request
-     *
-     * @return ModifyDtsJobDedicatedClusterResponse
+     * @return ModifyDtsJobDedicatedClusterResponse ModifyDtsJobDedicatedClusterResponse
      */
     public function modifyDtsJobDedicatedCluster($request)
     {
@@ -7990,48 +6816,37 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Modifies the upper limit of DTS units (DUs) for a Data Transmission Service (DTS) task.
-     *
-     * @remarks
-     *   DTS allows you to upgrade or downgrade the configurations of DTS instances in a dedicated cluster. You can adjust the resources that are occupied for task execution to dynamically adjust the number of tasks that can be scheduled in the cluster. This way, you can reduce the total number of DUs required for the cluster or release DUs.
+     * @summary Modifies the upper limit of DTS units (DUs) for a Data Transmission Service (DTS) task.
+     *  *
+     * @description *   DTS allows you to upgrade or downgrade the configurations of DTS instances in a dedicated cluster. You can adjust the resources that are occupied for task execution to dynamically adjust the number of tasks that can be scheduled in the cluster. This way, you can reduce the total number of DUs required for the cluster or release DUs.
      * *   Before you modify the upper limit of DUs for a DTS task, make sure that sufficient DUs are available.
+     *  *
+     * @param ModifyDtsJobDuLimitRequest $request ModifyDtsJobDuLimitRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDtsJobDuLimitRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDtsJobDuLimitResponse
-     *
-     * @param ModifyDtsJobDuLimitRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ModifyDtsJobDuLimitResponse
+     * @return ModifyDtsJobDuLimitResponse ModifyDtsJobDuLimitResponse
      */
     public function modifyDtsJobDuLimitWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->duLimit) {
-            @$query['DuLimit'] = $request->duLimit;
+        if (!Utils::isUnset($request->duLimit)) {
+            $query['DuLimit'] = $request->duLimit;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDtsJobDuLimit',
@@ -8049,19 +6864,14 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Modifies the upper limit of DTS units (DUs) for a Data Transmission Service (DTS) task.
-     *
-     * @remarks
-     *   DTS allows you to upgrade or downgrade the configurations of DTS instances in a dedicated cluster. You can adjust the resources that are occupied for task execution to dynamically adjust the number of tasks that can be scheduled in the cluster. This way, you can reduce the total number of DUs required for the cluster or release DUs.
+     * @summary Modifies the upper limit of DTS units (DUs) for a Data Transmission Service (DTS) task.
+     *  *
+     * @description *   DTS allows you to upgrade or downgrade the configurations of DTS instances in a dedicated cluster. You can adjust the resources that are occupied for task execution to dynamically adjust the number of tasks that can be scheduled in the cluster. This way, you can reduce the total number of DUs required for the cluster or release DUs.
      * *   Before you modify the upper limit of DUs for a DTS task, make sure that sufficient DUs are available.
+     *  *
+     * @param ModifyDtsJobDuLimitRequest $request ModifyDtsJobDuLimitRequest
      *
-     * @param request - ModifyDtsJobDuLimitRequest
-     *
-     * @returns ModifyDtsJobDuLimitResponse
-     *
-     * @param ModifyDtsJobDuLimitRequest $request
-     *
-     * @return ModifyDtsJobDuLimitResponse
+     * @return ModifyDtsJobDuLimitResponse ModifyDtsJobDuLimitResponse
      */
     public function modifyDtsJobDuLimit($request)
     {
@@ -8071,111 +6881,84 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Changes the source or destination database instance of a data synchronization or migration task in Data Transmission Service (DTS).
+     * @summary Changes the source or destination database instance of a data synchronization or migration task in Data Transmission Service (DTS).
+     *  *
+     * @description >  After the database is changed, Data Transmission Service (DTS) rolls back the incremental write offset for 10 seconds. If the synchronized or migrated data does not have a primary key, make sure that no data is written to the source database while the source or destination database is being replaced. Otherwise, duplicate data may exist.
+     *  *
+     * @param ModifyDtsJobEndpointRequest $request ModifyDtsJobEndpointRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  After the database is changed, Data Transmission Service (DTS) rolls back the incremental write offset for 10 seconds. If the synchronized or migrated data does not have a primary key, make sure that no data is written to the source database while the source or destination database is being replaced. Otherwise, duplicate data may exist.
-     *
-     * @param request - ModifyDtsJobEndpointRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDtsJobEndpointResponse
-     *
-     * @param ModifyDtsJobEndpointRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ModifyDtsJobEndpointResponse
+     * @return ModifyDtsJobEndpointResponse ModifyDtsJobEndpointResponse
      */
     public function modifyDtsJobEndpointWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aliyunUid) {
-            @$query['AliyunUid'] = $request->aliyunUid;
+        if (!Utils::isUnset($request->aliyunUid)) {
+            $query['AliyunUid'] = $request->aliyunUid;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->dryRun) {
-            @$query['DryRun'] = $request->dryRun;
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
         }
-
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->endpoint) {
-            @$query['Endpoint'] = $request->endpoint;
+        if (!Utils::isUnset($request->endpoint)) {
+            $query['Endpoint'] = $request->endpoint;
         }
-
-        if (null !== $request->endpointInstanceId) {
-            @$query['EndpointInstanceId'] = $request->endpointInstanceId;
+        if (!Utils::isUnset($request->endpointInstanceId)) {
+            $query['EndpointInstanceId'] = $request->endpointInstanceId;
         }
-
-        if (null !== $request->endpointInstanceType) {
-            @$query['EndpointInstanceType'] = $request->endpointInstanceType;
+        if (!Utils::isUnset($request->endpointInstanceType)) {
+            $query['EndpointInstanceType'] = $request->endpointInstanceType;
         }
-
-        if (null !== $request->endpointIp) {
-            @$query['EndpointIp'] = $request->endpointIp;
+        if (!Utils::isUnset($request->endpointIp)) {
+            $query['EndpointIp'] = $request->endpointIp;
         }
-
-        if (null !== $request->endpointPort) {
-            @$query['EndpointPort'] = $request->endpointPort;
+        if (!Utils::isUnset($request->endpointPort)) {
+            $query['EndpointPort'] = $request->endpointPort;
         }
-
-        if (null !== $request->endpointRegionId) {
-            @$query['EndpointRegionId'] = $request->endpointRegionId;
+        if (!Utils::isUnset($request->endpointRegionId)) {
+            $query['EndpointRegionId'] = $request->endpointRegionId;
         }
-
-        if (null !== $request->modifyAccount) {
-            @$query['ModifyAccount'] = $request->modifyAccount;
+        if (!Utils::isUnset($request->modifyAccount)) {
+            $query['ModifyAccount'] = $request->modifyAccount;
         }
-
-        if (null !== $request->password) {
-            @$query['Password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->roleName) {
-            @$query['RoleName'] = $request->roleName;
+        if (!Utils::isUnset($request->roleName)) {
+            $query['RoleName'] = $request->roleName;
         }
-
-        if (null !== $request->shardPassword) {
-            @$query['ShardPassword'] = $request->shardPassword;
+        if (!Utils::isUnset($request->shardPassword)) {
+            $query['ShardPassword'] = $request->shardPassword;
         }
-
-        if (null !== $request->shardUsername) {
-            @$query['ShardUsername'] = $request->shardUsername;
+        if (!Utils::isUnset($request->shardUsername)) {
+            $query['ShardUsername'] = $request->shardUsername;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
-        if (null !== $request->username) {
-            @$query['Username'] = $request->username;
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDtsJobEndpoint',
@@ -8193,18 +6976,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Changes the source or destination database instance of a data synchronization or migration task in Data Transmission Service (DTS).
+     * @summary Changes the source or destination database instance of a data synchronization or migration task in Data Transmission Service (DTS).
+     *  *
+     * @description >  After the database is changed, Data Transmission Service (DTS) rolls back the incremental write offset for 10 seconds. If the synchronized or migrated data does not have a primary key, make sure that no data is written to the source database while the source or destination database is being replaced. Otherwise, duplicate data may exist.
+     *  *
+     * @param ModifyDtsJobEndpointRequest $request ModifyDtsJobEndpointRequest
      *
-     * @remarks
-     * >  After the database is changed, Data Transmission Service (DTS) rolls back the incremental write offset for 10 seconds. If the synchronized or migrated data does not have a primary key, make sure that no data is written to the source database while the source or destination database is being replaced. Otherwise, duplicate data may exist.
-     *
-     * @param request - ModifyDtsJobEndpointRequest
-     *
-     * @returns ModifyDtsJobEndpointResponse
-     *
-     * @param ModifyDtsJobEndpointRequest $request
-     *
-     * @return ModifyDtsJobEndpointResponse
+     * @return ModifyDtsJobEndpointResponse ModifyDtsJobEndpointResponse
      */
     public function modifyDtsJobEndpoint($request)
     {
@@ -8214,44 +6992,34 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Changes the name of a Data Transmission Service (DTS) task.
+     * @summary Changes the name of a Data Transmission Service (DTS) task.
+     *  *
+     * @param ModifyDtsJobNameRequest $request ModifyDtsJobNameRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDtsJobNameRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDtsJobNameResponse
-     *
-     * @param ModifyDtsJobNameRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ModifyDtsJobNameResponse
+     * @return ModifyDtsJobNameResponse ModifyDtsJobNameResponse
      */
     public function modifyDtsJobNameWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->dtsJobName) {
-            @$query['DtsJobName'] = $request->dtsJobName;
+        if (!Utils::isUnset($request->dtsJobName)) {
+            $query['DtsJobName'] = $request->dtsJobName;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDtsJobName',
@@ -8269,15 +7037,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Changes the name of a Data Transmission Service (DTS) task.
+     * @summary Changes the name of a Data Transmission Service (DTS) task.
+     *  *
+     * @param ModifyDtsJobNameRequest $request ModifyDtsJobNameRequest
      *
-     * @param request - ModifyDtsJobNameRequest
-     *
-     * @returns ModifyDtsJobNameResponse
-     *
-     * @param ModifyDtsJobNameRequest $request
-     *
-     * @return ModifyDtsJobNameResponse
+     * @return ModifyDtsJobNameResponse ModifyDtsJobNameResponse
      */
     public function modifyDtsJobName($request)
     {
@@ -8287,60 +7051,46 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Changes the password of the account used to log on to the source or destination database in a Data Transmission Service (DTS) task.
+     * @summary Changes the password of the account used to log on to the source or destination database in a Data Transmission Service (DTS) task.
+     *  *
+     * @param ModifyDtsJobPasswordRequest $request ModifyDtsJobPasswordRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDtsJobPasswordRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDtsJobPasswordResponse
-     *
-     * @param ModifyDtsJobPasswordRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ModifyDtsJobPasswordResponse
+     * @return ModifyDtsJobPasswordResponse ModifyDtsJobPasswordResponse
      */
     public function modifyDtsJobPasswordWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->endpoint) {
-            @$query['Endpoint'] = $request->endpoint;
+        if (!Utils::isUnset($request->endpoint)) {
+            $query['Endpoint'] = $request->endpoint;
         }
-
-        if (null !== $request->password) {
-            @$query['Password'] = $request->password;
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
-        if (null !== $request->userName) {
-            @$query['UserName'] = $request->userName;
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDtsJobPassword',
@@ -8358,15 +7108,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Changes the password of the account used to log on to the source or destination database in a Data Transmission Service (DTS) task.
+     * @summary Changes the password of the account used to log on to the source or destination database in a Data Transmission Service (DTS) task.
+     *  *
+     * @param ModifyDtsJobPasswordRequest $request ModifyDtsJobPasswordRequest
      *
-     * @param request - ModifyDtsJobPasswordRequest
-     *
-     * @returns ModifyDtsJobPasswordResponse
-     *
-     * @param ModifyDtsJobPasswordRequest $request
-     *
-     * @return ModifyDtsJobPasswordResponse
+     * @return ModifyDtsJobPasswordResponse ModifyDtsJobPasswordResponse
      */
     public function modifyDtsJobPassword($request)
     {
@@ -8376,48 +7122,37 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Enables throttling for data synchronization and data migration.
+     * @summary Enables throttling for data synchronization and data migration.
+     *  *
+     * @param ModifyDynamicConfigRequest $request ModifyDynamicConfigRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDynamicConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDynamicConfigResponse
-     *
-     * @param ModifyDynamicConfigRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ModifyDynamicConfigResponse
+     * @return ModifyDynamicConfigResponse ModifyDynamicConfigResponse
      */
     public function modifyDynamicConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->configList) {
-            @$query['ConfigList'] = $request->configList;
+        if (!Utils::isUnset($request->configList)) {
+            $query['ConfigList'] = $request->configList;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->enableLimit) {
-            @$query['EnableLimit'] = $request->enableLimit;
+        if (!Utils::isUnset($request->enableLimit)) {
+            $query['EnableLimit'] = $request->enableLimit;
         }
-
-        if (null !== $request->jobCode) {
-            @$query['JobCode'] = $request->jobCode;
+        if (!Utils::isUnset($request->jobCode)) {
+            $query['JobCode'] = $request->jobCode;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDynamicConfig',
@@ -8435,15 +7170,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Enables throttling for data synchronization and data migration.
+     * @summary Enables throttling for data synchronization and data migration.
+     *  *
+     * @param ModifyDynamicConfigRequest $request ModifyDynamicConfigRequest
      *
-     * @param request - ModifyDynamicConfigRequest
-     *
-     * @returns ModifyDynamicConfigResponse
-     *
-     * @param ModifyDynamicConfigRequest $request
-     *
-     * @return ModifyDynamicConfigResponse
+     * @return ModifyDynamicConfigResponse ModifyDynamicConfigResponse
      */
     public function modifyDynamicConfig($request)
     {
@@ -8453,44 +7184,34 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 修改GAD实例名称.
+     * @summary 修改GAD实例名称
+     *  *
+     * @param ModifyGadInstanceNameRequest $request ModifyGadInstanceNameRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyGadInstanceNameRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyGadInstanceNameResponse
-     *
-     * @param ModifyGadInstanceNameRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ModifyGadInstanceNameResponse
+     * @return ModifyGadInstanceNameResponse ModifyGadInstanceNameResponse
      */
     public function modifyGadInstanceNameWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceName) {
-            @$query['InstanceName'] = $request->instanceName;
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyGadInstanceName',
@@ -8508,15 +7229,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 修改GAD实例名称.
+     * @summary 修改GAD实例名称
+     *  *
+     * @param ModifyGadInstanceNameRequest $request ModifyGadInstanceNameRequest
      *
-     * @param request - ModifyGadInstanceNameRequest
-     *
-     * @returns ModifyGadInstanceNameResponse
-     *
-     * @param ModifyGadInstanceNameRequest $request
-     *
-     * @return ModifyGadInstanceNameResponse
+     * @return ModifyGadInstanceNameResponse ModifyGadInstanceNameResponse
      */
     public function modifyGadInstanceName($request)
     {
@@ -8526,63 +7243,48 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Modifies the information about a change tracking task.
+     * @summary Modifies the information about a change tracking task.
+     *  *
+     * @description >  You can preview related API operation parameters when you modify the information about a change tracking task in the Data Transmission Service (DTS) console. This helps you configure the request parameters of this API operation. For more information, see [Preview the request parameters of API operations](https://help.aliyun.com/document_detail/2851612.html).
+     *  *
+     * @param ModifySubscriptionRequest $request ModifySubscriptionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  You can preview related API operation parameters when you modify the information about a change tracking task in the Data Transmission Service (DTS) console. This helps you configure the request parameters of this API operation. For more information, see [Preview the request parameters of API operations](https://help.aliyun.com/document_detail/2851612.html).
-     *
-     * @param request - ModifySubscriptionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifySubscriptionResponse
-     *
-     * @param ModifySubscriptionRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifySubscriptionResponse
+     * @return ModifySubscriptionResponse ModifySubscriptionResponse
      */
     public function modifySubscriptionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dbList) {
-            @$query['DbList'] = $request->dbList;
+        if (!Utils::isUnset($request->dbList)) {
+            $query['DbList'] = $request->dbList;
         }
-
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->modifyType) {
-            @$query['ModifyType'] = $request->modifyType;
+        if (!Utils::isUnset($request->modifyType)) {
+            $query['ModifyType'] = $request->modifyType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->reserved) {
-            @$query['Reserved'] = $request->reserved;
+        if (!Utils::isUnset($request->reserved)) {
+            $query['Reserved'] = $request->reserved;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->subscriptionDataTypeDDL) {
-            @$query['SubscriptionDataTypeDDL'] = $request->subscriptionDataTypeDDL;
+        if (!Utils::isUnset($request->subscriptionDataTypeDDL)) {
+            $query['SubscriptionDataTypeDDL'] = $request->subscriptionDataTypeDDL;
         }
-
-        if (null !== $request->subscriptionDataTypeDML) {
-            @$query['SubscriptionDataTypeDML'] = $request->subscriptionDataTypeDML;
+        if (!Utils::isUnset($request->subscriptionDataTypeDML)) {
+            $query['SubscriptionDataTypeDML'] = $request->subscriptionDataTypeDML;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifySubscription',
@@ -8600,18 +7302,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Modifies the information about a change tracking task.
+     * @summary Modifies the information about a change tracking task.
+     *  *
+     * @description >  You can preview related API operation parameters when you modify the information about a change tracking task in the Data Transmission Service (DTS) console. This helps you configure the request parameters of this API operation. For more information, see [Preview the request parameters of API operations](https://help.aliyun.com/document_detail/2851612.html).
+     *  *
+     * @param ModifySubscriptionRequest $request ModifySubscriptionRequest
      *
-     * @remarks
-     * >  You can preview related API operation parameters when you modify the information about a change tracking task in the Data Transmission Service (DTS) console. This helps you configure the request parameters of this API operation. For more information, see [Preview the request parameters of API operations](https://help.aliyun.com/document_detail/2851612.html).
-     *
-     * @param request - ModifySubscriptionRequest
-     *
-     * @returns ModifySubscriptionResponse
-     *
-     * @param ModifySubscriptionRequest $request
-     *
-     * @return ModifySubscriptionResponse
+     * @return ModifySubscriptionResponse ModifySubscriptionResponse
      */
     public function modifySubscription($request)
     {
@@ -8621,48 +7318,37 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Modifies the objects for change tracking.
+     * @summary Modifies the objects for change tracking.
+     *  *
+     * @param ModifySubscriptionObjectRequest $request ModifySubscriptionObjectRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifySubscriptionObjectRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifySubscriptionObjectResponse
-     *
-     * @param ModifySubscriptionObjectRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ModifySubscriptionObjectResponse
+     * @return ModifySubscriptionObjectResponse ModifySubscriptionObjectResponse
      */
     public function modifySubscriptionObjectWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->subscriptionInstanceId) {
-            @$query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
+        if (!Utils::isUnset($request->subscriptionInstanceId)) {
+            $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
         }
-
-        if (null !== $request->subscriptionObject) {
-            @$query['SubscriptionObject'] = $request->subscriptionObject;
+        if (!Utils::isUnset($request->subscriptionObject)) {
+            $query['SubscriptionObject'] = $request->subscriptionObject;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifySubscriptionObject',
@@ -8680,15 +7366,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Modifies the objects for change tracking.
+     * @summary Modifies the objects for change tracking.
+     *  *
+     * @param ModifySubscriptionObjectRequest $request ModifySubscriptionObjectRequest
      *
-     * @param request - ModifySubscriptionObjectRequest
-     *
-     * @returns ModifySubscriptionObjectResponse
-     *
-     * @param ModifySubscriptionObjectRequest $request
-     *
-     * @return ModifySubscriptionObjectResponse
+     * @return ModifySubscriptionObjectResponse ModifySubscriptionObjectResponse
      */
     public function modifySubscriptionObject($request)
     {
@@ -8698,54 +7380,42 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Modifies the objects to be synchronized.
+     * @summary Modifies the objects to be synchronized.
+     *  *
+     * @param ModifySynchronizationObjectRequest $request ModifySynchronizationObjectRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifySynchronizationObjectRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifySynchronizationObjectResponse
-     *
-     * @param ModifySynchronizationObjectRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ModifySynchronizationObjectResponse
+     * @return ModifySynchronizationObjectResponse ModifySynchronizationObjectResponse
      */
     public function modifySynchronizationObjectWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
-        if (null !== $request->synchronizationJobId) {
-            @$query['SynchronizationJobId'] = $request->synchronizationJobId;
+        if (!Utils::isUnset($request->synchronizationJobId)) {
+            $query['SynchronizationJobId'] = $request->synchronizationJobId;
         }
-
         $body = [];
-        if (null !== $request->synchronizationObjects) {
-            @$body['SynchronizationObjects'] = $request->synchronizationObjects;
+        if (!Utils::isUnset($request->synchronizationObjects)) {
+            $body['SynchronizationObjects'] = $request->synchronizationObjects;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifySynchronizationObject',
@@ -8763,15 +7433,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Modifies the objects to be synchronized.
+     * @summary Modifies the objects to be synchronized.
+     *  *
+     * @param ModifySynchronizationObjectRequest $request ModifySynchronizationObjectRequest
      *
-     * @param request - ModifySynchronizationObjectRequest
-     *
-     * @returns ModifySynchronizationObjectResponse
-     *
-     * @param ModifySynchronizationObjectRequest $request
-     *
-     * @return ModifySynchronizationObjectResponse
+     * @return ModifySynchronizationObjectResponse ModifySynchronizationObjectResponse
      */
     public function modifySynchronizationObject($request)
     {
@@ -8781,48 +7447,55 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 预检查创建GAD订单.
+     * @summary 预检查创建GAD订单
+     *  *
+     * @param PreCheckCreateGadOrderRequest $request PreCheckCreateGadOrderRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - PreCheckCreateGadOrderRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns PreCheckCreateGadOrderResponse
-     *
-     * @param PreCheckCreateGadOrderRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return PreCheckCreateGadOrderResponse
+     * @return PreCheckCreateGadOrderResponse PreCheckCreateGadOrderResponse
      */
     public function preCheckCreateGadOrderWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->masterDatabaseName)) {
+            $query['MasterDatabaseName'] = $request->masterDatabaseName;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->masterEngineArchType)) {
+            $query['MasterEngineArchType'] = $request->masterEngineArchType;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->masterShardAccountName)) {
+            $query['MasterShardAccountName'] = $request->masterShardAccountName;
         }
-
-        if (null !== $request->slaveDbInstanceId) {
-            @$query['SlaveDbInstanceId'] = $request->slaveDbInstanceId;
+        if (!Utils::isUnset($request->masterShardAccountPassword)) {
+            $query['MasterShardAccountPassword'] = $request->masterShardAccountPassword;
         }
-
-        if (null !== $request->slaveDbInstanceRegion) {
-            @$query['SlaveDbInstanceRegion'] = $request->slaveDbInstanceRegion;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->slaveDatabaseName)) {
+            $query['SlaveDatabaseName'] = $request->slaveDatabaseName;
+        }
+        if (!Utils::isUnset($request->slaveDbInstanceId)) {
+            $query['SlaveDbInstanceId'] = $request->slaveDbInstanceId;
+        }
+        if (!Utils::isUnset($request->slaveDbInstanceRegion)) {
+            $query['SlaveDbInstanceRegion'] = $request->slaveDbInstanceRegion;
+        }
+        if (!Utils::isUnset($request->slaveEngineArchType)) {
+            $query['SlaveEngineArchType'] = $request->slaveEngineArchType;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'PreCheckCreateGadOrder',
@@ -8840,15 +7513,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 预检查创建GAD订单.
+     * @summary 预检查创建GAD订单
+     *  *
+     * @param PreCheckCreateGadOrderRequest $request PreCheckCreateGadOrderRequest
      *
-     * @param request - PreCheckCreateGadOrderRequest
-     *
-     * @returns PreCheckCreateGadOrderResponse
-     *
-     * @param PreCheckCreateGadOrderRequest $request
-     *
-     * @return PreCheckCreateGadOrderResponse
+     * @return PreCheckCreateGadOrderResponse PreCheckCreateGadOrderResponse
      */
     public function preCheckCreateGadOrder($request)
     {
@@ -8858,48 +7527,37 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Renews a Data Transmission Service (DTS) instance. This API operation is available only for subscription instances.
+     * @summary Renews a Data Transmission Service (DTS) instance. This API operation is available only for subscription instances.
+     *  *
+     * @param RenewInstanceRequest $request RenewInstanceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RenewInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RenewInstanceResponse
-     *
-     * @param RenewInstanceRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return RenewInstanceResponse
+     * @return RenewInstanceResponse RenewInstanceResponse
      */
     public function renewInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->buyCount) {
-            @$query['BuyCount'] = $request->buyCount;
+        if (!Utils::isUnset($request->buyCount)) {
+            $query['BuyCount'] = $request->buyCount;
         }
-
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RenewInstance',
@@ -8917,15 +7575,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Renews a Data Transmission Service (DTS) instance. This API operation is available only for subscription instances.
+     * @summary Renews a Data Transmission Service (DTS) instance. This API operation is available only for subscription instances.
+     *  *
+     * @param RenewInstanceRequest $request RenewInstanceRequest
      *
-     * @param request - RenewInstanceRequest
-     *
-     * @returns RenewInstanceResponse
-     *
-     * @param RenewInstanceRequest $request
-     *
-     * @return RenewInstanceResponse
+     * @return RenewInstanceResponse RenewInstanceResponse
      */
     public function renewInstance($request)
     {
@@ -8935,47 +7589,36 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Resets a data synchronization or change tracking task.
+     * @summary Resets a data synchronization or change tracking task.
+     *  *
+     * @description >  If you clear the configurations of a data synchronization or change tracking task, DTS deletes the task. Then, DTS creates another task. The task is in the Not Configured state. You must call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation reconfigure the task.
+     *  *
+     * @param ResetDtsJobRequest $request ResetDtsJobRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  If you clear the configurations of a data synchronization or change tracking task, DTS deletes the task. Then, DTS creates another task. The task is in the Not Configured state. You must call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation reconfigure the task.
-     *
-     * @param request - ResetDtsJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ResetDtsJobResponse
-     *
-     * @param ResetDtsJobRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ResetDtsJobResponse
+     * @return ResetDtsJobResponse ResetDtsJobResponse
      */
     public function resetDtsJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ResetDtsJob',
@@ -8993,18 +7636,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Resets a data synchronization or change tracking task.
+     * @summary Resets a data synchronization or change tracking task.
+     *  *
+     * @description >  If you clear the configurations of a data synchronization or change tracking task, DTS deletes the task. Then, DTS creates another task. The task is in the Not Configured state. You must call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation reconfigure the task.
+     *  *
+     * @param ResetDtsJobRequest $request ResetDtsJobRequest
      *
-     * @remarks
-     * >  If you clear the configurations of a data synchronization or change tracking task, DTS deletes the task. Then, DTS creates another task. The task is in the Not Configured state. You must call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation reconfigure the task.
-     *
-     * @param request - ResetDtsJobRequest
-     *
-     * @returns ResetDtsJobResponse
-     *
-     * @param ResetDtsJobRequest $request
-     *
-     * @return ResetDtsJobResponse
+     * @return ResetDtsJobResponse ResetDtsJobResponse
      */
     public function resetDtsJob($request)
     {
@@ -9014,51 +7652,39 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Clears the configurations of a data synchronization task.
+     * @summary Clears the configurations of a data synchronization task.
+     *  *
+     * @description >  If you clear the configurations of a data synchronization task, the task will be released. To start the task again, you must call the **ConfigureSynchronizationJob** operation to reconfigure the task.
+     *  *
+     * @param ResetSynchronizationJobRequest $request ResetSynchronizationJobRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  If you clear the configurations of a data synchronization task, the task will be released. To start the task again, you must call the **ConfigureSynchronizationJob** operation to reconfigure the task.
-     *
-     * @param request - ResetSynchronizationJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ResetSynchronizationJobResponse
-     *
-     * @param ResetSynchronizationJobRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ResetSynchronizationJobResponse
+     * @return ResetSynchronizationJobResponse ResetSynchronizationJobResponse
      */
     public function resetSynchronizationJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
-        if (null !== $request->synchronizationJobId) {
-            @$query['SynchronizationJobId'] = $request->synchronizationJobId;
+        if (!Utils::isUnset($request->synchronizationJobId)) {
+            $query['SynchronizationJobId'] = $request->synchronizationJobId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ResetSynchronizationJob',
@@ -9076,18 +7702,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Clears the configurations of a data synchronization task.
+     * @summary Clears the configurations of a data synchronization task.
+     *  *
+     * @description >  If you clear the configurations of a data synchronization task, the task will be released. To start the task again, you must call the **ConfigureSynchronizationJob** operation to reconfigure the task.
+     *  *
+     * @param ResetSynchronizationJobRequest $request ResetSynchronizationJobRequest
      *
-     * @remarks
-     * >  If you clear the configurations of a data synchronization task, the task will be released. To start the task again, you must call the **ConfigureSynchronizationJob** operation to reconfigure the task.
-     *
-     * @param request - ResetSynchronizationJobRequest
-     *
-     * @returns ResetSynchronizationJobResponse
-     *
-     * @param ResetSynchronizationJobRequest $request
-     *
-     * @return ResetSynchronizationJobResponse
+     * @return ResetSynchronizationJobResponse ResetSynchronizationJobResponse
      */
     public function resetSynchronizationJob($request)
     {
@@ -9097,40 +7718,31 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 调转双向任务的方向.
+     * @summary 调转双向任务的方向
+     *  *
+     * @param ReverseTwoWayDirectionRequest $request ReverseTwoWayDirectionRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ReverseTwoWayDirectionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ReverseTwoWayDirectionResponse
-     *
-     * @param ReverseTwoWayDirectionRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ReverseTwoWayDirectionResponse
+     * @return ReverseTwoWayDirectionResponse ReverseTwoWayDirectionResponse
      */
     public function reverseTwoWayDirectionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->ignoreErrorSubJob) {
-            @$query['IgnoreErrorSubJob'] = $request->ignoreErrorSubJob;
+        if (!Utils::isUnset($request->ignoreErrorSubJob)) {
+            $query['IgnoreErrorSubJob'] = $request->ignoreErrorSubJob;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ReverseTwoWayDirection',
@@ -9148,15 +7760,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 调转双向任务的方向.
+     * @summary 调转双向任务的方向
+     *  *
+     * @param ReverseTwoWayDirectionRequest $request ReverseTwoWayDirectionRequest
      *
-     * @param request - ReverseTwoWayDirectionRequest
-     *
-     * @returns ReverseTwoWayDirectionResponse
-     *
-     * @param ReverseTwoWayDirectionRequest $request
-     *
-     * @return ReverseTwoWayDirectionResponse
+     * @return ReverseTwoWayDirectionResponse ReverseTwoWayDirectionResponse
      */
     public function reverseTwoWayDirection($request)
     {
@@ -9166,40 +7774,31 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Ignores the precheck items that a data migration or synchronization task may fail to pass.
+     * @summary Ignores the precheck items that a data migration or synchronization task may fail to pass.
+     *  *
+     * @param ShieldPrecheckRequest $request ShieldPrecheckRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ShieldPrecheckRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ShieldPrecheckResponse
-     *
-     * @param ShieldPrecheckRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ShieldPrecheckResponse
+     * @return ShieldPrecheckResponse ShieldPrecheckResponse
      */
     public function shieldPrecheckWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->precheckItems) {
-            @$query['PrecheckItems'] = $request->precheckItems;
+        if (!Utils::isUnset($request->precheckItems)) {
+            $query['PrecheckItems'] = $request->precheckItems;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ShieldPrecheck',
@@ -9217,15 +7816,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Ignores the precheck items that a data migration or synchronization task may fail to pass.
+     * @summary Ignores the precheck items that a data migration or synchronization task may fail to pass.
+     *  *
+     * @param ShieldPrecheckRequest $request ShieldPrecheckRequest
      *
-     * @param request - ShieldPrecheckRequest
-     *
-     * @returns ShieldPrecheckResponse
-     *
-     * @param ShieldPrecheckRequest $request
-     *
-     * @return ShieldPrecheckResponse
+     * @return ShieldPrecheckResponse ShieldPrecheckResponse
      */
     public function shieldPrecheck($request)
     {
@@ -9235,44 +7830,34 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * The tables that do not need to be synchronized in a full data synchronization are skipped.
+     * @summary The tables that do not need to be synchronized in a full data synchronization are skipped.
+     *  *
+     * @param SkipFullJobTableRequest $request SkipFullJobTableRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SkipFullJobTableRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SkipFullJobTableResponse
-     *
-     * @param SkipFullJobTableRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return SkipFullJobTableResponse
+     * @return SkipFullJobTableResponse SkipFullJobTableResponse
      */
     public function skipFullJobTableWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->jobProgressId) {
-            @$query['JobProgressId'] = $request->jobProgressId;
+        if (!Utils::isUnset($request->jobProgressId)) {
+            $query['JobProgressId'] = $request->jobProgressId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SkipFullJobTable',
@@ -9290,15 +7875,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * The tables that do not need to be synchronized in a full data synchronization are skipped.
+     * @summary The tables that do not need to be synchronized in a full data synchronization are skipped.
+     *  *
+     * @param SkipFullJobTableRequest $request SkipFullJobTableRequest
      *
-     * @param request - SkipFullJobTableRequest
-     *
-     * @returns SkipFullJobTableResponse
-     *
-     * @param SkipFullJobTableRequest $request
-     *
-     * @return SkipFullJobTableResponse
+     * @return SkipFullJobTableResponse SkipFullJobTableResponse
      */
     public function skipFullJobTable($request)
     {
@@ -9308,52 +7889,40 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Skips one or more precheck items.
+     * @summary Skips one or more precheck items.
+     *  *
+     * @param SkipPreCheckRequest $request SkipPreCheckRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SkipPreCheckRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SkipPreCheckResponse
-     *
-     * @param SkipPreCheckRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return SkipPreCheckResponse
+     * @return SkipPreCheckResponse SkipPreCheckResponse
      */
     public function skipPreCheckWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->jobId) {
-            @$query['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->skip) {
-            @$query['Skip'] = $request->skip;
+        if (!Utils::isUnset($request->skip)) {
+            $query['Skip'] = $request->skip;
         }
-
-        if (null !== $request->skipPreCheckItems) {
-            @$query['SkipPreCheckItems'] = $request->skipPreCheckItems;
+        if (!Utils::isUnset($request->skipPreCheckItems)) {
+            $query['SkipPreCheckItems'] = $request->skipPreCheckItems;
         }
-
-        if (null !== $request->skipPreCheckNames) {
-            @$query['SkipPreCheckNames'] = $request->skipPreCheckNames;
+        if (!Utils::isUnset($request->skipPreCheckNames)) {
+            $query['SkipPreCheckNames'] = $request->skipPreCheckNames;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SkipPreCheck',
@@ -9371,15 +7940,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Skips one or more precheck items.
+     * @summary Skips one or more precheck items.
+     *  *
+     * @param SkipPreCheckRequest $request SkipPreCheckRequest
      *
-     * @param request - SkipPreCheckRequest
-     *
-     * @returns SkipPreCheckResponse
-     *
-     * @param SkipPreCheckRequest $request
-     *
-     * @return SkipPreCheckResponse
+     * @return SkipPreCheckResponse SkipPreCheckResponse
      */
     public function skipPreCheck($request)
     {
@@ -9389,48 +7954,37 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Starts a data migration, data synchronization, or change tracking task.
+     * @summary Starts a data migration, data synchronization, or change tracking task.
+     *  *
+     * @param StartDtsJobRequest $request StartDtsJobRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - StartDtsJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns StartDtsJobResponse
-     *
-     * @param StartDtsJobRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return StartDtsJobResponse
+     * @return StartDtsJobResponse StartDtsJobResponse
      */
     public function startDtsJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'StartDtsJob',
@@ -9448,15 +8002,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Starts a data migration, data synchronization, or change tracking task.
+     * @summary Starts a data migration, data synchronization, or change tracking task.
+     *  *
+     * @param StartDtsJobRequest $request StartDtsJobRequest
      *
-     * @param request - StartDtsJobRequest
-     *
-     * @returns StartDtsJobResponse
-     *
-     * @param StartDtsJobRequest $request
-     *
-     * @return StartDtsJobResponse
+     * @return StartDtsJobResponse StartDtsJobResponse
      */
     public function startDtsJob($request)
     {
@@ -9466,40 +8016,31 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Starts multiple data migration or data synchronization tasks.
+     * @summary Starts multiple data migration or data synchronization tasks.
+     *  *
+     * @param StartDtsJobsRequest $request StartDtsJobsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - StartDtsJobsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns StartDtsJobsResponse
-     *
-     * @param StartDtsJobsRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return StartDtsJobsResponse
+     * @return StartDtsJobsResponse StartDtsJobsResponse
      */
     public function startDtsJobsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsJobIds) {
-            @$query['DtsJobIds'] = $request->dtsJobIds;
+        if (!Utils::isUnset($request->dtsJobIds)) {
+            $query['DtsJobIds'] = $request->dtsJobIds;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'StartDtsJobs',
@@ -9517,15 +8058,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Starts multiple data migration or data synchronization tasks.
+     * @summary Starts multiple data migration or data synchronization tasks.
+     *  *
+     * @param StartDtsJobsRequest $request StartDtsJobsRequest
      *
-     * @param request - StartDtsJobsRequest
-     *
-     * @returns StartDtsJobsResponse
-     *
-     * @param StartDtsJobsRequest $request
-     *
-     * @return StartDtsJobsResponse
+     * @return StartDtsJobsResponse StartDtsJobsResponse
      */
     public function startDtsJobs($request)
     {
@@ -9535,44 +8072,34 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Starts a data migration task.
+     * @summary Starts a data migration task.
+     *  *
+     * @param StartMigrationJobRequest $request StartMigrationJobRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - StartMigrationJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns StartMigrationJobResponse
-     *
-     * @param StartMigrationJobRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return StartMigrationJobResponse
+     * @return StartMigrationJobResponse StartMigrationJobResponse
      */
     public function startMigrationJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->migrationJobId) {
-            @$query['MigrationJobId'] = $request->migrationJobId;
+        if (!Utils::isUnset($request->migrationJobId)) {
+            $query['MigrationJobId'] = $request->migrationJobId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'StartMigrationJob',
@@ -9590,15 +8117,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Starts a data migration task.
+     * @summary Starts a data migration task.
+     *  *
+     * @param StartMigrationJobRequest $request StartMigrationJobRequest
      *
-     * @param request - StartMigrationJobRequest
-     *
-     * @returns StartMigrationJobResponse
-     *
-     * @param StartMigrationJobRequest $request
-     *
-     * @return StartMigrationJobResponse
+     * @return StartMigrationJobResponse StartMigrationJobResponse
      */
     public function startMigrationJob($request)
     {
@@ -9608,39 +8131,30 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Starts the reverse task that is created by calling the CreateReverseDtsJob operation.
+     * @summary Starts the reverse task that is created by calling the CreateReverseDtsJob operation.
+     *  *
+     * @description Before you call this operation, make sure that your instance is not released and is paused. You can check the status of the instance in the Data Transmission Service (DTS) console or by calling the [DescribeDtsJobDetail](https://help.aliyun.com/document_detail/208925.html) operation.
+     *  *
+     * @param StartReverseWriterRequest $request StartReverseWriterRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Before you call this operation, make sure that your instance is not released and is paused. You can check the status of the instance in the Data Transmission Service (DTS) console or by calling the [DescribeDtsJobDetail](https://help.aliyun.com/document_detail/208925.html) operation.
-     *
-     * @param request - StartReverseWriterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns StartReverseWriterResponse
-     *
-     * @param StartReverseWriterRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return StartReverseWriterResponse
+     * @return StartReverseWriterResponse StartReverseWriterResponse
      */
     public function startReverseWriterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->checkPoint) {
-            @$query['CheckPoint'] = $request->checkPoint;
+        if (!Utils::isUnset($request->checkPoint)) {
+            $query['CheckPoint'] = $request->checkPoint;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'StartReverseWriter',
@@ -9658,18 +8172,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Starts the reverse task that is created by calling the CreateReverseDtsJob operation.
+     * @summary Starts the reverse task that is created by calling the CreateReverseDtsJob operation.
+     *  *
+     * @description Before you call this operation, make sure that your instance is not released and is paused. You can check the status of the instance in the Data Transmission Service (DTS) console or by calling the [DescribeDtsJobDetail](https://help.aliyun.com/document_detail/208925.html) operation.
+     *  *
+     * @param StartReverseWriterRequest $request StartReverseWriterRequest
      *
-     * @remarks
-     * Before you call this operation, make sure that your instance is not released and is paused. You can check the status of the instance in the Data Transmission Service (DTS) console or by calling the [DescribeDtsJobDetail](https://help.aliyun.com/document_detail/208925.html) operation.
-     *
-     * @param request - StartReverseWriterRequest
-     *
-     * @returns StartReverseWriterResponse
-     *
-     * @param StartReverseWriterRequest $request
-     *
-     * @return StartReverseWriterResponse
+     * @return StartReverseWriterResponse StartReverseWriterResponse
      */
     public function startReverseWriter($request)
     {
@@ -9679,44 +8188,34 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Starts a change tracking task.
+     * @summary Starts a change tracking task.
+     *  *
+     * @param StartSubscriptionInstanceRequest $request StartSubscriptionInstanceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - StartSubscriptionInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns StartSubscriptionInstanceResponse
-     *
-     * @param StartSubscriptionInstanceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return StartSubscriptionInstanceResponse
+     * @return StartSubscriptionInstanceResponse StartSubscriptionInstanceResponse
      */
     public function startSubscriptionInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->subscriptionInstanceId) {
-            @$query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
+        if (!Utils::isUnset($request->subscriptionInstanceId)) {
+            $query['SubscriptionInstanceId'] = $request->subscriptionInstanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'StartSubscriptionInstance',
@@ -9734,15 +8233,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Starts a change tracking task.
+     * @summary Starts a change tracking task.
+     *  *
+     * @param StartSubscriptionInstanceRequest $request StartSubscriptionInstanceRequest
      *
-     * @param request - StartSubscriptionInstanceRequest
-     *
-     * @returns StartSubscriptionInstanceResponse
-     *
-     * @param StartSubscriptionInstanceRequest $request
-     *
-     * @return StartSubscriptionInstanceResponse
+     * @return StartSubscriptionInstanceResponse StartSubscriptionInstanceResponse
      */
     public function startSubscriptionInstance($request)
     {
@@ -9752,48 +8247,37 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Starts a data synchronization task.
+     * @summary Starts a data synchronization task.
+     *  *
+     * @param StartSynchronizationJobRequest $request StartSynchronizationJobRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - StartSynchronizationJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns StartSynchronizationJobResponse
-     *
-     * @param StartSynchronizationJobRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return StartSynchronizationJobResponse
+     * @return StartSynchronizationJobResponse StartSynchronizationJobResponse
      */
     public function startSynchronizationJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
-        if (null !== $request->synchronizationJobId) {
-            @$query['SynchronizationJobId'] = $request->synchronizationJobId;
+        if (!Utils::isUnset($request->synchronizationJobId)) {
+            $query['SynchronizationJobId'] = $request->synchronizationJobId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'StartSynchronizationJob',
@@ -9811,15 +8295,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Starts a data synchronization task.
+     * @summary Starts a data synchronization task.
+     *  *
+     * @param StartSynchronizationJobRequest $request StartSynchronizationJobRequest
      *
-     * @param request - StartSynchronizationJobRequest
-     *
-     * @returns StartSynchronizationJobResponse
-     *
-     * @param StartSynchronizationJobRequest $request
-     *
-     * @return StartSynchronizationJobResponse
+     * @return StartSynchronizationJobResponse StartSynchronizationJobResponse
      */
     public function startSynchronizationJob($request)
     {
@@ -9829,48 +8309,37 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Releases a cluster.
+     * @summary Releases a cluster.
+     *  *
+     * @param StopDedicatedClusterRequest $request StopDedicatedClusterRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - StopDedicatedClusterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns StopDedicatedClusterResponse
-     *
-     * @param StopDedicatedClusterRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return StopDedicatedClusterResponse
+     * @return StopDedicatedClusterResponse StopDedicatedClusterResponse
      */
     public function stopDedicatedClusterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dedicatedClusterId) {
-            @$query['DedicatedClusterId'] = $request->dedicatedClusterId;
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
         }
-
-        if (null !== $request->dedicatedClusterName) {
-            @$query['DedicatedClusterName'] = $request->dedicatedClusterName;
+        if (!Utils::isUnset($request->dedicatedClusterName)) {
+            $query['DedicatedClusterName'] = $request->dedicatedClusterName;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'StopDedicatedCluster',
@@ -9888,15 +8357,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Releases a cluster.
+     * @summary Releases a cluster.
+     *  *
+     * @param StopDedicatedClusterRequest $request StopDedicatedClusterRequest
      *
-     * @param request - StopDedicatedClusterRequest
-     *
-     * @returns StopDedicatedClusterResponse
-     *
-     * @param StopDedicatedClusterRequest $request
-     *
-     * @return StopDedicatedClusterResponse
+     * @return StopDedicatedClusterResponse StopDedicatedClusterResponse
      */
     public function stopDedicatedCluster($request)
     {
@@ -9906,48 +8371,37 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Stops a data migration, data synchronization, or change tracking task.
+     * @summary Stops a data migration, data synchronization, or change tracking task.
+     *  *
+     * @param StopDtsJobRequest $request StopDtsJobRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - StopDtsJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns StopDtsJobResponse
-     *
-     * @param StopDtsJobRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return StopDtsJobResponse
+     * @return StopDtsJobResponse StopDtsJobResponse
      */
     public function stopDtsJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'StopDtsJob',
@@ -9965,15 +8419,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Stops a data migration, data synchronization, or change tracking task.
+     * @summary Stops a data migration, data synchronization, or change tracking task.
+     *  *
+     * @param StopDtsJobRequest $request StopDtsJobRequest
      *
-     * @param request - StopDtsJobRequest
-     *
-     * @returns StopDtsJobResponse
-     *
-     * @param StopDtsJobRequest $request
-     *
-     * @return StopDtsJobResponse
+     * @return StopDtsJobResponse StopDtsJobResponse
      */
     public function stopDtsJob($request)
     {
@@ -9983,40 +8433,31 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Stops multiple data migration or data synchronization tasks.
+     * @summary Stops multiple data migration or data synchronization tasks.
+     *  *
+     * @param StopDtsJobsRequest $request StopDtsJobsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - StopDtsJobsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns StopDtsJobsResponse
-     *
-     * @param StopDtsJobsRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return StopDtsJobsResponse
+     * @return StopDtsJobsResponse StopDtsJobsResponse
      */
     public function stopDtsJobsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsJobIds) {
-            @$query['DtsJobIds'] = $request->dtsJobIds;
+        if (!Utils::isUnset($request->dtsJobIds)) {
+            $query['DtsJobIds'] = $request->dtsJobIds;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'StopDtsJobs',
@@ -10034,15 +8475,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Stops multiple data migration or data synchronization tasks.
+     * @summary Stops multiple data migration or data synchronization tasks.
+     *  *
+     * @param StopDtsJobsRequest $request StopDtsJobsRequest
      *
-     * @param request - StopDtsJobsRequest
-     *
-     * @returns StopDtsJobsResponse
-     *
-     * @param StopDtsJobsRequest $request
-     *
-     * @return StopDtsJobsResponse
+     * @return StopDtsJobsResponse StopDtsJobsResponse
      */
     public function stopDtsJobs($request)
     {
@@ -10052,48 +8489,37 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Stops a data migration task that is in the Migrating state.
+     * @summary Stops a data migration task that is in the Migrating state.
+     *  *
+     * @param StopMigrationJobRequest $request StopMigrationJobRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - StopMigrationJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns StopMigrationJobResponse
-     *
-     * @param StopMigrationJobRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return StopMigrationJobResponse
+     * @return StopMigrationJobResponse StopMigrationJobResponse
      */
     public function stopMigrationJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->migrationJobId) {
-            @$query['MigrationJobId'] = $request->migrationJobId;
+        if (!Utils::isUnset($request->migrationJobId)) {
+            $query['MigrationJobId'] = $request->migrationJobId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'StopMigrationJob',
@@ -10111,15 +8537,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Stops a data migration task that is in the Migrating state.
+     * @summary Stops a data migration task that is in the Migrating state.
+     *  *
+     * @param StopMigrationJobRequest $request StopMigrationJobRequest
      *
-     * @param request - StopMigrationJobRequest
-     *
-     * @returns StopMigrationJobResponse
-     *
-     * @param StopMigrationJobRequest $request
-     *
-     * @return StopMigrationJobResponse
+     * @return StopMigrationJobResponse StopMigrationJobResponse
      */
     public function stopMigrationJob($request)
     {
@@ -10129,56 +8551,43 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the number of migrated or synchronized objects in a Data Transmission Service (DTS) task.
+     * @summary Queries the number of migrated or synchronized objects in a Data Transmission Service (DTS) task.
+     *  *
+     * @param SummaryJobDetailRequest $request SummaryJobDetailRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SummaryJobDetailRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SummaryJobDetailResponse
-     *
-     * @param SummaryJobDetailRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return SummaryJobDetailResponse
+     * @return SummaryJobDetailResponse SummaryJobDetailResponse
      */
     public function summaryJobDetailWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->jobCode) {
-            @$query['JobCode'] = $request->jobCode;
+        if (!Utils::isUnset($request->jobCode)) {
+            $query['JobCode'] = $request->jobCode;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->structType) {
-            @$query['StructType'] = $request->structType;
+        if (!Utils::isUnset($request->structType)) {
+            $query['StructType'] = $request->structType;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SummaryJobDetail',
@@ -10196,15 +8605,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Queries the number of migrated or synchronized objects in a Data Transmission Service (DTS) task.
+     * @summary Queries the number of migrated or synchronized objects in a Data Transmission Service (DTS) task.
+     *  *
+     * @param SummaryJobDetailRequest $request SummaryJobDetailRequest
      *
-     * @param request - SummaryJobDetailRequest
-     *
-     * @returns SummaryJobDetailResponse
-     *
-     * @param SummaryJobDetailRequest $request
-     *
-     * @return SummaryJobDetailResponse
+     * @return SummaryJobDetailResponse SummaryJobDetailResponse
      */
     public function summaryJobDetail($request)
     {
@@ -10214,50 +8619,39 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Pauses a data migration, data synchronization, or change tracking task.
+     * @summary Pauses a data migration, data synchronization, or change tracking task.
+     *  *
+     * @description ****
+     *  *
+     * @param SuspendDtsJobRequest $request SuspendDtsJobRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     *
-     * @param request - SuspendDtsJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SuspendDtsJobResponse
-     *
-     * @param SuspendDtsJobRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return SuspendDtsJobResponse
+     * @return SuspendDtsJobResponse SuspendDtsJobResponse
      */
     public function suspendDtsJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SuspendDtsJob',
@@ -10275,17 +8669,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Pauses a data migration, data synchronization, or change tracking task.
+     * @summary Pauses a data migration, data synchronization, or change tracking task.
+     *  *
+     * @description ****
+     *  *
+     * @param SuspendDtsJobRequest $request SuspendDtsJobRequest
      *
-     * @remarks
-     *
-     * @param request - SuspendDtsJobRequest
-     *
-     * @returns SuspendDtsJobResponse
-     *
-     * @param SuspendDtsJobRequest $request
-     *
-     * @return SuspendDtsJobResponse
+     * @return SuspendDtsJobResponse SuspendDtsJobResponse
      */
     public function suspendDtsJob($request)
     {
@@ -10295,40 +8685,31 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Suspends multiple Data Transmission Service (DTS) tasks.
+     * @summary Suspends multiple Data Transmission Service (DTS) tasks.
+     *  *
+     * @param SuspendDtsJobsRequest $request SuspendDtsJobsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SuspendDtsJobsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SuspendDtsJobsResponse
-     *
-     * @param SuspendDtsJobsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return SuspendDtsJobsResponse
+     * @return SuspendDtsJobsResponse SuspendDtsJobsResponse
      */
     public function suspendDtsJobsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsJobIds) {
-            @$query['DtsJobIds'] = $request->dtsJobIds;
+        if (!Utils::isUnset($request->dtsJobIds)) {
+            $query['DtsJobIds'] = $request->dtsJobIds;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SuspendDtsJobs',
@@ -10346,15 +8727,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Suspends multiple Data Transmission Service (DTS) tasks.
+     * @summary Suspends multiple Data Transmission Service (DTS) tasks.
+     *  *
+     * @param SuspendDtsJobsRequest $request SuspendDtsJobsRequest
      *
-     * @param request - SuspendDtsJobsRequest
-     *
-     * @returns SuspendDtsJobsResponse
-     *
-     * @param SuspendDtsJobsRequest $request
-     *
-     * @return SuspendDtsJobsResponse
+     * @return SuspendDtsJobsResponse SuspendDtsJobsResponse
      */
     public function suspendDtsJobs($request)
     {
@@ -10364,48 +8741,37 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Pauses a data migration task.
+     * @summary Pauses a data migration task.
+     *  *
+     * @param SuspendMigrationJobRequest $request SuspendMigrationJobRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SuspendMigrationJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SuspendMigrationJobResponse
-     *
-     * @param SuspendMigrationJobRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return SuspendMigrationJobResponse
+     * @return SuspendMigrationJobResponse SuspendMigrationJobResponse
      */
     public function suspendMigrationJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->migrationJobId) {
-            @$query['MigrationJobId'] = $request->migrationJobId;
+        if (!Utils::isUnset($request->migrationJobId)) {
+            $query['MigrationJobId'] = $request->migrationJobId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SuspendMigrationJob',
@@ -10423,15 +8789,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Pauses a data migration task.
+     * @summary Pauses a data migration task.
+     *  *
+     * @param SuspendMigrationJobRequest $request SuspendMigrationJobRequest
      *
-     * @param request - SuspendMigrationJobRequest
-     *
-     * @returns SuspendMigrationJobResponse
-     *
-     * @param SuspendMigrationJobRequest $request
-     *
-     * @return SuspendMigrationJobResponse
+     * @return SuspendMigrationJobResponse SuspendMigrationJobResponse
      */
     public function suspendMigrationJob($request)
     {
@@ -10441,54 +8803,42 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Pauses a data synchronization task.
-     *
-     * @remarks
-     * >
+     * @summary Pauses a data synchronization task.
+     *  *
+     * @description >
      * *   When you call this operation, the data synchronization task must be in the Synchronizing state.
      * *   We recommend that you do not pause a data synchronization task for more than 6 hours. Otherwise, the task cannot be started again.
      * *   If the billing method is pay-as-you-go, DTS charges a fee even when the task is paused. This is because DTS only stops writing data to the destination database. DTS continues to pull the logs of the source database so that the task can resume quickly after it is restarted. Therefore, data synchronization consumes resources such as the bandwidth of the source database.
+     *  *
+     * @param SuspendSynchronizationJobRequest $request SuspendSynchronizationJobRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SuspendSynchronizationJobRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SuspendSynchronizationJobResponse
-     *
-     * @param SuspendSynchronizationJobRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return SuspendSynchronizationJobResponse
+     * @return SuspendSynchronizationJobResponse SuspendSynchronizationJobResponse
      */
     public function suspendSynchronizationJobWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
-        if (null !== $request->synchronizationJobId) {
-            @$query['SynchronizationJobId'] = $request->synchronizationJobId;
+        if (!Utils::isUnset($request->synchronizationJobId)) {
+            $query['SynchronizationJobId'] = $request->synchronizationJobId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SuspendSynchronizationJob',
@@ -10506,21 +8856,16 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Pauses a data synchronization task.
-     *
-     * @remarks
-     * >
+     * @summary Pauses a data synchronization task.
+     *  *
+     * @description >
      * *   When you call this operation, the data synchronization task must be in the Synchronizing state.
      * *   We recommend that you do not pause a data synchronization task for more than 6 hours. Otherwise, the task cannot be started again.
      * *   If the billing method is pay-as-you-go, DTS charges a fee even when the task is paused. This is because DTS only stops writing data to the destination database. DTS continues to pull the logs of the source database so that the task can resume quickly after it is restarted. Therefore, data synchronization consumes resources such as the bandwidth of the source database.
+     *  *
+     * @param SuspendSynchronizationJobRequest $request SuspendSynchronizationJobRequest
      *
-     * @param request - SuspendSynchronizationJobRequest
-     *
-     * @returns SuspendSynchronizationJobResponse
-     *
-     * @param SuspendSynchronizationJobRequest $request
-     *
-     * @return SuspendSynchronizationJobResponse
+     * @return SuspendSynchronizationJobResponse SuspendSynchronizationJobResponse
      */
     public function suspendSynchronizationJob($request)
     {
@@ -10530,44 +8875,34 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 物理迁移任务切换上云.
+     * @summary 物理迁移任务切换上云
+     *  *
+     * @param SwitchPhysicalDtsJobToCloudRequest $request SwitchPhysicalDtsJobToCloudRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SwitchPhysicalDtsJobToCloudRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SwitchPhysicalDtsJobToCloudResponse
-     *
-     * @param SwitchPhysicalDtsJobToCloudRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return SwitchPhysicalDtsJobToCloudResponse
+     * @return SwitchPhysicalDtsJobToCloudResponse SwitchPhysicalDtsJobToCloudResponse
      */
     public function switchPhysicalDtsJobToCloudWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsInstanceId) {
-            @$query['DtsInstanceId'] = $request->dtsInstanceId;
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SwitchPhysicalDtsJobToCloud',
@@ -10585,15 +8920,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 物理迁移任务切换上云.
+     * @summary 物理迁移任务切换上云
+     *  *
+     * @param SwitchPhysicalDtsJobToCloudRequest $request SwitchPhysicalDtsJobToCloudRequest
      *
-     * @param request - SwitchPhysicalDtsJobToCloudRequest
-     *
-     * @returns SwitchPhysicalDtsJobToCloudResponse
-     *
-     * @param SwitchPhysicalDtsJobToCloudRequest $request
-     *
-     * @return SwitchPhysicalDtsJobToCloudResponse
+     * @return SwitchPhysicalDtsJobToCloudResponse SwitchPhysicalDtsJobToCloudResponse
      */
     public function switchPhysicalDtsJobToCloud($request)
     {
@@ -10603,56 +8934,43 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * After you perform a primary/secondary switchover on the source or destination database, you can call the SwitchSynchronizationEndpoint operation to transfer the connection settings to Data Transmission Service (DTS). DTS will restart the data synchronization task from the breakpoint.
+     * @summary After you perform a primary/secondary switchover on the source or destination database, you can call the SwitchSynchronizationEndpoint operation to transfer the connection settings to Data Transmission Service (DTS). DTS will restart the data synchronization task from the breakpoint.
+     *  *
+     * @param SwitchSynchronizationEndpointRequest $request SwitchSynchronizationEndpointRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SwitchSynchronizationEndpointRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SwitchSynchronizationEndpointResponse
-     *
-     * @param SwitchSynchronizationEndpointRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return SwitchSynchronizationEndpointResponse
+     * @return SwitchSynchronizationEndpointResponse SwitchSynchronizationEndpointResponse
      */
     public function switchSynchronizationEndpointWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountId) {
-            @$query['AccountId'] = $request->accountId;
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->synchronizationDirection) {
-            @$query['SynchronizationDirection'] = $request->synchronizationDirection;
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
         }
-
-        if (null !== $request->synchronizationJobId) {
-            @$query['SynchronizationJobId'] = $request->synchronizationJobId;
+        if (!Utils::isUnset($request->synchronizationJobId)) {
+            $query['SynchronizationJobId'] = $request->synchronizationJobId;
         }
-
-        if (null !== $request->endpoint) {
-            @$query['Endpoint'] = $request->endpoint;
+        if (!Utils::isUnset($request->endpoint)) {
+            $query['Endpoint'] = $request->endpoint;
         }
-
-        if (null !== $request->sourceEndpoint) {
-            @$query['SourceEndpoint'] = $request->sourceEndpoint;
+        if (!Utils::isUnset($request->sourceEndpoint)) {
+            $query['SourceEndpoint'] = $request->sourceEndpoint;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SwitchSynchronizationEndpoint',
@@ -10670,15 +8988,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * After you perform a primary/secondary switchover on the source or destination database, you can call the SwitchSynchronizationEndpoint operation to transfer the connection settings to Data Transmission Service (DTS). DTS will restart the data synchronization task from the breakpoint.
+     * @summary After you perform a primary/secondary switchover on the source or destination database, you can call the SwitchSynchronizationEndpoint operation to transfer the connection settings to Data Transmission Service (DTS). DTS will restart the data synchronization task from the breakpoint.
+     *  *
+     * @param SwitchSynchronizationEndpointRequest $request SwitchSynchronizationEndpointRequest
      *
-     * @param request - SwitchSynchronizationEndpointRequest
-     *
-     * @returns SwitchSynchronizationEndpointResponse
-     *
-     * @param SwitchSynchronizationEndpointRequest $request
-     *
-     * @return SwitchSynchronizationEndpointResponse
+     * @return SwitchSynchronizationEndpointResponse SwitchSynchronizationEndpointResponse
      */
     public function switchSynchronizationEndpoint($request)
     {
@@ -10688,52 +9002,41 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Adds tags to data migration, data synchronization, or change tracking instances.
-     *
-     * @remarks
-     * If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can query instances by tag.
+     * @summary Adds tags to data migration, data synchronization, or change tracking instances.
+     *  *
+     * @description If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can query instances by tag.
      * *   A tag consists of a key and a value. Each key must be unique in a region within an Alibaba Cloud account. Different keys can be mapped to the same value.
      * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
      * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
      * *   You can add up to 20 tags to an instance.
      * *   You can add tags to up to 50 instances in each request.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'TagResources',
@@ -10751,23 +9054,18 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Adds tags to data migration, data synchronization, or change tracking instances.
-     *
-     * @remarks
-     * If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can query instances by tag.
+     * @summary Adds tags to data migration, data synchronization, or change tracking instances.
+     *  *
+     * @description If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can query instances by tag.
      * *   A tag consists of a key and a value. Each key must be unique in a region within an Alibaba Cloud account. Different keys can be mapped to the same value.
      * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
      * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
      * *   You can add up to 20 tags to an instance.
      * *   You can add tags to up to 50 instances in each request.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @param request - TagResourcesRequest
-     *
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -10777,44 +9075,34 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Upgrades or downgrades a Data Transmission Service (DTS) instance.
+     * @summary Upgrades or downgrades a Data Transmission Service (DTS) instance.
+     *  *
+     * @param TransferInstanceClassRequest $request TransferInstanceClassRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TransferInstanceClassRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns TransferInstanceClassResponse
-     *
-     * @param TransferInstanceClassRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return TransferInstanceClassResponse
+     * @return TransferInstanceClassResponse TransferInstanceClassResponse
      */
     public function transferInstanceClassWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->instanceClass) {
-            @$query['InstanceClass'] = $request->instanceClass;
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'TransferInstanceClass',
@@ -10832,15 +9120,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Upgrades or downgrades a Data Transmission Service (DTS) instance.
+     * @summary Upgrades or downgrades a Data Transmission Service (DTS) instance.
+     *  *
+     * @param TransferInstanceClassRequest $request TransferInstanceClassRequest
      *
-     * @param request - TransferInstanceClassRequest
-     *
-     * @returns TransferInstanceClassResponse
-     *
-     * @param TransferInstanceClassRequest $request
-     *
-     * @return TransferInstanceClassResponse
+     * @return TransferInstanceClassResponse TransferInstanceClassResponse
      */
     public function transferInstanceClass($request)
     {
@@ -10850,69 +9134,53 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Changes the billing method of a Data Transmission Service (DTS) instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you fully understand the [billing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of DTS.
+     * @summary Changes the billing method of a Data Transmission Service (DTS) instance.
+     *  *
+     * @description Before you call this operation, make sure that you fully understand the [billing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of DTS.
      * *   To prevent resource waste, make sure that the billing method of your DTS instances has to be changed.
      * *   Data migration instances only support the pay-as-you-go billing method.
+     *  *
+     * @param TransferPayTypeRequest $request TransferPayTypeRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TransferPayTypeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns TransferPayTypeResponse
-     *
-     * @param TransferPayTypeRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return TransferPayTypeResponse
+     * @return TransferPayTypeResponse TransferPayTypeResponse
      */
     public function transferPayTypeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->buyCount) {
-            @$query['BuyCount'] = $request->buyCount;
+        if (!Utils::isUnset($request->buyCount)) {
+            $query['BuyCount'] = $request->buyCount;
         }
-
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
-
-        if (null !== $request->dtsJobId) {
-            @$query['DtsJobId'] = $request->dtsJobId;
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
         }
-
-        if (null !== $request->instanceClass) {
-            @$query['InstanceClass'] = $request->instanceClass;
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
         }
-
-        if (null !== $request->maxDu) {
-            @$query['MaxDu'] = $request->maxDu;
+        if (!Utils::isUnset($request->maxDu)) {
+            $query['MaxDu'] = $request->maxDu;
         }
-
-        if (null !== $request->minDu) {
-            @$query['MinDu'] = $request->minDu;
+        if (!Utils::isUnset($request->minDu)) {
+            $query['MinDu'] = $request->minDu;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'TransferPayType',
@@ -10930,20 +9198,15 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Changes the billing method of a Data Transmission Service (DTS) instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you fully understand the [billing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of DTS.
+     * @summary Changes the billing method of a Data Transmission Service (DTS) instance.
+     *  *
+     * @description Before you call this operation, make sure that you fully understand the [billing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of DTS.
      * *   To prevent resource waste, make sure that the billing method of your DTS instances has to be changed.
      * *   Data migration instances only support the pay-as-you-go billing method.
+     *  *
+     * @param TransferPayTypeRequest $request TransferPayTypeRequest
      *
-     * @param request - TransferPayTypeRequest
-     *
-     * @returns TransferPayTypeResponse
-     *
-     * @param TransferPayTypeRequest $request
-     *
-     * @return TransferPayTypeResponse
+     * @return TransferPayTypeResponse TransferPayTypeResponse
      */
     public function transferPayType($request)
     {
@@ -10953,51 +9216,39 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Unbinds tags from one or more data migration, data synchronization, or change tracking instances.
+     * @summary Unbinds tags from one or more data migration, data synchronization, or change tracking instances.
+     *  *
+     * @description >  If a tag is unbound from an instance and is not bound to other instances, the tag is deleted.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  If a tag is unbound from an instance and is not bound to other instances, the tag is deleted.
-     *
-     * @param request - UntagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->all) {
-            @$query['All'] = $request->all;
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tagKey) {
-            @$query['TagKey'] = $request->tagKey;
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UntagResources',
@@ -11015,18 +9266,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Unbinds tags from one or more data migration, data synchronization, or change tracking instances.
+     * @summary Unbinds tags from one or more data migration, data synchronization, or change tracking instances.
+     *  *
+     * @description >  If a tag is unbound from an instance and is not bound to other instances, the tag is deleted.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @remarks
-     * >  If a tag is unbound from an instance and is not bound to other instances, the tag is deleted.
-     *
-     * @param request - UntagResourcesRequest
-     *
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -11036,48 +9282,38 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Upgrades the synchronization topology of a data synchronization instance from one-way synchronization to two-way synchronization. This operation is supported only for pay-as-you-go synchronization instances.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS)
+     * @summary Upgrades the synchronization topology of a data synchronization instance from one-way synchronization to two-way synchronization. This operation is supported only for pay-as-you-go synchronization instances.
+     *  *
+     * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS)
      * When you call this operation, take note of the following information:
      * *   The source and destination databases of the data synchronization task are both **MySQL** databases.
      * *   The synchronization topology of the data synchronization task is **one-way synchronization**.
      * *   The data synchronization task is in the **Synchronizing** state.
      * *   The upgrade operation causes data synchronization latency of about 5 seconds. We recommend that you perform this operation during off-peak hours.
+     *  *
+     * @param UpgradeTwoWayRequest $request UpgradeTwoWayRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpgradeTwoWayRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpgradeTwoWayResponse
-     *
-     * @param UpgradeTwoWayRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return UpgradeTwoWayResponse
+     * @return UpgradeTwoWayResponse UpgradeTwoWayResponse
      */
     public function upgradeTwoWayWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceClass) {
-            @$query['InstanceClass'] = $request->instanceClass;
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpgradeTwoWay',
@@ -11095,23 +9331,18 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * Upgrades the synchronization topology of a data synchronization instance from one-way synchronization to two-way synchronization. This operation is supported only for pay-as-you-go synchronization instances.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS)
+     * @summary Upgrades the synchronization topology of a data synchronization instance from one-way synchronization to two-way synchronization. This operation is supported only for pay-as-you-go synchronization instances.
+     *  *
+     * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS)
      * When you call this operation, take note of the following information:
      * *   The source and destination databases of the data synchronization task are both **MySQL** databases.
      * *   The synchronization topology of the data synchronization task is **one-way synchronization**.
      * *   The data synchronization task is in the **Synchronizing** state.
      * *   The upgrade operation causes data synchronization latency of about 5 seconds. We recommend that you perform this operation during off-peak hours.
+     *  *
+     * @param UpgradeTwoWayRequest $request UpgradeTwoWayRequest
      *
-     * @param request - UpgradeTwoWayRequest
-     *
-     * @returns UpgradeTwoWayResponse
-     *
-     * @param UpgradeTwoWayRequest $request
-     *
-     * @return UpgradeTwoWayResponse
+     * @return UpgradeTwoWayResponse UpgradeTwoWayResponse
      */
     public function upgradeTwoWay($request)
     {
@@ -11121,92 +9352,70 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * If the \\\\*\\\\*source or destination instance\\\\*\\\\* is a \\\\*\\\\*self-managed database\\\\*\\\\* or a \\\\*\\\\*third-party cloud database\\\\*\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\(~~176627~~).
+     * @summary If the \\\\*\\\\*source or destination instance\\\\*\\\\* is a \\\\*\\\\*self-managed database\\\\*\\\\* or a \\\\*\\\\*third-party cloud database\\\\*\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\(~~176627~~).
      * \\\\>  If the \\\\*\\\\*source or destination database\\\\*\\\\* is an \\\\*\\\\*ApsaraDB database instance\\\\*\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\*\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\*\\\\*, you do not need to add the CIDR blocks. When you click \\\\*\\\\*Set Whitelist and Next\\\\*\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source or destination instance.
+     *  *
+     * @description The operation that you want to perform. Set the value to **WhiteIpList**.
+     *  *
+     * @param WhiteIpListRequest $request WhiteIpListRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * The operation that you want to perform. Set the value to **WhiteIpList**.
-     *
-     * @param request - WhiteIpListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns WhiteIpListResponse
-     *
-     * @param WhiteIpListRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return WhiteIpListResponse
+     * @return WhiteIpListResponse WhiteIpListResponse
      */
     public function whiteIpListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->destAliyunUid) {
-            @$query['DestAliyunUid'] = $request->destAliyunUid;
+        if (!Utils::isUnset($request->destAliyunUid)) {
+            $query['DestAliyunUid'] = $request->destAliyunUid;
         }
-
-        if (null !== $request->destPrimaryVswId) {
-            @$query['DestPrimaryVswId'] = $request->destPrimaryVswId;
+        if (!Utils::isUnset($request->destPrimaryVswId)) {
+            $query['DestPrimaryVswId'] = $request->destPrimaryVswId;
         }
-
-        if (null !== $request->destRoleName) {
-            @$query['DestRoleName'] = $request->destRoleName;
+        if (!Utils::isUnset($request->destRoleName)) {
+            $query['DestRoleName'] = $request->destRoleName;
         }
-
-        if (null !== $request->destSecondaryVswId) {
-            @$query['DestSecondaryVswId'] = $request->destSecondaryVswId;
+        if (!Utils::isUnset($request->destSecondaryVswId)) {
+            $query['DestSecondaryVswId'] = $request->destSecondaryVswId;
         }
-
-        if (null !== $request->destVpcId) {
-            @$query['DestVpcId'] = $request->destVpcId;
+        if (!Utils::isUnset($request->destVpcId)) {
+            $query['DestVpcId'] = $request->destVpcId;
         }
-
-        if (null !== $request->destinationRegion) {
-            @$query['DestinationRegion'] = $request->destinationRegion;
+        if (!Utils::isUnset($request->destinationRegion)) {
+            $query['DestinationRegion'] = $request->destinationRegion;
         }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->srcAliyunUid) {
-            @$query['SrcAliyunUid'] = $request->srcAliyunUid;
+        if (!Utils::isUnset($request->srcAliyunUid)) {
+            $query['SrcAliyunUid'] = $request->srcAliyunUid;
         }
-
-        if (null !== $request->srcPrimaryVswId) {
-            @$query['SrcPrimaryVswId'] = $request->srcPrimaryVswId;
+        if (!Utils::isUnset($request->srcPrimaryVswId)) {
+            $query['SrcPrimaryVswId'] = $request->srcPrimaryVswId;
         }
-
-        if (null !== $request->srcRoleName) {
-            @$query['SrcRoleName'] = $request->srcRoleName;
+        if (!Utils::isUnset($request->srcRoleName)) {
+            $query['SrcRoleName'] = $request->srcRoleName;
         }
-
-        if (null !== $request->srcSecondaryVswId) {
-            @$query['SrcSecondaryVswId'] = $request->srcSecondaryVswId;
+        if (!Utils::isUnset($request->srcSecondaryVswId)) {
+            $query['SrcSecondaryVswId'] = $request->srcSecondaryVswId;
         }
-
-        if (null !== $request->srcVpcId) {
-            @$query['SrcVpcId'] = $request->srcVpcId;
+        if (!Utils::isUnset($request->srcVpcId)) {
+            $query['SrcVpcId'] = $request->srcVpcId;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
-        if (null !== $request->zeroEtlJob) {
-            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        if (!Utils::isUnset($request->zeroEtlJob)) {
+            $query['ZeroEtlJob'] = $request->zeroEtlJob;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'WhiteIpList',
@@ -11224,19 +9433,14 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * If the \\\\*\\\\*source or destination instance\\\\*\\\\* is a \\\\*\\\\*self-managed database\\\\*\\\\* or a \\\\*\\\\*third-party cloud database\\\\*\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\(~~176627~~).
+     * @summary If the \\\\*\\\\*source or destination instance\\\\*\\\\* is a \\\\*\\\\*self-managed database\\\\*\\\\* or a \\\\*\\\\*third-party cloud database\\\\*\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\(~~176627~~).
      * \\\\>  If the \\\\*\\\\*source or destination database\\\\*\\\\* is an \\\\*\\\\*ApsaraDB database instance\\\\*\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\*\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\*\\\\*, you do not need to add the CIDR blocks. When you click \\\\*\\\\*Set Whitelist and Next\\\\*\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source or destination instance.
+     *  *
+     * @description The operation that you want to perform. Set the value to **WhiteIpList**.
+     *  *
+     * @param WhiteIpListRequest $request WhiteIpListRequest
      *
-     * @remarks
-     * The operation that you want to perform. Set the value to **WhiteIpList**.
-     *
-     * @param request - WhiteIpListRequest
-     *
-     * @returns WhiteIpListResponse
-     *
-     * @param WhiteIpListRequest $request
-     *
-     * @return WhiteIpListResponse
+     * @return WhiteIpListResponse WhiteIpListResponse
      */
     public function whiteIpList($request)
     {

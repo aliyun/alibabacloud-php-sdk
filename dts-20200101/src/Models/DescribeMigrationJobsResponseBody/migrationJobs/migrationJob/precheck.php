@@ -4,16 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\DescribeMigrationJobsResponseBody\migrationJobs\migrationJob;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class precheck extends Model
 {
     /**
+     * @description The precheck progress. Unit: %.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $percent;
 
     /**
+     * @description The precheck result. Valid values:
+     *
+     *   **Success**: The task passed the precheck.
+     *   **Failed**: The task failed to pass the precheck.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $status;
@@ -22,18 +33,14 @@ class precheck extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->percent) {
             $res['Percent'] = $this->percent;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -41,18 +48,17 @@ class precheck extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return precheck
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Percent'])) {
             $model->percent = $map['Percent'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

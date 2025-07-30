@@ -4,26 +4,54 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobDetailResponseBody\subSyncJob\reverseJob;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class migrationMode extends Model
 {
     /**
+     * @description Indicates whether data transformation is performed. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dataExtractTransformLoad;
 
     /**
+     * @description Indicates whether full data migration or initial full data synchronization is performed. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dataInitialization;
 
     /**
+     * @description Indicates whether incremental data migration or synchronization is performed. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dataSynchronization;
 
     /**
+     * @description Indicates whether schema migration or initial schema synchronization is performed. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $structureInitialization;
@@ -34,26 +62,20 @@ class migrationMode extends Model
         'structureInitialization' => 'StructureInitialization',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataExtractTransformLoad) {
             $res['DataExtractTransformLoad'] = $this->dataExtractTransformLoad;
         }
-
         if (null !== $this->dataInitialization) {
             $res['DataInitialization'] = $this->dataInitialization;
         }
-
         if (null !== $this->dataSynchronization) {
             $res['DataSynchronization'] = $this->dataSynchronization;
         }
-
         if (null !== $this->structureInitialization) {
             $res['StructureInitialization'] = $this->structureInitialization;
         }
@@ -61,26 +83,23 @@ class migrationMode extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return migrationMode
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataExtractTransformLoad'])) {
             $model->dataExtractTransformLoad = $map['DataExtractTransformLoad'];
         }
-
         if (isset($map['DataInitialization'])) {
             $model->dataInitialization = $map['DataInitialization'];
         }
-
         if (isset($map['DataSynchronization'])) {
             $model->dataSynchronization = $map['DataSynchronization'];
         }
-
         if (isset($map['StructureInitialization'])) {
             $model->structureInitialization = $map['StructureInitialization'];
         }

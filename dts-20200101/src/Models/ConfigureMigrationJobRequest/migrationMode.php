@@ -4,21 +4,45 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\ConfigureMigrationJobRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class migrationMode extends Model
 {
     /**
+     * @description The database account of the destination database.
+     *
+     * >  The permissions that are required for database accounts vary with the migration scenario. For more information, see [Overview of data migration scenarios](https://help.aliyun.com/document_detail/26618.html).
+     *
+     * This parameter is required.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dataIntialization;
 
     /**
+     * @description The password of the destination database account.
+     *
+     * This parameter is required.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dataSynchronization;
 
     /**
+     * @description The name of the destination database or the authentication database.
+     *
+     * >
+     *   You must specify the database name only if the **DestinationEndpoint.EngineName** parameter is set to **PostgreSQL**, **DRDS**, or **MongoDB**.
+     *   If the **DestinationEndpoint.EngineName** parameter is set to **PostgreSQL** or **DRDS**, specify the name of the destination database. If the DestinationEndpoint.EngineName parameter is set to **MongoDB**, specify the name of the authentication database.
+     *
+     * This parameter is required.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $structureIntialization;
@@ -28,22 +52,17 @@ class migrationMode extends Model
         'structureIntialization' => 'StructureIntialization',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataIntialization) {
             $res['DataIntialization'] = $this->dataIntialization;
         }
-
         if (null !== $this->dataSynchronization) {
             $res['DataSynchronization'] = $this->dataSynchronization;
         }
-
         if (null !== $this->structureIntialization) {
             $res['StructureIntialization'] = $this->structureIntialization;
         }
@@ -51,22 +70,20 @@ class migrationMode extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return migrationMode
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataIntialization'])) {
             $model->dataIntialization = $map['DataIntialization'];
         }
-
         if (isset($map['DataSynchronization'])) {
             $model->dataSynchronization = $map['DataSynchronization'];
         }
-
         if (isset($map['StructureIntialization'])) {
             $model->structureIntialization = $map['StructureIntialization'];
         }

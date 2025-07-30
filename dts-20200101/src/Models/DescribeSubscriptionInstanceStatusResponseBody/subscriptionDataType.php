@@ -4,16 +4,30 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\DescribeSubscriptionInstanceStatusResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class subscriptionDataType extends Model
 {
     /**
+     * @description Indicates whether data definition language (DDL) operations are tracked. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $DDL;
 
     /**
+     * @description Indicates whether data manipulation language (DML) operations are tracked. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $DML;
@@ -22,18 +36,14 @@ class subscriptionDataType extends Model
         'DML' => 'DML',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DDL) {
             $res['DDL'] = $this->DDL;
         }
-
         if (null !== $this->DML) {
             $res['DML'] = $this->DML;
         }
@@ -41,18 +51,17 @@ class subscriptionDataType extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return subscriptionDataType
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DDL'])) {
             $model->DDL = $map['DDL'];
         }
-
         if (isset($map['DML'])) {
             $model->DML = $map['DML'];
         }

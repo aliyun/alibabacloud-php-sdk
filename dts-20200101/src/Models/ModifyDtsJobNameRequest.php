@@ -4,31 +4,58 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyDtsJobNameRequest extends Model
 {
     /**
+     * @description The ID of the DTS task. The DTS task can be a data migration, data synchronization, or change tracking task.
+     *
+     * This parameter is required.
+     *
+     * @example l3m1213ye7l****
+     *
      * @var string
      */
     public $dtsJobId;
 
     /**
+     * @description The new name of the DTS task.
+     *
+     * >  We recommend that you specify a descriptive name for easy identification. You do not need to use a unique name.
+     *
+     * This parameter is required.
+     *
+     * @example dtstest
+     *
      * @var string
      */
     public $dtsJobName;
 
     /**
+     * @description The ID of the region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Resource GroupId
+     *
+     * @example rg-aekzfkjjb5gyy6i
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description Whether it is a seamless integration (Zero-ETL) task, the value can be:
+     * - **false**: No. - **true**: Yes.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $zeroEtlJob;
@@ -40,30 +67,23 @@ class ModifyDtsJobNameRequest extends Model
         'zeroEtlJob' => 'ZeroEtlJob',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dtsJobId) {
             $res['DtsJobId'] = $this->dtsJobId;
         }
-
         if (null !== $this->dtsJobName) {
             $res['DtsJobName'] = $this->dtsJobName;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->zeroEtlJob) {
             $res['ZeroEtlJob'] = $this->zeroEtlJob;
         }
@@ -71,30 +91,26 @@ class ModifyDtsJobNameRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyDtsJobNameRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DtsJobId'])) {
             $model->dtsJobId = $map['DtsJobId'];
         }
-
         if (isset($map['DtsJobName'])) {
             $model->dtsJobName = $map['DtsJobName'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['ZeroEtlJob'])) {
             $model->zeroEtlJob = $map['ZeroEtlJob'];
         }

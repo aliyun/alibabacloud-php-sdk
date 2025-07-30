@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeSyncStatusRequest extends Model
 {
@@ -40,30 +40,23 @@ class DescribeSyncStatusRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
         }
-
         if (null !== $this->dtsInstanceId) {
             $res['DtsInstanceId'] = $this->dtsInstanceId;
         }
-
         if (null !== $this->dtsJobId) {
             $res['DtsJobId'] = $this->dtsJobId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -71,30 +64,26 @@ class DescribeSyncStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeSyncStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
         }
-
         if (isset($map['DtsInstanceId'])) {
             $model->dtsInstanceId = $map['DtsInstanceId'];
         }
-
         if (isset($map['DtsJobId'])) {
             $model->dtsJobId = $map['DtsJobId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

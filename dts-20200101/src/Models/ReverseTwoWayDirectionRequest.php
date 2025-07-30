@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ReverseTwoWayDirectionRequest extends Model
 {
     /**
+     * @example dtsldy114cy24f****
+     *
      * @var string
      */
     public $dtsInstanceId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $ignoreErrorSubJob;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,26 +42,20 @@ class ReverseTwoWayDirectionRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dtsInstanceId) {
             $res['DtsInstanceId'] = $this->dtsInstanceId;
         }
-
         if (null !== $this->ignoreErrorSubJob) {
             $res['IgnoreErrorSubJob'] = $this->ignoreErrorSubJob;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -61,26 +63,23 @@ class ReverseTwoWayDirectionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ReverseTwoWayDirectionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DtsInstanceId'])) {
             $model->dtsInstanceId = $map['DtsInstanceId'];
         }
-
         if (isset($map['IgnoreErrorSubJob'])) {
             $model->ignoreErrorSubJob = $map['IgnoreErrorSubJob'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

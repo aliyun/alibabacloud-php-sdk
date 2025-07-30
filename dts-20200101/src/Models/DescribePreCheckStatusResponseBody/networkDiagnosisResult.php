@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\DescribePreCheckStatusResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribePreCheckStatusResponseBody\networkDiagnosisResult\diagnosis;
+use AlibabaCloud\Tea\Model;
 
 class networkDiagnosisResult extends Model
 {
     /**
+     * @description Network diagnostic report
+     *
      * @var diagnosis[]
      */
     public $diagnosis;
 
     /**
+     * @description Diagnose model version.
+     *
+     * @example network-v0.2
+     *
      * @var string
      */
     public $modelVersion;
@@ -23,28 +29,20 @@ class networkDiagnosisResult extends Model
         'modelVersion' => 'ModelVersion',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->diagnosis)) {
-            Model::validateArray($this->diagnosis);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->diagnosis) {
-            if (\is_array($this->diagnosis)) {
-                $res['Diagnosis'] = [];
-                $n1 = 0;
-                foreach ($this->diagnosis as $item1) {
-                    $res['Diagnosis'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Diagnosis'] = [];
+            if (null !== $this->diagnosis && \is_array($this->diagnosis)) {
+                $n = 0;
+                foreach ($this->diagnosis as $item) {
+                    $res['Diagnosis'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->modelVersion) {
             $res['ModelVersion'] = $this->modelVersion;
         }
@@ -52,25 +50,23 @@ class networkDiagnosisResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return networkDiagnosisResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Diagnosis'])) {
             if (!empty($map['Diagnosis'])) {
                 $model->diagnosis = [];
-                $n1 = 0;
-                foreach ($map['Diagnosis'] as $item1) {
-                    $model->diagnosis[$n1] = diagnosis::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Diagnosis'] as $item) {
+                    $model->diagnosis[$n++] = null !== $item ? diagnosis::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ModelVersion'])) {
             $model->modelVersion = $map['ModelVersion'];
         }

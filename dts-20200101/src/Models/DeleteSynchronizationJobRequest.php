@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteSynchronizationJobRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
@@ -19,16 +23,30 @@ class DeleteSynchronizationJobRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the data synchronization instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description 资源组ID。
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the data synchronization instance. You can call the DescribeSynchronizationJobs operation to query the instance ID.
+     *
+     * This parameter is required.
+     *
+     * @example dtshn6107ve264****
+     *
      * @var string
      */
     public $synchronizationJobId;
@@ -40,30 +58,23 @@ class DeleteSynchronizationJobRequest extends Model
         'synchronizationJobId' => 'SynchronizationJobId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-
         if (null !== $this->synchronizationJobId) {
             $res['SynchronizationJobId'] = $this->synchronizationJobId;
         }
@@ -71,30 +82,26 @@ class DeleteSynchronizationJobRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteSynchronizationJobRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-
         if (isset($map['SynchronizationJobId'])) {
             $model->synchronizationJobId = $map['SynchronizationJobId'];
         }

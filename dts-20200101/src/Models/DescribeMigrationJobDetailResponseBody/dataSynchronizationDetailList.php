@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\DescribeMigrationJobDetailResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeMigrationJobDetailResponseBody\dataSynchronizationDetailList\dataSynchronizationDetail;
+use AlibabaCloud\Tea\Model;
 
 class dataSynchronizationDetailList extends Model
 {
@@ -17,24 +17,17 @@ class dataSynchronizationDetailList extends Model
         'dataSynchronizationDetail' => 'DataSynchronizationDetail',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dataSynchronizationDetail)) {
-            Model::validateArray($this->dataSynchronizationDetail);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataSynchronizationDetail) {
-            if (\is_array($this->dataSynchronizationDetail)) {
-                $res['DataSynchronizationDetail'] = [];
-                $n1 = 0;
-                foreach ($this->dataSynchronizationDetail as $item1) {
-                    $res['DataSynchronizationDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['DataSynchronizationDetail'] = [];
+            if (null !== $this->dataSynchronizationDetail && \is_array($this->dataSynchronizationDetail)) {
+                $n = 0;
+                foreach ($this->dataSynchronizationDetail as $item) {
+                    $res['DataSynchronizationDetail'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +35,20 @@ class dataSynchronizationDetailList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dataSynchronizationDetailList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSynchronizationDetail'])) {
             if (!empty($map['DataSynchronizationDetail'])) {
                 $model->dataSynchronizationDetail = [];
-                $n1 = 0;
-                foreach ($map['DataSynchronizationDetail'] as $item1) {
-                    $model->dataSynchronizationDetail[$n1] = dataSynchronizationDetail::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['DataSynchronizationDetail'] as $item) {
+                    $model->dataSynchronizationDetail[$n++] = null !== $item ? dataSynchronizationDetail::fromMap($item) : $item;
                 }
             }
         }

@@ -4,22 +4,35 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\DescribeSubscriptionInstancesResponseBody\subscriptionInstances\subscriptionInstance\subscriptionObject;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeSubscriptionInstancesResponseBody\subscriptionInstances\subscriptionInstance\subscriptionObject\synchronousObject\tableList;
+use AlibabaCloud\Tea\Model;
 
 class synchronousObject extends Model
 {
     /**
+     * @description The name of the database to which the object belongs.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @description The table name.
+     *
      * @var tableList
      */
     public $tableList;
 
     /**
+     * @description Indicates whether the data of an entire database is tracked. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example false
+     *
      * @var string
      */
     public $wholeDatabase;
@@ -29,25 +42,17 @@ class synchronousObject extends Model
         'wholeDatabase' => 'WholeDatabase',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tableList) {
-            $this->tableList->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->databaseName) {
             $res['DatabaseName'] = $this->databaseName;
         }
-
         if (null !== $this->tableList) {
-            $res['TableList'] = null !== $this->tableList ? $this->tableList->toArray($noStream) : $this->tableList;
+            $res['TableList'] = null !== $this->tableList ? $this->tableList->toMap() : null;
         }
-
         if (null !== $this->wholeDatabase) {
             $res['WholeDatabase'] = $this->wholeDatabase;
         }
@@ -55,22 +60,20 @@ class synchronousObject extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return synchronousObject
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatabaseName'])) {
             $model->databaseName = $map['DatabaseName'];
         }
-
         if (isset($map['TableList'])) {
             $model->tableList = tableList::fromMap($map['TableList']);
         }
-
         if (isset($map['WholeDatabase'])) {
             $model->wholeDatabase = $map['WholeDatabase'];
         }

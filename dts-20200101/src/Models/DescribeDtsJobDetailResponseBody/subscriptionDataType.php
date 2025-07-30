@@ -4,16 +4,30 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobDetailResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class subscriptionDataType extends Model
 {
     /**
+     * @description Indicates whether DDL statements are tracked. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ddl;
 
     /**
+     * @description Indicates whether DML statements are tracked. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dml;
@@ -22,18 +36,14 @@ class subscriptionDataType extends Model
         'dml' => 'Dml',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ddl) {
             $res['Ddl'] = $this->ddl;
         }
-
         if (null !== $this->dml) {
             $res['Dml'] = $this->dml;
         }
@@ -41,18 +51,17 @@ class subscriptionDataType extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return subscriptionDataType
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ddl'])) {
             $model->ddl = $map['Ddl'];
         }
-
         if (isset($map['Dml'])) {
             $model->dml = $map['Dml'];
         }
