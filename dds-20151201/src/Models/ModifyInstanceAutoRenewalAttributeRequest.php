@@ -4,21 +4,44 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyInstanceAutoRenewalAttributeRequest extends Model
 {
     /**
+     * @description Specifies whether to enable auto-renewal. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * >  If this parameter is set to **true**, you must set the **Duration** parameter.
+     *
+     * This parameter is required.
+     *
+     * @example true
+     *
      * @var string
      */
     public $autoRenew;
 
     /**
+     * @description The ID of the instance.
+     *
+     * This parameter is required.
+     *
+     * @example dds-bp15da1923e3****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The auto-renewal period. Valid values: **1** to **12**. Unit: month.
+     *
+     * >  This parameter is valid only when **AutoRenew** is set to **true**.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $duration;
@@ -34,6 +57,12 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to query the region ID of the instance.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -58,42 +87,32 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
-
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -101,42 +120,35 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyInstanceAutoRenewalAttributeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
-
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifySecurityIpsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 61B05CCF-EBAB-4BF3-BA67-D77256A721E2
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifySecurityIpsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifySecurityIpsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifySecurityIpsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

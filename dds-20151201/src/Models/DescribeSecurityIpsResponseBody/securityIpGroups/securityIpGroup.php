@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeSecurityIpsResponseBody\securityIpGroups;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class securityIpGroup extends Model
 {
     /**
+     * @description The attribute of the IP address whitelist.
+     *
+     * @example hidden
+     *
      * @var string
      */
     public $securityIpGroupAttribute;
 
     /**
+     * @description The name of the IP whitelist.
+     *
+     * @example default
+     *
      * @var string
      */
     public $securityIpGroupName;
 
     /**
+     * @description The name of the IP whitelist.
+     *
+     * @example 47.xxx.xxx.xx,100.xxx.xxx.0/24
+     *
      * @var string
      */
     public $securityIpList;
@@ -28,22 +40,17 @@ class securityIpGroup extends Model
         'securityIpList' => 'SecurityIpList',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->securityIpGroupAttribute) {
             $res['SecurityIpGroupAttribute'] = $this->securityIpGroupAttribute;
         }
-
         if (null !== $this->securityIpGroupName) {
             $res['SecurityIpGroupName'] = $this->securityIpGroupName;
         }
-
         if (null !== $this->securityIpList) {
             $res['SecurityIpList'] = $this->securityIpList;
         }
@@ -51,22 +58,20 @@ class securityIpGroup extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return securityIpGroup
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SecurityIpGroupAttribute'])) {
             $model->securityIpGroupAttribute = $map['SecurityIpGroupAttribute'];
         }
-
         if (isset($map['SecurityIpGroupName'])) {
             $model->securityIpGroupName = $map['SecurityIpGroupName'];
         }
-
         if (isset($map['SecurityIpList'])) {
             $model->securityIpList = $map['SecurityIpList'];
         }

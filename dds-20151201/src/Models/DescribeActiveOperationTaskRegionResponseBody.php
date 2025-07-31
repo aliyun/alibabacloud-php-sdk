@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeActiveOperationTaskRegionResponseBody\regionList;
+use AlibabaCloud\Tea\Model;
 
 class DescribeActiveOperationTaskRegionResponseBody extends Model
 {
     /**
+     * @description The region ID.
+     *
      * @var regionList[]
      */
     public $regionList;
 
     /**
+     * @description The request ID.
+     *
+     * @example 3C4A2494-XXXX-XXXX-93CF-548DB3375193
+     *
      * @var string
      */
     public $requestId;
@@ -23,27 +29,20 @@ class DescribeActiveOperationTaskRegionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->regionList)) {
-            Model::validateArray($this->regionList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regionList) {
-            if (\is_array($this->regionList)) {
-                $res['RegionList'] = [];
-                $n1 = 0;
-                foreach ($this->regionList as $item1) {
-                    $res['RegionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['RegionList'] = [];
+            if (null !== $this->regionList && \is_array($this->regionList)) {
+                $n = 0;
+                foreach ($this->regionList as $item) {
+                    $res['RegionList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,24 +50,23 @@ class DescribeActiveOperationTaskRegionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeActiveOperationTaskRegionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionList'])) {
             if (!empty($map['RegionList'])) {
                 $model->regionList = [];
-                $n1 = 0;
-                foreach ($map['RegionList'] as $item1) {
-                    $model->regionList[$n1++] = regionList::fromMap($item1);
+                $n = 0;
+                foreach ($map['RegionList'] as $item) {
+                    $model->regionList[$n++] = null !== $item ? regionList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

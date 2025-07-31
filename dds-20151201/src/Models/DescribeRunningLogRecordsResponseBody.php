@@ -4,37 +4,59 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeRunningLogRecordsResponseBody\items;
+use AlibabaCloud\Tea\Model;
 
 class DescribeRunningLogRecordsResponseBody extends Model
 {
     /**
+     * @description The database engine.
+     *
+     * @example MongoDB
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description Details about the operational log entries.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 45D2B592-DEBA-4347-BBF3-47FF6C97DBBC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalRecordCount;
@@ -47,37 +69,26 @@ class DescribeRunningLogRecordsResponseBody extends Model
         'totalRecordCount' => 'TotalRecordCount',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->items) {
-            $this->items->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
-
         if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toArray($noStream) : $this->items;
+            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageRecordCount) {
             $res['PageRecordCount'] = $this->pageRecordCount;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalRecordCount) {
             $res['TotalRecordCount'] = $this->totalRecordCount;
         }
@@ -85,34 +96,29 @@ class DescribeRunningLogRecordsResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeRunningLogRecordsResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
-
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageRecordCount'])) {
             $model->pageRecordCount = $map['PageRecordCount'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalRecordCount'])) {
             $model->totalRecordCount = $map['TotalRecordCount'];
         }

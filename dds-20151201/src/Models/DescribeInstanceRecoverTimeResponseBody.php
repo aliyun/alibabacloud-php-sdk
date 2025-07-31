@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeInstanceRecoverTimeResponseBody\restoreRanges;
+use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceRecoverTimeResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example F8CA8312-530A-413A-9129-F2BB32A8D404
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The time ranges to which data can be restored. The time ranges include those used for point-in-time data restoration.
+     *
      * @var restoreRanges[]
      */
     public $restoreRanges;
@@ -23,27 +29,20 @@ class DescribeInstanceRecoverTimeResponseBody extends Model
         'restoreRanges' => 'RestoreRanges',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->restoreRanges)) {
-            Model::validateArray($this->restoreRanges);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->restoreRanges) {
-            if (\is_array($this->restoreRanges)) {
-                $res['RestoreRanges'] = [];
-                $n1 = 0;
-                foreach ($this->restoreRanges as $item1) {
-                    $res['RestoreRanges'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['RestoreRanges'] = [];
+            if (null !== $this->restoreRanges && \is_array($this->restoreRanges)) {
+                $n = 0;
+                foreach ($this->restoreRanges as $item) {
+                    $res['RestoreRanges'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -51,24 +50,23 @@ class DescribeInstanceRecoverTimeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeInstanceRecoverTimeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['RestoreRanges'])) {
             if (!empty($map['RestoreRanges'])) {
                 $model->restoreRanges = [];
-                $n1 = 0;
-                foreach ($map['RestoreRanges'] as $item1) {
-                    $model->restoreRanges[$n1++] = restoreRanges::fromMap($item1);
+                $n = 0;
+                foreach ($map['RestoreRanges'] as $item) {
+                    $model->restoreRanges[$n++] = null !== $item ? restoreRanges::fromMap($item) : $item;
                 }
             }
         }

@@ -4,16 +4,31 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class MigrateToOtherZoneRequest extends Model
 {
     /**
+     * @description The time when the instance is migrated to the destination zone. Valid values:
+     *
+     *   **Immediately** (default): The instance is migrated immediately.
+     *   **MaintainTime**: The instance is migrated during its maintenance window.
+     *
+     * @example Immediately
+     *
      * @var string
      */
     public $effectiveTime;
 
     /**
+     * @description The ID of the instance.
+     *
+     * >  If the network type of the instance is VPC, you must specify the **Vswitch** parameter .
+     *
+     * This parameter is required.
+     *
+     * @example dds-bp2658****
+     *
      * @var string
      */
     public $instanceId;
@@ -39,11 +54,26 @@ class MigrateToOtherZoneRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the vSwitch in the destination zone.
+     *
+     * >  This parameter is valid and required only when the network type of the instance is VPC.
+     *
+     * @example vsw-bp67ac****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the destination zone to which you want to migrate the ApsaraDB for MongoDB instance.
+     *
+     * > * The destination and source zones must be in one region.
+     * > * You can call [DescribeRegions](https://help.aliyun.com/document_detail/61933.html) to query the zone IDs.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;
@@ -58,42 +88,32 @@ class MigrateToOtherZoneRequest extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->effectiveTime) {
             $res['EffectiveTime'] = $this->effectiveTime;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
-
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -101,42 +121,35 @@ class MigrateToOtherZoneRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return MigrateToOtherZoneRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EffectiveTime'])) {
             $model->effectiveTime = $map['EffectiveTime'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
-
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

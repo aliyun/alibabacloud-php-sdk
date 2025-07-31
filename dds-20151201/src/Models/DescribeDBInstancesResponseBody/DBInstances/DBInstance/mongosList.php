@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstancesResponseBody\DBInstances\DBInstance;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstancesResponseBody\DBInstances\DBInstance\mongosList\mongosAttribute;
+use AlibabaCloud\Tea\Model;
 
 class mongosList extends Model
 {
@@ -17,23 +17,17 @@ class mongosList extends Model
         'mongosAttribute' => 'MongosAttribute',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->mongosAttribute)) {
-            Model::validateArray($this->mongosAttribute);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->mongosAttribute) {
-            if (\is_array($this->mongosAttribute)) {
-                $res['MongosAttribute'] = [];
-                $n1 = 0;
-                foreach ($this->mongosAttribute as $item1) {
-                    $res['MongosAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['MongosAttribute'] = [];
+            if (null !== $this->mongosAttribute && \is_array($this->mongosAttribute)) {
+                $n = 0;
+                foreach ($this->mongosAttribute as $item) {
+                    $res['MongosAttribute'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class mongosList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return mongosList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MongosAttribute'])) {
             if (!empty($map['MongosAttribute'])) {
                 $model->mongosAttribute = [];
-                $n1 = 0;
-                foreach ($map['MongosAttribute'] as $item1) {
-                    $model->mongosAttribute[$n1++] = mongosAttribute::fromMap($item1);
+                $n = 0;
+                foreach ($map['MongosAttribute'] as $item) {
+                    $model->mongosAttribute[$n++] = null !== $item ? mongosAttribute::fromMap($item) : $item;
                 }
             }
         }

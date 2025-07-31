@@ -4,21 +4,49 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyDBInstanceDescriptionRequest extends Model
 {
     /**
+     * @description The name of the instance.
+     *
+     * >
+     *
+     *   The name cannot start with `http://` or `https://`.
+     *
+     *   It must start with a letter.
+     *
+     *   It must be 2 to 256 characters in length, and can contain letters, underscores (_), hyphens (-), and digits.
+     *
+     * This parameter is required.
+     *
+     * @example testdata
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @description The instance ID.
+     *
+     * >  To modify the name of a shard or mongos node in a sharded cluster instance, you must also specify the **NodeId** parameter.
+     *
+     * This parameter is required.
+     *
+     * @example dds-bp2234****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the shard or mongos node in the sharded cluster instance.
+     *
+     * >  This parameter is valid only if you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
+     *
+     * @example d-bp89067****
+     *
      * @var string
      */
     public $nodeId;
@@ -52,38 +80,29 @@ class ModifyDBInstanceDescriptionRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBInstanceDescription) {
             $res['DBInstanceDescription'] = $this->DBInstanceDescription;
         }
-
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
-
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
-
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
-
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -91,38 +110,32 @@ class ModifyDBInstanceDescriptionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyDBInstanceDescriptionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceDescription'])) {
             $model->DBInstanceDescription = $map['DBInstanceDescription'];
         }
-
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
-
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
-
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
-
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

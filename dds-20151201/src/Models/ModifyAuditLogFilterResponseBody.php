@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyAuditLogFilterResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example E209BE2B-F264-4B9D-81F6-A5A5FB1FBF28
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyAuditLogFilterResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyAuditLogFilterResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyAuditLogFilterResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

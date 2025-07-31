@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableResourceResponseBody\supportedDBTypes\supportedDBType\availableZones\availableZone\supportedEngineVersions;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableResourceResponseBody\supportedDBTypes\supportedDBType\availableZones\availableZone\supportedEngineVersions\supportedEngineVersion\supportedEngines;
+use AlibabaCloud\Tea\Model;
 
 class supportedEngineVersion extends Model
 {
     /**
+     * @description The supported storage engines.
+     *
      * @var supportedEngines
      */
     public $supportedEngines;
 
     /**
+     * @description The database engine version of the instance.
+     *
+     * @example 4.0
+     *
      * @var string
      */
     public $version;
@@ -23,21 +29,14 @@ class supportedEngineVersion extends Model
         'version' => 'Version',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->supportedEngines) {
-            $this->supportedEngines->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->supportedEngines) {
-            $res['SupportedEngines'] = null !== $this->supportedEngines ? $this->supportedEngines->toArray($noStream) : $this->supportedEngines;
+            $res['SupportedEngines'] = null !== $this->supportedEngines ? $this->supportedEngines->toMap() : null;
         }
-
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -45,18 +44,17 @@ class supportedEngineVersion extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return supportedEngineVersion
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupportedEngines'])) {
             $model->supportedEngines = supportedEngines::fromMap($map['SupportedEngines']);
         }
-
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DestroyInstanceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 65BDA532-28AF-4122-AA39-B382721E****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DestroyInstanceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DestroyInstanceResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DestroyInstanceResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupDBsResponseBody\databases;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class database extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example mongodbtest
+     *
      * @var string
      */
     public $DBName;
@@ -16,12 +20,9 @@ class database extends Model
         'DBName' => 'DBName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBName) {
@@ -31,11 +32,11 @@ class database extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return database
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

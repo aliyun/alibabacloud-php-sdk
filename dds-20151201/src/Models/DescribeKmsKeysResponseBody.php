@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeKmsKeysResponseBody\kmsKeys;
+use AlibabaCloud\Tea\Model;
 
 class DescribeKmsKeysResponseBody extends Model
 {
     /**
+     * @description The KMS keys.
+     *
      * @var kmsKeys[]
      */
     public $kmsKeys;
 
     /**
+     * @description The request ID.
+     *
+     * @example 60EEBD77-227C-5B39-86EA-D89163C5****
+     *
      * @var string
      */
     public $requestId;
@@ -23,27 +29,20 @@ class DescribeKmsKeysResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->kmsKeys)) {
-            Model::validateArray($this->kmsKeys);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->kmsKeys) {
-            if (\is_array($this->kmsKeys)) {
-                $res['KmsKeys'] = [];
-                $n1 = 0;
-                foreach ($this->kmsKeys as $item1) {
-                    $res['KmsKeys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['KmsKeys'] = [];
+            if (null !== $this->kmsKeys && \is_array($this->kmsKeys)) {
+                $n = 0;
+                foreach ($this->kmsKeys as $item) {
+                    $res['KmsKeys'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,24 +50,23 @@ class DescribeKmsKeysResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeKmsKeysResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KmsKeys'])) {
             if (!empty($map['KmsKeys'])) {
                 $model->kmsKeys = [];
-                $n1 = 0;
-                foreach ($map['KmsKeys'] as $item1) {
-                    $model->kmsKeys[$n1++] = kmsKeys::fromMap($item1);
+                $n = 0;
+                foreach ($map['KmsKeys'] as $item) {
+                    $model->kmsKeys[$n++] = null !== $item ? kmsKeys::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

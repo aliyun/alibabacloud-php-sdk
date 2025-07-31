@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Dds\V20151201\Models\AllocateNodePrivateNetworkAddressRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\AllocateNodePrivateNetworkAddressResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\AllocatePublicNetworkAddressRequest;
@@ -167,6 +168,8 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyAuditPolicyRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyAuditPolicyResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyBackupPolicyRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyBackupPolicyResponse;
+use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyDBInstanceAttributeRequest;
+use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyDBInstanceAttributeResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyDBInstanceConfigRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyDBInstanceConfigResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\ModifyDBInstanceConnectionStringRequest;
@@ -241,10 +244,11 @@ use AlibabaCloud\SDK\Dds\V20151201\Models\UpgradeDBInstanceEngineVersionRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\UpgradeDBInstanceEngineVersionResponse;
 use AlibabaCloud\SDK\Dds\V20151201\Models\UpgradeDBInstanceKernelVersionRequest;
 use AlibabaCloud\SDK\Dds\V20151201\Models\UpgradeDBInstanceKernelVersionResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Dds extends OpenApiClient
 {
@@ -262,7 +266,7 @@ class Dds extends OpenApiClient
             'cn-shanghai' => 'mongodb.aliyuncs.com',
             'cn-shenzhen' => 'mongodb.aliyuncs.com',
             'cn-heyuan' => 'mongodb.aliyuncs.com',
-            'cn-guangzhou' => 'mongodb.aliyuncs.com',
+            'cn-guangzhou' => 'mongodb.cn-guangzhou.aliyuncs.com',
             'cn-chengdu' => 'mongodb.cn-chengdu.aliyuncs.com',
             'cn-hongkong' => 'mongodb.cn-hongkong.aliyuncs.com',
             'ap-northeast-1' => 'mongodb.ap-northeast-1.aliyuncs.com',
@@ -278,7 +282,7 @@ class Dds extends OpenApiClient
             'me-east-1' => 'mongodb.me-east-1.aliyuncs.com',
             'cn-hangzhou-finance' => 'mongodb.aliyuncs.com',
             'cn-shanghai-finance-1' => 'mongodb.aliyuncs.com',
-            'cn-shenzhen-finance-1' => 'mongodb.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'mongodb.cn-shenzhen-finance-1.aliyuncs.com',
             'cn-north-2-gov-1' => 'mongodb.cn-north-2-gov-1.aliyuncs.com',
             'ap-northeast-2-pop' => 'mongodb.aliyuncs.com',
             'cn-beijing-finance-1' => 'mongodb.aliyuncs.com',
@@ -312,6 +316,7 @@ class Dds extends OpenApiClient
             'cn-zhengzhou-nebula-1' => 'mongodb.aliyuncs.com',
             'eu-west-1-oxs' => 'mongodb.aliyuncs.com',
             'rus-west-1-pop' => 'mongodb.aliyuncs.com',
+            'na-south-1' => 'mongodb.na-south-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dds', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -330,76 +335,60 @@ class Dds extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Applies for an internal endpoint for a shard or Configserver node in an ApsaraDB for MongoDB sharded cluster instance.
-     *
-     * @remarks
-     * This operation is applicable only to sharded cluster instances. For more information, see [Apply for an endpoint for a shard or Configserver node](https://help.aliyun.com/document_detail/134037.html).
+     * @summary Applies for an internal endpoint for a shard or Configserver node in an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description This operation is applicable only to sharded cluster instances. For more information, see [Apply for an endpoint for a shard or Configserver node](https://help.aliyun.com/document_detail/134037.html).
      * >  The allocated endpoints can be used only for internal access. To gain Internet access, you must call the [AllocatePublicNetworkAddress](https://help.aliyun.com/document_detail/67602.html) operation to apply for public endpoints.
+     *  *
+     * @param AllocateNodePrivateNetworkAddressRequest $request AllocateNodePrivateNetworkAddressRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AllocateNodePrivateNetworkAddressRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AllocateNodePrivateNetworkAddressResponse
-     *
-     * @param AllocateNodePrivateNetworkAddressRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return AllocateNodePrivateNetworkAddressResponse
+     * @return AllocateNodePrivateNetworkAddressResponse AllocateNodePrivateNetworkAddressResponse
      */
     public function allocateNodePrivateNetworkAddressWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->accountPassword) {
-            @$query['AccountPassword'] = $request->accountPassword;
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AllocateNodePrivateNetworkAddress',
@@ -412,27 +401,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AllocateNodePrivateNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AllocateNodePrivateNetworkAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return AllocateNodePrivateNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Applies for an internal endpoint for a shard or Configserver node in an ApsaraDB for MongoDB sharded cluster instance.
-     *
-     * @remarks
-     * This operation is applicable only to sharded cluster instances. For more information, see [Apply for an endpoint for a shard or Configserver node](https://help.aliyun.com/document_detail/134037.html).
+     * @summary Applies for an internal endpoint for a shard or Configserver node in an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description This operation is applicable only to sharded cluster instances. For more information, see [Apply for an endpoint for a shard or Configserver node](https://help.aliyun.com/document_detail/134037.html).
      * >  The allocated endpoints can be used only for internal access. To gain Internet access, you must call the [AllocatePublicNetworkAddress](https://help.aliyun.com/document_detail/67602.html) operation to apply for public endpoints.
+     *  *
+     * @param AllocateNodePrivateNetworkAddressRequest $request AllocateNodePrivateNetworkAddressRequest
      *
-     * @param request - AllocateNodePrivateNetworkAddressRequest
-     *
-     * @returns AllocateNodePrivateNetworkAddressResponse
-     *
-     * @param AllocateNodePrivateNetworkAddressRequest $request
-     *
-     * @return AllocateNodePrivateNetworkAddressResponse
+     * @return AllocateNodePrivateNetworkAddressResponse AllocateNodePrivateNetworkAddressResponse
      */
     public function allocateNodePrivateNetworkAddress($request)
     {
@@ -442,48 +423,37 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Allocates a public endpoint to an instance.
+     * @summary Allocates a public endpoint to an instance.
+     *  *
+     * @param AllocatePublicNetworkAddressRequest $request AllocatePublicNetworkAddressRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AllocatePublicNetworkAddressRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AllocatePublicNetworkAddressResponse
-     *
-     * @param AllocatePublicNetworkAddressRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return AllocatePublicNetworkAddressResponse
+     * @return AllocatePublicNetworkAddressResponse AllocatePublicNetworkAddressResponse
      */
     public function allocatePublicNetworkAddressWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AllocatePublicNetworkAddress',
@@ -496,23 +466,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AllocatePublicNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AllocatePublicNetworkAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return AllocatePublicNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Allocates a public endpoint to an instance.
+     * @summary Allocates a public endpoint to an instance.
+     *  *
+     * @param AllocatePublicNetworkAddressRequest $request AllocatePublicNetworkAddressRequest
      *
-     * @param request - AllocatePublicNetworkAddressRequest
-     *
-     * @returns AllocatePublicNetworkAddressResponse
-     *
-     * @param AllocatePublicNetworkAddressRequest $request
-     *
-     * @return AllocatePublicNetworkAddressResponse
+     * @return AllocatePublicNetworkAddressResponse AllocatePublicNetworkAddressResponse
      */
     public function allocatePublicNetworkAddress($request)
     {
@@ -522,51 +485,39 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
+     * @summary You can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
+     *  *
+     * @description Before you enable Transparent Data Encryption (TDE) by calling the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation, you can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
+     *  *
+     * @param CheckCloudResourceAuthorizedRequest $request CheckCloudResourceAuthorizedRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Before you enable Transparent Data Encryption (TDE) by calling the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation, you can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
-     *
-     * @param request - CheckCloudResourceAuthorizedRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CheckCloudResourceAuthorizedResponse
-     *
-     * @param CheckCloudResourceAuthorizedRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return CheckCloudResourceAuthorizedResponse
+     * @return CheckCloudResourceAuthorizedResponse CheckCloudResourceAuthorizedResponse
      */
     public function checkCloudResourceAuthorizedWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->targetRegionId) {
-            @$query['TargetRegionId'] = $request->targetRegionId;
+        if (!Utils::isUnset($request->targetRegionId)) {
+            $query['TargetRegionId'] = $request->targetRegionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckCloudResourceAuthorized',
@@ -579,26 +530,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckCloudResourceAuthorizedResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckCloudResourceAuthorizedResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckCloudResourceAuthorizedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * You can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
+     * @summary You can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
+     *  *
+     * @description Before you enable Transparent Data Encryption (TDE) by calling the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation, you can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
+     *  *
+     * @param CheckCloudResourceAuthorizedRequest $request CheckCloudResourceAuthorizedRequest
      *
-     * @remarks
-     * Before you enable Transparent Data Encryption (TDE) by calling the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation, you can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
-     *
-     * @param request - CheckCloudResourceAuthorizedRequest
-     *
-     * @returns CheckCloudResourceAuthorizedResponse
-     *
-     * @param CheckCloudResourceAuthorizedRequest $request
-     *
-     * @return CheckCloudResourceAuthorizedResponse
+     * @return CheckCloudResourceAuthorizedResponse CheckCloudResourceAuthorizedResponse
      */
     public function checkCloudResourceAuthorized($request)
     {
@@ -608,88 +551,67 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries whether the data of an ApsaraDB for MongoDB instance can be restored.
-     *
-     * @remarks
-     * This operation is applicable to replica set instances and sharded cluster instances.
+     * @summary Queries whether the data of an ApsaraDB for MongoDB instance can be restored.
+     *  *
+     * @description This operation is applicable to replica set instances and sharded cluster instances.
      * >  After you call this operation to confirm that the data of the instance can be restored, you can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation to restore data to a new instance.
+     *  *
+     * @param CheckRecoveryConditionRequest $request CheckRecoveryConditionRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CheckRecoveryConditionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CheckRecoveryConditionResponse
-     *
-     * @param CheckRecoveryConditionRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CheckRecoveryConditionResponse
+     * @return CheckRecoveryConditionResponse CheckRecoveryConditionResponse
      */
     public function checkRecoveryConditionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->databaseNames) {
-            @$query['DatabaseNames'] = $request->databaseNames;
+        if (!Utils::isUnset($request->databaseNames)) {
+            $query['DatabaseNames'] = $request->databaseNames;
         }
-
-        if (null !== $request->destRegion) {
-            @$query['DestRegion'] = $request->destRegion;
+        if (!Utils::isUnset($request->destRegion)) {
+            $query['DestRegion'] = $request->destRegion;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->instanceType) {
-            @$query['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->restoreTime) {
-            @$query['RestoreTime'] = $request->restoreTime;
+        if (!Utils::isUnset($request->restoreTime)) {
+            $query['RestoreTime'] = $request->restoreTime;
         }
-
-        if (null !== $request->restoreType) {
-            @$query['RestoreType'] = $request->restoreType;
+        if (!Utils::isUnset($request->restoreType)) {
+            $query['RestoreType'] = $request->restoreType;
         }
-
-        if (null !== $request->sourceDBInstance) {
-            @$query['SourceDBInstance'] = $request->sourceDBInstance;
+        if (!Utils::isUnset($request->sourceDBInstance)) {
+            $query['SourceDBInstance'] = $request->sourceDBInstance;
         }
-
-        if (null !== $request->sourceDBInstance) {
-            @$query['SourceDBInstance'] = $request->sourceDBInstance;
+        if (!Utils::isUnset($request->sourceDBInstance)) {
+            $query['SourceDBInstance'] = $request->sourceDBInstance;
         }
-
-        if (null !== $request->srcRegion) {
-            @$query['SrcRegion'] = $request->srcRegion;
+        if (!Utils::isUnset($request->srcRegion)) {
+            $query['SrcRegion'] = $request->srcRegion;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckRecoveryCondition',
@@ -702,27 +624,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckRecoveryConditionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckRecoveryConditionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckRecoveryConditionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries whether the data of an ApsaraDB for MongoDB instance can be restored.
-     *
-     * @remarks
-     * This operation is applicable to replica set instances and sharded cluster instances.
+     * @summary Queries whether the data of an ApsaraDB for MongoDB instance can be restored.
+     *  *
+     * @description This operation is applicable to replica set instances and sharded cluster instances.
      * >  After you call this operation to confirm that the data of the instance can be restored, you can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation to restore data to a new instance.
+     *  *
+     * @param CheckRecoveryConditionRequest $request CheckRecoveryConditionRequest
      *
-     * @param request - CheckRecoveryConditionRequest
-     *
-     * @returns CheckRecoveryConditionResponse
-     *
-     * @param CheckRecoveryConditionRequest $request
-     *
-     * @return CheckRecoveryConditionResponse
+     * @return CheckRecoveryConditionResponse CheckRecoveryConditionResponse
      */
     public function checkRecoveryCondition($request)
     {
@@ -732,36 +646,28 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries whether a service-linked role is created.
+     * @summary Queries whether a service-linked role is created.
+     *  *
+     * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CheckServiceLinkedRoleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CheckServiceLinkedRoleResponse
-     *
-     * @param CheckServiceLinkedRoleRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CheckServiceLinkedRoleResponse
+     * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
      */
     public function checkServiceLinkedRoleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckServiceLinkedRole',
@@ -774,23 +680,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckServiceLinkedRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries whether a service-linked role is created.
+     * @summary Queries whether a service-linked role is created.
+     *  *
+     * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
      *
-     * @param request - CheckServiceLinkedRoleRequest
-     *
-     * @returns CheckServiceLinkedRoleResponse
-     *
-     * @param CheckServiceLinkedRoleRequest $request
-     *
-     * @return CheckServiceLinkedRoleResponse
+     * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
      */
     public function checkServiceLinkedRole($request)
     {
@@ -800,60 +699,46 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Creates an account that is granted read-only permissions for shard nodes in an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
-     *
-     * @remarks
-     *   You can create an account for shard nodes only in an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
+     * @summary Creates an account that is granted read-only permissions for shard nodes in an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
+     *  *
+     * @description *   You can create an account for shard nodes only in an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
      * *   The account is granted read-only permissions.
+     *  *
+     * @param CreateAccountRequest $request CreateAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateAccountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateAccountResponse
-     *
-     * @param CreateAccountRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->accountPassword) {
-            @$query['AccountPassword'] = $request->accountPassword;
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
         }
-
-        if (null !== $request->characterType) {
-            @$query['CharacterType'] = $request->characterType;
+        if (!Utils::isUnset($request->characterType)) {
+            $query['CharacterType'] = $request->characterType;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateAccount',
@@ -866,27 +751,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAccountResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Creates an account that is granted read-only permissions for shard nodes in an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
-     *
-     * @remarks
-     *   You can create an account for shard nodes only in an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
+     * @summary Creates an account that is granted read-only permissions for shard nodes in an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
+     *  *
+     * @description *   You can create an account for shard nodes only in an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
      * *   The account is granted read-only permissions.
+     *  *
+     * @param CreateAccountRequest $request CreateAccountRequest
      *
-     * @param request - CreateAccountRequest
-     *
-     * @returns CreateAccountResponse
-     *
-     * @param CreateAccountRequest $request
-     *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccount($request)
     {
@@ -896,51 +773,42 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Creates a backup set for an ApsaraDB for MongoDB instance.
+     * @summary Creates a backup set for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description When you call this operation, the instance must be in the Running state.
+     *  *
+     * @param CreateBackupRequest $request CreateBackupRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * When you call this operation, the instance must be in the Running state.
-     *
-     * @param request - CreateBackupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateBackupResponse
-     *
-     * @param CreateBackupRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return CreateBackupResponse
+     * @return CreateBackupResponse CreateBackupResponse
      */
     public function createBackupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupMethod) {
-            @$query['BackupMethod'] = $request->backupMethod;
+        if (!Utils::isUnset($request->backupMethod)) {
+            $query['BackupMethod'] = $request->backupMethod;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->backupRetentionPeriod)) {
+            $query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateBackup',
@@ -953,26 +821,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateBackupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateBackupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateBackupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Creates a backup set for an ApsaraDB for MongoDB instance.
+     * @summary Creates a backup set for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description When you call this operation, the instance must be in the Running state.
+     *  *
+     * @param CreateBackupRequest $request CreateBackupRequest
      *
-     * @remarks
-     * When you call this operation, the instance must be in the Running state.
-     *
-     * @param request - CreateBackupRequest
-     *
-     * @returns CreateBackupResponse
-     *
-     * @param CreateBackupRequest $request
-     *
-     * @return CreateBackupResponse
+     * @return CreateBackupResponse CreateBackupResponse
      */
     public function createBackup($request)
     {
@@ -982,193 +842,146 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Creates or clones an ApsaraDB for MongoDB replica set instance.
-     *
-     * @remarks
-     * Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
+     * @summary Creates or clones an ApsaraDB for MongoDB replica set instance.
+     *  *
+     * @description Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
      * For more information about the instance types of ApsaraDB for MongoDB instances, see [Instance types](https://www.alibabacloud.com/help/en/mongodb/product-overview/instance-types-1).
      * To create sharded cluster instances, you can call the [CreateShardingDBInstance](~~CreateShardingDBInstance~~) operation.
+     *  *
+     * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateDBInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateDBInstanceResponse
-     *
-     * @param CreateDBInstanceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return CreateDBInstanceResponse
+     * @return CreateDBInstanceResponse CreateDBInstanceResponse
      */
     public function createDBInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountPassword) {
-            @$query['AccountPassword'] = $request->accountPassword;
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
         }
-
-        if (null !== $request->autoRenew) {
-            @$query['AutoRenew'] = $request->autoRenew;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
-
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->businessInfo) {
-            @$query['BusinessInfo'] = $request->businessInfo;
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
         }
-
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->clusterId) {
-            @$query['ClusterId'] = $request->clusterId;
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->DBInstanceClass) {
-            @$query['DBInstanceClass'] = $request->DBInstanceClass;
+        if (!Utils::isUnset($request->DBInstanceClass)) {
+            $query['DBInstanceClass'] = $request->DBInstanceClass;
         }
-
-        if (null !== $request->DBInstanceDescription) {
-            @$query['DBInstanceDescription'] = $request->DBInstanceDescription;
+        if (!Utils::isUnset($request->DBInstanceDescription)) {
+            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
         }
-
-        if (null !== $request->DBInstanceStorage) {
-            @$query['DBInstanceStorage'] = $request->DBInstanceStorage;
+        if (!Utils::isUnset($request->DBInstanceStorage)) {
+            $query['DBInstanceStorage'] = $request->DBInstanceStorage;
         }
-
-        if (null !== $request->databaseNames) {
-            @$query['DatabaseNames'] = $request->databaseNames;
+        if (!Utils::isUnset($request->databaseNames)) {
+            $query['DatabaseNames'] = $request->databaseNames;
         }
-
-        if (null !== $request->encrypted) {
-            @$query['Encrypted'] = $request->encrypted;
+        if (!Utils::isUnset($request->encrypted)) {
+            $query['Encrypted'] = $request->encrypted;
         }
-
-        if (null !== $request->encryptionKey) {
-            @$query['EncryptionKey'] = $request->encryptionKey;
+        if (!Utils::isUnset($request->encryptionKey)) {
+            $query['EncryptionKey'] = $request->encryptionKey;
         }
-
-        if (null !== $request->engine) {
-            @$query['Engine'] = $request->engine;
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->globalSecurityGroupIds) {
-            @$query['GlobalSecurityGroupIds'] = $request->globalSecurityGroupIds;
+        if (!Utils::isUnset($request->globalSecurityGroupIds)) {
+            $query['GlobalSecurityGroupIds'] = $request->globalSecurityGroupIds;
         }
-
-        if (null !== $request->hiddenZoneId) {
-            @$query['HiddenZoneId'] = $request->hiddenZoneId;
+        if (!Utils::isUnset($request->hiddenZoneId)) {
+            $query['HiddenZoneId'] = $request->hiddenZoneId;
         }
-
-        if (null !== $request->networkType) {
-            @$query['NetworkType'] = $request->networkType;
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->provisionedIops) {
-            @$query['ProvisionedIops'] = $request->provisionedIops;
+        if (!Utils::isUnset($request->provisionedIops)) {
+            $query['ProvisionedIops'] = $request->provisionedIops;
         }
-
-        if (null !== $request->readonlyReplicas) {
-            @$query['ReadonlyReplicas'] = $request->readonlyReplicas;
+        if (!Utils::isUnset($request->readonlyReplicas)) {
+            $query['ReadonlyReplicas'] = $request->readonlyReplicas;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->replicationFactor) {
-            @$query['ReplicationFactor'] = $request->replicationFactor;
+        if (!Utils::isUnset($request->replicationFactor)) {
+            $query['ReplicationFactor'] = $request->replicationFactor;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->restoreTime) {
-            @$query['RestoreTime'] = $request->restoreTime;
+        if (!Utils::isUnset($request->restoreTime)) {
+            $query['RestoreTime'] = $request->restoreTime;
         }
-
-        if (null !== $request->restoreType) {
-            @$query['RestoreType'] = $request->restoreType;
+        if (!Utils::isUnset($request->restoreType)) {
+            $query['RestoreType'] = $request->restoreType;
         }
-
-        if (null !== $request->secondaryZoneId) {
-            @$query['SecondaryZoneId'] = $request->secondaryZoneId;
+        if (!Utils::isUnset($request->secondaryZoneId)) {
+            $query['SecondaryZoneId'] = $request->secondaryZoneId;
         }
-
-        if (null !== $request->securityIPList) {
-            @$query['SecurityIPList'] = $request->securityIPList;
+        if (!Utils::isUnset($request->securityIPList)) {
+            $query['SecurityIPList'] = $request->securityIPList;
         }
-
-        if (null !== $request->srcDBInstanceId) {
-            @$query['SrcDBInstanceId'] = $request->srcDBInstanceId;
+        if (!Utils::isUnset($request->srcDBInstanceId)) {
+            $query['SrcDBInstanceId'] = $request->srcDBInstanceId;
         }
-
-        if (null !== $request->srcRegion) {
-            @$query['SrcRegion'] = $request->srcRegion;
+        if (!Utils::isUnset($request->srcRegion)) {
+            $query['SrcRegion'] = $request->srcRegion;
         }
-
-        if (null !== $request->storageEngine) {
-            @$query['StorageEngine'] = $request->storageEngine;
+        if (!Utils::isUnset($request->storageEngine)) {
+            $query['StorageEngine'] = $request->storageEngine;
         }
-
-        if (null !== $request->storageType) {
-            @$query['StorageType'] = $request->storageType;
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateDBInstance',
@@ -1181,28 +994,20 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Creates or clones an ApsaraDB for MongoDB replica set instance.
-     *
-     * @remarks
-     * Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
+     * @summary Creates or clones an ApsaraDB for MongoDB replica set instance.
+     *  *
+     * @description Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
      * For more information about the instance types of ApsaraDB for MongoDB instances, see [Instance types](https://www.alibabacloud.com/help/en/mongodb/product-overview/instance-types-1).
      * To create sharded cluster instances, you can call the [CreateShardingDBInstance](~~CreateShardingDBInstance~~) operation.
+     *  *
+     * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
      *
-     * @param request - CreateDBInstanceRequest
-     *
-     * @returns CreateDBInstanceResponse
-     *
-     * @param CreateDBInstanceRequest $request
-     *
-     * @return CreateDBInstanceResponse
+     * @return CreateDBInstanceResponse CreateDBInstanceResponse
      */
     public function createDBInstance($request)
     {
@@ -1212,56 +1017,43 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Creates a global IP whitelist template.
+     * @summary Creates a global IP whitelist template.
+     *  *
+     * @param CreateGlobalSecurityIPGroupRequest $request CreateGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateGlobalSecurityIPGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateGlobalSecurityIPGroupResponse
-     *
-     * @param CreateGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return CreateGlobalSecurityIPGroupResponse
+     * @return CreateGlobalSecurityIPGroupResponse CreateGlobalSecurityIPGroupResponse
      */
     public function createGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->GIpList) {
-            @$query['GIpList'] = $request->GIpList;
+        if (!Utils::isUnset($request->GIpList)) {
+            $query['GIpList'] = $request->GIpList;
         }
-
-        if (null !== $request->globalIgName) {
-            @$query['GlobalIgName'] = $request->globalIgName;
+        if (!Utils::isUnset($request->globalIgName)) {
+            $query['GlobalIgName'] = $request->globalIgName;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateGlobalSecurityIPGroup',
@@ -1274,23 +1066,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateGlobalSecurityIPGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Creates a global IP whitelist template.
+     * @summary Creates a global IP whitelist template.
+     *  *
+     * @param CreateGlobalSecurityIPGroupRequest $request CreateGlobalSecurityIPGroupRequest
      *
-     * @param request - CreateGlobalSecurityIPGroupRequest
-     *
-     * @returns CreateGlobalSecurityIPGroupResponse
-     *
-     * @param CreateGlobalSecurityIPGroupRequest $request
-     *
-     * @return CreateGlobalSecurityIPGroupResponse
+     * @return CreateGlobalSecurityIPGroupResponse CreateGlobalSecurityIPGroupResponse
      */
     public function createGlobalSecurityIPGroup($request)
     {
@@ -1300,92 +1085,70 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Adds a shard or mongos node to an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+     * @summary Adds a shard or mongos node to an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
      * This operation applies only to sharded cluster instances.
+     *  *
+     * @param CreateNodeRequest $request CreateNodeRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateNodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateNodeResponse
-     *
-     * @param CreateNodeRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return CreateNodeResponse
+     * @return CreateNodeResponse CreateNodeResponse
      */
     public function createNodeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->accountPassword) {
-            @$query['AccountPassword'] = $request->accountPassword;
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
         }
-
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->businessInfo) {
-            @$query['BusinessInfo'] = $request->businessInfo;
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->nodeClass) {
-            @$query['NodeClass'] = $request->nodeClass;
+        if (!Utils::isUnset($request->nodeClass)) {
+            $query['NodeClass'] = $request->nodeClass;
         }
-
-        if (null !== $request->nodeStorage) {
-            @$query['NodeStorage'] = $request->nodeStorage;
+        if (!Utils::isUnset($request->nodeStorage)) {
+            $query['NodeStorage'] = $request->nodeStorage;
         }
-
-        if (null !== $request->nodeType) {
-            @$query['NodeType'] = $request->nodeType;
+        if (!Utils::isUnset($request->nodeType)) {
+            $query['NodeType'] = $request->nodeType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->readonlyReplicas) {
-            @$query['ReadonlyReplicas'] = $request->readonlyReplicas;
+        if (!Utils::isUnset($request->readonlyReplicas)) {
+            $query['ReadonlyReplicas'] = $request->readonlyReplicas;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->shardDirect) {
-            @$query['ShardDirect'] = $request->shardDirect;
+        if (!Utils::isUnset($request->shardDirect)) {
+            $query['ShardDirect'] = $request->shardDirect;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateNode',
@@ -1398,27 +1161,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Adds a shard or mongos node to an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+     * @summary Adds a shard or mongos node to an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
      * This operation applies only to sharded cluster instances.
+     *  *
+     * @param CreateNodeRequest $request CreateNodeRequest
      *
-     * @param request - CreateNodeRequest
-     *
-     * @returns CreateNodeResponse
-     *
-     * @param CreateNodeRequest $request
-     *
-     * @return CreateNodeResponse
+     * @return CreateNodeResponse CreateNodeResponse
      */
     public function createNode($request)
     {
@@ -1428,84 +1183,64 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Batch adds mongos or shard nodes for a sharded cluster instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+     * @summary Batch adds mongos or shard nodes for a sharded cluster instance.
+     *  *
+     * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
      * This operation is applicable only to sharded cluster instances.
+     *  *
+     * @param CreateNodeBatchRequest $request CreateNodeBatchRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateNodeBatchRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateNodeBatchResponse
-     *
-     * @param CreateNodeBatchRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateNodeBatchResponse
+     * @return CreateNodeBatchResponse CreateNodeBatchResponse
      */
     public function createNodeBatchWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->accountPassword) {
-            @$query['AccountPassword'] = $request->accountPassword;
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
         }
-
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->businessInfo) {
-            @$query['BusinessInfo'] = $request->businessInfo;
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->fromApp) {
-            @$query['FromApp'] = $request->fromApp;
+        if (!Utils::isUnset($request->fromApp)) {
+            $query['FromApp'] = $request->fromApp;
         }
-
-        if (null !== $request->nodesInfo) {
-            @$query['NodesInfo'] = $request->nodesInfo;
+        if (!Utils::isUnset($request->nodesInfo)) {
+            $query['NodesInfo'] = $request->nodesInfo;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->shardDirect) {
-            @$query['ShardDirect'] = $request->shardDirect;
+        if (!Utils::isUnset($request->shardDirect)) {
+            $query['ShardDirect'] = $request->shardDirect;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateNodeBatch',
@@ -1518,27 +1253,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateNodeBatchResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateNodeBatchResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateNodeBatchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Batch adds mongos or shard nodes for a sharded cluster instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+     * @summary Batch adds mongos or shard nodes for a sharded cluster instance.
+     *  *
+     * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
      * This operation is applicable only to sharded cluster instances.
+     *  *
+     * @param CreateNodeBatchRequest $request CreateNodeBatchRequest
      *
-     * @param request - CreateNodeBatchRequest
-     *
-     * @returns CreateNodeBatchResponse
-     *
-     * @param CreateNodeBatchRequest $request
-     *
-     * @return CreateNodeBatchResponse
+     * @return CreateNodeBatchResponse CreateNodeBatchResponse
      */
     public function createNodeBatch($request)
     {
@@ -1548,181 +1275,137 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Creates or clones an ApsaraDB for MongoDB sharded cluster instance.
-     *
-     * @remarks
-     *   Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
+     * @summary Creates or clones an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description *   Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
      * *   For more information about the instance types of ApsaraDB for MongoDB, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
      * *   To create standalone instances and replica set instances, you can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation.
+     *  *
+     * @param CreateShardingDBInstanceRequest $request CreateShardingDBInstanceRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateShardingDBInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateShardingDBInstanceResponse
-     *
-     * @param CreateShardingDBInstanceRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return CreateShardingDBInstanceResponse
+     * @return CreateShardingDBInstanceResponse CreateShardingDBInstanceResponse
      */
     public function createShardingDBInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountPassword) {
-            @$query['AccountPassword'] = $request->accountPassword;
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
         }
-
-        if (null !== $request->autoRenew) {
-            @$query['AutoRenew'] = $request->autoRenew;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
-
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->configServer) {
-            @$query['ConfigServer'] = $request->configServer;
+        if (!Utils::isUnset($request->configServer)) {
+            $query['ConfigServer'] = $request->configServer;
         }
-
-        if (null !== $request->DBInstanceDescription) {
-            @$query['DBInstanceDescription'] = $request->DBInstanceDescription;
+        if (!Utils::isUnset($request->DBInstanceDescription)) {
+            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
         }
-
-        if (null !== $request->destRegion) {
-            @$query['DestRegion'] = $request->destRegion;
+        if (!Utils::isUnset($request->destRegion)) {
+            $query['DestRegion'] = $request->destRegion;
         }
-
-        if (null !== $request->encrypted) {
-            @$query['Encrypted'] = $request->encrypted;
+        if (!Utils::isUnset($request->encrypted)) {
+            $query['Encrypted'] = $request->encrypted;
         }
-
-        if (null !== $request->encryptionKey) {
-            @$query['EncryptionKey'] = $request->encryptionKey;
+        if (!Utils::isUnset($request->encryptionKey)) {
+            $query['EncryptionKey'] = $request->encryptionKey;
         }
-
-        if (null !== $request->engine) {
-            @$query['Engine'] = $request->engine;
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->globalSecurityGroupIds) {
-            @$query['GlobalSecurityGroupIds'] = $request->globalSecurityGroupIds;
+        if (!Utils::isUnset($request->globalSecurityGroupIds)) {
+            $query['GlobalSecurityGroupIds'] = $request->globalSecurityGroupIds;
         }
-
-        if (null !== $request->hiddenZoneId) {
-            @$query['HiddenZoneId'] = $request->hiddenZoneId;
+        if (!Utils::isUnset($request->hiddenZoneId)) {
+            $query['HiddenZoneId'] = $request->hiddenZoneId;
         }
-
-        if (null !== $request->mongos) {
-            @$query['Mongos'] = $request->mongos;
+        if (!Utils::isUnset($request->mongos)) {
+            $query['Mongos'] = $request->mongos;
         }
-
-        if (null !== $request->networkType) {
-            @$query['NetworkType'] = $request->networkType;
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->protocolType) {
-            @$query['ProtocolType'] = $request->protocolType;
+        if (!Utils::isUnset($request->protocolType)) {
+            $query['ProtocolType'] = $request->protocolType;
         }
-
-        if (null !== $request->provisionedIops) {
-            @$query['ProvisionedIops'] = $request->provisionedIops;
+        if (!Utils::isUnset($request->provisionedIops)) {
+            $query['ProvisionedIops'] = $request->provisionedIops;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->replicaSet) {
-            @$query['ReplicaSet'] = $request->replicaSet;
+        if (!Utils::isUnset($request->replicaSet)) {
+            $query['ReplicaSet'] = $request->replicaSet;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->restoreTime) {
-            @$query['RestoreTime'] = $request->restoreTime;
+        if (!Utils::isUnset($request->restoreTime)) {
+            $query['RestoreTime'] = $request->restoreTime;
         }
-
-        if (null !== $request->restoreType) {
-            @$query['RestoreType'] = $request->restoreType;
+        if (!Utils::isUnset($request->restoreType)) {
+            $query['RestoreType'] = $request->restoreType;
         }
-
-        if (null !== $request->secondaryZoneId) {
-            @$query['SecondaryZoneId'] = $request->secondaryZoneId;
+        if (!Utils::isUnset($request->secondaryZoneId)) {
+            $query['SecondaryZoneId'] = $request->secondaryZoneId;
         }
-
-        if (null !== $request->securityIPList) {
-            @$query['SecurityIPList'] = $request->securityIPList;
+        if (!Utils::isUnset($request->securityIPList)) {
+            $query['SecurityIPList'] = $request->securityIPList;
         }
-
-        if (null !== $request->srcDBInstanceId) {
-            @$query['SrcDBInstanceId'] = $request->srcDBInstanceId;
+        if (!Utils::isUnset($request->srcDBInstanceId)) {
+            $query['SrcDBInstanceId'] = $request->srcDBInstanceId;
         }
-
-        if (null !== $request->srcRegion) {
-            @$query['SrcRegion'] = $request->srcRegion;
+        if (!Utils::isUnset($request->srcRegion)) {
+            $query['SrcRegion'] = $request->srcRegion;
         }
-
-        if (null !== $request->storageEngine) {
-            @$query['StorageEngine'] = $request->storageEngine;
+        if (!Utils::isUnset($request->storageEngine)) {
+            $query['StorageEngine'] = $request->storageEngine;
         }
-
-        if (null !== $request->storageType) {
-            @$query['StorageType'] = $request->storageType;
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateShardingDBInstance',
@@ -1735,28 +1418,20 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateShardingDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateShardingDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateShardingDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Creates or clones an ApsaraDB for MongoDB sharded cluster instance.
-     *
-     * @remarks
-     *   Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
+     * @summary Creates or clones an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description *   Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
      * *   For more information about the instance types of ApsaraDB for MongoDB, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
      * *   To create standalone instances and replica set instances, you can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation.
+     *  *
+     * @param CreateShardingDBInstanceRequest $request CreateShardingDBInstanceRequest
      *
-     * @param request - CreateShardingDBInstanceRequest
-     *
-     * @returns CreateShardingDBInstanceResponse
-     *
-     * @param CreateShardingDBInstanceRequest $request
-     *
-     * @return CreateShardingDBInstanceResponse
+     * @return CreateShardingDBInstanceResponse CreateShardingDBInstanceResponse
      */
     public function createShardingDBInstance($request)
     {
@@ -1766,54 +1441,42 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Releases an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the instance meets the following requirements
+     * @summary Releases an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the instance meets the following requirements
      * *   The instance is in the Running state.
      * *   The billing method of the instance is pay-as-you-go.
      * > After an instance is released, all data in the instance is cleared and cannot be recovered. Proceed with caution.
+     *  *
+     * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteDBInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteDBInstanceResponse
-     *
-     * @param DeleteDBInstanceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteDBInstanceResponse
+     * @return DeleteDBInstanceResponse DeleteDBInstanceResponse
      */
     public function deleteDBInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDBInstance',
@@ -1826,29 +1489,21 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Releases an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the instance meets the following requirements
+     * @summary Releases an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the instance meets the following requirements
      * *   The instance is in the Running state.
      * *   The billing method of the instance is pay-as-you-go.
      * > After an instance is released, all data in the instance is cleared and cannot be recovered. Proceed with caution.
+     *  *
+     * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
      *
-     * @param request - DeleteDBInstanceRequest
-     *
-     * @returns DeleteDBInstanceResponse
-     *
-     * @param DeleteDBInstanceRequest $request
-     *
-     * @return DeleteDBInstanceResponse
+     * @return DeleteDBInstanceResponse DeleteDBInstanceResponse
      */
     public function deleteDBInstance($request)
     {
@@ -1858,56 +1513,43 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Deletes a global IP whitelist template.
+     * @summary Deletes a global IP whitelist template.
+     *  *
+     * @param DeleteGlobalSecurityIPGroupRequest $request DeleteGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteGlobalSecurityIPGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteGlobalSecurityIPGroupResponse
-     *
-     * @param DeleteGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DeleteGlobalSecurityIPGroupResponse
+     * @return DeleteGlobalSecurityIPGroupResponse DeleteGlobalSecurityIPGroupResponse
      */
     public function deleteGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->globalIgName) {
-            @$query['GlobalIgName'] = $request->globalIgName;
+        if (!Utils::isUnset($request->globalIgName)) {
+            $query['GlobalIgName'] = $request->globalIgName;
         }
-
-        if (null !== $request->globalSecurityGroupId) {
-            @$query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteGlobalSecurityIPGroup',
@@ -1920,23 +1562,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteGlobalSecurityIPGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Deletes a global IP whitelist template.
+     * @summary Deletes a global IP whitelist template.
+     *  *
+     * @param DeleteGlobalSecurityIPGroupRequest $request DeleteGlobalSecurityIPGroupRequest
      *
-     * @param request - DeleteGlobalSecurityIPGroupRequest
-     *
-     * @returns DeleteGlobalSecurityIPGroupResponse
-     *
-     * @param DeleteGlobalSecurityIPGroupRequest $request
-     *
-     * @return DeleteGlobalSecurityIPGroupResponse
+     * @return DeleteGlobalSecurityIPGroupResponse DeleteGlobalSecurityIPGroupResponse
      */
     public function deleteGlobalSecurityIPGroup($request)
     {
@@ -1946,59 +1581,46 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Deletes a shard or mongos node from an ApsaraDB for MongoDB sharded cluster instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the instance meets the following requirements:
+     * @summary Deletes a shard or mongos node from an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description Before you call this operation, make sure that the instance meets the following requirements:
      * *   The instance is in the Running state.
      * *   The instance is a sharded cluster instance.
      * *   The billing method of the instance is pay-as-you-go.
      * *   The number of the shard or mongos nodes in the instance is greater than two.
+     *  *
+     * @param DeleteNodeRequest $request DeleteNodeRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteNodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteNodeResponse
-     *
-     * @param DeleteNodeRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return DeleteNodeResponse
+     * @return DeleteNodeResponse DeleteNodeResponse
      */
     public function deleteNodeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteNode',
@@ -2011,30 +1633,22 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Deletes a shard or mongos node from an ApsaraDB for MongoDB sharded cluster instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the instance meets the following requirements:
+     * @summary Deletes a shard or mongos node from an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description Before you call this operation, make sure that the instance meets the following requirements:
      * *   The instance is in the Running state.
      * *   The instance is a sharded cluster instance.
      * *   The billing method of the instance is pay-as-you-go.
      * *   The number of the shard or mongos nodes in the instance is greater than two.
+     *  *
+     * @param DeleteNodeRequest $request DeleteNodeRequest
      *
-     * @param request - DeleteNodeRequest
-     *
-     * @returns DeleteNodeResponse
-     *
-     * @param DeleteNodeRequest $request
-     *
-     * @return DeleteNodeResponse
+     * @return DeleteNodeResponse DeleteNodeResponse
      */
     public function deleteNode($request)
     {
@@ -2044,51 +1658,39 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the database accounts of an ApsaraDB for MongoDB instance.
+     * @summary Queries the database accounts of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  This operation can be used to query only the information of the root account.
+     *  *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  This operation can be used to query only the information of the root account.
-     *
-     * @param request - DescribeAccountsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAccountsResponse
-     *
-     * @param DescribeAccountsRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccountsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAccounts',
@@ -2101,26 +1703,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAccountsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the database accounts of an ApsaraDB for MongoDB instance.
+     * @summary Queries the database accounts of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  This operation can be used to query only the information of the root account.
+     *  *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
      *
-     * @remarks
-     * >  This operation can be used to query only the information of the root account.
-     *
-     * @param request - DescribeAccountsRequest
-     *
-     * @returns DescribeAccountsResponse
-     *
-     * @param DescribeAccountsRequest $request
-     *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccounts($request)
     {
@@ -2130,38 +1724,29 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeActiveOperationMaintenanceConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param DescribeActiveOperationMaintenanceConfigRequest $request DescribeActiveOperationMaintenanceConfigRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DescribeActiveOperationMaintenanceConfigResponse
-     *
-     * @param DescribeActiveOperationMaintenanceConfigRequest $request
-     * @param RuntimeOptions                                  $runtime
-     *
-     * @return DescribeActiveOperationMaintenanceConfigResponse
+     * @return DescribeActiveOperationMaintenanceConfigResponse DescribeActiveOperationMaintenanceConfigResponse
      */
     public function describeActiveOperationMaintenanceConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeActiveOperationMaintenanceConfig',
@@ -2174,21 +1759,14 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeActiveOperationMaintenanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeActiveOperationMaintenanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeActiveOperationMaintenanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param request - DescribeActiveOperationMaintenanceConfigRequest
+     * @param DescribeActiveOperationMaintenanceConfigRequest $request DescribeActiveOperationMaintenanceConfigRequest
      *
-     * @returns DescribeActiveOperationMaintenanceConfigResponse
-     *
-     * @param DescribeActiveOperationMaintenanceConfigRequest $request
-     *
-     * @return DescribeActiveOperationMaintenanceConfigResponse
+     * @return DescribeActiveOperationMaintenanceConfigResponse DescribeActiveOperationMaintenanceConfigResponse
      */
     public function describeActiveOperationMaintenanceConfig($request)
     {
@@ -2198,64 +1776,49 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the detailed information about  tasks of an ApsaraDB for MongoDB instance.
+     * @summary Queries the detailed information about  tasks of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeActiveOperationTaskRequest $request DescribeActiveOperationTaskRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeActiveOperationTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeActiveOperationTaskResponse
-     *
-     * @param DescribeActiveOperationTaskRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeActiveOperationTaskResponse
+     * @return DescribeActiveOperationTaskResponse DescribeActiveOperationTaskResponse
      */
     public function describeActiveOperationTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->isHistory) {
-            @$query['IsHistory'] = $request->isHistory;
+        if (!Utils::isUnset($request->isHistory)) {
+            $query['IsHistory'] = $request->isHistory;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->productId) {
-            @$query['ProductId'] = $request->productId;
+        if (!Utils::isUnset($request->productId)) {
+            $query['ProductId'] = $request->productId;
         }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->taskType) {
-            @$query['TaskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeActiveOperationTask',
@@ -2268,23 +1831,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeActiveOperationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeActiveOperationTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeActiveOperationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the detailed information about  tasks of an ApsaraDB for MongoDB instance.
+     * @summary Queries the detailed information about  tasks of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeActiveOperationTaskRequest $request DescribeActiveOperationTaskRequest
      *
-     * @param request - DescribeActiveOperationTaskRequest
-     *
-     * @returns DescribeActiveOperationTaskResponse
-     *
-     * @param DescribeActiveOperationTaskRequest $request
-     *
-     * @return DescribeActiveOperationTaskResponse
+     * @return DescribeActiveOperationTaskResponse DescribeActiveOperationTaskResponse
      */
     public function describeActiveOperationTask($request)
     {
@@ -2294,44 +1850,34 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the number of operation and maintenance tasks on an ApsaraDB for MongoDB instance.
+     * @summary Queries the number of operation and maintenance tasks on an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeActiveOperationTaskCountRequest $request DescribeActiveOperationTaskCountRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeActiveOperationTaskCountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeActiveOperationTaskCountResponse
-     *
-     * @param DescribeActiveOperationTaskCountRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DescribeActiveOperationTaskCountResponse
+     * @return DescribeActiveOperationTaskCountResponse DescribeActiveOperationTaskCountResponse
      */
     public function describeActiveOperationTaskCountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeActiveOperationTaskCount',
@@ -2344,23 +1890,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeActiveOperationTaskCountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeActiveOperationTaskCountResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeActiveOperationTaskCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the number of operation and maintenance tasks on an ApsaraDB for MongoDB instance.
+     * @summary Queries the number of operation and maintenance tasks on an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeActiveOperationTaskCountRequest $request DescribeActiveOperationTaskCountRequest
      *
-     * @param request - DescribeActiveOperationTaskCountRequest
-     *
-     * @returns DescribeActiveOperationTaskCountResponse
-     *
-     * @param DescribeActiveOperationTaskCountRequest $request
-     *
-     * @return DescribeActiveOperationTaskCountResponse
+     * @return DescribeActiveOperationTaskCountResponse DescribeActiveOperationTaskCountResponse
      */
     public function describeActiveOperationTaskCount($request)
     {
@@ -2370,46 +1909,35 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * @param request - DescribeActiveOperationTaskRegionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @param DescribeActiveOperationTaskRegionRequest $request DescribeActiveOperationTaskRegionRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @returns DescribeActiveOperationTaskRegionResponse
-     *
-     * @param DescribeActiveOperationTaskRegionRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return DescribeActiveOperationTaskRegionResponse
+     * @return DescribeActiveOperationTaskRegionResponse DescribeActiveOperationTaskRegionResponse
      */
     public function describeActiveOperationTaskRegionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->isHistory) {
-            @$query['IsHistory'] = $request->isHistory;
+        if (!Utils::isUnset($request->isHistory)) {
+            $query['IsHistory'] = $request->isHistory;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->taskType) {
-            @$query['TaskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeActiveOperationTaskRegion',
@@ -2422,21 +1950,14 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeActiveOperationTaskRegionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeActiveOperationTaskRegionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeActiveOperationTaskRegionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param request - DescribeActiveOperationTaskRegionRequest
+     * @param DescribeActiveOperationTaskRegionRequest $request DescribeActiveOperationTaskRegionRequest
      *
-     * @returns DescribeActiveOperationTaskRegionResponse
-     *
-     * @param DescribeActiveOperationTaskRegionRequest $request
-     *
-     * @return DescribeActiveOperationTaskRegionResponse
+     * @return DescribeActiveOperationTaskRegionResponse DescribeActiveOperationTaskRegionResponse
      */
     public function describeActiveOperationTaskRegion($request)
     {
@@ -2446,51 +1967,39 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the types of Operation and Maintenance tasks and the number of tasks of each type for an ApsaraDB for MongoDB instance.
+     * @summary Queries the types of Operation and Maintenance tasks and the number of tasks of each type for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is no longer updated and will be unavailable.
+     *  *
+     * @param DescribeActiveOperationTaskTypeRequest $request DescribeActiveOperationTaskTypeRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This operation is no longer updated and will be unavailable.
-     *
-     * @param request - DescribeActiveOperationTaskTypeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeActiveOperationTaskTypeResponse
-     *
-     * @param DescribeActiveOperationTaskTypeRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeActiveOperationTaskTypeResponse
+     * @return DescribeActiveOperationTaskTypeResponse DescribeActiveOperationTaskTypeResponse
      */
     public function describeActiveOperationTaskTypeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->isHistory) {
-            @$query['IsHistory'] = $request->isHistory;
+        if (!Utils::isUnset($request->isHistory)) {
+            $query['IsHistory'] = $request->isHistory;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeActiveOperationTaskType',
@@ -2503,26 +2012,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeActiveOperationTaskTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeActiveOperationTaskTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeActiveOperationTaskTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the types of Operation and Maintenance tasks and the number of tasks of each type for an ApsaraDB for MongoDB instance.
+     * @summary Queries the types of Operation and Maintenance tasks and the number of tasks of each type for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is no longer updated and will be unavailable.
+     *  *
+     * @param DescribeActiveOperationTaskTypeRequest $request DescribeActiveOperationTaskTypeRequest
      *
-     * @remarks
-     * This operation is no longer updated and will be unavailable.
-     *
-     * @param request - DescribeActiveOperationTaskTypeRequest
-     *
-     * @returns DescribeActiveOperationTaskTypeResponse
-     *
-     * @param DescribeActiveOperationTaskTypeRequest $request
-     *
-     * @return DescribeActiveOperationTaskTypeResponse
+     * @return DescribeActiveOperationTaskTypeResponse DescribeActiveOperationTaskTypeResponse
      */
     public function describeActiveOperationTaskType($request)
     {
@@ -2532,88 +2033,67 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries a list of operation and maintenance tasks initiated for an ApsaraDB for MongoDB instance.
+     * @summary Queries a list of operation and maintenance tasks initiated for an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeActiveOperationTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeActiveOperationTasksResponse
-     *
-     * @param DescribeActiveOperationTasksRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeActiveOperationTasksResponse
+     * @return DescribeActiveOperationTasksResponse DescribeActiveOperationTasksResponse
      */
     public function describeActiveOperationTasksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->allowCancel) {
-            @$query['AllowCancel'] = $request->allowCancel;
+        if (!Utils::isUnset($request->allowCancel)) {
+            $query['AllowCancel'] = $request->allowCancel;
         }
-
-        if (null !== $request->allowChange) {
-            @$query['AllowChange'] = $request->allowChange;
+        if (!Utils::isUnset($request->allowChange)) {
+            $query['AllowChange'] = $request->allowChange;
         }
-
-        if (null !== $request->changeLevel) {
-            @$query['ChangeLevel'] = $request->changeLevel;
+        if (!Utils::isUnset($request->changeLevel)) {
+            $query['ChangeLevel'] = $request->changeLevel;
         }
-
-        if (null !== $request->dbType) {
-            @$query['DbType'] = $request->dbType;
+        if (!Utils::isUnset($request->dbType)) {
+            $query['DbType'] = $request->dbType;
         }
-
-        if (null !== $request->insName) {
-            @$query['InsName'] = $request->insName;
+        if (!Utils::isUnset($request->insName)) {
+            $query['InsName'] = $request->insName;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->productId) {
-            @$query['ProductId'] = $request->productId;
+        if (!Utils::isUnset($request->productId)) {
+            $query['ProductId'] = $request->productId;
         }
-
-        if (null !== $request->region) {
-            @$query['Region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->taskType) {
-            @$query['TaskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeActiveOperationTasks',
@@ -2626,23 +2106,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeActiveOperationTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries a list of operation and maintenance tasks initiated for an ApsaraDB for MongoDB instance.
+     * @summary Queries a list of operation and maintenance tasks initiated for an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
      *
-     * @param request - DescribeActiveOperationTasksRequest
-     *
-     * @returns DescribeActiveOperationTasksResponse
-     *
-     * @param DescribeActiveOperationTasksRequest $request
-     *
-     * @return DescribeActiveOperationTasksResponse
+     * @return DescribeActiveOperationTasksResponse DescribeActiveOperationTasksResponse
      */
     public function describeActiveOperationTasks($request)
     {
@@ -2652,53 +2125,41 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the types of entries in the audit log collected for an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     *   The instance must be in the running state when you call this operation.
+     * @summary Queries the types of entries in the audit log collected for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   The instance must be in the running state when you call this operation.
      * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
+     * @param DescribeAuditLogFilterRequest $request DescribeAuditLogFilterRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAuditLogFilterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAuditLogFilterResponse
-     *
-     * @param DescribeAuditLogFilterRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeAuditLogFilterResponse
+     * @return DescribeAuditLogFilterResponse DescribeAuditLogFilterResponse
      */
     public function describeAuditLogFilterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->roleType) {
-            @$query['RoleType'] = $request->roleType;
+        if (!Utils::isUnset($request->roleType)) {
+            $query['RoleType'] = $request->roleType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAuditLogFilter',
@@ -2711,28 +2172,20 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAuditLogFilterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAuditLogFilterResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAuditLogFilterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the types of entries in the audit log collected for an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     *   The instance must be in the running state when you call this operation.
+     * @summary Queries the types of entries in the audit log collected for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   The instance must be in the running state when you call this operation.
      * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
+     * @param DescribeAuditLogFilterRequest $request DescribeAuditLogFilterRequest
      *
-     * @param request - DescribeAuditLogFilterRequest
-     *
-     * @returns DescribeAuditLogFilterResponse
-     *
-     * @param DescribeAuditLogFilterRequest $request
-     *
-     * @return DescribeAuditLogFilterResponse
+     * @return DescribeAuditLogFilterResponse DescribeAuditLogFilterResponse
      */
     public function describeAuditLogFilter($request)
     {
@@ -2742,49 +2195,38 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries whether the audit log feature is enabled for an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     *   The instance must be in the running state when you call this operation.
+     * @summary Queries whether the audit log feature is enabled for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   The instance must be in the running state when you call this operation.
      * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
+     * @param DescribeAuditPolicyRequest $request DescribeAuditPolicyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAuditPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAuditPolicyResponse
-     *
-     * @param DescribeAuditPolicyRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeAuditPolicyResponse
+     * @return DescribeAuditPolicyResponse DescribeAuditPolicyResponse
      */
     public function describeAuditPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAuditPolicy',
@@ -2797,28 +2239,20 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAuditPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAuditPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAuditPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries whether the audit log feature is enabled for an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     *   The instance must be in the running state when you call this operation.
+     * @summary Queries whether the audit log feature is enabled for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   The instance must be in the running state when you call this operation.
      * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
+     * @param DescribeAuditPolicyRequest $request DescribeAuditPolicyRequest
      *
-     * @param request - DescribeAuditPolicyRequest
-     *
-     * @returns DescribeAuditPolicyResponse
-     *
-     * @param DescribeAuditPolicyRequest $request
-     *
-     * @return DescribeAuditPolicyResponse
+     * @return DescribeAuditPolicyResponse DescribeAuditPolicyResponse
      */
     public function describeAuditPolicy($request)
     {
@@ -2828,93 +2262,71 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the audit logs of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     *   When you call this operation, ensure that the audit log feature of the instance is enabled. Otherwise, the operation returns an empty audit log.
+     * @summary Queries the audit logs of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   When you call this operation, ensure that the audit log feature of the instance is enabled. Otherwise, the operation returns an empty audit log.
      * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
+     * @param DescribeAuditRecordsRequest $request DescribeAuditRecordsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAuditRecordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAuditRecordsResponse
-     *
-     * @param DescribeAuditRecordsRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeAuditRecordsResponse
+     * @return DescribeAuditRecordsResponse DescribeAuditRecordsResponse
      */
     public function describeAuditRecordsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->database) {
-            @$query['Database'] = $request->database;
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->form) {
-            @$query['Form'] = $request->form;
+        if (!Utils::isUnset($request->form)) {
+            $query['Form'] = $request->form;
         }
-
-        if (null !== $request->logicalOperator) {
-            @$query['LogicalOperator'] = $request->logicalOperator;
+        if (!Utils::isUnset($request->logicalOperator)) {
+            $query['LogicalOperator'] = $request->logicalOperator;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryKeywords) {
-            @$query['QueryKeywords'] = $request->queryKeywords;
+        if (!Utils::isUnset($request->queryKeywords)) {
+            $query['QueryKeywords'] = $request->queryKeywords;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->user) {
-            @$query['User'] = $request->user;
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAuditRecords',
@@ -2927,28 +2339,20 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAuditRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAuditRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAuditRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the audit logs of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     *   When you call this operation, ensure that the audit log feature of the instance is enabled. Otherwise, the operation returns an empty audit log.
+     * @summary Queries the audit logs of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   When you call this operation, ensure that the audit log feature of the instance is enabled. Otherwise, the operation returns an empty audit log.
      * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
+     * @param DescribeAuditRecordsRequest $request DescribeAuditRecordsRequest
      *
-     * @param request - DescribeAuditRecordsRequest
-     *
-     * @returns DescribeAuditRecordsResponse
-     *
-     * @param DescribeAuditRecordsRequest $request
-     *
-     * @return DescribeAuditRecordsResponse
+     * @return DescribeAuditRecordsResponse DescribeAuditRecordsResponse
      */
     public function describeAuditRecords($request)
     {
@@ -2958,103 +2362,78 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries a list of the zones that are supported by an ApsaraDB for MongoDB instance.
+     * @summary Queries a list of the zones that are supported by an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Queries the zones in which an ApsaraDB for MongoDB instance can be deployed under specified purchase conditions. The region ID is required in the purchase condition.
+     *  *
+     * @param DescribeAvailabilityZonesRequest $request DescribeAvailabilityZonesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Queries the zones in which an ApsaraDB for MongoDB instance can be deployed under specified purchase conditions. The region ID is required in the purchase condition.
-     *
-     * @param request - DescribeAvailabilityZonesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAvailabilityZonesResponse
-     *
-     * @param DescribeAvailabilityZonesRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeAvailabilityZonesResponse
+     * @return DescribeAvailabilityZonesResponse DescribeAvailabilityZonesResponse
      */
     public function describeAvailabilityZonesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->DBInstanceClass) {
-            @$query['DBInstanceClass'] = $request->DBInstanceClass;
+        if (!Utils::isUnset($request->DBInstanceClass)) {
+            $query['DBInstanceClass'] = $request->DBInstanceClass;
         }
-
-        if (null !== $request->dbType) {
-            @$query['DbType'] = $request->dbType;
+        if (!Utils::isUnset($request->dbType)) {
+            $query['DbType'] = $request->dbType;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->excludeSecondaryZoneId) {
-            @$query['ExcludeSecondaryZoneId'] = $request->excludeSecondaryZoneId;
+        if (!Utils::isUnset($request->excludeSecondaryZoneId)) {
+            $query['ExcludeSecondaryZoneId'] = $request->excludeSecondaryZoneId;
         }
-
-        if (null !== $request->excludeZoneId) {
-            @$query['ExcludeZoneId'] = $request->excludeZoneId;
+        if (!Utils::isUnset($request->excludeZoneId)) {
+            $query['ExcludeZoneId'] = $request->excludeZoneId;
         }
-
-        if (null !== $request->instanceChargeType) {
-            @$query['InstanceChargeType'] = $request->instanceChargeType;
+        if (!Utils::isUnset($request->instanceChargeType)) {
+            $query['InstanceChargeType'] = $request->instanceChargeType;
         }
-
-        if (null !== $request->instanceType) {
-            @$query['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
-
-        if (null !== $request->mongoType) {
-            @$query['MongoType'] = $request->mongoType;
+        if (!Utils::isUnset($request->mongoType)) {
+            $query['MongoType'] = $request->mongoType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->replicationFactor) {
-            @$query['ReplicationFactor'] = $request->replicationFactor;
+        if (!Utils::isUnset($request->replicationFactor)) {
+            $query['ReplicationFactor'] = $request->replicationFactor;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->storageSupport) {
-            @$query['StorageSupport'] = $request->storageSupport;
+        if (!Utils::isUnset($request->storageSupport)) {
+            $query['StorageSupport'] = $request->storageSupport;
         }
-
-        if (null !== $request->storageType) {
-            @$query['StorageType'] = $request->storageType;
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAvailabilityZones',
@@ -3067,26 +2446,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAvailabilityZonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAvailabilityZonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAvailabilityZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries a list of the zones that are supported by an ApsaraDB for MongoDB instance.
+     * @summary Queries a list of the zones that are supported by an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Queries the zones in which an ApsaraDB for MongoDB instance can be deployed under specified purchase conditions. The region ID is required in the purchase condition.
+     *  *
+     * @param DescribeAvailabilityZonesRequest $request DescribeAvailabilityZonesRequest
      *
-     * @remarks
-     * Queries the zones in which an ApsaraDB for MongoDB instance can be deployed under specified purchase conditions. The region ID is required in the purchase condition.
-     *
-     * @param request - DescribeAvailabilityZonesRequest
-     *
-     * @returns DescribeAvailabilityZonesResponse
-     *
-     * @param DescribeAvailabilityZonesRequest $request
-     *
-     * @return DescribeAvailabilityZonesResponse
+     * @return DescribeAvailabilityZonesResponse DescribeAvailabilityZonesResponse
      */
     public function describeAvailabilityZones($request)
     {
@@ -3096,44 +2467,34 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
+     * @summary You can call this operation to query the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
+     *  *
+     * @param DescribeAvailableEngineVersionRequest $request DescribeAvailableEngineVersionRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAvailableEngineVersionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAvailableEngineVersionResponse
-     *
-     * @param DescribeAvailableEngineVersionRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeAvailableEngineVersionResponse
+     * @return DescribeAvailableEngineVersionResponse DescribeAvailableEngineVersionResponse
      */
     public function describeAvailableEngineVersionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAvailableEngineVersion',
@@ -3146,23 +2507,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAvailableEngineVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAvailableEngineVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAvailableEngineVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * You can call this operation to query the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
+     * @summary You can call this operation to query the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
+     *  *
+     * @param DescribeAvailableEngineVersionRequest $request DescribeAvailableEngineVersionRequest
      *
-     * @param request - DescribeAvailableEngineVersionRequest
-     *
-     * @returns DescribeAvailableEngineVersionResponse
-     *
-     * @param DescribeAvailableEngineVersionRequest $request
-     *
-     * @return DescribeAvailableEngineVersionResponse
+     * @return DescribeAvailableEngineVersionResponse DescribeAvailableEngineVersionResponse
      */
     public function describeAvailableEngineVersion($request)
     {
@@ -3172,76 +2526,58 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the available resources in the specified zone.
+     * @summary Queries the available resources in the specified zone.
+     *  *
+     * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAvailableResourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAvailableResourceResponse
-     *
-     * @param DescribeAvailableResourceRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeAvailableResourceResponse
+     * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
      */
     public function describeAvailableResourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceClass) {
-            @$query['DBInstanceClass'] = $request->DBInstanceClass;
+        if (!Utils::isUnset($request->DBInstanceClass)) {
+            $query['DBInstanceClass'] = $request->DBInstanceClass;
         }
-
-        if (null !== $request->dbType) {
-            @$query['DbType'] = $request->dbType;
+        if (!Utils::isUnset($request->dbType)) {
+            $query['DbType'] = $request->dbType;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->instanceChargeType) {
-            @$query['InstanceChargeType'] = $request->instanceChargeType;
+        if (!Utils::isUnset($request->instanceChargeType)) {
+            $query['InstanceChargeType'] = $request->instanceChargeType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->replicationFactor) {
-            @$query['ReplicationFactor'] = $request->replicationFactor;
+        if (!Utils::isUnset($request->replicationFactor)) {
+            $query['ReplicationFactor'] = $request->replicationFactor;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->storageType) {
-            @$query['StorageType'] = $request->storageType;
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAvailableResource',
@@ -3254,23 +2590,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeAvailableResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAvailableResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAvailableResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the available resources in the specified zone.
+     * @summary Queries the available resources in the specified zone.
+     *  *
+     * @param DescribeAvailableResourceRequest $request DescribeAvailableResourceRequest
      *
-     * @param request - DescribeAvailableResourceRequest
-     *
-     * @returns DescribeAvailableResourceResponse
-     *
-     * @param DescribeAvailableResourceRequest $request
-     *
-     * @return DescribeAvailableResourceResponse
+     * @return DescribeAvailableResourceResponse DescribeAvailableResourceResponse
      */
     public function describeAvailableResource($request)
     {
@@ -3280,77 +2609,60 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the databases at a specified time or the databases in a specified backup set before you restore a database for an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * You can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation to restore a database for an ApsaraDB for MongoDB instance. For more information, see [Restore one database of an ApsaraDB for MongoDB instance](https://help.aliyun.com/document_detail/112274.html).
+     * @summary Queries the databases at a specified time or the databases in a specified backup set before you restore a database for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description You can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation to restore a database for an ApsaraDB for MongoDB instance. For more information, see [Restore one database of an ApsaraDB for MongoDB instance](https://help.aliyun.com/document_detail/112274.html).
      * Before you call this operation, make sure that the instance meets the following requirements:
      * *   The instance was created after March 26, 2019.
      * *   The instance is located in the China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), or Singapore region. Other regions are not supported.
      * *   The instance is a replica set instance.
      * *   The instance runs MongoDB 3.4, MongoDB 4.0, or MongoDB 4.2. In addition, the instance uses local disks to store data.
      * *   The storage engine of the instance is WiredTiger.
+     *  *
+     * @param DescribeBackupDBsRequest $request DescribeBackupDBsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeBackupDBsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeBackupDBsResponse
-     *
-     * @param DescribeBackupDBsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeBackupDBsResponse
+     * @return DescribeBackupDBsResponse DescribeBackupDBsResponse
      */
     public function describeBackupDBsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->restoreTime) {
-            @$query['RestoreTime'] = $request->restoreTime;
+        if (!Utils::isUnset($request->restoreTime)) {
+            $query['RestoreTime'] = $request->restoreTime;
         }
-
-        if (null !== $request->sourceDBInstance) {
-            @$query['SourceDBInstance'] = $request->sourceDBInstance;
+        if (!Utils::isUnset($request->sourceDBInstance)) {
+            $query['SourceDBInstance'] = $request->sourceDBInstance;
         }
-
-        if (null !== $request->sourceDBInstance) {
-            @$query['SourceDBInstance'] = $request->sourceDBInstance;
+        if (!Utils::isUnset($request->sourceDBInstance)) {
+            $query['SourceDBInstance'] = $request->sourceDBInstance;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeBackupDBs',
@@ -3363,32 +2675,24 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBackupDBsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBackupDBsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBackupDBsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the databases at a specified time or the databases in a specified backup set before you restore a database for an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * You can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation to restore a database for an ApsaraDB for MongoDB instance. For more information, see [Restore one database of an ApsaraDB for MongoDB instance](https://help.aliyun.com/document_detail/112274.html).
+     * @summary Queries the databases at a specified time or the databases in a specified backup set before you restore a database for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description You can call the [CreateDBInstance](https://help.aliyun.com/document_detail/61763.html) operation to restore a database for an ApsaraDB for MongoDB instance. For more information, see [Restore one database of an ApsaraDB for MongoDB instance](https://help.aliyun.com/document_detail/112274.html).
      * Before you call this operation, make sure that the instance meets the following requirements:
      * *   The instance was created after March 26, 2019.
      * *   The instance is located in the China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), or Singapore region. Other regions are not supported.
      * *   The instance is a replica set instance.
      * *   The instance runs MongoDB 3.4, MongoDB 4.0, or MongoDB 4.2. In addition, the instance uses local disks to store data.
      * *   The storage engine of the instance is WiredTiger.
+     *  *
+     * @param DescribeBackupDBsRequest $request DescribeBackupDBsRequest
      *
-     * @param request - DescribeBackupDBsRequest
-     *
-     * @returns DescribeBackupDBsResponse
-     *
-     * @param DescribeBackupDBsRequest $request
-     *
-     * @return DescribeBackupDBsResponse
+     * @return DescribeBackupDBsResponse DescribeBackupDBsResponse
      */
     public function describeBackupDBs($request)
     {
@@ -3398,56 +2702,43 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the backup policy of an ApsaraDB for MongoDB instance.
+     * @summary Queries the backup policy of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeBackupPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeBackupPolicyResponse
-     *
-     * @param DescribeBackupPolicyRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->instanceType) {
-            @$query['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
-        if (null !== $request->srcRegion) {
-            @$query['SrcRegion'] = $request->srcRegion;
+        if (!Utils::isUnset($request->srcRegion)) {
+            $query['SrcRegion'] = $request->srcRegion;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeBackupPolicy',
@@ -3460,23 +2751,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBackupPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the backup policy of an ApsaraDB for MongoDB instance.
+     * @summary Queries the backup policy of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      *
-     * @param request - DescribeBackupPolicyRequest
-     *
-     * @returns DescribeBackupPolicyResponse
-     *
-     * @param DescribeBackupPolicyRequest $request
-     *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicy($request)
     {
@@ -3486,24 +2770,19 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the storage used for backup in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks. Note that you are charged only for the backup-used storage of each shard in a sharded cluster instance. You can call this operation only to query the storage used by a single shard in the instance for backup.
+     * @summary Queries the storage used for backup in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks. Note that you are charged only for the backup-used storage of each shard in a sharded cluster instance. You can call this operation only to query the storage used by a single shard in the instance for backup.
+     *  *
+     * @param DescribeBackupStorageRequest $request DescribeBackupStorageRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeBackupStorageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeBackupStorageResponse
-     *
-     * @param DescribeBackupStorageRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeBackupStorageResponse
+     * @return DescribeBackupStorageResponse DescribeBackupStorageResponse
      */
     public function describeBackupStorageWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeBackupStorage',
@@ -3516,23 +2795,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBackupStorageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBackupStorageResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBackupStorageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the storage used for backup in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks. Note that you are charged only for the backup-used storage of each shard in a sharded cluster instance. You can call this operation only to query the storage used by a single shard in the instance for backup.
+     * @summary Queries the storage used for backup in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks. Note that you are charged only for the backup-used storage of each shard in a sharded cluster instance. You can call this operation only to query the storage used by a single shard in the instance for backup.
+     *  *
+     * @param DescribeBackupStorageRequest $request DescribeBackupStorageRequest
      *
-     * @param request - DescribeBackupStorageRequest
-     *
-     * @returns DescribeBackupStorageResponse
-     *
-     * @param DescribeBackupStorageRequest $request
-     *
-     * @return DescribeBackupStorageResponse
+     * @return DescribeBackupStorageResponse DescribeBackupStorageResponse
      */
     public function describeBackupStorage($request)
     {
@@ -3542,24 +2814,19 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries backup tasks running in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks.
+     * @summary Queries backup tasks running in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks.
+     *  *
+     * @param DescribeBackupTasksRequest $request DescribeBackupTasksRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeBackupTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeBackupTasksResponse
-     *
-     * @param DescribeBackupTasksRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeBackupTasksResponse
+     * @return DescribeBackupTasksResponse DescribeBackupTasksResponse
      */
     public function describeBackupTasksWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeBackupTasks',
@@ -3572,23 +2839,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBackupTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBackupTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBackupTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries backup tasks running in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks.
+     * @summary Queries backup tasks running in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks.
+     *  *
+     * @param DescribeBackupTasksRequest $request DescribeBackupTasksRequest
      *
-     * @param request - DescribeBackupTasksRequest
-     *
-     * @returns DescribeBackupTasksResponse
-     *
-     * @param DescribeBackupTasksRequest $request
-     *
-     * @return DescribeBackupTasksResponse
+     * @return DescribeBackupTasksResponse DescribeBackupTasksResponse
      */
     public function describeBackupTasks($request)
     {
@@ -3598,76 +2858,58 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the backup sets of an ApsaraDB for MongoDB instance.
+     * @summary Queries the backup sets of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeBackupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeBackupsResponse
-     *
-     * @param DescribeBackupsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->destRegion) {
-            @$query['DestRegion'] = $request->destRegion;
+        if (!Utils::isUnset($request->destRegion)) {
+            $query['DestRegion'] = $request->destRegion;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->srcRegion) {
-            @$query['SrcRegion'] = $request->srcRegion;
+        if (!Utils::isUnset($request->srcRegion)) {
+            $query['SrcRegion'] = $request->srcRegion;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeBackups',
@@ -3680,23 +2922,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeBackupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the backup sets of an ApsaraDB for MongoDB instance.
+     * @summary Queries the backup sets of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
      *
-     * @param request - DescribeBackupsRequest
-     *
-     * @returns DescribeBackupsResponse
-     *
-     * @param DescribeBackupsRequest $request
-     *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackups($request)
     {
@@ -3706,80 +2941,61 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the backup sets of an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
-     *
-     * @remarks
-     * For a sharded cluster instance that is created before October 19, 2023 and uses cloud disks, you must call the [TransferClusterBackup](https://help.aliyun.com/document_detail/2587931.html) operation to switch the instance from the shard backup mode to the cluster backup mode before you call the DescribeClusterBackups operation.
+     * @summary Queries the backup sets of an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
+     *  *
+     * @description For a sharded cluster instance that is created before October 19, 2023 and uses cloud disks, you must call the [TransferClusterBackup](https://help.aliyun.com/document_detail/2587931.html) operation to switch the instance from the shard backup mode to the cluster backup mode before you call the DescribeClusterBackups operation.
      * By default, cloud disk-based sharded cluster instances that are created after October 19, 2023 are in the cluster backup mode.
+     *  *
+     * @param DescribeClusterBackupsRequest $request DescribeClusterBackupsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeClusterBackupsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterBackupsResponse
-     *
-     * @param DescribeClusterBackupsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeClusterBackupsResponse
+     * @return DescribeClusterBackupsResponse DescribeClusterBackupsResponse
      */
     public function describeClusterBackupsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupId) {
-            @$query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->destRegion) {
-            @$query['DestRegion'] = $request->destRegion;
+        if (!Utils::isUnset($request->destRegion)) {
+            $query['DestRegion'] = $request->destRegion;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->isOnlyGetClusterBackUp) {
-            @$query['IsOnlyGetClusterBackUp'] = $request->isOnlyGetClusterBackUp;
+        if (!Utils::isUnset($request->isOnlyGetClusterBackUp)) {
+            $query['IsOnlyGetClusterBackUp'] = $request->isOnlyGetClusterBackUp;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->srcRegion) {
-            @$query['SrcRegion'] = $request->srcRegion;
+        if (!Utils::isUnset($request->srcRegion)) {
+            $query['SrcRegion'] = $request->srcRegion;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeClusterBackups',
@@ -3792,27 +3008,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeClusterBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeClusterBackupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeClusterBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the backup sets of an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
-     *
-     * @remarks
-     * For a sharded cluster instance that is created before October 19, 2023 and uses cloud disks, you must call the [TransferClusterBackup](https://help.aliyun.com/document_detail/2587931.html) operation to switch the instance from the shard backup mode to the cluster backup mode before you call the DescribeClusterBackups operation.
+     * @summary Queries the backup sets of an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
+     *  *
+     * @description For a sharded cluster instance that is created before October 19, 2023 and uses cloud disks, you must call the [TransferClusterBackup](https://help.aliyun.com/document_detail/2587931.html) operation to switch the instance from the shard backup mode to the cluster backup mode before you call the DescribeClusterBackups operation.
      * By default, cloud disk-based sharded cluster instances that are created after October 19, 2023 are in the cluster backup mode.
+     *  *
+     * @param DescribeClusterBackupsRequest $request DescribeClusterBackupsRequest
      *
-     * @param request - DescribeClusterBackupsRequest
-     *
-     * @returns DescribeClusterBackupsResponse
-     *
-     * @param DescribeClusterBackupsRequest $request
-     *
-     * @return DescribeClusterBackupsResponse
+     * @return DescribeClusterBackupsResponse DescribeClusterBackupsResponse
      */
     public function describeClusterBackups($request)
     {
@@ -3822,28 +3030,22 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the time range to which you can restore the data of an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
-     *
-     * @remarks
-     *   The instance is an ApsaraDB for MongoDB sharded cluster instance that runs MongoDB 4.4 or later and uses enhanced SSDs (ESSDs) to store data.
+     * @summary Queries the time range to which you can restore the data of an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
+     *  *
+     * @description *   The instance is an ApsaraDB for MongoDB sharded cluster instance that runs MongoDB 4.4 or later and uses enhanced SSDs (ESSDs) to store data.
      * *   You can call the TransferClusterBackup operation only for instances that are created before October 19, 2023 to switch the instances to the cluster backup mode. The DescribeClusterRecoverTime operation is applicable only to instances that are switched to the cluster backup mode or instances that are created on or after October 19, 2023.
+     *  *
+     * @param DescribeClusterRecoverTimeRequest $request DescribeClusterRecoverTimeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeClusterRecoverTimeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeClusterRecoverTimeResponse
-     *
-     * @param DescribeClusterRecoverTimeRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeClusterRecoverTimeResponse
+     * @return DescribeClusterRecoverTimeResponse DescribeClusterRecoverTimeResponse
      */
     public function describeClusterRecoverTimeWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeClusterRecoverTime',
@@ -3856,27 +3058,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeClusterRecoverTimeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeClusterRecoverTimeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeClusterRecoverTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the time range to which you can restore the data of an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
-     *
-     * @remarks
-     *   The instance is an ApsaraDB for MongoDB sharded cluster instance that runs MongoDB 4.4 or later and uses enhanced SSDs (ESSDs) to store data.
+     * @summary Queries the time range to which you can restore the data of an ApsaraDB for MongoDB sharded cluster instance that uses cloud disks.
+     *  *
+     * @description *   The instance is an ApsaraDB for MongoDB sharded cluster instance that runs MongoDB 4.4 or later and uses enhanced SSDs (ESSDs) to store data.
      * *   You can call the TransferClusterBackup operation only for instances that are created before October 19, 2023 to switch the instances to the cluster backup mode. The DescribeClusterRecoverTime operation is applicable only to instances that are switched to the cluster backup mode or instances that are created on or after October 19, 2023.
+     *  *
+     * @param DescribeClusterRecoverTimeRequest $request DescribeClusterRecoverTimeRequest
      *
-     * @param request - DescribeClusterRecoverTimeRequest
-     *
-     * @returns DescribeClusterRecoverTimeResponse
-     *
-     * @param DescribeClusterRecoverTimeRequest $request
-     *
-     * @return DescribeClusterRecoverTimeResponse
+     * @return DescribeClusterRecoverTimeResponse DescribeClusterRecoverTimeResponse
      */
     public function describeClusterRecoverTime($request)
     {
@@ -3886,60 +3080,46 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the details of an ApsaraDB for MongoDB instance.
+     * @summary Queries the details of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBInstanceAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstanceAttributeResponse
-     *
-     * @param DescribeDBInstanceAttributeRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeDBInstanceAttributeResponse
+     * @return DescribeDBInstanceAttributeResponse DescribeDBInstanceAttributeResponse
      */
     public function describeDBInstanceAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->engine) {
-            @$query['Engine'] = $request->engine;
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
         }
-
-        if (null !== $request->isDelete) {
-            @$query['IsDelete'] = $request->isDelete;
+        if (!Utils::isUnset($request->isDelete)) {
+            $query['IsDelete'] = $request->isDelete;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstanceAttribute',
@@ -3952,23 +3132,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the details of an ApsaraDB for MongoDB instance.
+     * @summary Queries the details of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
      *
-     * @param request - DescribeDBInstanceAttributeRequest
-     *
-     * @returns DescribeDBInstanceAttributeResponse
-     *
-     * @param DescribeDBInstanceAttributeRequest $request
-     *
-     * @return DescribeDBInstanceAttributeResponse
+     * @return DescribeDBInstanceAttributeResponse DescribeDBInstanceAttributeResponse
      */
     public function describeDBInstanceAttribute($request)
     {
@@ -3978,51 +3151,39 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the details of a key for an ApsaraDB for MongoDB instance.
+     * @summary Queries the details of a key for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description When you call the DescribeDBInstanceEncryptionKey operation, the instance must have transparent data encryption (TDE) enabled in BYOK mode. You can call the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation to enable TDE.
+     *  *
+     * @param DescribeDBInstanceEncryptionKeyRequest $request DescribeDBInstanceEncryptionKeyRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * When you call the DescribeDBInstanceEncryptionKey operation, the instance must have transparent data encryption (TDE) enabled in BYOK mode. You can call the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation to enable TDE.
-     *
-     * @param request - DescribeDBInstanceEncryptionKeyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstanceEncryptionKeyResponse
-     *
-     * @param DescribeDBInstanceEncryptionKeyRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeDBInstanceEncryptionKeyResponse
+     * @return DescribeDBInstanceEncryptionKeyResponse DescribeDBInstanceEncryptionKeyResponse
      */
     public function describeDBInstanceEncryptionKeyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->encryptionKey) {
-            @$query['EncryptionKey'] = $request->encryptionKey;
+        if (!Utils::isUnset($request->encryptionKey)) {
+            $query['EncryptionKey'] = $request->encryptionKey;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstanceEncryptionKey',
@@ -4035,26 +3196,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstanceEncryptionKeyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstanceEncryptionKeyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstanceEncryptionKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the details of a key for an ApsaraDB for MongoDB instance.
+     * @summary Queries the details of a key for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description When you call the DescribeDBInstanceEncryptionKey operation, the instance must have transparent data encryption (TDE) enabled in BYOK mode. You can call the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation to enable TDE.
+     *  *
+     * @param DescribeDBInstanceEncryptionKeyRequest $request DescribeDBInstanceEncryptionKeyRequest
      *
-     * @remarks
-     * When you call the DescribeDBInstanceEncryptionKey operation, the instance must have transparent data encryption (TDE) enabled in BYOK mode. You can call the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation to enable TDE.
-     *
-     * @param request - DescribeDBInstanceEncryptionKeyRequest
-     *
-     * @returns DescribeDBInstanceEncryptionKeyResponse
-     *
-     * @param DescribeDBInstanceEncryptionKeyRequest $request
-     *
-     * @return DescribeDBInstanceEncryptionKeyResponse
+     * @return DescribeDBInstanceEncryptionKeyResponse DescribeDBInstanceEncryptionKeyResponse
      */
     public function describeDBInstanceEncryptionKey($request)
     {
@@ -4064,44 +3217,34 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the collection frequency of monitoring data for an ApsaraDB for MongoDB instance.
+     * @summary Queries the collection frequency of monitoring data for an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeDBInstanceMonitorRequest $request DescribeDBInstanceMonitorRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBInstanceMonitorRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstanceMonitorResponse
-     *
-     * @param DescribeDBInstanceMonitorRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeDBInstanceMonitorResponse
+     * @return DescribeDBInstanceMonitorResponse DescribeDBInstanceMonitorResponse
      */
     public function describeDBInstanceMonitorWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstanceMonitor',
@@ -4114,23 +3257,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstanceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstanceMonitorResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstanceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the collection frequency of monitoring data for an ApsaraDB for MongoDB instance.
+     * @summary Queries the collection frequency of monitoring data for an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeDBInstanceMonitorRequest $request DescribeDBInstanceMonitorRequest
      *
-     * @param request - DescribeDBInstanceMonitorRequest
-     *
-     * @returns DescribeDBInstanceMonitorResponse
-     *
-     * @param DescribeDBInstanceMonitorRequest $request
-     *
-     * @return DescribeDBInstanceMonitorResponse
+     * @return DescribeDBInstanceMonitorResponse DescribeDBInstanceMonitorResponse
      */
     public function describeDBInstanceMonitor($request)
     {
@@ -4140,72 +3276,55 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the performance data of an ApsaraDB for MongoDB instance.
+     * @summary Queries the performance data of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeDBInstancePerformanceRequest $request DescribeDBInstancePerformanceRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBInstancePerformanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstancePerformanceResponse
-     *
-     * @param DescribeDBInstancePerformanceRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeDBInstancePerformanceResponse
+     * @return DescribeDBInstancePerformanceResponse DescribeDBInstancePerformanceResponse
      */
     public function describeDBInstancePerformanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->interval) {
-            @$query['Interval'] = $request->interval;
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
         }
-
-        if (null !== $request->key) {
-            @$query['Key'] = $request->key;
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->replicaSetRole) {
-            @$query['ReplicaSetRole'] = $request->replicaSetRole;
+        if (!Utils::isUnset($request->replicaSetRole)) {
+            $query['ReplicaSetRole'] = $request->replicaSetRole;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->roleId) {
-            @$query['RoleId'] = $request->roleId;
+        if (!Utils::isUnset($request->roleId)) {
+            $query['RoleId'] = $request->roleId;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstancePerformance',
@@ -4218,23 +3337,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstancePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstancePerformanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstancePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the performance data of an ApsaraDB for MongoDB instance.
+     * @summary Queries the performance data of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeDBInstancePerformanceRequest $request DescribeDBInstancePerformanceRequest
      *
-     * @param request - DescribeDBInstancePerformanceRequest
-     *
-     * @returns DescribeDBInstancePerformanceResponse
-     *
-     * @param DescribeDBInstancePerformanceRequest $request
-     *
-     * @return DescribeDBInstancePerformanceResponse
+     * @return DescribeDBInstancePerformanceResponse DescribeDBInstancePerformanceResponse
      */
     public function describeDBInstancePerformance($request)
     {
@@ -4244,50 +3356,39 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the Secure Sockets Layer (SSL) settings of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the following requirements are met:
+     * @summary Queries the Secure Sockets Layer (SSL) settings of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the following requirements are met:
      * *   The instance is in the Running state.
      * *   The instance is a replica set instance.
      * *   The instance runs MongoDB 3.4 or later.
+     *  *
+     * @param DescribeDBInstanceSSLRequest $request DescribeDBInstanceSSLRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBInstanceSSLRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstanceSSLResponse
-     *
-     * @param DescribeDBInstanceSSLRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeDBInstanceSSLResponse
+     * @return DescribeDBInstanceSSLResponse DescribeDBInstanceSSLResponse
      */
     public function describeDBInstanceSSLWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstanceSSL',
@@ -4300,29 +3401,21 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstanceSSLResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the Secure Sockets Layer (SSL) settings of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the following requirements are met:
+     * @summary Queries the Secure Sockets Layer (SSL) settings of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the following requirements are met:
      * *   The instance is in the Running state.
      * *   The instance is a replica set instance.
      * *   The instance runs MongoDB 3.4 or later.
+     *  *
+     * @param DescribeDBInstanceSSLRequest $request DescribeDBInstanceSSLRequest
      *
-     * @param request - DescribeDBInstanceSSLRequest
-     *
-     * @returns DescribeDBInstanceSSLResponse
-     *
-     * @param DescribeDBInstanceSSLRequest $request
-     *
-     * @return DescribeDBInstanceSSLResponse
+     * @return DescribeDBInstanceSSLResponse DescribeDBInstanceSSLResponse
      */
     public function describeDBInstanceSSL($request)
     {
@@ -4332,48 +3425,37 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * 查看规格信息详情.
+     * @summary 查看规格信息详情
+     *  *
+     * @param DescribeDBInstanceSpecInfoRequest $request DescribeDBInstanceSpecInfoRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBInstanceSpecInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstanceSpecInfoResponse
-     *
-     * @param DescribeDBInstanceSpecInfoRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeDBInstanceSpecInfoResponse
+     * @return DescribeDBInstanceSpecInfoResponse DescribeDBInstanceSpecInfoResponse
      */
     public function describeDBInstanceSpecInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceClass) {
-            @$query['InstanceClass'] = $request->instanceClass;
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityToken) {
-            @$query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstanceSpecInfo',
@@ -4386,23 +3468,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstanceSpecInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstanceSpecInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstanceSpecInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查看规格信息详情.
+     * @summary 查看规格信息详情
+     *  *
+     * @param DescribeDBInstanceSpecInfoRequest $request DescribeDBInstanceSpecInfoRequest
      *
-     * @param request - DescribeDBInstanceSpecInfoRequest
-     *
-     * @returns DescribeDBInstanceSpecInfoResponse
-     *
-     * @param DescribeDBInstanceSpecInfoRequest $request
-     *
-     * @return DescribeDBInstanceSpecInfoResponse
+     * @return DescribeDBInstanceSpecInfoResponse DescribeDBInstanceSpecInfoResponse
      */
     public function describeDBInstanceSpecInfo($request)
     {
@@ -4412,53 +3487,41 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the primary/secondary switching logs of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+     * @summary Queries the primary/secondary switching logs of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
      * *   The instance is a replica set or sharded cluster instance.
      * *   The instance uses local physical disks to store data.
+     *  *
+     * @param DescribeDBInstanceSwitchLogRequest $request DescribeDBInstanceSwitchLogRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBInstanceSwitchLogRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstanceSwitchLogResponse
-     *
-     * @param DescribeDBInstanceSwitchLogRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeDBInstanceSwitchLogResponse
+     * @return DescribeDBInstanceSwitchLogResponse DescribeDBInstanceSwitchLogResponse
      */
     public function describeDBInstanceSwitchLogWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstanceSwitchLog',
@@ -4471,28 +3534,20 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstanceSwitchLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstanceSwitchLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstanceSwitchLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the primary/secondary switching logs of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+     * @summary Queries the primary/secondary switching logs of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
      * *   The instance is a replica set or sharded cluster instance.
      * *   The instance uses local physical disks to store data.
+     *  *
+     * @param DescribeDBInstanceSwitchLogRequest $request DescribeDBInstanceSwitchLogRequest
      *
-     * @param request - DescribeDBInstanceSwitchLogRequest
-     *
-     * @returns DescribeDBInstanceSwitchLogResponse
-     *
-     * @param DescribeDBInstanceSwitchLogRequest $request
-     *
-     * @return DescribeDBInstanceSwitchLogResponse
+     * @return DescribeDBInstanceSwitchLogResponse DescribeDBInstanceSwitchLogResponse
      */
     public function describeDBInstanceSwitchLog($request)
     {
@@ -4502,51 +3557,40 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries whether Transparent Data Encryption (TDE) is enabled for an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * >  For more information about TDE, see [TDE](https://help.aliyun.com/document_detail/131048.html).
+     * @summary Queries whether Transparent Data Encryption (TDE) is enabled for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  For more information about TDE, see [TDE](https://help.aliyun.com/document_detail/131048.html).
      * Before you call this operation, make sure that the instance meets the following requirements:
      * *   The instance is a replica set or sharded cluster instance.
      * *   The storage engine of the instance is WiredTiger.
      * *   The database engine version of the instance is 4.0 or 4.2. If the database engine version is earlier than 4.0, you can call the [UpgradeDBInstanceEngineVersion](https://help.aliyun.com/document_detail/67608.html) operation to upgrade the database engine.
+     *  *
+     * @param DescribeDBInstanceTDEInfoRequest $request DescribeDBInstanceTDEInfoRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBInstanceTDEInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstanceTDEInfoResponse
-     *
-     * @param DescribeDBInstanceTDEInfoRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeDBInstanceTDEInfoResponse
+     * @return DescribeDBInstanceTDEInfoResponse DescribeDBInstanceTDEInfoResponse
      */
     public function describeDBInstanceTDEInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstanceTDEInfo',
@@ -4559,30 +3603,22 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstanceTDEInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstanceTDEInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstanceTDEInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries whether Transparent Data Encryption (TDE) is enabled for an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * >  For more information about TDE, see [TDE](https://help.aliyun.com/document_detail/131048.html).
+     * @summary Queries whether Transparent Data Encryption (TDE) is enabled for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  For more information about TDE, see [TDE](https://help.aliyun.com/document_detail/131048.html).
      * Before you call this operation, make sure that the instance meets the following requirements:
      * *   The instance is a replica set or sharded cluster instance.
      * *   The storage engine of the instance is WiredTiger.
      * *   The database engine version of the instance is 4.0 or 4.2. If the database engine version is earlier than 4.0, you can call the [UpgradeDBInstanceEngineVersion](https://help.aliyun.com/document_detail/67608.html) operation to upgrade the database engine.
+     *  *
+     * @param DescribeDBInstanceTDEInfoRequest $request DescribeDBInstanceTDEInfoRequest
      *
-     * @param request - DescribeDBInstanceTDEInfoRequest
-     *
-     * @returns DescribeDBInstanceTDEInfoResponse
-     *
-     * @param DescribeDBInstanceTDEInfoRequest $request
-     *
-     * @return DescribeDBInstanceTDEInfoResponse
+     * @return DescribeDBInstanceTDEInfoResponse DescribeDBInstanceTDEInfoResponse
      */
     public function describeDBInstanceTDEInfo($request)
     {
@@ -4592,131 +3628,99 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries a list of ApsaraDB for MongoDB instances.
+     * @summary Queries a list of ApsaraDB for MongoDB instances.
+     *  *
+     * @description The list of replica set and standalone instances is displayed when the **DBInstanceType** parameter uses the default value **replicate**. To query a list of sharded cluster instances, you must set the **DBInstanceType** parameter to **sharding**.
+     *  *
+     * @param DescribeDBInstancesRequest $request DescribeDBInstancesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * The list of replica set and standalone instances is displayed when the **DBInstanceType** parameter uses the default value **replicate**. To query a list of sharded cluster instances, you must set the **DBInstanceType** parameter to **sharding**.
-     *
-     * @param request - DescribeDBInstancesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstancesResponse
-     *
-     * @param DescribeDBInstancesRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeDBInstancesResponse
+     * @return DescribeDBInstancesResponse DescribeDBInstancesResponse
      */
     public function describeDBInstancesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
-
-        if (null !== $request->connectionDomain) {
-            @$query['ConnectionDomain'] = $request->connectionDomain;
+        if (!Utils::isUnset($request->connectionDomain)) {
+            $query['ConnectionDomain'] = $request->connectionDomain;
         }
-
-        if (null !== $request->DBInstanceClass) {
-            @$query['DBInstanceClass'] = $request->DBInstanceClass;
+        if (!Utils::isUnset($request->DBInstanceClass)) {
+            $query['DBInstanceClass'] = $request->DBInstanceClass;
         }
-
-        if (null !== $request->DBInstanceDescription) {
-            @$query['DBInstanceDescription'] = $request->DBInstanceDescription;
+        if (!Utils::isUnset($request->DBInstanceDescription)) {
+            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->DBInstanceStatus) {
-            @$query['DBInstanceStatus'] = $request->DBInstanceStatus;
+        if (!Utils::isUnset($request->DBInstanceStatus)) {
+            $query['DBInstanceStatus'] = $request->DBInstanceStatus;
         }
-
-        if (null !== $request->DBInstanceType) {
-            @$query['DBInstanceType'] = $request->DBInstanceType;
+        if (!Utils::isUnset($request->DBInstanceType)) {
+            $query['DBInstanceType'] = $request->DBInstanceType;
         }
-
-        if (null !== $request->DBNodeType) {
-            @$query['DBNodeType'] = $request->DBNodeType;
+        if (!Utils::isUnset($request->DBNodeType)) {
+            $query['DBNodeType'] = $request->DBNodeType;
         }
-
-        if (null !== $request->engine) {
-            @$query['Engine'] = $request->engine;
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->expireTime) {
-            @$query['ExpireTime'] = $request->expireTime;
+        if (!Utils::isUnset($request->expireTime)) {
+            $query['ExpireTime'] = $request->expireTime;
         }
-
-        if (null !== $request->expired) {
-            @$query['Expired'] = $request->expired;
+        if (!Utils::isUnset($request->expired)) {
+            $query['Expired'] = $request->expired;
         }
-
-        if (null !== $request->networkType) {
-            @$query['NetworkType'] = $request->networkType;
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->replicationFactor) {
-            @$query['ReplicationFactor'] = $request->replicationFactor;
+        if (!Utils::isUnset($request->replicationFactor)) {
+            $query['ReplicationFactor'] = $request->replicationFactor;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstances',
@@ -4729,26 +3733,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries a list of ApsaraDB for MongoDB instances.
+     * @summary Queries a list of ApsaraDB for MongoDB instances.
+     *  *
+     * @description The list of replica set and standalone instances is displayed when the **DBInstanceType** parameter uses the default value **replicate**. To query a list of sharded cluster instances, you must set the **DBInstanceType** parameter to **sharding**.
+     *  *
+     * @param DescribeDBInstancesRequest $request DescribeDBInstancesRequest
      *
-     * @remarks
-     * The list of replica set and standalone instances is displayed when the **DBInstanceType** parameter uses the default value **replicate**. To query a list of sharded cluster instances, you must set the **DBInstanceType** parameter to **sharding**.
-     *
-     * @param request - DescribeDBInstancesRequest
-     *
-     * @returns DescribeDBInstancesResponse
-     *
-     * @param DescribeDBInstancesRequest $request
-     *
-     * @return DescribeDBInstancesResponse
+     * @return DescribeDBInstancesResponse DescribeDBInstancesResponse
      */
     public function describeDBInstances($request)
     {
@@ -4758,96 +3754,73 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the overview information of one or more ApsaraDB for MongoDB instances.
-     *
-     * @remarks
-     *   If you do not specify an instance when you call this operation, the overview information of all instances in a specific region within this account is returned.
+     * @summary Queries the overview information of one or more ApsaraDB for MongoDB instances.
+     *  *
+     * @description *   If you do not specify an instance when you call this operation, the overview information of all instances in a specific region within this account is returned.
      * *   Paged query is disabled for this operation.
+     *  *
+     * @param DescribeDBInstancesOverviewRequest $request DescribeDBInstancesOverviewRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDBInstancesOverviewRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDBInstancesOverviewResponse
-     *
-     * @param DescribeDBInstancesOverviewRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeDBInstancesOverviewResponse
+     * @return DescribeDBInstancesOverviewResponse DescribeDBInstancesOverviewResponse
      */
     public function describeDBInstancesOverviewWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->instanceClass) {
-            @$query['InstanceClass'] = $request->instanceClass;
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
         }
-
-        if (null !== $request->instanceIds) {
-            @$query['InstanceIds'] = $request->instanceIds;
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
         }
-
-        if (null !== $request->instanceStatus) {
-            @$query['InstanceStatus'] = $request->instanceStatus;
+        if (!Utils::isUnset($request->instanceStatus)) {
+            $query['InstanceStatus'] = $request->instanceStatus;
         }
-
-        if (null !== $request->instanceType) {
-            @$query['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
-
-        if (null !== $request->networkType) {
-            @$query['NetworkType'] = $request->networkType;
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->showTags) {
-            @$query['ShowTags'] = $request->showTags;
+        if (!Utils::isUnset($request->showTags)) {
+            $query['ShowTags'] = $request->showTags;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDBInstancesOverview',
@@ -4860,27 +3833,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDBInstancesOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDBInstancesOverviewResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDBInstancesOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the overview information of one or more ApsaraDB for MongoDB instances.
-     *
-     * @remarks
-     *   If you do not specify an instance when you call this operation, the overview information of all instances in a specific region within this account is returned.
+     * @summary Queries the overview information of one or more ApsaraDB for MongoDB instances.
+     *  *
+     * @description *   If you do not specify an instance when you call this operation, the overview information of all instances in a specific region within this account is returned.
      * *   Paged query is disabled for this operation.
+     *  *
+     * @param DescribeDBInstancesOverviewRequest $request DescribeDBInstancesOverviewRequest
      *
-     * @param request - DescribeDBInstancesOverviewRequest
-     *
-     * @returns DescribeDBInstancesOverviewResponse
-     *
-     * @param DescribeDBInstancesOverviewRequest $request
-     *
-     * @return DescribeDBInstancesOverviewResponse
+     * @return DescribeDBInstancesOverviewResponse DescribeDBInstancesOverviewResponse
      */
     public function describeDBInstancesOverview($request)
     {
@@ -4890,88 +3855,67 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries entries in error logs of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * @summary Queries entries in error logs of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
+     * @param DescribeErrorLogRecordsRequest $request DescribeErrorLogRecordsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeErrorLogRecordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeErrorLogRecordsResponse
-     *
-     * @param DescribeErrorLogRecordsRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeErrorLogRecordsResponse
+     * @return DescribeErrorLogRecordsResponse DescribeErrorLogRecordsResponse
      */
     public function describeErrorLogRecordsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->DBName) {
-            @$query['DBName'] = $request->DBName;
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->logicalOperator) {
-            @$query['LogicalOperator'] = $request->logicalOperator;
+        if (!Utils::isUnset($request->logicalOperator)) {
+            $query['LogicalOperator'] = $request->logicalOperator;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryKeywords) {
-            @$query['QueryKeywords'] = $request->queryKeywords;
+        if (!Utils::isUnset($request->queryKeywords)) {
+            $query['QueryKeywords'] = $request->queryKeywords;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->roleType) {
-            @$query['RoleType'] = $request->roleType;
+        if (!Utils::isUnset($request->roleType)) {
+            $query['RoleType'] = $request->roleType;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeErrorLogRecords',
@@ -4984,27 +3928,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeErrorLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeErrorLogRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeErrorLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries entries in error logs of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * @summary Queries entries in error logs of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
+     * @param DescribeErrorLogRecordsRequest $request DescribeErrorLogRecordsRequest
      *
-     * @param request - DescribeErrorLogRecordsRequest
-     *
-     * @returns DescribeErrorLogRecordsResponse
-     *
-     * @param DescribeErrorLogRecordsRequest $request
-     *
-     * @return DescribeErrorLogRecordsResponse
+     * @return DescribeErrorLogRecordsResponse DescribeErrorLogRecordsResponse
      */
     public function describeErrorLogRecords($request)
     {
@@ -5014,24 +3950,19 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the global IP whitelist template of an ApsaraDB for MongoDB instance.
+     * @summary Queries the global IP whitelist template of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRequest $request DescribeGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGlobalSecurityIPGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeGlobalSecurityIPGroupResponse
-     *
-     * @param DescribeGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeGlobalSecurityIPGroupResponse
+     * @return DescribeGlobalSecurityIPGroupResponse DescribeGlobalSecurityIPGroupResponse
      */
     public function describeGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGlobalSecurityIPGroup',
@@ -5044,23 +3975,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGlobalSecurityIPGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the global IP whitelist template of an ApsaraDB for MongoDB instance.
+     * @summary Queries the global IP whitelist template of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRequest $request DescribeGlobalSecurityIPGroupRequest
      *
-     * @param request - DescribeGlobalSecurityIPGroupRequest
-     *
-     * @returns DescribeGlobalSecurityIPGroupResponse
-     *
-     * @param DescribeGlobalSecurityIPGroupRequest $request
-     *
-     * @return DescribeGlobalSecurityIPGroupResponse
+     * @return DescribeGlobalSecurityIPGroupResponse DescribeGlobalSecurityIPGroupResponse
      */
     public function describeGlobalSecurityIPGroup($request)
     {
@@ -5070,24 +3994,19 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the global IP whitelist templates associated with an ApsaraDB for MongoDB instance.
+     * @summary Queries the global IP whitelist templates associated with an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRelationRequest $request DescribeGlobalSecurityIPGroupRelationRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeGlobalSecurityIPGroupRelationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeGlobalSecurityIPGroupRelationResponse
-     *
-     * @param DescribeGlobalSecurityIPGroupRelationRequest $request
-     * @param RuntimeOptions                               $runtime
-     *
-     * @return DescribeGlobalSecurityIPGroupRelationResponse
+     * @return DescribeGlobalSecurityIPGroupRelationResponse DescribeGlobalSecurityIPGroupRelationResponse
      */
     public function describeGlobalSecurityIPGroupRelationWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeGlobalSecurityIPGroupRelation',
@@ -5100,23 +4019,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeGlobalSecurityIPGroupRelationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeGlobalSecurityIPGroupRelationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeGlobalSecurityIPGroupRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the global IP whitelist templates associated with an ApsaraDB for MongoDB instance.
+     * @summary Queries the global IP whitelist templates associated with an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeGlobalSecurityIPGroupRelationRequest $request DescribeGlobalSecurityIPGroupRelationRequest
      *
-     * @param request - DescribeGlobalSecurityIPGroupRelationRequest
-     *
-     * @returns DescribeGlobalSecurityIPGroupRelationResponse
-     *
-     * @param DescribeGlobalSecurityIPGroupRelationRequest $request
-     *
-     * @return DescribeGlobalSecurityIPGroupRelationResponse
+     * @return DescribeGlobalSecurityIPGroupRelationResponse DescribeGlobalSecurityIPGroupRelationResponse
      */
     public function describeGlobalSecurityIPGroupRelation($request)
     {
@@ -5126,84 +4038,64 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries a list of tasks in the task center.
+     * @summary Queries a list of tasks in the task center.
+     *  *
+     * @param DescribeHistoryTasksRequest $request DescribeHistoryTasksRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeHistoryTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeHistoryTasksResponse
-     *
-     * @param DescribeHistoryTasksRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeHistoryTasksResponse
+     * @return DescribeHistoryTasksResponse DescribeHistoryTasksResponse
      */
     public function describeHistoryTasksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->fromExecTime) {
-            @$query['FromExecTime'] = $request->fromExecTime;
+        if (!Utils::isUnset($request->fromExecTime)) {
+            $query['FromExecTime'] = $request->fromExecTime;
         }
-
-        if (null !== $request->fromStartTime) {
-            @$query['FromStartTime'] = $request->fromStartTime;
+        if (!Utils::isUnset($request->fromStartTime)) {
+            $query['FromStartTime'] = $request->fromStartTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->instanceType) {
-            @$query['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
-        if (null !== $request->taskType) {
-            @$query['TaskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
         }
-
-        if (null !== $request->toExecTime) {
-            @$query['ToExecTime'] = $request->toExecTime;
+        if (!Utils::isUnset($request->toExecTime)) {
+            $query['ToExecTime'] = $request->toExecTime;
         }
-
-        if (null !== $request->toStartTime) {
-            @$query['ToStartTime'] = $request->toStartTime;
+        if (!Utils::isUnset($request->toStartTime)) {
+            $query['ToStartTime'] = $request->toStartTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeHistoryTasks',
@@ -5216,23 +4108,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeHistoryTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeHistoryTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeHistoryTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries a list of tasks in the task center.
+     * @summary Queries a list of tasks in the task center.
+     *  *
+     * @param DescribeHistoryTasksRequest $request DescribeHistoryTasksRequest
      *
-     * @param request - DescribeHistoryTasksRequest
-     *
-     * @returns DescribeHistoryTasksResponse
-     *
-     * @param DescribeHistoryTasksRequest $request
-     *
-     * @return DescribeHistoryTasksResponse
+     * @return DescribeHistoryTasksResponse DescribeHistoryTasksResponse
      */
     public function describeHistoryTasks($request)
     {
@@ -5242,72 +4127,55 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the overview of a task in the task center.
+     * @summary Queries the overview of a task in the task center.
+     *  *
+     * @param DescribeHistoryTasksStatRequest $request DescribeHistoryTasksStatRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeHistoryTasksStatRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeHistoryTasksStatResponse
-     *
-     * @param DescribeHistoryTasksStatRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeHistoryTasksStatResponse
+     * @return DescribeHistoryTasksStatResponse DescribeHistoryTasksStatResponse
      */
     public function describeHistoryTasksStatWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->fromExecTime) {
-            @$query['FromExecTime'] = $request->fromExecTime;
+        if (!Utils::isUnset($request->fromExecTime)) {
+            $query['FromExecTime'] = $request->fromExecTime;
         }
-
-        if (null !== $request->fromStartTime) {
-            @$query['FromStartTime'] = $request->fromStartTime;
+        if (!Utils::isUnset($request->fromStartTime)) {
+            $query['FromStartTime'] = $request->fromStartTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
-        if (null !== $request->taskType) {
-            @$query['TaskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
         }
-
-        if (null !== $request->toExecTime) {
-            @$query['ToExecTime'] = $request->toExecTime;
+        if (!Utils::isUnset($request->toExecTime)) {
+            $query['ToExecTime'] = $request->toExecTime;
         }
-
-        if (null !== $request->toStartTime) {
-            @$query['ToStartTime'] = $request->toStartTime;
+        if (!Utils::isUnset($request->toStartTime)) {
+            $query['ToStartTime'] = $request->toStartTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeHistoryTasksStat',
@@ -5320,23 +4188,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeHistoryTasksStatResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeHistoryTasksStatResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeHistoryTasksStatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the overview of a task in the task center.
+     * @summary Queries the overview of a task in the task center.
+     *  *
+     * @param DescribeHistoryTasksStatRequest $request DescribeHistoryTasksStatRequest
      *
-     * @param request - DescribeHistoryTasksStatRequest
-     *
-     * @returns DescribeHistoryTasksStatResponse
-     *
-     * @param DescribeHistoryTasksStatRequest $request
-     *
-     * @return DescribeHistoryTasksStatResponse
+     * @return DescribeHistoryTasksStatResponse DescribeHistoryTasksStatResponse
      */
     public function describeHistoryTasksStat($request)
     {
@@ -5346,63 +4207,48 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query whether auto-renewal is enabled for an ApsaraDB for MongoDB instance.
+     * @summary You can call this operation to query whether auto-renewal is enabled for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable to subscription instances.
+     *  *
+     * @param DescribeInstanceAutoRenewalAttributeRequest $request DescribeInstanceAutoRenewalAttributeRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This operation is applicable to subscription instances.
-     *
-     * @param request - DescribeInstanceAutoRenewalAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeInstanceAutoRenewalAttributeResponse
-     *
-     * @param DescribeInstanceAutoRenewalAttributeRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return DescribeInstanceAutoRenewalAttributeResponse
+     * @return DescribeInstanceAutoRenewalAttributeResponse DescribeInstanceAutoRenewalAttributeResponse
      */
     public function describeInstanceAutoRenewalAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->DBInstanceType) {
-            @$query['DBInstanceType'] = $request->DBInstanceType;
+        if (!Utils::isUnset($request->DBInstanceType)) {
+            $query['DBInstanceType'] = $request->DBInstanceType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeInstanceAutoRenewalAttribute',
@@ -5415,26 +4261,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceAutoRenewalAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceAutoRenewalAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceAutoRenewalAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * You can call this operation to query whether auto-renewal is enabled for an ApsaraDB for MongoDB instance.
+     * @summary You can call this operation to query whether auto-renewal is enabled for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable to subscription instances.
+     *  *
+     * @param DescribeInstanceAutoRenewalAttributeRequest $request DescribeInstanceAutoRenewalAttributeRequest
      *
-     * @remarks
-     * This operation is applicable to subscription instances.
-     *
-     * @param request - DescribeInstanceAutoRenewalAttributeRequest
-     *
-     * @returns DescribeInstanceAutoRenewalAttributeResponse
-     *
-     * @param DescribeInstanceAutoRenewalAttributeRequest $request
-     *
-     * @return DescribeInstanceAutoRenewalAttributeResponse
+     * @return DescribeInstanceAutoRenewalAttributeResponse DescribeInstanceAutoRenewalAttributeResponse
      */
     public function describeInstanceAutoRenewalAttribute($request)
     {
@@ -5444,24 +4282,19 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the time required to restore the data of an ApsaraDB for MongoDB replica set instance that uses cloud disks.
+     * @summary Queries the time required to restore the data of an ApsaraDB for MongoDB replica set instance that uses cloud disks.
+     *  *
+     * @param DescribeInstanceRecoverTimeRequest $request DescribeInstanceRecoverTimeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceRecoverTimeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeInstanceRecoverTimeResponse
-     *
-     * @param DescribeInstanceRecoverTimeRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeInstanceRecoverTimeResponse
+     * @return DescribeInstanceRecoverTimeResponse DescribeInstanceRecoverTimeResponse
      */
     public function describeInstanceRecoverTimeWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeInstanceRecoverTime',
@@ -5474,23 +4307,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceRecoverTimeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceRecoverTimeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceRecoverTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the time required to restore the data of an ApsaraDB for MongoDB replica set instance that uses cloud disks.
+     * @summary Queries the time required to restore the data of an ApsaraDB for MongoDB replica set instance that uses cloud disks.
+     *  *
+     * @param DescribeInstanceRecoverTimeRequest $request DescribeInstanceRecoverTimeRequest
      *
-     * @param request - DescribeInstanceRecoverTimeRequest
-     *
-     * @returns DescribeInstanceRecoverTimeResponse
-     *
-     * @param DescribeInstanceRecoverTimeRequest $request
-     *
-     * @return DescribeInstanceRecoverTimeResponse
+     * @return DescribeInstanceRecoverTimeResponse DescribeInstanceRecoverTimeResponse
      */
     public function describeInstanceRecoverTime($request)
     {
@@ -5500,44 +4326,34 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the release notes of the minor versions of an ApsaraDB for MongoDB instance.
+     * @summary Queries the release notes of the minor versions of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeKernelReleaseNotesRequest $request DescribeKernelReleaseNotesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeKernelReleaseNotesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeKernelReleaseNotesResponse
-     *
-     * @param DescribeKernelReleaseNotesRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeKernelReleaseNotesResponse
+     * @return DescribeKernelReleaseNotesResponse DescribeKernelReleaseNotesResponse
      */
     public function describeKernelReleaseNotesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->kernelVersion) {
-            @$query['KernelVersion'] = $request->kernelVersion;
+        if (!Utils::isUnset($request->kernelVersion)) {
+            $query['KernelVersion'] = $request->kernelVersion;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeKernelReleaseNotes',
@@ -5550,23 +4366,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeKernelReleaseNotesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeKernelReleaseNotesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeKernelReleaseNotesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the release notes of the minor versions of an ApsaraDB for MongoDB instance.
+     * @summary Queries the release notes of the minor versions of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeKernelReleaseNotesRequest $request DescribeKernelReleaseNotesRequest
      *
-     * @param request - DescribeKernelReleaseNotesRequest
-     *
-     * @returns DescribeKernelReleaseNotesResponse
-     *
-     * @param DescribeKernelReleaseNotesRequest $request
-     *
-     * @return DescribeKernelReleaseNotesResponse
+     * @return DescribeKernelReleaseNotesResponse DescribeKernelReleaseNotesResponse
      */
     public function describeKernelReleaseNotes($request)
     {
@@ -5576,43 +4385,33 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries Key Management Service (KMS) keys that are available for disk encryption.
+     * @summary Queries Key Management Service (KMS) keys that are available for disk encryption.
+     *  *
+     * @description Queried keys are available only for disk encryption.
+     *  *
+     * @param DescribeKmsKeysRequest $request DescribeKmsKeysRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Queried keys are available only for disk encryption.
-     *
-     * @param request - DescribeKmsKeysRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeKmsKeysResponse
-     *
-     * @param DescribeKmsKeysRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeKmsKeysResponse
+     * @return DescribeKmsKeysResponse DescribeKmsKeysResponse
      */
     public function describeKmsKeysWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeKmsKeys',
@@ -5625,26 +4424,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeKmsKeysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeKmsKeysResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeKmsKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries Key Management Service (KMS) keys that are available for disk encryption.
+     * @summary Queries Key Management Service (KMS) keys that are available for disk encryption.
+     *  *
+     * @description Queried keys are available only for disk encryption.
+     *  *
+     * @param DescribeKmsKeysRequest $request DescribeKmsKeysRequest
      *
-     * @remarks
-     * Queried keys are available only for disk encryption.
-     *
-     * @param request - DescribeKmsKeysRequest
-     *
-     * @returns DescribeKmsKeysResponse
-     *
-     * @param DescribeKmsKeysRequest $request
-     *
-     * @return DescribeKmsKeysResponse
+     * @return DescribeKmsKeysResponse DescribeKmsKeysResponse
      */
     public function describeKmsKeys($request)
     {
@@ -5654,50 +4445,39 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the logging configurations of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * @summary Queries the logging configurations of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
      * This operation depends on the audit log feature of ApsaraDB for MongoDB. You can enable the audit log feature based on your business requirements. For more information, see [Enable the audit log feature](https://help.aliyun.com/document_detail/59903.html).
      * *   Starting from January 6, 2022, the official edition of the audit log feature has been launched in all regions, and new applications for the free trial edition have ended. For more information, see [Notice on official launch of the pay-as-you-go audit log feature and no more application for the free trial edition](https://help.aliyun.com/document_detail/377480.html)
      * *   You are charged for the official edition of the audit log feature based on the storage capacity that is consumed by audit logs and the retention period of the audit logs. For more information, see [Pricing of ApsaraDB for MongoDB instances](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
+     *  *
+     * @param DescribeMongoDBLogConfigRequest $request DescribeMongoDBLogConfigRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeMongoDBLogConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeMongoDBLogConfigResponse
-     *
-     * @param DescribeMongoDBLogConfigRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeMongoDBLogConfigResponse
+     * @return DescribeMongoDBLogConfigResponse DescribeMongoDBLogConfigResponse
      */
     public function describeMongoDBLogConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeMongoDBLogConfig',
@@ -5710,29 +4490,21 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeMongoDBLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeMongoDBLogConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeMongoDBLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the logging configurations of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * @summary Queries the logging configurations of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
      * This operation depends on the audit log feature of ApsaraDB for MongoDB. You can enable the audit log feature based on your business requirements. For more information, see [Enable the audit log feature](https://help.aliyun.com/document_detail/59903.html).
      * *   Starting from January 6, 2022, the official edition of the audit log feature has been launched in all regions, and new applications for the free trial edition have ended. For more information, see [Notice on official launch of the pay-as-you-go audit log feature and no more application for the free trial edition](https://help.aliyun.com/document_detail/377480.html)
      * *   You are charged for the official edition of the audit log feature based on the storage capacity that is consumed by audit logs and the retention period of the audit logs. For more information, see [Pricing of ApsaraDB for MongoDB instances](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
+     *  *
+     * @param DescribeMongoDBLogConfigRequest $request DescribeMongoDBLogConfigRequest
      *
-     * @param request - DescribeMongoDBLogConfigRequest
-     *
-     * @returns DescribeMongoDBLogConfigResponse
-     *
-     * @param DescribeMongoDBLogConfigRequest $request
-     *
-     * @return DescribeMongoDBLogConfigResponse
+     * @return DescribeMongoDBLogConfigResponse DescribeMongoDBLogConfigResponse
      */
     public function describeMongoDBLogConfig($request)
     {
@@ -5742,60 +4514,46 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the parameter modification records of an ApsaraDB for MongoDB instance.
+     * @summary Queries the parameter modification records of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeParameterModificationHistoryRequest $request DescribeParameterModificationHistoryRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeParameterModificationHistoryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeParameterModificationHistoryResponse
-     *
-     * @param DescribeParameterModificationHistoryRequest $request
-     * @param RuntimeOptions                              $runtime
-     *
-     * @return DescribeParameterModificationHistoryResponse
+     * @return DescribeParameterModificationHistoryResponse DescribeParameterModificationHistoryResponse
      */
     public function describeParameterModificationHistoryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->characterType) {
-            @$query['CharacterType'] = $request->characterType;
+        if (!Utils::isUnset($request->characterType)) {
+            $query['CharacterType'] = $request->characterType;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeParameterModificationHistory',
@@ -5808,23 +4566,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeParameterModificationHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeParameterModificationHistoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeParameterModificationHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the parameter modification records of an ApsaraDB for MongoDB instance.
+     * @summary Queries the parameter modification records of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeParameterModificationHistoryRequest $request DescribeParameterModificationHistoryRequest
      *
-     * @param request - DescribeParameterModificationHistoryRequest
-     *
-     * @returns DescribeParameterModificationHistoryResponse
-     *
-     * @param DescribeParameterModificationHistoryRequest $request
-     *
-     * @return DescribeParameterModificationHistoryResponse
+     * @return DescribeParameterModificationHistoryResponse DescribeParameterModificationHistoryResponse
      */
     public function describeParameterModificationHistory($request)
     {
@@ -5834,56 +4585,43 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the list of default parameter templates for ApsaraDB for MongoDB instances.
+     * @summary Queries the list of default parameter templates for ApsaraDB for MongoDB instances.
+     *  *
+     * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeParameterTemplatesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeParameterTemplatesResponse
-     *
-     * @param DescribeParameterTemplatesRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeParameterTemplatesResponse
+     * @return DescribeParameterTemplatesResponse DescribeParameterTemplatesResponse
      */
     public function describeParameterTemplatesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->engine) {
-            @$query['Engine'] = $request->engine;
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->role) {
-            @$query['Role'] = $request->role;
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeParameterTemplates',
@@ -5896,23 +4634,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeParameterTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeParameterTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeParameterTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the list of default parameter templates for ApsaraDB for MongoDB instances.
+     * @summary Queries the list of default parameter templates for ApsaraDB for MongoDB instances.
+     *  *
+     * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
      *
-     * @param request - DescribeParameterTemplatesRequest
-     *
-     * @returns DescribeParameterTemplatesResponse
-     *
-     * @param DescribeParameterTemplatesRequest $request
-     *
-     * @return DescribeParameterTemplatesResponse
+     * @return DescribeParameterTemplatesResponse DescribeParameterTemplatesResponse
      */
     public function describeParameterTemplates($request)
     {
@@ -5922,56 +4653,43 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the parameter settings of an ApsaraDB for MongoDB instance.
+     * @summary Queries the parameter settings of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeParametersRequest $request DescribeParametersRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeParametersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeParametersResponse
-     *
-     * @param DescribeParametersRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DescribeParametersResponse
+     * @return DescribeParametersResponse DescribeParametersResponse
      */
     public function describeParametersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->characterType) {
-            @$query['CharacterType'] = $request->characterType;
+        if (!Utils::isUnset($request->characterType)) {
+            $query['CharacterType'] = $request->characterType;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->extraParam) {
-            @$query['ExtraParam'] = $request->extraParam;
+        if (!Utils::isUnset($request->extraParam)) {
+            $query['ExtraParam'] = $request->extraParam;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeParameters',
@@ -5984,23 +4702,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeParametersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeParametersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeParametersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the parameter settings of an ApsaraDB for MongoDB instance.
+     * @summary Queries the parameter settings of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeParametersRequest $request DescribeParametersRequest
      *
-     * @param request - DescribeParametersRequest
-     *
-     * @returns DescribeParametersResponse
-     *
-     * @param DescribeParametersRequest $request
-     *
-     * @return DescribeParametersResponse
+     * @return DescribeParametersResponse DescribeParametersResponse
      */
     public function describeParameters($request)
     {
@@ -6010,76 +4721,58 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the pricing information of an ApsaraDB for MongoDB instance.
+     * @summary Queries the pricing information of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribePriceRequest $request DescribePriceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePriceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePriceResponse
-     *
-     * @param DescribePriceRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DescribePriceResponse
+     * @return DescribePriceResponse DescribePriceResponse
      */
     public function describePriceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->businessInfo) {
-            @$query['BusinessInfo'] = $request->businessInfo;
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
         }
-
-        if (null !== $request->commodityCode) {
-            @$query['CommodityCode'] = $request->commodityCode;
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->DBInstances) {
-            @$query['DBInstances'] = $request->DBInstances;
+        if (!Utils::isUnset($request->DBInstances)) {
+            $query['DBInstances'] = $request->DBInstances;
         }
-
-        if (null !== $request->orderParamOut) {
-            @$query['OrderParamOut'] = $request->orderParamOut;
+        if (!Utils::isUnset($request->orderParamOut)) {
+            $query['OrderParamOut'] = $request->orderParamOut;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->productCode) {
-            @$query['ProductCode'] = $request->productCode;
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePrice',
@@ -6092,23 +4785,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePriceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePriceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the pricing information of an ApsaraDB for MongoDB instance.
+     * @summary Queries the pricing information of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribePriceRequest $request DescribePriceRequest
      *
-     * @param request - DescribePriceRequest
-     *
-     * @returns DescribePriceResponse
-     *
-     * @param DescribePriceRequest $request
-     *
-     * @return DescribePriceResponse
+     * @return DescribePriceResponse DescribePriceResponse
      */
     public function describePrice($request)
     {
@@ -6118,51 +4804,39 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries all regions and zones supported for an ApsaraDB for MongoDB instance.
+     * @summary Queries all regions and zones supported for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  To query available regions and zones in which an ApsaraDB for MongoDB instance can be created, call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/149719.html) operation.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  To query available regions and zones in which an ApsaraDB for MongoDB instance can be created, call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/149719.html) operation.
-     *
-     * @param request - DescribeRegionsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeRegionsResponse
-     *
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->acceptLanguage) {
-            @$query['AcceptLanguage'] = $request->acceptLanguage;
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRegions',
@@ -6175,26 +4849,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries all regions and zones supported for an ApsaraDB for MongoDB instance.
+     * @summary Queries all regions and zones supported for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  To query available regions and zones in which an ApsaraDB for MongoDB instance can be created, call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/149719.html) operation.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @remarks
-     * >  To query available regions and zones in which an ApsaraDB for MongoDB instance can be created, call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/149719.html) operation.
-     *
-     * @param request - DescribeRegionsRequest
-     *
-     * @returns DescribeRegionsResponse
-     *
-     * @param DescribeRegionsRequest $request
-     *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -6204,55 +4870,42 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the monthly renewal price of an ApsaraDB for MongoDB instance.
+     * @summary Queries the monthly renewal price of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable to subscription instances.
+     *  *
+     * @param DescribeRenewalPriceRequest $request DescribeRenewalPriceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This operation is applicable to subscription instances.
-     *
-     * @param request - DescribeRenewalPriceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeRenewalPriceResponse
-     *
-     * @param DescribeRenewalPriceRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeRenewalPriceResponse
+     * @return DescribeRenewalPriceResponse DescribeRenewalPriceResponse
      */
     public function describeRenewalPriceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->businessInfo) {
-            @$query['BusinessInfo'] = $request->businessInfo;
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRenewalPrice',
@@ -6265,26 +4918,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRenewalPriceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRenewalPriceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRenewalPriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the monthly renewal price of an ApsaraDB for MongoDB instance.
+     * @summary Queries the monthly renewal price of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable to subscription instances.
+     *  *
+     * @param DescribeRenewalPriceRequest $request DescribeRenewalPriceRequest
      *
-     * @remarks
-     * This operation is applicable to subscription instances.
-     *
-     * @param request - DescribeRenewalPriceRequest
-     *
-     * @returns DescribeRenewalPriceResponse
-     *
-     * @param DescribeRenewalPriceRequest $request
-     *
-     * @return DescribeRenewalPriceResponse
+     * @return DescribeRenewalPriceResponse DescribeRenewalPriceResponse
      */
     public function describeRenewalPrice($request)
     {
@@ -6294,47 +4939,36 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the role and connection information of an ApsaraDB for MongoDB instance.
+     * @summary Queries the role and connection information of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable to replica set instances and standalone instances, but not to sharded cluster instances.
+     *  *
+     * @param DescribeReplicaSetRoleRequest $request DescribeReplicaSetRoleRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This operation is applicable to replica set instances and standalone instances, but not to sharded cluster instances.
-     *
-     * @param request - DescribeReplicaSetRoleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeReplicaSetRoleResponse
-     *
-     * @param DescribeReplicaSetRoleRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeReplicaSetRoleResponse
+     * @return DescribeReplicaSetRoleResponse DescribeReplicaSetRoleResponse
      */
     public function describeReplicaSetRoleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeReplicaSetRole',
@@ -6347,26 +4981,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeReplicaSetRoleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeReplicaSetRoleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeReplicaSetRoleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the role and connection information of an ApsaraDB for MongoDB instance.
+     * @summary Queries the role and connection information of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable to replica set instances and standalone instances, but not to sharded cluster instances.
+     *  *
+     * @param DescribeReplicaSetRoleRequest $request DescribeReplicaSetRoleRequest
      *
-     * @remarks
-     * This operation is applicable to replica set instances and standalone instances, but not to sharded cluster instances.
-     *
-     * @param request - DescribeReplicaSetRoleRequest
-     *
-     * @returns DescribeReplicaSetRoleResponse
-     *
-     * @param DescribeReplicaSetRoleRequest $request
-     *
-     * @return DescribeReplicaSetRoleResponse
+     * @return DescribeReplicaSetRoleResponse DescribeReplicaSetRoleResponse
      */
     public function describeReplicaSetRole($request)
     {
@@ -6376,56 +5002,43 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries ApsaraDB for MongoDB instances whose backups are restored within seven days.
+     * @summary Queries ApsaraDB for MongoDB instances whose backups are restored within seven days.
+     *  *
+     * @param DescribeRestoreDBInstanceListRequest $request DescribeRestoreDBInstanceListRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeRestoreDBInstanceListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeRestoreDBInstanceListResponse
-     *
-     * @param DescribeRestoreDBInstanceListRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeRestoreDBInstanceListResponse
+     * @return DescribeRestoreDBInstanceListResponse DescribeRestoreDBInstanceListResponse
      */
     public function describeRestoreDBInstanceListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->creationTimeAfter) {
-            @$query['CreationTimeAfter'] = $request->creationTimeAfter;
+        if (!Utils::isUnset($request->creationTimeAfter)) {
+            $query['CreationTimeAfter'] = $request->creationTimeAfter;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRestoreDBInstanceList',
@@ -6438,23 +5051,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRestoreDBInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRestoreDBInstanceListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRestoreDBInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries ApsaraDB for MongoDB instances whose backups are restored within seven days.
+     * @summary Queries ApsaraDB for MongoDB instances whose backups are restored within seven days.
+     *  *
+     * @param DescribeRestoreDBInstanceListRequest $request DescribeRestoreDBInstanceListRequest
      *
-     * @param request - DescribeRestoreDBInstanceListRequest
-     *
-     * @returns DescribeRestoreDBInstanceListResponse
-     *
-     * @param DescribeRestoreDBInstanceListRequest $request
-     *
-     * @return DescribeRestoreDBInstanceListResponse
+     * @return DescribeRestoreDBInstanceListResponse DescribeRestoreDBInstanceListResponse
      */
     public function describeRestoreDBInstanceList($request)
     {
@@ -6464,48 +5070,37 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the role and zone of each node in an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * > For more information, see [View the zone of a node](https://help.aliyun.com/document_detail/123825.html).
+     * @summary Queries the role and zone of each node in an ApsaraDB for MongoDB instance.
+     *  *
+     * @description > For more information, see [View the zone of a node](https://help.aliyun.com/document_detail/123825.html).
      * This operation is applicable to replica set instances and sharded cluster instances, but cannot be performed on standalone instances.
+     *  *
+     * @param DescribeRoleZoneInfoRequest $request DescribeRoleZoneInfoRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeRoleZoneInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeRoleZoneInfoResponse
-     *
-     * @param DescribeRoleZoneInfoRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeRoleZoneInfoResponse
+     * @return DescribeRoleZoneInfoResponse DescribeRoleZoneInfoResponse
      */
     public function describeRoleZoneInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRoleZoneInfo',
@@ -6518,27 +5113,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRoleZoneInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRoleZoneInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRoleZoneInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the role and zone of each node in an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * > For more information, see [View the zone of a node](https://help.aliyun.com/document_detail/123825.html).
+     * @summary Queries the role and zone of each node in an ApsaraDB for MongoDB instance.
+     *  *
+     * @description > For more information, see [View the zone of a node](https://help.aliyun.com/document_detail/123825.html).
      * This operation is applicable to replica set instances and sharded cluster instances, but cannot be performed on standalone instances.
+     *  *
+     * @param DescribeRoleZoneInfoRequest $request DescribeRoleZoneInfoRequest
      *
-     * @param request - DescribeRoleZoneInfoRequest
-     *
-     * @returns DescribeRoleZoneInfoResponse
-     *
-     * @param DescribeRoleZoneInfoRequest $request
-     *
-     * @return DescribeRoleZoneInfoResponse
+     * @return DescribeRoleZoneInfoResponse DescribeRoleZoneInfoResponse
      */
     public function describeRoleZoneInfo($request)
     {
@@ -6548,96 +5135,73 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries entries in operational logs of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * @summary Queries entries in operational logs of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
+     * @param DescribeRunningLogRecordsRequest $request DescribeRunningLogRecordsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeRunningLogRecordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeRunningLogRecordsResponse
-     *
-     * @param DescribeRunningLogRecordsRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeRunningLogRecordsResponse
+     * @return DescribeRunningLogRecordsResponse DescribeRunningLogRecordsResponse
      */
     public function describeRunningLogRecordsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->DBName) {
-            @$query['DBName'] = $request->DBName;
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->logicalOperator) {
-            @$query['LogicalOperator'] = $request->logicalOperator;
+        if (!Utils::isUnset($request->logicalOperator)) {
+            $query['LogicalOperator'] = $request->logicalOperator;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryKeywords) {
-            @$query['QueryKeywords'] = $request->queryKeywords;
+        if (!Utils::isUnset($request->queryKeywords)) {
+            $query['QueryKeywords'] = $request->queryKeywords;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->roleId) {
-            @$query['RoleId'] = $request->roleId;
+        if (!Utils::isUnset($request->roleId)) {
+            $query['RoleId'] = $request->roleId;
         }
-
-        if (null !== $request->roleType) {
-            @$query['RoleType'] = $request->roleType;
+        if (!Utils::isUnset($request->roleType)) {
+            $query['RoleType'] = $request->roleType;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRunningLogRecords',
@@ -6650,27 +5214,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRunningLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRunningLogRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRunningLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries entries in operational logs of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * @summary Queries entries in operational logs of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
+     * @param DescribeRunningLogRecordsRequest $request DescribeRunningLogRecordsRequest
      *
-     * @param request - DescribeRunningLogRecordsRequest
-     *
-     * @returns DescribeRunningLogRecordsResponse
-     *
-     * @param DescribeRunningLogRecordsRequest $request
-     *
-     * @return DescribeRunningLogRecordsResponse
+     * @return DescribeRunningLogRecordsResponse DescribeRunningLogRecordsResponse
      */
     public function describeRunningLogRecords($request)
     {
@@ -6680,44 +5236,34 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query ECS security groups that are bound to an ApsaraDB for MongoDB instance.
+     * @summary You can call this operation to query ECS security groups that are bound to an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeSecurityGroupConfigurationRequest $request DescribeSecurityGroupConfigurationRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSecurityGroupConfigurationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSecurityGroupConfigurationResponse
-     *
-     * @param DescribeSecurityGroupConfigurationRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return DescribeSecurityGroupConfigurationResponse
+     * @return DescribeSecurityGroupConfigurationResponse DescribeSecurityGroupConfigurationResponse
      */
     public function describeSecurityGroupConfigurationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSecurityGroupConfiguration',
@@ -6730,23 +5276,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSecurityGroupConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSecurityGroupConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSecurityGroupConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * You can call this operation to query ECS security groups that are bound to an ApsaraDB for MongoDB instance.
+     * @summary You can call this operation to query ECS security groups that are bound to an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeSecurityGroupConfigurationRequest $request DescribeSecurityGroupConfigurationRequest
      *
-     * @param request - DescribeSecurityGroupConfigurationRequest
-     *
-     * @returns DescribeSecurityGroupConfigurationResponse
-     *
-     * @param DescribeSecurityGroupConfigurationRequest $request
-     *
-     * @return DescribeSecurityGroupConfigurationResponse
+     * @return DescribeSecurityGroupConfigurationResponse DescribeSecurityGroupConfigurationResponse
      */
     public function describeSecurityGroupConfiguration($request)
     {
@@ -6756,48 +5295,37 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the IP whitelists of an ApsaraDB for MongoDB instance.
+     * @summary You can call this operation to query the IP whitelists of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeSecurityIpsRequest $request DescribeSecurityIpsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSecurityIpsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSecurityIpsResponse
-     *
-     * @param DescribeSecurityIpsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeSecurityIpsResponse
+     * @return DescribeSecurityIpsResponse DescribeSecurityIpsResponse
      */
     public function describeSecurityIpsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->showHDMIps) {
-            @$query['ShowHDMIps'] = $request->showHDMIps;
+        if (!Utils::isUnset($request->showHDMIps)) {
+            $query['ShowHDMIps'] = $request->showHDMIps;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSecurityIps',
@@ -6810,23 +5338,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSecurityIpsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * You can call this operation to query the IP whitelists of an ApsaraDB for MongoDB instance.
+     * @summary You can call this operation to query the IP whitelists of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param DescribeSecurityIpsRequest $request DescribeSecurityIpsRequest
      *
-     * @param request - DescribeSecurityIpsRequest
-     *
-     * @returns DescribeSecurityIpsResponse
-     *
-     * @param DescribeSecurityIpsRequest $request
-     *
-     * @return DescribeSecurityIpsResponse
+     * @return DescribeSecurityIpsResponse DescribeSecurityIpsResponse
      */
     public function describeSecurityIps($request)
     {
@@ -6836,51 +5357,39 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries connection information about an ApsaraDB for MongoDB sharded cluster instance.
+     * @summary Queries connection information about an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description This operation is applicable only to sharded cluster instances.
+     *  *
+     * @param DescribeShardingNetworkAddressRequest $request DescribeShardingNetworkAddressRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This operation is applicable only to sharded cluster instances.
-     *
-     * @param request - DescribeShardingNetworkAddressRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeShardingNetworkAddressResponse
-     *
-     * @param DescribeShardingNetworkAddressRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeShardingNetworkAddressResponse
+     * @return DescribeShardingNetworkAddressResponse DescribeShardingNetworkAddressResponse
      */
     public function describeShardingNetworkAddressWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeShardingNetworkAddress',
@@ -6893,26 +5402,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeShardingNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeShardingNetworkAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeShardingNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries connection information about an ApsaraDB for MongoDB sharded cluster instance.
+     * @summary Queries connection information about an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description This operation is applicable only to sharded cluster instances.
+     *  *
+     * @param DescribeShardingNetworkAddressRequest $request DescribeShardingNetworkAddressRequest
      *
-     * @remarks
-     * This operation is applicable only to sharded cluster instances.
-     *
-     * @param request - DescribeShardingNetworkAddressRequest
-     *
-     * @returns DescribeShardingNetworkAddressResponse
-     *
-     * @param DescribeShardingNetworkAddressRequest $request
-     *
-     * @return DescribeShardingNetworkAddressResponse
+     * @return DescribeShardingNetworkAddressResponse DescribeShardingNetworkAddressResponse
      */
     public function describeShardingNetworkAddress($request)
     {
@@ -6922,88 +5423,67 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the details of entries in slow query logs of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * @summary Queries the details of entries in slow query logs of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
+     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSlowLogRecordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSlowLogRecordsResponse
-     *
-     * @param DescribeSlowLogRecordsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeSlowLogRecordsResponse
+     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
      */
     public function describeSlowLogRecordsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->DBName) {
-            @$query['DBName'] = $request->DBName;
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->logicalOperator) {
-            @$query['LogicalOperator'] = $request->logicalOperator;
+        if (!Utils::isUnset($request->logicalOperator)) {
+            $query['LogicalOperator'] = $request->logicalOperator;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['PageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryKeywords) {
-            @$query['QueryKeywords'] = $request->queryKeywords;
+        if (!Utils::isUnset($request->queryKeywords)) {
+            $query['QueryKeywords'] = $request->queryKeywords;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSlowLogRecords',
@@ -7016,27 +5496,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeSlowLogRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the details of entries in slow query logs of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * @summary Queries the details of entries in slow query logs of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
+     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
      *
-     * @param request - DescribeSlowLogRecordsRequest
-     *
-     * @returns DescribeSlowLogRecordsResponse
-     *
-     * @param DescribeSlowLogRecordsRequest $request
-     *
-     * @return DescribeSlowLogRecordsResponse
+     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
      */
     public function describeSlowLogRecords($request)
     {
@@ -7046,56 +5518,43 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries all tags in a specified region.
+     * @summary Queries all tags in a specified region.
+     *  *
+     * @param DescribeTagsRequest $request DescribeTagsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeTagsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTagsResponse
-     *
-     * @param DescribeTagsRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return DescribeTagsResponse
+     * @return DescribeTagsResponse DescribeTagsResponse
      */
     public function describeTagsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTags',
@@ -7108,23 +5567,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeTagsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries all tags in a specified region.
+     * @summary Queries all tags in a specified region.
+     *  *
+     * @param DescribeTagsRequest $request DescribeTagsRequest
      *
-     * @param request - DescribeTagsRequest
-     *
-     * @returns DescribeTagsResponse
-     *
-     * @param DescribeTagsRequest $request
-     *
-     * @return DescribeTagsResponse
+     * @return DescribeTagsResponse DescribeTagsResponse
      */
     public function describeTags($request)
     {
@@ -7134,51 +5586,39 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the list of custom keys for an ApsaraDB for MongoDB instance.
+     * @summary Queries the list of custom keys for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description You can use the custom key obtained by calling the DescribeUserEncryptionKeyList operation to enable TDE. For more information, see [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html).
+     *  *
+     * @param DescribeUserEncryptionKeyListRequest $request DescribeUserEncryptionKeyListRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can use the custom key obtained by calling the DescribeUserEncryptionKeyList operation to enable TDE. For more information, see [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html).
-     *
-     * @param request - DescribeUserEncryptionKeyListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeUserEncryptionKeyListResponse
-     *
-     * @param DescribeUserEncryptionKeyListRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeUserEncryptionKeyListResponse
+     * @return DescribeUserEncryptionKeyListResponse DescribeUserEncryptionKeyListResponse
      */
     public function describeUserEncryptionKeyListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->targetRegionId) {
-            @$query['TargetRegionId'] = $request->targetRegionId;
+        if (!Utils::isUnset($request->targetRegionId)) {
+            $query['TargetRegionId'] = $request->targetRegionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeUserEncryptionKeyList',
@@ -7191,26 +5631,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeUserEncryptionKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeUserEncryptionKeyListResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeUserEncryptionKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the list of custom keys for an ApsaraDB for MongoDB instance.
+     * @summary Queries the list of custom keys for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description You can use the custom key obtained by calling the DescribeUserEncryptionKeyList operation to enable TDE. For more information, see [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html).
+     *  *
+     * @param DescribeUserEncryptionKeyListRequest $request DescribeUserEncryptionKeyListRequest
      *
-     * @remarks
-     * You can use the custom key obtained by calling the DescribeUserEncryptionKeyList operation to enable TDE. For more information, see [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html).
-     *
-     * @param request - DescribeUserEncryptionKeyListRequest
-     *
-     * @returns DescribeUserEncryptionKeyListResponse
-     *
-     * @param DescribeUserEncryptionKeyListRequest $request
-     *
-     * @return DescribeUserEncryptionKeyListResponse
+     * @return DescribeUserEncryptionKeyListResponse DescribeUserEncryptionKeyListResponse
      */
     public function describeUserEncryptionKeyList($request)
     {
@@ -7220,64 +5652,50 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Destroys an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the instance meets the following requirements:
+     * @summary Destroys an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the instance meets the following requirements:
      * *   The instance is a replica set instance or a sharded cluster instance that uses local disks.
      * *   The billing method of the instance is subscription.
      * *   The instance has expired and is in the **Locking** state.
      * **
      * **Warning** Data cannot be restored after the instance is destroyed. Proceed with caution.
+     *  *
+     * @param DestroyInstanceRequest $request DestroyInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DestroyInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DestroyInstanceResponse
-     *
-     * @param DestroyInstanceRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DestroyInstanceResponse
+     * @return DestroyInstanceResponse DestroyInstanceResponse
      */
     public function destroyInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DestroyInstance',
@@ -7290,31 +5708,23 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DestroyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DestroyInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DestroyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Destroys an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the instance meets the following requirements:
+     * @summary Destroys an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the instance meets the following requirements:
      * *   The instance is a replica set instance or a sharded cluster instance that uses local disks.
      * *   The billing method of the instance is subscription.
      * *   The instance has expired and is in the **Locking** state.
      * **
      * **Warning** Data cannot be restored after the instance is destroyed. Proceed with caution.
+     *  *
+     * @param DestroyInstanceRequest $request DestroyInstanceRequest
      *
-     * @param request - DestroyInstanceRequest
-     *
-     * @returns DestroyInstanceResponse
-     *
-     * @param DestroyInstanceRequest $request
-     *
-     * @return DestroyInstanceResponse
+     * @return DestroyInstanceResponse DestroyInstanceResponse
      */
     public function destroyInstance($request)
     {
@@ -7324,84 +5734,64 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Checks whether sufficient resources are available in a region in which you want to create or upgrade an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * This operation is applicable to replica set instances and sharded cluster instances. You can call this operation to check whether resources are sufficient for creating an instance, upgrading a replica set or sharded cluster instance, or upgrading a single node of the sharded cluster instance.
+     * @summary Checks whether sufficient resources are available in a region in which you want to create or upgrade an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable to replica set instances and sharded cluster instances. You can call this operation to check whether resources are sufficient for creating an instance, upgrading a replica set or sharded cluster instance, or upgrading a single node of the sharded cluster instance.
      * > You can call this operation a maximum of 200 times per minute.
+     *  *
+     * @param EvaluateResourceRequest $request EvaluateResourceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - EvaluateResourceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns EvaluateResourceResponse
-     *
-     * @param EvaluateResourceRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return EvaluateResourceResponse
+     * @return EvaluateResourceResponse EvaluateResourceResponse
      */
     public function evaluateResourceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceClass) {
-            @$query['DBInstanceClass'] = $request->DBInstanceClass;
+        if (!Utils::isUnset($request->DBInstanceClass)) {
+            $query['DBInstanceClass'] = $request->DBInstanceClass;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->engine) {
-            @$query['Engine'] = $request->engine;
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->readonlyReplicas) {
-            @$query['ReadonlyReplicas'] = $request->readonlyReplicas;
+        if (!Utils::isUnset($request->readonlyReplicas)) {
+            $query['ReadonlyReplicas'] = $request->readonlyReplicas;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->replicationFactor) {
-            @$query['ReplicationFactor'] = $request->replicationFactor;
+        if (!Utils::isUnset($request->replicationFactor)) {
+            $query['ReplicationFactor'] = $request->replicationFactor;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->shardsInfo) {
-            @$query['ShardsInfo'] = $request->shardsInfo;
+        if (!Utils::isUnset($request->shardsInfo)) {
+            $query['ShardsInfo'] = $request->shardsInfo;
         }
-
-        if (null !== $request->storage) {
-            @$query['Storage'] = $request->storage;
+        if (!Utils::isUnset($request->storage)) {
+            $query['Storage'] = $request->storage;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'EvaluateResource',
@@ -7414,27 +5804,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EvaluateResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EvaluateResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return EvaluateResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Checks whether sufficient resources are available in a region in which you want to create or upgrade an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * This operation is applicable to replica set instances and sharded cluster instances. You can call this operation to check whether resources are sufficient for creating an instance, upgrading a replica set or sharded cluster instance, or upgrading a single node of the sharded cluster instance.
+     * @summary Checks whether sufficient resources are available in a region in which you want to create or upgrade an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable to replica set instances and sharded cluster instances. You can call this operation to check whether resources are sufficient for creating an instance, upgrading a replica set or sharded cluster instance, or upgrading a single node of the sharded cluster instance.
      * > You can call this operation a maximum of 200 times per minute.
+     *  *
+     * @param EvaluateResourceRequest $request EvaluateResourceRequest
      *
-     * @param request - EvaluateResourceRequest
-     *
-     * @returns EvaluateResourceResponse
-     *
-     * @param EvaluateResourceRequest $request
-     *
-     * @return EvaluateResourceResponse
+     * @return EvaluateResourceResponse EvaluateResourceResponse
      */
     public function evaluateResource($request)
     {
@@ -7444,60 +5826,46 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the relationship between ApsaraDB for MongoDB instances and tags.
+     * @summary Queries the relationship between ApsaraDB for MongoDB instances and tags.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListTagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->nextToken) {
-            @$query['NextToken'] = $request->nextToken;
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTagResources',
@@ -7510,23 +5878,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the relationship between ApsaraDB for MongoDB instances and tags.
+     * @summary Queries the relationship between ApsaraDB for MongoDB instances and tags.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @param request - ListTagResourcesRequest
-     *
-     * @returns ListTagResourcesResponse
-     *
-     * @param ListTagResourcesRequest $request
-     *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -7536,71 +5897,55 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Migrates an ApsaraDB for MongoDB instance to a specific zone.
-     *
-     * @remarks
-     *   This operation is available only for replica set instances that run MongoDB 4.2 or earlier and sharded cluster instances.
+     * @summary Migrates an ApsaraDB for MongoDB instance to a specific zone.
+     *  *
+     * @description *   This operation is available only for replica set instances that run MongoDB 4.2 or earlier and sharded cluster instances.
      * *   If you have applied for a public endpoint for the ApsaraDB for MongoDB instance, you must call the [ReleasePublicNetworkAddress](https://help.aliyun.com/document_detail/67604.html) operation to release the public endpoint before you call the MigrateAvailableZone operation.
      * *   Transparent data encryption (TDE) is disabled for the ApsaraDB for MongoDB instance.
      * *   The source zone and the destination zone belong to the same region.
      * *   A vSwitch is created in the destination zone. This prerequisite must be met if the instance resides in a virtual private cloud (VPC). For more information about how to create a vSwitch, see [Work with vSwitches](https://help.aliyun.com/document_detail/65387.html).
+     *  *
+     * @param MigrateAvailableZoneRequest $request MigrateAvailableZoneRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - MigrateAvailableZoneRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns MigrateAvailableZoneResponse
-     *
-     * @param MigrateAvailableZoneRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return MigrateAvailableZoneResponse
+     * @return MigrateAvailableZoneResponse MigrateAvailableZoneResponse
      */
     public function migrateAvailableZoneWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->effectiveTime) {
-            @$query['EffectiveTime'] = $request->effectiveTime;
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
         }
-
-        if (null !== $request->hiddenZoneId) {
-            @$query['HiddenZoneId'] = $request->hiddenZoneId;
+        if (!Utils::isUnset($request->hiddenZoneId)) {
+            $query['HiddenZoneId'] = $request->hiddenZoneId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->secondaryZoneId) {
-            @$query['SecondaryZoneId'] = $request->secondaryZoneId;
+        if (!Utils::isUnset($request->secondaryZoneId)) {
+            $query['SecondaryZoneId'] = $request->secondaryZoneId;
         }
-
-        if (null !== $request->vswitch) {
-            @$query['Vswitch'] = $request->vswitch;
+        if (!Utils::isUnset($request->vswitch)) {
+            $query['Vswitch'] = $request->vswitch;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'MigrateAvailableZone',
@@ -7613,30 +5958,22 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MigrateAvailableZoneResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MigrateAvailableZoneResponse::fromMap($this->execute($params, $req, $runtime));
+        return MigrateAvailableZoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Migrates an ApsaraDB for MongoDB instance to a specific zone.
-     *
-     * @remarks
-     *   This operation is available only for replica set instances that run MongoDB 4.2 or earlier and sharded cluster instances.
+     * @summary Migrates an ApsaraDB for MongoDB instance to a specific zone.
+     *  *
+     * @description *   This operation is available only for replica set instances that run MongoDB 4.2 or earlier and sharded cluster instances.
      * *   If you have applied for a public endpoint for the ApsaraDB for MongoDB instance, you must call the [ReleasePublicNetworkAddress](https://help.aliyun.com/document_detail/67604.html) operation to release the public endpoint before you call the MigrateAvailableZone operation.
      * *   Transparent data encryption (TDE) is disabled for the ApsaraDB for MongoDB instance.
      * *   The source zone and the destination zone belong to the same region.
      * *   A vSwitch is created in the destination zone. This prerequisite must be met if the instance resides in a virtual private cloud (VPC). For more information about how to create a vSwitch, see [Work with vSwitches](https://help.aliyun.com/document_detail/65387.html).
+     *  *
+     * @param MigrateAvailableZoneRequest $request MigrateAvailableZoneRequest
      *
-     * @param request - MigrateAvailableZoneRequest
-     *
-     * @returns MigrateAvailableZoneResponse
-     *
-     * @param MigrateAvailableZoneRequest $request
-     *
-     * @return MigrateAvailableZoneResponse
+     * @return MigrateAvailableZoneResponse MigrateAvailableZoneResponse
      */
     public function migrateAvailableZone($request)
     {
@@ -7646,60 +5983,46 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to migrate an ApsaraDB for MongoDB instance to another zone.
-     *
-     * @remarks
-     * This operation is applicable only to replica set instances, but not to standalone instances or sharded cluster instances.
+     * @summary You can call this operation to migrate an ApsaraDB for MongoDB instance to another zone.
+     *  *
+     * @description This operation is applicable only to replica set instances, but not to standalone instances or sharded cluster instances.
      * >  If you have applied for a public endpoint of the instance, you must first call the [ReleasePublicNetworkAddress](https://help.aliyun.com/document_detail/67604.html) operation to release the public endpoint.
+     *  *
+     * @param MigrateToOtherZoneRequest $request MigrateToOtherZoneRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - MigrateToOtherZoneRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns MigrateToOtherZoneResponse
-     *
-     * @param MigrateToOtherZoneRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return MigrateToOtherZoneResponse
+     * @return MigrateToOtherZoneResponse MigrateToOtherZoneResponse
      */
     public function migrateToOtherZoneWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->effectiveTime) {
-            @$query['EffectiveTime'] = $request->effectiveTime;
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'MigrateToOtherZone',
@@ -7712,27 +6035,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MigrateToOtherZoneResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MigrateToOtherZoneResponse::fromMap($this->execute($params, $req, $runtime));
+        return MigrateToOtherZoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * You can call this operation to migrate an ApsaraDB for MongoDB instance to another zone.
-     *
-     * @remarks
-     * This operation is applicable only to replica set instances, but not to standalone instances or sharded cluster instances.
+     * @summary You can call this operation to migrate an ApsaraDB for MongoDB instance to another zone.
+     *  *
+     * @description This operation is applicable only to replica set instances, but not to standalone instances or sharded cluster instances.
      * >  If you have applied for a public endpoint of the instance, you must first call the [ReleasePublicNetworkAddress](https://help.aliyun.com/document_detail/67604.html) operation to release the public endpoint.
+     *  *
+     * @param MigrateToOtherZoneRequest $request MigrateToOtherZoneRequest
      *
-     * @param request - MigrateToOtherZoneRequest
-     *
-     * @returns MigrateToOtherZoneResponse
-     *
-     * @param MigrateToOtherZoneRequest $request
-     *
-     * @return MigrateToOtherZoneResponse
+     * @return MigrateToOtherZoneResponse MigrateToOtherZoneResponse
      */
     public function migrateToOtherZone($request)
     {
@@ -7742,56 +6057,43 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Modifies the description of the root account in an ApsaraDB for MongoDB instance.
+     * @summary Modifies the description of the root account in an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyAccountDescriptionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyAccountDescriptionResponse
-     *
-     * @param ModifyAccountDescriptionRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescriptionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountDescription) {
-            @$query['AccountDescription'] = $request->accountDescription;
+        if (!Utils::isUnset($request->accountDescription)) {
+            $query['AccountDescription'] = $request->accountDescription;
         }
-
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->characterType) {
-            @$query['CharacterType'] = $request->characterType;
+        if (!Utils::isUnset($request->characterType)) {
+            $query['CharacterType'] = $request->characterType;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyAccountDescription',
@@ -7804,23 +6106,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAccountDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the description of the root account in an ApsaraDB for MongoDB instance.
+     * @summary Modifies the description of the root account in an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
      *
-     * @param request - ModifyAccountDescriptionRequest
-     *
-     * @returns ModifyAccountDescriptionResponse
-     *
-     * @param ModifyAccountDescriptionRequest $request
-     *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescription($request)
     {
@@ -7830,56 +6125,43 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Modifies the switching time of scheduled O\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
+     * @summary Modifies the switching time of scheduled O\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyActiveOperationTasksRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyActiveOperationTasksResponse
-     *
-     * @param ModifyActiveOperationTasksRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyActiveOperationTasksResponse
+     * @return ModifyActiveOperationTasksResponse ModifyActiveOperationTasksResponse
      */
     public function modifyActiveOperationTasksWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ids) {
-            @$query['Ids'] = $request->ids;
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
         }
-
-        if (null !== $request->immediateStart) {
-            @$query['ImmediateStart'] = $request->immediateStart;
+        if (!Utils::isUnset($request->immediateStart)) {
+            $query['ImmediateStart'] = $request->immediateStart;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->switchTime) {
-            @$query['SwitchTime'] = $request->switchTime;
+        if (!Utils::isUnset($request->switchTime)) {
+            $query['SwitchTime'] = $request->switchTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyActiveOperationTasks',
@@ -7892,23 +6174,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyActiveOperationTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the switching time of scheduled O\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
+     * @summary Modifies the switching time of scheduled O\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
      *
-     * @param request - ModifyActiveOperationTasksRequest
-     *
-     * @returns ModifyActiveOperationTasksResponse
-     *
-     * @param ModifyActiveOperationTasksRequest $request
-     *
-     * @return ModifyActiveOperationTasksResponse
+     * @return ModifyActiveOperationTasksResponse ModifyActiveOperationTasksResponse
      */
     public function modifyActiveOperationTasks($request)
     {
@@ -7918,57 +6193,44 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Queries the types of logs collected by the audit log feature of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     *   The instance must be in the running state when you call this operation.
+     * @summary Queries the types of logs collected by the audit log feature of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   The instance must be in the running state when you call this operation.
      * *   This operation is applicable only to **general-purpose local-disk** or **dedicated local-disk** instances.
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
+     * @param ModifyAuditLogFilterRequest $request ModifyAuditLogFilterRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyAuditLogFilterRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyAuditLogFilterResponse
-     *
-     * @param ModifyAuditLogFilterRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ModifyAuditLogFilterResponse
+     * @return ModifyAuditLogFilterResponse ModifyAuditLogFilterResponse
      */
     public function modifyAuditLogFilterWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->filter) {
-            @$query['Filter'] = $request->filter;
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->roleType) {
-            @$query['RoleType'] = $request->roleType;
+        if (!Utils::isUnset($request->roleType)) {
+            $query['RoleType'] = $request->roleType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyAuditLogFilter',
@@ -7981,28 +6243,20 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAuditLogFilterResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAuditLogFilterResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAuditLogFilterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Queries the types of logs collected by the audit log feature of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     *   The instance must be in the running state when you call this operation.
+     * @summary Queries the types of logs collected by the audit log feature of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   The instance must be in the running state when you call this operation.
      * *   This operation is applicable only to **general-purpose local-disk** or **dedicated local-disk** instances.
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
+     * @param ModifyAuditLogFilterRequest $request ModifyAuditLogFilterRequest
      *
-     * @param request - ModifyAuditLogFilterRequest
-     *
-     * @returns ModifyAuditLogFilterResponse
-     *
-     * @param ModifyAuditLogFilterRequest $request
-     *
-     * @return ModifyAuditLogFilterResponse
+     * @return ModifyAuditLogFilterResponse ModifyAuditLogFilterResponse
      */
     public function modifyAuditLogFilter($request)
     {
@@ -8012,64 +6266,49 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Enables or disables the audit log feature or configures the log storage duration for an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * @summary Enables or disables the audit log feature or configures the log storage duration for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
+     * @param ModifyAuditPolicyRequest $request ModifyAuditPolicyRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyAuditPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyAuditPolicyResponse
-     *
-     * @param ModifyAuditPolicyRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ModifyAuditPolicyResponse
+     * @return ModifyAuditPolicyResponse ModifyAuditPolicyResponse
      */
     public function modifyAuditPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->auditLogSwitchSource) {
-            @$query['AuditLogSwitchSource'] = $request->auditLogSwitchSource;
+        if (!Utils::isUnset($request->auditLogSwitchSource)) {
+            $query['AuditLogSwitchSource'] = $request->auditLogSwitchSource;
         }
-
-        if (null !== $request->auditStatus) {
-            @$query['AuditStatus'] = $request->auditStatus;
+        if (!Utils::isUnset($request->auditStatus)) {
+            $query['AuditStatus'] = $request->auditStatus;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->serviceType) {
-            @$query['ServiceType'] = $request->serviceType;
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['ServiceType'] = $request->serviceType;
         }
-
-        if (null !== $request->storagePeriod) {
-            @$query['StoragePeriod'] = $request->storagePeriod;
+        if (!Utils::isUnset($request->storagePeriod)) {
+            $query['StoragePeriod'] = $request->storagePeriod;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyAuditPolicy',
@@ -8082,27 +6321,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyAuditPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAuditPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAuditPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Enables or disables the audit log feature or configures the log storage duration for an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     * @summary Enables or disables the audit log feature or configures the log storage duration for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
      * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](https://help.aliyun.com/document_detail/48990.html).
+     *  *
+     * @param ModifyAuditPolicyRequest $request ModifyAuditPolicyRequest
      *
-     * @param request - ModifyAuditPolicyRequest
-     *
-     * @returns ModifyAuditPolicyResponse
-     *
-     * @param ModifyAuditPolicyRequest $request
-     *
-     * @return ModifyAuditPolicyResponse
+     * @return ModifyAuditPolicyResponse ModifyAuditPolicyResponse
      */
     public function modifyAuditPolicy($request)
     {
@@ -8112,123 +6343,96 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Modifies a backup policy for an ApsaraDB for MongoDB instance.
+     * @summary Modifies a backup policy for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description The cross-region backup feature is suitable only for replica set or sharded cluster instances that use cloud disks.
+     *  *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * The cross-region backup feature is suitable only for replica set or sharded cluster instances that use cloud disks.
-     *
-     * @param request - ModifyBackupPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyBackupPolicyResponse
-     *
-     * @param ModifyBackupPolicyRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupInterval) {
-            @$query['BackupInterval'] = $request->backupInterval;
+        if (!Utils::isUnset($request->backupInterval)) {
+            $query['BackupInterval'] = $request->backupInterval;
         }
-
-        if (null !== $request->backupRetentionPeriod) {
-            @$query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
+        if (!Utils::isUnset($request->backupRetentionPeriod)) {
+            $query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
         }
-
-        if (null !== $request->backupRetentionPolicyOnClusterDeletion) {
-            @$query['BackupRetentionPolicyOnClusterDeletion'] = $request->backupRetentionPolicyOnClusterDeletion;
+        if (!Utils::isUnset($request->backupRetentionPolicyOnClusterDeletion)) {
+            $query['BackupRetentionPolicyOnClusterDeletion'] = $request->backupRetentionPolicyOnClusterDeletion;
         }
-
-        if (null !== $request->crossBackupPeriod) {
-            @$query['CrossBackupPeriod'] = $request->crossBackupPeriod;
+        if (!Utils::isUnset($request->crossBackupPeriod)) {
+            $query['CrossBackupPeriod'] = $request->crossBackupPeriod;
         }
-
-        if (null !== $request->crossBackupType) {
-            @$query['CrossBackupType'] = $request->crossBackupType;
+        if (!Utils::isUnset($request->crossBackupType)) {
+            $query['CrossBackupType'] = $request->crossBackupType;
         }
-
-        if (null !== $request->crossLogRetentionType) {
-            @$query['CrossLogRetentionType'] = $request->crossLogRetentionType;
+        if (!Utils::isUnset($request->crossLogRetentionType)) {
+            $query['CrossLogRetentionType'] = $request->crossLogRetentionType;
         }
-
-        if (null !== $request->crossLogRetentionValue) {
-            @$query['CrossLogRetentionValue'] = $request->crossLogRetentionValue;
+        if (!Utils::isUnset($request->crossLogRetentionValue)) {
+            $query['CrossLogRetentionValue'] = $request->crossLogRetentionValue;
         }
-
-        if (null !== $request->crossRetentionType) {
-            @$query['CrossRetentionType'] = $request->crossRetentionType;
+        if (!Utils::isUnset($request->crossRetentionType)) {
+            $query['CrossRetentionType'] = $request->crossRetentionType;
         }
-
-        if (null !== $request->crossRetentionValue) {
-            @$query['CrossRetentionValue'] = $request->crossRetentionValue;
+        if (!Utils::isUnset($request->crossRetentionValue)) {
+            $query['CrossRetentionValue'] = $request->crossRetentionValue;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->destRegion) {
-            @$query['DestRegion'] = $request->destRegion;
+        if (!Utils::isUnset($request->destRegion)) {
+            $query['DestRegion'] = $request->destRegion;
         }
-
-        if (null !== $request->enableBackupLog) {
-            @$query['EnableBackupLog'] = $request->enableBackupLog;
+        if (!Utils::isUnset($request->enableBackupLog)) {
+            $query['EnableBackupLog'] = $request->enableBackupLog;
         }
-
-        if (null !== $request->enableCrossLogBackup) {
-            @$query['EnableCrossLogBackup'] = $request->enableCrossLogBackup;
+        if (!Utils::isUnset($request->enableCrossLogBackup)) {
+            $query['EnableCrossLogBackup'] = $request->enableCrossLogBackup;
         }
-
-        if (null !== $request->highFrequencyBackupRetention) {
-            @$query['HighFrequencyBackupRetention'] = $request->highFrequencyBackupRetention;
+        if (!Utils::isUnset($request->highFrequencyBackupRetention)) {
+            $query['HighFrequencyBackupRetention'] = $request->highFrequencyBackupRetention;
         }
-
-        if (null !== $request->instanceType) {
-            @$query['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
-
-        if (null !== $request->logBackupRetentionPeriod) {
-            @$query['LogBackupRetentionPeriod'] = $request->logBackupRetentionPeriod;
+        if (!Utils::isUnset($request->logBackupRetentionPeriod)) {
+            $query['LogBackupRetentionPeriod'] = $request->logBackupRetentionPeriod;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->preferredBackupPeriod) {
-            @$query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
+        if (!Utils::isUnset($request->preferredBackupPeriod)) {
+            $query['PreferredBackupPeriod'] = $request->preferredBackupPeriod;
         }
-
-        if (null !== $request->preferredBackupTime) {
-            @$query['PreferredBackupTime'] = $request->preferredBackupTime;
+        if (!Utils::isUnset($request->preferredBackupTime)) {
+            $query['PreferredBackupTime'] = $request->preferredBackupTime;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->preserveOneEachHour)) {
+            $query['PreserveOneEachHour'] = $request->preserveOneEachHour;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->snapshotBackupType) {
-            @$query['SnapshotBackupType'] = $request->snapshotBackupType;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->srcRegion) {
-            @$query['SrcRegion'] = $request->srcRegion;
+        if (!Utils::isUnset($request->snapshotBackupType)) {
+            $query['SnapshotBackupType'] = $request->snapshotBackupType;
         }
-
+        if (!Utils::isUnset($request->srcRegion)) {
+            $query['SrcRegion'] = $request->srcRegion;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyBackupPolicy',
@@ -8241,26 +6445,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyBackupPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies a backup policy for an ApsaraDB for MongoDB instance.
+     * @summary Modifies a backup policy for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description The cross-region backup feature is suitable only for replica set or sharded cluster instances that use cloud disks.
+     *  *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      *
-     * @remarks
-     * The cross-region backup feature is suitable only for replica set or sharded cluster instances that use cloud disks.
-     *
-     * @param request - ModifyBackupPolicyRequest
-     *
-     * @returns ModifyBackupPolicyResponse
-     *
-     * @param ModifyBackupPolicyRequest $request
-     *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicy($request)
     {
@@ -8270,52 +6466,98 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * 修改实例配置.
+     * @param ModifyDBInstanceAttributeRequest $request ModifyDBInstanceAttributeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBInstanceConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return ModifyDBInstanceAttributeResponse ModifyDBInstanceAttributeResponse
+     */
+    public function modifyDBInstanceAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->DBInstanceReleaseProtection)) {
+            $query['DBInstanceReleaseProtection'] = $request->DBInstanceReleaseProtection;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDBInstanceAttribute',
+            'version' => '2015-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDBInstanceAttributeRequest $request ModifyDBInstanceAttributeRequest
      *
-     * @returns ModifyDBInstanceConfigResponse
+     * @return ModifyDBInstanceAttributeResponse ModifyDBInstanceAttributeResponse
+     */
+    public function modifyDBInstanceAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改实例配置
+     *  *
+     * @param ModifyDBInstanceConfigRequest $request ModifyDBInstanceConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param ModifyDBInstanceConfigRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ModifyDBInstanceConfigResponse
+     * @return ModifyDBInstanceConfigResponse ModifyDBInstanceConfigResponse
      */
     public function modifyDBInstanceConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->configName) {
-            @$query['ConfigName'] = $request->configName;
+        if (!Utils::isUnset($request->configName)) {
+            $query['ConfigName'] = $request->configName;
         }
-
-        if (null !== $request->configValue) {
-            @$query['ConfigValue'] = $request->configValue;
+        if (!Utils::isUnset($request->configValue)) {
+            $query['ConfigValue'] = $request->configValue;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceConfig',
@@ -8328,23 +6570,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 修改实例配置.
+     * @summary 修改实例配置
+     *  *
+     * @param ModifyDBInstanceConfigRequest $request ModifyDBInstanceConfigRequest
      *
-     * @param request - ModifyDBInstanceConfigRequest
-     *
-     * @returns ModifyDBInstanceConfigResponse
-     *
-     * @param ModifyDBInstanceConfigRequest $request
-     *
-     * @return ModifyDBInstanceConfigResponse
+     * @return ModifyDBInstanceConfigResponse ModifyDBInstanceConfigResponse
      */
     public function modifyDBInstanceConfig($request)
     {
@@ -8354,65 +6589,50 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Modifies the endpoint that is used to connect to an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * You can modify the connection strings and ports of the following instances:
+     * @summary Modifies the endpoint that is used to connect to an ApsaraDB for MongoDB instance.
+     *  *
+     * @description You can modify the connection strings and ports of the following instances:
      * *   You can modify the connection strings of instances that use local or cloud disks.
      * *   You can only modify the ports of instances that use cloud disks.
+     *  *
+     * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBInstanceConnectionStringRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceConnectionStringResponse
-     *
-     * @param ModifyDBInstanceConnectionStringRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return ModifyDBInstanceConnectionStringResponse
+     * @return ModifyDBInstanceConnectionStringResponse ModifyDBInstanceConnectionStringResponse
      */
     public function modifyDBInstanceConnectionStringWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->currentConnectionString) {
-            @$query['CurrentConnectionString'] = $request->currentConnectionString;
+        if (!Utils::isUnset($request->currentConnectionString)) {
+            $query['CurrentConnectionString'] = $request->currentConnectionString;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->newConnectionString) {
-            @$query['NewConnectionString'] = $request->newConnectionString;
+        if (!Utils::isUnset($request->newConnectionString)) {
+            $query['NewConnectionString'] = $request->newConnectionString;
         }
-
-        if (null !== $request->newPort) {
-            @$query['NewPort'] = $request->newPort;
+        if (!Utils::isUnset($request->newPort)) {
+            $query['NewPort'] = $request->newPort;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceConnectionString',
@@ -8425,28 +6645,20 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceConnectionStringResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceConnectionStringResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceConnectionStringResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the endpoint that is used to connect to an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * You can modify the connection strings and ports of the following instances:
+     * @summary Modifies the endpoint that is used to connect to an ApsaraDB for MongoDB instance.
+     *  *
+     * @description You can modify the connection strings and ports of the following instances:
      * *   You can modify the connection strings of instances that use local or cloud disks.
      * *   You can only modify the ports of instances that use cloud disks.
+     *  *
+     * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
      *
-     * @param request - ModifyDBInstanceConnectionStringRequest
-     *
-     * @returns ModifyDBInstanceConnectionStringResponse
-     *
-     * @param ModifyDBInstanceConnectionStringRequest $request
-     *
-     * @return ModifyDBInstanceConnectionStringResponse
+     * @return ModifyDBInstanceConnectionStringResponse ModifyDBInstanceConnectionStringResponse
      */
     public function modifyDBInstanceConnectionString($request)
     {
@@ -8456,52 +6668,40 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Modifies the name of an ApsaraDB for MongoDB instance.
+     * @summary Modifies the name of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyDBInstanceDescriptionRequest $request ModifyDBInstanceDescriptionRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBInstanceDescriptionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceDescriptionResponse
-     *
-     * @param ModifyDBInstanceDescriptionRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ModifyDBInstanceDescriptionResponse
+     * @return ModifyDBInstanceDescriptionResponse ModifyDBInstanceDescriptionResponse
      */
     public function modifyDBInstanceDescriptionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceDescription) {
-            @$query['DBInstanceDescription'] = $request->DBInstanceDescription;
+        if (!Utils::isUnset($request->DBInstanceDescription)) {
+            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceDescription',
@@ -8514,23 +6714,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the name of an ApsaraDB for MongoDB instance.
+     * @summary Modifies the name of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyDBInstanceDescriptionRequest $request ModifyDBInstanceDescriptionRequest
      *
-     * @param request - ModifyDBInstanceDescriptionRequest
-     *
-     * @returns ModifyDBInstanceDescriptionResponse
-     *
-     * @param ModifyDBInstanceDescriptionRequest $request
-     *
-     * @return ModifyDBInstanceDescriptionResponse
+     * @return ModifyDBInstanceDescriptionResponse ModifyDBInstanceDescriptionResponse
      */
     public function modifyDBInstanceDescription($request)
     {
@@ -8540,64 +6733,49 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Modifies the disk type of an ApsaraDB for MongoDB instance.
+     * @summary Modifies the disk type of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyDBInstanceDiskTypeRequest $request ModifyDBInstanceDiskTypeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBInstanceDiskTypeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceDiskTypeResponse
-     *
-     * @param ModifyDBInstanceDiskTypeRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return ModifyDBInstanceDiskTypeResponse
+     * @return ModifyDBInstanceDiskTypeResponse ModifyDBInstanceDiskTypeResponse
      */
     public function modifyDBInstanceDiskTypeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->autoRenew) {
-            @$query['AutoRenew'] = $request->autoRenew;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
-
-        if (null !== $request->businessInfo) {
-            @$query['BusinessInfo'] = $request->businessInfo;
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->dbInstanceStorageType) {
-            @$query['DbInstanceStorageType'] = $request->dbInstanceStorageType;
+        if (!Utils::isUnset($request->dbInstanceStorageType)) {
+            $query['DbInstanceStorageType'] = $request->dbInstanceStorageType;
         }
-
-        if (null !== $request->extraParam) {
-            @$query['ExtraParam'] = $request->extraParam;
+        if (!Utils::isUnset($request->extraParam)) {
+            $query['ExtraParam'] = $request->extraParam;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->provisionedIops) {
-            @$query['ProvisionedIops'] = $request->provisionedIops;
+        if (!Utils::isUnset($request->provisionedIops)) {
+            $query['ProvisionedIops'] = $request->provisionedIops;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceDiskType',
@@ -8610,23 +6788,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceDiskTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceDiskTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceDiskTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the disk type of an ApsaraDB for MongoDB instance.
+     * @summary Modifies the disk type of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyDBInstanceDiskTypeRequest $request ModifyDBInstanceDiskTypeRequest
      *
-     * @param request - ModifyDBInstanceDiskTypeRequest
-     *
-     * @returns ModifyDBInstanceDiskTypeResponse
-     *
-     * @param ModifyDBInstanceDiskTypeRequest $request
-     *
-     * @return ModifyDBInstanceDiskTypeResponse
+     * @return ModifyDBInstanceDiskTypeResponse ModifyDBInstanceDiskTypeResponse
      */
     public function modifyDBInstanceDiskType($request)
     {
@@ -8636,52 +6807,40 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Modifies the maintenance window of an ApsaraDB for MongoDB instance.
+     * @summary Modifies the maintenance window of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyDBInstanceMaintainTimeRequest $request ModifyDBInstanceMaintainTimeRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBInstanceMaintainTimeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceMaintainTimeResponse
-     *
-     * @param ModifyDBInstanceMaintainTimeRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ModifyDBInstanceMaintainTimeResponse
+     * @return ModifyDBInstanceMaintainTimeResponse ModifyDBInstanceMaintainTimeResponse
      */
     public function modifyDBInstanceMaintainTimeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->maintainEndTime) {
-            @$query['MaintainEndTime'] = $request->maintainEndTime;
+        if (!Utils::isUnset($request->maintainEndTime)) {
+            $query['MaintainEndTime'] = $request->maintainEndTime;
         }
-
-        if (null !== $request->maintainStartTime) {
-            @$query['MaintainStartTime'] = $request->maintainStartTime;
+        if (!Utils::isUnset($request->maintainStartTime)) {
+            $query['MaintainStartTime'] = $request->maintainStartTime;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceMaintainTime',
@@ -8694,23 +6853,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceMaintainTimeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceMaintainTimeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceMaintainTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the maintenance window of an ApsaraDB for MongoDB instance.
+     * @summary Modifies the maintenance window of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyDBInstanceMaintainTimeRequest $request ModifyDBInstanceMaintainTimeRequest
      *
-     * @param request - ModifyDBInstanceMaintainTimeRequest
-     *
-     * @returns ModifyDBInstanceMaintainTimeResponse
-     *
-     * @param ModifyDBInstanceMaintainTimeRequest $request
-     *
-     * @return ModifyDBInstanceMaintainTimeResponse
+     * @return ModifyDBInstanceMaintainTimeResponse ModifyDBInstanceMaintainTimeResponse
      */
     public function modifyDBInstanceMaintainTime($request)
     {
@@ -8720,54 +6872,42 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to set the monitoring granularity for an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * >  This operation is applicable only to the ApsaraDB for MongoDB console of the previous version due to the change in the feature of adjusting collection intervals of monitoring data.
+     * @summary You can call this operation to set the monitoring granularity for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  This operation is applicable only to the ApsaraDB for MongoDB console of the previous version due to the change in the feature of adjusting collection intervals of monitoring data.
      * Before you call this operation, make sure that the following requirements are met:
      * *   A replica set or sharded cluster instance is used.
      * *   MongoDB 3.4 (the latest minor version) or MongoDB 4.0 is selected.
+     *  *
+     * @param ModifyDBInstanceMonitorRequest $request ModifyDBInstanceMonitorRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBInstanceMonitorRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceMonitorResponse
-     *
-     * @param ModifyDBInstanceMonitorRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ModifyDBInstanceMonitorResponse
+     * @return ModifyDBInstanceMonitorResponse ModifyDBInstanceMonitorResponse
      */
     public function modifyDBInstanceMonitorWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->granularity) {
-            @$query['Granularity'] = $request->granularity;
+        if (!Utils::isUnset($request->granularity)) {
+            $query['Granularity'] = $request->granularity;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceMonitor',
@@ -8780,29 +6920,21 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceMonitorResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * You can call this operation to set the monitoring granularity for an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * >  This operation is applicable only to the ApsaraDB for MongoDB console of the previous version due to the change in the feature of adjusting collection intervals of monitoring data.
+     * @summary You can call this operation to set the monitoring granularity for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  This operation is applicable only to the ApsaraDB for MongoDB console of the previous version due to the change in the feature of adjusting collection intervals of monitoring data.
      * Before you call this operation, make sure that the following requirements are met:
      * *   A replica set or sharded cluster instance is used.
      * *   MongoDB 3.4 (the latest minor version) or MongoDB 4.0 is selected.
+     *  *
+     * @param ModifyDBInstanceMonitorRequest $request ModifyDBInstanceMonitorRequest
      *
-     * @param request - ModifyDBInstanceMonitorRequest
-     *
-     * @returns ModifyDBInstanceMonitorResponse
-     *
-     * @param ModifyDBInstanceMonitorRequest $request
-     *
-     * @return ModifyDBInstanceMonitorResponse
+     * @return ModifyDBInstanceMonitorResponse ModifyDBInstanceMonitorResponse
      */
     public function modifyDBInstanceMonitor($request)
     {
@@ -8812,58 +6944,45 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Extends the retention period of the classic network endpoint of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the instance meets the following requirements:
+     * @summary Extends the retention period of the classic network endpoint of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the instance meets the following requirements:
      * *   The instance is in the Running state.
      * *   The network of the instance is in hybrid access mode.
      * >  This operation is supported by replica set instances and sharded cluster instances. This operation is not supported by standalone instances.
+     *  *
+     * @param ModifyDBInstanceNetExpireTimeRequest $request ModifyDBInstanceNetExpireTimeRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBInstanceNetExpireTimeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceNetExpireTimeResponse
-     *
-     * @param ModifyDBInstanceNetExpireTimeRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return ModifyDBInstanceNetExpireTimeResponse
+     * @return ModifyDBInstanceNetExpireTimeResponse ModifyDBInstanceNetExpireTimeResponse
      */
     public function modifyDBInstanceNetExpireTimeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->classicExpendExpiredDays) {
-            @$query['ClassicExpendExpiredDays'] = $request->classicExpendExpiredDays;
+        if (!Utils::isUnset($request->classicExpendExpiredDays)) {
+            $query['ClassicExpendExpiredDays'] = $request->classicExpendExpiredDays;
         }
-
-        if (null !== $request->connectionString) {
-            @$query['ConnectionString'] = $request->connectionString;
+        if (!Utils::isUnset($request->connectionString)) {
+            $query['ConnectionString'] = $request->connectionString;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceNetExpireTime',
@@ -8876,29 +6995,21 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceNetExpireTimeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceNetExpireTimeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceNetExpireTimeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Extends the retention period of the classic network endpoint of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the instance meets the following requirements:
+     * @summary Extends the retention period of the classic network endpoint of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the instance meets the following requirements:
      * *   The instance is in the Running state.
      * *   The network of the instance is in hybrid access mode.
      * >  This operation is supported by replica set instances and sharded cluster instances. This operation is not supported by standalone instances.
+     *  *
+     * @param ModifyDBInstanceNetExpireTimeRequest $request ModifyDBInstanceNetExpireTimeRequest
      *
-     * @param request - ModifyDBInstanceNetExpireTimeRequest
-     *
-     * @returns ModifyDBInstanceNetExpireTimeResponse
-     *
-     * @param ModifyDBInstanceNetExpireTimeRequest $request
-     *
-     * @return ModifyDBInstanceNetExpireTimeResponse
+     * @return ModifyDBInstanceNetExpireTimeResponse ModifyDBInstanceNetExpireTimeResponse
      */
     public function modifyDBInstanceNetExpireTime($request)
     {
@@ -8908,71 +7019,54 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Changes the network type of an ApsaraDB for MongoDB instance.
+     * @summary Changes the network type of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable to replica set instances and sharded cluster instances, but not standalone instances. You can call this operation to change the network of an instance from a classic network to a VPC.
+     *  *
+     * @param ModifyDBInstanceNetworkTypeRequest $request ModifyDBInstanceNetworkTypeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This operation is applicable to replica set instances and sharded cluster instances, but not standalone instances. You can call this operation to change the network of an instance from a classic network to a VPC.
-     *
-     * @param request - ModifyDBInstanceNetworkTypeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceNetworkTypeResponse
-     *
-     * @param ModifyDBInstanceNetworkTypeRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ModifyDBInstanceNetworkTypeResponse
+     * @return ModifyDBInstanceNetworkTypeResponse ModifyDBInstanceNetworkTypeResponse
      */
     public function modifyDBInstanceNetworkTypeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->classicExpiredDays) {
-            @$query['ClassicExpiredDays'] = $request->classicExpiredDays;
+        if (!Utils::isUnset($request->classicExpiredDays)) {
+            $query['ClassicExpiredDays'] = $request->classicExpiredDays;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->networkType) {
-            @$query['NetworkType'] = $request->networkType;
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->retainClassic) {
-            @$query['RetainClassic'] = $request->retainClassic;
+        if (!Utils::isUnset($request->retainClassic)) {
+            $query['RetainClassic'] = $request->retainClassic;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
-        if (null !== $request->zoneId) {
-            @$query['ZoneId'] = $request->zoneId;
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceNetworkType',
@@ -8985,26 +7079,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceNetworkTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceNetworkTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceNetworkTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Changes the network type of an ApsaraDB for MongoDB instance.
+     * @summary Changes the network type of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation is applicable to replica set instances and sharded cluster instances, but not standalone instances. You can call this operation to change the network of an instance from a classic network to a VPC.
+     *  *
+     * @param ModifyDBInstanceNetworkTypeRequest $request ModifyDBInstanceNetworkTypeRequest
      *
-     * @remarks
-     * This operation is applicable to replica set instances and sharded cluster instances, but not standalone instances. You can call this operation to change the network of an instance from a classic network to a VPC.
-     *
-     * @param request - ModifyDBInstanceNetworkTypeRequest
-     *
-     * @returns ModifyDBInstanceNetworkTypeResponse
-     *
-     * @param ModifyDBInstanceNetworkTypeRequest $request
-     *
-     * @return ModifyDBInstanceNetworkTypeResponse
+     * @return ModifyDBInstanceNetworkTypeResponse ModifyDBInstanceNetworkTypeResponse
      */
     public function modifyDBInstanceNetworkType($request)
     {
@@ -9014,56 +7100,47 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Modifies the SSL settings of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * ## Usage
+     * @summary Modifies the SSL settings of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description ## Usage
      * Before you call this operation, make sure that the following requirements are met:
      * *   The instance is in the running state.
      * *   The instance is a replica set instance.
      * *   The engine version of the instance is 3.4 or 4.0.
      * >  When you enable or disable SSL encryption or update the SSL certificate, the instance restarts. We recommend that you call this operation during off-peak hours.
+     *  *
+     * @param ModifyDBInstanceSSLRequest $request ModifyDBInstanceSSLRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBInstanceSSLRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceSSLResponse
-     *
-     * @param ModifyDBInstanceSSLRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ModifyDBInstanceSSLResponse
+     * @return ModifyDBInstanceSSLResponse ModifyDBInstanceSSLResponse
      */
     public function modifyDBInstanceSSLWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->SSLAction) {
-            @$query['SSLAction'] = $request->SSLAction;
+        if (!Utils::isUnset($request->SSLAction)) {
+            $query['SSLAction'] = $request->SSLAction;
         }
-
+        if (!Utils::isUnset($request->switchMode)) {
+            $query['SwitchMode'] = $request->switchMode;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceSSL',
@@ -9076,31 +7153,23 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceSSLResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the SSL settings of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * ## Usage
+     * @summary Modifies the SSL settings of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description ## Usage
      * Before you call this operation, make sure that the following requirements are met:
      * *   The instance is in the running state.
      * *   The instance is a replica set instance.
      * *   The engine version of the instance is 3.4 or 4.0.
      * >  When you enable or disable SSL encryption or update the SSL certificate, the instance restarts. We recommend that you call this operation during off-peak hours.
+     *  *
+     * @param ModifyDBInstanceSSLRequest $request ModifyDBInstanceSSLRequest
      *
-     * @param request - ModifyDBInstanceSSLRequest
-     *
-     * @returns ModifyDBInstanceSSLResponse
-     *
-     * @param ModifyDBInstanceSSLRequest $request
-     *
-     * @return ModifyDBInstanceSSLResponse
+     * @return ModifyDBInstanceSSLResponse ModifyDBInstanceSSLResponse
      */
     public function modifyDBInstanceSSL($request)
     {
@@ -9110,88 +7179,67 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Modifies the specifications or storage space of an ApsaraDB for MongoDB standalone, replica set, or serverless instance. Serverless instances are available only on the China site (aliyun.com).
-     *
-     * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+     * @summary Modifies the specifications or storage space of an ApsaraDB for MongoDB standalone, replica set, or serverless instance. Serverless instances are available only on the China site (aliyun.com).
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
      * This operation applies only to standalone and replica set instances. To modify the specifications of sharded cluster instances, you can call the [ModifyNodeSpec](https://help.aliyun.com/document_detail/61911.html), [CreateNode](https://help.aliyun.com/document_detail/61922.html), [DeleteNode](https://help.aliyun.com/document_detail/61816.html), or [ModifyNodeSpecBatch](https://help.aliyun.com/document_detail/61923.html) operation.
+     *  *
+     * @param ModifyDBInstanceSpecRequest $request ModifyDBInstanceSpecRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBInstanceSpecRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceSpecResponse
-     *
-     * @param ModifyDBInstanceSpecRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ModifyDBInstanceSpecResponse
+     * @return ModifyDBInstanceSpecResponse ModifyDBInstanceSpecResponse
      */
     public function modifyDBInstanceSpecWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->businessInfo) {
-            @$query['BusinessInfo'] = $request->businessInfo;
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->DBInstanceClass) {
-            @$query['DBInstanceClass'] = $request->DBInstanceClass;
+        if (!Utils::isUnset($request->DBInstanceClass)) {
+            $query['DBInstanceClass'] = $request->DBInstanceClass;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->DBInstanceStorage) {
-            @$query['DBInstanceStorage'] = $request->DBInstanceStorage;
+        if (!Utils::isUnset($request->DBInstanceStorage)) {
+            $query['DBInstanceStorage'] = $request->DBInstanceStorage;
         }
-
-        if (null !== $request->effectiveTime) {
-            @$query['EffectiveTime'] = $request->effectiveTime;
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
         }
-
-        if (null !== $request->extraParam) {
-            @$query['ExtraParam'] = $request->extraParam;
+        if (!Utils::isUnset($request->extraParam)) {
+            $query['ExtraParam'] = $request->extraParam;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->readonlyReplicas) {
-            @$query['ReadonlyReplicas'] = $request->readonlyReplicas;
+        if (!Utils::isUnset($request->readonlyReplicas)) {
+            $query['ReadonlyReplicas'] = $request->readonlyReplicas;
         }
-
-        if (null !== $request->replicationFactor) {
-            @$query['ReplicationFactor'] = $request->replicationFactor;
+        if (!Utils::isUnset($request->replicationFactor)) {
+            $query['ReplicationFactor'] = $request->replicationFactor;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceSpec',
@@ -9204,27 +7252,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceSpecResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the specifications or storage space of an ApsaraDB for MongoDB standalone, replica set, or serverless instance. Serverless instances are available only on the China site (aliyun.com).
-     *
-     * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+     * @summary Modifies the specifications or storage space of an ApsaraDB for MongoDB standalone, replica set, or serverless instance. Serverless instances are available only on the China site (aliyun.com).
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
      * This operation applies only to standalone and replica set instances. To modify the specifications of sharded cluster instances, you can call the [ModifyNodeSpec](https://help.aliyun.com/document_detail/61911.html), [CreateNode](https://help.aliyun.com/document_detail/61922.html), [DeleteNode](https://help.aliyun.com/document_detail/61816.html), or [ModifyNodeSpecBatch](https://help.aliyun.com/document_detail/61923.html) operation.
+     *  *
+     * @param ModifyDBInstanceSpecRequest $request ModifyDBInstanceSpecRequest
      *
-     * @param request - ModifyDBInstanceSpecRequest
-     *
-     * @returns ModifyDBInstanceSpecResponse
-     *
-     * @param ModifyDBInstanceSpecRequest $request
-     *
-     * @return ModifyDBInstanceSpecResponse
+     * @return ModifyDBInstanceSpecResponse ModifyDBInstanceSpecResponse
      */
     public function modifyDBInstanceSpec($request)
     {
@@ -9234,69 +7274,57 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Modifies the transparent data encryption (TDE) status of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * TDE allows you to perform real-time I/O encryption and decryption on data files. Data is encrypted before it is written to a disk and is decrypted when it is read from the disk to the memory. For more information, see [Configure TDE](https://help.aliyun.com/document_detail/131048.html).
+     * @summary Modifies the transparent data encryption (TDE) status of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description TDE allows you to perform real-time I/O encryption and decryption on data files. Data is encrypted before it is written to a disk and is decrypted when it is read from the disk to the memory. For more information, see [Configure TDE](https://help.aliyun.com/document_detail/131048.html).
      * >  TDE cannot be disabled after it is enabled.
      * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
      * *   A replica set or sharded cluster instance is used.
      * *   The storage engine of the instance is WiredTiger.
      * *   The instance uses local disks to store data.
      * *   The database engine version of the instance is 4.0 or 4.2. If the database engine version is earlier than 4.0, you can call the [UpgradeDBInstanceEngineVersion](https://help.aliyun.com/document_detail/67608.html) operation to upgrade the database engine.
+     *  *
+     * @param ModifyDBInstanceTDERequest $request ModifyDBInstanceTDERequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDBInstanceTDERequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyDBInstanceTDEResponse
-     *
-     * @param ModifyDBInstanceTDERequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ModifyDBInstanceTDEResponse
+     * @return ModifyDBInstanceTDEResponse ModifyDBInstanceTDEResponse
      */
     public function modifyDBInstanceTDEWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->encryptionKey) {
-            @$query['EncryptionKey'] = $request->encryptionKey;
+        if (!Utils::isUnset($request->encryptionKey)) {
+            $query['EncryptionKey'] = $request->encryptionKey;
         }
-
-        if (null !== $request->encryptorName) {
-            @$query['EncryptorName'] = $request->encryptorName;
+        if (!Utils::isUnset($request->encryptorName)) {
+            $query['EncryptorName'] = $request->encryptorName;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->roleARN) {
-            @$query['RoleARN'] = $request->roleARN;
+        if (!Utils::isUnset($request->roleARN)) {
+            $query['RoleARN'] = $request->roleARN;
         }
-
-        if (null !== $request->TDEStatus) {
-            @$query['TDEStatus'] = $request->TDEStatus;
+        if (!Utils::isUnset($request->switchMode)) {
+            $query['SwitchMode'] = $request->switchMode;
         }
-
+        if (!Utils::isUnset($request->TDEStatus)) {
+            $query['TDEStatus'] = $request->TDEStatus;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDBInstanceTDE',
@@ -9309,32 +7337,24 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyDBInstanceTDEResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDBInstanceTDEResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDBInstanceTDEResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the transparent data encryption (TDE) status of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * TDE allows you to perform real-time I/O encryption and decryption on data files. Data is encrypted before it is written to a disk and is decrypted when it is read from the disk to the memory. For more information, see [Configure TDE](https://help.aliyun.com/document_detail/131048.html).
+     * @summary Modifies the transparent data encryption (TDE) status of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description TDE allows you to perform real-time I/O encryption and decryption on data files. Data is encrypted before it is written to a disk and is decrypted when it is read from the disk to the memory. For more information, see [Configure TDE](https://help.aliyun.com/document_detail/131048.html).
      * >  TDE cannot be disabled after it is enabled.
      * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
      * *   A replica set or sharded cluster instance is used.
      * *   The storage engine of the instance is WiredTiger.
      * *   The instance uses local disks to store data.
      * *   The database engine version of the instance is 4.0 or 4.2. If the database engine version is earlier than 4.0, you can call the [UpgradeDBInstanceEngineVersion](https://help.aliyun.com/document_detail/67608.html) operation to upgrade the database engine.
+     *  *
+     * @param ModifyDBInstanceTDERequest $request ModifyDBInstanceTDERequest
      *
-     * @param request - ModifyDBInstanceTDERequest
-     *
-     * @returns ModifyDBInstanceTDEResponse
-     *
-     * @param ModifyDBInstanceTDERequest $request
-     *
-     * @return ModifyDBInstanceTDEResponse
+     * @return ModifyDBInstanceTDEResponse ModifyDBInstanceTDEResponse
      */
     public function modifyDBInstanceTDE($request)
     {
@@ -9344,56 +7364,43 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Modifies the global IP whitelist template associated with an ApsaraDB for MongoDB instance.
+     * @summary Modifies the global IP whitelist template associated with an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRequest $request ModifyGlobalSecurityIPGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyGlobalSecurityIPGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyGlobalSecurityIPGroupResponse
-     *
-     * @param ModifyGlobalSecurityIPGroupRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ModifyGlobalSecurityIPGroupResponse
+     * @return ModifyGlobalSecurityIPGroupResponse ModifyGlobalSecurityIPGroupResponse
      */
     public function modifyGlobalSecurityIPGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->GIpList) {
-            @$query['GIpList'] = $request->GIpList;
+        if (!Utils::isUnset($request->GIpList)) {
+            $query['GIpList'] = $request->GIpList;
         }
-
-        if (null !== $request->globalIgName) {
-            @$query['GlobalIgName'] = $request->globalIgName;
+        if (!Utils::isUnset($request->globalIgName)) {
+            $query['GlobalIgName'] = $request->globalIgName;
         }
-
-        if (null !== $request->globalSecurityGroupId) {
-            @$query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyGlobalSecurityIPGroup',
@@ -9406,23 +7413,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyGlobalSecurityIPGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the global IP whitelist template associated with an ApsaraDB for MongoDB instance.
+     * @summary Modifies the global IP whitelist template associated with an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRequest $request ModifyGlobalSecurityIPGroupRequest
      *
-     * @param request - ModifyGlobalSecurityIPGroupRequest
-     *
-     * @returns ModifyGlobalSecurityIPGroupResponse
-     *
-     * @param ModifyGlobalSecurityIPGroupRequest $request
-     *
-     * @return ModifyGlobalSecurityIPGroupResponse
+     * @return ModifyGlobalSecurityIPGroupResponse ModifyGlobalSecurityIPGroupResponse
      */
     public function modifyGlobalSecurityIPGroup($request)
     {
@@ -9432,52 +7432,40 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Modifies the name of a global IP whitelist template associated with an ApsaraDB for MongoDB instance.
+     * @summary Modifies the name of a global IP whitelist template associated with an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupNameRequest $request ModifyGlobalSecurityIPGroupNameRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyGlobalSecurityIPGroupNameRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyGlobalSecurityIPGroupNameResponse
-     *
-     * @param ModifyGlobalSecurityIPGroupNameRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return ModifyGlobalSecurityIPGroupNameResponse
+     * @return ModifyGlobalSecurityIPGroupNameResponse ModifyGlobalSecurityIPGroupNameResponse
      */
     public function modifyGlobalSecurityIPGroupNameWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->globalIgName) {
-            @$query['GlobalIgName'] = $request->globalIgName;
+        if (!Utils::isUnset($request->globalIgName)) {
+            $query['GlobalIgName'] = $request->globalIgName;
         }
-
-        if (null !== $request->globalSecurityGroupId) {
-            @$query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyGlobalSecurityIPGroupName',
@@ -9490,23 +7478,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyGlobalSecurityIPGroupNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyGlobalSecurityIPGroupNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyGlobalSecurityIPGroupNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the name of a global IP whitelist template associated with an ApsaraDB for MongoDB instance.
+     * @summary Modifies the name of a global IP whitelist template associated with an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupNameRequest $request ModifyGlobalSecurityIPGroupNameRequest
      *
-     * @param request - ModifyGlobalSecurityIPGroupNameRequest
-     *
-     * @returns ModifyGlobalSecurityIPGroupNameResponse
-     *
-     * @param ModifyGlobalSecurityIPGroupNameRequest $request
-     *
-     * @return ModifyGlobalSecurityIPGroupNameResponse
+     * @return ModifyGlobalSecurityIPGroupNameResponse ModifyGlobalSecurityIPGroupNameResponse
      */
     public function modifyGlobalSecurityIPGroupName($request)
     {
@@ -9516,52 +7497,40 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Modifies the mapping between a global whitelist template and an ApsaraDB for MongoDB instance.
+     * @summary Modifies the mapping between a global whitelist template and an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRelationRequest $request ModifyGlobalSecurityIPGroupRelationRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyGlobalSecurityIPGroupRelationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyGlobalSecurityIPGroupRelationResponse
-     *
-     * @param ModifyGlobalSecurityIPGroupRelationRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return ModifyGlobalSecurityIPGroupRelationResponse
+     * @return ModifyGlobalSecurityIPGroupRelationResponse ModifyGlobalSecurityIPGroupRelationResponse
      */
     public function modifyGlobalSecurityIPGroupRelationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBClusterId) {
-            @$query['DBClusterId'] = $request->DBClusterId;
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
         }
-
-        if (null !== $request->globalSecurityGroupId) {
-            @$query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
+        if (!Utils::isUnset($request->globalSecurityGroupId)) {
+            $query['GlobalSecurityGroupId'] = $request->globalSecurityGroupId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyGlobalSecurityIPGroupRelation',
@@ -9574,23 +7543,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyGlobalSecurityIPGroupRelationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyGlobalSecurityIPGroupRelationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyGlobalSecurityIPGroupRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the mapping between a global whitelist template and an ApsaraDB for MongoDB instance.
+     * @summary Modifies the mapping between a global whitelist template and an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifyGlobalSecurityIPGroupRelationRequest $request ModifyGlobalSecurityIPGroupRelationRequest
      *
-     * @param request - ModifyGlobalSecurityIPGroupRelationRequest
-     *
-     * @returns ModifyGlobalSecurityIPGroupRelationResponse
-     *
-     * @param ModifyGlobalSecurityIPGroupRelationRequest $request
-     *
-     * @return ModifyGlobalSecurityIPGroupRelationResponse
+     * @return ModifyGlobalSecurityIPGroupRelationResponse ModifyGlobalSecurityIPGroupRelationResponse
      */
     public function modifyGlobalSecurityIPGroupRelation($request)
     {
@@ -9600,61 +7562,47 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Enables or disables auto-renewal for an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
+     * @summary Enables or disables auto-renewal for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
      * This operation is applicable to subscription instances.
      * >  When auto-renewal is enabled, your payment will be collected nine days before the expiration date of ApsaraDB for MongoDB. Ensure that your account has sufficient balance.
+     *  *
+     * @param ModifyInstanceAutoRenewalAttributeRequest $request ModifyInstanceAutoRenewalAttributeRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyInstanceAutoRenewalAttributeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyInstanceAutoRenewalAttributeResponse
-     *
-     * @param ModifyInstanceAutoRenewalAttributeRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return ModifyInstanceAutoRenewalAttributeResponse
+     * @return ModifyInstanceAutoRenewalAttributeResponse ModifyInstanceAutoRenewalAttributeResponse
      */
     public function modifyInstanceAutoRenewalAttributeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoRenew) {
-            @$query['AutoRenew'] = $request->autoRenew;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->duration) {
-            @$query['Duration'] = $request->duration;
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyInstanceAutoRenewalAttribute',
@@ -9667,28 +7615,20 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceAutoRenewalAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceAutoRenewalAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceAutoRenewalAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Enables or disables auto-renewal for an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
+     * @summary Enables or disables auto-renewal for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
      * This operation is applicable to subscription instances.
      * >  When auto-renewal is enabled, your payment will be collected nine days before the expiration date of ApsaraDB for MongoDB. Ensure that your account has sufficient balance.
+     *  *
+     * @param ModifyInstanceAutoRenewalAttributeRequest $request ModifyInstanceAutoRenewalAttributeRequest
      *
-     * @param request - ModifyInstanceAutoRenewalAttributeRequest
-     *
-     * @returns ModifyInstanceAutoRenewalAttributeResponse
-     *
-     * @param ModifyInstanceAutoRenewalAttributeRequest $request
-     *
-     * @return ModifyInstanceAutoRenewalAttributeResponse
+     * @return ModifyInstanceAutoRenewalAttributeResponse ModifyInstanceAutoRenewalAttributeResponse
      */
     public function modifyInstanceAutoRenewalAttribute($request)
     {
@@ -9698,59 +7638,46 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Disables password-free access over Virtual Private Cloud (VPC) for an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+     * @summary Disables password-free access over Virtual Private Cloud (VPC) for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
      * *   The instance is a replica set or sharded cluster instance.
      * *   The database engine version of the instance is 4.0 (with the minor version of mongodb_20190408_3.0.11 or later) or 4.2. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the database engine version of the instance. If necessary, you can call the [UpgradeDBInstanceEngineVersion](https://help.aliyun.com/document_detail/67608.html) operation to upgrade the database engine version of the instance.
      * *   The network type of the instance must be VPC. If the network type of the instance is classic network, you must call the [ModifyDBInstanceNetworkType](https://help.aliyun.com/document_detail/62138.html) operation to change the network type to VPC.
      * *   You can only disable but not enable password-free access over VPC.
+     *  *
+     * @param ModifyInstanceVpcAuthModeRequest $request ModifyInstanceVpcAuthModeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyInstanceVpcAuthModeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyInstanceVpcAuthModeResponse
-     *
-     * @param ModifyInstanceVpcAuthModeRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return ModifyInstanceVpcAuthModeResponse
+     * @return ModifyInstanceVpcAuthModeResponse ModifyInstanceVpcAuthModeResponse
      */
     public function modifyInstanceVpcAuthModeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->vpcAuthMode) {
-            @$query['VpcAuthMode'] = $request->vpcAuthMode;
+        if (!Utils::isUnset($request->vpcAuthMode)) {
+            $query['VpcAuthMode'] = $request->vpcAuthMode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyInstanceVpcAuthMode',
@@ -9763,30 +7690,22 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyInstanceVpcAuthModeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceVpcAuthModeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceVpcAuthModeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Disables password-free access over Virtual Private Cloud (VPC) for an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
+     * @summary Disables password-free access over Virtual Private Cloud (VPC) for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description Before you call this operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
      * *   The instance is a replica set or sharded cluster instance.
      * *   The database engine version of the instance is 4.0 (with the minor version of mongodb_20190408_3.0.11 or later) or 4.2. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/62010.html) operation to view the database engine version of the instance. If necessary, you can call the [UpgradeDBInstanceEngineVersion](https://help.aliyun.com/document_detail/67608.html) operation to upgrade the database engine version of the instance.
      * *   The network type of the instance must be VPC. If the network type of the instance is classic network, you must call the [ModifyDBInstanceNetworkType](https://help.aliyun.com/document_detail/62138.html) operation to change the network type to VPC.
      * *   You can only disable but not enable password-free access over VPC.
+     *  *
+     * @param ModifyInstanceVpcAuthModeRequest $request ModifyInstanceVpcAuthModeRequest
      *
-     * @param request - ModifyInstanceVpcAuthModeRequest
-     *
-     * @returns ModifyInstanceVpcAuthModeResponse
-     *
-     * @param ModifyInstanceVpcAuthModeRequest $request
-     *
-     * @return ModifyInstanceVpcAuthModeResponse
+     * @return ModifyInstanceVpcAuthModeResponse ModifyInstanceVpcAuthModeResponse
      */
     public function modifyInstanceVpcAuthMode($request)
     {
@@ -9796,96 +7715,73 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Changes the specifications and storage capacity of a node of an ApsaraDB for MongoDB sharded cluster instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+     * @summary Changes the specifications and storage capacity of a node of an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
      * > This operation is applicable only to sharded cluster instances.
+     *  *
+     * @param ModifyNodeSpecRequest $request ModifyNodeSpecRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyNodeSpecRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyNodeSpecResponse
-     *
-     * @param ModifyNodeSpecRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ModifyNodeSpecResponse
+     * @return ModifyNodeSpecResponse ModifyNodeSpecResponse
      */
     public function modifyNodeSpecWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->businessInfo) {
-            @$query['BusinessInfo'] = $request->businessInfo;
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->effectiveTime) {
-            @$query['EffectiveTime'] = $request->effectiveTime;
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
         }
-
-        if (null !== $request->fromApp) {
-            @$query['FromApp'] = $request->fromApp;
+        if (!Utils::isUnset($request->fromApp)) {
+            $query['FromApp'] = $request->fromApp;
         }
-
-        if (null !== $request->nodeClass) {
-            @$query['NodeClass'] = $request->nodeClass;
+        if (!Utils::isUnset($request->nodeClass)) {
+            $query['NodeClass'] = $request->nodeClass;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->nodeStorage) {
-            @$query['NodeStorage'] = $request->nodeStorage;
+        if (!Utils::isUnset($request->nodeStorage)) {
+            $query['NodeStorage'] = $request->nodeStorage;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->readonlyReplicas) {
-            @$query['ReadonlyReplicas'] = $request->readonlyReplicas;
+        if (!Utils::isUnset($request->readonlyReplicas)) {
+            $query['ReadonlyReplicas'] = $request->readonlyReplicas;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->switchTime) {
-            @$query['SwitchTime'] = $request->switchTime;
+        if (!Utils::isUnset($request->switchTime)) {
+            $query['SwitchTime'] = $request->switchTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyNodeSpec',
@@ -9898,27 +7794,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyNodeSpecResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyNodeSpecResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyNodeSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Changes the specifications and storage capacity of a node of an ApsaraDB for MongoDB sharded cluster instance.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
+     * @summary Changes the specifications and storage capacity of a node of an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB.
      * > This operation is applicable only to sharded cluster instances.
+     *  *
+     * @param ModifyNodeSpecRequest $request ModifyNodeSpecRequest
      *
-     * @param request - ModifyNodeSpecRequest
-     *
-     * @returns ModifyNodeSpecResponse
-     *
-     * @param ModifyNodeSpecRequest $request
-     *
-     * @return ModifyNodeSpecResponse
+     * @return ModifyNodeSpecResponse ModifyNodeSpecResponse
      */
     public function modifyNodeSpec($request)
     {
@@ -9928,81 +7816,62 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Changes the configurations of mongos or shard nodes in an ApsaraDB for MongoDB sharded cluster instance.
-     *
-     * @remarks
-     * Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
+     * @summary Changes the configurations of mongos or shard nodes in an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
      * This operation is applicable only to sharded cluster instances.
      * When you upgrade or downgrade the configurations of multiple sharded cluster instances in batches, the specifications of the instances are limited. For example, if you want to expand the storage capacity of the instances, the storage capacity of the instances after expansion must be greater than the current capacity. When the specifications of multiple sharded cluster instances are different, limits are defined based on the specifications of a random sharded cluster instance. In this case, you may be unable to upgrade or downgrade the configurations of the instances. In this case, we recommend that you call the ModifyNodeSpec operation to individually change the configurations of each sharded cluster instance.
+     *  *
+     * @param ModifyNodeSpecBatchRequest $request ModifyNodeSpecBatchRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyNodeSpecBatchRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyNodeSpecBatchResponse
-     *
-     * @param ModifyNodeSpecBatchRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ModifyNodeSpecBatchResponse
+     * @return ModifyNodeSpecBatchResponse ModifyNodeSpecBatchResponse
      */
     public function modifyNodeSpecBatchWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->businessInfo) {
-            @$query['BusinessInfo'] = $request->businessInfo;
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->effectiveTime) {
-            @$query['EffectiveTime'] = $request->effectiveTime;
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
         }
-
-        if (null !== $request->nodesInfo) {
-            @$query['NodesInfo'] = $request->nodesInfo;
+        if (!Utils::isUnset($request->nodesInfo)) {
+            $query['NodesInfo'] = $request->nodesInfo;
         }
-
-        if (null !== $request->orderType) {
-            @$query['OrderType'] = $request->orderType;
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyNodeSpecBatch',
@@ -10015,28 +7884,20 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyNodeSpecBatchResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyNodeSpecBatchResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyNodeSpecBatchResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Changes the configurations of mongos or shard nodes in an ApsaraDB for MongoDB sharded cluster instance.
-     *
-     * @remarks
-     * Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
+     * @summary Changes the configurations of mongos or shard nodes in an ApsaraDB for MongoDB sharded cluster instance.
+     *  *
+     * @description Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB before you call this operation.
      * This operation is applicable only to sharded cluster instances.
      * When you upgrade or downgrade the configurations of multiple sharded cluster instances in batches, the specifications of the instances are limited. For example, if you want to expand the storage capacity of the instances, the storage capacity of the instances after expansion must be greater than the current capacity. When the specifications of multiple sharded cluster instances are different, limits are defined based on the specifications of a random sharded cluster instance. In this case, you may be unable to upgrade or downgrade the configurations of the instances. In this case, we recommend that you call the ModifyNodeSpec operation to individually change the configurations of each sharded cluster instance.
+     *  *
+     * @param ModifyNodeSpecBatchRequest $request ModifyNodeSpecBatchRequest
      *
-     * @param request - ModifyNodeSpecBatchRequest
-     *
-     * @returns ModifyNodeSpecBatchResponse
-     *
-     * @param ModifyNodeSpecBatchRequest $request
-     *
-     * @return ModifyNodeSpecBatchResponse
+     * @return ModifyNodeSpecBatchResponse ModifyNodeSpecBatchResponse
      */
     public function modifyNodeSpecBatch($request)
     {
@@ -10046,64 +7907,52 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Modifies the parameters of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     *   The instance must be in the Running state when you call this operation.
+     * @summary Modifies the parameters of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   The instance must be in the Running state when you call this operation.
      * *   If you call this operation to modify specific instance parameters and the modification for part of the parameters can take effect only after an instance restart, the instance is automatically restarted after this operation is called. You can call the [DescribeParameterTemplates](https://help.aliyun.com/document_detail/67618.html) operation to query the parameters that take effect only after the instance is restarted.
+     *  *
+     * @param ModifyParametersRequest $request ModifyParametersRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyParametersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyParametersResponse
-     *
-     * @param ModifyParametersRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ModifyParametersResponse
+     * @return ModifyParametersResponse ModifyParametersResponse
      */
     public function modifyParametersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->characterType) {
-            @$query['CharacterType'] = $request->characterType;
+        if (!Utils::isUnset($request->characterType)) {
+            $query['CharacterType'] = $request->characterType;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->parameters) {
-            @$query['Parameters'] = $request->parameters;
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
+        if (!Utils::isUnset($request->switchMode)) {
+            $query['SwitchMode'] = $request->switchMode;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyParameters',
@@ -10116,27 +7965,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyParametersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyParametersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyParametersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the parameters of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     *   The instance must be in the Running state when you call this operation.
+     * @summary Modifies the parameters of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description *   The instance must be in the Running state when you call this operation.
      * *   If you call this operation to modify specific instance parameters and the modification for part of the parameters can take effect only after an instance restart, the instance is automatically restarted after this operation is called. You can call the [DescribeParameterTemplates](https://help.aliyun.com/document_detail/67618.html) operation to query the parameters that take effect only after the instance is restarted.
+     *  *
+     * @param ModifyParametersRequest $request ModifyParametersRequest
      *
-     * @param request - ModifyParametersRequest
-     *
-     * @returns ModifyParametersResponse
-     *
-     * @param ModifyParametersRequest $request
-     *
-     * @return ModifyParametersResponse
+     * @return ModifyParametersResponse ModifyParametersResponse
      */
     public function modifyParameters($request)
     {
@@ -10146,55 +7987,42 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Moves an ApsaraDB for MongoDB instance to a specified resource group.
+     * @summary Moves an ApsaraDB for MongoDB instance to a specified resource group.
+     *  *
+     * @description Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+     *  *
+     * @param ModifyResourceGroupRequest $request ModifyResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
-     *
-     * @param request - ModifyResourceGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyResourceGroupResponse
-     *
-     * @param ModifyResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ModifyResourceGroupResponse
+     * @return ModifyResourceGroupResponse ModifyResourceGroupResponse
      */
     public function modifyResourceGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyResourceGroup',
@@ -10207,26 +8035,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Moves an ApsaraDB for MongoDB instance to a specified resource group.
+     * @summary Moves an ApsaraDB for MongoDB instance to a specified resource group.
+     *  *
+     * @description Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
+     *  *
+     * @param ModifyResourceGroupRequest $request ModifyResourceGroupRequest
      *
-     * @remarks
-     * Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
-     *
-     * @param request - ModifyResourceGroupRequest
-     *
-     * @returns ModifyResourceGroupResponse
-     *
-     * @param ModifyResourceGroupRequest $request
-     *
-     * @return ModifyResourceGroupResponse
+     * @return ModifyResourceGroupResponse ModifyResourceGroupResponse
      */
     public function modifyResourceGroup($request)
     {
@@ -10236,51 +8056,39 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * You can call this operation to modify an ECS Security group that is bound to an ApsaraDB for MongoDB instance.
+     * @summary You can call this operation to modify an ECS Security group that is bound to an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  For a sharded cluster instance, the bound ECS security group takes effect only for mongos nodes.
+     *  *
+     * @param ModifySecurityGroupConfigurationRequest $request ModifySecurityGroupConfigurationRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  For a sharded cluster instance, the bound ECS security group takes effect only for mongos nodes.
-     *
-     * @param request - ModifySecurityGroupConfigurationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifySecurityGroupConfigurationResponse
-     *
-     * @param ModifySecurityGroupConfigurationRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return ModifySecurityGroupConfigurationResponse
+     * @return ModifySecurityGroupConfigurationResponse ModifySecurityGroupConfigurationResponse
      */
     public function modifySecurityGroupConfigurationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityGroupId) {
-            @$query['SecurityGroupId'] = $request->securityGroupId;
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifySecurityGroupConfiguration',
@@ -10293,26 +8101,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifySecurityGroupConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifySecurityGroupConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifySecurityGroupConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * You can call this operation to modify an ECS Security group that is bound to an ApsaraDB for MongoDB instance.
+     * @summary You can call this operation to modify an ECS Security group that is bound to an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  For a sharded cluster instance, the bound ECS security group takes effect only for mongos nodes.
+     *  *
+     * @param ModifySecurityGroupConfigurationRequest $request ModifySecurityGroupConfigurationRequest
      *
-     * @remarks
-     * >  For a sharded cluster instance, the bound ECS security group takes effect only for mongos nodes.
-     *
-     * @param request - ModifySecurityGroupConfigurationRequest
-     *
-     * @returns ModifySecurityGroupConfigurationResponse
-     *
-     * @param ModifySecurityGroupConfigurationRequest $request
-     *
-     * @return ModifySecurityGroupConfigurationResponse
+     * @return ModifySecurityGroupConfigurationResponse ModifySecurityGroupConfigurationResponse
      */
     public function modifySecurityGroupConfiguration($request)
     {
@@ -10322,60 +8122,46 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Modifies the IP address whitelist of an ApsaraDB for MongoDB instance.
+     * @summary Modifies the IP address whitelist of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifySecurityIpsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifySecurityIpsResponse
-     *
-     * @param ModifySecurityIpsRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ModifySecurityIpsResponse
+     * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
      */
     public function modifySecurityIpsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->modifyMode) {
-            @$query['ModifyMode'] = $request->modifyMode;
+        if (!Utils::isUnset($request->modifyMode)) {
+            $query['ModifyMode'] = $request->modifyMode;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->securityIpGroupAttribute) {
-            @$query['SecurityIpGroupAttribute'] = $request->securityIpGroupAttribute;
+        if (!Utils::isUnset($request->securityIpGroupAttribute)) {
+            $query['SecurityIpGroupAttribute'] = $request->securityIpGroupAttribute;
         }
-
-        if (null !== $request->securityIpGroupName) {
-            @$query['SecurityIpGroupName'] = $request->securityIpGroupName;
+        if (!Utils::isUnset($request->securityIpGroupName)) {
+            $query['SecurityIpGroupName'] = $request->securityIpGroupName;
         }
-
-        if (null !== $request->securityIps) {
-            @$query['SecurityIps'] = $request->securityIps;
+        if (!Utils::isUnset($request->securityIps)) {
+            $query['SecurityIps'] = $request->securityIps;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifySecurityIps',
@@ -10388,23 +8174,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifySecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifySecurityIpsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifySecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the IP address whitelist of an ApsaraDB for MongoDB instance.
+     * @summary Modifies the IP address whitelist of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
      *
-     * @param request - ModifySecurityIpsRequest
-     *
-     * @returns ModifySecurityIpsResponse
-     *
-     * @param ModifySecurityIpsRequest $request
-     *
-     * @return ModifySecurityIpsResponse
+     * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
      */
     public function modifySecurityIps($request)
     {
@@ -10414,55 +8193,42 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Modifies the information of a task in the task center for an ApsaraDB for MongoDB instance.
+     * @summary Modifies the information of a task in the task center for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description The actions performed by this operation for a task vary based on the current state of the task. The supported actions for a task can be obtained from the value of the actionInfo parameter in the DescribeHistoryTasks operation.
+     *  *
+     * @param ModifyTaskInfoRequest $request ModifyTaskInfoRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * The actions performed by this operation for a task vary based on the current state of the task. The supported actions for a task can be obtained from the value of the actionInfo parameter in the DescribeHistoryTasks operation.
-     *
-     * @param request - ModifyTaskInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyTaskInfoResponse
-     *
-     * @param ModifyTaskInfoRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ModifyTaskInfoResponse
+     * @return ModifyTaskInfoResponse ModifyTaskInfoResponse
      */
     public function modifyTaskInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->actionParams) {
-            @$query['ActionParams'] = $request->actionParams;
+        if (!Utils::isUnset($request->actionParams)) {
+            $query['ActionParams'] = $request->actionParams;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->stepName) {
-            @$query['StepName'] = $request->stepName;
+        if (!Utils::isUnset($request->stepName)) {
+            $query['StepName'] = $request->stepName;
         }
-
-        if (null !== $request->taskAction) {
-            @$query['TaskAction'] = $request->taskAction;
+        if (!Utils::isUnset($request->taskAction)) {
+            $query['TaskAction'] = $request->taskAction;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyTaskInfo',
@@ -10475,26 +8241,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyTaskInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Modifies the information of a task in the task center for an ApsaraDB for MongoDB instance.
+     * @summary Modifies the information of a task in the task center for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description The actions performed by this operation for a task vary based on the current state of the task. The supported actions for a task can be obtained from the value of the actionInfo parameter in the DescribeHistoryTasks operation.
+     *  *
+     * @param ModifyTaskInfoRequest $request ModifyTaskInfoRequest
      *
-     * @remarks
-     * The actions performed by this operation for a task vary based on the current state of the task. The supported actions for a task can be obtained from the value of the actionInfo parameter in the DescribeHistoryTasks operation.
-     *
-     * @param request - ModifyTaskInfoRequest
-     *
-     * @returns ModifyTaskInfoResponse
-     *
-     * @param ModifyTaskInfoRequest $request
-     *
-     * @return ModifyTaskInfoResponse
+     * @return ModifyTaskInfoResponse ModifyTaskInfoResponse
      */
     public function modifyTaskInfo($request)
     {
@@ -10504,60 +8262,46 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Releases the internal endpoint of a shard or Configserver node in a sharded cluster instance.
-     *
-     * @remarks
-     *   This operation can be used to release the internal endpoint of a shard or Configserver node in a sharded cluster instance. For more information, see [Release the endpoint of a shard or Configserver node](https://help.aliyun.com/document_detail/134067.html).
+     * @summary Releases the internal endpoint of a shard or Configserver node in a sharded cluster instance.
+     *  *
+     * @description *   This operation can be used to release the internal endpoint of a shard or Configserver node in a sharded cluster instance. For more information, see [Release the endpoint of a shard or Configserver node](https://help.aliyun.com/document_detail/134067.html).
      * *   To release the public endpoint of a shard or Configserver node in a sharded cluster instance, you can call the [ReleasePublicNetworkAddress](https://help.aliyun.com/document_detail/67604.html) operation.
+     *  *
+     * @param ReleaseNodePrivateNetworkAddressRequest $request ReleaseNodePrivateNetworkAddressRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ReleaseNodePrivateNetworkAddressRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ReleaseNodePrivateNetworkAddressResponse
-     *
-     * @param ReleaseNodePrivateNetworkAddressRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return ReleaseNodePrivateNetworkAddressResponse
+     * @return ReleaseNodePrivateNetworkAddressResponse ReleaseNodePrivateNetworkAddressResponse
      */
     public function releaseNodePrivateNetworkAddressWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->connectionType) {
-            @$query['ConnectionType'] = $request->connectionType;
+        if (!Utils::isUnset($request->connectionType)) {
+            $query['ConnectionType'] = $request->connectionType;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->networkType) {
-            @$query['NetworkType'] = $request->networkType;
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ReleaseNodePrivateNetworkAddress',
@@ -10570,27 +8314,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReleaseNodePrivateNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReleaseNodePrivateNetworkAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReleaseNodePrivateNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Releases the internal endpoint of a shard or Configserver node in a sharded cluster instance.
-     *
-     * @remarks
-     *   This operation can be used to release the internal endpoint of a shard or Configserver node in a sharded cluster instance. For more information, see [Release the endpoint of a shard or Configserver node](https://help.aliyun.com/document_detail/134067.html).
+     * @summary Releases the internal endpoint of a shard or Configserver node in a sharded cluster instance.
+     *  *
+     * @description *   This operation can be used to release the internal endpoint of a shard or Configserver node in a sharded cluster instance. For more information, see [Release the endpoint of a shard or Configserver node](https://help.aliyun.com/document_detail/134067.html).
      * *   To release the public endpoint of a shard or Configserver node in a sharded cluster instance, you can call the [ReleasePublicNetworkAddress](https://help.aliyun.com/document_detail/67604.html) operation.
+     *  *
+     * @param ReleaseNodePrivateNetworkAddressRequest $request ReleaseNodePrivateNetworkAddressRequest
      *
-     * @param request - ReleaseNodePrivateNetworkAddressRequest
-     *
-     * @returns ReleaseNodePrivateNetworkAddressResponse
-     *
-     * @param ReleaseNodePrivateNetworkAddressRequest $request
-     *
-     * @return ReleaseNodePrivateNetworkAddressResponse
+     * @return ReleaseNodePrivateNetworkAddressResponse ReleaseNodePrivateNetworkAddressResponse
      */
     public function releaseNodePrivateNetworkAddress($request)
     {
@@ -10600,52 +8336,40 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Releases the public endpoint of an ApsaraDB for MongoDB instance.
+     * @summary Releases the public endpoint of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ReleasePublicNetworkAddressRequest $request ReleasePublicNetworkAddressRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ReleasePublicNetworkAddressRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ReleasePublicNetworkAddressResponse
-     *
-     * @param ReleasePublicNetworkAddressRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ReleasePublicNetworkAddressResponse
+     * @return ReleasePublicNetworkAddressResponse ReleasePublicNetworkAddressResponse
      */
     public function releasePublicNetworkAddressWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->connectionType) {
-            @$query['ConnectionType'] = $request->connectionType;
+        if (!Utils::isUnset($request->connectionType)) {
+            $query['ConnectionType'] = $request->connectionType;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ReleasePublicNetworkAddress',
@@ -10658,23 +8382,16 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ReleasePublicNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReleasePublicNetworkAddressResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReleasePublicNetworkAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Releases the public endpoint of an ApsaraDB for MongoDB instance.
+     * @summary Releases the public endpoint of an ApsaraDB for MongoDB instance.
+     *  *
+     * @param ReleasePublicNetworkAddressRequest $request ReleasePublicNetworkAddressRequest
      *
-     * @param request - ReleasePublicNetworkAddressRequest
-     *
-     * @returns ReleasePublicNetworkAddressResponse
-     *
-     * @param ReleasePublicNetworkAddressRequest $request
-     *
-     * @return ReleasePublicNetworkAddressResponse
+     * @return ReleasePublicNetworkAddressResponse ReleasePublicNetworkAddressResponse
      */
     public function releasePublicNetworkAddress($request)
     {
@@ -10684,72 +8401,55 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Manually renews an ApsaraDB for MongoDB subscription instance.
-     *
-     * @remarks
-     * Make sure that you fully understand the billing methods and pricing of ApsaraDB for MongoDB before you call this operation. For more information about the pricing of ApsaraDB for MongoDB, visit the [pricing tab of the product buy page](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
+     * @summary Manually renews an ApsaraDB for MongoDB subscription instance.
+     *  *
+     * @description Make sure that you fully understand the billing methods and pricing of ApsaraDB for MongoDB before you call this operation. For more information about the pricing of ApsaraDB for MongoDB, visit the [pricing tab of the product buy page](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
      * This operation is only applicable to instances that use the subscription billing method.
+     *  *
+     * @param RenewDBInstanceRequest $request RenewDBInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RenewDBInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RenewDBInstanceResponse
-     *
-     * @param RenewDBInstanceRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return RenewDBInstanceResponse
+     * @return RenewDBInstanceResponse RenewDBInstanceResponse
      */
     public function renewDBInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->autoRenew) {
-            @$query['AutoRenew'] = $request->autoRenew;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
-
-        if (null !== $request->businessInfo) {
-            @$query['BusinessInfo'] = $request->businessInfo;
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
         }
-
-        if (null !== $request->clientToken) {
-            @$query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RenewDBInstance',
@@ -10762,27 +8462,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RenewDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RenewDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RenewDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Manually renews an ApsaraDB for MongoDB subscription instance.
-     *
-     * @remarks
-     * Make sure that you fully understand the billing methods and pricing of ApsaraDB for MongoDB before you call this operation. For more information about the pricing of ApsaraDB for MongoDB, visit the [pricing tab of the product buy page](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
+     * @summary Manually renews an ApsaraDB for MongoDB subscription instance.
+     *  *
+     * @description Make sure that you fully understand the billing methods and pricing of ApsaraDB for MongoDB before you call this operation. For more information about the pricing of ApsaraDB for MongoDB, visit the [pricing tab of the product buy page](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
      * This operation is only applicable to instances that use the subscription billing method.
+     *  *
+     * @param RenewDBInstanceRequest $request RenewDBInstanceRequest
      *
-     * @param request - RenewDBInstanceRequest
-     *
-     * @returns RenewDBInstanceResponse
-     *
-     * @param RenewDBInstanceRequest $request
-     *
-     * @return RenewDBInstanceResponse
+     * @return RenewDBInstanceResponse RenewDBInstanceResponse
      */
     public function renewDBInstance($request)
     {
@@ -10792,59 +8484,45 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Resets the password of the root account in an ApsaraDB for MongoDB instance.
+     * @summary Resets the password of the root account in an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  This operation can be used to reset only the password of the root account of an instance.
+     *  *
+     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * >  This operation can be used to reset only the password of the root account of an instance.
-     *
-     * @param request - ResetAccountPasswordRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ResetAccountPasswordResponse
-     *
-     * @param ResetAccountPasswordRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ResetAccountPasswordResponse
+     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
      */
     public function resetAccountPasswordWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->accountName) {
-            @$query['AccountName'] = $request->accountName;
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
         }
-
-        if (null !== $request->accountPassword) {
-            @$query['AccountPassword'] = $request->accountPassword;
+        if (!Utils::isUnset($request->accountPassword)) {
+            $query['AccountPassword'] = $request->accountPassword;
         }
-
-        if (null !== $request->characterType) {
-            @$query['CharacterType'] = $request->characterType;
+        if (!Utils::isUnset($request->characterType)) {
+            $query['CharacterType'] = $request->characterType;
         }
-
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ResetAccountPassword',
@@ -10857,26 +8535,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResetAccountPasswordResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Resets the password of the root account in an ApsaraDB for MongoDB instance.
+     * @summary Resets the password of the root account in an ApsaraDB for MongoDB instance.
+     *  *
+     * @description >  This operation can be used to reset only the password of the root account of an instance.
+     *  *
+     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
      *
-     * @remarks
-     * >  This operation can be used to reset only the password of the root account of an instance.
-     *
-     * @param request - ResetAccountPasswordRequest
-     *
-     * @returns ResetAccountPasswordResponse
-     *
-     * @param ResetAccountPasswordRequest $request
-     *
-     * @return ResetAccountPasswordResponse
+     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
      */
     public function resetAccountPassword($request)
     {
@@ -10886,51 +8556,42 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Restarts an ApsaraDB for MongoDB instance.
+     * @summary Restarts an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation can also be used to restart an instance, or restart a shard or mongos node in a sharded cluster instance.
+     *  *
+     * @param RestartDBInstanceRequest $request RestartDBInstanceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * This operation can also be used to restart an instance, or restart a shard or mongos node in a sharded cluster instance.
-     *
-     * @param request - RestartDBInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RestartDBInstanceResponse
-     *
-     * @param RestartDBInstanceRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return RestartDBInstanceResponse
+     * @return RestartDBInstanceResponse RestartDBInstanceResponse
      */
     public function restartDBInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
+        if (!Utils::isUnset($request->switchMode)) {
+            $query['SwitchMode'] = $request->switchMode;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RestartDBInstance',
@@ -10943,26 +8604,18 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RestartDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RestartDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RestartDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Restarts an ApsaraDB for MongoDB instance.
+     * @summary Restarts an ApsaraDB for MongoDB instance.
+     *  *
+     * @description This operation can also be used to restart an instance, or restart a shard or mongos node in a sharded cluster instance.
+     *  *
+     * @param RestartDBInstanceRequest $request RestartDBInstanceRequest
      *
-     * @remarks
-     * This operation can also be used to restart an instance, or restart a shard or mongos node in a sharded cluster instance.
-     *
-     * @param request - RestartDBInstanceRequest
-     *
-     * @returns RestartDBInstanceResponse
-     *
-     * @param RestartDBInstanceRequest $request
-     *
-     * @return RestartDBInstanceResponse
+     * @return RestartDBInstanceResponse RestartDBInstanceResponse
      */
     public function restartDBInstance($request)
     {
@@ -10972,58 +8625,48 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Restarts a node in an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * You can call this operation to restart a node in a replica set instance or a child instance in a sharded cluster instance.
+     * @summary Restarts a node in an ApsaraDB for MongoDB instance.
+     *  *
+     * @description You can call this operation to restart a node in a replica set instance or a child instance in a sharded cluster instance.
      * >  When you call this operation, the instance must meet the following requirements:
      * *   The instance is in the Running state.
      * *   The instance is a replica set or sharded cluster instance of the standard edition.
+     *  *
+     * @param RestartNodeRequest $request RestartNodeRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - RestartNodeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RestartNodeResponse
-     *
-     * @param RestartNodeRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return RestartNodeResponse
+     * @return RestartNodeResponse RestartNodeResponse
      */
     public function restartNodeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->roleId) {
-            @$query['RoleId'] = $request->roleId;
+        if (!Utils::isUnset($request->roleId)) {
+            $query['RoleId'] = $request->roleId;
         }
-
+        if (!Utils::isUnset($request->switchMode)) {
+            $query['SwitchMode'] = $request->switchMode;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'RestartNode',
@@ -11036,29 +8679,21 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RestartNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RestartNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return RestartNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Restarts a node in an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * You can call this operation to restart a node in a replica set instance or a child instance in a sharded cluster instance.
+     * @summary Restarts a node in an ApsaraDB for MongoDB instance.
+     *  *
+     * @description You can call this operation to restart a node in a replica set instance or a child instance in a sharded cluster instance.
      * >  When you call this operation, the instance must meet the following requirements:
      * *   The instance is in the Running state.
      * *   The instance is a replica set or sharded cluster instance of the standard edition.
+     *  *
+     * @param RestartNodeRequest $request RestartNodeRequest
      *
-     * @param request - RestartNodeRequest
-     *
-     * @returns RestartNodeResponse
-     *
-     * @param RestartNodeRequest $request
-     *
-     * @return RestartNodeResponse
+     * @return RestartNodeResponse RestartNodeResponse
      */
     public function restartNode($request)
     {
@@ -11068,62 +8703,48 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Switches the primary and secondary nodes for an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * The instance must be running when you call this operation.
+     * @summary Switches the primary and secondary nodes for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description The instance must be running when you call this operation.
      * >
      * *   This operation is applicable to replica set instances and sharded cluster instances, but cannot be performed on standalone instances.
      * *   On replica set instances, the switch is performed between instances. On sharded cluster instances, the switch is performed between shards.
+     *  *
+     * @param SwitchDBInstanceHARequest $request SwitchDBInstanceHARequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SwitchDBInstanceHARequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SwitchDBInstanceHAResponse
-     *
-     * @param SwitchDBInstanceHARequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return SwitchDBInstanceHAResponse
+     * @return SwitchDBInstanceHAResponse SwitchDBInstanceHAResponse
      */
     public function switchDBInstanceHAWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->nodeId) {
-            @$query['NodeId'] = $request->nodeId;
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->roleIds) {
-            @$query['RoleIds'] = $request->roleIds;
+        if (!Utils::isUnset($request->roleIds)) {
+            $query['RoleIds'] = $request->roleIds;
         }
-
-        if (null !== $request->switchMode) {
-            @$query['SwitchMode'] = $request->switchMode;
+        if (!Utils::isUnset($request->switchMode)) {
+            $query['SwitchMode'] = $request->switchMode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SwitchDBInstanceHA',
@@ -11136,29 +8757,21 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SwitchDBInstanceHAResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SwitchDBInstanceHAResponse::fromMap($this->execute($params, $req, $runtime));
+        return SwitchDBInstanceHAResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Switches the primary and secondary nodes for an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * The instance must be running when you call this operation.
+     * @summary Switches the primary and secondary nodes for an ApsaraDB for MongoDB instance.
+     *  *
+     * @description The instance must be running when you call this operation.
      * >
      * *   This operation is applicable to replica set instances and sharded cluster instances, but cannot be performed on standalone instances.
      * *   On replica set instances, the switch is performed between instances. On sharded cluster instances, the switch is performed between shards.
+     *  *
+     * @param SwitchDBInstanceHARequest $request SwitchDBInstanceHARequest
      *
-     * @param request - SwitchDBInstanceHARequest
-     *
-     * @returns SwitchDBInstanceHAResponse
-     *
-     * @param SwitchDBInstanceHARequest $request
-     *
-     * @return SwitchDBInstanceHAResponse
+     * @return SwitchDBInstanceHAResponse SwitchDBInstanceHAResponse
      */
     public function switchDBInstanceHA($request)
     {
@@ -11168,68 +8781,53 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Binds tags to ApsaraDB for MongoDB instances.
-     *
-     * @remarks
-     * If you have a large number of instances, you can create multiple tags, bind the tags to the instances, and filter the instances by tag.
+     * @summary Binds tags to ApsaraDB for MongoDB instances.
+     *  *
+     * @description If you have a large number of instances, you can create multiple tags, bind the tags to the instances, and filter the instances by tag.
      * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
      * *   If the tag that you specify does not exist, this tag is automatically created and bound to the specified instance.
      * *   If a tag that has the same key is already bound to the instance, the new tag overwrites the existing tag.
      * *   You can bind up to 20 tags to each instance.
      * *   You can bind tags to up to 50 instances each time you call the operation.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tag) {
-            @$query['Tag'] = $request->tag;
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'TagResources',
@@ -11242,31 +8840,23 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Binds tags to ApsaraDB for MongoDB instances.
-     *
-     * @remarks
-     * If you have a large number of instances, you can create multiple tags, bind the tags to the instances, and filter the instances by tag.
+     * @summary Binds tags to ApsaraDB for MongoDB instances.
+     *  *
+     * @description If you have a large number of instances, you can create multiple tags, bind the tags to the instances, and filter the instances by tag.
      * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
      * *   If the tag that you specify does not exist, this tag is automatically created and bound to the specified instance.
      * *   If a tag that has the same key is already bound to the instance, the new tag overwrites the existing tag.
      * *   You can bind up to 20 tags to each instance.
      * *   You can bind tags to up to 50 instances each time you call the operation.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @param request - TagResourcesRequest
-     *
-     * @returns TagResourcesResponse
-     *
-     * @param TagResourcesRequest $request
-     *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -11276,48 +8866,37 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Switches the backup mode of an ApsaraDB for MongoDB sharded cluster instance to the cluster backup mode. After the instance is switched to the cluster backup mode, the instance supports high-frequency backup.
-     *
-     * @remarks
-     *   The instance is an ApsaraDB for MongoDB sharded cluster instance that runs MongoDB 4.4 or later and uses enhanced SSDs (ESSDs) to store data.
+     * @summary Switches the backup mode of an ApsaraDB for MongoDB sharded cluster instance to the cluster backup mode. After the instance is switched to the cluster backup mode, the instance supports high-frequency backup.
+     *  *
+     * @description *   The instance is an ApsaraDB for MongoDB sharded cluster instance that runs MongoDB 4.4 or later and uses enhanced SSDs (ESSDs) to store data.
      * *   You can call the TransferClusterBackup operation only for instances that are created before October 19, 2023 to switch the instances to the cluster backup mode. Cloud disk-based sharded cluster instances that are created on or after October 19, 2023 are set to the cluster backup mode by default.
+     *  *
+     * @param TransferClusterBackupRequest $request TransferClusterBackupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TransferClusterBackupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns TransferClusterBackupResponse
-     *
-     * @param TransferClusterBackupRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return TransferClusterBackupResponse
+     * @return TransferClusterBackupResponse TransferClusterBackupResponse
      */
     public function transferClusterBackupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'TransferClusterBackup',
@@ -11330,27 +8909,19 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TransferClusterBackupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TransferClusterBackupResponse::fromMap($this->execute($params, $req, $runtime));
+        return TransferClusterBackupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Switches the backup mode of an ApsaraDB for MongoDB sharded cluster instance to the cluster backup mode. After the instance is switched to the cluster backup mode, the instance supports high-frequency backup.
-     *
-     * @remarks
-     *   The instance is an ApsaraDB for MongoDB sharded cluster instance that runs MongoDB 4.4 or later and uses enhanced SSDs (ESSDs) to store data.
+     * @summary Switches the backup mode of an ApsaraDB for MongoDB sharded cluster instance to the cluster backup mode. After the instance is switched to the cluster backup mode, the instance supports high-frequency backup.
+     *  *
+     * @description *   The instance is an ApsaraDB for MongoDB sharded cluster instance that runs MongoDB 4.4 or later and uses enhanced SSDs (ESSDs) to store data.
      * *   You can call the TransferClusterBackup operation only for instances that are created before October 19, 2023 to switch the instances to the cluster backup mode. Cloud disk-based sharded cluster instances that are created on or after October 19, 2023 are set to the cluster backup mode by default.
+     *  *
+     * @param TransferClusterBackupRequest $request TransferClusterBackupRequest
      *
-     * @param request - TransferClusterBackupRequest
-     *
-     * @returns TransferClusterBackupResponse
-     *
-     * @param TransferClusterBackupRequest $request
-     *
-     * @return TransferClusterBackupResponse
+     * @return TransferClusterBackupResponse TransferClusterBackupResponse
      */
     public function transferClusterBackup($request)
     {
@@ -11360,80 +8931,62 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Changes the billing method of an instance from pay-as-you-go to subscription or from subscription to pay-as-you-go.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB
+     * @summary Changes the billing method of an instance from pay-as-you-go to subscription or from subscription to pay-as-you-go.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB
      * Before you call this API operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
      * *   The instance is in the Running state.
      * *   Your instance has no unpaid billing method change orders.
      * *   The instance type is available for purchase. For more information about unavailable instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
      * > To change the billing method of an instance whose instance type is no longer available to purchase, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to change the instance type first.
+     *  *
+     * @param TransformInstanceChargeTypeRequest $request TransformInstanceChargeTypeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TransformInstanceChargeTypeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns TransformInstanceChargeTypeResponse
-     *
-     * @param TransformInstanceChargeTypeRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return TransformInstanceChargeTypeResponse
+     * @return TransformInstanceChargeTypeResponse TransformInstanceChargeTypeResponse
      */
     public function transformInstanceChargeTypeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->autoRenew) {
-            @$query['AutoRenew'] = $request->autoRenew;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
-
-        if (null !== $request->businessInfo) {
-            @$query['BusinessInfo'] = $request->businessInfo;
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
         }
-
-        if (null !== $request->chargeType) {
-            @$query['ChargeType'] = $request->chargeType;
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->pricingCycle) {
-            @$query['PricingCycle'] = $request->pricingCycle;
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'TransformInstanceChargeType',
@@ -11446,31 +8999,23 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TransformInstanceChargeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TransformInstanceChargeTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return TransformInstanceChargeTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Changes the billing method of an instance from pay-as-you-go to subscription or from subscription to pay-as-you-go.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB
+     * @summary Changes the billing method of an instance from pay-as-you-go to subscription or from subscription to pay-as-you-go.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/product/apsaradb-for-mongodb/pricing) of ApsaraDB for MongoDB
      * Before you call this API operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
      * *   The instance is in the Running state.
      * *   Your instance has no unpaid billing method change orders.
      * *   The instance type is available for purchase. For more information about unavailable instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
      * > To change the billing method of an instance whose instance type is no longer available to purchase, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to change the instance type first.
+     *  *
+     * @param TransformInstanceChargeTypeRequest $request TransformInstanceChargeTypeRequest
      *
-     * @param request - TransformInstanceChargeTypeRequest
-     *
-     * @returns TransformInstanceChargeTypeResponse
-     *
-     * @param TransformInstanceChargeTypeRequest $request
-     *
-     * @return TransformInstanceChargeTypeResponse
+     * @return TransformInstanceChargeTypeResponse TransformInstanceChargeTypeResponse
      */
     public function transformInstanceChargeType($request)
     {
@@ -11480,10 +9025,9 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Changes the billing method of an ApsaraDB for MongoDB instance from pay-as-you-go to subscription.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
+     * @summary Changes the billing method of an ApsaraDB for MongoDB instance from pay-as-you-go to subscription.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
      * A subscription instance cannot be changed to a pay-as-you-go instance. To avoid wasting resources, proceed with caution.
      * Before you call this API operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
      * *   The instance is in the running state.
@@ -11491,63 +9035,48 @@ class Dds extends OpenApiClient
      * *   The instance has no unpaid subscription orders.
      * *   The instance type is available for purchase. For more information about unavailable instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
      * >  To change the billing method of an instance whose instance type is no longer available to subscription, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to first change the instance type.
+     *  *
+     * @param TransformToPrePaidRequest $request TransformToPrePaidRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - TransformToPrePaidRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns TransformToPrePaidResponse
-     *
-     * @param TransformToPrePaidRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return TransformToPrePaidResponse
+     * @return TransformToPrePaidResponse TransformToPrePaidResponse
      */
     public function transformToPrePaidWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->autoPay) {
-            @$query['AutoPay'] = $request->autoPay;
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
         }
-
-        if (null !== $request->autoRenew) {
-            @$query['AutoRenew'] = $request->autoRenew;
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
         }
-
-        if (null !== $request->businessInfo) {
-            @$query['BusinessInfo'] = $request->businessInfo;
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
         }
-
-        if (null !== $request->couponNo) {
-            @$query['CouponNo'] = $request->couponNo;
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
         }
-
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->period) {
-            @$query['Period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'TransformToPrePaid',
@@ -11560,18 +9089,14 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TransformToPrePaidResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TransformToPrePaidResponse::fromMap($this->execute($params, $req, $runtime));
+        return TransformToPrePaidResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Changes the billing method of an ApsaraDB for MongoDB instance from pay-as-you-go to subscription.
-     *
-     * @remarks
-     * Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
+     * @summary Changes the billing method of an ApsaraDB for MongoDB instance from pay-as-you-go to subscription.
+     *  *
+     * @description Before you call this operation, make sure that you understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing).
      * A subscription instance cannot be changed to a pay-as-you-go instance. To avoid wasting resources, proceed with caution.
      * Before you call this API operation, make sure that the ApsaraDB for MongoDB instance meets the following requirements:
      * *   The instance is in the running state.
@@ -11579,14 +9104,10 @@ class Dds extends OpenApiClient
      * *   The instance has no unpaid subscription orders.
      * *   The instance type is available for purchase. For more information about unavailable instance types, see [Instance types](https://help.aliyun.com/document_detail/57141.html).
      * >  To change the billing method of an instance whose instance type is no longer available to subscription, call the [ModifyDBInstanceSpec](https://help.aliyun.com/document_detail/61816.html) or [ModifyNodeSpec](https://help.aliyun.com/document_detail/61923.html) operation to first change the instance type.
+     *  *
+     * @param TransformToPrePaidRequest $request TransformToPrePaidRequest
      *
-     * @param request - TransformToPrePaidRequest
-     *
-     * @returns TransformToPrePaidResponse
-     *
-     * @param TransformToPrePaidRequest $request
-     *
-     * @return TransformToPrePaidResponse
+     * @return TransformToPrePaidResponse TransformToPrePaidResponse
      */
     public function transformToPrePaid($request)
     {
@@ -11596,69 +9117,53 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Removes a tag if the tag is not added to another instance.
-     *
-     * @remarks
-     * >
+     * @summary Removes a tag if the tag is not added to another instance.
+     *  *
+     * @description >
      * *   You can remove up to 20 tags at a time.
      * *   If you remove a tag from all instances, the tag is automatically deleted.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UntagResourcesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->all) {
-            @$query['All'] = $request->all;
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceGroupId) {
-            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
-
-        if (null !== $request->resourceId) {
-            @$query['ResourceId'] = $request->resourceId;
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->tagKey) {
-            @$query['TagKey'] = $request->tagKey;
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UntagResources',
@@ -11671,28 +9176,20 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Removes a tag if the tag is not added to another instance.
-     *
-     * @remarks
-     * >
+     * @summary Removes a tag if the tag is not added to another instance.
+     *  *
+     * @description >
      * *   You can remove up to 20 tags at a time.
      * *   If you remove a tag from all instances, the tag is automatically deleted.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @param request - UntagResourcesRequest
-     *
-     * @returns UntagResourcesResponse
-     *
-     * @param UntagResourcesRequest $request
-     *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -11702,58 +9199,45 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Upgrades the database version of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * The instance must be in the running state when you call this operation.
+     * @summary Upgrades the database version of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description The instance must be in the running state when you call this operation.
      * > * The available database versions depend on the storage engine used by the instance. For more information, see [Upgrades of MongoDB major versions](https://help.aliyun.com/document_detail/398673.html). You can also call the [DescribeAvailableEngineVersion](https://help.aliyun.com/document_detail/141355.html) operation to query the available database versions.
      * > * You cannot downgrade the MongoDB version of an instance after you upgrade it.
      * > * The instance is automatically restarted for two to three times during the upgrade process. Make sure that you upgrade the instance during off-peak hours.
+     *  *
+     * @param UpgradeDBInstanceEngineVersionRequest $request UpgradeDBInstanceEngineVersionRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpgradeDBInstanceEngineVersionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpgradeDBInstanceEngineVersionResponse
-     *
-     * @param UpgradeDBInstanceEngineVersionRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return UpgradeDBInstanceEngineVersionResponse
+     * @return UpgradeDBInstanceEngineVersionResponse UpgradeDBInstanceEngineVersionResponse
      */
     public function upgradeDBInstanceEngineVersionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->engineVersion) {
-            @$query['EngineVersion'] = $request->engineVersion;
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->switchMode) {
-            @$query['SwitchMode'] = $request->switchMode;
+        if (!Utils::isUnset($request->switchMode)) {
+            $query['SwitchMode'] = $request->switchMode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpgradeDBInstanceEngineVersion',
@@ -11766,29 +9250,21 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpgradeDBInstanceEngineVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpgradeDBInstanceEngineVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpgradeDBInstanceEngineVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Upgrades the database version of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * The instance must be in the running state when you call this operation.
+     * @summary Upgrades the database version of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description The instance must be in the running state when you call this operation.
      * > * The available database versions depend on the storage engine used by the instance. For more information, see [Upgrades of MongoDB major versions](https://help.aliyun.com/document_detail/398673.html). You can also call the [DescribeAvailableEngineVersion](https://help.aliyun.com/document_detail/141355.html) operation to query the available database versions.
      * > * You cannot downgrade the MongoDB version of an instance after you upgrade it.
      * > * The instance is automatically restarted for two to three times during the upgrade process. Make sure that you upgrade the instance during off-peak hours.
+     *  *
+     * @param UpgradeDBInstanceEngineVersionRequest $request UpgradeDBInstanceEngineVersionRequest
      *
-     * @param request - UpgradeDBInstanceEngineVersionRequest
-     *
-     * @returns UpgradeDBInstanceEngineVersionResponse
-     *
-     * @param UpgradeDBInstanceEngineVersionRequest $request
-     *
-     * @return UpgradeDBInstanceEngineVersionResponse
+     * @return UpgradeDBInstanceEngineVersionResponse UpgradeDBInstanceEngineVersionResponse
      */
     public function upgradeDBInstanceEngineVersion($request)
     {
@@ -11798,53 +9274,41 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * Upgrades the minor version of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * When you call the UpgradeDBInstanceKernelVersion operation, the instance must be in the Running state.
+     * @summary Upgrades the minor version of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description When you call the UpgradeDBInstanceKernelVersion operation, the instance must be in the Running state.
      * > * The UpgradeDBInstanceKernelVersion operation is applicable to replica set and sharded cluster instances, but not to standalone instances.
      * > * The instance will be restarted once during the upgrade. Call this operation during off-peak hours.
+     *  *
+     * @param UpgradeDBInstanceKernelVersionRequest $request UpgradeDBInstanceKernelVersionRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpgradeDBInstanceKernelVersionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpgradeDBInstanceKernelVersionResponse
-     *
-     * @param UpgradeDBInstanceKernelVersionRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return UpgradeDBInstanceKernelVersionResponse
+     * @return UpgradeDBInstanceKernelVersionResponse UpgradeDBInstanceKernelVersionResponse
      */
     public function upgradeDBInstanceKernelVersionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->DBInstanceId) {
-            @$query['DBInstanceId'] = $request->DBInstanceId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-
-        if (null !== $request->ownerAccount) {
-            @$query['OwnerAccount'] = $request->ownerAccount;
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->resourceOwnerAccount) {
-            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-
-        if (null !== $request->resourceOwnerId) {
-            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-
-        if (null !== $request->switchMode) {
-            @$query['SwitchMode'] = $request->switchMode;
+        if (!Utils::isUnset($request->switchMode)) {
+            $query['SwitchMode'] = $request->switchMode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpgradeDBInstanceKernelVersion',
@@ -11857,28 +9321,20 @@ class Dds extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpgradeDBInstanceKernelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpgradeDBInstanceKernelVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpgradeDBInstanceKernelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * Upgrades the minor version of an ApsaraDB for MongoDB instance.
-     *
-     * @remarks
-     * When you call the UpgradeDBInstanceKernelVersion operation, the instance must be in the Running state.
+     * @summary Upgrades the minor version of an ApsaraDB for MongoDB instance.
+     *  *
+     * @description When you call the UpgradeDBInstanceKernelVersion operation, the instance must be in the Running state.
      * > * The UpgradeDBInstanceKernelVersion operation is applicable to replica set and sharded cluster instances, but not to standalone instances.
      * > * The instance will be restarted once during the upgrade. Call this operation during off-peak hours.
+     *  *
+     * @param UpgradeDBInstanceKernelVersionRequest $request UpgradeDBInstanceKernelVersionRequest
      *
-     * @param request - UpgradeDBInstanceKernelVersionRequest
-     *
-     * @returns UpgradeDBInstanceKernelVersionResponse
-     *
-     * @param UpgradeDBInstanceKernelVersionRequest $request
-     *
-     * @return UpgradeDBInstanceKernelVersionResponse
+     * @return UpgradeDBInstanceKernelVersionResponse UpgradeDBInstanceKernelVersionResponse
      */
     public function upgradeDBInstanceKernelVersion($request)
     {

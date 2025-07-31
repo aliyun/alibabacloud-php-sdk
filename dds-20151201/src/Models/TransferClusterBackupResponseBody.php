@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class TransferClusterBackupResponseBody extends Model
 {
     /**
+     * @description Indicates whether the instance is switched to the cluster backup mode. If the value of this parameter is **1**, the instance is switched to the cluster backup mode.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $alreadyDone;
 
     /**
+     * @description The request ID.
+     *
+     * @example 3C4A2494-85C4-45C5-93CF-548DB3375193
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class TransferClusterBackupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alreadyDone) {
             $res['AlreadyDone'] = $this->alreadyDone;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class TransferClusterBackupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TransferClusterBackupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlreadyDone'])) {
             $model->alreadyDone = $map['AlreadyDone'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

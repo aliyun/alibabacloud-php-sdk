@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceAttributeResponseBody\DBInstances;
+use AlibabaCloud\Tea\Model;
 
 class DescribeDBInstanceAttributeResponseBody extends Model
 {
     /**
+     * @description The instance details.
+     *
      * @var DBInstances
      */
     public $DBInstances;
 
     /**
+     * @description The request ID.
+     *
+     * @example A935A8EE-A6CC-53DE-98BA-20ABAA7E632B
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +29,14 @@ class DescribeDBInstanceAttributeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->DBInstances) {
-            $this->DBInstances->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->DBInstances) {
-            $res['DBInstances'] = null !== $this->DBInstances ? $this->DBInstances->toArray($noStream) : $this->DBInstances;
+            $res['DBInstances'] = null !== $this->DBInstances ? $this->DBInstances->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +44,17 @@ class DescribeDBInstanceAttributeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeDBInstanceAttributeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstances'])) {
             $model->DBInstances = DBInstances::fromMap($map['DBInstances']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

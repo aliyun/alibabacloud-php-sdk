@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableResourceResponseBody\supportedDBTypes\supportedDBType\availableZones\availableZone\supportedEngineVersions\supportedEngineVersion\supportedEngines;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableResourceResponseBody\supportedDBTypes\supportedDBType\availableZones\availableZone\supportedEngineVersions\supportedEngineVersion\supportedEngines\supportedEngine\supportedNodeTypes;
+use AlibabaCloud\Tea\Model;
 
 class supportedEngine extends Model
 {
     /**
+     * @description The storage engine of the instance.
+     *
+     * @example WiredTiger
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The supported instance types.
+     *
      * @var supportedNodeTypes
      */
     public $supportedNodeTypes;
@@ -23,40 +29,32 @@ class supportedEngine extends Model
         'supportedNodeTypes' => 'SupportedNodeTypes',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->supportedNodeTypes) {
-            $this->supportedNodeTypes->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
-
         if (null !== $this->supportedNodeTypes) {
-            $res['SupportedNodeTypes'] = null !== $this->supportedNodeTypes ? $this->supportedNodeTypes->toArray($noStream) : $this->supportedNodeTypes;
+            $res['SupportedNodeTypes'] = null !== $this->supportedNodeTypes ? $this->supportedNodeTypes->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return supportedEngine
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
-
         if (isset($map['SupportedNodeTypes'])) {
             $model->supportedNodeTypes = supportedNodeTypes::fromMap($map['SupportedNodeTypes']);
         }

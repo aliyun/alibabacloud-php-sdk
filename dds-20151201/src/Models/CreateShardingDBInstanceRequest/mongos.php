@@ -4,11 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\CreateShardingDBInstanceRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class mongos extends Model
 {
     /**
+     * @description The instance type of the mongos node. For more information, see [Sharded cluster instance types](https://help.aliyun.com/document_detail/311414.html).
+     *
+     * > *   **N** specifies the serial number of the mongos node for which the instance type is specified. For example, **Mongos.2.Class** specifies the instance type of the second mongos node.
+     * > *   Valid values for **N**: **2** to **32**.
+     *
+     * This parameter is required.
+     *
+     * @example mdb.shard.2x.xlarge.d
+     *
      * @var string
      */
     public $class;
@@ -16,12 +25,9 @@ class mongos extends Model
         'class' => 'Class',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->class) {
@@ -31,11 +37,11 @@ class mongos extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return mongos
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

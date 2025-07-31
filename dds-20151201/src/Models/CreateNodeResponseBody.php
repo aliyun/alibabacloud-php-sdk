@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateNodeResponseBody extends Model
 {
     /**
+     * @description The node ID.
+     *
+     * @example d-bp1b234bf7a4****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The order ID.
+     *
+     * @example 20951063702****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 7D48FB19-20CA-4725-A870-3D8F5CE6****
+     *
      * @var string
      */
     public $requestId;
@@ -28,22 +40,17 @@ class CreateNodeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
-
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,22 +58,20 @@ class CreateNodeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateNodeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
-
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

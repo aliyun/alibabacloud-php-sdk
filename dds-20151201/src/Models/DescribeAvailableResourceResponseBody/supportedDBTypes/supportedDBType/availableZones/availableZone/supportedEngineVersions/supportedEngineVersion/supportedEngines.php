@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableResourceResponseBody\supportedDBTypes\supportedDBType\availableZones\availableZone\supportedEngineVersions\supportedEngineVersion;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableResourceResponseBody\supportedDBTypes\supportedDBType\availableZones\availableZone\supportedEngineVersions\supportedEngineVersion\supportedEngines\supportedEngine;
+use AlibabaCloud\Tea\Model;
 
 class supportedEngines extends Model
 {
@@ -17,23 +17,17 @@ class supportedEngines extends Model
         'supportedEngine' => 'SupportedEngine',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->supportedEngine)) {
-            Model::validateArray($this->supportedEngine);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->supportedEngine) {
-            if (\is_array($this->supportedEngine)) {
-                $res['SupportedEngine'] = [];
-                $n1 = 0;
-                foreach ($this->supportedEngine as $item1) {
-                    $res['SupportedEngine'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['SupportedEngine'] = [];
+            if (null !== $this->supportedEngine && \is_array($this->supportedEngine)) {
+                $n = 0;
+                foreach ($this->supportedEngine as $item) {
+                    $res['SupportedEngine'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class supportedEngines extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return supportedEngines
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupportedEngine'])) {
             if (!empty($map['SupportedEngine'])) {
                 $model->supportedEngine = [];
-                $n1 = 0;
-                foreach ($map['SupportedEngine'] as $item1) {
-                    $model->supportedEngine[$n1++] = supportedEngine::fromMap($item1);
+                $n = 0;
+                foreach ($map['SupportedEngine'] as $item) {
+                    $model->supportedEngine[$n++] = null !== $item ? supportedEngine::fromMap($item) : $item;
                 }
             }
         }

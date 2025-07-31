@@ -4,33 +4,49 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeParametersResponseBody\configParameters;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeParametersResponseBody\runningParameters;
+use AlibabaCloud\Tea\Model;
 
 class DescribeParametersResponseBody extends Model
 {
     /**
+     * @description The parameter settings in the configuration template.
+     *
      * @var configParameters
      */
     public $configParameters;
 
     /**
+     * @description The database engine of the instance. Default value: **mongodb**.
+     *
+     * @example mongodb
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The database engine version of the instance.
+     *
+     * @example 4.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The request ID.
+     *
+     * @example 3ADD0C7D-2D2A-4F15-88FF-E7AC9B9FDCC8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The settings of the parameters that have taken effect.
+     *
      * @var runningParameters
      */
     public $runningParameters;
@@ -42,67 +58,50 @@ class DescribeParametersResponseBody extends Model
         'runningParameters' => 'RunningParameters',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->configParameters) {
-            $this->configParameters->validate();
-        }
-        if (null !== $this->runningParameters) {
-            $this->runningParameters->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->configParameters) {
-            $res['ConfigParameters'] = null !== $this->configParameters ? $this->configParameters->toArray($noStream) : $this->configParameters;
+            $res['ConfigParameters'] = null !== $this->configParameters ? $this->configParameters->toMap() : null;
         }
-
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
-
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->runningParameters) {
-            $res['RunningParameters'] = null !== $this->runningParameters ? $this->runningParameters->toArray($noStream) : $this->runningParameters;
+            $res['RunningParameters'] = null !== $this->runningParameters ? $this->runningParameters->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeParametersResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigParameters'])) {
             $model->configParameters = configParameters::fromMap($map['ConfigParameters']);
         }
-
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
-
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['RunningParameters'])) {
             $model->runningParameters = runningParameters::fromMap($map['RunningParameters']);
         }

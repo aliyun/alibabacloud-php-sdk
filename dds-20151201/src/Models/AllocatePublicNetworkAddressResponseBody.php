@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AllocatePublicNetworkAddressResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 8AA45036-497F-52E7-B951-F9C7B239****
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class AllocatePublicNetworkAddressResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class AllocatePublicNetworkAddressResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AllocatePublicNetworkAddressResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

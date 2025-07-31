@@ -4,17 +4,26 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableResourceResponseBody\supportedDBTypes;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeAvailableResourceResponseBody\supportedDBTypes\supportedDBType\availableZones;
+use AlibabaCloud\Tea\Model;
 
 class supportedDBType extends Model
 {
     /**
+     * @description The available zones.
+     *
      * @var availableZones
      */
     public $availableZones;
 
     /**
+     * @description The architecture of the instance. Valid values:
+     *
+     *   **normal**: replica set instance
+     *   **sharding**: sharded cluster instance
+     *
+     * @example sharding
+     *
      * @var string
      */
     public $dbType;
@@ -23,21 +32,14 @@ class supportedDBType extends Model
         'dbType' => 'DbType',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->availableZones) {
-            $this->availableZones->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->availableZones) {
-            $res['AvailableZones'] = null !== $this->availableZones ? $this->availableZones->toArray($noStream) : $this->availableZones;
+            $res['AvailableZones'] = null !== $this->availableZones ? $this->availableZones->toMap() : null;
         }
-
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
         }
@@ -45,18 +47,17 @@ class supportedDBType extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return supportedDBType
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableZones'])) {
             $model->availableZones = availableZones::fromMap($map['AvailableZones']);
         }
-
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeKernelReleaseNotesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeKernelReleaseNotesResponseBody\releaseNotes\releaseNote;
+use AlibabaCloud\Tea\Model;
 
 class releaseNotes extends Model
 {
@@ -17,23 +17,17 @@ class releaseNotes extends Model
         'releaseNote' => 'ReleaseNote',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->releaseNote)) {
-            Model::validateArray($this->releaseNote);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->releaseNote) {
-            if (\is_array($this->releaseNote)) {
-                $res['ReleaseNote'] = [];
-                $n1 = 0;
-                foreach ($this->releaseNote as $item1) {
-                    $res['ReleaseNote'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ReleaseNote'] = [];
+            if (null !== $this->releaseNote && \is_array($this->releaseNote)) {
+                $n = 0;
+                foreach ($this->releaseNote as $item) {
+                    $res['ReleaseNote'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class releaseNotes extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return releaseNotes
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReleaseNote'])) {
             if (!empty($map['ReleaseNote'])) {
                 $model->releaseNote = [];
-                $n1 = 0;
-                foreach ($map['ReleaseNote'] as $item1) {
-                    $model->releaseNote[$n1++] = releaseNote::fromMap($item1);
+                $n = 0;
+                foreach ($map['ReleaseNote'] as $item) {
+                    $model->releaseNote[$n++] = null !== $item ? releaseNote::fromMap($item) : $item;
                 }
             }
         }

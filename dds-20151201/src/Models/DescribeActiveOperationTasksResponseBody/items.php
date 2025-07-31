@@ -4,136 +4,241 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeActiveOperationTasksResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
     /**
+     * @description N/A
+     *
+     * @example ***
+     *
      * @var string
      */
     public $allowCancel;
 
     /**
+     * @description Indicates whether the modification operation is allowed.
+     *
+     *   **0**: The modification operation is not allowed.
+     *   **1**: The modification operation is allowed.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $allowChange;
 
     /**
+     * @description The change level of the O\\&M task.
+     *
+     * @example ***
+     *
      * @var string
      */
     public $changeLevel;
 
     /**
+     * @description N/A
+     *
+     * @example ***
+     *
      * @var string
      */
     public $changeLevelEn;
 
     /**
+     * @description The task type in English.
+     *
+     * @example ***
+     *
      * @var string
      */
     public $changeLevelZh;
 
     /**
+     * @description The time when the task was created.
+     *
+     * @example 2021-07-14 10:48:43
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description N/A
+     *
+     * @example ***
+     *
      * @var string
      */
     public $currentAVZ;
 
     /**
+     * @description The type of the database engine.
+     *
+     * @example mongoDb
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @description The version of the database engine.
+     *
+     * @example 5.6
+     *
      * @var string
      */
     public $dbVersion;
 
     /**
+     * @description The end time of the O\\&M task.
+     *
+     * @example 1646014421633
+     *
      * @var string
      */
     public $deadline;
 
     /**
+     * @description The task ID.
+     *
+     * @example ***
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description N/A
+     *
+     * @example ***
+     *
      * @var string
      */
     public $impactEn;
 
     /**
+     * @description N/A
+     *
+     * @example ***
+     *
      * @var string
      */
     public $impactZh;
 
     /**
+     * @description The description of the instance.
+     *
+     * @example ***
+     *
      * @var string
      */
     public $insComment;
 
     /**
+     * @description The ID of the node.
+     *
+     * @example ***
+     *
      * @var string
      */
     public $insName;
 
     /**
+     * @description The time when the task is modified. The time follows the ISO 8601 standard in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2022-12-24T09:48:01Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @description The required preparation period between the task start time and the switchover time. The time is displayed in the *HH:mm:ss* format.
+     *
+     * @example ***
+     *
      * @var string
      */
     public $prepareInterval;
 
     /**
+     * @description The region of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The result information. The value of this parameter can be ignored.
+     *
+     * @example ***
+     *
      * @var string
      */
     public $resultInfo;
 
     /**
+     * @description The start time of the task. The time follows the ISO 8601 standard in the *yyyy-mm-dd* T*hh:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2022-12-24T06:01:05Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description N/A
+     *
+     * @example ***
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The subinstances.
+     *
      * @var string[]
      */
     public $subInsNames;
 
     /**
+     * @description The switchover point in time in which disconnection may occur. The time follows the ISO 8601 standard in the *yyyy-mm-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2022-11-24T11:20:00Z
+     *
      * @var string
      */
     public $switchTime;
 
     /**
+     * @description The task type.
+     *
+     * @example ***
+     *
      * @var string
      */
     public $taskType;
 
     /**
+     * @description N/A
+     *
+     * @example ***
+     *
      * @var string
      */
     public $taskTypeEn;
 
     /**
+     * @description The task type in Chinese.
+     *
+     * @example ***
+     *
      * @var string
      */
     public $taskTypeZh;
@@ -166,123 +271,86 @@ class items extends Model
         'taskTypeZh' => 'TaskTypeZh',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->subInsNames)) {
-            Model::validateArray($this->subInsNames);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->allowCancel) {
             $res['AllowCancel'] = $this->allowCancel;
         }
-
         if (null !== $this->allowChange) {
             $res['AllowChange'] = $this->allowChange;
         }
-
         if (null !== $this->changeLevel) {
             $res['ChangeLevel'] = $this->changeLevel;
         }
-
         if (null !== $this->changeLevelEn) {
             $res['ChangeLevelEn'] = $this->changeLevelEn;
         }
-
         if (null !== $this->changeLevelZh) {
             $res['ChangeLevelZh'] = $this->changeLevelZh;
         }
-
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
-
         if (null !== $this->currentAVZ) {
             $res['CurrentAVZ'] = $this->currentAVZ;
         }
-
         if (null !== $this->dbType) {
             $res['DbType'] = $this->dbType;
         }
-
         if (null !== $this->dbVersion) {
             $res['DbVersion'] = $this->dbVersion;
         }
-
         if (null !== $this->deadline) {
             $res['Deadline'] = $this->deadline;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->impactEn) {
             $res['ImpactEn'] = $this->impactEn;
         }
-
         if (null !== $this->impactZh) {
             $res['ImpactZh'] = $this->impactZh;
         }
-
         if (null !== $this->insComment) {
             $res['InsComment'] = $this->insComment;
         }
-
         if (null !== $this->insName) {
             $res['InsName'] = $this->insName;
         }
-
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
         }
-
         if (null !== $this->prepareInterval) {
             $res['PrepareInterval'] = $this->prepareInterval;
         }
-
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-
         if (null !== $this->resultInfo) {
             $res['ResultInfo'] = $this->resultInfo;
         }
-
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->subInsNames) {
-            if (\is_array($this->subInsNames)) {
-                $res['SubInsNames'] = [];
-                $n1 = 0;
-                foreach ($this->subInsNames as $item1) {
-                    $res['SubInsNames'][$n1++] = $item1;
-                }
-            }
+            $res['SubInsNames'] = $this->subInsNames;
         }
-
         if (null !== $this->switchTime) {
             $res['SwitchTime'] = $this->switchTime;
         }
-
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
-
         if (null !== $this->taskTypeEn) {
             $res['TaskTypeEn'] = $this->taskTypeEn;
         }
-
         if (null !== $this->taskTypeZh) {
             $res['TaskTypeZh'] = $this->taskTypeZh;
         }
@@ -290,120 +358,91 @@ class items extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return items
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllowCancel'])) {
             $model->allowCancel = $map['AllowCancel'];
         }
-
         if (isset($map['AllowChange'])) {
             $model->allowChange = $map['AllowChange'];
         }
-
         if (isset($map['ChangeLevel'])) {
             $model->changeLevel = $map['ChangeLevel'];
         }
-
         if (isset($map['ChangeLevelEn'])) {
             $model->changeLevelEn = $map['ChangeLevelEn'];
         }
-
         if (isset($map['ChangeLevelZh'])) {
             $model->changeLevelZh = $map['ChangeLevelZh'];
         }
-
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
-
         if (isset($map['CurrentAVZ'])) {
             $model->currentAVZ = $map['CurrentAVZ'];
         }
-
         if (isset($map['DbType'])) {
             $model->dbType = $map['DbType'];
         }
-
         if (isset($map['DbVersion'])) {
             $model->dbVersion = $map['DbVersion'];
         }
-
         if (isset($map['Deadline'])) {
             $model->deadline = $map['Deadline'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['ImpactEn'])) {
             $model->impactEn = $map['ImpactEn'];
         }
-
         if (isset($map['ImpactZh'])) {
             $model->impactZh = $map['ImpactZh'];
         }
-
         if (isset($map['InsComment'])) {
             $model->insComment = $map['InsComment'];
         }
-
         if (isset($map['InsName'])) {
             $model->insName = $map['InsName'];
         }
-
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
         }
-
         if (isset($map['PrepareInterval'])) {
             $model->prepareInterval = $map['PrepareInterval'];
         }
-
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-
         if (isset($map['ResultInfo'])) {
             $model->resultInfo = $map['ResultInfo'];
         }
-
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['SubInsNames'])) {
             if (!empty($map['SubInsNames'])) {
-                $model->subInsNames = [];
-                $n1 = 0;
-                foreach ($map['SubInsNames'] as $item1) {
-                    $model->subInsNames[$n1++] = $item1;
-                }
+                $model->subInsNames = $map['SubInsNames'];
             }
         }
-
         if (isset($map['SwitchTime'])) {
             $model->switchTime = $map['SwitchTime'];
         }
-
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }
-
         if (isset($map['TaskTypeEn'])) {
             $model->taskTypeEn = $map['TaskTypeEn'];
         }
-
         if (isset($map['TaskTypeZh'])) {
             $model->taskTypeZh = $map['TaskTypeZh'];
         }

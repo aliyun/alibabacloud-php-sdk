@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyInstanceAutoRenewalAttributeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example EFD65226-08CC-4C4D-B6A4-CB3C382F67B0
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyInstanceAutoRenewalAttributeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyInstanceAutoRenewalAttributeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyInstanceAutoRenewalAttributeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

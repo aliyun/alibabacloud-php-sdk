@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeGlobalSecurityIPGroupResponseBody\globalSecurityIPGroup;
+use AlibabaCloud\Tea\Model;
 
 class DescribeGlobalSecurityIPGroupResponseBody extends Model
 {
     /**
+     * @description The global IP whitelist templates.
+     *
      * @var globalSecurityIPGroup[]
      */
     public $globalSecurityIPGroup;
 
     /**
+     * @description The unique ID of the request. If the request fails, provide this ID for technical support to troubleshoot the failure.
+     *
+     * @example 72651AF9-7897-41A7-8B67-6C15C7F26A0A
+     *
      * @var string
      */
     public $requestId;
@@ -23,27 +29,20 @@ class DescribeGlobalSecurityIPGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->globalSecurityIPGroup)) {
-            Model::validateArray($this->globalSecurityIPGroup);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->globalSecurityIPGroup) {
-            if (\is_array($this->globalSecurityIPGroup)) {
-                $res['GlobalSecurityIPGroup'] = [];
-                $n1 = 0;
-                foreach ($this->globalSecurityIPGroup as $item1) {
-                    $res['GlobalSecurityIPGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['GlobalSecurityIPGroup'] = [];
+            if (null !== $this->globalSecurityIPGroup && \is_array($this->globalSecurityIPGroup)) {
+                $n = 0;
+                foreach ($this->globalSecurityIPGroup as $item) {
+                    $res['GlobalSecurityIPGroup'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,24 +50,23 @@ class DescribeGlobalSecurityIPGroupResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeGlobalSecurityIPGroupResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GlobalSecurityIPGroup'])) {
             if (!empty($map['GlobalSecurityIPGroup'])) {
                 $model->globalSecurityIPGroup = [];
-                $n1 = 0;
-                foreach ($map['GlobalSecurityIPGroup'] as $item1) {
-                    $model->globalSecurityIPGroup[$n1++] = globalSecurityIPGroup::fromMap($item1);
+                $n = 0;
+                foreach ($map['GlobalSecurityIPGroup'] as $item) {
+                    $model->globalSecurityIPGroup[$n++] = null !== $item ? globalSecurityIPGroup::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

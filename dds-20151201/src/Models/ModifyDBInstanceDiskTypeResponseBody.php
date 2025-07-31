@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyDBInstanceDiskTypeResponseBody extends Model
 {
     /**
+     * @description The order ID.
+     *
+     * @example 21012719476****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
+     * @example D8F1D721-6439-4257-A89C-F1E8E9C9****
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class ModifyDBInstanceDiskTypeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class ModifyDBInstanceDiskTypeResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyDBInstanceDiskTypeResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

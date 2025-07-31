@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateNodeBatchResponseBody extends Model
 {
     /**
+     * @description The ID of the added mongos or shard node.
+     *
+     * @example d-bp18f7d6b6a7****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 50179021707****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 55D41A94-1ACE-55E8-8BC7-67D622E7****
+     *
      * @var string
      */
     public $requestId;
@@ -28,22 +40,17 @@ class CreateNodeBatchResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
-
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,22 +58,20 @@ class CreateNodeBatchResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateNodeBatchResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
-
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

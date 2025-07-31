@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dds\V20151201\Models\DescribeBackupTasksResponseBody\backupJobs;
+use AlibabaCloud\Tea\Model;
 
 class DescribeBackupTasksResponseBody extends Model
 {
     /**
+     * @description The details of the backup task.
+     *
      * @var backupJobs[]
      */
     public $backupJobs;
 
     /**
+     * @description The request ID.
+     *
+     * @example D648B367-15B6-1B42-BD4B-47507C9CC****
+     *
      * @var string
      */
     public $requestId;
@@ -23,27 +29,20 @@ class DescribeBackupTasksResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->backupJobs)) {
-            Model::validateArray($this->backupJobs);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->backupJobs) {
-            if (\is_array($this->backupJobs)) {
-                $res['BackupJobs'] = [];
-                $n1 = 0;
-                foreach ($this->backupJobs as $item1) {
-                    $res['BackupJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['BackupJobs'] = [];
+            if (null !== $this->backupJobs && \is_array($this->backupJobs)) {
+                $n = 0;
+                foreach ($this->backupJobs as $item) {
+                    $res['BackupJobs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,24 +50,23 @@ class DescribeBackupTasksResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeBackupTasksResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupJobs'])) {
             if (!empty($map['BackupJobs'])) {
                 $model->backupJobs = [];
-                $n1 = 0;
-                foreach ($map['BackupJobs'] as $item1) {
-                    $model->backupJobs[$n1++] = backupJobs::fromMap($item1);
+                $n = 0;
+                foreach ($map['BackupJobs'] as $item) {
+                    $model->backupJobs[$n++] = null !== $item ? backupJobs::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

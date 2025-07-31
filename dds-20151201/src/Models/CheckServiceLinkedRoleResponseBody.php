@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CheckServiceLinkedRoleResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 7BE0D8D2-6702-5639-A9C2-xxxxxxx
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether an SLR is created.
+     *
+     * @example True
+     *
      * @var bool
      */
     public $serviceLinkedRoleExists;
@@ -22,18 +30,14 @@ class CheckServiceLinkedRoleResponseBody extends Model
         'serviceLinkedRoleExists' => 'ServiceLinkedRoleExists',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->serviceLinkedRoleExists) {
             $res['ServiceLinkedRoleExists'] = $this->serviceLinkedRoleExists;
         }
@@ -41,18 +45,17 @@ class CheckServiceLinkedRoleResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CheckServiceLinkedRoleResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ServiceLinkedRoleExists'])) {
             $model->serviceLinkedRoleExists = $map['ServiceLinkedRoleExists'];
         }
