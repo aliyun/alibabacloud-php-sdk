@@ -28,6 +28,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateBusinessResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataAssetTagRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataAssetTagResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataAssetTagShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityAlertRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityAlertRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityAlertRuleShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityEvaluationTaskInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityEvaluationTaskInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityEvaluationTaskInstanceShrinkRequest;
@@ -40,6 +43,14 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityRuleShrin
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityRuleTemplateRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityRuleTemplateResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityRuleTemplateShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityScanRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityScanResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityScanRunRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityScanRunResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityScanRunShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityScanShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityTemplateRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityTemplateResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataSourceSharedRuleRequest;
@@ -101,12 +112,18 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteCertificateResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataAssetTagRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataAssetTagResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataAssetTagShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityAlertRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityAlertRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityEvaluationTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityEvaluationTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityRuleTemplateRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityRuleTemplateResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityScanRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityScanResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityTemplateRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityTemplateResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataSourceSharedRuleRequest;
@@ -173,6 +190,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCreateWorkflowInstances
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetCreateWorkflowInstancesResultResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDatabaseRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDatabaseResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityAlertRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityAlertRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskRequest;
@@ -181,6 +200,14 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityRuleTemplateRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityRuleTemplateResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityScanRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityScanResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityScanRunLogRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityScanRunLogResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityScanRunRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityScanRunResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityTemplateRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityTemplateResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDeploymentPackageRequest;
@@ -271,6 +298,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataAssetTagsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataAssetTagsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDatabasesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDatabasesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityAlertRulesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityAlertRulesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityEvaluationTaskInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityEvaluationTaskInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityEvaluationTasksRequest;
@@ -281,6 +310,12 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityRulesReques
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityRulesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityRuleTemplatesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityRuleTemplatesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityScanRunsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityScanRunsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityScansRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityScansResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityTemplatesRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityTemplatesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourceSharedRulesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourceSharedRulesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourcesRequest;
@@ -453,6 +488,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateColumnBusinessMetada
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataAssetTagRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataAssetTagResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataAssetTagShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityAlertRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityAlertRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityAlertRuleShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityEvaluationTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityEvaluationTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityEvaluationTaskShrinkRequest;
@@ -462,6 +500,11 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityRuleShrin
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityRuleTemplateRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityRuleTemplateResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityRuleTemplateShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityScanRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityScanResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityScanShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityTemplateRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityTemplateResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIAlarmRuleRequest;
@@ -1325,6 +1368,70 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary 创建数据质量告警规则
+     *  *
+     * @param CreateDataQualityAlertRuleRequest $tmpReq  CreateDataQualityAlertRuleRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDataQualityAlertRuleResponse CreateDataQualityAlertRuleResponse
+     */
+    public function createDataQualityAlertRuleWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDataQualityAlertRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->target)) {
+            $request->targetShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->target, 'Target', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->condition)) {
+            $body['Condition'] = $request->condition;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $body['Notification'] = $request->notificationShrink;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->targetShrink)) {
+            $body['Target'] = $request->targetShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataQualityAlertRule',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataQualityAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建数据质量告警规则
+     *  *
+     * @param CreateDataQualityAlertRuleRequest $request CreateDataQualityAlertRuleRequest
+     *
+     * @return CreateDataQualityAlertRuleResponse CreateDataQualityAlertRuleResponse
+     */
+    public function createDataQualityAlertRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataQualityAlertRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a monitor in DataWorks Data Quality.
      *  *
      * @description This API operation is supported in all DataWorks editions.
@@ -1636,6 +1743,217 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDataQualityRuleTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建数据质量监控
+     *  *
+     * @param CreateDataQualityScanRequest $tmpReq  CreateDataQualityScanRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDataQualityScanResponse CreateDataQualityScanResponse
+     */
+    public function createDataQualityScanWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDataQualityScanShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->computeResource)) {
+            $request->computeResourceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->computeResource, 'ComputeResource', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->hooks)) {
+            $request->hooksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hooks, 'Hooks', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->runtimeResource)) {
+            $request->runtimeResourceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->runtimeResource, 'RuntimeResource', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->trigger)) {
+            $request->triggerShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->trigger, 'Trigger', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->computeResourceShrink)) {
+            $body['ComputeResource'] = $request->computeResourceShrink;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->hooksShrink)) {
+            $body['Hooks'] = $request->hooksShrink;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $body['Parameters'] = $request->parametersShrink;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->runtimeResourceShrink)) {
+            $body['RuntimeResource'] = $request->runtimeResourceShrink;
+        }
+        if (!Utils::isUnset($request->spec)) {
+            $body['Spec'] = $request->spec;
+        }
+        if (!Utils::isUnset($request->triggerShrink)) {
+            $body['Trigger'] = $request->triggerShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataQualityScan',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataQualityScanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建数据质量监控
+     *  *
+     * @param CreateDataQualityScanRequest $request CreateDataQualityScanRequest
+     *
+     * @return CreateDataQualityScanResponse CreateDataQualityScanResponse
+     */
+    public function createDataQualityScan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataQualityScanWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建数据质量监控运行实例
+     *  *
+     * @param CreateDataQualityScanRunRequest $tmpReq  CreateDataQualityScanRunRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDataQualityScanRunResponse CreateDataQualityScanRunResponse
+     */
+    public function createDataQualityScanRunWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDataQualityScanRunShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->runtimeResource)) {
+            $request->runtimeResourceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->runtimeResource, 'RuntimeResource', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dataQualityScanId)) {
+            $body['DataQualityScanId'] = $request->dataQualityScanId;
+        }
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $body['Parameters'] = $request->parametersShrink;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->runtimeResourceShrink)) {
+            $body['RuntimeResource'] = $request->runtimeResourceShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataQualityScanRun',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataQualityScanRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建数据质量监控运行实例
+     *  *
+     * @param CreateDataQualityScanRunRequest $request CreateDataQualityScanRunRequest
+     *
+     * @return CreateDataQualityScanRunResponse CreateDataQualityScanRunResponse
+     */
+    public function createDataQualityScanRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataQualityScanRunWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建数据质量模板
+     *  *
+     * @param CreateDataQualityTemplateRequest $request CreateDataQualityTemplateRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDataQualityTemplateResponse CreateDataQualityTemplateResponse
+     */
+    public function createDataQualityTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->spec)) {
+            $body['Spec'] = $request->spec;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateDataQualityTemplate',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateDataQualityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建数据质量模板
+     *  *
+     * @param CreateDataQualityTemplateRequest $request CreateDataQualityTemplateRequest
+     *
+     * @return CreateDataQualityTemplateResponse CreateDataQualityTemplateResponse
+     */
+    public function createDataQualityTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataQualityTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -3459,6 +3777,53 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary 删除数据质量告警规则
+     *  *
+     * @param DeleteDataQualityAlertRuleRequest $request DeleteDataQualityAlertRuleRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDataQualityAlertRuleResponse DeleteDataQualityAlertRuleResponse
+     */
+    public function deleteDataQualityAlertRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataQualityAlertRule',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDataQualityAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除数据质量告警规则
+     *  *
+     * @param DeleteDataQualityAlertRuleRequest $request DeleteDataQualityAlertRuleRequest
+     *
+     * @return DeleteDataQualityAlertRuleResponse DeleteDataQualityAlertRuleResponse
+     */
+    public function deleteDataQualityAlertRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataQualityAlertRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Deletes a data quality monitoring task.
      *  *
      * @param DeleteDataQualityEvaluationTaskRequest $request DeleteDataQualityEvaluationTaskRequest
@@ -3606,6 +3971,103 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDataQualityRuleTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除数据质量监控
+     *  *
+     * @param DeleteDataQualityScanRequest $request DeleteDataQualityScanRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDataQualityScanResponse DeleteDataQualityScanResponse
+     */
+    public function deleteDataQualityScanWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataQualityScan',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDataQualityScanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除数据质量监控
+     *  *
+     * @param DeleteDataQualityScanRequest $request DeleteDataQualityScanRequest
+     *
+     * @return DeleteDataQualityScanResponse DeleteDataQualityScanResponse
+     */
+    public function deleteDataQualityScan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataQualityScanWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除数据质量模板
+     *  *
+     * @param DeleteDataQualityTemplateRequest $request DeleteDataQualityTemplateRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDataQualityTemplateResponse DeleteDataQualityTemplateResponse
+     */
+    public function deleteDataQualityTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDataQualityTemplate',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDataQualityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除数据质量模板
+     *  *
+     * @param DeleteDataQualityTemplateRequest $request DeleteDataQualityTemplateRequest
+     *
+     * @return DeleteDataQualityTemplateResponse DeleteDataQualityTemplateResponse
+     */
+    public function deleteDataQualityTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataQualityTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -5230,6 +5692,53 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary 查询数据质量告警规则详情
+     *  *
+     * @param GetDataQualityAlertRuleRequest $request GetDataQualityAlertRuleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDataQualityAlertRuleResponse GetDataQualityAlertRuleResponse
+     */
+    public function getDataQualityAlertRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataQualityAlertRule',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataQualityAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询数据质量告警规则详情
+     *  *
+     * @param GetDataQualityAlertRuleRequest $request GetDataQualityAlertRuleRequest
+     *
+     * @return GetDataQualityAlertRuleResponse GetDataQualityAlertRuleResponse
+     */
+    public function getDataQualityAlertRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataQualityAlertRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the details of a monitor.
      *  *
      * @param GetDataQualityEvaluationTaskRequest $request GetDataQualityEvaluationTaskRequest
@@ -5411,6 +5920,197 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDataQualityRuleTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取数据质量监控详情
+     *  *
+     * @param GetDataQualityScanRequest $request GetDataQualityScanRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDataQualityScanResponse GetDataQualityScanResponse
+     */
+    public function getDataQualityScanWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataQualityScan',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataQualityScanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取数据质量监控详情
+     *  *
+     * @param GetDataQualityScanRequest $request GetDataQualityScanRequest
+     *
+     * @return GetDataQualityScanResponse GetDataQualityScanResponse
+     */
+    public function getDataQualityScan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataQualityScanWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建数据质量监控运行实例
+     *  *
+     * @param GetDataQualityScanRunRequest $request GetDataQualityScanRunRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDataQualityScanRunResponse GetDataQualityScanRunResponse
+     */
+    public function getDataQualityScanRunWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataQualityScanRun',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataQualityScanRunResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建数据质量监控运行实例
+     *  *
+     * @param GetDataQualityScanRunRequest $request GetDataQualityScanRunRequest
+     *
+     * @return GetDataQualityScanRunResponse GetDataQualityScanRunResponse
+     */
+    public function getDataQualityScanRun($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataQualityScanRunWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建数据质量监控运行实例
+     *  *
+     * @param GetDataQualityScanRunLogRequest $request GetDataQualityScanRunLogRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDataQualityScanRunLogResponse GetDataQualityScanRunLogResponse
+     */
+    public function getDataQualityScanRunLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $query['Offset'] = $request->offset;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataQualityScanRunLog',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataQualityScanRunLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建数据质量监控运行实例
+     *  *
+     * @param GetDataQualityScanRunLogRequest $request GetDataQualityScanRunLogRequest
+     *
+     * @return GetDataQualityScanRunLogResponse GetDataQualityScanRunLogResponse
+     */
+    public function getDataQualityScanRunLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataQualityScanRunLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询数据质量模板详情
+     *  *
+     * @param GetDataQualityTemplateRequest $request GetDataQualityTemplateRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDataQualityTemplateResponse GetDataQualityTemplateResponse
+     */
+    public function getDataQualityTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDataQualityTemplate',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDataQualityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询数据质量模板详情
+     *  *
+     * @param GetDataQualityTemplateRequest $request GetDataQualityTemplateRequest
+     *
+     * @return GetDataQualityTemplateResponse GetDataQualityTemplateResponse
+     */
+    public function getDataQualityTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataQualityTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -7768,6 +8468,65 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary 查询数据质量告警规则列表
+     *  *
+     * @param ListDataQualityAlertRulesRequest $request ListDataQualityAlertRulesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataQualityAlertRulesResponse ListDataQualityAlertRulesResponse
+     */
+    public function listDataQualityAlertRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataQualityScanId)) {
+            $query['DataQualityScanId'] = $request->dataQualityScanId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataQualityAlertRules',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataQualityAlertRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询数据质量告警规则列表
+     *  *
+     * @param ListDataQualityAlertRulesRequest $request ListDataQualityAlertRulesRequest
+     *
+     * @return ListDataQualityAlertRulesResponse ListDataQualityAlertRulesResponse
+     */
+    public function listDataQualityAlertRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataQualityAlertRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries a list of instances generated by a data quality monitoring task by page.
      *  *
      * @description This API operation is available for all DataWorks editions.
@@ -7997,6 +8756,195 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDataQualityRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询数据质量监控运行实例列表
+     *  *
+     * @param ListDataQualityScanRunsRequest $request ListDataQualityScanRunsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataQualityScanRunsResponse ListDataQualityScanRunsResponse
+     */
+    public function listDataQualityScanRunsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->createTimeFrom)) {
+            $query['CreateTimeFrom'] = $request->createTimeFrom;
+        }
+        if (!Utils::isUnset($request->createTimeTo)) {
+            $query['CreateTimeTo'] = $request->createTimeTo;
+        }
+        if (!Utils::isUnset($request->dataQualityScanId)) {
+            $query['DataQualityScanId'] = $request->dataQualityScanId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataQualityScanRuns',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataQualityScanRunsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询数据质量监控运行实例列表
+     *  *
+     * @param ListDataQualityScanRunsRequest $request ListDataQualityScanRunsRequest
+     *
+     * @return ListDataQualityScanRunsResponse ListDataQualityScanRunsResponse
+     */
+    public function listDataQualityScanRuns($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataQualityScanRunsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取数据质量监控详情
+     *  *
+     * @param ListDataQualityScansRequest $request ListDataQualityScansRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataQualityScansResponse ListDataQualityScansResponse
+     */
+    public function listDataQualityScansWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->table)) {
+            $query['Table'] = $request->table;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataQualityScans',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataQualityScansResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取数据质量监控详情
+     *  *
+     * @param ListDataQualityScansRequest $request ListDataQualityScansRequest
+     *
+     * @return ListDataQualityScansResponse ListDataQualityScansResponse
+     */
+    public function listDataQualityScans($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataQualityScansWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询数据质量模板详情
+     *  *
+     * @param ListDataQualityTemplatesRequest $request ListDataQualityTemplatesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataQualityTemplatesResponse ListDataQualityTemplatesResponse
+     */
+    public function listDataQualityTemplatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->catalog)) {
+            $query['Catalog'] = $request->catalog;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListDataQualityTemplates',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListDataQualityTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询数据质量模板详情
+     *  *
+     * @param ListDataQualityTemplatesRequest $request ListDataQualityTemplatesRequest
+     *
+     * @return ListDataQualityTemplatesResponse ListDataQualityTemplatesResponse
+     */
+    public function listDataQualityTemplates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataQualityTemplatesWithOptions($request, $runtime);
     }
 
     /**
@@ -12075,6 +13023,73 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary 更新数据质量告警规则
+     *  *
+     * @param UpdateDataQualityAlertRuleRequest $tmpReq  UpdateDataQualityAlertRuleRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateDataQualityAlertRuleResponse UpdateDataQualityAlertRuleResponse
+     */
+    public function updateDataQualityAlertRuleWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateDataQualityAlertRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->notification)) {
+            $request->notificationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notification, 'Notification', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->target)) {
+            $request->targetShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->target, 'Target', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->condition)) {
+            $body['Condition'] = $request->condition;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->notificationShrink)) {
+            $body['Notification'] = $request->notificationShrink;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->targetShrink)) {
+            $body['Target'] = $request->targetShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataQualityAlertRule',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDataQualityAlertRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新数据质量告警规则
+     *  *
+     * @param UpdateDataQualityAlertRuleRequest $request UpdateDataQualityAlertRuleRequest
+     *
+     * @return UpdateDataQualityAlertRuleResponse UpdateDataQualityAlertRuleResponse
+     */
+    public function updateDataQualityAlertRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataQualityAlertRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Updates a monitor.
      *  *
      * @description This API operation is supported in all DataWorks editions.
@@ -12329,6 +13344,158 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDataQualityRuleTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新数据质量监控
+     *  *
+     * @param UpdateDataQualityScanRequest $tmpReq  UpdateDataQualityScanRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateDataQualityScanResponse UpdateDataQualityScanResponse
+     */
+    public function updateDataQualityScanWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateDataQualityScanShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->computeResource)) {
+            $request->computeResourceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->computeResource, 'ComputeResource', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->hooks)) {
+            $request->hooksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hooks, 'Hooks', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->runtimeResource)) {
+            $request->runtimeResourceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->runtimeResource, 'RuntimeResource', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->trigger)) {
+            $request->triggerShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->trigger, 'Trigger', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->computeResourceShrink)) {
+            $body['ComputeResource'] = $request->computeResourceShrink;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->hooksShrink)) {
+            $body['Hooks'] = $request->hooksShrink;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $body['Parameters'] = $request->parametersShrink;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->runtimeResourceShrink)) {
+            $body['RuntimeResource'] = $request->runtimeResourceShrink;
+        }
+        if (!Utils::isUnset($request->spec)) {
+            $body['Spec'] = $request->spec;
+        }
+        if (!Utils::isUnset($request->triggerShrink)) {
+            $body['Trigger'] = $request->triggerShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataQualityScan',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDataQualityScanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新数据质量监控
+     *  *
+     * @param UpdateDataQualityScanRequest $request UpdateDataQualityScanRequest
+     *
+     * @return UpdateDataQualityScanResponse UpdateDataQualityScanResponse
+     */
+    public function updateDataQualityScan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataQualityScanWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新数据质量模板
+     *  *
+     * @param UpdateDataQualityTemplateRequest $request UpdateDataQualityTemplateRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateDataQualityTemplateResponse UpdateDataQualityTemplateResponse
+     */
+    public function updateDataQualityTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->owner)) {
+            $query['Owner'] = $request->owner;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->spec)) {
+            $body['Spec'] = $request->spec;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDataQualityTemplate',
+            'version' => '2024-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateDataQualityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新数据质量模板
+     *  *
+     * @param UpdateDataQualityTemplateRequest $request UpdateDataQualityTemplateRequest
+     *
+     * @return UpdateDataQualityTemplateResponse UpdateDataQualityTemplateResponse
+     */
+    public function updateDataQualityTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataQualityTemplateWithOptions($request, $runtime);
     }
 
     /**
