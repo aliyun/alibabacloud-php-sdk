@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDirectoryTreeResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDirectoryTreeResponseBody\data\children;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDirectoryTreeResponseBody\data\parent;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -24,43 +24,32 @@ class data extends Model
         'parent' => 'Parent',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->children) {
-            $this->children->validate();
-        }
-        if (null !== $this->parent) {
-            $this->parent->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->children) {
-            $res['Children'] = null !== $this->children ? $this->children->toArray($noStream) : $this->children;
+            $res['Children'] = null !== $this->children ? $this->children->toMap() : null;
         }
-
         if (null !== $this->parent) {
-            $res['Parent'] = null !== $this->parent ? $this->parent->toArray($noStream) : $this->parent;
+            $res['Parent'] = null !== $this->parent ? $this->parent->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Children'])) {
             $model->children = children::fromMap($map['Children']);
         }
-
         if (isset($map['Parent'])) {
             $model->parent = parent::fromMap($map['Parent']);
         }

@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ResumePhysicalNodeShrinkRequest extends Model
 {
     /**
+     * @example PROD
+     *
      * @var string
      */
     public $env;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 30001011
+     *
      * @var int
      */
     public $opTenantId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $resumeCommandShrink;
@@ -28,22 +36,17 @@ class ResumePhysicalNodeShrinkRequest extends Model
         'resumeCommandShrink' => 'ResumeCommand',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->env) {
             $res['Env'] = $this->env;
         }
-
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
-
         if (null !== $this->resumeCommandShrink) {
             $res['ResumeCommand'] = $this->resumeCommandShrink;
         }
@@ -51,22 +54,20 @@ class ResumePhysicalNodeShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ResumePhysicalNodeShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Env'])) {
             $model->env = $map['Env'];
         }
-
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
-
         if (isset($map['ResumeCommand'])) {
             $model->resumeCommandShrink = $map['ResumeCommand'];
         }

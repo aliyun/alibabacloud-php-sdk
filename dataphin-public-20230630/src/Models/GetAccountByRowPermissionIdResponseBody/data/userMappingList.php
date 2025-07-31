@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAccountByRowPermissionIdResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAccountByRowPermissionIdResponseBody\data\userMappingList\accounts;
+use AlibabaCloud\Tea\Model;
 
 class userMappingList extends Model
 {
     /**
+     * @example PERSONAL
+     *
      * @var string
      */
     public $accountType;
@@ -23,27 +25,20 @@ class userMappingList extends Model
         'accounts' => 'Accounts',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->accounts)) {
-            Model::validateArray($this->accounts);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
         }
-
         if (null !== $this->accounts) {
-            if (\is_array($this->accounts)) {
-                $res['Accounts'] = [];
-                $n1 = 0;
-                foreach ($this->accounts as $item1) {
-                    $res['Accounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Accounts'] = [];
+            if (null !== $this->accounts && \is_array($this->accounts)) {
+                $n = 0;
+                foreach ($this->accounts as $item) {
+                    $res['Accounts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -51,24 +46,23 @@ class userMappingList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return userMappingList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
         }
-
         if (isset($map['Accounts'])) {
             if (!empty($map['Accounts'])) {
                 $model->accounts = [];
-                $n1 = 0;
-                foreach ($map['Accounts'] as $item1) {
-                    $model->accounts[$n1++] = accounts::fromMap($item1);
+                $n = 0;
+                foreach ($map['Accounts'] as $item) {
+                    $model->accounts[$n++] = null !== $item ? accounts::fromMap($item) : $item;
                 }
             }
         }

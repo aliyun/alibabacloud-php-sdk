@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataSourceWithConfigResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataSourceWithConfigResponseBody\pageResult\dataSourceList;
+use AlibabaCloud\Tea\Model;
 
 class pageResult extends Model
 {
@@ -15,6 +15,8 @@ class pageResult extends Model
     public $dataSourceList;
 
     /**
+     * @example 39
+     *
      * @var int
      */
     public $totalCount;
@@ -23,27 +25,20 @@ class pageResult extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->dataSourceList)) {
-            Model::validateArray($this->dataSourceList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataSourceList) {
-            if (\is_array($this->dataSourceList)) {
-                $res['DataSourceList'] = [];
-                $n1 = 0;
-                foreach ($this->dataSourceList as $item1) {
-                    $res['DataSourceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['DataSourceList'] = [];
+            if (null !== $this->dataSourceList && \is_array($this->dataSourceList)) {
+                $n = 0;
+                foreach ($this->dataSourceList as $item) {
+                    $res['DataSourceList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -51,24 +46,23 @@ class pageResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pageResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSourceList'])) {
             if (!empty($map['DataSourceList'])) {
                 $model->dataSourceList = [];
-                $n1 = 0;
-                foreach ($map['DataSourceList'] as $item1) {
-                    $model->dataSourceList[$n1++] = dataSourceList::fromMap($item1);
+                $n = 0;
+                foreach ($map['DataSourceList'] as $item) {
+                    $model->dataSourceList[$n++] = null !== $item ? dataSourceList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

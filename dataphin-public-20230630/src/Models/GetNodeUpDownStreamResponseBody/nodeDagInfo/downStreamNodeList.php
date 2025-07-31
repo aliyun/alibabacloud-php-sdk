@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetNodeUpDownStreamResponseBody\nodeDagInfo;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class downStreamNodeList extends Model
 {
@@ -14,16 +14,22 @@ class downStreamNodeList extends Model
     public $fieldIdList;
 
     /**
+     * @example n_123456
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example xx测试
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example DATA_PROCESS
+     *
      * @var string
      */
     public $type;
@@ -34,35 +40,20 @@ class downStreamNodeList extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->fieldIdList)) {
-            Model::validateArray($this->fieldIdList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fieldIdList) {
-            if (\is_array($this->fieldIdList)) {
-                $res['FieldIdList'] = [];
-                $n1 = 0;
-                foreach ($this->fieldIdList as $item1) {
-                    $res['FieldIdList'][$n1++] = $item1;
-                }
-            }
+            $res['FieldIdList'] = $this->fieldIdList;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -70,32 +61,25 @@ class downStreamNodeList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return downStreamNodeList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FieldIdList'])) {
             if (!empty($map['FieldIdList'])) {
-                $model->fieldIdList = [];
-                $n1 = 0;
-                foreach ($map['FieldIdList'] as $item1) {
-                    $model->fieldIdList[$n1++] = $item1;
-                }
+                $model->fieldIdList = $map['FieldIdList'];
             }
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

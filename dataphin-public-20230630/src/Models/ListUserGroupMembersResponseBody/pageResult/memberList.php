@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUserGroupMembersResponseBody\pageResult;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUserGroupMembersResponseBody\pageResult\memberList\creator;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUserGroupMembersResponseBody\pageResult\memberList\userInfo;
+use AlibabaCloud\Tea\Model;
 
 class memberList extends Model
 {
@@ -16,16 +16,22 @@ class memberList extends Model
     public $creator;
 
     /**
+     * @example zhangsan
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 2324211
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 231111
+     *
      * @var string
      */
     public $userGroupId;
@@ -36,6 +42,8 @@ class memberList extends Model
     public $userInfo;
 
     /**
+     * @example SECURITY_ADMIN
+     *
      * @var string
      */
     public $userRole;
@@ -48,40 +56,26 @@ class memberList extends Model
         'userRole' => 'UserRole',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->creator) {
-            $this->creator->validate();
-        }
-        if (null !== $this->userInfo) {
-            $this->userInfo->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->creator) {
-            $res['Creator'] = null !== $this->creator ? $this->creator->toArray($noStream) : $this->creator;
+            $res['Creator'] = null !== $this->creator ? $this->creator->toMap() : null;
         }
-
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->userGroupId) {
             $res['UserGroupId'] = $this->userGroupId;
         }
-
         if (null !== $this->userInfo) {
-            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toArray($noStream) : $this->userInfo;
+            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toMap() : null;
         }
-
         if (null !== $this->userRole) {
             $res['UserRole'] = $this->userRole;
         }
@@ -89,34 +83,29 @@ class memberList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return memberList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Creator'])) {
             $model->creator = creator::fromMap($map['Creator']);
         }
-
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['UserGroupId'])) {
             $model->userGroupId = $map['UserGroupId'];
         }
-
         if (isset($map['UserInfo'])) {
             $model->userInfo = userInfo::fromMap($map['UserInfo']);
         }
-
         if (isset($map['UserRole'])) {
             $model->userRole = $map['UserRole'];
         }

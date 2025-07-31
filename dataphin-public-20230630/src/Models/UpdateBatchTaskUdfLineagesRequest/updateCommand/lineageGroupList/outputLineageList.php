@@ -4,26 +4,38 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskUdfLineagesRequest\updateCommand\lineageGroupList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class outputLineageList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $columnList;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example dev
+     *
      * @var string
      */
     public $env;
 
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $fullTable;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example t_output
+     *
      * @var string
      */
     public $name;
@@ -34,35 +46,20 @@ class outputLineageList extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->columnList)) {
-            Model::validateArray($this->columnList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->columnList) {
-            if (\is_array($this->columnList)) {
-                $res['ColumnList'] = [];
-                $n1 = 0;
-                foreach ($this->columnList as $item1) {
-                    $res['ColumnList'][$n1++] = $item1;
-                }
-            }
+            $res['ColumnList'] = $this->columnList;
         }
-
         if (null !== $this->env) {
             $res['Env'] = $this->env;
         }
-
         if (null !== $this->fullTable) {
             $res['FullTable'] = $this->fullTable;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -70,32 +67,25 @@ class outputLineageList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return outputLineageList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColumnList'])) {
             if (!empty($map['ColumnList'])) {
-                $model->columnList = [];
-                $n1 = 0;
-                foreach ($map['ColumnList'] as $item1) {
-                    $model->columnList[$n1++] = $item1;
-                }
+                $model->columnList = $map['ColumnList'];
             }
         }
-
         if (isset($map['Env'])) {
             $model->env = $map['Env'];
         }
-
         if (isset($map['FullTable'])) {
             $model->fullTable = $map['FullTable'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateNodeSupplementRequest\createCommand;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateNodeSupplementRequest\createCommand\nodeParamsList\paramList;
+use AlibabaCloud\Tea\Model;
 
 class nodeParamsList extends Model
 {
@@ -23,27 +23,20 @@ class nodeParamsList extends Model
         'paramList' => 'ParamList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->paramList)) {
-            Model::validateArray($this->paramList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
-
         if (null !== $this->paramList) {
-            if (\is_array($this->paramList)) {
-                $res['ParamList'] = [];
-                $n1 = 0;
-                foreach ($this->paramList as $item1) {
-                    $res['ParamList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ParamList'] = [];
+            if (null !== $this->paramList && \is_array($this->paramList)) {
+                $n = 0;
+                foreach ($this->paramList as $item) {
+                    $res['ParamList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -51,24 +44,23 @@ class nodeParamsList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return nodeParamsList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
-
         if (isset($map['ParamList'])) {
             if (!empty($map['ParamList'])) {
                 $model->paramList = [];
-                $n1 = 0;
-                foreach ($map['ParamList'] as $item1) {
-                    $model->paramList[$n1++] = paramList::fromMap($item1);
+                $n = 0;
+                foreach ($map['ParamList'] as $item) {
+                    $model->paramList[$n++] = null !== $item ? paramList::fromMap($item) : $item;
                 }
             }
         }

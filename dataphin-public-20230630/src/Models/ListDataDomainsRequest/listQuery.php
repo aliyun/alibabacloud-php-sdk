@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataDomainsRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class listQuery extends Model
 {
@@ -14,6 +14,8 @@ class listQuery extends Model
     public $bizUnitIdList;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $keyword;
@@ -28,76 +30,43 @@ class listQuery extends Model
         'parentIdList' => 'ParentIdList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->bizUnitIdList)) {
-            Model::validateArray($this->bizUnitIdList);
-        }
-        if (\is_array($this->parentIdList)) {
-            Model::validateArray($this->parentIdList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bizUnitIdList) {
-            if (\is_array($this->bizUnitIdList)) {
-                $res['BizUnitIdList'] = [];
-                $n1 = 0;
-                foreach ($this->bizUnitIdList as $item1) {
-                    $res['BizUnitIdList'][$n1++] = $item1;
-                }
-            }
+            $res['BizUnitIdList'] = $this->bizUnitIdList;
         }
-
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
-
         if (null !== $this->parentIdList) {
-            if (\is_array($this->parentIdList)) {
-                $res['ParentIdList'] = [];
-                $n1 = 0;
-                foreach ($this->parentIdList as $item1) {
-                    $res['ParentIdList'][$n1++] = $item1;
-                }
-            }
+            $res['ParentIdList'] = $this->parentIdList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return listQuery
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizUnitIdList'])) {
             if (!empty($map['BizUnitIdList'])) {
-                $model->bizUnitIdList = [];
-                $n1 = 0;
-                foreach ($map['BizUnitIdList'] as $item1) {
-                    $model->bizUnitIdList[$n1++] = $item1;
-                }
+                $model->bizUnitIdList = $map['BizUnitIdList'];
             }
         }
-
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
-
         if (isset($map['ParentIdList'])) {
             if (!empty($map['ParentIdList'])) {
-                $model->parentIdList = [];
-                $n1 = 0;
-                foreach ($map['ParentIdList'] as $item1) {
-                    $model->parentIdList[$n1++] = $item1;
-                }
+                $model->parentIdList = $map['ParentIdList'];
             }
         }
 

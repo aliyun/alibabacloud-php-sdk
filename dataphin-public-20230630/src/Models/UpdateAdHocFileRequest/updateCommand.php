@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateAdHocFileRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class updateCommand extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example select 1;
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 2311113
+     *
      * @var int
      */
     public $fileId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1212313
+     *
      * @var int
      */
     public $projectId;
@@ -28,22 +40,17 @@ class updateCommand extends Model
         'projectId' => 'ProjectId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
-
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -51,22 +58,20 @@ class updateCommand extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return updateCommand
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
-
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

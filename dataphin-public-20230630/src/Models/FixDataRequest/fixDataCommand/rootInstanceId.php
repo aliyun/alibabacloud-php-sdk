@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\FixDataRequest\fixDataCommand;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class rootInstanceId extends Model
 {
@@ -14,6 +14,10 @@ class rootInstanceId extends Model
     public $fieldInstanceIdList;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example t_2323111
+     *
      * @var string
      */
     public $id;
@@ -22,27 +26,14 @@ class rootInstanceId extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->fieldInstanceIdList)) {
-            Model::validateArray($this->fieldInstanceIdList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fieldInstanceIdList) {
-            if (\is_array($this->fieldInstanceIdList)) {
-                $res['FieldInstanceIdList'] = [];
-                $n1 = 0;
-                foreach ($this->fieldInstanceIdList as $item1) {
-                    $res['FieldInstanceIdList'][$n1++] = $item1;
-                }
-            }
+            $res['FieldInstanceIdList'] = $this->fieldInstanceIdList;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -50,24 +41,19 @@ class rootInstanceId extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return rootInstanceId
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FieldInstanceIdList'])) {
             if (!empty($map['FieldInstanceIdList'])) {
-                $model->fieldInstanceIdList = [];
-                $n1 = 0;
-                foreach ($map['FieldInstanceIdList'] as $item1) {
-                    $model->fieldInstanceIdList[$n1++] = $item1;
-                }
+                $model->fieldInstanceIdList = $map['FieldInstanceIdList'];
             }
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

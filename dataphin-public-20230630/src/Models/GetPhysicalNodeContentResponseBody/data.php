@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetPhysicalNodeContentResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example select 1;
+     *
      * @var string
      */
     public $codeContent;
 
     /**
+     * @example n_232411
+     *
      * @var string
      */
     public $nodeId;
@@ -28,22 +32,17 @@ class data extends Model
         'nodeName' => 'NodeName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->codeContent) {
             $res['CodeContent'] = $this->codeContent;
         }
-
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
-
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
         }
@@ -51,22 +50,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CodeContent'])) {
             $model->codeContent = $map['CodeContent'];
         }
-
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
-
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
         }

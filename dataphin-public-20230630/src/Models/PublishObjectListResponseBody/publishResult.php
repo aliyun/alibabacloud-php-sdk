@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishObjectListResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class publishResult extends Model
 {
@@ -16,45 +16,29 @@ class publishResult extends Model
         'submitIdList' => 'SubmitIdList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->submitIdList)) {
-            Model::validateArray($this->submitIdList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->submitIdList) {
-            if (\is_array($this->submitIdList)) {
-                $res['SubmitIdList'] = [];
-                $n1 = 0;
-                foreach ($this->submitIdList as $item1) {
-                    $res['SubmitIdList'][$n1++] = $item1;
-                }
-            }
+            $res['SubmitIdList'] = $this->submitIdList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return publishResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SubmitIdList'])) {
             if (!empty($map['SubmitIdList'])) {
-                $model->submitIdList = [];
-                $n1 = 0;
-                foreach ($map['SubmitIdList'] as $item1) {
-                    $model->submitIdList[$n1++] = $item1;
-                }
+                $model->submitIdList = $map['SubmitIdList'];
             }
         }
 

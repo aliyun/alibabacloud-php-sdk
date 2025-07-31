@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskVersionsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskVersionsResponseBody\data\batchTaskVersionList;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,23 +17,17 @@ class data extends Model
         'batchTaskVersionList' => 'BatchTaskVersionList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->batchTaskVersionList)) {
-            Model::validateArray($this->batchTaskVersionList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->batchTaskVersionList) {
-            if (\is_array($this->batchTaskVersionList)) {
-                $res['BatchTaskVersionList'] = [];
-                $n1 = 0;
-                foreach ($this->batchTaskVersionList as $item1) {
-                    $res['BatchTaskVersionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['BatchTaskVersionList'] = [];
+            if (null !== $this->batchTaskVersionList && \is_array($this->batchTaskVersionList)) {
+                $n = 0;
+                foreach ($this->batchTaskVersionList as $item) {
+                    $res['BatchTaskVersionList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +35,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BatchTaskVersionList'])) {
             if (!empty($map['BatchTaskVersionList'])) {
                 $model->batchTaskVersionList = [];
-                $n1 = 0;
-                foreach ($map['BatchTaskVersionList'] as $item1) {
-                    $model->batchTaskVersionList[$n1++] = batchTaskVersionList::fromMap($item1);
+                $n = 0;
+                foreach ($map['BatchTaskVersionList'] as $item) {
+                    $model->batchTaskVersionList[$n++] = null !== $item ? batchTaskVersionList::fromMap($item) : $item;
                 }
             }
         }

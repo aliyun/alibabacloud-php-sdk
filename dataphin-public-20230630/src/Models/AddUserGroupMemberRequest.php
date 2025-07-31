@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\AddUserGroupMemberRequest\addCommand;
+use AlibabaCloud\Tea\Model;
 
 class AddUserGroupMemberRequest extends Model
 {
@@ -15,6 +15,10 @@ class AddUserGroupMemberRequest extends Model
     public $addCommand;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 30001011
+     *
      * @var int
      */
     public $opTenantId;
@@ -23,21 +27,14 @@ class AddUserGroupMemberRequest extends Model
         'opTenantId' => 'OpTenantId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->addCommand) {
-            $this->addCommand->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->addCommand) {
-            $res['AddCommand'] = null !== $this->addCommand ? $this->addCommand->toArray($noStream) : $this->addCommand;
+            $res['AddCommand'] = null !== $this->addCommand ? $this->addCommand->toMap() : null;
         }
-
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
@@ -45,18 +42,17 @@ class AddUserGroupMemberRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddUserGroupMemberRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddCommand'])) {
             $model->addCommand = addCommand::fromMap($map['AddCommand']);
         }
-
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }

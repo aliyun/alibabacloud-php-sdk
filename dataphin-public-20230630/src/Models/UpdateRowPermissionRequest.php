@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateRowPermissionRequest\updateRowPermissionCommand;
+use AlibabaCloud\Tea\Model;
 
 class UpdateRowPermissionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 30001011
+     *
      * @var int
      */
     public $opTenantId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var updateRowPermissionCommand
      */
     public $updateRowPermissionCommand;
@@ -23,40 +29,32 @@ class UpdateRowPermissionRequest extends Model
         'updateRowPermissionCommand' => 'UpdateRowPermissionCommand',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->updateRowPermissionCommand) {
-            $this->updateRowPermissionCommand->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
-
         if (null !== $this->updateRowPermissionCommand) {
-            $res['UpdateRowPermissionCommand'] = null !== $this->updateRowPermissionCommand ? $this->updateRowPermissionCommand->toArray($noStream) : $this->updateRowPermissionCommand;
+            $res['UpdateRowPermissionCommand'] = null !== $this->updateRowPermissionCommand ? $this->updateRowPermissionCommand->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateRowPermissionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
-
         if (isset($map['UpdateRowPermissionCommand'])) {
             $model->updateRowPermissionCommand = updateRowPermissionCommand::fromMap($map['UpdateRowPermissionCommand']);
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddTenantMembersBySourceUserShrinkRequest extends Model
 {
@@ -14,6 +14,10 @@ class AddTenantMembersBySourceUserShrinkRequest extends Model
     public $addCommandShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 30001011
+     *
      * @var int
      */
     public $opTenantId;
@@ -22,18 +26,14 @@ class AddTenantMembersBySourceUserShrinkRequest extends Model
         'opTenantId' => 'OpTenantId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->addCommandShrink) {
             $res['AddCommand'] = $this->addCommandShrink;
         }
-
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
@@ -41,18 +41,17 @@ class AddTenantMembersBySourceUserShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddTenantMembersBySourceUserShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddCommand'])) {
             $model->addCommandShrink = $map['AddCommand'];
         }
-
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }

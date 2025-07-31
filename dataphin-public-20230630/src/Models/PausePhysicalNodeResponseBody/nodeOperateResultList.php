@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PausePhysicalNodeResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class nodeOperateResultList extends Model
 {
     /**
+     * @example xx
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example n_123456
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
@@ -28,22 +34,17 @@ class nodeOperateResultList extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -51,22 +52,20 @@ class nodeOperateResultList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return nodeOperateResultList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

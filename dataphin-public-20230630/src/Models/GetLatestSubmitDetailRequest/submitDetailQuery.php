@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetLatestSubmitDetailRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class submitDetailQuery extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 12345
+     *
      * @var string
      */
     public $objectId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example MAX_COMPUTE_SQL
+     *
      * @var string
      */
     public $objectType;
@@ -22,18 +30,14 @@ class submitDetailQuery extends Model
         'objectType' => 'ObjectType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->objectId) {
             $res['ObjectId'] = $this->objectId;
         }
-
         if (null !== $this->objectType) {
             $res['ObjectType'] = $this->objectType;
         }
@@ -41,18 +45,17 @@ class submitDetailQuery extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return submitDetailQuery
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ObjectId'])) {
             $model->objectId = $map['ObjectId'];
         }
-
         if (isset($map['ObjectType'])) {
             $model->objectType = $map['ObjectType'];
         }

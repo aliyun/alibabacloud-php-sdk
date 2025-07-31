@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDevObjectDependencyResponseBody\devObjectDependencyList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dependencyPeriod extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $periodOffset;
 
     /**
+     * @example CURRENT_PERIOD
+     *
      * @var string
      */
     public $periodType;
@@ -22,18 +26,14 @@ class dependencyPeriod extends Model
         'periodType' => 'PeriodType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->periodOffset) {
             $res['PeriodOffset'] = $this->periodOffset;
         }
-
         if (null !== $this->periodType) {
             $res['PeriodType'] = $this->periodType;
         }
@@ -41,18 +41,17 @@ class dependencyPeriod extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dependencyPeriod
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PeriodOffset'])) {
             $model->periodOffset = $map['PeriodOffset'];
         }
-
         if (isset($map['PeriodType'])) {
             $model->periodType = $map['PeriodType'];
         }

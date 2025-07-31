@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionOperationLogResponseBody\pageResult\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionOperationLogResponseBody\pageResult\data\resourceInfo\bizUnitInfo;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionOperationLogResponseBody\pageResult\data\resourceInfo\projectInfo;
+use AlibabaCloud\Tea\Model;
 
 class resourceInfo extends Model
 {
@@ -16,21 +16,29 @@ class resourceInfo extends Model
     public $bizUnitInfo;
 
     /**
+     * @example tb1
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example DEV
+     *
      * @var string
      */
     public $env;
 
     /**
+     * @example a.tb1
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example tb1
+     *
      * @var string
      */
     public $name;
@@ -41,6 +49,8 @@ class resourceInfo extends Model
     public $projectInfo;
 
     /**
+     * @example PHYSICAL_TABLE
+     *
      * @var string
      */
     public $type;
@@ -54,44 +64,29 @@ class resourceInfo extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->bizUnitInfo) {
-            $this->bizUnitInfo->validate();
-        }
-        if (null !== $this->projectInfo) {
-            $this->projectInfo->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bizUnitInfo) {
-            $res['BizUnitInfo'] = null !== $this->bizUnitInfo ? $this->bizUnitInfo->toArray($noStream) : $this->bizUnitInfo;
+            $res['BizUnitInfo'] = null !== $this->bizUnitInfo ? $this->bizUnitInfo->toMap() : null;
         }
-
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
-
         if (null !== $this->env) {
             $res['Env'] = $this->env;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->projectInfo) {
-            $res['ProjectInfo'] = null !== $this->projectInfo ? $this->projectInfo->toArray($noStream) : $this->projectInfo;
+            $res['ProjectInfo'] = null !== $this->projectInfo ? $this->projectInfo->toMap() : null;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -99,38 +94,32 @@ class resourceInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return resourceInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizUnitInfo'])) {
             $model->bizUnitInfo = bizUnitInfo::fromMap($map['BizUnitInfo']);
         }
-
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
-
         if (isset($map['Env'])) {
             $model->env = $map['Env'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['ProjectInfo'])) {
             $model->projectInfo = projectInfo::fromMap($map['ProjectInfo']);
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetDirectoryTreeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example codeManage
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 30001011
+     *
      * @var int
      */
     public $opTenantId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 7081229106458752
+     *
      * @var int
      */
     public $projectId;
@@ -28,22 +40,17 @@ class GetDirectoryTreeRequest extends Model
         'projectId' => 'ProjectId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
-
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
-
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -51,22 +58,20 @@ class GetDirectoryTreeRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetDirectoryTreeRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
-
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
-
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

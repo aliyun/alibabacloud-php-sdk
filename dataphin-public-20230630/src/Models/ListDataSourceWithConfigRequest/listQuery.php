@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataSourceWithConfigRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class listQuery extends Model
 {
     /**
+     * @example vcns-test
+     *
      * @var string
      */
     public $name;
@@ -19,11 +21,19 @@ class listQuery extends Model
     public $ownerList;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -52,123 +62,69 @@ class listQuery extends Model
         'typeList' => 'TypeList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ownerList)) {
-            Model::validateArray($this->ownerList);
-        }
-        if (\is_array($this->scopeList)) {
-            Model::validateArray($this->scopeList);
-        }
-        if (\is_array($this->typeList)) {
-            Model::validateArray($this->typeList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->ownerList) {
-            if (\is_array($this->ownerList)) {
-                $res['OwnerList'] = [];
-                $n1 = 0;
-                foreach ($this->ownerList as $item1) {
-                    $res['OwnerList'][$n1++] = $item1;
-                }
-            }
+            $res['OwnerList'] = $this->ownerList;
         }
-
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->scopeList) {
-            if (\is_array($this->scopeList)) {
-                $res['ScopeList'] = [];
-                $n1 = 0;
-                foreach ($this->scopeList as $item1) {
-                    $res['ScopeList'][$n1++] = $item1;
-                }
-            }
+            $res['ScopeList'] = $this->scopeList;
         }
-
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
-
         if (null !== $this->typeList) {
-            if (\is_array($this->typeList)) {
-                $res['TypeList'] = [];
-                $n1 = 0;
-                foreach ($this->typeList as $item1) {
-                    $res['TypeList'][$n1++] = $item1;
-                }
-            }
+            $res['TypeList'] = $this->typeList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return listQuery
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['OwnerList'])) {
             if (!empty($map['OwnerList'])) {
-                $model->ownerList = [];
-                $n1 = 0;
-                foreach ($map['OwnerList'] as $item1) {
-                    $model->ownerList[$n1++] = $item1;
-                }
+                $model->ownerList = $map['OwnerList'];
             }
         }
-
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['ScopeList'])) {
             if (!empty($map['ScopeList'])) {
-                $model->scopeList = [];
-                $n1 = 0;
-                foreach ($map['ScopeList'] as $item1) {
-                    $model->scopeList[$n1++] = $item1;
-                }
+                $model->scopeList = $map['ScopeList'];
             }
         }
-
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
         }
-
         if (isset($map['TypeList'])) {
             if (!empty($map['TypeList'])) {
-                $model->typeList = [];
-                $n1 = 0;
-                foreach ($map['TypeList'] as $item1) {
-                    $model->typeList[$n1++] = $item1;
-                }
+                $model->typeList = $map['TypeList'];
             }
         }
 

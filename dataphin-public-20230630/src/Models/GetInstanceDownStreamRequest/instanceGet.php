@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceDownStreamRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class instanceGet extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example t_5929472_20210411_9577721
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example DATA_PROCESS
+     *
      * @var string
      */
     public $nodeType;
@@ -22,18 +30,14 @@ class instanceGet extends Model
         'nodeType' => 'NodeType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
         }
@@ -41,18 +45,17 @@ class instanceGet extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return instanceGet
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
         }

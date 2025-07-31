@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionsResponseBody\pageResult\data\resourceInfo;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class projectInfo extends Model
 {
     /**
+     * @example xx
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example DEV
+     *
      * @var string
      */
     public $env;
 
     /**
+     * @example 1123131
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $name;
@@ -34,26 +42,20 @@ class projectInfo extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
-
         if (null !== $this->env) {
             $res['Env'] = $this->env;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -61,26 +63,23 @@ class projectInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return projectInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
-
         if (isset($map['Env'])) {
             $model->env = $map['Env'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

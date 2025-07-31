@@ -4,27 +4,41 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckResourcePermissionRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckResourcePermissionRequest\checkCommand\resourceList;
+use AlibabaCloud\Tea\Model;
 
 class checkCommand extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example UPDATE
+     *
      * @var string
      */
     public $operate;
 
     /**
+     * @description This parameter is required.
+     *
      * @var resourceList[]
      */
     public $resourceList;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example PHYSICAL_TABLE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 323231
+     *
      * @var string
      */
     public $userId;
@@ -35,35 +49,26 @@ class checkCommand extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->resourceList)) {
-            Model::validateArray($this->resourceList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->operate) {
             $res['Operate'] = $this->operate;
         }
-
         if (null !== $this->resourceList) {
-            if (\is_array($this->resourceList)) {
-                $res['ResourceList'] = [];
-                $n1 = 0;
-                foreach ($this->resourceList as $item1) {
-                    $res['ResourceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ResourceList'] = [];
+            if (null !== $this->resourceList && \is_array($this->resourceList)) {
+                $n = 0;
+                foreach ($this->resourceList as $item) {
+                    $res['ResourceList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -71,32 +76,29 @@ class checkCommand extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return checkCommand
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Operate'])) {
             $model->operate = $map['Operate'];
         }
-
         if (isset($map['ResourceList'])) {
             if (!empty($map['ResourceList'])) {
                 $model->resourceList = [];
-                $n1 = 0;
-                foreach ($map['ResourceList'] as $item1) {
-                    $model->resourceList[$n1++] = resourceList::fromMap($item1);
+                $n = 0;
+                foreach ($map['ResourceList'] as $item) {
+                    $model->resourceList[$n++] = null !== $item ? resourceList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

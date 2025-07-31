@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateUserGroupRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class createCommand extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $active;
@@ -19,6 +21,8 @@ class createCommand extends Model
     public $adminUserIdList;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $description;
@@ -34,35 +38,20 @@ class createCommand extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->adminUserIdList)) {
-            Model::validateArray($this->adminUserIdList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->active) {
             $res['Active'] = $this->active;
         }
-
         if (null !== $this->adminUserIdList) {
-            if (\is_array($this->adminUserIdList)) {
-                $res['AdminUserIdList'] = [];
-                $n1 = 0;
-                foreach ($this->adminUserIdList as $item1) {
-                    $res['AdminUserIdList'][$n1++] = $item1;
-                }
-            }
+            $res['AdminUserIdList'] = $this->adminUserIdList;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -70,32 +59,25 @@ class createCommand extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return createCommand
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Active'])) {
             $model->active = $map['Active'];
         }
-
         if (isset($map['AdminUserIdList'])) {
             if (!empty($map['AdminUserIdList'])) {
-                $model->adminUserIdList = [];
-                $n1 = 0;
-                foreach ($map['AdminUserIdList'] as $item1) {
-                    $model->adminUserIdList[$n1++] = $item1;
-                }
+                $model->adminUserIdList = $map['AdminUserIdList'];
             }
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

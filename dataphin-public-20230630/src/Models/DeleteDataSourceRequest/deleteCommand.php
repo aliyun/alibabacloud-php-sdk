@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataSourceRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class deleteCommand extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example DEV
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 13121
+     *
      * @var int
      */
     public $prodDataSourceId;
@@ -22,18 +30,14 @@ class deleteCommand extends Model
         'prodDataSourceId' => 'ProdDataSourceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
-
         if (null !== $this->prodDataSourceId) {
             $res['ProdDataSourceId'] = $this->prodDataSourceId;
         }
@@ -41,18 +45,17 @@ class deleteCommand extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return deleteCommand
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
-
         if (isset($map['ProdDataSourceId'])) {
             $model->prodDataSourceId = $map['ProdDataSourceId'];
         }

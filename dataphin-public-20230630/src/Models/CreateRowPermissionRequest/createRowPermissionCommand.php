@@ -4,14 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateRowPermissionRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateRowPermissionRequest\createRowPermissionCommand\mappingColumns;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateRowPermissionRequest\createRowPermissionCommand\rules;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateRowPermissionRequest\createRowPermissionCommand\tables;
+use AlibabaCloud\Tea\Model;
 
 class createRowPermissionCommand extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var mappingColumns[]
      */
     public $mappingColumns;
@@ -22,6 +24,8 @@ class createRowPermissionCommand extends Model
     public $rowPermissionDesc;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $rowPermissionName;
@@ -43,57 +47,41 @@ class createRowPermissionCommand extends Model
         'tables' => 'Tables',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->mappingColumns)) {
-            Model::validateArray($this->mappingColumns);
-        }
-        if (\is_array($this->rules)) {
-            Model::validateArray($this->rules);
-        }
-        if (\is_array($this->tables)) {
-            Model::validateArray($this->tables);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->mappingColumns) {
-            if (\is_array($this->mappingColumns)) {
-                $res['MappingColumns'] = [];
-                $n1 = 0;
-                foreach ($this->mappingColumns as $item1) {
-                    $res['MappingColumns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['MappingColumns'] = [];
+            if (null !== $this->mappingColumns && \is_array($this->mappingColumns)) {
+                $n = 0;
+                foreach ($this->mappingColumns as $item) {
+                    $res['MappingColumns'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->rowPermissionDesc) {
             $res['RowPermissionDesc'] = $this->rowPermissionDesc;
         }
-
         if (null !== $this->rowPermissionName) {
             $res['RowPermissionName'] = $this->rowPermissionName;
         }
-
         if (null !== $this->rules) {
-            if (\is_array($this->rules)) {
-                $res['Rules'] = [];
-                $n1 = 0;
-                foreach ($this->rules as $item1) {
-                    $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Rules'] = [];
+            if (null !== $this->rules && \is_array($this->rules)) {
+                $n = 0;
+                foreach ($this->rules as $item) {
+                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->tables) {
-            if (\is_array($this->tables)) {
-                $res['Tables'] = [];
-                $n1 = 0;
-                foreach ($this->tables as $item1) {
-                    $res['Tables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Tables'] = [];
+            if (null !== $this->tables && \is_array($this->tables)) {
+                $n = 0;
+                foreach ($this->tables as $item) {
+                    $res['Tables'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -101,48 +89,44 @@ class createRowPermissionCommand extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return createRowPermissionCommand
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MappingColumns'])) {
             if (!empty($map['MappingColumns'])) {
                 $model->mappingColumns = [];
-                $n1 = 0;
-                foreach ($map['MappingColumns'] as $item1) {
-                    $model->mappingColumns[$n1++] = mappingColumns::fromMap($item1);
+                $n = 0;
+                foreach ($map['MappingColumns'] as $item) {
+                    $model->mappingColumns[$n++] = null !== $item ? mappingColumns::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RowPermissionDesc'])) {
             $model->rowPermissionDesc = $map['RowPermissionDesc'];
         }
-
         if (isset($map['RowPermissionName'])) {
             $model->rowPermissionName = $map['RowPermissionName'];
         }
-
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n1 = 0;
-                foreach ($map['Rules'] as $item1) {
-                    $model->rules[$n1++] = rules::fromMap($item1);
+                $n = 0;
+                foreach ($map['Rules'] as $item) {
+                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Tables'])) {
             if (!empty($map['Tables'])) {
                 $model->tables = [];
-                $n1 = 0;
-                foreach ($map['Tables'] as $item1) {
-                    $model->tables[$n1++] = tables::fromMap($item1);
+                $n = 0;
+                foreach ($map['Tables'] as $item) {
+                    $model->tables[$n++] = null !== $item ? tables::fromMap($item) : $item;
                 }
             }
         }

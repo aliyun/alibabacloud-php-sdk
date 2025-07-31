@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListApiByAppRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class pageQuery extends Model
 {
     /**
+     * @description appKey
+     *
+     * This parameter is required.
+     *
+     * @example 10121101
+     *
      * @var int
      */
     public $appKey;
 
     /**
+     * @example apiName
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -34,26 +50,20 @@ class pageQuery extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
-
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
-
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -61,26 +71,23 @@ class pageQuery extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pageQuery
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
-
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
-
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

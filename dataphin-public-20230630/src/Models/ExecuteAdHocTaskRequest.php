@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteAdHocTaskRequest\executeCommand;
+use AlibabaCloud\Tea\Model;
 
 class ExecuteAdHocTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var executeCommand
      */
     public $executeCommand;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 30001011
+     *
      * @var int
      */
     public $opTenantId;
@@ -23,21 +29,14 @@ class ExecuteAdHocTaskRequest extends Model
         'opTenantId' => 'OpTenantId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->executeCommand) {
-            $this->executeCommand->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->executeCommand) {
-            $res['ExecuteCommand'] = null !== $this->executeCommand ? $this->executeCommand->toArray($noStream) : $this->executeCommand;
+            $res['ExecuteCommand'] = null !== $this->executeCommand ? $this->executeCommand->toMap() : null;
         }
-
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
@@ -45,18 +44,17 @@ class ExecuteAdHocTaskRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ExecuteAdHocTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExecuteCommand'])) {
             $model->executeCommand = executeCommand::fromMap($map['ExecuteCommand']);
         }
-
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }

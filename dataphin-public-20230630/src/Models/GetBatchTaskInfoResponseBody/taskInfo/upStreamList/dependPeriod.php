@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoResponseBody\taskInfo\upStreamList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dependPeriod extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $periodOffset;
 
     /**
+     * @example CURRENT_PERIOD
+     *
      * @var string
      */
     public $periodType;
@@ -22,18 +26,14 @@ class dependPeriod extends Model
         'periodType' => 'PeriodType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->periodOffset) {
             $res['PeriodOffset'] = $this->periodOffset;
         }
-
         if (null !== $this->periodType) {
             $res['PeriodType'] = $this->periodType;
         }
@@ -41,18 +41,17 @@ class dependPeriod extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dependPeriod
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PeriodOffset'])) {
             $model->periodOffset = $map['PeriodOffset'];
         }
-
         if (isset($map['PeriodType'])) {
             $model->periodType = $map['PeriodType'];
         }

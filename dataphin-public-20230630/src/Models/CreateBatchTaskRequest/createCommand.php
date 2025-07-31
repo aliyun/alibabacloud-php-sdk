@@ -4,46 +4,70 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBatchTaskRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class createCommand extends Model
 {
     /**
+     * @example mysql_catalog
+     *
      * @var string
      */
     public $dataSourceCatalog;
 
     /**
+     * @example 12131111
+     *
      * @var string
      */
     public $dataSourceId;
 
     /**
+     * @example erp
+     *
      * @var string
      */
     public $dataSourceSchema;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example xx test.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example /a/b
+     *
      * @var string
      */
     public $directory;
 
     /**
+     * @example PYTHON3_7
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example test111
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 10121101
+     *
      * @var int
      */
     public $projectId;
@@ -54,11 +78,19 @@ class createCommand extends Model
     public $pythonModuleList;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $scheduleType;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $taskType;
@@ -76,63 +108,41 @@ class createCommand extends Model
         'taskType' => 'TaskType',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->pythonModuleList)) {
-            Model::validateArray($this->pythonModuleList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataSourceCatalog) {
             $res['DataSourceCatalog'] = $this->dataSourceCatalog;
         }
-
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
         }
-
         if (null !== $this->dataSourceSchema) {
             $res['DataSourceSchema'] = $this->dataSourceSchema;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->directory) {
             $res['Directory'] = $this->directory;
         }
-
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-
         if (null !== $this->pythonModuleList) {
-            if (\is_array($this->pythonModuleList)) {
-                $res['PythonModuleList'] = [];
-                $n1 = 0;
-                foreach ($this->pythonModuleList as $item1) {
-                    $res['PythonModuleList'][$n1++] = $item1;
-                }
-            }
+            $res['PythonModuleList'] = $this->pythonModuleList;
         }
-
         if (null !== $this->scheduleType) {
             $res['ScheduleType'] = $this->scheduleType;
         }
-
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
@@ -140,60 +150,46 @@ class createCommand extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return createCommand
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSourceCatalog'])) {
             $model->dataSourceCatalog = $map['DataSourceCatalog'];
         }
-
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
         }
-
         if (isset($map['DataSourceSchema'])) {
             $model->dataSourceSchema = $map['DataSourceSchema'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Directory'])) {
             $model->directory = $map['Directory'];
         }
-
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-
         if (isset($map['PythonModuleList'])) {
             if (!empty($map['PythonModuleList'])) {
-                $model->pythonModuleList = [];
-                $n1 = 0;
-                foreach ($map['PythonModuleList'] as $item1) {
-                    $model->pythonModuleList[$n1++] = $item1;
-                }
+                $model->pythonModuleList = $map['PythonModuleList'];
             }
         }
-
         if (isset($map['ScheduleType'])) {
             $model->scheduleType = $map['ScheduleType'];
         }
-
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }

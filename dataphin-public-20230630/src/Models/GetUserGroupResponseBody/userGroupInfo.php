@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUserGroupResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetUserGroupResponseBody\userGroupInfo\adminList;
+use AlibabaCloud\Tea\Model;
 
 class userGroupInfo extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $active;
@@ -20,16 +22,22 @@ class userGroupInfo extends Model
     public $adminList;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1313213
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $myRole;
@@ -47,43 +55,32 @@ class userGroupInfo extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->adminList)) {
-            Model::validateArray($this->adminList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->active) {
             $res['Active'] = $this->active;
         }
-
         if (null !== $this->adminList) {
-            if (\is_array($this->adminList)) {
-                $res['AdminList'] = [];
-                $n1 = 0;
-                foreach ($this->adminList as $item1) {
-                    $res['AdminList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AdminList'] = [];
+            if (null !== $this->adminList && \is_array($this->adminList)) {
+                $n = 0;
+                foreach ($this->adminList as $item) {
+                    $res['AdminList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->myRole) {
             $res['MyRole'] = $this->myRole;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -91,40 +88,35 @@ class userGroupInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return userGroupInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Active'])) {
             $model->active = $map['Active'];
         }
-
         if (isset($map['AdminList'])) {
             if (!empty($map['AdminList'])) {
                 $model->adminList = [];
-                $n1 = 0;
-                foreach ($map['AdminList'] as $item1) {
-                    $model->adminList[$n1++] = adminList::fromMap($item1);
+                $n = 0;
+                foreach ($map['AdminList'] as $item) {
+                    $model->adminList[$n++] = null !== $item ? adminList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['MyRole'])) {
             $model->myRole = $map['MyRole'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

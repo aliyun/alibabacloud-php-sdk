@@ -4,37 +4,53 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GrantResourcePermissionRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GrantResourcePermissionRequest\grantCommand\resourceList;
+use AlibabaCloud\Tea\Model;
 
 class grantCommand extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 1717343597000
+     *
      * @var string
      */
     public $effectiveEnd;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $operateList;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @description This parameter is required.
+     *
      * @var resourceList[]
      */
     public $resourceList;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example PHYSICAL_TABLE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $userIdList;
@@ -47,115 +63,73 @@ class grantCommand extends Model
         'userIdList' => 'UserIdList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->operateList)) {
-            Model::validateArray($this->operateList);
-        }
-        if (\is_array($this->resourceList)) {
-            Model::validateArray($this->resourceList);
-        }
-        if (\is_array($this->userIdList)) {
-            Model::validateArray($this->userIdList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->effectiveEnd) {
             $res['EffectiveEnd'] = $this->effectiveEnd;
         }
-
         if (null !== $this->operateList) {
-            if (\is_array($this->operateList)) {
-                $res['OperateList'] = [];
-                $n1 = 0;
-                foreach ($this->operateList as $item1) {
-                    $res['OperateList'][$n1++] = $item1;
-                }
-            }
+            $res['OperateList'] = $this->operateList;
         }
-
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
-
         if (null !== $this->resourceList) {
-            if (\is_array($this->resourceList)) {
-                $res['ResourceList'] = [];
-                $n1 = 0;
-                foreach ($this->resourceList as $item1) {
-                    $res['ResourceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ResourceList'] = [];
+            if (null !== $this->resourceList && \is_array($this->resourceList)) {
+                $n = 0;
+                foreach ($this->resourceList as $item) {
+                    $res['ResourceList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-
         if (null !== $this->userIdList) {
-            if (\is_array($this->userIdList)) {
-                $res['UserIdList'] = [];
-                $n1 = 0;
-                foreach ($this->userIdList as $item1) {
-                    $res['UserIdList'][$n1++] = $item1;
-                }
-            }
+            $res['UserIdList'] = $this->userIdList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return grantCommand
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EffectiveEnd'])) {
             $model->effectiveEnd = $map['EffectiveEnd'];
         }
-
         if (isset($map['OperateList'])) {
             if (!empty($map['OperateList'])) {
-                $model->operateList = [];
-                $n1 = 0;
-                foreach ($map['OperateList'] as $item1) {
-                    $model->operateList[$n1++] = $item1;
-                }
+                $model->operateList = $map['OperateList'];
             }
         }
-
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }
-
         if (isset($map['ResourceList'])) {
             if (!empty($map['ResourceList'])) {
                 $model->resourceList = [];
-                $n1 = 0;
-                foreach ($map['ResourceList'] as $item1) {
-                    $model->resourceList[$n1++] = resourceList::fromMap($item1);
+                $n = 0;
+                foreach ($map['ResourceList'] as $item) {
+                    $model->resourceList[$n++] = null !== $item ? resourceList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-
         if (isset($map['UserIdList'])) {
             if (!empty($map['UserIdList'])) {
-                $model->userIdList = [];
-                $n1 = 0;
-                foreach ($map['UserIdList'] as $item1) {
-                    $model->userIdList[$n1++] = $item1;
-                }
+                $model->userIdList = $map['UserIdList'];
             }
         }
 

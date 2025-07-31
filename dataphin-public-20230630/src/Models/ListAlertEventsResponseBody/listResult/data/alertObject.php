@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertEventsResponseBody\listResult\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class alertObject extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example VDM_BATCH
+     *
      * @var string
      */
     public $sourceSystemType;
 
     /**
+     * @example STREAM_TASK
+     *
      * @var string
      */
     public $type;
@@ -28,22 +34,17 @@ class alertObject extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->sourceSystemType) {
             $res['SourceSystemType'] = $this->sourceSystemType;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -51,22 +52,20 @@ class alertObject extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return alertObject
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['SourceSystemType'])) {
             $model->sourceSystemType = $map['SourceSystemType'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

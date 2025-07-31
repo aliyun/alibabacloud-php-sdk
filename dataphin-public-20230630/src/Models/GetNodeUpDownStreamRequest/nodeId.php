@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetNodeUpDownStreamRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class nodeId extends Model
 {
     /**
+     * @example 12
+     *
      * @var string
      */
     public $fieldIdList;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 11313
+     *
      * @var string
      */
     public $id;
@@ -22,18 +28,14 @@ class nodeId extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fieldIdList) {
             $res['FieldIdList'] = $this->fieldIdList;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -41,18 +43,17 @@ class nodeId extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return nodeId
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FieldIdList'])) {
             $model->fieldIdList = $map['FieldIdList'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

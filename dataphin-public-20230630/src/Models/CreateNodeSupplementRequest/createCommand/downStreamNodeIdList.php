@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateNodeSupplementRequest\createCommand;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class downStreamNodeIdList extends Model
 {
@@ -22,27 +22,14 @@ class downStreamNodeIdList extends Model
         'id' => 'Id',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->fieldIdList)) {
-            Model::validateArray($this->fieldIdList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fieldIdList) {
-            if (\is_array($this->fieldIdList)) {
-                $res['FieldIdList'] = [];
-                $n1 = 0;
-                foreach ($this->fieldIdList as $item1) {
-                    $res['FieldIdList'][$n1++] = $item1;
-                }
-            }
+            $res['FieldIdList'] = $this->fieldIdList;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -50,24 +37,19 @@ class downStreamNodeIdList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return downStreamNodeIdList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FieldIdList'])) {
             if (!empty($map['FieldIdList'])) {
-                $model->fieldIdList = [];
-                $n1 = 0;
-                foreach ($map['FieldIdList'] as $item1) {
-                    $model->fieldIdList[$n1++] = $item1;
-                }
+                $model->fieldIdList = $map['FieldIdList'];
             }
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetTableColumnLineageByTaskIdRequest\tableColumnLineageByTaskIdQuery;
+use AlibabaCloud\Tea\Model;
 
 class GetTableColumnLineageByTaskIdRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 30001011
+     *
      * @var int
      */
     public $opTenantId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var tableColumnLineageByTaskIdQuery
      */
     public $tableColumnLineageByTaskIdQuery;
@@ -23,40 +29,32 @@ class GetTableColumnLineageByTaskIdRequest extends Model
         'tableColumnLineageByTaskIdQuery' => 'TableColumnLineageByTaskIdQuery',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->tableColumnLineageByTaskIdQuery) {
-            $this->tableColumnLineageByTaskIdQuery->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
-
         if (null !== $this->tableColumnLineageByTaskIdQuery) {
-            $res['TableColumnLineageByTaskIdQuery'] = null !== $this->tableColumnLineageByTaskIdQuery ? $this->tableColumnLineageByTaskIdQuery->toArray($noStream) : $this->tableColumnLineageByTaskIdQuery;
+            $res['TableColumnLineageByTaskIdQuery'] = null !== $this->tableColumnLineageByTaskIdQuery ? $this->tableColumnLineageByTaskIdQuery->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetTableColumnLineageByTaskIdRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
-
         if (isset($map['TableColumnLineageByTaskIdQuery'])) {
             $model->tableColumnLineageByTaskIdQuery = tableColumnLineageByTaskIdQuery::fromMap($map['TableColumnLineageByTaskIdQuery']);
         }

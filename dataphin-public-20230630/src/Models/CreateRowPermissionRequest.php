@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateRowPermissionRequest\createRowPermissionCommand;
+use AlibabaCloud\Tea\Model;
 
 class CreateRowPermissionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var createRowPermissionCommand
      */
     public $createRowPermissionCommand;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 30001011
+     *
      * @var int
      */
     public $opTenantId;
@@ -23,21 +29,14 @@ class CreateRowPermissionRequest extends Model
         'opTenantId' => 'OpTenantId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->createRowPermissionCommand) {
-            $this->createRowPermissionCommand->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->createRowPermissionCommand) {
-            $res['CreateRowPermissionCommand'] = null !== $this->createRowPermissionCommand ? $this->createRowPermissionCommand->toArray($noStream) : $this->createRowPermissionCommand;
+            $res['CreateRowPermissionCommand'] = null !== $this->createRowPermissionCommand ? $this->createRowPermissionCommand->toMap() : null;
         }
-
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
@@ -45,18 +44,17 @@ class CreateRowPermissionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateRowPermissionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateRowPermissionCommand'])) {
             $model->createRowPermissionCommand = createRowPermissionCommand::fromMap($map['CreateRowPermissionCommand']);
         }
-
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }

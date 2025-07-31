@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskUdfLineagesResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskUdfLineagesResponseBody\data\lineageGroupList\inputLineageList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskUdfLineagesResponseBody\data\lineageGroupList\outputLineageList;
+use AlibabaCloud\Tea\Model;
 
 class lineageGroupList extends Model
 {
@@ -24,36 +24,26 @@ class lineageGroupList extends Model
         'outputLineageList' => 'OutputLineageList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->inputLineageList)) {
-            Model::validateArray($this->inputLineageList);
-        }
-        if (\is_array($this->outputLineageList)) {
-            Model::validateArray($this->outputLineageList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->inputLineageList) {
-            if (\is_array($this->inputLineageList)) {
-                $res['InputLineageList'] = [];
-                $n1 = 0;
-                foreach ($this->inputLineageList as $item1) {
-                    $res['InputLineageList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['InputLineageList'] = [];
+            if (null !== $this->inputLineageList && \is_array($this->inputLineageList)) {
+                $n = 0;
+                foreach ($this->inputLineageList as $item) {
+                    $res['InputLineageList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->outputLineageList) {
-            if (\is_array($this->outputLineageList)) {
-                $res['OutputLineageList'] = [];
-                $n1 = 0;
-                foreach ($this->outputLineageList as $item1) {
-                    $res['OutputLineageList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['OutputLineageList'] = [];
+            if (null !== $this->outputLineageList && \is_array($this->outputLineageList)) {
+                $n = 0;
+                foreach ($this->outputLineageList as $item) {
+                    $res['OutputLineageList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -61,30 +51,29 @@ class lineageGroupList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return lineageGroupList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InputLineageList'])) {
             if (!empty($map['InputLineageList'])) {
                 $model->inputLineageList = [];
-                $n1 = 0;
-                foreach ($map['InputLineageList'] as $item1) {
-                    $model->inputLineageList[$n1++] = inputLineageList::fromMap($item1);
+                $n = 0;
+                foreach ($map['InputLineageList'] as $item) {
+                    $model->inputLineageList[$n++] = null !== $item ? inputLineageList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['OutputLineageList'])) {
             if (!empty($map['OutputLineageList'])) {
                 $model->outputLineageList = [];
-                $n1 = 0;
-                foreach ($map['OutputLineageList'] as $item1) {
-                    $model->outputLineageList[$n1++] = outputLineageList::fromMap($item1);
+                $n = 0;
+                foreach ($map['OutputLineageList'] as $item) {
+                    $model->outputLineageList[$n++] = null !== $item ? outputLineageList::fromMap($item) : $item;
                 }
             }
         }

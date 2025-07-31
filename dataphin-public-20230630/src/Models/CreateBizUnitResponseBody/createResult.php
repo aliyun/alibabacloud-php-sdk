@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizUnitResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class createResult extends Model
 {
     /**
+     * @example 545844456
+     *
      * @var int
      */
     public $bizUnitId;
@@ -16,12 +18,9 @@ class createResult extends Model
         'bizUnitId' => 'BizUnitId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bizUnitId) {
@@ -31,11 +30,11 @@ class createResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return createResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

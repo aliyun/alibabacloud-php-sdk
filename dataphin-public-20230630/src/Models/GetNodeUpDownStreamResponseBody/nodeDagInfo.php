@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetNodeUpDownStreamResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetNodeUpDownStreamResponseBody\nodeDagInfo\downStreamNodeList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetNodeUpDownStreamResponseBody\nodeDagInfo\startNodeList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetNodeUpDownStreamResponseBody\nodeDagInfo\upStreamNodeList;
+use AlibabaCloud\Tea\Model;
 
 class nodeDagInfo extends Model
 {
@@ -31,49 +31,35 @@ class nodeDagInfo extends Model
         'upStreamNodeList' => 'UpStreamNodeList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->downStreamNodeList)) {
-            Model::validateArray($this->downStreamNodeList);
-        }
-        if (\is_array($this->startNodeList)) {
-            Model::validateArray($this->startNodeList);
-        }
-        if (\is_array($this->upStreamNodeList)) {
-            Model::validateArray($this->upStreamNodeList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->downStreamNodeList) {
-            if (\is_array($this->downStreamNodeList)) {
-                $res['DownStreamNodeList'] = [];
-                $n1 = 0;
-                foreach ($this->downStreamNodeList as $item1) {
-                    $res['DownStreamNodeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['DownStreamNodeList'] = [];
+            if (null !== $this->downStreamNodeList && \is_array($this->downStreamNodeList)) {
+                $n = 0;
+                foreach ($this->downStreamNodeList as $item) {
+                    $res['DownStreamNodeList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->startNodeList) {
-            if (\is_array($this->startNodeList)) {
-                $res['StartNodeList'] = [];
-                $n1 = 0;
-                foreach ($this->startNodeList as $item1) {
-                    $res['StartNodeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['StartNodeList'] = [];
+            if (null !== $this->startNodeList && \is_array($this->startNodeList)) {
+                $n = 0;
+                foreach ($this->startNodeList as $item) {
+                    $res['StartNodeList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->upStreamNodeList) {
-            if (\is_array($this->upStreamNodeList)) {
-                $res['UpStreamNodeList'] = [];
-                $n1 = 0;
-                foreach ($this->upStreamNodeList as $item1) {
-                    $res['UpStreamNodeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['UpStreamNodeList'] = [];
+            if (null !== $this->upStreamNodeList && \is_array($this->upStreamNodeList)) {
+                $n = 0;
+                foreach ($this->upStreamNodeList as $item) {
+                    $res['UpStreamNodeList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -81,40 +67,38 @@ class nodeDagInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return nodeDagInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DownStreamNodeList'])) {
             if (!empty($map['DownStreamNodeList'])) {
                 $model->downStreamNodeList = [];
-                $n1 = 0;
-                foreach ($map['DownStreamNodeList'] as $item1) {
-                    $model->downStreamNodeList[$n1++] = downStreamNodeList::fromMap($item1);
+                $n = 0;
+                foreach ($map['DownStreamNodeList'] as $item) {
+                    $model->downStreamNodeList[$n++] = null !== $item ? downStreamNodeList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['StartNodeList'])) {
             if (!empty($map['StartNodeList'])) {
                 $model->startNodeList = [];
-                $n1 = 0;
-                foreach ($map['StartNodeList'] as $item1) {
-                    $model->startNodeList[$n1++] = startNodeList::fromMap($item1);
+                $n = 0;
+                foreach ($map['StartNodeList'] as $item) {
+                    $model->startNodeList[$n++] = null !== $item ? startNodeList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['UpStreamNodeList'])) {
             if (!empty($map['UpStreamNodeList'])) {
                 $model->upStreamNodeList = [];
-                $n1 = 0;
-                foreach ($map['UpStreamNodeList'] as $item1) {
-                    $model->upStreamNodeList[$n1++] = upStreamNodeList::fromMap($item1);
+                $n = 0;
+                foreach ($map['UpStreamNodeList'] as $item) {
+                    $model->upStreamNodeList[$n++] = null !== $item ? upStreamNodeList::fromMap($item) : $item;
                 }
             }
         }

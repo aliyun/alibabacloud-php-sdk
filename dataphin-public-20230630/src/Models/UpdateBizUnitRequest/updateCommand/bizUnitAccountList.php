@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizUnitRequest\updateCommand;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class bizUnitAccountList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 20001201
+     *
      * @var string
      */
     public $userId;
@@ -16,12 +20,9 @@ class bizUnitAccountList extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->userId) {
@@ -31,11 +32,11 @@ class bizUnitAccountList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return bizUnitAccountList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

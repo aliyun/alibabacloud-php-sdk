@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListNodesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListNodesResponseBody\pageResult\nodeList;
+use AlibabaCloud\Tea\Model;
 
 class pageResult extends Model
 {
@@ -15,6 +15,8 @@ class pageResult extends Model
     public $nodeList;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;
@@ -23,27 +25,20 @@ class pageResult extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->nodeList)) {
-            Model::validateArray($this->nodeList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nodeList) {
-            if (\is_array($this->nodeList)) {
-                $res['NodeList'] = [];
-                $n1 = 0;
-                foreach ($this->nodeList as $item1) {
-                    $res['NodeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['NodeList'] = [];
+            if (null !== $this->nodeList && \is_array($this->nodeList)) {
+                $n = 0;
+                foreach ($this->nodeList as $item) {
+                    $res['NodeList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -51,24 +46,23 @@ class pageResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pageResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeList'])) {
             if (!empty($map['NodeList'])) {
                 $model->nodeList = [];
-                $n1 = 0;
-                foreach ($map['NodeList'] as $item1) {
-                    $model->nodeList[$n1++] = nodeList::fromMap($item1);
+                $n = 0;
+                foreach ($map['NodeList'] as $item) {
+                    $model->nodeList[$n++] = null !== $item ? nodeList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

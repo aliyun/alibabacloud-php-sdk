@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetAccountByRowPermissionIdShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $getAccountByRowPermissionIdQueryShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 30001011
+     *
      * @var int
      */
     public $opTenantId;
@@ -22,18 +28,14 @@ class GetAccountByRowPermissionIdShrinkRequest extends Model
         'opTenantId' => 'OpTenantId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->getAccountByRowPermissionIdQueryShrink) {
             $res['GetAccountByRowPermissionIdQuery'] = $this->getAccountByRowPermissionIdQueryShrink;
         }
-
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
@@ -41,18 +43,17 @@ class GetAccountByRowPermissionIdShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetAccountByRowPermissionIdShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GetAccountByRowPermissionIdQuery'])) {
             $model->getAccountByRowPermissionIdQueryShrink = $map['GetAccountByRowPermissionIdQuery'];
         }
-
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }

@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest\updateCommand;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class sparkClientInfo extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example abc
+     *
      * @var string
      */
     public $sparkClientVersion;
@@ -16,12 +20,9 @@ class sparkClientInfo extends Model
         'sparkClientVersion' => 'SparkClientVersion',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->sparkClientVersion) {
@@ -31,11 +32,11 @@ class sparkClientInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sparkClientInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

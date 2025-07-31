@@ -4,22 +4,32 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteManualNodeRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteManualNodeRequest\executeCommand\paramList;
+use AlibabaCloud\Tea\Model;
 
 class executeCommand extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 2024-05-07
+     *
      * @var string
      */
     public $endBizDate;
 
     /**
+     * @example xx测试
+     *
      * @var string
      */
     public $flowName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example n_12132
+     *
      * @var string
      */
     public $nodeId;
@@ -30,11 +40,19 @@ class executeCommand extends Model
     public $paramList;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 123324
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 2024-05-01
+     *
      * @var string
      */
     public $startBizDate;
@@ -47,43 +65,32 @@ class executeCommand extends Model
         'startBizDate' => 'StartBizDate',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->paramList)) {
-            Model::validateArray($this->paramList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endBizDate) {
             $res['EndBizDate'] = $this->endBizDate;
         }
-
         if (null !== $this->flowName) {
             $res['FlowName'] = $this->flowName;
         }
-
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
-
         if (null !== $this->paramList) {
-            if (\is_array($this->paramList)) {
-                $res['ParamList'] = [];
-                $n1 = 0;
-                foreach ($this->paramList as $item1) {
-                    $res['ParamList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ParamList'] = [];
+            if (null !== $this->paramList && \is_array($this->paramList)) {
+                $n = 0;
+                foreach ($this->paramList as $item) {
+                    $res['ParamList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-
         if (null !== $this->startBizDate) {
             $res['StartBizDate'] = $this->startBizDate;
         }
@@ -91,40 +98,35 @@ class executeCommand extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return executeCommand
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndBizDate'])) {
             $model->endBizDate = $map['EndBizDate'];
         }
-
         if (isset($map['FlowName'])) {
             $model->flowName = $map['FlowName'];
         }
-
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
-
         if (isset($map['ParamList'])) {
             if (!empty($map['ParamList'])) {
                 $model->paramList = [];
-                $n1 = 0;
-                foreach ($map['ParamList'] as $item1) {
-                    $model->paramList[$n1++] = paramList::fromMap($item1);
+                $n = 0;
+                foreach ($map['ParamList'] as $item) {
+                    $model->paramList[$n++] = null !== $item ? paramList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-
         if (isset($map['StartBizDate'])) {
             $model->startBizDate = $map['StartBizDate'];
         }

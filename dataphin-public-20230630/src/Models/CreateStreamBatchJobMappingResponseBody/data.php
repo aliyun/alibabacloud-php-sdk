@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStreamBatchJobMappingResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example 7083701105376640
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @example /dev/streamJob/7083701105376640?env=DEV&projectId=7081229106458752&tenantId=300001420
+     *
      * @var string
      */
     public $url;
@@ -22,18 +26,14 @@ class data extends Model
         'url' => 'Url',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -41,18 +41,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

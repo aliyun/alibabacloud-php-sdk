@@ -4,87 +4,119 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListApiByAppResponseBody\listResult\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListApiByAppResponseBody\listResult\data\requestParamList\tableAndDsList;
+use AlibabaCloud\Tea\Model;
 
 class requestParamList extends Model
 {
     /**
+     * @example yyyy-MM-dd
+     *
      * @var string
      */
     public $dateFormat;
 
     /**
+     * @example default_value
+     *
      * @var string
      */
     public $defaultValue;
 
     /**
+     * @example 这是一个示例参数
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example CODE_001
+     *
      * @var string
      */
     public $descriptionCode;
 
     /**
+     * @example 1001
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example app_key_value
+     *
      * @var string
      */
     public $initialValue;
 
     /**
+     * @example column1
+     *
      * @var string
      */
     public $mappingColumn;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $must;
 
     /**
+     * @example =
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $optional;
 
     /**
+     * @example original_column
+     *
      * @var string
      */
     public $originalColumn;
 
     /**
+     * @example param1
+     *
      * @var string
      */
     public $paramName;
 
     /**
+     * @example String
+     *
      * @var string
      */
     public $paramType;
 
     /**
+     * @example /path/to/param
+     *
      * @var string
      */
     public $parameterLocation;
 
     /**
+     * @example value1
+     *
      * @var string
      */
     public $sample;
 
     /**
+     * @description -
+     *
      * @var tableAndDsList[]
      */
     public $tableAndDsList;
@@ -107,83 +139,62 @@ class requestParamList extends Model
         'tableAndDsList' => 'TableAndDsList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->tableAndDsList)) {
-            Model::validateArray($this->tableAndDsList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dateFormat) {
             $res['DateFormat'] = $this->dateFormat;
         }
-
         if (null !== $this->defaultValue) {
             $res['DefaultValue'] = $this->defaultValue;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->descriptionCode) {
             $res['DescriptionCode'] = $this->descriptionCode;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->initialValue) {
             $res['InitialValue'] = $this->initialValue;
         }
-
         if (null !== $this->mappingColumn) {
             $res['MappingColumn'] = $this->mappingColumn;
         }
-
         if (null !== $this->must) {
             $res['Must'] = $this->must;
         }
-
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
-
         if (null !== $this->optional) {
             $res['Optional'] = $this->optional;
         }
-
         if (null !== $this->originalColumn) {
             $res['OriginalColumn'] = $this->originalColumn;
         }
-
         if (null !== $this->paramName) {
             $res['ParamName'] = $this->paramName;
         }
-
         if (null !== $this->paramType) {
             $res['ParamType'] = $this->paramType;
         }
-
         if (null !== $this->parameterLocation) {
             $res['ParameterLocation'] = $this->parameterLocation;
         }
-
         if (null !== $this->sample) {
             $res['Sample'] = $this->sample;
         }
-
         if (null !== $this->tableAndDsList) {
-            if (\is_array($this->tableAndDsList)) {
-                $res['TableAndDsList'] = [];
-                $n1 = 0;
-                foreach ($this->tableAndDsList as $item1) {
-                    $res['TableAndDsList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['TableAndDsList'] = [];
+            if (null !== $this->tableAndDsList && \is_array($this->tableAndDsList)) {
+                $n = 0;
+                foreach ($this->tableAndDsList as $item) {
+                    $res['TableAndDsList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -191,80 +202,65 @@ class requestParamList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return requestParamList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DateFormat'])) {
             $model->dateFormat = $map['DateFormat'];
         }
-
         if (isset($map['DefaultValue'])) {
             $model->defaultValue = $map['DefaultValue'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['DescriptionCode'])) {
             $model->descriptionCode = $map['DescriptionCode'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['InitialValue'])) {
             $model->initialValue = $map['InitialValue'];
         }
-
         if (isset($map['MappingColumn'])) {
             $model->mappingColumn = $map['MappingColumn'];
         }
-
         if (isset($map['Must'])) {
             $model->must = $map['Must'];
         }
-
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
-
         if (isset($map['Optional'])) {
             $model->optional = $map['Optional'];
         }
-
         if (isset($map['OriginalColumn'])) {
             $model->originalColumn = $map['OriginalColumn'];
         }
-
         if (isset($map['ParamName'])) {
             $model->paramName = $map['ParamName'];
         }
-
         if (isset($map['ParamType'])) {
             $model->paramType = $map['ParamType'];
         }
-
         if (isset($map['ParameterLocation'])) {
             $model->parameterLocation = $map['ParameterLocation'];
         }
-
         if (isset($map['Sample'])) {
             $model->sample = $map['Sample'];
         }
-
         if (isset($map['TableAndDsList'])) {
             if (!empty($map['TableAndDsList'])) {
                 $model->tableAndDsList = [];
-                $n1 = 0;
-                foreach ($map['TableAndDsList'] as $item1) {
-                    $model->tableAndDsList[$n1++] = tableAndDsList::fromMap($item1);
+                $n = 0;
+                foreach ($map['TableAndDsList'] as $item) {
+                    $model->tableAndDsList[$n++] = null !== $item ? tableAndDsList::fromMap($item) : $item;
                 }
             }
         }

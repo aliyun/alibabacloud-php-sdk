@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAccountByRowPermissionIdRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class getAccountByRowPermissionIdQuery extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 300001234
+     *
      * @var int
      */
     public $rowPermissionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int[]
      */
     public $ruleIds;
@@ -22,53 +28,35 @@ class getAccountByRowPermissionIdQuery extends Model
         'ruleIds' => 'RuleIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ruleIds)) {
-            Model::validateArray($this->ruleIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->rowPermissionId) {
             $res['RowPermissionId'] = $this->rowPermissionId;
         }
-
         if (null !== $this->ruleIds) {
-            if (\is_array($this->ruleIds)) {
-                $res['RuleIds'] = [];
-                $n1 = 0;
-                foreach ($this->ruleIds as $item1) {
-                    $res['RuleIds'][$n1++] = $item1;
-                }
-            }
+            $res['RuleIds'] = $this->ruleIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return getAccountByRowPermissionIdQuery
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RowPermissionId'])) {
             $model->rowPermissionId = $map['RowPermissionId'];
         }
-
         if (isset($map['RuleIds'])) {
             if (!empty($map['RuleIds'])) {
-                $model->ruleIds = [];
-                $n1 = 0;
-                foreach ($map['RuleIds'] as $item1) {
-                    $model->ruleIds[$n1++] = $item1;
-                }
+                $model->ruleIds = $map['RuleIds'];
             }
         }
 

@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAdHocTaskLogResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class logInfo extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $content;
@@ -24,21 +26,29 @@ class logInfo extends Model
     public $hasResult;
 
     /**
+     * @example 2021
+     *
      * @var int
      */
     public $nextOffset;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $subTaskId;
 
     /**
+     * @example MaxCompute_SQL_300000843_1611548758327
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example WAIT_RESOURCE
+     *
      * @var string
      */
     public $taskStatus;
@@ -52,38 +62,29 @@ class logInfo extends Model
         'taskStatus' => 'TaskStatus',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
-
         if (null !== $this->hasNext) {
             $res['HasNext'] = $this->hasNext;
         }
-
         if (null !== $this->hasResult) {
             $res['HasResult'] = $this->hasResult;
         }
-
         if (null !== $this->nextOffset) {
             $res['NextOffset'] = $this->nextOffset;
         }
-
         if (null !== $this->subTaskId) {
             $res['SubTaskId'] = $this->subTaskId;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
-
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
         }
@@ -91,38 +92,32 @@ class logInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return logInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
-
         if (isset($map['HasNext'])) {
             $model->hasNext = $map['HasNext'];
         }
-
         if (isset($map['HasResult'])) {
             $model->hasResult = $map['HasResult'];
         }
-
         if (isset($map['NextOffset'])) {
             $model->nextOffset = $map['NextOffset'];
         }
-
         if (isset($map['SubTaskId'])) {
             $model->subTaskId = $map['SubTaskId'];
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
-
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];
         }

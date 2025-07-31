@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteDataDomainRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 6798087749072704
+     *
      * @var int
      */
     public $bizUnitId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1241844456
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 30001011
+     *
      * @var int
      */
     public $opTenantId;
@@ -28,22 +40,17 @@ class DeleteDataDomainRequest extends Model
         'opTenantId' => 'OpTenantId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bizUnitId) {
             $res['BizUnitId'] = $this->bizUnitId;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
@@ -51,22 +58,20 @@ class DeleteDataDomainRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteDataDomainRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizUnitId'])) {
             $model->bizUnitId = $map['BizUnitId'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }

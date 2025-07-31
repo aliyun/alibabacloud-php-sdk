@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUserGroupsRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class listQuery extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $active;
@@ -19,6 +21,8 @@ class listQuery extends Model
     public $adminIdList;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $filterMine;
@@ -29,11 +33,19 @@ class listQuery extends Model
     public $keyword;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -46,43 +58,26 @@ class listQuery extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->adminIdList)) {
-            Model::validateArray($this->adminIdList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->active) {
             $res['Active'] = $this->active;
         }
-
         if (null !== $this->adminIdList) {
-            if (\is_array($this->adminIdList)) {
-                $res['AdminIdList'] = [];
-                $n1 = 0;
-                foreach ($this->adminIdList as $item1) {
-                    $res['AdminIdList'][$n1++] = $item1;
-                }
-            }
+            $res['AdminIdList'] = $this->adminIdList;
         }
-
         if (null !== $this->filterMine) {
             $res['FilterMine'] = $this->filterMine;
         }
-
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
-
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -90,40 +85,31 @@ class listQuery extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return listQuery
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Active'])) {
             $model->active = $map['Active'];
         }
-
         if (isset($map['AdminIdList'])) {
             if (!empty($map['AdminIdList'])) {
-                $model->adminIdList = [];
-                $n1 = 0;
-                foreach ($map['AdminIdList'] as $item1) {
-                    $model->adminIdList[$n1++] = $item1;
-                }
+                $model->adminIdList = $map['AdminIdList'];
             }
         }
-
         if (isset($map['FilterMine'])) {
             $model->filterMine = $map['FilterMine'];
         }
-
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
-
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

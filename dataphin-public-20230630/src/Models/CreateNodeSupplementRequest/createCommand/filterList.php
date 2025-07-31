@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateNodeSupplementRequest\createCommand;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class filterList extends Model
 {
@@ -28,61 +28,41 @@ class filterList extends Model
         'valueList' => 'ValueList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->valueList)) {
-            Model::validateArray($this->valueList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->exclude) {
             $res['Exclude'] = $this->exclude;
         }
-
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->valueList) {
-            if (\is_array($this->valueList)) {
-                $res['ValueList'] = [];
-                $n1 = 0;
-                foreach ($this->valueList as $item1) {
-                    $res['ValueList'][$n1++] = $item1;
-                }
-            }
+            $res['ValueList'] = $this->valueList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return filterList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Exclude'])) {
             $model->exclude = $map['Exclude'];
         }
-
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['ValueList'])) {
             if (!empty($map['ValueList'])) {
-                $model->valueList = [];
-                $n1 = 0;
-                foreach ($map['ValueList'] as $item1) {
-                    $model->valueList[$n1++] = $item1;
-                }
+                $model->valueList = $map['ValueList'];
             }
         }
 

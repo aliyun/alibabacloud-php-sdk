@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OperateInstanceResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class instanceStatusList extends Model
 {
@@ -14,11 +14,15 @@ class instanceStatusList extends Model
     public $displayName;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example t_132435
+     *
      * @var string
      */
     public $id;
@@ -29,6 +33,8 @@ class instanceStatusList extends Model
     public $name;
 
     /**
+     * @example 121311
+     *
      * @var string
      */
     public $ownerId;
@@ -39,6 +45,8 @@ class instanceStatusList extends Model
     public $ownerName;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
@@ -52,38 +60,29 @@ class instanceStatusList extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
-
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-
         if (null !== $this->ownerName) {
             $res['OwnerName'] = $this->ownerName;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -91,38 +90,32 @@ class instanceStatusList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return instanceStatusList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
-
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-
         if (isset($map['OwnerName'])) {
             $model->ownerName = $map['OwnerName'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RevokeResourcePermissionRequest\revokeCommand;
+use AlibabaCloud\Tea\Model;
 
 class RevokeResourcePermissionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 30001011
+     *
      * @var int
      */
     public $opTenantId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var revokeCommand
      */
     public $revokeCommand;
@@ -23,40 +29,32 @@ class RevokeResourcePermissionRequest extends Model
         'revokeCommand' => 'RevokeCommand',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->revokeCommand) {
-            $this->revokeCommand->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
-
         if (null !== $this->revokeCommand) {
-            $res['RevokeCommand'] = null !== $this->revokeCommand ? $this->revokeCommand->toArray($noStream) : $this->revokeCommand;
+            $res['RevokeCommand'] = null !== $this->revokeCommand ? $this->revokeCommand->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return RevokeResourcePermissionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
-
         if (isset($map['RevokeCommand'])) {
             $model->revokeCommand = revokeCommand::fromMap($map['RevokeCommand']);
         }

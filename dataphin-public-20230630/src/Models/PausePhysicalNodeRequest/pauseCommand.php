@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PausePhysicalNodeRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class pauseCommand extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $nodeIdList;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 13222210
+     *
      * @var int
      */
     public $projectId;
@@ -22,27 +28,14 @@ class pauseCommand extends Model
         'projectId' => 'ProjectId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->nodeIdList)) {
-            Model::validateArray($this->nodeIdList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nodeIdList) {
-            if (\is_array($this->nodeIdList)) {
-                $res['NodeIdList'] = [];
-                $n1 = 0;
-                foreach ($this->nodeIdList as $item1) {
-                    $res['NodeIdList'][$n1++] = $item1;
-                }
-            }
+            $res['NodeIdList'] = $this->nodeIdList;
         }
-
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -50,24 +43,19 @@ class pauseCommand extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pauseCommand
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeIdList'])) {
             if (!empty($map['NodeIdList'])) {
-                $model->nodeIdList = [];
-                $n1 = 0;
-                foreach ($map['NodeIdList'] as $item1) {
-                    $model->nodeIdList[$n1++] = $item1;
-                }
+                $model->nodeIdList = $map['NodeIdList'];
             }
         }
-
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

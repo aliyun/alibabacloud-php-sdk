@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListRowPermissionResponseBody\pageResult\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class mappingColumns extends Model
 {
@@ -14,11 +14,15 @@ class mappingColumns extends Model
     public $columnDesc;
 
     /**
+     * @example business_id
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @example string
+     *
      * @var string
      */
     public $columnType;
@@ -28,22 +32,17 @@ class mappingColumns extends Model
         'columnType' => 'ColumnType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->columnDesc) {
             $res['ColumnDesc'] = $this->columnDesc;
         }
-
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
         }
-
         if (null !== $this->columnType) {
             $res['ColumnType'] = $this->columnType;
         }
@@ -51,22 +50,20 @@ class mappingColumns extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return mappingColumns
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColumnDesc'])) {
             $model->columnDesc = $map['ColumnDesc'];
         }
-
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
         }
-
         if (isset($map['ColumnType'])) {
             $model->columnType = $map['ColumnType'];
         }

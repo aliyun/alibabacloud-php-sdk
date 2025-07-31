@@ -4,31 +4,41 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAuthorizedDataServiceApiDetailsResponseBody\result\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class authorizedDevReturnParameters extends Model
 {
     /**
+     * @example example1
+     *
      * @var string
      */
     public $exampleValue;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isAuthorized;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $parameterDataType;
 
     /**
+     * @example description1
+     *
      * @var string
      */
     public $parameterDescription;
 
     /**
+     * @example param1
+     *
      * @var string
      */
     public $parameterName;
@@ -40,30 +50,23 @@ class authorizedDevReturnParameters extends Model
         'parameterName' => 'ParameterName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->exampleValue) {
             $res['ExampleValue'] = $this->exampleValue;
         }
-
         if (null !== $this->isAuthorized) {
             $res['IsAuthorized'] = $this->isAuthorized;
         }
-
         if (null !== $this->parameterDataType) {
             $res['ParameterDataType'] = $this->parameterDataType;
         }
-
         if (null !== $this->parameterDescription) {
             $res['ParameterDescription'] = $this->parameterDescription;
         }
-
         if (null !== $this->parameterName) {
             $res['ParameterName'] = $this->parameterName;
         }
@@ -71,30 +74,26 @@ class authorizedDevReturnParameters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return authorizedDevReturnParameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExampleValue'])) {
             $model->exampleValue = $map['ExampleValue'];
         }
-
         if (isset($map['IsAuthorized'])) {
             $model->isAuthorized = $map['IsAuthorized'];
         }
-
         if (isset($map['ParameterDataType'])) {
             $model->parameterDataType = $map['ParameterDataType'];
         }
-
         if (isset($map['ParameterDescription'])) {
             $model->parameterDescription = $map['ParameterDescription'];
         }
-
         if (isset($map['ParameterName'])) {
             $model->parameterName = $map['ParameterName'];
         }

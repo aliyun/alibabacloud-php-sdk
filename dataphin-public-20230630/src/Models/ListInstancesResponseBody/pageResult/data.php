@@ -4,42 +4,56 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListInstancesResponseBody\pageResult;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListInstancesResponseBody\pageResult\data\nodeInfo;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example 2024-05-30
+     *
      * @var string
      */
     public $bizDate;
 
     /**
+     * @example 2024-05-30 16:47:13
+     *
      * @var string
      */
     public $dueTime;
 
     /**
+     * @example 60s
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example 2024-05-30 16:47:13
+     *
      * @var int
      */
     public $endExecuteTime;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $extendInfo;
 
     /**
+     * @example t_23231
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $index;
@@ -50,6 +64,8 @@ class data extends Model
     public $nodeInfo;
 
     /**
+     * @example 2024-05-30 16:46:13
+     *
      * @var int
      */
     public $startExecuteTime;
@@ -71,120 +87,83 @@ class data extends Model
         'statusList' => 'StatusList',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->nodeInfo) {
-            $this->nodeInfo->validate();
-        }
-        if (\is_array($this->statusList)) {
-            Model::validateArray($this->statusList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bizDate) {
             $res['BizDate'] = $this->bizDate;
         }
-
         if (null !== $this->dueTime) {
             $res['DueTime'] = $this->dueTime;
         }
-
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
-
         if (null !== $this->endExecuteTime) {
             $res['EndExecuteTime'] = $this->endExecuteTime;
         }
-
         if (null !== $this->extendInfo) {
             $res['ExtendInfo'] = $this->extendInfo;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
-
         if (null !== $this->nodeInfo) {
-            $res['NodeInfo'] = null !== $this->nodeInfo ? $this->nodeInfo->toArray($noStream) : $this->nodeInfo;
+            $res['NodeInfo'] = null !== $this->nodeInfo ? $this->nodeInfo->toMap() : null;
         }
-
         if (null !== $this->startExecuteTime) {
             $res['StartExecuteTime'] = $this->startExecuteTime;
         }
-
         if (null !== $this->statusList) {
-            if (\is_array($this->statusList)) {
-                $res['StatusList'] = [];
-                $n1 = 0;
-                foreach ($this->statusList as $item1) {
-                    $res['StatusList'][$n1++] = $item1;
-                }
-            }
+            $res['StatusList'] = $this->statusList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizDate'])) {
             $model->bizDate = $map['BizDate'];
         }
-
         if (isset($map['DueTime'])) {
             $model->dueTime = $map['DueTime'];
         }
-
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
-
         if (isset($map['EndExecuteTime'])) {
             $model->endExecuteTime = $map['EndExecuteTime'];
         }
-
         if (isset($map['ExtendInfo'])) {
             $model->extendInfo = $map['ExtendInfo'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }
-
         if (isset($map['NodeInfo'])) {
             $model->nodeInfo = nodeInfo::fromMap($map['NodeInfo']);
         }
-
         if (isset($map['StartExecuteTime'])) {
             $model->startExecuteTime = $map['StartExecuteTime'];
         }
-
         if (isset($map['StatusList'])) {
             if (!empty($map['StatusList'])) {
-                $model->statusList = [];
-                $n1 = 0;
-                foreach ($map['StatusList'] as $item1) {
-                    $model->statusList[$n1++] = $item1;
-                }
+                $model->statusList = $map['StatusList'];
             }
         }
 

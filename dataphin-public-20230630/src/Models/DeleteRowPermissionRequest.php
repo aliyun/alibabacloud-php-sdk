@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteRowPermissionRequest\deleteRowPermissionCommand;
+use AlibabaCloud\Tea\Model;
 
 class DeleteRowPermissionRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var deleteRowPermissionCommand
      */
     public $deleteRowPermissionCommand;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 30001011
+     *
      * @var int
      */
     public $opTenantId;
@@ -23,21 +29,14 @@ class DeleteRowPermissionRequest extends Model
         'opTenantId' => 'OpTenantId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->deleteRowPermissionCommand) {
-            $this->deleteRowPermissionCommand->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->deleteRowPermissionCommand) {
-            $res['DeleteRowPermissionCommand'] = null !== $this->deleteRowPermissionCommand ? $this->deleteRowPermissionCommand->toArray($noStream) : $this->deleteRowPermissionCommand;
+            $res['DeleteRowPermissionCommand'] = null !== $this->deleteRowPermissionCommand ? $this->deleteRowPermissionCommand->toMap() : null;
         }
-
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
@@ -45,18 +44,17 @@ class DeleteRowPermissionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteRowPermissionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeleteRowPermissionCommand'])) {
             $model->deleteRowPermissionCommand = deleteRowPermissionCommand::fromMap($map['DeleteRowPermissionCommand']);
         }
-
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }

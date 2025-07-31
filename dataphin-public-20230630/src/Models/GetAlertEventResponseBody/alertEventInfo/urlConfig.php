@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAlertEventResponseBody\alertEventInfo;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class urlConfig extends Model
 {
     /**
+     * @example https://dataphin.com/ops/test3
+     *
      * @var string
      */
     public $alertConfigUrl;
 
     /**
+     * @example https://dataphin.com/ops/test2
+     *
      * @var string
      */
     public $logUrl;
 
     /**
+     * @example https://dataphin.com/ops/test1
+     *
      * @var string
      */
     public $objectUrl;
@@ -28,22 +34,17 @@ class urlConfig extends Model
         'objectUrl' => 'ObjectUrl',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alertConfigUrl) {
             $res['AlertConfigUrl'] = $this->alertConfigUrl;
         }
-
         if (null !== $this->logUrl) {
             $res['LogUrl'] = $this->logUrl;
         }
-
         if (null !== $this->objectUrl) {
             $res['ObjectUrl'] = $this->objectUrl;
         }
@@ -51,22 +52,20 @@ class urlConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return urlConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertConfigUrl'])) {
             $model->alertConfigUrl = $map['AlertConfigUrl'];
         }
-
         if (isset($map['LogUrl'])) {
             $model->logUrl = $map['LogUrl'];
         }
-
         if (isset($map['ObjectUrl'])) {
             $model->objectUrl = $map['ObjectUrl'];
         }

@@ -4,20 +4,26 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest\updateCommand\customScheduleConfig;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest\updateCommand\paramList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest\updateCommand\sparkClientInfo;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest\updateCommand\upStreamList;
+use AlibabaCloud\Tea\Model;
 
 class updateCommand extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example show tables;
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 0 0 1 * * ?
+     *
      * @var string
      */
     public $cronExpression;
@@ -28,36 +34,54 @@ class updateCommand extends Model
     public $customScheduleConfig;
 
     /**
+     * @example mysql_catalog
+     *
      * @var string
      */
     public $dataSourceCatalog;
 
     /**
+     * @example 12131111
+     *
      * @var string
      */
     public $dataSourceId;
 
     /**
+     * @example erp
+     *
      * @var string
      */
     public $dataSourceSchema;
 
     /**
+     * @example PYTHON3_7
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 12113111
+     *
      * @var int
      */
     public $fileId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example test111
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example xx测试
+     *
      * @var string
      */
     public $nodeDescription;
@@ -68,6 +92,8 @@ class updateCommand extends Model
     public $nodeOutputNameList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $nodeStatus;
@@ -78,11 +104,17 @@ class updateCommand extends Model
     public $paramList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 10121101
+     *
      * @var int
      */
     public $projectId;
@@ -93,6 +125,8 @@ class updateCommand extends Model
     public $pythonModuleList;
 
     /**
+     * @example DAILY
+     *
      * @var string
      */
     public $schedulePeriod;
@@ -103,6 +137,10 @@ class updateCommand extends Model
     public $sparkClientInfo;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 21
+     *
      * @var int
      */
     public $taskType;
@@ -134,132 +172,80 @@ class updateCommand extends Model
         'upStreamList' => 'UpStreamList',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->customScheduleConfig) {
-            $this->customScheduleConfig->validate();
-        }
-        if (\is_array($this->nodeOutputNameList)) {
-            Model::validateArray($this->nodeOutputNameList);
-        }
-        if (\is_array($this->paramList)) {
-            Model::validateArray($this->paramList);
-        }
-        if (\is_array($this->pythonModuleList)) {
-            Model::validateArray($this->pythonModuleList);
-        }
-        if (null !== $this->sparkClientInfo) {
-            $this->sparkClientInfo->validate();
-        }
-        if (\is_array($this->upStreamList)) {
-            Model::validateArray($this->upStreamList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->cronExpression) {
             $res['CronExpression'] = $this->cronExpression;
         }
-
         if (null !== $this->customScheduleConfig) {
-            $res['CustomScheduleConfig'] = null !== $this->customScheduleConfig ? $this->customScheduleConfig->toArray($noStream) : $this->customScheduleConfig;
+            $res['CustomScheduleConfig'] = null !== $this->customScheduleConfig ? $this->customScheduleConfig->toMap() : null;
         }
-
         if (null !== $this->dataSourceCatalog) {
             $res['DataSourceCatalog'] = $this->dataSourceCatalog;
         }
-
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
         }
-
         if (null !== $this->dataSourceSchema) {
             $res['DataSourceSchema'] = $this->dataSourceSchema;
         }
-
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
-
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->nodeDescription) {
             $res['NodeDescription'] = $this->nodeDescription;
         }
-
         if (null !== $this->nodeOutputNameList) {
-            if (\is_array($this->nodeOutputNameList)) {
-                $res['NodeOutputNameList'] = [];
-                $n1 = 0;
-                foreach ($this->nodeOutputNameList as $item1) {
-                    $res['NodeOutputNameList'][$n1++] = $item1;
-                }
-            }
+            $res['NodeOutputNameList'] = $this->nodeOutputNameList;
         }
-
         if (null !== $this->nodeStatus) {
             $res['NodeStatus'] = $this->nodeStatus;
         }
-
         if (null !== $this->paramList) {
-            if (\is_array($this->paramList)) {
-                $res['ParamList'] = [];
-                $n1 = 0;
-                foreach ($this->paramList as $item1) {
-                    $res['ParamList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['ParamList'] = [];
+            if (null !== $this->paramList && \is_array($this->paramList)) {
+                $n = 0;
+                foreach ($this->paramList as $item) {
+                    $res['ParamList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
-
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
-
         if (null !== $this->pythonModuleList) {
-            if (\is_array($this->pythonModuleList)) {
-                $res['PythonModuleList'] = [];
-                $n1 = 0;
-                foreach ($this->pythonModuleList as $item1) {
-                    $res['PythonModuleList'][$n1++] = $item1;
-                }
-            }
+            $res['PythonModuleList'] = $this->pythonModuleList;
         }
-
         if (null !== $this->schedulePeriod) {
             $res['SchedulePeriod'] = $this->schedulePeriod;
         }
-
         if (null !== $this->sparkClientInfo) {
-            $res['SparkClientInfo'] = null !== $this->sparkClientInfo ? $this->sparkClientInfo->toArray($noStream) : $this->sparkClientInfo;
+            $res['SparkClientInfo'] = null !== $this->sparkClientInfo ? $this->sparkClientInfo->toMap() : null;
         }
-
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
-
         if (null !== $this->upStreamList) {
-            if (\is_array($this->upStreamList)) {
-                $res['UpStreamList'] = [];
-                $n1 = 0;
-                foreach ($this->upStreamList as $item1) {
-                    $res['UpStreamList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['UpStreamList'] = [];
+            if (null !== $this->upStreamList && \is_array($this->upStreamList)) {
+                $n = 0;
+                foreach ($this->upStreamList as $item) {
+                    $res['UpStreamList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -267,114 +253,87 @@ class updateCommand extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return updateCommand
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['CronExpression'])) {
             $model->cronExpression = $map['CronExpression'];
         }
-
         if (isset($map['CustomScheduleConfig'])) {
             $model->customScheduleConfig = customScheduleConfig::fromMap($map['CustomScheduleConfig']);
         }
-
         if (isset($map['DataSourceCatalog'])) {
             $model->dataSourceCatalog = $map['DataSourceCatalog'];
         }
-
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
         }
-
         if (isset($map['DataSourceSchema'])) {
             $model->dataSourceSchema = $map['DataSourceSchema'];
         }
-
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
-
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['NodeDescription'])) {
             $model->nodeDescription = $map['NodeDescription'];
         }
-
         if (isset($map['NodeOutputNameList'])) {
             if (!empty($map['NodeOutputNameList'])) {
-                $model->nodeOutputNameList = [];
-                $n1 = 0;
-                foreach ($map['NodeOutputNameList'] as $item1) {
-                    $model->nodeOutputNameList[$n1++] = $item1;
-                }
+                $model->nodeOutputNameList = $map['NodeOutputNameList'];
             }
         }
-
         if (isset($map['NodeStatus'])) {
             $model->nodeStatus = $map['NodeStatus'];
         }
-
         if (isset($map['ParamList'])) {
             if (!empty($map['ParamList'])) {
                 $model->paramList = [];
-                $n1 = 0;
-                foreach ($map['ParamList'] as $item1) {
-                    $model->paramList[$n1++] = paramList::fromMap($item1);
+                $n = 0;
+                foreach ($map['ParamList'] as $item) {
+                    $model->paramList[$n++] = null !== $item ? paramList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
-
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
-
         if (isset($map['PythonModuleList'])) {
             if (!empty($map['PythonModuleList'])) {
-                $model->pythonModuleList = [];
-                $n1 = 0;
-                foreach ($map['PythonModuleList'] as $item1) {
-                    $model->pythonModuleList[$n1++] = $item1;
-                }
+                $model->pythonModuleList = $map['PythonModuleList'];
             }
         }
-
         if (isset($map['SchedulePeriod'])) {
             $model->schedulePeriod = $map['SchedulePeriod'];
         }
-
         if (isset($map['SparkClientInfo'])) {
             $model->sparkClientInfo = sparkClientInfo::fromMap($map['SparkClientInfo']);
         }
-
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }
-
         if (isset($map['UpStreamList'])) {
             if (!empty($map['UpStreamList'])) {
                 $model->upStreamList = [];
-                $n1 = 0;
-                foreach ($map['UpStreamList'] as $item1) {
-                    $model->upStreamList[$n1++] = upStreamList::fromMap($item1);
+                $n = 0;
+                foreach ($map['UpStreamList'] as $item) {
+                    $model->upStreamList[$n++] = null !== $item ? upStreamList::fromMap($item) : $item;
                 }
             }
         }

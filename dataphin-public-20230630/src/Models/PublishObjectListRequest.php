@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishObjectListRequest\publishCommand;
+use AlibabaCloud\Tea\Model;
 
 class PublishObjectListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 30001011
+     *
      * @var int
      */
     public $opTenantId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var publishCommand
      */
     public $publishCommand;
@@ -23,40 +29,32 @@ class PublishObjectListRequest extends Model
         'publishCommand' => 'PublishCommand',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->publishCommand) {
-            $this->publishCommand->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
-
         if (null !== $this->publishCommand) {
-            $res['PublishCommand'] = null !== $this->publishCommand ? $this->publishCommand->toArray($noStream) : $this->publishCommand;
+            $res['PublishCommand'] = null !== $this->publishCommand ? $this->publishCommand->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return PublishObjectListRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
-
         if (isset($map['PublishCommand'])) {
             $model->publishCommand = publishCommand::fromMap($map['PublishCommand']);
         }

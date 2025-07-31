@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckResourcePermissionRequest\checkCommand;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class resourceList extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example hadoop.300000806.data_distill.behavior_gameinfor_01
+     *
      * @var string
      */
     public $resourceId;
@@ -16,12 +20,9 @@ class resourceList extends Model
         'resourceId' => 'ResourceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->resourceId) {
@@ -31,11 +32,11 @@ class resourceList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return resourceList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

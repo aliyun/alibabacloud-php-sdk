@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataDomainsRequest\listQuery;
+use AlibabaCloud\Tea\Model;
 
 class ListDataDomainsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var listQuery
      */
     public $listQuery;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 30001011
+     *
      * @var int
      */
     public $opTenantId;
@@ -23,21 +29,14 @@ class ListDataDomainsRequest extends Model
         'opTenantId' => 'OpTenantId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->listQuery) {
-            $this->listQuery->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->listQuery) {
-            $res['ListQuery'] = null !== $this->listQuery ? $this->listQuery->toArray($noStream) : $this->listQuery;
+            $res['ListQuery'] = null !== $this->listQuery ? $this->listQuery->toMap() : null;
         }
-
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
@@ -45,18 +44,17 @@ class ListDataDomainsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListDataDomainsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ListQuery'])) {
             $model->listQuery = listQuery::fromMap($map['ListQuery']);
         }
-
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }

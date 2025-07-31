@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteRowPermissionRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class deleteRowPermissionCommand extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 300001234
+     *
      * @var int
      */
     public $rowPermissionId;
@@ -16,12 +20,9 @@ class deleteRowPermissionCommand extends Model
         'rowPermissionId' => 'RowPermissionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->rowPermissionId) {
@@ -31,11 +32,11 @@ class deleteRowPermissionCommand extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return deleteRowPermissionCommand
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

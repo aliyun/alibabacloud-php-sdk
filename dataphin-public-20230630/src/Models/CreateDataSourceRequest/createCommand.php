@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceRequest;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceRequest\createCommand\devDataSourceCreate;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceRequest\createCommand\prodDataSourceCreate;
+use AlibabaCloud\Tea\Model;
 
 class createCommand extends Model
 {
@@ -16,6 +16,8 @@ class createCommand extends Model
     public $devDataSourceCreate;
 
     /**
+     * @description 数据源创建结构体
+     *
      * @var prodDataSourceCreate
      */
     public $prodDataSourceCreate;
@@ -24,43 +26,32 @@ class createCommand extends Model
         'prodDataSourceCreate' => 'ProdDataSourceCreate',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->devDataSourceCreate) {
-            $this->devDataSourceCreate->validate();
-        }
-        if (null !== $this->prodDataSourceCreate) {
-            $this->prodDataSourceCreate->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->devDataSourceCreate) {
-            $res['DevDataSourceCreate'] = null !== $this->devDataSourceCreate ? $this->devDataSourceCreate->toArray($noStream) : $this->devDataSourceCreate;
+            $res['DevDataSourceCreate'] = null !== $this->devDataSourceCreate ? $this->devDataSourceCreate->toMap() : null;
         }
-
         if (null !== $this->prodDataSourceCreate) {
-            $res['ProdDataSourceCreate'] = null !== $this->prodDataSourceCreate ? $this->prodDataSourceCreate->toArray($noStream) : $this->prodDataSourceCreate;
+            $res['ProdDataSourceCreate'] = null !== $this->prodDataSourceCreate ? $this->prodDataSourceCreate->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return createCommand
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DevDataSourceCreate'])) {
             $model->devDataSourceCreate = devDataSourceCreate::fromMap($map['DevDataSourceCreate']);
         }
-
         if (isset($map['ProdDataSourceCreate'])) {
             $model->prodDataSourceCreate = prodDataSourceCreate::fromMap($map['ProdDataSourceCreate']);
         }

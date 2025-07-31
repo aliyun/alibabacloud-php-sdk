@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStreamBatchJobMappingRequest\streamBatchJobMappingCreateCommand;
+use AlibabaCloud\Tea\Model;
 
 class CreateStreamBatchJobMappingRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example 30001011
+     *
      * @var int
      */
     public $opTenantId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var streamBatchJobMappingCreateCommand
      */
     public $streamBatchJobMappingCreateCommand;
@@ -23,40 +29,32 @@ class CreateStreamBatchJobMappingRequest extends Model
         'streamBatchJobMappingCreateCommand' => 'StreamBatchJobMappingCreateCommand',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->streamBatchJobMappingCreateCommand) {
-            $this->streamBatchJobMappingCreateCommand->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->opTenantId) {
             $res['OpTenantId'] = $this->opTenantId;
         }
-
         if (null !== $this->streamBatchJobMappingCreateCommand) {
-            $res['StreamBatchJobMappingCreateCommand'] = null !== $this->streamBatchJobMappingCreateCommand ? $this->streamBatchJobMappingCreateCommand->toArray($noStream) : $this->streamBatchJobMappingCreateCommand;
+            $res['StreamBatchJobMappingCreateCommand'] = null !== $this->streamBatchJobMappingCreateCommand ? $this->streamBatchJobMappingCreateCommand->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateStreamBatchJobMappingRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpTenantId'])) {
             $model->opTenantId = $map['OpTenantId'];
         }
-
         if (isset($map['StreamBatchJobMappingCreateCommand'])) {
             $model->streamBatchJobMappingCreateCommand = streamBatchJobMappingCreateCommand::fromMap($map['StreamBatchJobMappingCreateCommand']);
         }

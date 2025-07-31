@@ -4,16 +4,18 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAlertEventResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAlertEventResponseBody\alertEventInfo\alertObject;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAlertEventResponseBody\alertEventInfo\alertReason;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAlertEventResponseBody\alertEventInfo\alertReceiverList;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAlertEventResponseBody\alertEventInfo\belongProject;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAlertEventResponseBody\alertEventInfo\urlConfig;
+use AlibabaCloud\Tea\Model;
 
 class alertEventInfo extends Model
 {
     /**
+     * @example ONCE
+     *
      * @var string
      */
     public $alertFrequency;
@@ -39,31 +41,43 @@ class alertEventInfo extends Model
     public $belongProject;
 
     /**
+     * @example 2024-11-05 00:00:00
+     *
      * @var string
      */
     public $doNotDisturbEndTime;
 
     /**
+     * @example 2024-11-05 16:19:33
+     *
      * @var string
      */
     public $firstAlertTime;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 2024-11-05 16:19:33
+     *
      * @var string
      */
     public $latestAlertTime;
 
     /**
+     * @example FINISH
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalAlertTimes;
@@ -87,144 +101,104 @@ class alertEventInfo extends Model
         'urlConfig' => 'UrlConfig',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->alertObject) {
-            $this->alertObject->validate();
-        }
-        if (null !== $this->alertReason) {
-            $this->alertReason->validate();
-        }
-        if (\is_array($this->alertReceiverList)) {
-            Model::validateArray($this->alertReceiverList);
-        }
-        if (null !== $this->belongProject) {
-            $this->belongProject->validate();
-        }
-        if (null !== $this->urlConfig) {
-            $this->urlConfig->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->alertFrequency) {
             $res['AlertFrequency'] = $this->alertFrequency;
         }
-
         if (null !== $this->alertObject) {
-            $res['AlertObject'] = null !== $this->alertObject ? $this->alertObject->toArray($noStream) : $this->alertObject;
+            $res['AlertObject'] = null !== $this->alertObject ? $this->alertObject->toMap() : null;
         }
-
         if (null !== $this->alertReason) {
-            $res['AlertReason'] = null !== $this->alertReason ? $this->alertReason->toArray($noStream) : $this->alertReason;
+            $res['AlertReason'] = null !== $this->alertReason ? $this->alertReason->toMap() : null;
         }
-
         if (null !== $this->alertReceiverList) {
-            if (\is_array($this->alertReceiverList)) {
-                $res['AlertReceiverList'] = [];
-                $n1 = 0;
-                foreach ($this->alertReceiverList as $item1) {
-                    $res['AlertReceiverList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AlertReceiverList'] = [];
+            if (null !== $this->alertReceiverList && \is_array($this->alertReceiverList)) {
+                $n = 0;
+                foreach ($this->alertReceiverList as $item) {
+                    $res['AlertReceiverList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->belongProject) {
-            $res['BelongProject'] = null !== $this->belongProject ? $this->belongProject->toArray($noStream) : $this->belongProject;
+            $res['BelongProject'] = null !== $this->belongProject ? $this->belongProject->toMap() : null;
         }
-
         if (null !== $this->doNotDisturbEndTime) {
             $res['DoNotDisturbEndTime'] = $this->doNotDisturbEndTime;
         }
-
         if (null !== $this->firstAlertTime) {
             $res['FirstAlertTime'] = $this->firstAlertTime;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->latestAlertTime) {
             $res['LatestAlertTime'] = $this->latestAlertTime;
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->totalAlertTimes) {
             $res['TotalAlertTimes'] = $this->totalAlertTimes;
         }
-
         if (null !== $this->urlConfig) {
-            $res['UrlConfig'] = null !== $this->urlConfig ? $this->urlConfig->toArray($noStream) : $this->urlConfig;
+            $res['UrlConfig'] = null !== $this->urlConfig ? $this->urlConfig->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return alertEventInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertFrequency'])) {
             $model->alertFrequency = $map['AlertFrequency'];
         }
-
         if (isset($map['AlertObject'])) {
             $model->alertObject = alertObject::fromMap($map['AlertObject']);
         }
-
         if (isset($map['AlertReason'])) {
             $model->alertReason = alertReason::fromMap($map['AlertReason']);
         }
-
         if (isset($map['AlertReceiverList'])) {
             if (!empty($map['AlertReceiverList'])) {
                 $model->alertReceiverList = [];
-                $n1 = 0;
-                foreach ($map['AlertReceiverList'] as $item1) {
-                    $model->alertReceiverList[$n1++] = alertReceiverList::fromMap($item1);
+                $n = 0;
+                foreach ($map['AlertReceiverList'] as $item) {
+                    $model->alertReceiverList[$n++] = null !== $item ? alertReceiverList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['BelongProject'])) {
             $model->belongProject = belongProject::fromMap($map['BelongProject']);
         }
-
         if (isset($map['DoNotDisturbEndTime'])) {
             $model->doNotDisturbEndTime = $map['DoNotDisturbEndTime'];
         }
-
         if (isset($map['FirstAlertTime'])) {
             $model->firstAlertTime = $map['FirstAlertTime'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['LatestAlertTime'])) {
             $model->latestAlertTime = $map['LatestAlertTime'];
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['TotalAlertTimes'])) {
             $model->totalAlertTimes = $map['TotalAlertTimes'];
         }
-
         if (isset($map['UrlConfig'])) {
             $model->urlConfig = urlConfig::fromMap($map['UrlConfig']);
         }

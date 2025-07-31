@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class createResult extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $devDataSourceId;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $prodDataSourceId;
@@ -22,18 +26,14 @@ class createResult extends Model
         'prodDataSourceId' => 'ProdDataSourceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->devDataSourceId) {
             $res['DevDataSourceId'] = $this->devDataSourceId;
         }
-
         if (null !== $this->prodDataSourceId) {
             $res['ProdDataSourceId'] = $this->prodDataSourceId;
         }
@@ -41,18 +41,17 @@ class createResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return createResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DevDataSourceId'])) {
             $model->devDataSourceId = $map['DevDataSourceId'];
         }
-
         if (isset($map['ProdDataSourceId'])) {
             $model->prodDataSourceId = $map['ProdDataSourceId'];
         }
