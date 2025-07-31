@@ -882,7 +882,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ActivateRouterInterface is deprecated
+     * @deprecated openAPI ActivateRouterInterface is deprecated, please use Vpc::2016-04-28::ActivateRouterInterface instead
+     *  *
+     * @summary ActivateRouterInterface
      *  *
      * Deprecated
      *
@@ -929,7 +931,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ActivateRouterInterface is deprecated
+     * @deprecated openAPI ActivateRouterInterface is deprecated, please use Vpc::2016-04-28::ActivateRouterInterface instead
+     *  *
+     * @summary ActivateRouterInterface
      *  *
      * Deprecated
      *
@@ -945,7 +949,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI AddBandwidthPackageIps is deprecated
+     * @deprecated openAPI AddBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::AddBandwidthPackageIps instead
+     *  *
+     * @summary AddBandwidthPackageIps
      *  *
      * Deprecated
      *
@@ -1001,7 +1007,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI AddBandwidthPackageIps is deprecated
+     * @deprecated openAPI AddBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::AddBandwidthPackageIps instead
+     *  *
+     * @summary AddBandwidthPackageIps
      *  *
      * Deprecated
      *
@@ -1235,6 +1243,8 @@ class Ecs extends OpenApiClient
     /**
      * @deprecated openAPI AllocateEipAddress is deprecated, please use Vpc::2016-04-28::AllocateEipAddress instead
      *  *
+     * @summary AllocateEipAddress
+     *  *
      * @description > This operation has been upgraded. We recommend that you do not use it. For information about the new version of this operation, see [AllocateEipAddress](https://help.aliyun.com/document_detail/120192.html).
      *  *
      * Deprecated
@@ -1298,6 +1308,8 @@ class Ecs extends OpenApiClient
 
     /**
      * @deprecated openAPI AllocateEipAddress is deprecated, please use Vpc::2016-04-28::AllocateEipAddress instead
+     *  *
+     * @summary AllocateEipAddress
      *  *
      * @description > This operation has been upgraded. We recommend that you do not use it. For information about the new version of this operation, see [AllocateEipAddress](https://help.aliyun.com/document_detail/120192.html).
      *  *
@@ -1660,7 +1672,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI AssociateEipAddress is deprecated, please use Vpc::2016-04-28::AssociateEipAddress instead.
+     * @deprecated openAPI AssociateEipAddress is deprecated, please use Vpc::2016-04-28::AssociateEipAddress instead
+     *  *
+     * @summary AssociateEipAddress
      *  *
      * Deprecated
      *
@@ -1716,7 +1730,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI AssociateEipAddress is deprecated, please use Vpc::2016-04-28::AssociateEipAddress instead.
+     * @deprecated openAPI AssociateEipAddress is deprecated, please use Vpc::2016-04-28::AssociateEipAddress instead
+     *  *
+     * @summary AssociateEipAddress
      *  *
      * Deprecated
      *
@@ -1732,7 +1748,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI AssociateHaVip is deprecated
+     * @deprecated openAPI AssociateHaVip is deprecated, please use Vpc::2016-04-28::AssociateHaVip instead
+     *  *
+     * @summary AssociateHaVip
      *  *
      * Deprecated
      *
@@ -1788,7 +1806,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI AssociateHaVip is deprecated
+     * @deprecated openAPI AssociateHaVip is deprecated, please use Vpc::2016-04-28::AssociateHaVip instead
+     *  *
+     * @summary AssociateHaVip
      *  *
      * Deprecated
      *
@@ -2858,7 +2878,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CancelPhysicalConnection is deprecated
+     * @deprecated openAPI CancelPhysicalConnection is deprecated, please use Vpc::2016-04-28::CancelPhysicalConnection instead
+     *  *
+     * @summary CancelPhysicalConnection
      *  *
      * Deprecated
      *
@@ -2914,7 +2936,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CancelPhysicalConnection is deprecated
+     * @deprecated openAPI CancelPhysicalConnection is deprecated, please use Vpc::2016-04-28::CancelPhysicalConnection instead
+     *  *
+     * @summary CancelPhysicalConnection
      *  *
      * Deprecated
      *
@@ -3054,7 +3078,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ConnectRouterInterface is deprecated
+     * @deprecated openAPI ConnectRouterInterface is deprecated, please use Vpc::2016-04-28::ConnectRouterInterface instead
+     *  *
+     * @summary ConnectRouterInterface
      *  *
      * Deprecated
      *
@@ -3101,7 +3127,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ConnectRouterInterface is deprecated
+     * @deprecated openAPI ConnectRouterInterface is deprecated, please use Vpc::2016-04-28::ConnectRouterInterface instead
+     *  *
+     * @summary ConnectRouterInterface
      *  *
      * Deprecated
      *
@@ -4560,7 +4588,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CreateForwardEntry is deprecated
+     * @deprecated openAPI CreateForwardEntry is deprecated, please use Vpc::2016-04-28::CreateForwardEntry instead
+     *  *
+     * @summary CreateForwardEntry
      *  *
      * Deprecated
      *
@@ -4625,7 +4655,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CreateForwardEntry is deprecated
+     * @deprecated openAPI CreateForwardEntry is deprecated, please use Vpc::2016-04-28::CreateForwardEntry instead
+     *  *
+     * @summary CreateForwardEntry
      *  *
      * Deprecated
      *
@@ -4641,7 +4673,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CreateHaVip is deprecated
+     * @deprecated openAPI CreateHaVip is deprecated, please use Vpc::2016-04-28::CreateHaVip instead
+     *  *
+     * @summary CreateHaVip
      *  *
      * Deprecated
      *
@@ -4700,7 +4734,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CreateHaVip is deprecated
+     * @deprecated openAPI CreateHaVip is deprecated, please use Vpc::2016-04-28::CreateHaVip instead
+     *  *
+     * @summary CreateHaVip
      *  *
      * Deprecated
      *
@@ -5955,7 +5991,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CreateNatGateway is deprecated
+     * @deprecated openAPI CreateNatGateway is deprecated, please use Vpc::2016-04-28::CreateNatGateway instead
+     *  *
+     * @summary CreateNatGateway
      *  *
      * Deprecated
      *
@@ -6017,7 +6055,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CreateNatGateway is deprecated
+     * @deprecated openAPI CreateNatGateway is deprecated, please use Vpc::2016-04-28::CreateNatGateway instead
+     *  *
+     * @summary CreateNatGateway
      *  *
      * Deprecated
      *
@@ -6288,7 +6328,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CreatePhysicalConnection is deprecated
+     * @deprecated openAPI CreatePhysicalConnection is deprecated, please use Vpc::2016-04-28::CreatePhysicalConnection instead
+     *  *
+     * @summary CreatePhysicalConnection
      *  *
      * Deprecated
      *
@@ -6374,7 +6416,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CreatePhysicalConnection is deprecated
+     * @deprecated openAPI CreatePhysicalConnection is deprecated, please use Vpc::2016-04-28::CreatePhysicalConnection instead
+     *  *
+     * @summary CreatePhysicalConnection
      *  *
      * Deprecated
      *
@@ -6577,7 +6621,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CreateRouteEntry is deprecated
+     * @deprecated openAPI CreateRouteEntry is deprecated, please use Vpc::2016-04-28::CreateRouteEntry instead
+     *  *
+     * @summary CreateRouteEntry
      *  *
      * Deprecated
      *
@@ -6642,7 +6688,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CreateRouteEntry is deprecated
+     * @deprecated openAPI CreateRouteEntry is deprecated, please use Vpc::2016-04-28::CreateRouteEntry instead
+     *  *
+     * @summary CreateRouteEntry
      *  *
      * Deprecated
      *
@@ -6658,7 +6706,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CreateRouterInterface is deprecated
+     * @deprecated openAPI CreateRouterInterface is deprecated, please use Vpc::2016-04-28::CreateRouterInterface instead
+     *  *
+     * @summary CreateRouterInterface
      *  *
      * Deprecated
      *
@@ -6771,7 +6821,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CreateRouterInterface is deprecated
+     * @deprecated openAPI CreateRouterInterface is deprecated, please use Vpc::2016-04-28::CreateRouterInterface instead
+     *  *
+     * @summary CreateRouterInterface
      *  *
      * Deprecated
      *
@@ -7378,7 +7430,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CreateVSwitch is deprecated, please use Vpc::2016-04-28::CreateVSwitch instead.
+     * @deprecated openAPI CreateVSwitch is deprecated, please use Vpc::2016-04-28::CreateVSwitch instead
+     *  *
+     * @summary CreateVSwitch
      *  *
      * Deprecated
      *
@@ -7443,7 +7497,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CreateVSwitch is deprecated, please use Vpc::2016-04-28::CreateVSwitch instead.
+     * @deprecated openAPI CreateVSwitch is deprecated, please use Vpc::2016-04-28::CreateVSwitch instead
+     *  *
+     * @summary CreateVSwitch
      *  *
      * Deprecated
      *
@@ -7459,7 +7515,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CreateVirtualBorderRouter is deprecated
+     * @deprecated openAPI CreateVirtualBorderRouter is deprecated, please use Vpc::2016-04-28::CreateVirtualBorderRouter instead
+     *  *
+     * @summary CreateVirtualBorderRouter
      *  *
      * Deprecated
      *
@@ -7542,7 +7600,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CreateVirtualBorderRouter is deprecated
+     * @deprecated openAPI CreateVirtualBorderRouter is deprecated, please use Vpc::2016-04-28::CreateVirtualBorderRouter instead
+     *  *
+     * @summary CreateVirtualBorderRouter
      *  *
      * Deprecated
      *
@@ -7558,7 +7618,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CreateVpc is deprecated, please use Vpc::2016-04-28::CreateVpc instead.
+     * @deprecated openAPI CreateVpc is deprecated, please use Vpc::2016-04-28::CreateVpc instead
+     *  *
+     * @summary CreateVpc
      *  *
      * Deprecated
      *
@@ -7620,7 +7682,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI CreateVpc is deprecated, please use Vpc::2016-04-28::CreateVpc instead.
+     * @deprecated openAPI CreateVpc is deprecated, please use Vpc::2016-04-28::CreateVpc instead
+     *  *
+     * @summary CreateVpc
      *  *
      * Deprecated
      *
@@ -7636,7 +7700,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeactivateRouterInterface is deprecated
+     * @deprecated openAPI DeactivateRouterInterface is deprecated, please use Vpc::2016-04-28::DeactivateRouterInterface instead
+     *  *
+     * @summary DeactivateRouterInterface
      *  *
      * Deprecated
      *
@@ -7683,7 +7749,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeactivateRouterInterface is deprecated
+     * @deprecated openAPI DeactivateRouterInterface is deprecated, please use Vpc::2016-04-28::DeactivateRouterInterface instead
+     *  *
+     * @summary DeactivateRouterInterface
      *  *
      * Deprecated
      *
@@ -7894,7 +7962,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeleteBandwidthPackage is deprecated
+     * @deprecated openAPI DeleteBandwidthPackage is deprecated, please use Vpc::2016-04-28::DeleteBandwidthPackage instead
+     *  *
+     * @summary DeleteBandwidthPackage
      *  *
      * Deprecated
      *
@@ -7944,7 +8014,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeleteBandwidthPackage is deprecated
+     * @deprecated openAPI DeleteBandwidthPackage is deprecated, please use Vpc::2016-04-28::DeleteBandwidthPackage instead
+     *  *
+     * @summary DeleteBandwidthPackage
      *  *
      * Deprecated
      *
@@ -8328,7 +8400,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeleteForwardEntry is deprecated
+     * @deprecated openAPI DeleteForwardEntry is deprecated, please use Vpc::2016-04-28::DeleteForwardEntry instead
+     *  *
+     * @summary DeleteForwardEntry
      *  *
      * Deprecated
      *
@@ -8381,7 +8455,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeleteForwardEntry is deprecated
+     * @deprecated openAPI DeleteForwardEntry is deprecated, please use Vpc::2016-04-28::DeleteForwardEntry instead
+     *  *
+     * @summary DeleteForwardEntry
      *  *
      * Deprecated
      *
@@ -8397,7 +8473,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeleteHaVip is deprecated
+     * @deprecated openAPI DeleteHaVip is deprecated, please use Vpc::2016-04-28::DeleteHaVip instead
+     *  *
+     * @summary DeleteHaVip
      *  *
      * Deprecated
      *
@@ -8450,7 +8528,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeleteHaVip is deprecated
+     * @deprecated openAPI DeleteHaVip is deprecated, please use Vpc::2016-04-28::DeleteHaVip instead
+     *  *
+     * @summary DeleteHaVip
      *  *
      * Deprecated
      *
@@ -9148,7 +9228,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeleteNatGateway is deprecated
+     * @deprecated openAPI DeleteNatGateway is deprecated, please use Vpc::2016-04-28::DeleteNatGateway instead
+     *  *
+     * @summary DeleteNatGateway
      *  *
      * Deprecated
      *
@@ -9198,7 +9280,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeleteNatGateway is deprecated
+     * @deprecated openAPI DeleteNatGateway is deprecated, please use Vpc::2016-04-28::DeleteNatGateway instead
+     *  *
+     * @summary DeleteNatGateway
      *  *
      * Deprecated
      *
@@ -9381,7 +9465,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeletePhysicalConnection is deprecated
+     * @deprecated openAPI DeletePhysicalConnection is deprecated, please use Vpc::2016-04-28::DeletePhysicalConnection instead
+     *  *
+     * @summary DeletePhysicalConnection
      *  *
      * Deprecated
      *
@@ -9434,7 +9520,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeletePhysicalConnection is deprecated
+     * @deprecated openAPI DeletePhysicalConnection is deprecated, please use Vpc::2016-04-28::DeletePhysicalConnection instead
+     *  *
+     * @summary DeletePhysicalConnection
      *  *
      * Deprecated
      *
@@ -9584,7 +9672,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeleteRouteEntry is deprecated
+     * @deprecated openAPI DeleteRouteEntry is deprecated, please use Vpc::2016-04-28::DeleteRouteEntry instead
+     *  *
+     * @summary DeleteRouteEntry
      *  *
      * Deprecated
      *
@@ -9643,7 +9733,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeleteRouteEntry is deprecated
+     * @deprecated openAPI DeleteRouteEntry is deprecated, please use Vpc::2016-04-28::DeleteRouteEntry instead
+     *  *
+     * @summary DeleteRouteEntry
      *  *
      * Deprecated
      *
@@ -9659,7 +9751,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeleteRouterInterface is deprecated
+     * @deprecated openAPI DeleteRouterInterface is deprecated, please use Vpc::2016-04-28::DeleteRouterInterface instead
+     *  *
+     * @summary DeleteRouterInterface
      *  *
      * Deprecated
      *
@@ -9715,7 +9809,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeleteRouterInterface is deprecated
+     * @deprecated openAPI DeleteRouterInterface is deprecated, please use Vpc::2016-04-28::DeleteRouterInterface instead
+     *  *
+     * @summary DeleteRouterInterface
      *  *
      * Deprecated
      *
@@ -10006,7 +10102,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeleteVSwitch is deprecated, please use Vpc::2016-04-28::DeleteVSwitch instead.
+     * @deprecated openAPI DeleteVSwitch is deprecated, please use Vpc::2016-04-28::DeleteVSwitch instead
+     *  *
+     * @summary DeleteVSwitch
      *  *
      * Deprecated
      *
@@ -10056,7 +10154,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeleteVSwitch is deprecated, please use Vpc::2016-04-28::DeleteVSwitch instead.
+     * @deprecated openAPI DeleteVSwitch is deprecated, please use Vpc::2016-04-28::DeleteVSwitch instead
+     *  *
+     * @summary DeleteVSwitch
      *  *
      * Deprecated
      *
@@ -10072,7 +10172,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeleteVirtualBorderRouter is deprecated
+     * @deprecated openAPI DeleteVirtualBorderRouter is deprecated, please use Vpc::2016-04-28::DeleteVirtualBorderRouter instead
+     *  *
+     * @summary DeleteVirtualBorderRouter
      *  *
      * Deprecated
      *
@@ -10128,7 +10230,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeleteVirtualBorderRouter is deprecated
+     * @deprecated openAPI DeleteVirtualBorderRouter is deprecated, please use Vpc::2016-04-28::DeleteVirtualBorderRouter instead
+     *  *
+     * @summary DeleteVirtualBorderRouter
      *  *
      * Deprecated
      *
@@ -10279,7 +10383,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeAccessPoints is deprecated
+     * @deprecated openAPI DescribeAccessPoints is deprecated, please use Vpc::2016-04-28::DescribeAccessPoints instead
+     *  *
+     * @summary DescribeAccessPoints
      *  *
      * Deprecated
      *
@@ -10335,7 +10441,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeAccessPoints is deprecated
+     * @deprecated openAPI DescribeAccessPoints is deprecated, please use Vpc::2016-04-28::DescribeAccessPoints instead
+     *  *
+     * @summary DescribeAccessPoints
      *  *
      * Deprecated
      *
@@ -11123,7 +11231,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeBandwidthPackages is deprecated
+     * @deprecated openAPI DescribeBandwidthPackages is deprecated, please use Vpc::2016-04-28::DescribeBandwidthPackages instead
+     *  *
+     * @summary DescribeBandwidthPackages
      *  *
      * Deprecated
      *
@@ -11182,7 +11292,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeBandwidthPackages is deprecated
+     * @deprecated openAPI DescribeBandwidthPackages is deprecated, please use Vpc::2016-04-28::DescribeBandwidthPackages instead
+     *  *
+     * @summary DescribeBandwidthPackages
      *  *
      * Deprecated
      *
@@ -12937,7 +13049,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeEipAddresses is deprecated, please use Vpc::2016-04-28::DescribeEipAddresses instead.
+     * @deprecated openAPI DescribeEipAddresses is deprecated, please use Vpc::2016-04-28::DescribeEipAddresses instead
+     *  *
+     * @summary DescribeEipAddresses
      *  *
      * Deprecated
      *
@@ -13017,7 +13131,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeEipAddresses is deprecated, please use Vpc::2016-04-28::DescribeEipAddresses instead.
+     * @deprecated openAPI DescribeEipAddresses is deprecated, please use Vpc::2016-04-28::DescribeEipAddresses instead
+     *  *
+     * @summary DescribeEipAddresses
      *  *
      * Deprecated
      *
@@ -13033,7 +13149,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeEipMonitorData is deprecated
+     * @deprecated openAPI DescribeEipMonitorData is deprecated, please use Vpc::2016-04-28::DescribeEipMonitorData instead
+     *  *
+     * @summary DescribeEipMonitorData
      *  *
      * Deprecated
      *
@@ -13092,7 +13210,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeEipMonitorData is deprecated
+     * @deprecated openAPI DescribeEipMonitorData is deprecated, please use Vpc::2016-04-28::DescribeEipMonitorData instead
+     *  *
+     * @summary DescribeEipMonitorData
      *  *
      * Deprecated
      *
@@ -13418,7 +13538,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeForwardTableEntries is deprecated
+     * @deprecated openAPI DescribeForwardTableEntries is deprecated, please use Vpc::2016-04-28::DescribeForwardTableEntries instead
+     *  *
+     * @summary DescribeForwardTableEntries
      *  *
      * Deprecated
      *
@@ -13477,7 +13599,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeForwardTableEntries is deprecated
+     * @deprecated openAPI DescribeForwardTableEntries is deprecated, please use Vpc::2016-04-28::DescribeForwardTableEntries instead
+     *  *
+     * @summary DescribeForwardTableEntries
      *  *
      * Deprecated
      *
@@ -13493,7 +13617,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeHaVips is deprecated
+     * @deprecated openAPI DescribeHaVips is deprecated, please use Vpc::2016-04-28::DescribeHaVips instead
+     *  *
+     * @summary DescribeHaVips
      *  *
      * Deprecated
      *
@@ -13549,7 +13675,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeHaVips is deprecated
+     * @deprecated openAPI DescribeHaVips is deprecated, please use Vpc::2016-04-28::DescribeHaVips instead
+     *  *
+     * @summary DescribeHaVips
      *  *
      * Deprecated
      *
@@ -16353,7 +16481,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeNatGateways is deprecated
+     * @deprecated openAPI DescribeNatGateways is deprecated, please use Vpc::2016-04-28::DescribeNatGateways instead
+     *  *
+     * @summary DescribeNatGateways
      *  *
      * Deprecated
      *
@@ -16412,7 +16542,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeNatGateways is deprecated
+     * @deprecated openAPI DescribeNatGateways is deprecated, please use Vpc::2016-04-28::DescribeNatGateways instead
+     *  *
+     * @summary DescribeNatGateways
      *  *
      * Deprecated
      *
@@ -16708,7 +16840,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeNewProjectEipMonitorData is deprecated
+     * @deprecated openAPI DescribeNewProjectEipMonitorData is deprecated, please use Vpc::2016-04-28::DescribeEipMonitorData instead
+     *  *
+     * @summary DescribeNewProjectEipMonitorData
      *  *
      * Deprecated
      *
@@ -16767,7 +16901,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeNewProjectEipMonitorData is deprecated
+     * @deprecated openAPI DescribeNewProjectEipMonitorData is deprecated, please use Vpc::2016-04-28::DescribeEipMonitorData instead
+     *  *
+     * @summary DescribeNewProjectEipMonitorData
      *  *
      * Deprecated
      *
@@ -16783,7 +16919,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribePhysicalConnections is deprecated
+     * @deprecated openAPI DescribePhysicalConnections is deprecated, please use Vpc::2016-04-28::DescribePhysicalConnections instead
+     *  *
+     * @summary DescribePhysicalConnections
      *  *
      * Deprecated
      *
@@ -16845,7 +16983,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribePhysicalConnections is deprecated
+     * @deprecated openAPI DescribePhysicalConnections is deprecated, please use Vpc::2016-04-28::DescribePhysicalConnections instead
+     *  *
+     * @summary DescribePhysicalConnections
      *  *
      * Deprecated
      *
@@ -18215,7 +18355,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeRouterInterfaces is deprecated
+     * @deprecated openAPI DescribeRouterInterfaces is deprecated, please use Vpc::2016-04-28::DescribeRouterInterfaces instead
+     *  *
+     * @summary DescribeRouterInterfaces
      *  *
      * Deprecated
      *
@@ -18268,7 +18410,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeRouterInterfaces is deprecated
+     * @deprecated openAPI DescribeRouterInterfaces is deprecated, please use Vpc::2016-04-28::DescribeRouterInterfaces instead
+     *  *
+     * @summary DescribeRouterInterfaces
      *  *
      * Deprecated
      *
@@ -20274,7 +20418,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeVSwitches is deprecated
+     * @deprecated openAPI DescribeVSwitches is deprecated, please use Vpc::2016-04-28::DescribeVSwitches instead
+     *  *
+     * @summary DescribeVSwitches
      *  *
      * Deprecated
      *
@@ -20339,7 +20485,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeVSwitches is deprecated
+     * @deprecated openAPI DescribeVSwitches is deprecated, please use Vpc::2016-04-28::DescribeVSwitches instead
+     *  *
+     * @summary DescribeVSwitches
      *  *
      * Deprecated
      *
@@ -20355,7 +20503,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeVirtualBorderRouters is deprecated
+     * @deprecated openAPI DescribeVirtualBorderRouters is deprecated, please use Vpc::2016-04-28::DescribeVirtualBorderRouters instead
+     *  *
+     * @summary DescribeVirtualBorderRouters
      *  *
      * Deprecated
      *
@@ -20408,7 +20558,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeVirtualBorderRouters is deprecated
+     * @deprecated openAPI DescribeVirtualBorderRouters is deprecated, please use Vpc::2016-04-28::DescribeVirtualBorderRouters instead
+     *  *
+     * @summary DescribeVirtualBorderRouters
      *  *
      * Deprecated
      *
@@ -20424,7 +20576,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeVirtualBorderRoutersForPhysicalConnection is deprecated
+     * @deprecated openAPI DescribeVirtualBorderRoutersForPhysicalConnection is deprecated, please use Vpc::2016-04-28::DescribeVirtualBorderRoutersForPhysicalConnection instead
+     *  *
+     * @summary DescribeVirtualBorderRoutersForPhysicalConnection
      *  *
      * Deprecated
      *
@@ -20480,7 +20634,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeVirtualBorderRoutersForPhysicalConnection is deprecated
+     * @deprecated openAPI DescribeVirtualBorderRoutersForPhysicalConnection is deprecated, please use Vpc::2016-04-28::DescribeVirtualBorderRoutersForPhysicalConnection instead
+     *  *
+     * @summary DescribeVirtualBorderRoutersForPhysicalConnection
      *  *
      * Deprecated
      *
@@ -21233,7 +21389,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI EnablePhysicalConnection is deprecated
+     * @deprecated openAPI EnablePhysicalConnection is deprecated, please use Vpc::2016-04-28::EnablePhysicalConnection instead
+     *  *
+     * @summary EnablePhysicalConnection
      *  *
      * Deprecated
      *
@@ -21289,7 +21447,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI EnablePhysicalConnection is deprecated
+     * @deprecated openAPI EnablePhysicalConnection is deprecated, please use Vpc::2016-04-28::EnablePhysicalConnection instead
+     *  *
+     * @summary EnablePhysicalConnection
      *  *
      * Deprecated
      *
@@ -22260,6 +22420,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->launcher)) {
             $query['Launcher'] = $request->launcher;
         }
+        if (!Utils::isUnset($request->ossOutputDelivery)) {
+            $query['OssOutputDelivery'] = $request->ossOutputDelivery;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -22973,7 +23136,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyBandwidthPackageSpec is deprecated
+     * @deprecated openAPI ModifyBandwidthPackageSpec is deprecated, please use Vpc::2016-04-28::ModifyBandwidthPackageSpec instead
+     *  *
+     * @summary ModifyBandwidthPackageSpec
      *  *
      * Deprecated
      *
@@ -23026,7 +23191,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyBandwidthPackageSpec is deprecated
+     * @deprecated openAPI ModifyBandwidthPackageSpec is deprecated, please use Vpc::2016-04-28::ModifyBandwidthPackageSpec instead
+     *  *
+     * @summary ModifyBandwidthPackageSpec
      *  *
      * Deprecated
      *
@@ -24270,7 +24437,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyEipAddressAttribute is deprecated
+     * @deprecated openAPI ModifyEipAddressAttribute is deprecated, please use Vpc::2016-04-28::ModifyEipAddressAttribute instead
+     *  *
+     * @summary ModifyEipAddressAttribute
      *  *
      * Deprecated
      *
@@ -24323,7 +24492,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyEipAddressAttribute is deprecated
+     * @deprecated openAPI ModifyEipAddressAttribute is deprecated, please use Vpc::2016-04-28::ModifyEipAddressAttribute instead
+     *  *
+     * @summary ModifyEipAddressAttribute
      *  *
      * Deprecated
      *
@@ -24484,7 +24655,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyForwardEntry is deprecated
+     * @deprecated openAPI ModifyForwardEntry is deprecated, please use Vpc::2016-04-28::ModifyForwardEntry instead
+     *  *
+     * @summary ModifyForwardEntry
      *  *
      * Deprecated
      *
@@ -24552,7 +24725,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyForwardEntry is deprecated
+     * @deprecated openAPI ModifyForwardEntry is deprecated, please use Vpc::2016-04-28::ModifyForwardEntry instead
+     *  *
+     * @summary ModifyForwardEntry
      *  *
      * Deprecated
      *
@@ -24568,7 +24743,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyHaVipAttribute is deprecated
+     * @deprecated openAPI ModifyHaVipAttribute is deprecated, please use Vpc::2016-04-28::ModifyHaVipAttribute instead
+     *  *
+     * @summary ModifyHaVipAttribute
      *  *
      * Deprecated
      *
@@ -24624,7 +24801,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyHaVipAttribute is deprecated
+     * @deprecated openAPI ModifyHaVipAttribute is deprecated, please use Vpc::2016-04-28::ModifyHaVipAttribute instead
+     *  *
+     * @summary ModifyHaVipAttribute
      *  *
      * Deprecated
      *
@@ -26516,7 +26695,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyPhysicalConnectionAttribute is deprecated
+     * @deprecated openAPI ModifyPhysicalConnectionAttribute is deprecated, please use Vpc::2016-04-28::ModifyPhysicalConnectionAttribute instead
+     *  *
+     * @summary ModifyPhysicalConnectionAttribute
      *  *
      * Deprecated
      *
@@ -26599,7 +26780,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyPhysicalConnectionAttribute is deprecated
+     * @deprecated openAPI ModifyPhysicalConnectionAttribute is deprecated, please use Vpc::2016-04-28::ModifyPhysicalConnectionAttribute instead
+     *  *
+     * @summary ModifyPhysicalConnectionAttribute
      *  *
      * Deprecated
      *
@@ -27211,7 +27394,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyRouterInterfaceAttribute is deprecated
+     * @deprecated openAPI ModifyRouterInterfaceAttribute is deprecated, please use Vpc::2016-04-28::ModifyRouterInterfaceAttribute instead
+     *  *
+     * @summary ModifyRouterInterfaceAttribute
      *  *
      * Deprecated
      *
@@ -27282,7 +27467,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyRouterInterfaceAttribute is deprecated
+     * @deprecated openAPI ModifyRouterInterfaceAttribute is deprecated, please use Vpc::2016-04-28::ModifyRouterInterfaceAttribute instead
+     *  *
+     * @summary ModifyRouterInterfaceAttribute
      *  *
      * Deprecated
      *
@@ -27298,7 +27485,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyRouterInterfaceSpec is deprecated
+     * @deprecated openAPI ModifyRouterInterfaceSpec is deprecated, please use Vpc::2016-04-28::ModifyRouterInterfaceSpec instead
+     *  *
+     * @summary ModifyRouterInterfaceSpec
      *  *
      * Deprecated
      *
@@ -27357,7 +27546,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyRouterInterfaceSpec is deprecated
+     * @deprecated openAPI ModifyRouterInterfaceSpec is deprecated, please use Vpc::2016-04-28::ModifyRouterInterfaceSpec instead
+     *  *
+     * @summary ModifyRouterInterfaceSpec
      *  *
      * Deprecated
      *
@@ -28201,7 +28392,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyVRouterAttribute is deprecated
+     * @deprecated openAPI ModifyVRouterAttribute is deprecated, please use Vpc::2016-04-28::ModifyVRouterAttribute instead
+     *  *
+     * @summary ModifyVRouterAttribute
      *  *
      * Deprecated
      *
@@ -28257,7 +28450,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyVRouterAttribute is deprecated
+     * @deprecated openAPI ModifyVRouterAttribute is deprecated, please use Vpc::2016-04-28::ModifyVRouterAttribute instead
+     *  *
+     * @summary ModifyVRouterAttribute
      *  *
      * Deprecated
      *
@@ -28273,7 +28468,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyVSwitchAttribute is deprecated
+     * @deprecated openAPI ModifyVSwitchAttribute is deprecated, please use Vpc::2016-04-28::ModifyVSwitchAttribute instead
+     *  *
+     * @summary ModifyVSwitchAttribute
      *  *
      * Deprecated
      *
@@ -28329,7 +28526,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyVSwitchAttribute is deprecated
+     * @deprecated openAPI ModifyVSwitchAttribute is deprecated, please use Vpc::2016-04-28::ModifyVSwitchAttribute instead
+     *  *
+     * @summary ModifyVSwitchAttribute
      *  *
      * Deprecated
      *
@@ -28345,7 +28544,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyVirtualBorderRouterAttribute is deprecated
+     * @deprecated openAPI ModifyVirtualBorderRouterAttribute is deprecated, please use Vpc::2016-04-28::ModifyVirtualBorderRouterAttribute instead
+     *  *
+     * @summary ModifyVirtualBorderRouterAttribute
      *  *
      * Deprecated
      *
@@ -28422,7 +28623,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyVirtualBorderRouterAttribute is deprecated
+     * @deprecated openAPI ModifyVirtualBorderRouterAttribute is deprecated, please use Vpc::2016-04-28::ModifyVirtualBorderRouterAttribute instead
+     *  *
+     * @summary ModifyVirtualBorderRouterAttribute
      *  *
      * Deprecated
      *
@@ -28438,7 +28641,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyVpcAttribute is deprecated
+     * @deprecated openAPI ModifyVpcAttribute is deprecated, please use Vpc::2016-04-28::ModifyVpcAttribute instead
+     *  *
+     * @summary ModifyVpcAttribute
      *  *
      * Deprecated
      *
@@ -28500,7 +28705,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyVpcAttribute is deprecated
+     * @deprecated openAPI ModifyVpcAttribute is deprecated, please use Vpc::2016-04-28::ModifyVpcAttribute instead
+     *  *
+     * @summary ModifyVpcAttribute
      *  *
      * Deprecated
      *
@@ -29140,7 +29347,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI RecoverVirtualBorderRouter is deprecated
+     * @deprecated openAPI RecoverVirtualBorderRouter is deprecated, please use Vpc::2016-04-28::RecoverVirtualBorderRouter instead
+     *  *
+     * @summary RecoverVirtualBorderRouter
      *  *
      * Deprecated
      *
@@ -29196,7 +29405,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI RecoverVirtualBorderRouter is deprecated
+     * @deprecated openAPI RecoverVirtualBorderRouter is deprecated, please use Vpc::2016-04-28::RecoverVirtualBorderRouter instead
+     *  *
+     * @summary RecoverVirtualBorderRouter
      *  *
      * Deprecated
      *
@@ -29526,7 +29737,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ReleaseEipAddress is deprecated
+     * @deprecated openAPI ReleaseEipAddress is deprecated, please use Vpc::2016-04-28::ReleaseEipAddress instead
+     *  *
+     * @summary ReleaseEipAddress
      *  *
      * Deprecated
      *
@@ -29576,7 +29789,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ReleaseEipAddress is deprecated
+     * @deprecated openAPI ReleaseEipAddress is deprecated, please use Vpc::2016-04-28::ReleaseEipAddress instead
+     *  *
+     * @summary ReleaseEipAddress
      *  *
      * Deprecated
      *
@@ -29656,7 +29871,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI RemoveBandwidthPackageIps is deprecated
+     * @deprecated openAPI RemoveBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::RemoveBandwidthPackageIps instead
+     *  *
+     * @summary RemoveBandwidthPackageIps
      *  *
      * Deprecated
      *
@@ -29712,7 +29929,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI RemoveBandwidthPackageIps is deprecated
+     * @deprecated openAPI RemoveBandwidthPackageIps is deprecated, please use Vpc::2016-04-28::RemoveBandwidthPackageIps instead
+     *  *
+     * @summary RemoveBandwidthPackageIps
      *  *
      * Deprecated
      *
@@ -31168,6 +31387,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
+        if (!Utils::isUnset($request->ossOutputDelivery)) {
+            $query['OssOutputDelivery'] = $request->ossOutputDelivery;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -32492,7 +32714,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI TerminatePhysicalConnection is deprecated
+     * @deprecated openAPI TerminatePhysicalConnection is deprecated, please use Vpc::2016-04-28::TerminatePhysicalConnection instead
+     *  *
+     * @summary TerminatePhysicalConnection
      *  *
      * Deprecated
      *
@@ -32548,7 +32772,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI TerminatePhysicalConnection is deprecated
+     * @deprecated openAPI TerminatePhysicalConnection is deprecated, please use Vpc::2016-04-28::TerminatePhysicalConnection instead
+     *  *
+     * @summary TerminatePhysicalConnection
      *  *
      * Deprecated
      *
@@ -32564,7 +32790,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI TerminateVirtualBorderRouter is deprecated
+     * @deprecated openAPI TerminateVirtualBorderRouter is deprecated, please use Vpc::2016-04-28::TerminateVirtualBorderRouter instead
+     *  *
+     * @summary TerminateVirtualBorderRouter
      *  *
      * Deprecated
      *
@@ -32620,7 +32848,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI TerminateVirtualBorderRouter is deprecated
+     * @deprecated openAPI TerminateVirtualBorderRouter is deprecated, please use Vpc::2016-04-28::TerminateVirtualBorderRouter instead
+     *  *
+     * @summary TerminateVirtualBorderRouter
      *  *
      * Deprecated
      *
@@ -32796,7 +33026,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI UnassociateEipAddress is deprecated
+     * @deprecated openAPI UnassociateEipAddress is deprecated, please use Vpc::2016-04-28::UnassociateEipAddress instead
+     *  *
+     * @summary UnassociateEipAddress
      *  *
      * Deprecated
      *
@@ -32852,7 +33084,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI UnassociateEipAddress is deprecated
+     * @deprecated openAPI UnassociateEipAddress is deprecated, please use Vpc::2016-04-28::UnassociateEipAddress instead
+     *  *
+     * @summary UnassociateEipAddress
      *  *
      * Deprecated
      *
@@ -32868,7 +33102,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI UnassociateHaVip is deprecated
+     * @deprecated openAPI UnassociateHaVip is deprecated, please use Vpc::2016-04-28::UnassociateHaVip instead
+     *  *
+     * @summary UnassociateHaVip
      *  *
      * Deprecated
      *
@@ -32927,7 +33163,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI UnassociateHaVip is deprecated
+     * @deprecated openAPI UnassociateHaVip is deprecated, please use Vpc::2016-04-28::UnassociateHaVip instead
+     *  *
+     * @summary UnassociateHaVip
      *  *
      * Deprecated
      *

@@ -225,6 +225,21 @@ class invocationResult extends Model
     public $launcher;
 
     /**
+     * @var string
+     */
+    public $ossOutputDelivery;
+
+    /**
+     * @var string
+     */
+    public $ossOutputStatus;
+
+    /**
+     * @var string
+     */
+    public $ossOutputUri;
+
+    /**
      * @description The command output.
      *
      *   If ContentEncoding is set to PlainText in the request, the original command output is returned.
@@ -307,6 +322,9 @@ class invocationResult extends Model
         'invokeId' => 'InvokeId',
         'invokeRecordStatus' => 'InvokeRecordStatus',
         'launcher' => 'Launcher',
+        'ossOutputDelivery' => 'OssOutputDelivery',
+        'ossOutputStatus' => 'OssOutputStatus',
+        'ossOutputUri' => 'OssOutputUri',
         'output' => 'Output',
         'repeats' => 'Repeats',
         'startTime' => 'StartTime',
@@ -359,6 +377,15 @@ class invocationResult extends Model
         }
         if (null !== $this->launcher) {
             $res['Launcher'] = $this->launcher;
+        }
+        if (null !== $this->ossOutputDelivery) {
+            $res['OssOutputDelivery'] = $this->ossOutputDelivery;
+        }
+        if (null !== $this->ossOutputStatus) {
+            $res['OssOutputStatus'] = $this->ossOutputStatus;
+        }
+        if (null !== $this->ossOutputUri) {
+            $res['OssOutputUri'] = $this->ossOutputUri;
         }
         if (null !== $this->output) {
             $res['Output'] = $this->output;
@@ -431,6 +458,15 @@ class invocationResult extends Model
         }
         if (isset($map['Launcher'])) {
             $model->launcher = $map['Launcher'];
+        }
+        if (isset($map['OssOutputDelivery'])) {
+            $model->ossOutputDelivery = $map['OssOutputDelivery'];
+        }
+        if (isset($map['OssOutputStatus'])) {
+            $model->ossOutputStatus = $map['OssOutputStatus'];
+        }
+        if (isset($map['OssOutputUri'])) {
+            $model->ossOutputUri = $map['OssOutputUri'];
         }
         if (isset($map['Output'])) {
             $model->output = $map['Output'];

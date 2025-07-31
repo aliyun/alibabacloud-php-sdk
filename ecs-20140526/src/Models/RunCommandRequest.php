@@ -210,6 +210,11 @@ class RunCommandRequest extends Model
     /**
      * @var string
      */
+    public $ossOutputDelivery;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -409,6 +414,7 @@ class RunCommandRequest extends Model
         'keepCommand' => 'KeepCommand',
         'launcher' => 'Launcher',
         'name' => 'Name',
+        'ossOutputDelivery' => 'OssOutputDelivery',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'parameters' => 'Parameters',
@@ -468,6 +474,9 @@ class RunCommandRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->ossOutputDelivery) {
+            $res['OssOutputDelivery'] = $this->ossOutputDelivery;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -581,6 +590,9 @@ class RunCommandRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['OssOutputDelivery'])) {
+            $model->ossOutputDelivery = $map['OssOutputDelivery'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

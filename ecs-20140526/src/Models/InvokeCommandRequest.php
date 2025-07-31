@@ -126,6 +126,11 @@ class InvokeCommandRequest extends Model
     /**
      * @var string
      */
+    public $ossOutputDelivery;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -302,6 +307,7 @@ class InvokeCommandRequest extends Model
         'frequency' => 'Frequency',
         'instanceId' => 'InstanceId',
         'launcher' => 'Launcher',
+        'ossOutputDelivery' => 'OssOutputDelivery',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'parameters' => 'Parameters',
@@ -345,6 +351,9 @@ class InvokeCommandRequest extends Model
         }
         if (null !== $this->launcher) {
             $res['Launcher'] = $this->launcher;
+        }
+        if (null !== $this->ossOutputDelivery) {
+            $res['OssOutputDelivery'] = $this->ossOutputDelivery;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -440,6 +449,9 @@ class InvokeCommandRequest extends Model
         }
         if (isset($map['Launcher'])) {
             $model->launcher = $map['Launcher'];
+        }
+        if (isset($map['OssOutputDelivery'])) {
+            $model->ossOutputDelivery = $map['OssOutputDelivery'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

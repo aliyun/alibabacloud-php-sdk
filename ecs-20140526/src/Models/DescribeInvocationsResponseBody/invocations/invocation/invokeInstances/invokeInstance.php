@@ -166,6 +166,16 @@ class invokeInstance extends Model
     public $invocationStatus;
 
     /**
+     * @var string
+     */
+    public $ossOutputStatus;
+
+    /**
+     * @var string
+     */
+    public $ossOutputUri;
+
+    /**
      * @description The command output.
      *
      *   If ContentEncoding is set to PlainText in the request, the original command output is returned.
@@ -234,6 +244,8 @@ class invokeInstance extends Model
         'instanceId' => 'InstanceId',
         'instanceInvokeStatus' => 'InstanceInvokeStatus',
         'invocationStatus' => 'InvocationStatus',
+        'ossOutputStatus' => 'OssOutputStatus',
+        'ossOutputUri' => 'OssOutputUri',
         'output' => 'Output',
         'repeats' => 'Repeats',
         'startTime' => 'StartTime',
@@ -273,6 +285,12 @@ class invokeInstance extends Model
         }
         if (null !== $this->invocationStatus) {
             $res['InvocationStatus'] = $this->invocationStatus;
+        }
+        if (null !== $this->ossOutputStatus) {
+            $res['OssOutputStatus'] = $this->ossOutputStatus;
+        }
+        if (null !== $this->ossOutputUri) {
+            $res['OssOutputUri'] = $this->ossOutputUri;
         }
         if (null !== $this->output) {
             $res['Output'] = $this->output;
@@ -330,6 +348,12 @@ class invokeInstance extends Model
         }
         if (isset($map['InvocationStatus'])) {
             $model->invocationStatus = $map['InvocationStatus'];
+        }
+        if (isset($map['OssOutputStatus'])) {
+            $model->ossOutputStatus = $map['OssOutputStatus'];
+        }
+        if (isset($map['OssOutputUri'])) {
+            $model->ossOutputUri = $map['OssOutputUri'];
         }
         if (isset($map['Output'])) {
             $model->output = $map['Output'];

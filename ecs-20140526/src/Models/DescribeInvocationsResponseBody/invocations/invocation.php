@@ -168,6 +168,11 @@ class invocation extends Model
     public $launcher;
 
     /**
+     * @var string
+     */
+    public $ossOutputDelivery;
+
+    /**
      * @description The custom parameters in the command.
      *
      * @example {}
@@ -262,6 +267,7 @@ class invocation extends Model
         'invokeInstances' => 'InvokeInstances',
         'invokeStatus' => 'InvokeStatus',
         'launcher' => 'Launcher',
+        'ossOutputDelivery' => 'OssOutputDelivery',
         'parameters' => 'Parameters',
         'repeatMode' => 'RepeatMode',
         'tags' => 'Tags',
@@ -318,6 +324,9 @@ class invocation extends Model
         }
         if (null !== $this->launcher) {
             $res['Launcher'] = $this->launcher;
+        }
+        if (null !== $this->ossOutputDelivery) {
+            $res['OssOutputDelivery'] = $this->ossOutputDelivery;
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
@@ -396,6 +405,9 @@ class invocation extends Model
         }
         if (isset($map['Launcher'])) {
             $model->launcher = $map['Launcher'];
+        }
+        if (isset($map['OssOutputDelivery'])) {
+            $model->ossOutputDelivery = $map['OssOutputDelivery'];
         }
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];
