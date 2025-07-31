@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220926\Models\AddKeywordsToLibResponseBody\data;
+use AlibabaCloud\Tea\Model;
 
 class AddKeywordsToLibResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class AddKeywordsToLibResponseBody extends Model
     public $data;
 
     /**
+     * @example AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +25,14 @@ class AddKeywordsToLibResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +40,17 @@ class AddKeywordsToLibResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddKeywordsToLibResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

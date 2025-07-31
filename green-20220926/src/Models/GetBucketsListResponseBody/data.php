@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models\GetBucketsListResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example bucket_test
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
@@ -22,18 +26,14 @@ class data extends Model
         'region' => 'Region',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->bucket) {
             $res['Bucket'] = $this->bucket;
         }
-
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -41,18 +41,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bucket'])) {
             $model->bucket = $map['Bucket'];
         }
-
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

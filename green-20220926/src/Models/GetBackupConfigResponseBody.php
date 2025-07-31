@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetBackupConfigResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $backupMode;
 
     /**
+     * @example buckect_test
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enable;
@@ -34,16 +40,22 @@ class GetBackupConfigResponseBody extends Model
     public $enableBackupVoice;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $expireSeconds;
 
     /**
+     * @example 2023-01-17 12:29:56
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example aliyun/template/
+     *
      * @var string
      */
     public $path;
@@ -54,26 +66,38 @@ class GetBackupConfigResponseBody extends Model
     public $pathVoice;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example image
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example baselineCheck
+     *
      * @var string
      */
     public $serviceCode;
 
     /**
+     * @description UID。
+     *
+     * @example 1772612608370735
+     *
      * @var string
      */
     public $uid;
@@ -94,66 +118,50 @@ class GetBackupConfigResponseBody extends Model
         'uid' => 'Uid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->backupMode) {
             $res['BackupMode'] = $this->backupMode;
         }
-
         if (null !== $this->bucket) {
             $res['Bucket'] = $this->bucket;
         }
-
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
-
         if (null !== $this->enableBackup) {
             $res['EnableBackup'] = $this->enableBackup;
         }
-
         if (null !== $this->enableBackupVoice) {
             $res['EnableBackupVoice'] = $this->enableBackupVoice;
         }
-
         if (null !== $this->expireSeconds) {
             $res['ExpireSeconds'] = $this->expireSeconds;
         }
-
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
-
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
-
         if (null !== $this->pathVoice) {
             $res['PathVoice'] = $this->pathVoice;
         }
-
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-
         if (null !== $this->serviceCode) {
             $res['ServiceCode'] = $this->serviceCode;
         }
-
         if (null !== $this->uid) {
             $res['Uid'] = $this->uid;
         }
@@ -161,66 +169,53 @@ class GetBackupConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetBackupConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupMode'])) {
             $model->backupMode = $map['BackupMode'];
         }
-
         if (isset($map['Bucket'])) {
             $model->bucket = $map['Bucket'];
         }
-
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
-
         if (isset($map['EnableBackup'])) {
             $model->enableBackup = $map['EnableBackup'];
         }
-
         if (isset($map['EnableBackupVoice'])) {
             $model->enableBackupVoice = $map['EnableBackupVoice'];
         }
-
         if (isset($map['ExpireSeconds'])) {
             $model->expireSeconds = $map['ExpireSeconds'];
         }
-
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
-
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
-
         if (isset($map['PathVoice'])) {
             $model->pathVoice = $map['PathVoice'];
         }
-
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-
         if (isset($map['ServiceCode'])) {
             $model->serviceCode = $map['ServiceCode'];
         }
-
         if (isset($map['Uid'])) {
             $model->uid = $map['Uid'];
         }

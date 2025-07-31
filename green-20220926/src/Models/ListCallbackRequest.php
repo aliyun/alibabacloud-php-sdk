@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListCallbackRequest extends Model
 {
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -16,12 +18,9 @@ class ListCallbackRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regionId) {
@@ -31,11 +30,11 @@ class ListCallbackRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListCallbackRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

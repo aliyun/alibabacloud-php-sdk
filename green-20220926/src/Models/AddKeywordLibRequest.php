@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddKeywordLibRequest extends Model
 {
@@ -14,6 +14,8 @@ class AddKeywordLibRequest extends Model
     public $keywords;
 
     /**
+     * @example upload/1e5353c0-0d91-40ba-9d41-ae7abd3fe561.txt
+     *
      * @var string
      */
     public $keywordsObject;
@@ -24,6 +26,8 @@ class AddKeywordLibRequest extends Model
     public $libName;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -34,26 +38,20 @@ class AddKeywordLibRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->keywords) {
             $res['Keywords'] = $this->keywords;
         }
-
         if (null !== $this->keywordsObject) {
             $res['KeywordsObject'] = $this->keywordsObject;
         }
-
         if (null !== $this->libName) {
             $res['LibName'] = $this->libName;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -61,26 +59,23 @@ class AddKeywordLibRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddKeywordLibRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Keywords'])) {
             $model->keywords = $map['Keywords'];
         }
-
         if (isset($map['KeywordsObject'])) {
             $model->keywordsObject = $map['KeywordsObject'];
         }
-
         if (isset($map['LibName'])) {
             $model->libName = $map['LibName'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

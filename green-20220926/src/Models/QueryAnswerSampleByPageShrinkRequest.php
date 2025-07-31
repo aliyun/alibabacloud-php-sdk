@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryAnswerSampleByPageShrinkRequest extends Model
 {
@@ -14,21 +14,29 @@ class QueryAnswerSampleByPageShrinkRequest extends Model
     public $answer;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example custom_xxxx
+     *
      * @var string
      */
     public $libId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -46,34 +54,26 @@ class QueryAnswerSampleByPageShrinkRequest extends Model
         'sortShrink' => 'Sort',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->answer) {
             $res['Answer'] = $this->answer;
         }
-
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
-
         if (null !== $this->libId) {
             $res['LibId'] = $this->libId;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->sortShrink) {
             $res['Sort'] = $this->sortShrink;
         }
@@ -81,34 +81,29 @@ class QueryAnswerSampleByPageShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryAnswerSampleByPageShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Answer'])) {
             $model->answer = $map['Answer'];
         }
-
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
-
         if (isset($map['LibId'])) {
             $model->libId = $map['LibId'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['Sort'])) {
             $model->sortShrink = $map['Sort'];
         }

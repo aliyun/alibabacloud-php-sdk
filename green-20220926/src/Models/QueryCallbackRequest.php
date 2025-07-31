@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryCallbackRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $checkForOss;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 11234
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -28,22 +36,17 @@ class QueryCallbackRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->checkForOss) {
             $res['CheckForOss'] = $this->checkForOss;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -51,22 +54,20 @@ class QueryCallbackRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryCallbackRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckForOss'])) {
             $model->checkForOss = $map['CheckForOss'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

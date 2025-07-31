@@ -4,7 +4,8 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Green\V20220926\Models\AddAnswerSampleRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\AddAnswerSampleResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\AddImageLibRequest;
@@ -25,6 +26,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\CreateAnswerLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreateAnswerLibResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreateCallbackRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreateCallbackResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\CreateOnlineTestRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\CreateOnlineTestResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreatePreCheckRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreatePreCheckResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\CreatStockOssCheckTaskRequest;
@@ -43,6 +46,10 @@ use AlibabaCloud\SDK\Green\V20220926\Models\DeleteKeywordLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\DeleteKeywordLibResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\DeleteKeywordRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\DeleteKeywordResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\DeleteOnlineTestRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\DeleteOnlineTestResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\DescribeOnlineTestResultRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\DescribeOnlineTestResultResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportAnswerSampleRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportAnswerSampleResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ExportCipStatsRequest;
@@ -87,10 +94,17 @@ use AlibabaCloud\SDK\Green\V20220926\Models\GetKeywordImportResultRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetKeywordImportResultResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetKeywordLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetKeywordLibResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckFreezeResultRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckFreezeResultResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckFreezeResultShrinkRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckResultDetailRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckResultDetailResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckStatRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckStatResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckStatusRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckStatusResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckTaskInfoRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckTaskInfoResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetScanNumRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetScanNumResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetScanResultRequest;
@@ -110,6 +124,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\GetTextScanResultResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetTextScanResultShrinkRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetUploadInfoRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetUploadInfoResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetUploadLinkRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\GetUploadLinkResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetUserBuyStatusRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetUserBuyStatusResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ListAnswerLibRequest;
@@ -141,6 +157,9 @@ use AlibabaCloud\SDK\Green\V20220926\Models\ModifyFeatureConfigRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ModifyFeatureConfigResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\ModifyServiceInfoRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\ModifyServiceInfoResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\OssCheckResultListRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\OssCheckResultListResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\OssCheckResultListShrinkRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\QueryAnswerSampleByPageRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\QueryAnswerSampleByPageResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\QueryAnswerSampleByPageShrinkRequest;
@@ -148,6 +167,8 @@ use AlibabaCloud\SDK\Green\V20220926\Models\QueryCallbackByPageRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\QueryCallbackByPageResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\QueryCallbackRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\QueryCallbackResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\StopOnlineTestRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\StopOnlineTestResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateBackupConfigRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateBackupConfigResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateImageLibFreeInspectionRequest;
@@ -157,14 +178,23 @@ use AlibabaCloud\SDK\Green\V20220926\Models\UpdateImageLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateImageLibResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateKeywordLibRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateKeywordLibResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\UpdateOssCheckResultsBatchFeedbackRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\UpdateOssCheckResultsBatchFeedbackResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\UpdateOssCheckResultsFeedBackRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\UpdateOssCheckResultsFeedBackResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\UpdateOssCheckResultsFreezeRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\UpdateOssCheckResultsFreezeResponse;
+use AlibabaCloud\SDK\Green\V20220926\Models\UpdateOssCheckResultsUnfreezeRequest;
+use AlibabaCloud\SDK\Green\V20220926\Models\UpdateOssCheckResultsUnfreezeResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateScanResultFeedbackRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateScanResultFeedbackResponse;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateServiceConfigRequest;
 use AlibabaCloud\SDK\Green\V20220926\Models\UpdateServiceConfigResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Green extends OpenApiClient
 {
@@ -209,52 +239,42 @@ class Green extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * 添加代答样本.
+     * @summary 添加代答样本
+     *  *
+     * @param AddAnswerSampleRequest $request AddAnswerSampleRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddAnswerSampleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddAnswerSampleResponse
-     *
-     * @param AddAnswerSampleRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return AddAnswerSampleResponse
+     * @return AddAnswerSampleResponse AddAnswerSampleResponse
      */
     public function addAnswerSampleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->libId) {
-            @$query['LibId'] = $request->libId;
+        if (!Utils::isUnset($request->libId)) {
+            $query['LibId'] = $request->libId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->sampleObject) {
-            @$query['SampleObject'] = $request->sampleObject;
+        if (!Utils::isUnset($request->sampleObject)) {
+            $query['SampleObject'] = $request->sampleObject;
         }
-
-        if (null !== $request->samples) {
-            @$query['Samples'] = $request->samples;
+        if (!Utils::isUnset($request->samples)) {
+            $query['Samples'] = $request->samples;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddAnswerSample',
@@ -272,15 +292,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 添加代答样本.
+     * @summary 添加代答样本
+     *  *
+     * @param AddAnswerSampleRequest $request AddAnswerSampleRequest
      *
-     * @param request - AddAnswerSampleRequest
-     *
-     * @returns AddAnswerSampleResponse
-     *
-     * @param AddAnswerSampleRequest $request
-     *
-     * @return AddAnswerSampleResponse
+     * @return AddAnswerSampleResponse AddAnswerSampleResponse
      */
     public function addAnswerSample($request)
     {
@@ -290,38 +306,30 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 创建图库.
+     * @summary 创建图库
+     *  *
+     * @param AddImageLibRequest $request AddImageLibRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddImageLibRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddImageLibResponse
-     *
-     * @param AddImageLibRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return AddImageLibResponse
+     * @return AddImageLibResponse AddImageLibResponse
      */
     public function addImageLibWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->comment) {
-            @$body['Comment'] = $request->comment;
+        if (!Utils::isUnset($request->comment)) {
+            $body['Comment'] = $request->comment;
         }
-
-        if (null !== $request->libName) {
-            @$body['LibName'] = $request->libName;
+        if (!Utils::isUnset($request->libName)) {
+            $body['LibName'] = $request->libName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AddImageLib',
@@ -339,15 +347,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 创建图库.
+     * @summary 创建图库
+     *  *
+     * @param AddImageLibRequest $request AddImageLibRequest
      *
-     * @param request - AddImageLibRequest
-     *
-     * @returns AddImageLibResponse
-     *
-     * @param AddImageLibRequest $request
-     *
-     * @return AddImageLibResponse
+     * @return AddImageLibResponse AddImageLibResponse
      */
     public function addImageLib($request)
     {
@@ -357,38 +361,30 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 批量添加图片.
+     * @summary 批量添加图片
+     *  *
+     * @param AddImages2LibRequest $request AddImages2LibRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddImages2LibRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddImages2LibResponse
-     *
-     * @param AddImages2LibRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return AddImages2LibResponse
+     * @return AddImages2LibResponse AddImages2LibResponse
      */
     public function addImages2LibWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->imgUrl) {
-            @$body['ImgUrl'] = $request->imgUrl;
+        if (!Utils::isUnset($request->imgUrl)) {
+            $body['ImgUrl'] = $request->imgUrl;
         }
-
-        if (null !== $request->libId) {
-            @$body['LibId'] = $request->libId;
+        if (!Utils::isUnset($request->libId)) {
+            $body['LibId'] = $request->libId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AddImages2Lib',
@@ -406,15 +402,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 批量添加图片.
+     * @summary 批量添加图片
+     *  *
+     * @param AddImages2LibRequest $request AddImages2LibRequest
      *
-     * @param request - AddImages2LibRequest
-     *
-     * @returns AddImages2LibResponse
-     *
-     * @param AddImages2LibRequest $request
-     *
-     * @return AddImages2LibResponse
+     * @return AddImages2LibResponse AddImages2LibResponse
      */
     public function addImages2Lib($request)
     {
@@ -424,42 +416,33 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 创建关键词库.
+     * @summary 创建关键词库
+     *  *
+     * @param AddKeywordLibRequest $request AddKeywordLibRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddKeywordLibRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddKeywordLibResponse
-     *
-     * @param AddKeywordLibRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return AddKeywordLibResponse
+     * @return AddKeywordLibResponse AddKeywordLibResponse
      */
     public function addKeywordLibWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->keywords) {
-            @$body['Keywords'] = $request->keywords;
+        if (!Utils::isUnset($request->keywords)) {
+            $body['Keywords'] = $request->keywords;
         }
-
-        if (null !== $request->keywordsObject) {
-            @$body['KeywordsObject'] = $request->keywordsObject;
+        if (!Utils::isUnset($request->keywordsObject)) {
+            $body['KeywordsObject'] = $request->keywordsObject;
         }
-
-        if (null !== $request->libName) {
-            @$body['LibName'] = $request->libName;
+        if (!Utils::isUnset($request->libName)) {
+            $body['LibName'] = $request->libName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AddKeywordLib',
@@ -477,15 +460,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 创建关键词库.
+     * @summary 创建关键词库
+     *  *
+     * @param AddKeywordLibRequest $request AddKeywordLibRequest
      *
-     * @param request - AddKeywordLibRequest
-     *
-     * @returns AddKeywordLibResponse
-     *
-     * @param AddKeywordLibRequest $request
-     *
-     * @return AddKeywordLibResponse
+     * @return AddKeywordLibResponse AddKeywordLibResponse
      */
     public function addKeywordLib($request)
     {
@@ -495,42 +474,33 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 添加关键词.
+     * @summary 添加关键词
+     *  *
+     * @param AddKeywordsRequest $request AddKeywordsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddKeywordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddKeywordsResponse
-     *
-     * @param AddKeywordsRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return AddKeywordsResponse
+     * @return AddKeywordsResponse AddKeywordsResponse
      */
     public function addKeywordsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->keywords) {
-            @$body['Keywords'] = $request->keywords;
+        if (!Utils::isUnset($request->keywords)) {
+            $body['Keywords'] = $request->keywords;
         }
-
-        if (null !== $request->keywordsObject) {
-            @$body['KeywordsObject'] = $request->keywordsObject;
+        if (!Utils::isUnset($request->keywordsObject)) {
+            $body['KeywordsObject'] = $request->keywordsObject;
         }
-
-        if (null !== $request->libId) {
-            @$body['LibId'] = $request->libId;
+        if (!Utils::isUnset($request->libId)) {
+            $body['LibId'] = $request->libId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AddKeywords',
@@ -548,15 +518,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 添加关键词.
+     * @summary 添加关键词
+     *  *
+     * @param AddKeywordsRequest $request AddKeywordsRequest
      *
-     * @param request - AddKeywordsRequest
-     *
-     * @returns AddKeywordsResponse
-     *
-     * @param AddKeywordsRequest $request
-     *
-     * @return AddKeywordsResponse
+     * @return AddKeywordsResponse AddKeywordsResponse
      */
     public function addKeywords($request)
     {
@@ -566,42 +532,33 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 添加关键词.
+     * @summary 添加关键词
+     *  *
+     * @param AddKeywordsToLibRequest $request AddKeywordsToLibRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddKeywordsToLibRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddKeywordsToLibResponse
-     *
-     * @param AddKeywordsToLibRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return AddKeywordsToLibResponse
+     * @return AddKeywordsToLibResponse AddKeywordsToLibResponse
      */
     public function addKeywordsToLibWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->keywords) {
-            @$body['Keywords'] = $request->keywords;
+        if (!Utils::isUnset($request->keywords)) {
+            $body['Keywords'] = $request->keywords;
         }
-
-        if (null !== $request->keywordsObject) {
-            @$body['KeywordsObject'] = $request->keywordsObject;
+        if (!Utils::isUnset($request->keywordsObject)) {
+            $body['KeywordsObject'] = $request->keywordsObject;
         }
-
-        if (null !== $request->libId) {
-            @$body['LibId'] = $request->libId;
+        if (!Utils::isUnset($request->libId)) {
+            $body['LibId'] = $request->libId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AddKeywordsToLib',
@@ -619,15 +576,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 添加关键词.
+     * @summary 添加关键词
+     *  *
+     * @param AddKeywordsToLibRequest $request AddKeywordsToLibRequest
      *
-     * @param request - AddKeywordsToLibRequest
-     *
-     * @returns AddKeywordsToLibResponse
-     *
-     * @param AddKeywordsToLibRequest $request
-     *
-     * @return AddKeywordsToLibResponse
+     * @return AddKeywordsToLibResponse AddKeywordsToLibResponse
      */
     public function addKeywordsToLib($request)
     {
@@ -637,32 +590,25 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 取消oss扫描任务
+     * @summary 取消oss扫描任务
+     *  *
+     * @param CancelStockOssCheckTaskRequest $request CancelStockOssCheckTaskRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CancelStockOssCheckTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CancelStockOssCheckTaskResponse
-     *
-     * @param CancelStockOssCheckTaskRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return CancelStockOssCheckTaskResponse
+     * @return CancelStockOssCheckTaskResponse CancelStockOssCheckTaskResponse
      */
     public function cancelStockOssCheckTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CancelStockOssCheckTask',
@@ -680,15 +626,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 取消oss扫描任务
+     * @summary 取消oss扫描任务
+     *  *
+     * @param CancelStockOssCheckTaskRequest $request CancelStockOssCheckTaskRequest
      *
-     * @param request - CancelStockOssCheckTaskRequest
-     *
-     * @returns CancelStockOssCheckTaskResponse
-     *
-     * @param CancelStockOssCheckTaskRequest $request
-     *
-     * @return CancelStockOssCheckTaskResponse
+     * @return CancelStockOssCheckTaskResponse CancelStockOssCheckTaskResponse
      */
     public function cancelStockOssCheckTask($request)
     {
@@ -698,46 +640,36 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 复制服务
+     * @summary 复制服务
+     *  *
+     * @param CopyServiceConfigRequest $request CopyServiceConfigRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CopyServiceConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CopyServiceConfigResponse
-     *
-     * @param CopyServiceConfigRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return CopyServiceConfigResponse
+     * @return CopyServiceConfigResponse CopyServiceConfigResponse
      */
     public function copyServiceConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->serviceCode) {
-            @$body['ServiceCode'] = $request->serviceCode;
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
         }
-
-        if (null !== $request->serviceDesc) {
-            @$body['ServiceDesc'] = $request->serviceDesc;
+        if (!Utils::isUnset($request->serviceDesc)) {
+            $body['ServiceDesc'] = $request->serviceDesc;
         }
-
-        if (null !== $request->serviceName) {
-            @$body['ServiceName'] = $request->serviceName;
+        if (!Utils::isUnset($request->serviceName)) {
+            $body['ServiceName'] = $request->serviceName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CopyServiceConfig',
@@ -755,15 +687,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 复制服务
+     * @summary 复制服务
+     *  *
+     * @param CopyServiceConfigRequest $request CopyServiceConfigRequest
      *
-     * @param request - CopyServiceConfigRequest
-     *
-     * @returns CopyServiceConfigResponse
-     *
-     * @param CopyServiceConfigRequest $request
-     *
-     * @return CopyServiceConfigResponse
+     * @return CopyServiceConfigResponse CopyServiceConfigResponse
      */
     public function copyServiceConfig($request)
     {
@@ -773,128 +701,103 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 创建oss扫描任务
+     * @summary 创建oss扫描任务
+     *  *
+     * @param CreatStockOssCheckTaskRequest $request CreatStockOssCheckTaskRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreatStockOssCheckTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreatStockOssCheckTaskResponse
-     *
-     * @param CreatStockOssCheckTaskRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return CreatStockOssCheckTaskResponse
+     * @return CreatStockOssCheckTaskResponse CreatStockOssCheckTaskResponse
      */
     public function creatStockOssCheckTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->buckets) {
-            @$query['Buckets'] = $request->buckets;
+        if (!Utils::isUnset($request->buckets)) {
+            $query['Buckets'] = $request->buckets;
         }
-
-        if (null !== $request->callbackId) {
-            @$query['CallbackId'] = $request->callbackId;
+        if (!Utils::isUnset($request->callbackId)) {
+            $query['CallbackId'] = $request->callbackId;
         }
-
-        if (null !== $request->distinctHistoryTasks) {
-            @$query['DistinctHistoryTasks'] = $request->distinctHistoryTasks;
+        if (!Utils::isUnset($request->distinctHistoryTasks)) {
+            $query['DistinctHistoryTasks'] = $request->distinctHistoryTasks;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->executeDate) {
-            @$query['ExecuteDate'] = $request->executeDate;
+        if (!Utils::isUnset($request->executeDate)) {
+            $query['ExecuteDate'] = $request->executeDate;
         }
-
-        if (null !== $request->executeTime) {
-            @$query['ExecuteTime'] = $request->executeTime;
+        if (!Utils::isUnset($request->executeTime)) {
+            $query['ExecuteTime'] = $request->executeTime;
         }
-
-        if (null !== $request->freeze) {
-            @$query['Freeze'] = $request->freeze;
+        if (!Utils::isUnset($request->freeze)) {
+            $query['Freeze'] = $request->freeze;
         }
-
-        if (null !== $request->freezeHighRisk1) {
-            @$query['FreezeHighRisk1'] = $request->freezeHighRisk1;
+        if (!Utils::isUnset($request->freezeHighRisk1)) {
+            $query['FreezeHighRisk1'] = $request->freezeHighRisk1;
         }
-
-        if (null !== $request->freezeHighRisk2) {
-            @$query['FreezeHighRisk2'] = $request->freezeHighRisk2;
+        if (!Utils::isUnset($request->freezeHighRisk2)) {
+            $query['FreezeHighRisk2'] = $request->freezeHighRisk2;
         }
-
-        if (null !== $request->freezeMediumRisk1) {
-            @$query['FreezeMediumRisk1'] = $request->freezeMediumRisk1;
+        if (!Utils::isUnset($request->freezeMediumRisk1)) {
+            $query['FreezeMediumRisk1'] = $request->freezeMediumRisk1;
         }
-
-        if (null !== $request->freezeMediumRisk2) {
-            @$query['FreezeMediumRisk2'] = $request->freezeMediumRisk2;
+        if (!Utils::isUnset($request->freezeMediumRisk2)) {
+            $query['FreezeMediumRisk2'] = $request->freezeMediumRisk2;
         }
-
-        if (null !== $request->freezeType) {
-            @$query['FreezeType'] = $request->freezeType;
+        if (!Utils::isUnset($request->freezeRestorePath)) {
+            $query['FreezeRestorePath'] = $request->freezeRestorePath;
         }
-
-        if (null !== $request->isInc) {
-            @$query['IsInc'] = $request->isInc;
+        if (!Utils::isUnset($request->freezeType)) {
+            $query['FreezeType'] = $request->freezeType;
         }
-
-        if (null !== $request->mediaType) {
-            @$query['MediaType'] = $request->mediaType;
+        if (!Utils::isUnset($request->isInc)) {
+            $query['IsInc'] = $request->isInc;
         }
-
-        if (null !== $request->prefixFilterType) {
-            @$query['PrefixFilterType'] = $request->prefixFilterType;
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
         }
-
-        if (null !== $request->prefixFilters) {
-            @$query['PrefixFilters'] = $request->prefixFilters;
+        if (!Utils::isUnset($request->prefixFilterType)) {
+            $query['PrefixFilterType'] = $request->prefixFilterType;
         }
-
-        if (null !== $request->priority) {
-            @$query['Priority'] = $request->priority;
+        if (!Utils::isUnset($request->prefixFilters)) {
+            $query['PrefixFilters'] = $request->prefixFilters;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
         }
-
-        if (null !== $request->scanLimit) {
-            @$query['ScanLimit'] = $request->scanLimit;
+        if (!Utils::isUnset($request->referer)) {
+            $query['Referer'] = $request->referer;
         }
-
-        if (null !== $request->scanNoFileType) {
-            @$query['ScanNoFileType'] = $request->scanNoFileType;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->scanResourceType) {
-            @$query['ScanResourceType'] = $request->scanResourceType;
+        if (!Utils::isUnset($request->scanLimit)) {
+            $query['ScanLimit'] = $request->scanLimit;
         }
-
-        if (null !== $request->scanService) {
-            @$query['ScanService'] = $request->scanService;
+        if (!Utils::isUnset($request->scanNoFileType)) {
+            $query['ScanNoFileType'] = $request->scanNoFileType;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->scanResourceType)) {
+            $query['ScanResourceType'] = $request->scanResourceType;
         }
-
-        if (null !== $request->taskCycle) {
-            @$query['TaskCycle'] = $request->taskCycle;
+        if (!Utils::isUnset($request->scanService)) {
+            $query['ScanService'] = $request->scanService;
         }
-
-        if (null !== $request->taskName) {
-            @$query['TaskName'] = $request->taskName;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->taskType) {
-            @$query['TaskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskCycle)) {
+            $query['TaskCycle'] = $request->taskCycle;
         }
-
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreatStockOssCheckTask',
@@ -912,15 +815,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 创建oss扫描任务
+     * @summary 创建oss扫描任务
+     *  *
+     * @param CreatStockOssCheckTaskRequest $request CreatStockOssCheckTaskRequest
      *
-     * @param request - CreatStockOssCheckTaskRequest
-     *
-     * @returns CreatStockOssCheckTaskResponse
-     *
-     * @param CreatStockOssCheckTaskRequest $request
-     *
-     * @return CreatStockOssCheckTaskResponse
+     * @return CreatStockOssCheckTaskResponse CreatStockOssCheckTaskResponse
      */
     public function creatStockOssCheckTask($request)
     {
@@ -930,46 +829,36 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 创建代答库.
+     * @summary 创建代答库
+     *  *
+     * @param CreateAnswerLibRequest $request CreateAnswerLibRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateAnswerLibRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateAnswerLibResponse
-     *
-     * @param CreateAnswerLibRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return CreateAnswerLibResponse
+     * @return CreateAnswerLibResponse CreateAnswerLibResponse
      */
     public function createAnswerLibWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->libName) {
-            @$body['LibName'] = $request->libName;
+        if (!Utils::isUnset($request->libName)) {
+            $body['LibName'] = $request->libName;
         }
-
-        if (null !== $request->sampleBucket) {
-            @$body['SampleBucket'] = $request->sampleBucket;
+        if (!Utils::isUnset($request->sampleBucket)) {
+            $body['SampleBucket'] = $request->sampleBucket;
         }
-
-        if (null !== $request->sampleObject) {
-            @$body['SampleObject'] = $request->sampleObject;
+        if (!Utils::isUnset($request->sampleObject)) {
+            $body['SampleObject'] = $request->sampleObject;
         }
-
-        if (null !== $request->samples) {
-            @$body['Samples'] = $request->samples;
+        if (!Utils::isUnset($request->samples)) {
+            $body['Samples'] = $request->samples;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateAnswerLib',
@@ -987,15 +876,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 创建代答库.
+     * @summary 创建代答库
+     *  *
+     * @param CreateAnswerLibRequest $request CreateAnswerLibRequest
      *
-     * @param request - CreateAnswerLibRequest
-     *
-     * @returns CreateAnswerLibResponse
-     *
-     * @param CreateAnswerLibRequest $request
-     *
-     * @return CreateAnswerLibResponse
+     * @return CreateAnswerLibResponse CreateAnswerLibResponse
      */
     public function createAnswerLib($request)
     {
@@ -1005,46 +890,36 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 新建消息通知.
+     * @summary 新建消息通知
+     *  *
+     * @param CreateCallbackRequest $request CreateCallbackRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateCallbackRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateCallbackResponse
-     *
-     * @param CreateCallbackRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateCallbackResponse
+     * @return CreateCallbackResponse CreateCallbackResponse
      */
     public function createCallbackWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->cryptType) {
-            @$body['CryptType'] = $request->cryptType;
+        if (!Utils::isUnset($request->cryptType)) {
+            $body['CryptType'] = $request->cryptType;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->scope) {
-            @$body['Scope'] = $request->scope;
+        if (!Utils::isUnset($request->scope)) {
+            $body['Scope'] = $request->scope;
         }
-
-        if (null !== $request->url) {
-            @$body['Url'] = $request->url;
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateCallback',
@@ -1062,15 +937,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 新建消息通知.
+     * @summary 新建消息通知
+     *  *
+     * @param CreateCallbackRequest $request CreateCallbackRequest
      *
-     * @param request - CreateCallbackRequest
-     *
-     * @returns CreateCallbackResponse
-     *
-     * @param CreateCallbackRequest $request
-     *
-     * @return CreateCallbackResponse
+     * @return CreateCallbackResponse CreateCallbackResponse
      */
     public function createCallback($request)
     {
@@ -1080,82 +951,119 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 创建oss扫描任务前检查.
+     * @summary 在线测试
+     *  *
+     * @param CreateOnlineTestRequest $request CreateOnlineTestRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreatePreCheckRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return CreateOnlineTestResponse CreateOnlineTestResponse
+     */
+    public function createOnlineTestWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataId)) {
+            $query['DataId'] = $request->dataId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $query['ServiceCode'] = $request->serviceCode;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateOnlineTest',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateOnlineTestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 在线测试
+     *  *
+     * @param CreateOnlineTestRequest $request CreateOnlineTestRequest
      *
-     * @returns CreatePreCheckResponse
+     * @return CreateOnlineTestResponse CreateOnlineTestResponse
+     */
+    public function createOnlineTest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOnlineTestWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建oss扫描任务前检查
+     *  *
+     * @param CreatePreCheckRequest $request CreatePreCheckRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param CreatePreCheckRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreatePreCheckResponse
+     * @return CreatePreCheckResponse CreatePreCheckResponse
      */
     public function createPreCheckWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->buckets) {
-            @$body['Buckets'] = $request->buckets;
+        if (!Utils::isUnset($request->buckets)) {
+            $body['Buckets'] = $request->buckets;
         }
-
-        if (null !== $request->distinctHistoryTasks) {
-            @$body['DistinctHistoryTasks'] = $request->distinctHistoryTasks;
+        if (!Utils::isUnset($request->distinctHistoryTasks)) {
+            $body['DistinctHistoryTasks'] = $request->distinctHistoryTasks;
         }
-
-        if (null !== $request->endTime) {
-            @$body['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->isInc) {
-            @$body['IsInc'] = $request->isInc;
+        if (!Utils::isUnset($request->isInc)) {
+            $body['IsInc'] = $request->isInc;
         }
-
-        if (null !== $request->mediaType) {
-            @$body['MediaType'] = $request->mediaType;
+        if (!Utils::isUnset($request->mediaType)) {
+            $body['MediaType'] = $request->mediaType;
         }
-
-        if (null !== $request->prefixFilterType) {
-            @$body['PrefixFilterType'] = $request->prefixFilterType;
+        if (!Utils::isUnset($request->prefixFilterType)) {
+            $body['PrefixFilterType'] = $request->prefixFilterType;
         }
-
-        if (null !== $request->prefixFilters) {
-            @$body['PrefixFilters'] = $request->prefixFilters;
+        if (!Utils::isUnset($request->prefixFilters)) {
+            $body['PrefixFilters'] = $request->prefixFilters;
         }
-
-        if (null !== $request->priority) {
-            @$body['Priority'] = $request->priority;
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
         }
-
-        if (null !== $request->scanLimit) {
-            @$body['ScanLimit'] = $request->scanLimit;
+        if (!Utils::isUnset($request->scanLimit)) {
+            $body['ScanLimit'] = $request->scanLimit;
         }
-
-        if (null !== $request->scanNoFileType) {
-            @$body['ScanNoFileType'] = $request->scanNoFileType;
+        if (!Utils::isUnset($request->scanNoFileType)) {
+            $body['ScanNoFileType'] = $request->scanNoFileType;
         }
-
-        if (null !== $request->scanService) {
-            @$body['ScanService'] = $request->scanService;
+        if (!Utils::isUnset($request->scanService)) {
+            $body['ScanService'] = $request->scanService;
         }
-
-        if (null !== $request->startTime) {
-            @$body['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->taskName) {
-            @$body['TaskName'] = $request->taskName;
+        if (!Utils::isUnset($request->taskName)) {
+            $body['TaskName'] = $request->taskName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreatePreCheck',
@@ -1173,15 +1081,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 创建oss扫描任务前检查.
+     * @summary 创建oss扫描任务前检查
+     *  *
+     * @param CreatePreCheckRequest $request CreatePreCheckRequest
      *
-     * @param request - CreatePreCheckRequest
-     *
-     * @returns CreatePreCheckResponse
-     *
-     * @param CreatePreCheckRequest $request
-     *
-     * @return CreatePreCheckResponse
+     * @return CreatePreCheckResponse CreatePreCheckResponse
      */
     public function createPreCheck($request)
     {
@@ -1191,32 +1095,25 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 删除代答库.
+     * @summary 删除代答库
+     *  *
+     * @param DeleteAnswerLibRequest $request DeleteAnswerLibRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteAnswerLibRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteAnswerLibResponse
-     *
-     * @param DeleteAnswerLibRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DeleteAnswerLibResponse
+     * @return DeleteAnswerLibResponse DeleteAnswerLibResponse
      */
     public function deleteAnswerLibWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->libId) {
-            @$query['LibId'] = $request->libId;
+        if (!Utils::isUnset($request->libId)) {
+            $query['LibId'] = $request->libId;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteAnswerLib',
@@ -1234,15 +1131,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 删除代答库.
+     * @summary 删除代答库
+     *  *
+     * @param DeleteAnswerLibRequest $request DeleteAnswerLibRequest
      *
-     * @param request - DeleteAnswerLibRequest
-     *
-     * @returns DeleteAnswerLibResponse
-     *
-     * @param DeleteAnswerLibRequest $request
-     *
-     * @return DeleteAnswerLibResponse
+     * @return DeleteAnswerLibResponse DeleteAnswerLibResponse
      */
     public function deleteAnswerLib($request)
     {
@@ -1252,38 +1145,30 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 删除代答答案.
+     * @summary 删除代答答案
+     *  *
+     * @param DeleteAnswerSampleRequest $request DeleteAnswerSampleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteAnswerSampleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteAnswerSampleResponse
-     *
-     * @param DeleteAnswerSampleRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteAnswerSampleResponse
+     * @return DeleteAnswerSampleResponse DeleteAnswerSampleResponse
      */
     public function deleteAnswerSampleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->ids) {
-            @$body['Ids'] = $request->ids;
+        if (!Utils::isUnset($request->ids)) {
+            $body['Ids'] = $request->ids;
         }
-
-        if (null !== $request->libId) {
-            @$body['LibId'] = $request->libId;
+        if (!Utils::isUnset($request->libId)) {
+            $body['LibId'] = $request->libId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteAnswerSample',
@@ -1301,15 +1186,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 删除代答答案.
+     * @summary 删除代答答案
+     *  *
+     * @param DeleteAnswerSampleRequest $request DeleteAnswerSampleRequest
      *
-     * @param request - DeleteAnswerSampleRequest
-     *
-     * @returns DeleteAnswerSampleResponse
-     *
-     * @param DeleteAnswerSampleRequest $request
-     *
-     * @return DeleteAnswerSampleResponse
+     * @return DeleteAnswerSampleResponse DeleteAnswerSampleResponse
      */
     public function deleteAnswerSample($request)
     {
@@ -1319,34 +1200,27 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 删除消息通知.
+     * @summary 删除消息通知
+     *  *
+     * @param DeleteCallbackRequest $request DeleteCallbackRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteCallbackRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteCallbackResponse
-     *
-     * @param DeleteCallbackRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return DeleteCallbackResponse
+     * @return DeleteCallbackResponse DeleteCallbackResponse
      */
     public function deleteCallbackWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->id) {
-            @$body['Id'] = $request->id;
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteCallback',
@@ -1364,15 +1238,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 删除消息通知.
+     * @summary 删除消息通知
+     *  *
+     * @param DeleteCallbackRequest $request DeleteCallbackRequest
      *
-     * @param request - DeleteCallbackRequest
-     *
-     * @returns DeleteCallbackResponse
-     *
-     * @param DeleteCallbackRequest $request
-     *
-     * @return DeleteCallbackResponse
+     * @return DeleteCallbackResponse DeleteCallbackResponse
      */
     public function deleteCallback($request)
     {
@@ -1382,46 +1252,36 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Delete feature configuration.
+     * @summary Delete feature configuration
+     *  *
+     * @param DeleteFeatureConfigRequest $request DeleteFeatureConfigRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteFeatureConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteFeatureConfigResponse
-     *
-     * @param DeleteFeatureConfigRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DeleteFeatureConfigResponse
+     * @return DeleteFeatureConfigResponse DeleteFeatureConfigResponse
      */
     public function deleteFeatureConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->field) {
-            @$body['Field'] = $request->field;
+        if (!Utils::isUnset($request->field)) {
+            $body['Field'] = $request->field;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->serviceCode) {
-            @$body['ServiceCode'] = $request->serviceCode;
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
         }
-
-        if (null !== $request->type) {
-            @$body['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteFeatureConfig',
@@ -1439,15 +1299,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Delete feature configuration.
+     * @summary Delete feature configuration
+     *  *
+     * @param DeleteFeatureConfigRequest $request DeleteFeatureConfigRequest
      *
-     * @param request - DeleteFeatureConfigRequest
-     *
-     * @returns DeleteFeatureConfigResponse
-     *
-     * @param DeleteFeatureConfigRequest $request
-     *
-     * @return DeleteFeatureConfigResponse
+     * @return DeleteFeatureConfigResponse DeleteFeatureConfigResponse
      */
     public function deleteFeatureConfig($request)
     {
@@ -1457,38 +1313,30 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 批量删除.
+     * @summary 批量删除
+     *  *
+     * @param DeleteImagesFromLibRequest $request DeleteImagesFromLibRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteImagesFromLibRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteImagesFromLibResponse
-     *
-     * @param DeleteImagesFromLibRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DeleteImagesFromLibResponse
+     * @return DeleteImagesFromLibResponse DeleteImagesFromLibResponse
      */
     public function deleteImagesFromLibWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->imageIds) {
-            @$body['ImageIds'] = $request->imageIds;
+        if (!Utils::isUnset($request->imageIds)) {
+            $body['ImageIds'] = $request->imageIds;
         }
-
-        if (null !== $request->libId) {
-            @$body['LibId'] = $request->libId;
+        if (!Utils::isUnset($request->libId)) {
+            $body['LibId'] = $request->libId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteImagesFromLib',
@@ -1506,15 +1354,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 批量删除.
+     * @summary 批量删除
+     *  *
+     * @param DeleteImagesFromLibRequest $request DeleteImagesFromLibRequest
      *
-     * @param request - DeleteImagesFromLibRequest
-     *
-     * @returns DeleteImagesFromLibResponse
-     *
-     * @param DeleteImagesFromLibRequest $request
-     *
-     * @return DeleteImagesFromLibResponse
+     * @return DeleteImagesFromLibResponse DeleteImagesFromLibResponse
      */
     public function deleteImagesFromLib($request)
     {
@@ -1524,42 +1368,33 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 删除关键词.
+     * @summary 删除关键词
+     *  *
+     * @param DeleteKeywordRequest $request DeleteKeywordRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteKeywordRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteKeywordResponse
-     *
-     * @param DeleteKeywordRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DeleteKeywordResponse
+     * @return DeleteKeywordResponse DeleteKeywordResponse
      */
     public function deleteKeywordWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->keywordIdList) {
-            @$body['KeywordIdList'] = $request->keywordIdList;
+        if (!Utils::isUnset($request->keywordIdList)) {
+            $body['KeywordIdList'] = $request->keywordIdList;
         }
-
-        if (null !== $request->keywordIds) {
-            @$body['KeywordIds'] = $request->keywordIds;
+        if (!Utils::isUnset($request->keywordIds)) {
+            $body['KeywordIds'] = $request->keywordIds;
         }
-
-        if (null !== $request->libId) {
-            @$body['LibId'] = $request->libId;
+        if (!Utils::isUnset($request->libId)) {
+            $body['LibId'] = $request->libId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteKeyword',
@@ -1577,15 +1412,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 删除关键词.
+     * @summary 删除关键词
+     *  *
+     * @param DeleteKeywordRequest $request DeleteKeywordRequest
      *
-     * @param request - DeleteKeywordRequest
-     *
-     * @returns DeleteKeywordResponse
-     *
-     * @param DeleteKeywordRequest $request
-     *
-     * @return DeleteKeywordResponse
+     * @return DeleteKeywordResponse DeleteKeywordResponse
      */
     public function deleteKeyword($request)
     {
@@ -1595,34 +1426,27 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 删除关键词库.
+     * @summary 删除关键词库
+     *  *
+     * @param DeleteKeywordLibRequest $request DeleteKeywordLibRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteKeywordLibRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteKeywordLibResponse
-     *
-     * @param DeleteKeywordLibRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return DeleteKeywordLibResponse
+     * @return DeleteKeywordLibResponse DeleteKeywordLibResponse
      */
     public function deleteKeywordLibWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->libId) {
-            @$body['LibId'] = $request->libId;
+        if (!Utils::isUnset($request->libId)) {
+            $body['LibId'] = $request->libId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteKeywordLib',
@@ -1640,15 +1464,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 删除关键词库.
+     * @summary 删除关键词库
+     *  *
+     * @param DeleteKeywordLibRequest $request DeleteKeywordLibRequest
      *
-     * @param request - DeleteKeywordLibRequest
-     *
-     * @returns DeleteKeywordLibResponse
-     *
-     * @param DeleteKeywordLibRequest $request
-     *
-     * @return DeleteKeywordLibResponse
+     * @return DeleteKeywordLibResponse DeleteKeywordLibResponse
      */
     public function deleteKeywordLib($request)
     {
@@ -1658,34 +1478,130 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 导出代答答案.
+     * @summary 删除在线测试接口
+     *  *
+     * @param DeleteOnlineTestRequest $request DeleteOnlineTestRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ExportAnswerSampleRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return DeleteOnlineTestResponse DeleteOnlineTestResponse
+     */
+    public function deleteOnlineTestWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteOnlineTest',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteOnlineTestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除在线测试接口
+     *  *
+     * @param DeleteOnlineTestRequest $request DeleteOnlineTestRequest
      *
-     * @returns ExportAnswerSampleResponse
+     * @return DeleteOnlineTestResponse DeleteOnlineTestResponse
+     */
+    public function deleteOnlineTest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteOnlineTestWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询在线测试结果
+     *  *
+     * @param DescribeOnlineTestResultRequest $request DescribeOnlineTestResultRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param ExportAnswerSampleRequest $request
-     * @param RuntimeOptions            $runtime
+     * @return DescribeOnlineTestResultResponse DescribeOnlineTestResultResponse
+     */
+    public function describeOnlineTestResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $query['ServiceCode'] = $request->serviceCode;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeOnlineTestResult',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeOnlineTestResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询在线测试结果
+     *  *
+     * @param DescribeOnlineTestResultRequest $request DescribeOnlineTestResultRequest
      *
-     * @return ExportAnswerSampleResponse
+     * @return DescribeOnlineTestResultResponse DescribeOnlineTestResultResponse
+     */
+    public function describeOnlineTestResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOnlineTestResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 导出代答答案
+     *  *
+     * @param ExportAnswerSampleRequest $request ExportAnswerSampleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExportAnswerSampleResponse ExportAnswerSampleResponse
      */
     public function exportAnswerSampleWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->libId) {
-            @$body['LibId'] = $request->libId;
+        if (!Utils::isUnset($request->libId)) {
+            $body['LibId'] = $request->libId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ExportAnswerSample',
@@ -1703,15 +1619,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 导出代答答案.
+     * @summary 导出代答答案
+     *  *
+     * @param ExportAnswerSampleRequest $request ExportAnswerSampleRequest
      *
-     * @param request - ExportAnswerSampleRequest
-     *
-     * @returns ExportAnswerSampleResponse
-     *
-     * @param ExportAnswerSampleRequest $request
-     *
-     * @return ExportAnswerSampleResponse
+     * @return ExportAnswerSampleResponse ExportAnswerSampleResponse
      */
     public function exportAnswerSample($request)
     {
@@ -1721,66 +1633,51 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 导出调用量.
+     * @summary 导出调用量
+     *  *
+     * @param ExportCipStatsRequest $request ExportCipStatsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ExportCipStatsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ExportCipStatsResponse
-     *
-     * @param ExportCipStatsRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ExportCipStatsResponse
+     * @return ExportCipStatsResponse ExportCipStatsResponse
      */
     public function exportCipStatsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->byMonth) {
-            @$body['ByMonth'] = $request->byMonth;
+        if (!Utils::isUnset($request->byMonth)) {
+            $body['ByMonth'] = $request->byMonth;
         }
-
-        if (null !== $request->endDate) {
-            @$body['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $body['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->exportType) {
-            @$body['ExportType'] = $request->exportType;
+        if (!Utils::isUnset($request->exportType)) {
+            $body['ExportType'] = $request->exportType;
         }
-
-        if (null !== $request->label) {
-            @$body['Label'] = $request->label;
+        if (!Utils::isUnset($request->label)) {
+            $body['Label'] = $request->label;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->serviceCode) {
-            @$body['ServiceCode'] = $request->serviceCode;
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
         }
-
-        if (null !== $request->startDate) {
-            @$body['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
         }
-
-        if (null !== $request->subUid) {
-            @$body['SubUid'] = $request->subUid;
+        if (!Utils::isUnset($request->subUid)) {
+            $body['SubUid'] = $request->subUid;
         }
-
-        if (null !== $request->type) {
-            @$body['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ExportCipStats',
@@ -1798,15 +1695,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 导出调用量.
+     * @summary 导出调用量
+     *  *
+     * @param ExportCipStatsRequest $request ExportCipStatsRequest
      *
-     * @param request - ExportCipStatsRequest
-     *
-     * @returns ExportCipStatsResponse
-     *
-     * @param ExportCipStatsRequest $request
-     *
-     * @return ExportCipStatsResponse
+     * @return ExportCipStatsResponse ExportCipStatsResponse
      */
     public function exportCipStats($request)
     {
@@ -1816,34 +1709,27 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 导出关键词.
+     * @summary 导出关键词
+     *  *
+     * @param ExportKeywordRequest $request ExportKeywordRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ExportKeywordRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ExportKeywordResponse
-     *
-     * @param ExportKeywordRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ExportKeywordResponse
+     * @return ExportKeywordResponse ExportKeywordResponse
      */
     public function exportKeywordWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->libId) {
-            @$body['LibId'] = $request->libId;
+        if (!Utils::isUnset($request->libId)) {
+            $body['LibId'] = $request->libId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ExportKeyword',
@@ -1861,15 +1747,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 导出关键词.
+     * @summary 导出关键词
+     *  *
+     * @param ExportKeywordRequest $request ExportKeywordRequest
      *
-     * @param request - ExportKeywordRequest
-     *
-     * @returns ExportKeywordResponse
-     *
-     * @param ExportKeywordRequest $request
-     *
-     * @return ExportKeywordResponse
+     * @return ExportKeywordResponse ExportKeywordResponse
      */
     public function exportKeyword($request)
     {
@@ -1879,46 +1761,36 @@ class Green extends OpenApiClient
     }
 
     /**
-     * oss用量统计导出.
+     * @summary oss用量统计导出
+     *  *
+     * @param ExportOssCheckStatRequest $request ExportOssCheckStatRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ExportOssCheckStatRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ExportOssCheckStatResponse
-     *
-     * @param ExportOssCheckStatRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ExportOssCheckStatResponse
+     * @return ExportOssCheckStatResponse ExportOssCheckStatResponse
      */
     public function exportOssCheckStatWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->byMonth) {
-            @$body['ByMonth'] = $request->byMonth;
+        if (!Utils::isUnset($request->byMonth)) {
+            $body['ByMonth'] = $request->byMonth;
         }
-
-        if (null !== $request->endDate) {
-            @$body['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $body['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->parentTaskId) {
-            @$body['ParentTaskId'] = $request->parentTaskId;
+        if (!Utils::isUnset($request->parentTaskId)) {
+            $body['ParentTaskId'] = $request->parentTaskId;
         }
-
-        if (null !== $request->startDate) {
-            @$body['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ExportOssCheckStat',
@@ -1936,15 +1808,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * oss用量统计导出.
+     * @summary oss用量统计导出
+     *  *
+     * @param ExportOssCheckStatRequest $request ExportOssCheckStatRequest
      *
-     * @param request - ExportOssCheckStatRequest
-     *
-     * @returns ExportOssCheckStatResponse
-     *
-     * @param ExportOssCheckStatRequest $request
-     *
-     * @return ExportOssCheckStatResponse
+     * @return ExportOssCheckStatResponse ExportOssCheckStatResponse
      */
     public function exportOssCheckStat($request)
     {
@@ -1954,60 +1822,50 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 导出oss扫描结果.
+     * @summary 导出oss扫描结果
+     *  *
+     * @param ExportResultRequest $tmpReq  ExportResultRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ExportResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ExportResultResponse
-     *
-     * @param ExportResultRequest $tmpReq
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ExportResultResponse
+     * @return ExportResultResponse ExportResultResponse
      */
     public function exportResultWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ExportResultShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->sort) {
-            $request->sortShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sort)) {
+            $request->sortShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
         }
-
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->currentPage) {
-            @$body['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $body['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->endDate) {
-            @$body['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $body['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->query) {
-            @$body['Query'] = $request->query;
+        if (!Utils::isUnset($request->query)) {
+            $body['Query'] = $request->query;
         }
-
-        if (null !== $request->sortShrink) {
-            @$body['Sort'] = $request->sortShrink;
+        if (!Utils::isUnset($request->sortShrink)) {
+            $body['Sort'] = $request->sortShrink;
         }
-
-        if (null !== $request->startDate) {
-            @$body['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->source)) {
+            $body['Source'] = $request->source;
         }
-
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ExportResult',
@@ -2025,15 +1883,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 导出oss扫描结果.
+     * @summary 导出oss扫描结果
+     *  *
+     * @param ExportResultRequest $request ExportResultRequest
      *
-     * @param request - ExportResultRequest
-     *
-     * @returns ExportResultResponse
-     *
-     * @param ExportResultRequest $request
-     *
-     * @return ExportResultResponse
+     * @return ExportResultResponse ExportResultResponse
      */
     public function exportResult($request)
     {
@@ -2043,68 +1897,53 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 导出调用结果，excel文件.
+     * @summary 导出调用结果，excel文件
+     *  *
+     * @param ExportScanResultRequest $tmpReq  ExportScanResultRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ExportScanResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ExportScanResultResponse
-     *
-     * @param ExportScanResultRequest $tmpReq
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ExportScanResultResponse
+     * @return ExportScanResultResponse ExportScanResultResponse
      */
     public function exportScanResultWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ExportScanResultShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->query) {
-            $request->queryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->query, 'Query', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->query)) {
+            $request->queryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->query, 'Query', 'json');
         }
-
-        if (null !== $tmpReq->sort) {
-            $request->sortShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
+        if (!Utils::isUnset($tmpReq->sort)) {
+            $request->sortShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
         }
-
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->currentPage) {
-            @$body['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $body['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->endDate) {
-            @$body['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $body['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryShrink) {
-            @$body['Query'] = $request->queryShrink;
+        if (!Utils::isUnset($request->queryShrink)) {
+            $body['Query'] = $request->queryShrink;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->sortShrink) {
-            @$body['Sort'] = $request->sortShrink;
+        if (!Utils::isUnset($request->sortShrink)) {
+            $body['Sort'] = $request->sortShrink;
         }
-
-        if (null !== $request->startDate) {
-            @$body['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ExportScanResult',
@@ -2122,15 +1961,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 导出调用结果，excel文件.
+     * @summary 导出调用结果，excel文件
+     *  *
+     * @param ExportScanResultRequest $request ExportScanResultRequest
      *
-     * @param request - ExportScanResultRequest
-     *
-     * @returns ExportScanResultResponse
-     *
-     * @param ExportScanResultRequest $request
-     *
-     * @return ExportScanResultResponse
+     * @return ExportScanResultResponse ExportScanResultResponse
      */
     public function exportScanResult($request)
     {
@@ -2140,48 +1975,38 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 导出调用结果，excel文件.
+     * @summary 导出调用结果，excel文件
+     *  *
+     * @param ExportTextScanResultRequest $tmpReq  ExportTextScanResultRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ExportTextScanResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ExportTextScanResultResponse
-     *
-     * @param ExportTextScanResultRequest $tmpReq
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ExportTextScanResultResponse
+     * @return ExportTextScanResultResponse ExportTextScanResultResponse
      */
     public function exportTextScanResultWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ExportTextScanResultShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->query) {
-            $request->queryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->query, 'Query', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->query)) {
+            $request->queryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->query, 'Query', 'json');
         }
-
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->endDate) {
-            @$body['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $body['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->queryShrink) {
-            @$body['Query'] = $request->queryShrink;
+        if (!Utils::isUnset($request->queryShrink)) {
+            $body['Query'] = $request->queryShrink;
         }
-
-        if (null !== $request->startDate) {
-            @$body['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ExportTextScanResult',
@@ -2199,15 +2024,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 导出调用结果，excel文件.
+     * @summary 导出调用结果，excel文件
+     *  *
+     * @param ExportTextScanResultRequest $request ExportTextScanResultRequest
      *
-     * @param request - ExportTextScanResultRequest
-     *
-     * @returns ExportTextScanResultResponse
-     *
-     * @param ExportTextScanResultRequest $request
-     *
-     * @return ExportTextScanResultResponse
+     * @return ExportTextScanResultResponse ExportTextScanResultResponse
      */
     public function exportTextScanResult($request)
     {
@@ -2217,32 +2038,25 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取代答样本导入进度.
+     * @summary 获取代答样本导入进度
+     *  *
+     * @param GetAnswerImportProgressRequest $request GetAnswerImportProgressRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetAnswerImportProgressRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetAnswerImportProgressResponse
-     *
-     * @param GetAnswerImportProgressRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return GetAnswerImportProgressResponse
+     * @return GetAnswerImportProgressResponse GetAnswerImportProgressResponse
      */
     public function getAnswerImportProgressWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAnswerImportProgress',
@@ -2260,15 +2074,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取代答样本导入进度.
+     * @summary 获取代答样本导入进度
+     *  *
+     * @param GetAnswerImportProgressRequest $request GetAnswerImportProgressRequest
      *
-     * @param request - GetAnswerImportProgressRequest
-     *
-     * @returns GetAnswerImportProgressResponse
-     *
-     * @param GetAnswerImportProgressRequest $request
-     *
-     * @return GetAnswerImportProgressResponse
+     * @return GetAnswerImportProgressResponse GetAnswerImportProgressResponse
      */
     public function getAnswerImportProgress($request)
     {
@@ -2278,28 +2088,22 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 证据转存获取用户bucket列表.
+     * @summary 证据转存获取用户bucket列表
+     *  *
+     * @param GetBackupBucketsListRequest $request GetBackupBucketsListRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetBackupBucketsListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetBackupBucketsListResponse
-     *
-     * @param GetBackupBucketsListRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return GetBackupBucketsListResponse
+     * @return GetBackupBucketsListResponse GetBackupBucketsListResponse
      */
     public function getBackupBucketsListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetBackupBucketsList',
@@ -2317,15 +2121,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 证据转存获取用户bucket列表.
+     * @summary 证据转存获取用户bucket列表
+     *  *
+     * @param GetBackupBucketsListRequest $request GetBackupBucketsListRequest
      *
-     * @param request - GetBackupBucketsListRequest
-     *
-     * @returns GetBackupBucketsListResponse
-     *
-     * @param GetBackupBucketsListRequest $request
-     *
-     * @return GetBackupBucketsListResponse
+     * @return GetBackupBucketsListResponse GetBackupBucketsListResponse
      */
     public function getBackupBucketsList($request)
     {
@@ -2335,36 +2135,28 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取证据转存配置.
+     * @summary 获取证据转存配置
+     *  *
+     * @param GetBackupConfigRequest $request GetBackupConfigRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetBackupConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetBackupConfigResponse
-     *
-     * @param GetBackupConfigRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetBackupConfigResponse
+     * @return GetBackupConfigResponse GetBackupConfigResponse
      */
     public function getBackupConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->serviceCode) {
-            @$query['ServiceCode'] = $request->serviceCode;
+        if (!Utils::isUnset($request->serviceCode)) {
+            $query['ServiceCode'] = $request->serviceCode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetBackupConfig',
@@ -2382,15 +2174,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取证据转存配置.
+     * @summary 获取证据转存配置
+     *  *
+     * @param GetBackupConfigRequest $request GetBackupConfigRequest
      *
-     * @param request - GetBackupConfigRequest
-     *
-     * @returns GetBackupConfigResponse
-     *
-     * @param GetBackupConfigRequest $request
-     *
-     * @return GetBackupConfigResponse
+     * @return GetBackupConfigResponse GetBackupConfigResponse
      */
     public function getBackupConfig($request)
     {
@@ -2400,28 +2188,22 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 用户授权校验.
+     * @summary 用户授权校验
+     *  *
+     * @param GetBackupStatusRequest $request GetBackupStatusRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetBackupStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetBackupStatusResponse
-     *
-     * @param GetBackupStatusRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return GetBackupStatusResponse
+     * @return GetBackupStatusResponse GetBackupStatusResponse
      */
     public function getBackupStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetBackupStatus',
@@ -2439,15 +2221,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 用户授权校验.
+     * @summary 用户授权校验
+     *  *
+     * @param GetBackupStatusRequest $request GetBackupStatusRequest
      *
-     * @param request - GetBackupStatusRequest
-     *
-     * @returns GetBackupStatusResponse
-     *
-     * @param GetBackupStatusRequest $request
-     *
-     * @return GetBackupStatusResponse
+     * @return GetBackupStatusResponse GetBackupStatusResponse
      */
     public function getBackupStatus($request)
     {
@@ -2457,28 +2235,22 @@ class Green extends OpenApiClient
     }
 
     /**
-     * bucket列表.
+     * @summary bucket列表
+     *  *
+     * @param GetBucketsListRequest $request GetBucketsListRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetBucketsListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetBucketsListResponse
-     *
-     * @param GetBucketsListRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetBucketsListResponse
+     * @return GetBucketsListResponse GetBucketsListResponse
      */
     public function getBucketsListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetBucketsList',
@@ -2496,15 +2268,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * bucket列表.
+     * @summary bucket列表
+     *  *
+     * @param GetBucketsListRequest $request GetBucketsListRequest
      *
-     * @param request - GetBucketsListRequest
-     *
-     * @returns GetBucketsListResponse
-     *
-     * @param GetBucketsListRequest $request
-     *
-     * @return GetBucketsListResponse
+     * @return GetBucketsListResponse GetBucketsListResponse
      */
     public function getBucketsList($request)
     {
@@ -2514,62 +2282,48 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 查询调用量.
+     * @summary 查询调用量
+     *  *
+     * @param GetCipStatsRequest $request GetCipStatsRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetCipStatsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetCipStatsResponse
-     *
-     * @param GetCipStatsRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return GetCipStatsResponse
+     * @return GetCipStatsResponse GetCipStatsResponse
      */
     public function getCipStatsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->serviceCode) {
-            @$query['ServiceCode'] = $request->serviceCode;
+        if (!Utils::isUnset($request->serviceCode)) {
+            $query['ServiceCode'] = $request->serviceCode;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
         $body = [];
-        if (null !== $request->byMonth) {
-            @$body['ByMonth'] = $request->byMonth;
+        if (!Utils::isUnset($request->byMonth)) {
+            $body['ByMonth'] = $request->byMonth;
         }
-
-        if (null !== $request->endDate) {
-            @$body['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $body['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->label) {
-            @$body['Label'] = $request->label;
+        if (!Utils::isUnset($request->label)) {
+            $body['Label'] = $request->label;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->startDate) {
-            @$body['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
         }
-
-        if (null !== $request->subUid) {
-            @$body['SubUid'] = $request->subUid;
+        if (!Utils::isUnset($request->subUid)) {
+            $body['SubUid'] = $request->subUid;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetCipStats',
@@ -2587,15 +2341,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 查询调用量.
+     * @summary 查询调用量
+     *  *
+     * @param GetCipStatsRequest $request GetCipStatsRequest
      *
-     * @param request - GetCipStatsRequest
-     *
-     * @returns GetCipStatsResponse
-     *
-     * @param GetCipStatsRequest $request
-     *
-     * @return GetCipStatsResponse
+     * @return GetCipStatsResponse GetCipStatsResponse
      */
     public function getCipStats($request)
     {
@@ -2605,28 +2355,22 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取定时任务预计执行时间.
+     * @summary 获取定时任务预计执行时间
+     *  *
+     * @param GetExecuteTimeRequest $request GetExecuteTimeRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetExecuteTimeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetExecuteTimeResponse
-     *
-     * @param GetExecuteTimeRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetExecuteTimeResponse
+     * @return GetExecuteTimeResponse GetExecuteTimeResponse
      */
     public function getExecuteTimeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetExecuteTime',
@@ -2644,15 +2388,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取定时任务预计执行时间.
+     * @summary 获取定时任务预计执行时间
+     *  *
+     * @param GetExecuteTimeRequest $request GetExecuteTimeRequest
      *
-     * @param request - GetExecuteTimeRequest
-     *
-     * @returns GetExecuteTimeResponse
-     *
-     * @param GetExecuteTimeRequest $request
-     *
-     * @return GetExecuteTimeResponse
+     * @return GetExecuteTimeResponse GetExecuteTimeResponse
      */
     public function getExecuteTime($request)
     {
@@ -2662,42 +2402,36 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Get Feature Configuration.
+     * @summary Get Feature Configuration
+     *  *
+     * @param GetFeatureConfigRequest $request GetFeatureConfigRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetFeatureConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetFeatureConfigResponse
-     *
-     * @param GetFeatureConfigRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetFeatureConfigResponse
+     * @return GetFeatureConfigResponse GetFeatureConfigResponse
      */
     public function getFeatureConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->query)) {
+            $body['Query'] = $request->query;
         }
-
-        if (null !== $request->serviceCode) {
-            @$body['ServiceCode'] = $request->serviceCode;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->type) {
-            @$body['Type'] = $request->type;
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
         }
-
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetFeatureConfig',
@@ -2715,15 +2449,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Get Feature Configuration.
+     * @summary Get Feature Configuration
+     *  *
+     * @param GetFeatureConfigRequest $request GetFeatureConfigRequest
      *
-     * @param request - GetFeatureConfigRequest
-     *
-     * @returns GetFeatureConfigResponse
-     *
-     * @param GetFeatureConfigRequest $request
-     *
-     * @return GetFeatureConfigResponse
+     * @return GetFeatureConfigResponse GetFeatureConfigResponse
      */
     public function getFeatureConfig($request)
     {
@@ -2733,28 +2463,22 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取图片规则标签信息.
+     * @summary 获取图片规则标签信息
+     *  *
+     * @param GetImageSceneLabelConfRequest $request GetImageSceneLabelConfRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetImageSceneLabelConfRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetImageSceneLabelConfResponse
-     *
-     * @param GetImageSceneLabelConfRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return GetImageSceneLabelConfResponse
+     * @return GetImageSceneLabelConfResponse GetImageSceneLabelConfResponse
      */
     public function getImageSceneLabelConfWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetImageSceneLabelConf',
@@ -2772,15 +2496,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取图片规则标签信息.
+     * @summary 获取图片规则标签信息
+     *  *
+     * @param GetImageSceneLabelConfRequest $request GetImageSceneLabelConfRequest
      *
-     * @param request - GetImageSceneLabelConfRequest
-     *
-     * @returns GetImageSceneLabelConfResponse
-     *
-     * @param GetImageSceneLabelConfRequest $request
-     *
-     * @return GetImageSceneLabelConfResponse
+     * @return GetImageSceneLabelConfResponse GetImageSceneLabelConfResponse
      */
     public function getImageSceneLabelConf($request)
     {
@@ -2790,32 +2510,25 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取图片规则标签信息.
+     * @summary 获取图片规则标签信息
+     *  *
+     * @param GetImageSceneLabelListConfRequest $request GetImageSceneLabelListConfRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetImageSceneLabelListConfRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetImageSceneLabelListConfResponse
-     *
-     * @param GetImageSceneLabelListConfRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return GetImageSceneLabelListConfResponse
+     * @return GetImageSceneLabelListConfResponse GetImageSceneLabelListConfResponse
      */
     public function getImageSceneLabelListConfWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->imageServiceCode) {
-            @$query['ImageServiceCode'] = $request->imageServiceCode;
+        if (!Utils::isUnset($request->imageServiceCode)) {
+            $query['ImageServiceCode'] = $request->imageServiceCode;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetImageSceneLabelListConf',
@@ -2833,15 +2546,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取图片规则标签信息.
+     * @summary 获取图片规则标签信息
+     *  *
+     * @param GetImageSceneLabelListConfRequest $request GetImageSceneLabelListConfRequest
      *
-     * @param request - GetImageSceneLabelListConfRequest
-     *
-     * @returns GetImageSceneLabelListConfResponse
-     *
-     * @param GetImageSceneLabelListConfRequest $request
-     *
-     * @return GetImageSceneLabelListConfResponse
+     * @return GetImageSceneLabelListConfResponse GetImageSceneLabelListConfResponse
      */
     public function getImageSceneLabelListConf($request)
     {
@@ -2851,50 +2560,39 @@ class Green extends OpenApiClient
     }
 
     /**
-     * oss定时扫描检测周期查询.
+     * @summary oss定时扫描检测周期查询
+     *  *
+     * @param GetJobNameListRequest $tmpReq  GetJobNameListRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - GetJobNameListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetJobNameListResponse
-     *
-     * @param GetJobNameListRequest $tmpReq
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetJobNameListResponse
+     * @return GetJobNameListResponse GetJobNameListResponse
      */
     public function getJobNameListWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new GetJobNameListShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->sort) {
-            $request->sortShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sort)) {
+            $request->sortShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
         }
-
         $query = [];
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->query) {
-            @$query['Query'] = $request->query;
+        if (!Utils::isUnset($request->query)) {
+            $query['Query'] = $request->query;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->sortShrink) {
-            @$query['Sort'] = $request->sortShrink;
+        if (!Utils::isUnset($request->sortShrink)) {
+            $query['Sort'] = $request->sortShrink;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetJobNameList',
@@ -2912,15 +2610,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * oss定时扫描检测周期查询.
+     * @summary oss定时扫描检测周期查询
+     *  *
+     * @param GetJobNameListRequest $request GetJobNameListRequest
      *
-     * @param request - GetJobNameListRequest
-     *
-     * @returns GetJobNameListResponse
-     *
-     * @param GetJobNameListRequest $request
-     *
-     * @return GetJobNameListResponse
+     * @return GetJobNameListResponse GetJobNameListResponse
      */
     public function getJobNameList($request)
     {
@@ -2930,34 +2624,27 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 查询导入关键词结果.
+     * @summary 查询导入关键词结果
+     *  *
+     * @param GetKeywordImportResultRequest $request GetKeywordImportResultRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetKeywordImportResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetKeywordImportResultResponse
-     *
-     * @param GetKeywordImportResultRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return GetKeywordImportResultResponse
+     * @return GetKeywordImportResultResponse GetKeywordImportResultResponse
      */
     public function getKeywordImportResultWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->taskId) {
-            @$body['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetKeywordImportResult',
@@ -2975,15 +2662,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 查询导入关键词结果.
+     * @summary 查询导入关键词结果
+     *  *
+     * @param GetKeywordImportResultRequest $request GetKeywordImportResultRequest
      *
-     * @param request - GetKeywordImportResultRequest
-     *
-     * @returns GetKeywordImportResultResponse
-     *
-     * @param GetKeywordImportResultRequest $request
-     *
-     * @return GetKeywordImportResultResponse
+     * @return GetKeywordImportResultResponse GetKeywordImportResultResponse
      */
     public function getKeywordImportResult($request)
     {
@@ -2993,34 +2676,27 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 关键词库信息.
+     * @summary 关键词库信息
+     *  *
+     * @param GetKeywordLibRequest $request GetKeywordLibRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetKeywordLibRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetKeywordLibResponse
-     *
-     * @param GetKeywordLibRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetKeywordLibResponse
+     * @return GetKeywordLibResponse GetKeywordLibResponse
      */
     public function getKeywordLibWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->libId) {
-            @$body['LibId'] = $request->libId;
+        if (!Utils::isUnset($request->libId)) {
+            $body['LibId'] = $request->libId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetKeywordLib',
@@ -3038,15 +2714,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 关键词库信息.
+     * @summary 关键词库信息
+     *  *
+     * @param GetKeywordLibRequest $request GetKeywordLibRequest
      *
-     * @param request - GetKeywordLibRequest
-     *
-     * @returns GetKeywordLibResponse
-     *
-     * @param GetKeywordLibRequest $request
-     *
-     * @return GetKeywordLibResponse
+     * @return GetKeywordLibResponse GetKeywordLibResponse
      */
     public function getKeywordLib($request)
     {
@@ -3056,46 +2728,177 @@ class Green extends OpenApiClient
     }
 
     /**
-     * oss用量统计
+     * @summary oss冻结结果查询
+     *  *
+     * @param GetOssCheckFreezeResultRequest $tmpReq  GetOssCheckFreezeResultRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetOssCheckStatRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return GetOssCheckFreezeResultResponse GetOssCheckFreezeResultResponse
+     */
+    public function getOssCheckFreezeResultWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetOssCheckFreezeResultShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sort)) {
+            $request->sortShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->finishNum)) {
+            $query['FinishNum'] = $request->finishNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $query['Query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sortShrink)) {
+            $query['Sort'] = $request->sortShrink;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetOssCheckFreezeResult',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetOssCheckFreezeResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary oss冻结结果查询
+     *  *
+     * @param GetOssCheckFreezeResultRequest $request GetOssCheckFreezeResultRequest
      *
-     * @returns GetOssCheckStatResponse
+     * @return GetOssCheckFreezeResultResponse GetOssCheckFreezeResultResponse
+     */
+    public function getOssCheckFreezeResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOssCheckFreezeResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary oss结果详情
+     *  *
+     * @param GetOssCheckResultDetailRequest $request GetOssCheckResultDetailRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param GetOssCheckStatRequest $request
-     * @param RuntimeOptions         $runtime
+     * @return GetOssCheckResultDetailResponse GetOssCheckResultDetailResponse
+     */
+    public function getOssCheckResultDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bucket)) {
+            $query['Bucket'] = $request->bucket;
+        }
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
+        }
+        if (!Utils::isUnset($request->object)) {
+            $query['Object'] = $request->object;
+        }
+        if (!Utils::isUnset($request->parentTaskId)) {
+            $query['ParentTaskId'] = $request->parentTaskId;
+        }
+        if (!Utils::isUnset($request->queryRequestId)) {
+            $query['QueryRequestId'] = $request->queryRequestId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $query['ServiceCode'] = $request->serviceCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetOssCheckResultDetail',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetOssCheckResultDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary oss结果详情
+     *  *
+     * @param GetOssCheckResultDetailRequest $request GetOssCheckResultDetailRequest
      *
-     * @return GetOssCheckStatResponse
+     * @return GetOssCheckResultDetailResponse GetOssCheckResultDetailResponse
+     */
+    public function getOssCheckResultDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOssCheckResultDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary oss用量统计
+     *  *
+     * @param GetOssCheckStatRequest $request GetOssCheckStatRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetOssCheckStatResponse GetOssCheckStatResponse
      */
     public function getOssCheckStatWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->byMonth) {
-            @$body['ByMonth'] = $request->byMonth;
+        if (!Utils::isUnset($request->byMonth)) {
+            $body['ByMonth'] = $request->byMonth;
         }
-
-        if (null !== $request->endDate) {
-            @$body['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $body['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->parentTaskId) {
-            @$body['ParentTaskId'] = $request->parentTaskId;
+        if (!Utils::isUnset($request->parentTaskId)) {
+            $body['ParentTaskId'] = $request->parentTaskId;
         }
-
-        if (null !== $request->startDate) {
-            @$body['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetOssCheckStat',
@@ -3113,15 +2916,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * oss用量统计
+     * @summary oss用量统计
+     *  *
+     * @param GetOssCheckStatRequest $request GetOssCheckStatRequest
      *
-     * @param request - GetOssCheckStatRequest
-     *
-     * @returns GetOssCheckStatResponse
-     *
-     * @param GetOssCheckStatRequest $request
-     *
-     * @return GetOssCheckStatResponse
+     * @return GetOssCheckStatResponse GetOssCheckStatResponse
      */
     public function getOssCheckStat($request)
     {
@@ -3131,28 +2930,22 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取OSS检测用户状态
+     * @summary 获取OSS检测用户状态
+     *  *
+     * @param GetOssCheckStatusRequest $request GetOssCheckStatusRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetOssCheckStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetOssCheckStatusResponse
-     *
-     * @param GetOssCheckStatusRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetOssCheckStatusResponse
+     * @return GetOssCheckStatusResponse GetOssCheckStatusResponse
      */
     public function getOssCheckStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetOssCheckStatus',
@@ -3170,15 +2963,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取OSS检测用户状态
+     * @summary 获取OSS检测用户状态
+     *  *
+     * @param GetOssCheckStatusRequest $request GetOssCheckStatusRequest
      *
-     * @param request - GetOssCheckStatusRequest
-     *
-     * @returns GetOssCheckStatusResponse
-     *
-     * @param GetOssCheckStatusRequest $request
-     *
-     * @return GetOssCheckStatusResponse
+     * @return GetOssCheckStatusResponse GetOssCheckStatusResponse
      */
     public function getOssCheckStatus($request)
     {
@@ -3188,36 +2977,75 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 用户待检测信息.
+     * @summary 查询oss扫描任务详情
+     *  *
+     * @param GetOssCheckTaskInfoRequest $request GetOssCheckTaskInfoRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetScanNumRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return GetOssCheckTaskInfoResponse GetOssCheckTaskInfoResponse
+     */
+    public function getOssCheckTaskInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->parentTaskId)) {
+            $query['ParentTaskId'] = $request->parentTaskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetOssCheckTaskInfo',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetOssCheckTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询oss扫描任务详情
+     *  *
+     * @param GetOssCheckTaskInfoRequest $request GetOssCheckTaskInfoRequest
      *
-     * @returns GetScanNumResponse
+     * @return GetOssCheckTaskInfoResponse GetOssCheckTaskInfoResponse
+     */
+    public function getOssCheckTaskInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOssCheckTaskInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 用户待检测信息
+     *  *
+     * @param GetScanNumRequest $request GetScanNumRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param GetScanNumRequest $request
-     * @param RuntimeOptions    $runtime
-     *
-     * @return GetScanNumResponse
+     * @return GetScanNumResponse GetScanNumResponse
      */
     public function getScanNumWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->buckets) {
-            @$query['Buckets'] = $request->buckets;
+        if (!Utils::isUnset($request->buckets)) {
+            $query['Buckets'] = $request->buckets;
         }
-
-        if (null !== $request->mediaType) {
-            @$query['MediaType'] = $request->mediaType;
+        if (!Utils::isUnset($request->mediaType)) {
+            $query['MediaType'] = $request->mediaType;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetScanNum',
@@ -3235,15 +3063,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 用户待检测信息.
+     * @summary 用户待检测信息
+     *  *
+     * @param GetScanNumRequest $request GetScanNumRequest
      *
-     * @param request - GetScanNumRequest
-     *
-     * @returns GetScanNumResponse
-     *
-     * @param GetScanNumRequest $request
-     *
-     * @return GetScanNumResponse
+     * @return GetScanNumResponse GetScanNumResponse
      */
     public function getScanNum($request)
     {
@@ -3253,68 +3077,53 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 查询调用结果.
+     * @summary 查询调用结果
+     *  *
+     * @param GetScanResultRequest $tmpReq  GetScanResultRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - GetScanResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetScanResultResponse
-     *
-     * @param GetScanResultRequest $tmpReq
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetScanResultResponse
+     * @return GetScanResultResponse GetScanResultResponse
      */
     public function getScanResultWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new GetScanResultShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->query) {
-            $request->queryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->query, 'Query', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->query)) {
+            $request->queryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->query, 'Query', 'json');
         }
-
-        if (null !== $tmpReq->sort) {
-            $request->sortShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
+        if (!Utils::isUnset($tmpReq->sort)) {
+            $request->sortShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
         }
-
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->currentPage) {
-            @$body['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $body['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->endDate) {
-            @$body['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $body['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryShrink) {
-            @$body['Query'] = $request->queryShrink;
+        if (!Utils::isUnset($request->queryShrink)) {
+            $body['Query'] = $request->queryShrink;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->sortShrink) {
-            @$body['Sort'] = $request->sortShrink;
+        if (!Utils::isUnset($request->sortShrink)) {
+            $body['Sort'] = $request->sortShrink;
         }
-
-        if (null !== $request->startDate) {
-            @$body['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetScanResult',
@@ -3332,15 +3141,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 查询调用结果.
+     * @summary 查询调用结果
+     *  *
+     * @param GetScanResultRequest $request GetScanResultRequest
      *
-     * @param request - GetScanResultRequest
-     *
-     * @returns GetScanResultResponse
-     *
-     * @param GetScanResultRequest $request
-     *
-     * @return GetScanResultResponse
+     * @return GetScanResultResponse GetScanResultResponse
      */
     public function getScanResult($request)
     {
@@ -3350,46 +3155,36 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取单个服务
+     * @summary 获取单个服务
+     *  *
+     * @param GetServiceConfRequest $request GetServiceConfRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetServiceConfRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetServiceConfResponse
-     *
-     * @param GetServiceConfRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetServiceConfResponse
+     * @return GetServiceConfResponse GetServiceConfResponse
      */
     public function getServiceConfWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->byDefault) {
-            @$body['ByDefault'] = $request->byDefault;
+        if (!Utils::isUnset($request->byDefault)) {
+            $body['ByDefault'] = $request->byDefault;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->scene) {
-            @$body['Scene'] = $request->scene;
+        if (!Utils::isUnset($request->scene)) {
+            $body['Scene'] = $request->scene;
         }
-
-        if (null !== $request->serviceCode) {
-            @$body['ServiceCode'] = $request->serviceCode;
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetServiceConf',
@@ -3407,15 +3202,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取单个服务
+     * @summary 获取单个服务
+     *  *
+     * @param GetServiceConfRequest $request GetServiceConfRequest
      *
-     * @param request - GetServiceConfRequest
-     *
-     * @returns GetServiceConfResponse
-     *
-     * @param GetServiceConfRequest $request
-     *
-     * @return GetServiceConfResponse
+     * @return GetServiceConfResponse GetServiceConfResponse
      */
     public function getServiceConf($request)
     {
@@ -3425,38 +3216,30 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取单个服务
+     * @summary 获取单个服务
+     *  *
+     * @param GetServiceConfigRequest $request GetServiceConfigRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetServiceConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetServiceConfigResponse
-     *
-     * @param GetServiceConfigRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetServiceConfigResponse
+     * @return GetServiceConfigResponse GetServiceConfigResponse
      */
     public function getServiceConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->serviceCode) {
-            @$body['ServiceCode'] = $request->serviceCode;
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetServiceConfig',
@@ -3474,15 +3257,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取单个服务
+     * @summary 获取单个服务
+     *  *
+     * @param GetServiceConfigRequest $request GetServiceConfigRequest
      *
-     * @param request - GetServiceConfigRequest
-     *
-     * @returns GetServiceConfigResponse
-     *
-     * @param GetServiceConfigRequest $request
-     *
-     * @return GetServiceConfigResponse
+     * @return GetServiceConfigResponse GetServiceConfigResponse
      */
     public function getServiceConfig($request)
     {
@@ -3492,38 +3271,30 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取单个服务的标签配置.
+     * @summary 获取单个服务的标签配置
+     *  *
+     * @param GetServiceLabelConfigRequest $request GetServiceLabelConfigRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetServiceLabelConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetServiceLabelConfigResponse
-     *
-     * @param GetServiceLabelConfigRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return GetServiceLabelConfigResponse
+     * @return GetServiceLabelConfigResponse GetServiceLabelConfigResponse
      */
     public function getServiceLabelConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->serviceCode) {
-            @$body['ServiceCode'] = $request->serviceCode;
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetServiceLabelConfig',
@@ -3541,15 +3312,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取单个服务的标签配置.
+     * @summary 获取单个服务的标签配置
+     *  *
+     * @param GetServiceLabelConfigRequest $request GetServiceLabelConfigRequest
      *
-     * @param request - GetServiceLabelConfigRequest
-     *
-     * @returns GetServiceLabelConfigResponse
-     *
-     * @param GetServiceLabelConfigRequest $request
-     *
-     * @return GetServiceLabelConfigResponse
+     * @return GetServiceLabelConfigResponse GetServiceLabelConfigResponse
      */
     public function getServiceLabelConfig($request)
     {
@@ -3559,68 +3326,53 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 查询oss扫描任务列表.
+     * @summary 查询oss扫描任务列表
+     *  *
+     * @param GetStockOssCheckTasksListRequest $tmpReq  GetStockOssCheckTasksListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - GetStockOssCheckTasksListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetStockOssCheckTasksListResponse
-     *
-     * @param GetStockOssCheckTasksListRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return GetStockOssCheckTasksListResponse
+     * @return GetStockOssCheckTasksListResponse GetStockOssCheckTasksListResponse
      */
     public function getStockOssCheckTasksListWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new GetStockOssCheckTasksListShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->sort) {
-            $request->sortShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sort)) {
+            $request->sortShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
         }
-
         $query = [];
-        if (null !== $request->isInc) {
-            @$query['IsInc'] = $request->isInc;
+        if (!Utils::isUnset($request->isInc)) {
+            $query['IsInc'] = $request->isInc;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->taskType) {
-            @$query['TaskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
         }
-
         $body = [];
-        if (null !== $request->currentPage) {
-            @$body['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $body['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->endTime) {
-            @$body['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->mediaType) {
-            @$body['MediaType'] = $request->mediaType;
+        if (!Utils::isUnset($request->mediaType)) {
+            $body['MediaType'] = $request->mediaType;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->sortShrink) {
-            @$body['Sort'] = $request->sortShrink;
+        if (!Utils::isUnset($request->sortShrink)) {
+            $body['Sort'] = $request->sortShrink;
         }
-
-        if (null !== $request->startTime) {
-            @$body['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetStockOssCheckTasksList',
@@ -3638,15 +3390,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 查询oss扫描任务列表.
+     * @summary 查询oss扫描任务列表
+     *  *
+     * @param GetStockOssCheckTasksListRequest $request GetStockOssCheckTasksListRequest
      *
-     * @param request - GetStockOssCheckTasksListRequest
-     *
-     * @returns GetStockOssCheckTasksListResponse
-     *
-     * @param GetStockOssCheckTasksListRequest $request
-     *
-     * @return GetStockOssCheckTasksListResponse
+     * @return GetStockOssCheckTasksListResponse GetStockOssCheckTasksListResponse
      */
     public function getStockOssCheckTasksList($request)
     {
@@ -3656,64 +3404,50 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 查询调用结果.
+     * @summary 查询调用结果
+     *  *
+     * @param GetTextScanResultRequest $tmpReq  GetTextScanResultRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - GetTextScanResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetTextScanResultResponse
-     *
-     * @param GetTextScanResultRequest $tmpReq
-     * @param RuntimeOptions           $runtime
-     *
-     * @return GetTextScanResultResponse
+     * @return GetTextScanResultResponse GetTextScanResultResponse
      */
     public function getTextScanResultWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new GetTextScanResultShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->query) {
-            $request->queryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->query, 'Query', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->query)) {
+            $request->queryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->query, 'Query', 'json');
         }
-
-        if (null !== $tmpReq->sort) {
-            $request->sortShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
+        if (!Utils::isUnset($tmpReq->sort)) {
+            $request->sortShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
         }
-
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->currentPage) {
-            @$body['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $body['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->endDate) {
-            @$body['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $body['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->queryShrink) {
-            @$body['Query'] = $request->queryShrink;
+        if (!Utils::isUnset($request->queryShrink)) {
+            $body['Query'] = $request->queryShrink;
         }
-
-        if (null !== $request->sortShrink) {
-            @$body['Sort'] = $request->sortShrink;
+        if (!Utils::isUnset($request->sortShrink)) {
+            $body['Sort'] = $request->sortShrink;
         }
-
-        if (null !== $request->startDate) {
-            @$body['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetTextScanResult',
@@ -3731,15 +3465,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 查询调用结果.
+     * @summary 查询调用结果
+     *  *
+     * @param GetTextScanResultRequest $request GetTextScanResultRequest
      *
-     * @param request - GetTextScanResultRequest
-     *
-     * @returns GetTextScanResultResponse
-     *
-     * @param GetTextScanResultRequest $request
-     *
-     * @return GetTextScanResultResponse
+     * @return GetTextScanResultResponse GetTextScanResultResponse
      */
     public function getTextScanResult($request)
     {
@@ -3749,38 +3479,30 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 文件上传获取相应信息.
+     * @summary 文件上传获取相应信息
+     *  *
+     * @param GetUploadInfoRequest $request GetUploadInfoRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetUploadInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetUploadInfoResponse
-     *
-     * @param GetUploadInfoRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return GetUploadInfoResponse
+     * @return GetUploadInfoResponse GetUploadInfoResponse
      */
     public function getUploadInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetUploadInfo',
@@ -3798,15 +3520,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 文件上传获取相应信息.
+     * @summary 文件上传获取相应信息
+     *  *
+     * @param GetUploadInfoRequest $request GetUploadInfoRequest
      *
-     * @param request - GetUploadInfoRequest
-     *
-     * @returns GetUploadInfoResponse
-     *
-     * @param GetUploadInfoRequest $request
-     *
-     * @return GetUploadInfoResponse
+     * @return GetUploadInfoResponse GetUploadInfoResponse
      */
     public function getUploadInfo($request)
     {
@@ -3816,34 +3534,74 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取用户购买状态
+     * @summary 获取上传链接
+     *  *
+     * @param GetUploadLinkRequest $request GetUploadLinkRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetUserBuyStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return GetUploadLinkResponse GetUploadLinkResponse
+     */
+    public function getUploadLinkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->uploadUrl)) {
+            $query['UploadUrl'] = $request->uploadUrl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetUploadLink',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetUploadLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取上传链接
+     *  *
+     * @param GetUploadLinkRequest $request GetUploadLinkRequest
      *
-     * @returns GetUserBuyStatusResponse
+     * @return GetUploadLinkResponse GetUploadLinkResponse
+     */
+    public function getUploadLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUploadLinkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取用户购买状态
+     *  *
+     * @param GetUserBuyStatusRequest $request GetUserBuyStatusRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param GetUserBuyStatusRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return GetUserBuyStatusResponse
+     * @return GetUserBuyStatusResponse GetUserBuyStatusResponse
      */
     public function getUserBuyStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->commodityCode) {
-            @$body['CommodityCode'] = $request->commodityCode;
+        if (!Utils::isUnset($request->commodityCode)) {
+            $body['CommodityCode'] = $request->commodityCode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetUserBuyStatus',
@@ -3861,15 +3619,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取用户购买状态
+     * @summary 获取用户购买状态
+     *  *
+     * @param GetUserBuyStatusRequest $request GetUserBuyStatusRequest
      *
-     * @param request - GetUserBuyStatusRequest
-     *
-     * @returns GetUserBuyStatusResponse
-     *
-     * @param GetUserBuyStatusRequest $request
-     *
-     * @return GetUserBuyStatusResponse
+     * @return GetUserBuyStatusResponse GetUserBuyStatusResponse
      */
     public function getUserBuyStatus($request)
     {
@@ -3879,28 +3633,22 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 代答库列表.
+     * @summary 代答库列表
+     *  *
+     * @param ListAnswerLibRequest $request ListAnswerLibRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListAnswerLibRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListAnswerLibResponse
-     *
-     * @param ListAnswerLibRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListAnswerLibResponse
+     * @return ListAnswerLibResponse ListAnswerLibResponse
      */
     public function listAnswerLibWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAnswerLib',
@@ -3918,15 +3666,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 代答库列表.
+     * @summary 代答库列表
+     *  *
+     * @param ListAnswerLibRequest $request ListAnswerLibRequest
      *
-     * @param request - ListAnswerLibRequest
-     *
-     * @returns ListAnswerLibResponse
-     *
-     * @param ListAnswerLibRequest $request
-     *
-     * @return ListAnswerLibResponse
+     * @return ListAnswerLibResponse ListAnswerLibResponse
      */
     public function listAnswerLib($request)
     {
@@ -3936,28 +3680,22 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 消息通知列表.
+     * @summary 消息通知列表
+     *  *
+     * @param ListCallbackRequest $request ListCallbackRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListCallbackRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListCallbackResponse
-     *
-     * @param ListCallbackRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListCallbackResponse
+     * @return ListCallbackResponse ListCallbackResponse
      */
     public function listCallbackWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListCallback',
@@ -3975,15 +3713,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 消息通知列表.
+     * @summary 消息通知列表
+     *  *
+     * @param ListCallbackRequest $request ListCallbackRequest
      *
-     * @param request - ListCallbackRequest
-     *
-     * @returns ListCallbackResponse
-     *
-     * @param ListCallbackRequest $request
-     *
-     * @return ListCallbackResponse
+     * @return ListCallbackResponse ListCallbackResponse
      */
     public function listCallback($request)
     {
@@ -3993,28 +3727,22 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 图库列表.
+     * @summary 图库列表
+     *  *
+     * @param ListImageLibRequest $request ListImageLibRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListImageLibRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListImageLibResponse
-     *
-     * @param ListImageLibRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListImageLibResponse
+     * @return ListImageLibResponse ListImageLibResponse
      */
     public function listImageLibWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListImageLib',
@@ -4032,15 +3760,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 图库列表.
+     * @summary 图库列表
+     *  *
+     * @param ListImageLibRequest $request ListImageLibRequest
      *
-     * @param request - ListImageLibRequest
-     *
-     * @returns ListImageLibResponse
-     *
-     * @param ListImageLibRequest $request
-     *
-     * @return ListImageLibResponse
+     * @return ListImageLibResponse ListImageLibResponse
      */
     public function listImageLib($request)
     {
@@ -4050,64 +3774,50 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 图片列表 分页.
+     * @summary 图片列表 分页
+     *  *
+     * @param ListImagesFromLibRequest $tmpReq  ListImagesFromLibRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ListImagesFromLibRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListImagesFromLibResponse
-     *
-     * @param ListImagesFromLibRequest $tmpReq
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ListImagesFromLibResponse
+     * @return ListImagesFromLibResponse ListImagesFromLibResponse
      */
     public function listImagesFromLibWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ListImagesFromLibShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->sort) {
-            $request->sortShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sort)) {
+            $request->sortShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
         }
-
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->currentPage) {
-            @$body['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $body['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->endDate) {
-            @$body['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $body['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->imgId) {
-            @$body['ImgId'] = $request->imgId;
+        if (!Utils::isUnset($request->imgId)) {
+            $body['ImgId'] = $request->imgId;
         }
-
-        if (null !== $request->libId) {
-            @$body['LibId'] = $request->libId;
+        if (!Utils::isUnset($request->libId)) {
+            $body['LibId'] = $request->libId;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->sortShrink) {
-            @$body['Sort'] = $request->sortShrink;
+        if (!Utils::isUnset($request->sortShrink)) {
+            $body['Sort'] = $request->sortShrink;
         }
-
-        if (null !== $request->startDate) {
-            @$body['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListImagesFromLib',
@@ -4125,15 +3835,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 图片列表 分页.
+     * @summary 图片列表 分页
+     *  *
+     * @param ListImagesFromLibRequest $request ListImagesFromLibRequest
      *
-     * @param request - ListImagesFromLibRequest
-     *
-     * @returns ListImagesFromLibResponse
-     *
-     * @param ListImagesFromLibRequest $request
-     *
-     * @return ListImagesFromLibResponse
+     * @return ListImagesFromLibResponse ListImagesFromLibResponse
      */
     public function listImagesFromLib($request)
     {
@@ -4143,28 +3849,22 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 关键词库列表.
+     * @summary 关键词库列表
+     *  *
+     * @param ListKeywordLibsRequest $request ListKeywordLibsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListKeywordLibsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListKeywordLibsResponse
-     *
-     * @param ListKeywordLibsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ListKeywordLibsResponse
+     * @return ListKeywordLibsResponse ListKeywordLibsResponse
      */
     public function listKeywordLibsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListKeywordLibs',
@@ -4182,15 +3882,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 关键词库列表.
+     * @summary 关键词库列表
+     *  *
+     * @param ListKeywordLibsRequest $request ListKeywordLibsRequest
      *
-     * @param request - ListKeywordLibsRequest
-     *
-     * @returns ListKeywordLibsResponse
-     *
-     * @param ListKeywordLibsRequest $request
-     *
-     * @return ListKeywordLibsResponse
+     * @return ListKeywordLibsResponse ListKeywordLibsResponse
      */
     public function listKeywordLibs($request)
     {
@@ -4200,56 +3896,44 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 查询关键词列表.
+     * @summary 查询关键词列表
+     *  *
+     * @param ListKeywordsRequest $tmpReq  ListKeywordsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ListKeywordsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListKeywordsResponse
-     *
-     * @param ListKeywordsRequest $tmpReq
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListKeywordsResponse
+     * @return ListKeywordsResponse ListKeywordsResponse
      */
     public function listKeywordsWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ListKeywordsShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->sort) {
-            $request->sortShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sort)) {
+            $request->sortShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
         }
-
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->currentPage) {
-            @$body['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $body['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->libId) {
-            @$body['LibId'] = $request->libId;
+        if (!Utils::isUnset($request->libId)) {
+            $body['LibId'] = $request->libId;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->sortShrink) {
-            @$body['Sort'] = $request->sortShrink;
+        if (!Utils::isUnset($request->sortShrink)) {
+            $body['Sort'] = $request->sortShrink;
         }
-
-        if (null !== $request->word) {
-            @$body['Word'] = $request->word;
+        if (!Utils::isUnset($request->word)) {
+            $body['Word'] = $request->word;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListKeywords',
@@ -4267,15 +3951,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 查询关键词列表.
+     * @summary 查询关键词列表
+     *  *
+     * @param ListKeywordsRequest $request ListKeywordsRequest
      *
-     * @param request - ListKeywordsRequest
-     *
-     * @returns ListKeywordsResponse
-     *
-     * @param ListKeywordsRequest $request
-     *
-     * @return ListKeywordsResponse
+     * @return ListKeywordsResponse ListKeywordsResponse
      */
     public function listKeywords($request)
     {
@@ -4285,66 +3965,51 @@ class Green extends OpenApiClient
     }
 
     /**
-     * oss扫描结果查询.
+     * @summary oss扫描结果查询
+     *  *
+     * @param ListOssCheckResultRequest $tmpReq  ListOssCheckResultRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ListOssCheckResultRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListOssCheckResultResponse
-     *
-     * @param ListOssCheckResultRequest $tmpReq
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListOssCheckResultResponse
+     * @return ListOssCheckResultResponse ListOssCheckResultResponse
      */
     public function listOssCheckResultWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ListOssCheckResultShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->sort) {
-            $request->sortShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sort)) {
+            $request->sortShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
         }
-
         $query = [];
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->endDate) {
-            @$query['EndDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
         }
-
-        if (null !== $request->finishNum) {
-            @$query['FinishNum'] = $request->finishNum;
+        if (!Utils::isUnset($request->finishNum)) {
+            $query['FinishNum'] = $request->finishNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->query) {
-            @$query['Query'] = $request->query;
+        if (!Utils::isUnset($request->query)) {
+            $query['Query'] = $request->query;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->sortShrink) {
-            @$query['Sort'] = $request->sortShrink;
+        if (!Utils::isUnset($request->sortShrink)) {
+            $query['Sort'] = $request->sortShrink;
         }
-
-        if (null !== $request->startDate) {
-            @$query['StartDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListOssCheckResult',
@@ -4362,15 +4027,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * oss扫描结果查询.
+     * @summary oss扫描结果查询
+     *  *
+     * @param ListOssCheckResultRequest $request ListOssCheckResultRequest
      *
-     * @param request - ListOssCheckResultRequest
-     *
-     * @returns ListOssCheckResultResponse
-     *
-     * @param ListOssCheckResultRequest $request
-     *
-     * @return ListOssCheckResultResponse
+     * @return ListOssCheckResultResponse ListOssCheckResultResponse
      */
     public function listOssCheckResult($request)
     {
@@ -4380,42 +4041,33 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取服务列表.
+     * @summary 获取服务列表
+     *  *
+     * @param ListServiceConfigsRequest $request ListServiceConfigsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListServiceConfigsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListServiceConfigsResponse
-     *
-     * @param ListServiceConfigsRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListServiceConfigsResponse
+     * @return ListServiceConfigsResponse ListServiceConfigsResponse
      */
     public function listServiceConfigsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->classify) {
-            @$query['Classify'] = $request->classify;
+        if (!Utils::isUnset($request->classify)) {
+            $query['Classify'] = $request->classify;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->useStatus) {
-            @$query['UseStatus'] = $request->useStatus;
+        if (!Utils::isUnset($request->useStatus)) {
+            $query['UseStatus'] = $request->useStatus;
         }
-
         $body = [];
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListServiceConfigs',
@@ -4433,15 +4085,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 获取服务列表.
+     * @summary 获取服务列表
+     *  *
+     * @param ListServiceConfigsRequest $request ListServiceConfigsRequest
      *
-     * @param request - ListServiceConfigsRequest
-     *
-     * @returns ListServiceConfigsResponse
-     *
-     * @param ListServiceConfigsRequest $request
-     *
-     * @return ListServiceConfigsResponse
+     * @return ListServiceConfigsResponse ListServiceConfigsResponse
      */
     public function listServiceConfigs($request)
     {
@@ -4451,36 +4099,28 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 使用SSE接口流式调用大模型.
+     * @summary 使用SSE接口流式调用大模型
+     *  *
+     * @param LlmStreamChatRequest $request LlmStreamChatRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - LlmStreamChatRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns LlmStreamChatResponse
-     *
-     * @param LlmStreamChatRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return LlmStreamChatResponse
+     * @return LlmStreamChatResponse LlmStreamChatResponse
      */
     public function llmStreamChatWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->messages) {
-            @$body['Messages'] = $request->messages;
+        if (!Utils::isUnset($request->messages)) {
+            $body['Messages'] = $request->messages;
         }
-
-        if (null !== $request->temperature) {
-            @$body['Temperature'] = $request->temperature;
+        if (!Utils::isUnset($request->temperature)) {
+            $body['Temperature'] = $request->temperature;
         }
-
-        if (null !== $request->topP) {
-            @$body['TopP'] = $request->topP;
+        if (!Utils::isUnset($request->topP)) {
+            $body['TopP'] = $request->topP;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'LlmStreamChat',
@@ -4498,15 +4138,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 使用SSE接口流式调用大模型.
+     * @summary 使用SSE接口流式调用大模型
+     *  *
+     * @param LlmStreamChatRequest $request LlmStreamChatRequest
      *
-     * @param request - LlmStreamChatRequest
-     *
-     * @returns LlmStreamChatResponse
-     *
-     * @param LlmStreamChatRequest $request
-     *
-     * @return LlmStreamChatResponse
+     * @return LlmStreamChatResponse LlmStreamChatResponse
      */
     public function llmStreamChat($request)
     {
@@ -4516,36 +4152,28 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 更新代答库.
+     * @summary 更新代答库
+     *  *
+     * @param ModifyAnswerLibRequest $request ModifyAnswerLibRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyAnswerLibRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyAnswerLibResponse
-     *
-     * @param ModifyAnswerLibRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return ModifyAnswerLibResponse
+     * @return ModifyAnswerLibResponse ModifyAnswerLibResponse
      */
     public function modifyAnswerLibWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->libId) {
-            @$query['LibId'] = $request->libId;
+        if (!Utils::isUnset($request->libId)) {
+            $query['LibId'] = $request->libId;
         }
-
-        if (null !== $request->libName) {
-            @$query['LibName'] = $request->libName;
+        if (!Utils::isUnset($request->libName)) {
+            $query['LibName'] = $request->libName;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyAnswerLib',
@@ -4563,15 +4191,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 更新代答库.
+     * @summary 更新代答库
+     *  *
+     * @param ModifyAnswerLibRequest $request ModifyAnswerLibRequest
      *
-     * @param request - ModifyAnswerLibRequest
-     *
-     * @returns ModifyAnswerLibResponse
-     *
-     * @param ModifyAnswerLibRequest $request
-     *
-     * @return ModifyAnswerLibResponse
+     * @return ModifyAnswerLibResponse ModifyAnswerLibResponse
      */
     public function modifyAnswerLib($request)
     {
@@ -4581,50 +4205,39 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 修改消息通知.
+     * @summary 修改消息通知
+     *  *
+     * @param ModifyCallbackRequest $request ModifyCallbackRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyCallbackRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyCallbackResponse
-     *
-     * @param ModifyCallbackRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return ModifyCallbackResponse
+     * @return ModifyCallbackResponse ModifyCallbackResponse
      */
     public function modifyCallbackWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->cryptType) {
-            @$body['CryptType'] = $request->cryptType;
+        if (!Utils::isUnset($request->cryptType)) {
+            $body['CryptType'] = $request->cryptType;
         }
-
-        if (null !== $request->id) {
-            @$body['Id'] = $request->id;
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
         }
-
-        if (null !== $request->name) {
-            @$body['Name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
         }
-
-        if (null !== $request->scope) {
-            @$body['Scope'] = $request->scope;
+        if (!Utils::isUnset($request->scope)) {
+            $body['Scope'] = $request->scope;
         }
-
-        if (null !== $request->url) {
-            @$body['Url'] = $request->url;
+        if (!Utils::isUnset($request->url)) {
+            $body['Url'] = $request->url;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyCallback',
@@ -4642,15 +4255,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 修改消息通知.
+     * @summary 修改消息通知
+     *  *
+     * @param ModifyCallbackRequest $request ModifyCallbackRequest
      *
-     * @param request - ModifyCallbackRequest
-     *
-     * @returns ModifyCallbackResponse
-     *
-     * @param ModifyCallbackRequest $request
-     *
-     * @return ModifyCallbackResponse
+     * @return ModifyCallbackResponse ModifyCallbackResponse
      */
     public function modifyCallback($request)
     {
@@ -4660,54 +4269,42 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Save Feature Configuration.
+     * @summary Save Feature Configuration
+     *  *
+     * @param ModifyFeatureConfigRequest $request ModifyFeatureConfigRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyFeatureConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyFeatureConfigResponse
-     *
-     * @param ModifyFeatureConfigRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ModifyFeatureConfigResponse
+     * @return ModifyFeatureConfigResponse ModifyFeatureConfigResponse
      */
     public function modifyFeatureConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->config) {
-            @$body['Config'] = $request->config;
+        if (!Utils::isUnset($request->config)) {
+            $body['Config'] = $request->config;
         }
-
-        if (null !== $request->description) {
-            @$body['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
         }
-
-        if (null !== $request->field) {
-            @$body['Field'] = $request->field;
+        if (!Utils::isUnset($request->field)) {
+            $body['Field'] = $request->field;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->serviceCode) {
-            @$body['ServiceCode'] = $request->serviceCode;
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
         }
-
-        if (null !== $request->type) {
-            @$body['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyFeatureConfig',
@@ -4725,15 +4322,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * Save Feature Configuration.
+     * @summary Save Feature Configuration
+     *  *
+     * @param ModifyFeatureConfigRequest $request ModifyFeatureConfigRequest
      *
-     * @param request - ModifyFeatureConfigRequest
-     *
-     * @returns ModifyFeatureConfigResponse
-     *
-     * @param ModifyFeatureConfigRequest $request
-     *
-     * @return ModifyFeatureConfigResponse
+     * @return ModifyFeatureConfigResponse ModifyFeatureConfigResponse
      */
     public function modifyFeatureConfig($request)
     {
@@ -4743,46 +4336,36 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 编辑服务
+     * @summary 编辑服务
+     *  *
+     * @param ModifyServiceInfoRequest $request ModifyServiceInfoRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyServiceInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyServiceInfoResponse
-     *
-     * @param ModifyServiceInfoRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ModifyServiceInfoResponse
+     * @return ModifyServiceInfoResponse ModifyServiceInfoResponse
      */
     public function modifyServiceInfoWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->serviceCode) {
-            @$body['ServiceCode'] = $request->serviceCode;
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
         }
-
-        if (null !== $request->serviceDesc) {
-            @$body['ServiceDesc'] = $request->serviceDesc;
+        if (!Utils::isUnset($request->serviceDesc)) {
+            $body['ServiceDesc'] = $request->serviceDesc;
         }
-
-        if (null !== $request->serviceName) {
-            @$body['ServiceName'] = $request->serviceName;
+        if (!Utils::isUnset($request->serviceName)) {
+            $body['ServiceName'] = $request->serviceName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyServiceInfo',
@@ -4800,15 +4383,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 编辑服务
+     * @summary 编辑服务
+     *  *
+     * @param ModifyServiceInfoRequest $request ModifyServiceInfoRequest
      *
-     * @param request - ModifyServiceInfoRequest
-     *
-     * @returns ModifyServiceInfoResponse
-     *
-     * @param ModifyServiceInfoRequest $request
-     *
-     * @return ModifyServiceInfoResponse
+     * @return ModifyServiceInfoResponse ModifyServiceInfoResponse
      */
     public function modifyServiceInfo($request)
     {
@@ -4818,54 +4397,118 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 分页查询代答样本.
+     * @summary oss扫描结果查询
+     *  *
+     * @param OssCheckResultListRequest $tmpReq  OssCheckResultListRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - QueryAnswerSampleByPageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return OssCheckResultListResponse OssCheckResultListResponse
+     */
+    public function ossCheckResultListWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new OssCheckResultListShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sort)) {
+            $request->sortShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->finishNum)) {
+            $query['FinishNum'] = $request->finishNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $query['Query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sortShrink)) {
+            $query['Sort'] = $request->sortShrink;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'OssCheckResultList',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return OssCheckResultListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary oss扫描结果查询
+     *  *
+     * @param OssCheckResultListRequest $request OssCheckResultListRequest
      *
-     * @returns QueryAnswerSampleByPageResponse
+     * @return OssCheckResultListResponse OssCheckResultListResponse
+     */
+    public function ossCheckResultList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->ossCheckResultListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 分页查询代答样本
+     *  *
+     * @param QueryAnswerSampleByPageRequest $tmpReq  QueryAnswerSampleByPageRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param QueryAnswerSampleByPageRequest $tmpReq
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return QueryAnswerSampleByPageResponse
+     * @return QueryAnswerSampleByPageResponse QueryAnswerSampleByPageResponse
      */
     public function queryAnswerSampleByPageWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new QueryAnswerSampleByPageShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->sort) {
-            $request->sortShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sort)) {
+            $request->sortShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sort, 'Sort', 'json');
         }
-
         $query = [];
-        if (null !== $request->answer) {
-            @$query['Answer'] = $request->answer;
+        if (!Utils::isUnset($request->answer)) {
+            $query['Answer'] = $request->answer;
         }
-
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->libId) {
-            @$query['LibId'] = $request->libId;
+        if (!Utils::isUnset($request->libId)) {
+            $query['LibId'] = $request->libId;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->sortShrink) {
-            @$query['Sort'] = $request->sortShrink;
+        if (!Utils::isUnset($request->sortShrink)) {
+            $query['Sort'] = $request->sortShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryAnswerSampleByPage',
@@ -4883,15 +4526,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 分页查询代答样本.
+     * @summary 分页查询代答样本
+     *  *
+     * @param QueryAnswerSampleByPageRequest $request QueryAnswerSampleByPageRequest
      *
-     * @param request - QueryAnswerSampleByPageRequest
-     *
-     * @returns QueryAnswerSampleByPageResponse
-     *
-     * @param QueryAnswerSampleByPageRequest $request
-     *
-     * @return QueryAnswerSampleByPageResponse
+     * @return QueryAnswerSampleByPageResponse QueryAnswerSampleByPageResponse
      */
     public function queryAnswerSampleByPage($request)
     {
@@ -4901,38 +4540,30 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 查询单个回调配置.
+     * @summary 查询单个回调配置
+     *  *
+     * @param QueryCallbackRequest $request QueryCallbackRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryCallbackRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryCallbackResponse
-     *
-     * @param QueryCallbackRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return QueryCallbackResponse
+     * @return QueryCallbackResponse QueryCallbackResponse
      */
     public function queryCallbackWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->checkForOss) {
-            @$body['CheckForOss'] = $request->checkForOss;
+        if (!Utils::isUnset($request->checkForOss)) {
+            $body['CheckForOss'] = $request->checkForOss;
         }
-
-        if (null !== $request->id) {
-            @$body['Id'] = $request->id;
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'QueryCallback',
@@ -4950,15 +4581,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 查询单个回调配置.
+     * @summary 查询单个回调配置
+     *  *
+     * @param QueryCallbackRequest $request QueryCallbackRequest
      *
-     * @param request - QueryCallbackRequest
-     *
-     * @returns QueryCallbackResponse
-     *
-     * @param QueryCallbackRequest $request
-     *
-     * @return QueryCallbackResponse
+     * @return QueryCallbackResponse QueryCallbackResponse
      */
     public function queryCallback($request)
     {
@@ -4968,38 +4595,30 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 消息通知.
+     * @summary 消息通知
+     *  *
+     * @param QueryCallbackByPageRequest $request QueryCallbackByPageRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryCallbackByPageRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryCallbackByPageResponse
-     *
-     * @param QueryCallbackByPageRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return QueryCallbackByPageResponse
+     * @return QueryCallbackByPageResponse QueryCallbackByPageResponse
      */
     public function queryCallbackByPageWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->currentPage) {
-            @$body['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $body['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'QueryCallbackByPage',
@@ -5017,15 +4636,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 消息通知.
+     * @summary 消息通知
+     *  *
+     * @param QueryCallbackByPageRequest $request QueryCallbackByPageRequest
      *
-     * @param request - QueryCallbackByPageRequest
-     *
-     * @returns QueryCallbackByPageResponse
-     *
-     * @param QueryCallbackByPageRequest $request
-     *
-     * @return QueryCallbackByPageResponse
+     * @return QueryCallbackByPageResponse QueryCallbackByPageResponse
      */
     public function queryCallbackByPage($request)
     {
@@ -5035,40 +4650,84 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 更新证据转存配置.
+     * @summary 停止在线测试
+     *  *
+     * @param StopOnlineTestRequest $request StopOnlineTestRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateBackupConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return StopOnlineTestResponse StopOnlineTestResponse
+     */
+    public function stopOnlineTestWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $query['ServiceCode'] = $request->serviceCode;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'StopOnlineTest',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return StopOnlineTestResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 停止在线测试
+     *  *
+     * @param StopOnlineTestRequest $request StopOnlineTestRequest
      *
-     * @returns UpdateBackupConfigResponse
+     * @return StopOnlineTestResponse StopOnlineTestResponse
+     */
+    public function stopOnlineTest($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopOnlineTestWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新证据转存配置
+     *  *
+     * @param UpdateBackupConfigRequest $request UpdateBackupConfigRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param UpdateBackupConfigRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return UpdateBackupConfigResponse
+     * @return UpdateBackupConfigResponse UpdateBackupConfigResponse
      */
     public function updateBackupConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->backupConfig) {
-            @$query['BackupConfig'] = $request->backupConfig;
+        if (!Utils::isUnset($request->backupConfig)) {
+            $query['BackupConfig'] = $request->backupConfig;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->serviceCode) {
-            @$query['ServiceCode'] = $request->serviceCode;
+        if (!Utils::isUnset($request->serviceCode)) {
+            $query['ServiceCode'] = $request->serviceCode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateBackupConfig',
@@ -5086,15 +4745,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 更新证据转存配置.
+     * @summary 更新证据转存配置
+     *  *
+     * @param UpdateBackupConfigRequest $request UpdateBackupConfigRequest
      *
-     * @param request - UpdateBackupConfigRequest
-     *
-     * @returns UpdateBackupConfigResponse
-     *
-     * @param UpdateBackupConfigRequest $request
-     *
-     * @return UpdateBackupConfigResponse
+     * @return UpdateBackupConfigResponse UpdateBackupConfigResponse
      */
     public function updateBackupConfig($request)
     {
@@ -5104,46 +4759,36 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 编辑图库.
+     * @summary 编辑图库
+     *  *
+     * @param UpdateImageLibRequest $request UpdateImageLibRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateImageLibRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateImageLibResponse
-     *
-     * @param UpdateImageLibRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UpdateImageLibResponse
+     * @return UpdateImageLibResponse UpdateImageLibResponse
      */
     public function updateImageLibWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->comment) {
-            @$body['Comment'] = $request->comment;
+        if (!Utils::isUnset($request->comment)) {
+            $body['Comment'] = $request->comment;
         }
-
-        if (null !== $request->freeInspection) {
-            @$body['FreeInspection'] = $request->freeInspection;
+        if (!Utils::isUnset($request->freeInspection)) {
+            $body['FreeInspection'] = $request->freeInspection;
         }
-
-        if (null !== $request->libId) {
-            @$body['LibId'] = $request->libId;
+        if (!Utils::isUnset($request->libId)) {
+            $body['LibId'] = $request->libId;
         }
-
-        if (null !== $request->libName) {
-            @$body['LibName'] = $request->libName;
+        if (!Utils::isUnset($request->libName)) {
+            $body['LibName'] = $request->libName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateImageLib',
@@ -5161,15 +4806,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 编辑图库.
+     * @summary 编辑图库
+     *  *
+     * @param UpdateImageLibRequest $request UpdateImageLibRequest
      *
-     * @param request - UpdateImageLibRequest
-     *
-     * @returns UpdateImageLibResponse
-     *
-     * @param UpdateImageLibRequest $request
-     *
-     * @return UpdateImageLibResponse
+     * @return UpdateImageLibResponse UpdateImageLibResponse
      */
     public function updateImageLib($request)
     {
@@ -5179,40 +4820,32 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 编辑图库免检配置.
+     * @summary 编辑图库免检配置
+     *  *
+     * @param UpdateImageLibFreeInspectionRequest $tmpReq  UpdateImageLibFreeInspectionRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - UpdateImageLibFreeInspectionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateImageLibFreeInspectionResponse
-     *
-     * @param UpdateImageLibFreeInspectionRequest $tmpReq
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return UpdateImageLibFreeInspectionResponse
+     * @return UpdateImageLibFreeInspectionResponse UpdateImageLibFreeInspectionResponse
      */
     public function updateImageLibFreeInspectionWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new UpdateImageLibFreeInspectionShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->config) {
-            $request->configShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->config, 'Config', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->config)) {
+            $request->configShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->config, 'Config', 'json');
         }
-
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->configShrink) {
-            @$body['Config'] = $request->configShrink;
+        if (!Utils::isUnset($request->configShrink)) {
+            $body['Config'] = $request->configShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateImageLibFreeInspection',
@@ -5230,15 +4863,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 编辑图库免检配置.
+     * @summary 编辑图库免检配置
+     *  *
+     * @param UpdateImageLibFreeInspectionRequest $request UpdateImageLibFreeInspectionRequest
      *
-     * @param request - UpdateImageLibFreeInspectionRequest
-     *
-     * @returns UpdateImageLibFreeInspectionResponse
-     *
-     * @param UpdateImageLibFreeInspectionRequest $request
-     *
-     * @return UpdateImageLibFreeInspectionResponse
+     * @return UpdateImageLibFreeInspectionResponse UpdateImageLibFreeInspectionResponse
      */
     public function updateImageLibFreeInspection($request)
     {
@@ -5248,38 +4877,30 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 编辑关键词库.
+     * @summary 编辑关键词库
+     *  *
+     * @param UpdateKeywordLibRequest $request UpdateKeywordLibRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateKeywordLibRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateKeywordLibResponse
-     *
-     * @param UpdateKeywordLibRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return UpdateKeywordLibResponse
+     * @return UpdateKeywordLibResponse UpdateKeywordLibResponse
      */
     public function updateKeywordLibWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->libId) {
-            @$body['LibId'] = $request->libId;
+        if (!Utils::isUnset($request->libId)) {
+            $body['LibId'] = $request->libId;
         }
-
-        if (null !== $request->libName) {
-            @$body['LibName'] = $request->libName;
+        if (!Utils::isUnset($request->libName)) {
+            $body['LibName'] = $request->libName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateKeywordLib',
@@ -5297,15 +4918,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 编辑关键词库.
+     * @summary 编辑关键词库
+     *  *
+     * @param UpdateKeywordLibRequest $request UpdateKeywordLibRequest
      *
-     * @param request - UpdateKeywordLibRequest
-     *
-     * @returns UpdateKeywordLibResponse
-     *
-     * @param UpdateKeywordLibRequest $request
-     *
-     * @return UpdateKeywordLibResponse
+     * @return UpdateKeywordLibResponse UpdateKeywordLibResponse
      */
     public function updateKeywordLib($request)
     {
@@ -5315,50 +4932,275 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 检测结果反馈.
+     * @summary 批量反馈任务
+     *  *
+     * @param UpdateOssCheckResultsBatchFeedbackRequest $request UpdateOssCheckResultsBatchFeedbackRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateScanResultFeedbackRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return UpdateOssCheckResultsBatchFeedbackResponse UpdateOssCheckResultsBatchFeedbackResponse
+     */
+    public function updateOssCheckResultsBatchFeedbackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->feedback)) {
+            $query['Feedback'] = $request->feedback;
+        }
+        if (!Utils::isUnset($request->items)) {
+            $query['Items'] = $request->items;
+        }
+        if (!Utils::isUnset($request->parentTaskId)) {
+            $query['ParentTaskId'] = $request->parentTaskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateOssCheckResultsBatchFeedback',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateOssCheckResultsBatchFeedbackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量反馈任务
+     *  *
+     * @param UpdateOssCheckResultsBatchFeedbackRequest $request UpdateOssCheckResultsBatchFeedbackRequest
      *
-     * @returns UpdateScanResultFeedbackResponse
+     * @return UpdateOssCheckResultsBatchFeedbackResponse UpdateOssCheckResultsBatchFeedbackResponse
+     */
+    public function updateOssCheckResultsBatchFeedback($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateOssCheckResultsBatchFeedbackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary oss结果反馈
+     *  *
+     * @param UpdateOssCheckResultsFeedBackRequest $request UpdateOssCheckResultsFeedBackRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param UpdateScanResultFeedbackRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @return UpdateOssCheckResultsFeedBackResponse UpdateOssCheckResultsFeedBackResponse
+     */
+    public function updateOssCheckResultsFeedBackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->feedback)) {
+            $query['Feedback'] = $request->feedback;
+        }
+        if (!Utils::isUnset($request->queryRequestId)) {
+            $query['QueryRequestId'] = $request->queryRequestId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceCode)) {
+            $query['ServiceCode'] = $request->serviceCode;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateOssCheckResultsFeedBack',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateOssCheckResultsFeedBackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary oss结果反馈
+     *  *
+     * @param UpdateOssCheckResultsFeedBackRequest $request UpdateOssCheckResultsFeedBackRequest
      *
-     * @return UpdateScanResultFeedbackResponse
+     * @return UpdateOssCheckResultsFeedBackResponse UpdateOssCheckResultsFeedBackResponse
+     */
+    public function updateOssCheckResultsFeedBack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateOssCheckResultsFeedBackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 批量冻结任务
+     *  *
+     * @param UpdateOssCheckResultsFreezeRequest $request UpdateOssCheckResultsFreezeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateOssCheckResultsFreezeResponse UpdateOssCheckResultsFreezeResponse
+     */
+    public function updateOssCheckResultsFreezeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->freezeItems)) {
+            $query['FreezeItems'] = $request->freezeItems;
+        }
+        if (!Utils::isUnset($request->freezeRestorePath)) {
+            $query['FreezeRestorePath'] = $request->freezeRestorePath;
+        }
+        if (!Utils::isUnset($request->freezeType)) {
+            $query['FreezeType'] = $request->freezeType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateOssCheckResultsFreeze',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateOssCheckResultsFreezeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量冻结任务
+     *  *
+     * @param UpdateOssCheckResultsFreezeRequest $request UpdateOssCheckResultsFreezeRequest
+     *
+     * @return UpdateOssCheckResultsFreezeResponse UpdateOssCheckResultsFreezeResponse
+     */
+    public function updateOssCheckResultsFreeze($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateOssCheckResultsFreezeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 批量解冻任务
+     *  *
+     * @param UpdateOssCheckResultsUnfreezeRequest $request UpdateOssCheckResultsUnfreezeRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateOssCheckResultsUnfreezeResponse UpdateOssCheckResultsUnfreezeResponse
+     */
+    public function updateOssCheckResultsUnfreezeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->freezeItems)) {
+            $query['FreezeItems'] = $request->freezeItems;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateOssCheckResultsUnfreeze',
+            'version' => '2022-09-26',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateOssCheckResultsUnfreezeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量解冻任务
+     *  *
+     * @param UpdateOssCheckResultsUnfreezeRequest $request UpdateOssCheckResultsUnfreezeRequest
+     *
+     * @return UpdateOssCheckResultsUnfreezeResponse UpdateOssCheckResultsUnfreezeResponse
+     */
+    public function updateOssCheckResultsUnfreeze($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateOssCheckResultsUnfreezeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 检测结果反馈
+     *  *
+     * @param UpdateScanResultFeedbackRequest $request UpdateScanResultFeedbackRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateScanResultFeedbackResponse UpdateScanResultFeedbackResponse
      */
     public function updateScanResultFeedbackWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->feedback) {
-            @$body['Feedback'] = $request->feedback;
+        if (!Utils::isUnset($request->feedback)) {
+            $body['Feedback'] = $request->feedback;
         }
-
-        if (null !== $request->labels) {
-            @$body['Labels'] = $request->labels;
+        if (!Utils::isUnset($request->labels)) {
+            $body['Labels'] = $request->labels;
         }
-
-        if (null !== $request->queryRequestId) {
-            @$body['QueryRequestId'] = $request->queryRequestId;
+        if (!Utils::isUnset($request->queryRequestId)) {
+            $body['QueryRequestId'] = $request->queryRequestId;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->riskLevel) {
-            @$body['RiskLevel'] = $request->riskLevel;
+        if (!Utils::isUnset($request->riskLevel)) {
+            $body['RiskLevel'] = $request->riskLevel;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateScanResultFeedback',
@@ -5376,15 +5218,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 检测结果反馈.
+     * @summary 检测结果反馈
+     *  *
+     * @param UpdateScanResultFeedbackRequest $request UpdateScanResultFeedbackRequest
      *
-     * @param request - UpdateScanResultFeedbackRequest
-     *
-     * @returns UpdateScanResultFeedbackResponse
-     *
-     * @param UpdateScanResultFeedbackRequest $request
-     *
-     * @return UpdateScanResultFeedbackResponse
+     * @return UpdateScanResultFeedbackResponse UpdateScanResultFeedbackResponse
      */
     public function updateScanResultFeedback($request)
     {
@@ -5394,70 +5232,54 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 更新服务
+     * @summary 更新服务
+     *  *
+     * @param UpdateServiceConfigRequest $request UpdateServiceConfigRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - UpdateServiceConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateServiceConfigResponse
-     *
-     * @param UpdateServiceConfigRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return UpdateServiceConfigResponse
+     * @return UpdateServiceConfigResponse UpdateServiceConfigResponse
      */
     public function updateServiceConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $body = [];
-        if (null !== $request->fileConfig) {
-            @$body['FileConfig'] = $request->fileConfig;
+        if (!Utils::isUnset($request->fileConfig)) {
+            $body['FileConfig'] = $request->fileConfig;
         }
-
-        if (null !== $request->keywordFilterLibs) {
-            @$body['KeywordFilterLibs'] = $request->keywordFilterLibs;
+        if (!Utils::isUnset($request->keywordFilterLibs)) {
+            $body['KeywordFilterLibs'] = $request->keywordFilterLibs;
         }
-
-        if (null !== $request->keywordHitLibs) {
-            @$body['KeywordHitLibs'] = $request->keywordHitLibs;
+        if (!Utils::isUnset($request->keywordHitLibs)) {
+            $body['KeywordHitLibs'] = $request->keywordHitLibs;
         }
-
-        if (null !== $request->manualMachineConfig) {
-            @$body['ManualMachineConfig'] = $request->manualMachineConfig;
+        if (!Utils::isUnset($request->manualMachineConfig)) {
+            $body['ManualMachineConfig'] = $request->manualMachineConfig;
         }
-
-        if (null !== $request->resourceType) {
-            @$body['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->scene) {
-            @$body['Scene'] = $request->scene;
+        if (!Utils::isUnset($request->scene)) {
+            $body['Scene'] = $request->scene;
         }
-
-        if (null !== $request->sceneConfig) {
-            @$body['SceneConfig'] = $request->sceneConfig;
+        if (!Utils::isUnset($request->sceneConfig)) {
+            $body['SceneConfig'] = $request->sceneConfig;
         }
-
-        if (null !== $request->serviceCode) {
-            @$body['ServiceCode'] = $request->serviceCode;
+        if (!Utils::isUnset($request->serviceCode)) {
+            $body['ServiceCode'] = $request->serviceCode;
         }
-
-        if (null !== $request->serviceConfig) {
-            @$body['ServiceConfig'] = $request->serviceConfig;
+        if (!Utils::isUnset($request->serviceConfig)) {
+            $body['ServiceConfig'] = $request->serviceConfig;
         }
-
-        if (null !== $request->videoConfig) {
-            @$body['VideoConfig'] = $request->videoConfig;
+        if (!Utils::isUnset($request->videoConfig)) {
+            $body['VideoConfig'] = $request->videoConfig;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateServiceConfig',
@@ -5475,15 +5297,11 @@ class Green extends OpenApiClient
     }
 
     /**
-     * 更新服务
+     * @summary 更新服务
+     *  *
+     * @param UpdateServiceConfigRequest $request UpdateServiceConfigRequest
      *
-     * @param request - UpdateServiceConfigRequest
-     *
-     * @returns UpdateServiceConfigResponse
-     *
-     * @param UpdateServiceConfigRequest $request
-     *
-     * @return UpdateServiceConfigResponse
+     * @return UpdateServiceConfigResponse UpdateServiceConfigResponse
      */
     public function updateServiceConfig($request)
     {

@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyCallbackRequest extends Model
 {
     /**
+     * @example SHA256
+     *
      * @var string
      */
     public $cryptType;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 112
+     *
      * @var int
      */
     public $id;
@@ -24,16 +30,22 @@ class ModifyCallbackRequest extends Model
     public $name;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @example https://www.aliyuncs.com
+     *
      * @var string
      */
     public $url;
@@ -46,34 +58,26 @@ class ModifyCallbackRequest extends Model
         'url' => 'Url',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cryptType) {
             $res['CryptType'] = $this->cryptType;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -81,34 +85,29 @@ class ModifyCallbackRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyCallbackRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CryptType'])) {
             $model->cryptType = $map['CryptType'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

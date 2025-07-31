@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models\ListCallbackResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example SHA256
+     *
      * @var string
      */
     public $cryptType;
 
     /**
+     * @example 2024-06-03 15:20:14
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 2024-06-03 15:20:14
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example 11234
+     *
      * @var int
      */
     public $id;
@@ -34,21 +42,33 @@ class data extends Model
     public $name;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @description Seed。
+     *
+     * @example cbupVnpBjkgjFxfINMHKkrHS-1zZPUm
+     *
      * @var string
      */
     public $seed;
 
     /**
+     * @description UID。
+     *
+     * @example 16537*****831937
+     *
      * @var string
      */
     public $uid;
 
     /**
+     * @example https://console.aliyun.com/
+     *
      * @var string
      */
     public $url;
@@ -64,46 +84,35 @@ class data extends Model
         'url' => 'Url',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cryptType) {
             $res['CryptType'] = $this->cryptType;
         }
-
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
         }
-
         if (null !== $this->seed) {
             $res['Seed'] = $this->seed;
         }
-
         if (null !== $this->uid) {
             $res['Uid'] = $this->uid;
         }
-
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -111,46 +120,38 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CryptType'])) {
             $model->cryptType = $map['CryptType'];
         }
-
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
         }
-
         if (isset($map['Seed'])) {
             $model->seed = $map['Seed'];
         }
-
         if (isset($map['Uid'])) {
             $model->uid = $map['Uid'];
         }
-
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

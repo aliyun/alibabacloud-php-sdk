@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class z extends Model
 {
@@ -14,6 +14,8 @@ class z extends Model
     public $data;
 
     /**
+     * @example nickNameDetection
+     *
      * @var string
      */
     public $name;
@@ -22,28 +24,14 @@ class z extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->data)) {
-            Model::validateArray($this->data);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
-            if (\is_array($this->data)) {
-                $res['Data'] = [];
-                $n1 = 0;
-                foreach ($this->data as $item1) {
-                    $res['Data'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Data'] = $this->data;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -51,25 +39,19 @@ class z extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return z
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
-                $model->data = [];
-                $n1 = 0;
-                foreach ($map['Data'] as $item1) {
-                    $model->data[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->data = $map['Data'];
             }
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

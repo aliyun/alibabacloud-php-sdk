@@ -4,17 +4,21 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220926\Models\AddAnswerSampleResponseBody\result;
+use AlibabaCloud\Tea\Model;
 
 class AddAnswerSampleResponseBody extends Model
 {
     /**
+     * @example alxxxx
+     *
      * @var string
      */
     public $libId;
 
     /**
+     * @example AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+     *
      * @var string
      */
     public $requestId;
@@ -25,6 +29,8 @@ class AddAnswerSampleResponseBody extends Model
     public $result;
 
     /**
+     * @example alAxbbxxxx-xxx
+     *
      * @var string
      */
     public $taskId;
@@ -35,29 +41,20 @@ class AddAnswerSampleResponseBody extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->result) {
-            $this->result->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->libId) {
             $res['LibId'] = $this->libId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->result) {
-            $res['Result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
+            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
         }
-
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -65,26 +62,23 @@ class AddAnswerSampleResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddAnswerSampleResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LibId'])) {
             $model->libId = $map['LibId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Result'])) {
             $model->result = result::fromMap($map['Result']);
         }
-
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

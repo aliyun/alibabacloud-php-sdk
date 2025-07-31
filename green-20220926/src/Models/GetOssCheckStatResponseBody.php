@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetOssCheckStatResponseBody\barChart;
+use AlibabaCloud\Tea\Model;
 
 class GetOssCheckStatResponseBody extends Model
 {
@@ -15,6 +15,8 @@ class GetOssCheckStatResponseBody extends Model
     public $barChart;
 
     /**
+     * @example AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+     *
      * @var string
      */
     public $requestId;
@@ -23,21 +25,14 @@ class GetOssCheckStatResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->barChart) {
-            $this->barChart->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->barChart) {
-            $res['BarChart'] = null !== $this->barChart ? $this->barChart->toArray($noStream) : $this->barChart;
+            $res['BarChart'] = null !== $this->barChart ? $this->barChart->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,18 +40,17 @@ class GetOssCheckStatResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetOssCheckStatResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BarChart'])) {
             $model->barChart = barChart::fromMap($map['BarChart']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

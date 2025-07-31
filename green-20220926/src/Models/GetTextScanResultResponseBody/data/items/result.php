@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models\GetTextScanResultResponseBody\data\items;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
+     * @example 25.0
+     *
      * @var float
      */
     public $confidence;
@@ -19,6 +21,8 @@ class result extends Model
     public $description;
 
     /**
+     * @example political_n
+     *
      * @var string
      */
     public $label;
@@ -28,22 +32,17 @@ class result extends Model
         'label' => 'Label',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->confidence) {
             $res['Confidence'] = $this->confidence;
         }
-
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
@@ -51,22 +50,20 @@ class result extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Confidence'])) {
             $model->confidence = $map['Confidence'];
         }
-
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }

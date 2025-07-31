@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models\GetServiceConfigResponseBody\data\customServiceConf;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class manualMachineConfig extends Model
 {
@@ -34,36 +34,20 @@ class manualMachineConfig extends Model
         'manualService' => 'ManualService',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->auditRiskLevels)) {
-            Model::validateArray($this->auditRiskLevels);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->auditRiskLevels) {
-            if (\is_array($this->auditRiskLevels)) {
-                $res['AuditRiskLevels'] = [];
-                $n1 = 0;
-                foreach ($this->auditRiskLevels as $item1) {
-                    $res['AuditRiskLevels'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['AuditRiskLevels'] = $this->auditRiskLevels;
         }
-
         if (null !== $this->callbackId) {
             $res['CallbackId'] = $this->callbackId;
         }
-
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
-
         if (null !== $this->manualService) {
             $res['ManualService'] = $this->manualService;
         }
@@ -71,33 +55,25 @@ class manualMachineConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return manualMachineConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuditRiskLevels'])) {
             if (!empty($map['AuditRiskLevels'])) {
-                $model->auditRiskLevels = [];
-                $n1 = 0;
-                foreach ($map['AuditRiskLevels'] as $item1) {
-                    $model->auditRiskLevels[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->auditRiskLevels = $map['AuditRiskLevels'];
             }
         }
-
         if (isset($map['CallbackId'])) {
             $model->callbackId = $map['CallbackId'];
         }
-
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
-
         if (isset($map['ManualService'])) {
             $model->manualService = $map['ManualService'];
         }

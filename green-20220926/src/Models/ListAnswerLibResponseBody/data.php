@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models\ListAnswerLibResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $answerCount;
 
     /**
+     * @example 2024-06-03 18:15:01
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example alxxx
+     *
      * @var string
      */
     public $libId;
@@ -29,6 +35,10 @@ class data extends Model
     public $libName;
 
     /**
+     * @description UID。
+     *
+     * @example 1643953****74290
+     *
      * @var string
      */
     public $uid;
@@ -40,30 +50,23 @@ class data extends Model
         'uid' => 'Uid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->answerCount) {
             $res['AnswerCount'] = $this->answerCount;
         }
-
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
-
         if (null !== $this->libId) {
             $res['LibId'] = $this->libId;
         }
-
         if (null !== $this->libName) {
             $res['LibName'] = $this->libName;
         }
-
         if (null !== $this->uid) {
             $res['Uid'] = $this->uid;
         }
@@ -71,30 +74,26 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnswerCount'])) {
             $model->answerCount = $map['AnswerCount'];
         }
-
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
-
         if (isset($map['LibId'])) {
             $model->libId = $map['LibId'];
         }
-
         if (isset($map['LibName'])) {
             $model->libName = $map['LibName'];
         }
-
         if (isset($map['Uid'])) {
             $model->uid = $map['Uid'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class LlmStreamChatRequest extends Model
 {
@@ -14,11 +14,15 @@ class LlmStreamChatRequest extends Model
     public $messages;
 
     /**
+     * @example 0.5
+     *
      * @var float
      */
     public $temperature;
 
     /**
+     * @example 0.5
+     *
      * @var float
      */
     public $topP;
@@ -28,22 +32,17 @@ class LlmStreamChatRequest extends Model
         'topP' => 'TopP',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->messages) {
             $res['Messages'] = $this->messages;
         }
-
         if (null !== $this->temperature) {
             $res['Temperature'] = $this->temperature;
         }
-
         if (null !== $this->topP) {
             $res['TopP'] = $this->topP;
         }
@@ -51,22 +50,20 @@ class LlmStreamChatRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return LlmStreamChatRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Messages'])) {
             $model->messages = $map['Messages'];
         }
-
         if (isset($map['Temperature'])) {
             $model->temperature = $map['Temperature'];
         }
-
         if (isset($map['TopP'])) {
             $model->topP = $map['TopP'];
         }

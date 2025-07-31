@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models\AddKeywordLibResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class keywordsResult extends Model
 {
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $i18nKey;
@@ -19,6 +21,8 @@ class keywordsResult extends Model
     public $illegalLengthKeywords;
 
     /**
+     * @example 133
+     *
      * @var int
      */
     public $invalidCount;
@@ -29,11 +33,15 @@ class keywordsResult extends Model
     public $invalidKeywords;
 
     /**
+     * @example customxx_xxxx
+     *
      * @var string
      */
     public $libId;
 
     /**
+     * @example 118
+     *
      * @var int
      */
     public $repeatCount;
@@ -44,16 +52,22 @@ class keywordsResult extends Model
     public $repeatKeywords;
 
     /**
+     * @example 278
+     *
      * @var int
      */
     public $successCount;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $tips;
 
     /**
+     * @example 529
+     *
      * @var int
      */
     public $totalCount;
@@ -70,80 +84,38 @@ class keywordsResult extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->illegalLengthKeywords)) {
-            Model::validateArray($this->illegalLengthKeywords);
-        }
-        if (\is_array($this->invalidKeywords)) {
-            Model::validateArray($this->invalidKeywords);
-        }
-        if (\is_array($this->repeatKeywords)) {
-            Model::validateArray($this->repeatKeywords);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->i18nKey) {
             $res['I18nKey'] = $this->i18nKey;
         }
-
         if (null !== $this->illegalLengthKeywords) {
-            if (\is_array($this->illegalLengthKeywords)) {
-                $res['IllegalLengthKeywords'] = [];
-                $n1 = 0;
-                foreach ($this->illegalLengthKeywords as $item1) {
-                    $res['IllegalLengthKeywords'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['IllegalLengthKeywords'] = $this->illegalLengthKeywords;
         }
-
         if (null !== $this->invalidCount) {
             $res['InvalidCount'] = $this->invalidCount;
         }
-
         if (null !== $this->invalidKeywords) {
-            if (\is_array($this->invalidKeywords)) {
-                $res['InvalidKeywords'] = [];
-                $n1 = 0;
-                foreach ($this->invalidKeywords as $item1) {
-                    $res['InvalidKeywords'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['InvalidKeywords'] = $this->invalidKeywords;
         }
-
         if (null !== $this->libId) {
             $res['LibId'] = $this->libId;
         }
-
         if (null !== $this->repeatCount) {
             $res['RepeatCount'] = $this->repeatCount;
         }
-
         if (null !== $this->repeatKeywords) {
-            if (\is_array($this->repeatKeywords)) {
-                $res['RepeatKeywords'] = [];
-                $n1 = 0;
-                foreach ($this->repeatKeywords as $item1) {
-                    $res['RepeatKeywords'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['RepeatKeywords'] = $this->repeatKeywords;
         }
-
         if (null !== $this->successCount) {
             $res['SuccessCount'] = $this->successCount;
         }
-
         if (null !== $this->tips) {
             $res['Tips'] = $this->tips;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -151,71 +123,47 @@ class keywordsResult extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return keywordsResult
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['I18nKey'])) {
             $model->i18nKey = $map['I18nKey'];
         }
-
         if (isset($map['IllegalLengthKeywords'])) {
             if (!empty($map['IllegalLengthKeywords'])) {
-                $model->illegalLengthKeywords = [];
-                $n1 = 0;
-                foreach ($map['IllegalLengthKeywords'] as $item1) {
-                    $model->illegalLengthKeywords[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->illegalLengthKeywords = $map['IllegalLengthKeywords'];
             }
         }
-
         if (isset($map['InvalidCount'])) {
             $model->invalidCount = $map['InvalidCount'];
         }
-
         if (isset($map['InvalidKeywords'])) {
             if (!empty($map['InvalidKeywords'])) {
-                $model->invalidKeywords = [];
-                $n1 = 0;
-                foreach ($map['InvalidKeywords'] as $item1) {
-                    $model->invalidKeywords[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->invalidKeywords = $map['InvalidKeywords'];
             }
         }
-
         if (isset($map['LibId'])) {
             $model->libId = $map['LibId'];
         }
-
         if (isset($map['RepeatCount'])) {
             $model->repeatCount = $map['RepeatCount'];
         }
-
         if (isset($map['RepeatKeywords'])) {
             if (!empty($map['RepeatKeywords'])) {
-                $model->repeatKeywords = [];
-                $n1 = 0;
-                foreach ($map['RepeatKeywords'] as $item1) {
-                    $model->repeatKeywords[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->repeatKeywords = $map['RepeatKeywords'];
             }
         }
-
         if (isset($map['SuccessCount'])) {
             $model->successCount = $map['SuccessCount'];
         }
-
         if (isset($map['Tips'])) {
             $model->tips = $map['Tips'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

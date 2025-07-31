@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetImageSceneLabelListConfRequest extends Model
 {
     /**
+     * @example baselineCheck
+     *
      * @var string
      */
     public $imageServiceCode;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -22,18 +26,14 @@ class GetImageSceneLabelListConfRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->imageServiceCode) {
             $res['ImageServiceCode'] = $this->imageServiceCode;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -41,18 +41,17 @@ class GetImageSceneLabelListConfRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetImageSceneLabelListConfRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageServiceCode'])) {
             $model->imageServiceCode = $map['ImageServiceCode'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

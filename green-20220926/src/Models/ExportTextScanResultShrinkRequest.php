@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ExportTextScanResultShrinkRequest extends Model
 {
     /**
+     * @example 2024-03-11 10:00:00
+     *
      * @var string
      */
     public $endDate;
@@ -19,11 +21,15 @@ class ExportTextScanResultShrinkRequest extends Model
     public $queryShrink;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 2024-03-10 10:00:00
+     *
      * @var string
      */
     public $startDate;
@@ -34,26 +40,20 @@ class ExportTextScanResultShrinkRequest extends Model
         'startDate' => 'StartDate',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
-
         if (null !== $this->queryShrink) {
             $res['Query'] = $this->queryShrink;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
@@ -61,26 +61,23 @@ class ExportTextScanResultShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ExportTextScanResultShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
-
         if (isset($map['Query'])) {
             $model->queryShrink = $map['Query'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }
