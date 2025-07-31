@@ -38,6 +38,8 @@ use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetCatalogSummaryTrendResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetCatalogTokenResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetDatabaseResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetDatabaseSummaryResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetIcebergNamespaceResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetIcebergTableResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetRegionStatusResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetRoleRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\GetRoleResponse;
@@ -53,6 +55,12 @@ use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListDatabaseDetailsRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListDatabaseDetailsResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListDatabasesRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListDatabasesResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListIcebergNamespaceDetailsRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListIcebergNamespaceDetailsResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListIcebergSnapshotsRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListIcebergSnapshotsResponse;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListIcebergTableDetailsRequest;
+use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListIcebergTableDetailsResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPartitionSummariesRequest;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPartitionSummariesResponse;
 use AlibabaCloud\SDK\DlfNext\V20250310\Models\ListPermissionsRequest;
@@ -1164,6 +1172,100 @@ class DlfNext extends OpenApiClient
     }
 
     /**
+     * @summary 查看iceberg数据库
+     *  *
+     * @param string         $catalogId
+     * @param string         $namespace
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetIcebergNamespaceResponse GetIcebergNamespaceResponse
+     */
+    public function getIcebergNamespaceWithOptions($catalogId, $namespace, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetIcebergNamespace',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/iceberg/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetIcebergNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看iceberg数据库
+     *  *
+     * @param string $catalogId
+     * @param string $namespace
+     *
+     * @return GetIcebergNamespaceResponse GetIcebergNamespaceResponse
+     */
+    public function getIcebergNamespace($catalogId, $namespace)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getIcebergNamespaceWithOptions($catalogId, $namespace, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查看表
+     *  *
+     * @param string         $catalogId
+     * @param string         $namespace
+     * @param string         $table
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetIcebergTableResponse GetIcebergTableResponse
+     */
+    public function getIcebergTableWithOptions($catalogId, $namespace, $table, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetIcebergTable',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/iceberg/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/tables/' . OpenApiUtilClient::getEncodeParam($table) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetIcebergTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看表
+     *  *
+     * @param string $catalogId
+     * @param string $namespace
+     * @param string $table
+     *
+     * @return GetIcebergTableResponse GetIcebergTableResponse
+     */
+    public function getIcebergTable($catalogId, $namespace, $table)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getIcebergTableWithOptions($catalogId, $namespace, $table, $headers, $runtime);
+    }
+
+    /**
      * @summary 查询 DLF 当前地域开通状态
      *  *
      * @param string[]       $headers map
@@ -1623,6 +1725,183 @@ class DlfNext extends OpenApiClient
         $headers = [];
 
         return $this->listDatabasesWithOptions($catalogId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查看iceberg数据库列表
+     *  *
+     * @param string                             $catalogId
+     * @param ListIcebergNamespaceDetailsRequest $request   ListIcebergNamespaceDetailsRequest
+     * @param string[]                           $headers   map
+     * @param RuntimeOptions                     $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListIcebergNamespaceDetailsResponse ListIcebergNamespaceDetailsResponse
+     */
+    public function listIcebergNamespaceDetailsWithOptions($catalogId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->namespaceNamePattern)) {
+            $query['namespaceNamePattern'] = $request->namespaceNamePattern;
+        }
+        if (!Utils::isUnset($request->pageToken)) {
+            $query['pageToken'] = $request->pageToken;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListIcebergNamespaceDetails',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/iceberg/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/namespace-details',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListIcebergNamespaceDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看iceberg数据库列表
+     *  *
+     * @param string                             $catalogId
+     * @param ListIcebergNamespaceDetailsRequest $request   ListIcebergNamespaceDetailsRequest
+     *
+     * @return ListIcebergNamespaceDetailsResponse ListIcebergNamespaceDetailsResponse
+     */
+    public function listIcebergNamespaceDetails($catalogId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listIcebergNamespaceDetailsWithOptions($catalogId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查看iceberg表快照列表
+     *  *
+     * @param string                      $catalogId
+     * @param string                      $namespace
+     * @param string                      $table
+     * @param ListIcebergSnapshotsRequest $request   ListIcebergSnapshotsRequest
+     * @param string[]                    $headers   map
+     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListIcebergSnapshotsResponse ListIcebergSnapshotsResponse
+     */
+    public function listIcebergSnapshotsWithOptions($catalogId, $namespace, $table, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->pageToken)) {
+            $query['pageToken'] = $request->pageToken;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListIcebergSnapshots',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/iceberg/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/tables/' . OpenApiUtilClient::getEncodeParam($table) . '/snapshots',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListIcebergSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看iceberg表快照列表
+     *  *
+     * @param string                      $catalogId
+     * @param string                      $namespace
+     * @param string                      $table
+     * @param ListIcebergSnapshotsRequest $request   ListIcebergSnapshotsRequest
+     *
+     * @return ListIcebergSnapshotsResponse ListIcebergSnapshotsResponse
+     */
+    public function listIcebergSnapshots($catalogId, $namespace, $table, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listIcebergSnapshotsWithOptions($catalogId, $namespace, $table, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查看iceberg表详情列表
+     *  *
+     * @param string                         $catalogId
+     * @param string                         $namespace
+     * @param ListIcebergTableDetailsRequest $request   ListIcebergTableDetailsRequest
+     * @param string[]                       $headers   map
+     * @param RuntimeOptions                 $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListIcebergTableDetailsResponse ListIcebergTableDetailsResponse
+     */
+    public function listIcebergTableDetailsWithOptions($catalogId, $namespace, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->pageToken)) {
+            $query['pageToken'] = $request->pageToken;
+        }
+        if (!Utils::isUnset($request->tableNamePattern)) {
+            $query['tableNamePattern'] = $request->tableNamePattern;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListIcebergTableDetails',
+            'version' => '2025-03-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/iceberg/dlf/v1/' . OpenApiUtilClient::getEncodeParam($catalogId) . '/namespaces/' . OpenApiUtilClient::getEncodeParam($namespace) . '/table-details',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListIcebergTableDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看iceberg表详情列表
+     *  *
+     * @param string                         $catalogId
+     * @param string                         $namespace
+     * @param ListIcebergTableDetailsRequest $request   ListIcebergTableDetailsRequest
+     *
+     * @return ListIcebergTableDetailsResponse ListIcebergTableDetailsResponse
+     */
+    public function listIcebergTableDetails($catalogId, $namespace, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listIcebergTableDetailsWithOptions($catalogId, $namespace, $request, $headers, $runtime);
     }
 
     /**
