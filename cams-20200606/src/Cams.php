@@ -5753,60 +5753,69 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($tmpReq->senderList)) {
             $request->senderListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->senderList, 'SenderList', 'json');
         }
-        $body = [];
+        $query = [];
         if (!Utils::isUnset($request->channelType)) {
-            $body['ChannelType'] = $request->channelType;
+            $query['ChannelType'] = $request->channelType;
         }
         if (!Utils::isUnset($request->custSpaceId)) {
-            $body['CustSpaceId'] = $request->custSpaceId;
+            $query['CustSpaceId'] = $request->custSpaceId;
         }
         if (!Utils::isUnset($request->custWabaId)) {
-            $body['CustWabaId'] = $request->custWabaId;
+            $query['CustWabaId'] = $request->custWabaId;
         }
         if (!Utils::isUnset($request->fallBackContent)) {
-            $body['FallBackContent'] = $request->fallBackContent;
+            $query['FallBackContent'] = $request->fallBackContent;
         }
         if (!Utils::isUnset($request->fallBackDuration)) {
-            $body['FallBackDuration'] = $request->fallBackDuration;
+            $query['FallBackDuration'] = $request->fallBackDuration;
         }
         if (!Utils::isUnset($request->fallBackId)) {
-            $body['FallBackId'] = $request->fallBackId;
+            $query['FallBackId'] = $request->fallBackId;
         }
         if (!Utils::isUnset($request->fallBackRule)) {
-            $body['FallBackRule'] = $request->fallBackRule;
+            $query['FallBackRule'] = $request->fallBackRule;
         }
         if (!Utils::isUnset($request->from)) {
-            $body['From'] = $request->from;
+            $query['From'] = $request->from;
         }
         if (!Utils::isUnset($request->isvCode)) {
-            $body['IsvCode'] = $request->isvCode;
+            $query['IsvCode'] = $request->isvCode;
         }
         if (!Utils::isUnset($request->label)) {
-            $body['Label'] = $request->label;
+            $query['Label'] = $request->label;
         }
         if (!Utils::isUnset($request->language)) {
-            $body['Language'] = $request->language;
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
         if (!Utils::isUnset($request->senderListShrink)) {
-            $body['SenderList'] = $request->senderListShrink;
+            $query['SenderList'] = $request->senderListShrink;
         }
         if (!Utils::isUnset($request->tag)) {
-            $body['Tag'] = $request->tag;
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+            $query['TaskId'] = $request->taskId;
         }
         if (!Utils::isUnset($request->templateCode)) {
-            $body['TemplateCode'] = $request->templateCode;
+            $query['TemplateCode'] = $request->templateCode;
         }
         if (!Utils::isUnset($request->templateName)) {
-            $body['TemplateName'] = $request->templateName;
+            $query['TemplateName'] = $request->templateName;
         }
         if (!Utils::isUnset($request->ttl)) {
-            $body['Ttl'] = $request->ttl;
+            $query['Ttl'] = $request->ttl;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SendChatappMassMessage',
@@ -5868,91 +5877,98 @@ class Cams extends OpenApiClient
             $request->templateParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->templateParams, 'TemplateParams', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->channelType)) {
+            $query['ChannelType'] = $request->channelType;
+        }
         if (!Utils::isUnset($request->content)) {
             $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->contextMessageId)) {
+            $query['ContextMessageId'] = $request->contextMessageId;
+        }
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->custWabaId)) {
+            $query['CustWabaId'] = $request->custWabaId;
+        }
+        if (!Utils::isUnset($request->fallBackContent)) {
+            $query['FallBackContent'] = $request->fallBackContent;
+        }
+        if (!Utils::isUnset($request->fallBackDuration)) {
+            $query['FallBackDuration'] = $request->fallBackDuration;
+        }
+        if (!Utils::isUnset($request->fallBackId)) {
+            $query['FallBackId'] = $request->fallBackId;
+        }
+        if (!Utils::isUnset($request->fallBackRule)) {
+            $query['FallBackRule'] = $request->fallBackRule;
+        }
+        if (!Utils::isUnset($request->flowActionShrink)) {
+            $query['FlowAction'] = $request->flowActionShrink;
+        }
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->isvCode)) {
+            $query['IsvCode'] = $request->isvCode;
+        }
+        if (!Utils::isUnset($request->label)) {
+            $query['Label'] = $request->label;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->messageType)) {
+            $query['MessageType'] = $request->messageType;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->payloadShrink)) {
             $query['Payload'] = $request->payloadShrink;
         }
-        $body = [];
-        if (!Utils::isUnset($request->channelType)) {
-            $body['ChannelType'] = $request->channelType;
-        }
-        if (!Utils::isUnset($request->contextMessageId)) {
-            $body['ContextMessageId'] = $request->contextMessageId;
-        }
-        if (!Utils::isUnset($request->custSpaceId)) {
-            $body['CustSpaceId'] = $request->custSpaceId;
-        }
-        if (!Utils::isUnset($request->custWabaId)) {
-            $body['CustWabaId'] = $request->custWabaId;
-        }
-        if (!Utils::isUnset($request->fallBackContent)) {
-            $body['FallBackContent'] = $request->fallBackContent;
-        }
-        if (!Utils::isUnset($request->fallBackDuration)) {
-            $body['FallBackDuration'] = $request->fallBackDuration;
-        }
-        if (!Utils::isUnset($request->fallBackId)) {
-            $body['FallBackId'] = $request->fallBackId;
-        }
-        if (!Utils::isUnset($request->fallBackRule)) {
-            $body['FallBackRule'] = $request->fallBackRule;
-        }
-        if (!Utils::isUnset($request->flowActionShrink)) {
-            $body['FlowAction'] = $request->flowActionShrink;
-        }
-        if (!Utils::isUnset($request->from)) {
-            $body['From'] = $request->from;
-        }
-        if (!Utils::isUnset($request->isvCode)) {
-            $body['IsvCode'] = $request->isvCode;
-        }
-        if (!Utils::isUnset($request->label)) {
-            $body['Label'] = $request->label;
-        }
-        if (!Utils::isUnset($request->language)) {
-            $body['Language'] = $request->language;
-        }
-        if (!Utils::isUnset($request->messageType)) {
-            $body['MessageType'] = $request->messageType;
-        }
         if (!Utils::isUnset($request->productActionShrink)) {
-            $body['ProductAction'] = $request->productActionShrink;
+            $query['ProductAction'] = $request->productActionShrink;
         }
         if (!Utils::isUnset($request->recipientType)) {
-            $body['RecipientType'] = $request->recipientType;
+            $query['RecipientType'] = $request->recipientType;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
         if (!Utils::isUnset($request->tag)) {
-            $body['Tag'] = $request->tag;
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+            $query['TaskId'] = $request->taskId;
         }
         if (!Utils::isUnset($request->templateCode)) {
-            $body['TemplateCode'] = $request->templateCode;
+            $query['TemplateCode'] = $request->templateCode;
         }
         if (!Utils::isUnset($request->templateName)) {
-            $body['TemplateName'] = $request->templateName;
+            $query['TemplateName'] = $request->templateName;
         }
         if (!Utils::isUnset($request->templateParamsShrink)) {
-            $body['TemplateParams'] = $request->templateParamsShrink;
+            $query['TemplateParams'] = $request->templateParamsShrink;
         }
         if (!Utils::isUnset($request->to)) {
-            $body['To'] = $request->to;
+            $query['To'] = $request->to;
         }
         if (!Utils::isUnset($request->trackingData)) {
-            $body['TrackingData'] = $request->trackingData;
+            $query['TrackingData'] = $request->trackingData;
         }
         if (!Utils::isUnset($request->ttl)) {
-            $body['Ttl'] = $request->ttl;
+            $query['Ttl'] = $request->ttl;
         }
         if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SendChatappMessage',

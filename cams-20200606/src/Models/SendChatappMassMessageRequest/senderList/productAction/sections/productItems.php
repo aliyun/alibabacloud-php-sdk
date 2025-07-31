@@ -9,9 +9,7 @@ use AlibabaCloud\Tea\Model;
 class productItems extends Model
 {
     /**
-     * @description The retailer ID of the product.
-     *
-     * @example ksi399d8
+     * @example 示例值示例值
      *
      * @var string
      */

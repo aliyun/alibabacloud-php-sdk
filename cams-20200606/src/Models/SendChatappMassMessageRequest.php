@@ -10,173 +10,136 @@ use AlibabaCloud\Tea\Model;
 class SendChatappMassMessageRequest extends Model
 {
     /**
-     * @description The type of the channel. Valid values:
+     * @description This parameter is required.
      *
-     *   **whatsapp**
-     *   **viber**
-     *   **line** (under development)
-     *
-     * This parameter is required.
-     *
-     * @example whatsapp
+     * @example 示例值示例值
      *
      * @var string
      */
     public $channelType;
 
     /**
-     * @description The space ID of the user.
-     *
-     * @example 28251486512358****
+     * @example 示例值示例值
      *
      * @var string
      */
     public $custSpaceId;
 
     /**
-     * @description The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
-     *
-     * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
-     *
-     * @example 65921621816****
-     *
-     * @deprecated
+     * @example 示例值示例值示例值
      *
      * @var string
      */
     public $custWabaId;
 
     /**
-     * @description The content of the fallback message.
-     *
-     * @example Fallback message
+     * @example 示例值示例值示例值
      *
      * @var string
      */
     public $fallBackContent;
 
     /**
-     * @description Specifies the period of time after which the fallback message is sent if the message receipt that indicates the message is delivered to clients is not received. If this parameter is left empty, the fallback message is sent only when the message fails to be sent or the message receipt that indicates the message is not delivered to clients is received. Unit: seconds. Valid values: 60 to 43200.
-     *
-     * @example 120
-     *
      * @var int
      */
     public $fallBackDuration;
 
     /**
-     * @description The ID of the fallback policy.
-     *
-     * @example S00001
+     * @example 示例值示例值示例值
      *
      * @var string
      */
     public $fallBackId;
 
     /**
-     * @description The fallback rule. Valid values:
-     *
-     *   **undelivered**: A fallback is triggered if the message is not delivered to clients. When the message is being sent, the template parameters are verified. If the parameters fail to pass the verification, the message fails to be sent. Whether the template and phone number are prohibited is not verified. By default, this value is used when FallBackRule is left empty.
-     *   **sentFailed**: A fallback is triggered even if the template parameters including variables fail to pass the verification. If the channelType, type, messageType, to, and from parameters fail to pass the verification, a fallback is not triggered.
-     *
-     * @example undelivered
+     * @example 示例值示例值示例值
      *
      * @var string
      */
     public $fallBackRule;
 
     /**
-     * @description The mobile phone number of the message sender.
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     *
-     * @example 861387777****
+     * @example 示例值示例值
      *
      * @var string
      */
     public $from;
 
     /**
-     * @description The ISV verification code. This parameter is used to verify whether the RAM user is authorized by the ISV account.
-     *
-     * @example skdi3kksloslikdkkdk
+     * @example 示例值示例值
      *
      * @var string
      */
     public $isvCode;
 
     /**
-     * @description The type of the Viber message. Valid values:
-     *
-     *   **promotion**
-     *   **transaction**
-     *
-     * @example promotion
+     * @example 示例值示例值
      *
      * @var string
      */
     public $label;
 
     /**
-     * @description The language. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     *
-     * @example en
+     * @example 示例值示例值
      *
      * @var string
      */
     public $language;
 
     /**
-     * @description The mobile phone numbers of the message receivers.
-     *
-     * This parameter is required.
-     *
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @var senderList[]
      */
     public $senderList;
 
     /**
-     * @description The tag information when the ChannelType parameter is set to viber.
-     *
-     * @example tag
+     * @example 示例值示例值
      *
      * @var string
      */
     public $tag;
 
     /**
-     * @description The task ID.
-     *
-     * @example 100000001
+     * @example 示例值示例值
      *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description The template code.
-     *
-     * @example 744c4b5c79c9432497a075bdfca36bf5
+     * @example 示例值示例值
      *
      * @var string
      */
     public $templateCode;
 
     /**
-     * @description The name of the message template.
-     *
-     * @example test_name
+     * @example 示例值示例值
      *
      * @var string
      */
     public $templateName;
 
     /**
-     * @description The timeout period for sending messages when the ChannelType parameter is set to viber. Valid values: 30 to 1209600. Unit: seconds.
-     *
-     * @example 50
+     * @example 46
      *
      * @var int
      */
@@ -193,6 +156,9 @@ class SendChatappMassMessageRequest extends Model
         'isvCode' => 'IsvCode',
         'label' => 'Label',
         'language' => 'Language',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'senderList' => 'SenderList',
         'tag' => 'Tag',
         'taskId' => 'TaskId',
@@ -238,6 +204,15 @@ class SendChatappMassMessageRequest extends Model
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->senderList) {
             $res['SenderList'] = [];
@@ -307,6 +282,15 @@ class SendChatappMassMessageRequest extends Model
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['SenderList'])) {
             if (!empty($map['SenderList'])) {

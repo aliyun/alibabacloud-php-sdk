@@ -9,15 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SendChatappMessageShrinkRequest extends Model
 {
     /**
-     * @description The channel type. Valid values:
+     * @description This parameter is required.
      *
-     *   **whatsapp**
-     *   **viber**
-     *   **line** (under development)
-     *
-     * This parameter is required.
-     *
-     * @example whatsapp
+     * @example 示例值示例值
      *
      * @var string
      */
@@ -57,160 +51,98 @@ class SendChatappMessageShrinkRequest extends Model
     public $content;
 
     /**
-     * @description The ID of the reply message.
-     *
-     * @example 61851ccb2f1365b16aee****
+     * @example 示例值
      *
      * @var string
      */
     public $contextMessageId;
 
     /**
-     * @description The space ID of the user.
-     *
-     * @example 28251486512358****
+     * @example 示例值示例值示例值
      *
      * @var string
      */
     public $custSpaceId;
 
     /**
-     * @description The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
-     *
-     * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
-     *
-     * @example 65921621816****
-     *
-     * @deprecated
+     * @example 示例值示例值
      *
      * @var string
      */
     public $custWabaId;
 
     /**
-     * @description The content of the fallback message.
-     *
-     * @example This is a fallback message.
+     * @example 示例值
      *
      * @var string
      */
     public $fallBackContent;
 
     /**
-     * @description Specifies the period of time after which the fallback message is sent if the message receipt that indicates the message is delivered to clients is not received. If this parameter is left empty, the fallback message is sent only when the **message fails to be sent** or **the message receipt that indicates the message is not delivered to clients** is received. Unit: seconds. Valid values: 60 to 43200.
-     *
-     * @example 120
-     *
      * @var int
      */
     public $fallBackDuration;
 
     /**
-     * @description The ID of the fallback policy. You can create a fallback policy and view the information in the Chat App Message Service console.
-     *
-     * @example S_000001
+     * @example 示例值示例值示例值
      *
      * @var string
      */
     public $fallBackId;
 
     /**
-     * @description The fallback rule. Valid values:
-     *
-     *   **undelivered**: A fallback is triggered if the message is not delivered to clients. When the message is being sent, the template parameters are verified. If the parameters fail to pass the verification, the message fails to be sent. Whether the template and phone number are prohibited is not verified. By default, this value is used when FallBackRule is left empty.
-     *   **sentFailed**: A fallback is triggered even if the template parameters including variables fail to pass the verification. If the channelType, type, messageType, to, and from parameters fail to pass the verification, a fallback is not triggered.
-     *
-     * @example undelivered
+     * @example 示例值示例值
      *
      * @var string
      */
     public $fallBackRule;
 
     /**
-     * @description The Flow action.
-     *
      * @var string
      */
     public $flowActionShrink;
 
     /**
-     * @description The mobile phone number of the message sender.
+     * @description This parameter is required.
      *
-     * >  You can specify a mobile phone number that is registered for a WhatsApp account and is approved in the Chat App Message Service console.
-     *
-     * This parameter is required.
-     *
-     * @example 1360000****
+     * @example 示例值示例值
      *
      * @var string
      */
     public $from;
 
     /**
-     * @description The ISV verification code. This parameter is used to verify whether the RAM user is authorized by the ISV account.
-     *
-     * @example skdi3kksloslikdkkdk
+     * @example 示例值
      *
      * @var string
      */
     public $isvCode;
 
     /**
-     * @description The type of the Viber message. This parameter is required if ChannelType is set to viber. Valid values:
-     *
-     *   **promotion**
-     *   **transaction**
-     *
-     * @example promotion
+     * @example 示例值
      *
      * @var string
      */
     public $label;
 
     /**
-     * @description The language that is used in the message template. This parameter is required only if you set the Type parameter to **template**. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
-     *
-     * @example en
+     * @example 示例值示例值示例值
      *
      * @var string
      */
     public $language;
 
     /**
-     * @description The specific type of the message. This parameter is required only if you set the Type parameter to **message**.
-     *
-     **Valid values of MessageType when you set the ChannelType parameter to whatsapp:**
-     *
-     *   **text**: a text message.
-     *   **image**: an image message.
-     *   **video**: a video message.
-     *   **audio**: an audio message.
-     *   **document**: a document message.
-     *   **interactive**: an interactive message.
-     *   **contacts**: a contact message.
-     *   **location**: a location message.
-     *   **sticker**: a sticker message.
-     *   **reaction**: a reaction message.
-     *
-     **Valid values of MessageType when you set the ChannelType parameter to viber:**
-     *
-     *   **text**: a text message.
-     *   **image**: an image message.
-     *   **video**: a video message.
-     *   **document**: a document message.
-     *   **text_button**: a message that contains the text and button media objects.
-     *   **text_image_button**: a message that contains multiple media objects, including the text, image, and button.
-     *   **text_video**: a message that contains the text and video media objects.
-     *   **text_video_button**: a message that contains multiple media objects, including text, video, and button.
-     *   **text_image**: a message that contains the text and image media objects.
-     *
-     * > For more information, see [Parameters of a message template](https://help.aliyun.com/document_detail/454530.html).
-     *
-     * @example text
+     * @example 示例值
      *
      * @var string
      */
     public $messageType;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
 
     /**
      * @description The payload of the button.
@@ -222,98 +154,85 @@ class SendChatappMessageShrinkRequest extends Model
     public $payloadShrink;
 
     /**
-     * @description The information about the products included in the WhatsApp catalog message or multi-product message (MPM).
-     *
      * @var string
      */
     public $productActionShrink;
 
     /**
+     * @example individual
+     *
      * @var string
      */
     public $recipientType;
 
     /**
-     * @description The tag information of the Viber message.
-     *
-     * @example tag
+     * @var string
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
+     * @example 示例值示例值
      *
      * @var string
      */
     public $tag;
 
     /**
-     * @description The task ID.
-     *
-     * @example 100000001
+     * @example 示例值示例值
      *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description The code of the message template. This parameter is required only if you set the Type parameter to **template**.
-     *
-     * @example 744c4b5c79c9432497a075bdfca3****
+     * @example 示例值示例值示例值
      *
      * @var string
      */
     public $templateCode;
 
     /**
-     * @description The name of the message template.
-     *
-     * @example test_name
+     * @example 示例值示例值示例值
      *
      * @var string
      */
     public $templateName;
 
     /**
-     * @description The variables of the message template.
-     *
      * @var string
      */
     public $templateParamsShrink;
 
     /**
-     * @description The mobile phone number of the message receiver.
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     *
-     * @example 1390000****
+     * @example 示例值示例值示例值
      *
      * @var string
      */
     public $to;
 
     /**
-     * @description The tracking data of the Viber message.
-     *
-     * @example tracking_id:123456
+     * @example 示例值示例值
      *
      * @var string
      */
     public $trackingData;
 
     /**
-     * @description The timeout period for sending the Viber message. Valid values: 30 to 1209600. Unit: seconds.
-     *
-     * @example 50
-     *
      * @var int
      */
     public $ttl;
 
     /**
-     * @description The message type. Valid values:
+     * @description This parameter is required.
      *
-     *   **template**: the template message. A template message is sent based on a template that is created and approved in the Chat App Message Service console. You can send template messages based on your business requirements.
-     *   **message**: the custom message. You can send a custom WhatsApp message to a user only within 24 hours after you receive the last message from the user. This limit does not apply to custom Viber messages.
-     *
-     * This parameter is required.
-     *
-     * @example template
+     * @example 示例值
      *
      * @var string
      */
@@ -334,9 +253,12 @@ class SendChatappMessageShrinkRequest extends Model
         'label' => 'Label',
         'language' => 'Language',
         'messageType' => 'MessageType',
+        'ownerId' => 'OwnerId',
         'payloadShrink' => 'Payload',
         'productActionShrink' => 'ProductAction',
         'recipientType' => 'RecipientType',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'tag' => 'Tag',
         'taskId' => 'TaskId',
         'templateCode' => 'TemplateCode',
@@ -398,6 +320,9 @@ class SendChatappMessageShrinkRequest extends Model
         if (null !== $this->messageType) {
             $res['MessageType'] = $this->messageType;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->payloadShrink) {
             $res['Payload'] = $this->payloadShrink;
         }
@@ -406,6 +331,12 @@ class SendChatappMessageShrinkRequest extends Model
         }
         if (null !== $this->recipientType) {
             $res['RecipientType'] = $this->recipientType;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
@@ -491,6 +422,9 @@ class SendChatappMessageShrinkRequest extends Model
         if (isset($map['MessageType'])) {
             $model->messageType = $map['MessageType'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['Payload'])) {
             $model->payloadShrink = $map['Payload'];
         }
@@ -499,6 +433,12 @@ class SendChatappMessageShrinkRequest extends Model
         }
         if (isset($map['RecipientType'])) {
             $model->recipientType = $map['RecipientType'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];

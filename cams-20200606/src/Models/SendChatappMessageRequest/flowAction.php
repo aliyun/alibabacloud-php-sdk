@@ -9,16 +9,12 @@ use AlibabaCloud\Tea\Model;
 class flowAction extends Model
 {
     /**
-     * @description The default parameter of the Flow.
-     *
      * @var mixed[]
      */
     public $flowActionData;
 
     /**
-     * @description The Flow token.
-     *
-     * @example 1122***
+     * @example 示例值示例值
      *
      * @var string
      */
