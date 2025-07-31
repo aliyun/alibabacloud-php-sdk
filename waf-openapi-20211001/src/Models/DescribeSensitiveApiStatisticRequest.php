@@ -100,6 +100,11 @@ class DescribeSensitiveApiStatisticRequest extends Model
      * @var int
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'clusterId' => 'ClusterId',
         'endTime' => 'EndTime',
@@ -110,6 +115,7 @@ class DescribeSensitiveApiStatisticRequest extends Model
         'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
         'startTime' => 'StartTime',
+        'type' => 'Type',
     ];
 
     public function validate() {}
@@ -143,6 +149,9 @@ class DescribeSensitiveApiStatisticRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -182,6 +191,9 @@ class DescribeSensitiveApiStatisticRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;
