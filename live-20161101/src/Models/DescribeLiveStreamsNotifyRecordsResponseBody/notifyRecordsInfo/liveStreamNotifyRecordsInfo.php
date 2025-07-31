@@ -45,6 +45,11 @@ class liveStreamNotifyRecordsInfo extends Model
     public $notifyContent;
 
     /**
+     * @var string
+     */
+    public $notifyResponse;
+
+    /**
      * @description The callback result. Valid values:
      *
      *   success
@@ -99,6 +104,7 @@ class liveStreamNotifyRecordsInfo extends Model
         'description' => 'Description',
         'domainName' => 'DomainName',
         'notifyContent' => 'NotifyContent',
+        'notifyResponse' => 'NotifyResponse',
         'notifyResult' => 'NotifyResult',
         'notifyTime' => 'NotifyTime',
         'notifyType' => 'NotifyType',
@@ -122,6 +128,9 @@ class liveStreamNotifyRecordsInfo extends Model
         }
         if (null !== $this->notifyContent) {
             $res['NotifyContent'] = $this->notifyContent;
+        }
+        if (null !== $this->notifyResponse) {
+            $res['NotifyResponse'] = $this->notifyResponse;
         }
         if (null !== $this->notifyResult) {
             $res['NotifyResult'] = $this->notifyResult;
@@ -161,6 +170,9 @@ class liveStreamNotifyRecordsInfo extends Model
         }
         if (isset($map['NotifyContent'])) {
             $model->notifyContent = $map['NotifyContent'];
+        }
+        if (isset($map['NotifyResponse'])) {
+            $model->notifyResponse = $map['NotifyResponse'];
         }
         if (isset($map['NotifyResult'])) {
             $model->notifyResult = $map['NotifyResult'];
