@@ -105,6 +105,9 @@ class Yunjian extends OpenApiClient
         if (!Utils::isUnset($request->accountId)) {
             $body['accountId'] = $request->accountId;
         }
+        if (!Utils::isUnset($request->demandType)) {
+            $body['demandType'] = $request->demandType;
+        }
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
         }
@@ -182,6 +185,9 @@ class Yunjian extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->accountId)) {
             $body['accountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->demandType)) {
+            $body['demandType'] = $request->demandType;
         }
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;

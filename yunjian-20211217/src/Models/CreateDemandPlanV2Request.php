@@ -18,6 +18,11 @@ class CreateDemandPlanV2Request extends Model
     /**
      * @var string
      */
+    public $demandType;
+
+    /**
+     * @var string
+     */
     public $description;
 
     /**
@@ -52,6 +57,7 @@ class CreateDemandPlanV2Request extends Model
     public $userId;
     protected $_name = [
         'accountId' => 'accountId',
+        'demandType' => 'demandType',
         'description' => 'description',
         'name' => 'name',
         'productType' => 'productType',
@@ -67,6 +73,9 @@ class CreateDemandPlanV2Request extends Model
         $res = [];
         if (null !== $this->accountId) {
             $res['accountId'] = $this->accountId;
+        }
+        if (null !== $this->demandType) {
+            $res['demandType'] = $this->demandType;
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
@@ -100,6 +109,9 @@ class CreateDemandPlanV2Request extends Model
         $model = new self();
         if (isset($map['accountId'])) {
             $model->accountId = $map['accountId'];
+        }
+        if (isset($map['demandType'])) {
+            $model->demandType = $map['demandType'];
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
