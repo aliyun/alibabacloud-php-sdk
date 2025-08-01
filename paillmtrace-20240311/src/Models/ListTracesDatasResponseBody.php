@@ -4,31 +4,49 @@
 
 namespace AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListTracesDatasResponseBody extends Model
 {
     /**
+     * @description The internal error code. This parameter is returned only when an error occurs.
+     *
+     * @example ExecutionFailure
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The error message. This parameter is returned only when an error occurs.
+     *
+     * @example failed to get trace data
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description POP request id
+     *
+     * @example 6A87228C-969A-1381-98CF-AE07AE630FA5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of traces that meet the condition.
+     *
+     * @example 22
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The JSON array with each element being a trace\\"s JSON string. Length of the array is equal to or less than the page size parameter value.
+     *
      * @var mixed[]
      */
     public $traces;
@@ -40,79 +58,53 @@ class ListTracesDatasResponseBody extends Model
         'traces' => 'Traces',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->traces)) {
-            Model::validateArray($this->traces);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
-
         if (null !== $this->traces) {
-            if (\is_array($this->traces)) {
-                $res['Traces'] = [];
-                $n1 = 0;
-                foreach ($this->traces as $item1) {
-                    $res['Traces'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Traces'] = $this->traces;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListTracesDatasResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
-
         if (isset($map['Traces'])) {
             if (!empty($map['Traces'])) {
-                $model->traces = [];
-                $n1 = 0;
-                foreach ($map['Traces'] as $item1) {
-                    $model->traces[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->traces = $map['Traces'];
             }
         }
 

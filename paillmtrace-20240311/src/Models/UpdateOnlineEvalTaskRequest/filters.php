@@ -4,21 +4,61 @@
 
 namespace AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\UpdateOnlineEvalTaskRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class filters extends Model
 {
     /**
+     * @description The key of the filter condition.
+     *
+     * Valid values:
+     *
+     *   Status
+     *   SpanName
+     *   Input
+     *   TraceType
+     *   SpanType
+     *   ServiceName
+     *   Output
+     *   TraceName
+     *   ServiceId
+     *
+     * @example ServiceId
+     * ServiceName
+     * Input
+     * Output
+     * Status
+     * TraceType
+     * SpanType
+     * TraceName
+     * SpanName
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The matching operator of the filter condition.
+     *
+     * Valid values:
+     *
+     *   Contains
+     *   \\=
+     *   StartsWith
+     *
+     * @example =
+     * StartsWith
+     * Contains
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @description The value of the filter condition.
+     *
+     * @example foo
+     *
      * @var string
      */
     public $value;
@@ -28,22 +68,17 @@ class filters extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -51,22 +86,20 @@ class filters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return filters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\EvaluationConfig\answer;
 use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\EvaluationConfig\context;
 use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\EvaluationConfig\query;
+use AlibabaCloud\Tea\Model;
 
 class EvaluationConfig extends Model
 {
@@ -31,54 +31,38 @@ class EvaluationConfig extends Model
         'query' => 'Query',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->answer) {
-            $this->answer->validate();
-        }
-        if (null !== $this->context) {
-            $this->context->validate();
-        }
-        if (null !== $this->query) {
-            $this->query->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->answer) {
-            $res['Answer'] = null !== $this->answer ? $this->answer->toArray($noStream) : $this->answer;
+            $res['Answer'] = null !== $this->answer ? $this->answer->toMap() : null;
         }
-
         if (null !== $this->context) {
-            $res['Context'] = null !== $this->context ? $this->context->toArray($noStream) : $this->context;
+            $res['Context'] = null !== $this->context ? $this->context->toMap() : null;
         }
-
         if (null !== $this->query) {
-            $res['Query'] = null !== $this->query ? $this->query->toArray($noStream) : $this->query;
+            $res['Query'] = null !== $this->query ? $this->query->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return EvaluationConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Answer'])) {
             $model->answer = answer::fromMap($map['Answer']);
         }
-
         if (isset($map['Context'])) {
             $model->context = context::fromMap($map['Context']);
         }
-
         if (isset($map['Query'])) {
             $model->query = query::fromMap($map['Query']);
         }

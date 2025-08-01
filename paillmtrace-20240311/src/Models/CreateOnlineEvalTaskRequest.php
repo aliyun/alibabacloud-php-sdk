@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\CreateOnlineEvalTaskRequest\body;
+use AlibabaCloud\Tea\Model;
 
 class CreateOnlineEvalTaskRequest extends Model
 {
     /**
+     * @description The request data.
+     *
      * @var body
      */
     public $body;
@@ -17,29 +19,23 @@ class CreateOnlineEvalTaskRequest extends Model
         'body' => 'body',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->body) {
-            $this->body->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateOnlineEvalTaskRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

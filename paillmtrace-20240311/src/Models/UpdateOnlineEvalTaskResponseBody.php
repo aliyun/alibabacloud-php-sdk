@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateOnlineEvalTaskResponseBody extends Model
 {
     /**
+     * @description The internal error code. This parameter is returned only when an error occurs.
+     *
+     * @example InvalidInputParams
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The error message. This parameter is returned only when an error occurs.
+     *
+     * @example cannot modify a stopped task
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Id of the POP request
+     *
+     * @example 6A87228C-969A-1381-98CF-AE07AE630FA5
+     *
      * @var string
      */
     public $requestId;
@@ -28,22 +40,17 @@ class UpdateOnlineEvalTaskResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,22 +58,20 @@ class UpdateOnlineEvalTaskResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateOnlineEvalTaskResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
