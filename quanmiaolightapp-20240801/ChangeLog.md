@@ -1,3 +1,18 @@
+2025-08-01 Version: 2.8.0
+- Support API GetEssayCorrectionTask.
+- Support API RunEssayCorrection.
+- Support API RunOcrParse.
+- Support API SubmitEssayCorrectionTask.
+- Update API GetVideoAnalysisTask: add response parameters Body.data.payload.output.videoRoleRecognitionResult.
+- Update API RunVideoAnalysis: add request parameters autoRoleRecognitionVideoUrl.
+- Update API RunVideoAnalysis: add request parameters videoRoles.$.isAutoRecognition.
+- Update API RunVideoAnalysis: add request parameters videoRoles.$.timeIntervals.
+- Update API RunVideoAnalysis: add response parameters Body.payload.output.videoRoleRecognitionResult.
+- Update API SubmitVideoAnalysisTask: add request parameters autoRoleRecognitionVideoUrl.
+- Update API SubmitVideoAnalysisTask: add request parameters videoRoles.$.isAutoRecognition.
+- Update API SubmitVideoAnalysisTask: add request parameters videoRoles.$.timeIntervals.
+
+
 2025-07-29 Version: 2.8.0
 - Support API GetEssayCorrectionTask.
 - Support API RunEssayCorrection.
