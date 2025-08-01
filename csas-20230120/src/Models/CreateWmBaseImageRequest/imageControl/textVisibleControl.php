@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmBaseImageRequest\imageControl;
 
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmBaseImageRequest\imageControl\textVisibleControl\margin;
 use AlibabaCloud\Tea\Model;
 
 class textVisibleControl extends Model
@@ -22,6 +23,11 @@ class textVisibleControl extends Model
      * @var int
      */
     public $fontSize;
+
+    /**
+     * @var margin
+     */
+    public $margin;
 
     /**
      * @var string
@@ -76,6 +82,7 @@ class textVisibleControl extends Model
         'angle' => 'Angle',
         'fontColor' => 'FontColor',
         'fontSize' => 'FontSize',
+        'margin' => 'Margin',
         'mode' => 'Mode',
         'opacity' => 'Opacity',
         'posAx' => 'PosAx',
@@ -101,6 +108,9 @@ class textVisibleControl extends Model
         }
         if (null !== $this->fontSize) {
             $res['FontSize'] = $this->fontSize;
+        }
+        if (null !== $this->margin) {
+            $res['Margin'] = null !== $this->margin ? $this->margin->toMap() : null;
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
@@ -152,6 +162,9 @@ class textVisibleControl extends Model
         }
         if (isset($map['FontSize'])) {
             $model->fontSize = $map['FontSize'];
+        }
+        if (isset($map['Margin'])) {
+            $model->margin = margin::fromMap($map['Margin']);
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];

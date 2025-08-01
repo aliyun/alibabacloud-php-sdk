@@ -79,6 +79,11 @@ class CreateWmBaseImageRequest extends Model
      * @var string
      */
     public $wmType;
+
+    /**
+     * @var string
+     */
+    public $comment;
     protected $_name = [
         'height' => 'Height',
         'imageControl' => 'ImageControl',
@@ -89,6 +94,7 @@ class CreateWmBaseImageRequest extends Model
         'wmInfoSize' => 'WmInfoSize',
         'wmInfoUint' => 'WmInfoUint',
         'wmType' => 'WmType',
+        'comment' => 'comment',
     ];
 
     public function validate() {}
@@ -122,6 +128,9 @@ class CreateWmBaseImageRequest extends Model
         }
         if (null !== $this->wmType) {
             $res['WmType'] = $this->wmType;
+        }
+        if (null !== $this->comment) {
+            $res['comment'] = $this->comment;
         }
 
         return $res;
@@ -161,6 +170,9 @@ class CreateWmBaseImageRequest extends Model
         }
         if (isset($map['WmType'])) {
             $model->wmType = $map['WmType'];
+        }
+        if (isset($map['comment'])) {
+            $model->comment = $map['comment'];
         }
 
         return $model;

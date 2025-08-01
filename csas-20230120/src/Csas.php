@@ -1163,6 +1163,10 @@ class Csas extends OpenApiClient
         if (!Utils::isUnset($tmpReq->imageControl)) {
             $request->imageControlShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageControl, 'ImageControl', 'json');
         }
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['comment'] = $request->comment;
+        }
         $body = [];
         if (!Utils::isUnset($request->height)) {
             $body['Height'] = $request->height;
@@ -1192,6 +1196,7 @@ class Csas extends OpenApiClient
             $body['WmType'] = $request->wmType;
         }
         $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -1329,9 +1334,15 @@ class Csas extends OpenApiClient
         if (!Utils::isUnset($tmpReq->csvControl)) {
             $request->csvControlShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->csvControl, 'CsvControl', 'json');
         }
+        if (!Utils::isUnset($tmpReq->imageExtractParamsOpenApi)) {
+            $request->imageExtractParamsOpenApiShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageExtractParamsOpenApi, 'ImageExtractParamsOpenApi', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->csvControlShrink)) {
             $query['CsvControl'] = $request->csvControlShrink;
+        }
+        if (!Utils::isUnset($request->imageExtractParamsOpenApiShrink)) {
+            $query['ImageExtractParamsOpenApi'] = $request->imageExtractParamsOpenApiShrink;
         }
         if (!Utils::isUnset($request->isClientEmbed)) {
             $query['IsClientEmbed'] = $request->isClientEmbed;

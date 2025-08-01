@@ -50,6 +50,11 @@ class CreateWmExtractTaskShrinkRequest extends Model
     public $filename;
 
     /**
+     * @var string
+     */
+    public $imageExtractParamsOpenApiShrink;
+
+    /**
      * @var bool
      */
     public $isClientEmbed;
@@ -114,6 +119,7 @@ class CreateWmExtractTaskShrinkRequest extends Model
         'documentIsCapture' => 'DocumentIsCapture',
         'fileUrl' => 'FileUrl',
         'filename' => 'Filename',
+        'imageExtractParamsOpenApiShrink' => 'ImageExtractParamsOpenApi',
         'isClientEmbed' => 'IsClientEmbed',
         'videoIsLong' => 'VideoIsLong',
         'videoSpeed' => 'VideoSpeed',
@@ -137,6 +143,9 @@ class CreateWmExtractTaskShrinkRequest extends Model
         }
         if (null !== $this->filename) {
             $res['Filename'] = $this->filename;
+        }
+        if (null !== $this->imageExtractParamsOpenApiShrink) {
+            $res['ImageExtractParamsOpenApi'] = $this->imageExtractParamsOpenApiShrink;
         }
         if (null !== $this->isClientEmbed) {
             $res['IsClientEmbed'] = $this->isClientEmbed;
@@ -176,6 +185,9 @@ class CreateWmExtractTaskShrinkRequest extends Model
         }
         if (isset($map['Filename'])) {
             $model->filename = $map['Filename'];
+        }
+        if (isset($map['ImageExtractParamsOpenApi'])) {
+            $model->imageExtractParamsOpenApiShrink = $map['ImageExtractParamsOpenApi'];
         }
         if (isset($map['IsClientEmbed'])) {
             $model->isClientEmbed = $map['IsClientEmbed'];

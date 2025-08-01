@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmBaseImageRequest\imageControl;
 
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmBaseImageRequest\imageControl\logoVisibleControl\margin;
 use AlibabaCloud\Tea\Model;
 
 class logoVisibleControl extends Model
@@ -14,9 +15,19 @@ class logoVisibleControl extends Model
     public $angle;
 
     /**
+     * @var bool
+     */
+    public $enhance;
+
+    /**
      * @var string
      */
     public $logoBase64;
+
+    /**
+     * @var margin
+     */
+    public $margin;
 
     /**
      * @var string
@@ -64,7 +75,9 @@ class logoVisibleControl extends Model
     public $visible;
     protected $_name = [
         'angle' => 'Angle',
+        'enhance' => 'Enhance',
         'logoBase64' => 'LogoBase64',
+        'margin' => 'Margin',
         'mode' => 'Mode',
         'opacity' => 'Opacity',
         'posAx' => 'PosAx',
@@ -84,8 +97,14 @@ class logoVisibleControl extends Model
         if (null !== $this->angle) {
             $res['Angle'] = $this->angle;
         }
+        if (null !== $this->enhance) {
+            $res['Enhance'] = $this->enhance;
+        }
         if (null !== $this->logoBase64) {
             $res['LogoBase64'] = $this->logoBase64;
+        }
+        if (null !== $this->margin) {
+            $res['Margin'] = null !== $this->margin ? $this->margin->toMap() : null;
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
@@ -129,8 +148,14 @@ class logoVisibleControl extends Model
         if (isset($map['Angle'])) {
             $model->angle = $map['Angle'];
         }
+        if (isset($map['Enhance'])) {
+            $model->enhance = $map['Enhance'];
+        }
         if (isset($map['LogoBase64'])) {
             $model->logoBase64 = $map['LogoBase64'];
+        }
+        if (isset($map['Margin'])) {
+            $model->margin = margin::fromMap($map['Margin']);
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];

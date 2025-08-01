@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmExtractTaskRequest\csvControl;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmExtractTaskRequest\imageExtractParamsOpenApi;
 use AlibabaCloud\Tea\Model;
 
 class CreateWmExtractTaskRequest extends Model
@@ -49,6 +50,11 @@ class CreateWmExtractTaskRequest extends Model
      * @var string
      */
     public $filename;
+
+    /**
+     * @var imageExtractParamsOpenApi
+     */
+    public $imageExtractParamsOpenApi;
 
     /**
      * @var bool
@@ -115,6 +121,7 @@ class CreateWmExtractTaskRequest extends Model
         'documentIsCapture' => 'DocumentIsCapture',
         'fileUrl' => 'FileUrl',
         'filename' => 'Filename',
+        'imageExtractParamsOpenApi' => 'ImageExtractParamsOpenApi',
         'isClientEmbed' => 'IsClientEmbed',
         'videoIsLong' => 'VideoIsLong',
         'videoSpeed' => 'VideoSpeed',
@@ -138,6 +145,9 @@ class CreateWmExtractTaskRequest extends Model
         }
         if (null !== $this->filename) {
             $res['Filename'] = $this->filename;
+        }
+        if (null !== $this->imageExtractParamsOpenApi) {
+            $res['ImageExtractParamsOpenApi'] = null !== $this->imageExtractParamsOpenApi ? $this->imageExtractParamsOpenApi->toMap() : null;
         }
         if (null !== $this->isClientEmbed) {
             $res['IsClientEmbed'] = $this->isClientEmbed;
@@ -177,6 +187,9 @@ class CreateWmExtractTaskRequest extends Model
         }
         if (isset($map['Filename'])) {
             $model->filename = $map['Filename'];
+        }
+        if (isset($map['ImageExtractParamsOpenApi'])) {
+            $model->imageExtractParamsOpenApi = imageExtractParamsOpenApi::fromMap($map['ImageExtractParamsOpenApi']);
         }
         if (isset($map['IsClientEmbed'])) {
             $model->isClientEmbed = $map['IsClientEmbed'];
