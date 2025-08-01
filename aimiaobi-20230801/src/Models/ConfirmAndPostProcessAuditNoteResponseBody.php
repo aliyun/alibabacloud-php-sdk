@@ -4,29 +4,34 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncUploadVideoResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class AsyncUploadVideoResponseBody extends Model
+class ConfirmAndPostProcessAuditNoteResponseBody extends Model
 {
     /**
-     * @example successful
+     * @example DataNotExists
      *
      * @var string
      */
     public $code;
 
     /**
-     * @var data
+     * @example 33
+     *
+     * @var string
      */
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
@@ -34,13 +39,15 @@ class AsyncUploadVideoResponseBody extends Model
     /**
      * @description Id of the request
      *
-     * @example 94512A33-8EC1-5452-A793-5C91F18ED2F0
+     * @example F2F366D6-E9FE-1006-BB70-2C650896AAB5
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -62,7 +69,7 @@ class AsyncUploadVideoResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = $this->data;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
@@ -83,7 +90,7 @@ class AsyncUploadVideoResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return AsyncUploadVideoResponseBody
+     * @return ConfirmAndPostProcessAuditNoteResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -92,7 +99,7 @@ class AsyncUploadVideoResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+            $model->data = $map['Data'];
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];

@@ -28,6 +28,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAuditTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CancelAuditTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ClearIntervenesRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ClearIntervenesResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ConfirmAndPostProcessAuditNoteRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ConfirmAndPostProcessAuditNoteResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDatasetRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDatasetResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateDatasetShrinkRequest;
@@ -36,6 +38,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateGeneratedContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateGeneratedContentShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateTokenRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\CreateTokenResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteAuditNoteRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteAuditNoteResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteAuditTermsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteAuditTermsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteAuditTermsShrinkRequest;
@@ -63,6 +67,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteStyleLearningResultResponse
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DocumentExtractionRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DocumentExtractionResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DocumentExtractionShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DownloadAuditNoteRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DownloadAuditNoteResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\EditAuditTermsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\EditAuditTermsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportAnalysisTagDetailByTaskIdRequest;
@@ -103,8 +109,14 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateUploadConfigResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAuditNotePostProcessingStatusRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAuditNotePostProcessingStatusResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAuditNoteProcessingStatusRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAuditNoteProcessingStatusResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAutoClipsTaskInfoRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAutoClipsTaskInfoResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAvailableAuditNotesRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAvailableAuditNotesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCategoriesByTaskIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCategoriesByTaskIdResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomHotTopicBroadcastJobRequest;
@@ -339,6 +351,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchNewsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SearchNewsShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitAsyncTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitAsyncTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitAuditNoteRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitAuditNoteResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitAuditTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitAuditTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomHotTopicBroadcastJobRequest;
@@ -969,6 +983,56 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * @summary 是否将本次提交自定义规则库得到的解析结果用于审核任务。由于解析结果可能不满足用户需求，因此我们为您提供了该接口用于二次确认。如果对提交的规则库解析满意，则可以直接将本次提交任务的 TaskId 作为入参，系统会对您上传的规则库做后处理，使它可以被用于审核。反之，您可以重新调用 SubmitAuditNote 接口上传修改之后的规则库。
+     *  *
+     * @param ConfirmAndPostProcessAuditNoteRequest $request ConfirmAndPostProcessAuditNoteRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ConfirmAndPostProcessAuditNoteResponse ConfirmAndPostProcessAuditNoteResponse
+     */
+    public function confirmAndPostProcessAuditNoteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ConfirmAndPostProcessAuditNote',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConfirmAndPostProcessAuditNoteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 是否将本次提交自定义规则库得到的解析结果用于审核任务。由于解析结果可能不满足用户需求，因此我们为您提供了该接口用于二次确认。如果对提交的规则库解析满意，则可以直接将本次提交任务的 TaskId 作为入参，系统会对您上传的规则库做后处理，使它可以被用于审核。反之，您可以重新调用 SubmitAuditNote 接口上传修改之后的规则库。
+     *  *
+     * @param ConfirmAndPostProcessAuditNoteRequest $request ConfirmAndPostProcessAuditNoteRequest
+     *
+     * @return ConfirmAndPostProcessAuditNoteResponse ConfirmAndPostProcessAuditNoteResponse
+     */
+    public function confirmAndPostProcessAuditNote($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->confirmAndPostProcessAuditNoteWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 数据集管理-创建
      *  *
      * @param CreateDatasetRequest $tmpReq  CreateDatasetRequest
@@ -1167,6 +1231,53 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除用户账户下所有可供审核使用的自定义规则库。删除后无法找回，如果您有对规则库存档的需求，请预先使用 DownloadAuditNote 接口保存需要的规则库。
+     *  *
+     * @param DeleteAuditNoteRequest $request DeleteAuditNoteRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAuditNoteResponse DeleteAuditNoteResponse
+     */
+    public function deleteAuditNoteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteAuditNote',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteAuditNoteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除用户账户下所有可供审核使用的自定义规则库。删除后无法找回，如果您有对规则库存档的需求，请预先使用 DownloadAuditNote 接口保存需要的规则库。
+     *  *
+     * @param DeleteAuditNoteRequest $request DeleteAuditNoteRequest
+     *
+     * @return DeleteAuditNoteResponse DeleteAuditNoteResponse
+     */
+    public function deleteAuditNote($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAuditNoteWithOptions($request, $runtime);
     }
 
     /**
@@ -1813,6 +1924,56 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->documentExtractionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 您可以通过调用该接口下载结构化后的规则库，供您进行进一步处理。该接口同时拥有两个功能：下载未后处理的结构化规则库，或下载当前可用于审核的结构化规则库。具体使用方法，请参考入参说明。
+     *  *
+     * @param DownloadAuditNoteRequest $request DownloadAuditNoteRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DownloadAuditNoteResponse DownloadAuditNoteResponse
+     */
+    public function downloadAuditNoteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'DownloadAuditNote',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DownloadAuditNoteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 您可以通过调用该接口下载结构化后的规则库，供您进行进一步处理。该接口同时拥有两个功能：下载未后处理的结构化规则库，或下载当前可用于审核的结构化规则库。具体使用方法，请参考入参说明。
+     *  *
+     * @param DownloadAuditNoteRequest $request DownloadAuditNoteRequest
+     *
+     * @return DownloadAuditNoteResponse DownloadAuditNoteResponse
+     */
+    public function downloadAuditNote($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadAuditNoteWithOptions($request, $runtime);
     }
 
     /**
@@ -2779,6 +2940,106 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * @summary 查询规则库后处理的进度。与 ConfirmAndPostProcessAuditNote 接口配合使用，供您查询当前后处理任务的状态。
+     *  *
+     * @param GetAuditNotePostProcessingStatusRequest $request GetAuditNotePostProcessingStatusRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAuditNotePostProcessingStatusResponse GetAuditNotePostProcessingStatusResponse
+     */
+    public function getAuditNotePostProcessingStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAuditNotePostProcessingStatus',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAuditNotePostProcessingStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询规则库后处理的进度。与 ConfirmAndPostProcessAuditNote 接口配合使用，供您查询当前后处理任务的状态。
+     *  *
+     * @param GetAuditNotePostProcessingStatusRequest $request GetAuditNotePostProcessingStatusRequest
+     *
+     * @return GetAuditNotePostProcessingStatusResponse GetAuditNotePostProcessingStatusResponse
+     */
+    public function getAuditNotePostProcessingStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAuditNotePostProcessingStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询用户上传规则库的处理状态。通过该接口，用户可以查询到当前规则库上传任务的状态，并获取到解析后的规则库文件大小、存储路径等信息。
+     *  *
+     * @param GetAuditNoteProcessingStatusRequest $request GetAuditNoteProcessingStatusRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAuditNoteProcessingStatusResponse GetAuditNoteProcessingStatusResponse
+     */
+    public function getAuditNoteProcessingStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAuditNoteProcessingStatus',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAuditNoteProcessingStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询用户上传规则库的处理状态。通过该接口，用户可以查询到当前规则库上传任务的状态，并获取到解析后的规则库文件大小、存储路径等信息。
+     *  *
+     * @param GetAuditNoteProcessingStatusRequest $request GetAuditNoteProcessingStatusRequest
+     *
+     * @return GetAuditNoteProcessingStatusResponse GetAuditNoteProcessingStatusResponse
+     */
+    public function getAuditNoteProcessingStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAuditNoteProcessingStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 获得剪辑任务状态
      *  *
      * @param GetAutoClipsTaskInfoRequest $request GetAutoClipsTaskInfoRequest
@@ -2826,6 +3087,53 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAutoClipsTaskInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询用户当前可供审核的规则库信息，只能查询到当前可用于审核的规则库。如果您想看到自定义规则库的具体内容，请使用 DownloadAuditNote 接口。
+     *  *
+     * @param GetAvailableAuditNotesRequest $request GetAvailableAuditNotesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAvailableAuditNotesResponse GetAvailableAuditNotesResponse
+     */
+    public function getAvailableAuditNotesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'GetAvailableAuditNotes',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAvailableAuditNotesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询用户当前可供审核的规则库信息，只能查询到当前可用于审核的规则库。如果您想看到自定义规则库的具体内容，请使用 DownloadAuditNote 接口。
+     *  *
+     * @param GetAvailableAuditNotesRequest $request GetAvailableAuditNotesRequest
+     *
+     * @return GetAvailableAuditNotesResponse GetAvailableAuditNotesResponse
+     */
+    public function getAvailableAuditNotes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAvailableAuditNotesWithOptions($request, $runtime);
     }
 
     /**
@@ -9193,6 +9501,56 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitAsyncTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 妙笔为您提供了与公有云“智能审校”模块中相同的上传自定义规则库的功能。由于鉴权限制，用户需要开通阿里云 OSS 服务后，将自定义规则库文件上传到 OSS 中，再使用该文件的 fileKey 作为入参才能顺利调用本接口。该接口在被调用后，会对用户的自定义规则库进行结构化处理，并生成一个 xlsx 格式的结构化解析结果。您可以调用 GetAuditNoteProcessingStatus 接口查询结构化处理状态，也可以调用 DownloadAuditNote 接口获取结构化之后的规则库。接口功能正在迭代中，预计会在未来使用可访问的文件 URL 作为入参。
+     *  *
+     * @param SubmitAuditNoteRequest $request SubmitAuditNoteRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitAuditNoteResponse SubmitAuditNoteResponse
+     */
+    public function submitAuditNoteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->fileKey)) {
+            $body['FileKey'] = $request->fileKey;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SubmitAuditNote',
+            'version' => '2023-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SubmitAuditNoteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 妙笔为您提供了与公有云“智能审校”模块中相同的上传自定义规则库的功能。由于鉴权限制，用户需要开通阿里云 OSS 服务后，将自定义规则库文件上传到 OSS 中，再使用该文件的 fileKey 作为入参才能顺利调用本接口。该接口在被调用后，会对用户的自定义规则库进行结构化处理，并生成一个 xlsx 格式的结构化解析结果。您可以调用 GetAuditNoteProcessingStatus 接口查询结构化处理状态，也可以调用 DownloadAuditNote 接口获取结构化之后的规则库。接口功能正在迭代中，预计会在未来使用可访问的文件 URL 作为入参。
+     *  *
+     * @param SubmitAuditNoteRequest $request SubmitAuditNoteRequest
+     *
+     * @return SubmitAuditNoteResponse SubmitAuditNoteResponse
+     */
+    public function submitAuditNote($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitAuditNoteWithOptions($request, $runtime);
     }
 
     /**

@@ -4,13 +4,15 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
-use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\AsyncUploadVideoResponseBody\data;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetAuditNotePostProcessingStatusResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class AsyncUploadVideoResponseBody extends Model
+class GetAuditNotePostProcessingStatusResponseBody extends Model
 {
     /**
-     * @example successful
+     * @description This parameter is required.
+     *
+     * @example DataNotExists
      *
      * @var string
      */
@@ -22,11 +24,17 @@ class AsyncUploadVideoResponseBody extends Model
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
@@ -34,13 +42,19 @@ class AsyncUploadVideoResponseBody extends Model
     /**
      * @description Id of the request
      *
-     * @example 94512A33-8EC1-5452-A793-5C91F18ED2F0
+     * This parameter is required.
+     *
+     * @example F2F366D6-E9FE-1006-BB70-2C650896AAB5
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -83,7 +97,7 @@ class AsyncUploadVideoResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return AsyncUploadVideoResponseBody
+     * @return GetAuditNotePostProcessingStatusResponseBody
      */
     public static function fromMap($map = [])
     {
