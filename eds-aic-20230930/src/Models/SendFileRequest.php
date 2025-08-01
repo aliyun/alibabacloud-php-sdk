@@ -18,6 +18,11 @@ class SendFileRequest extends Model
     public $androidInstanceIdList;
 
     /**
+     * @var bool
+     */
+    public $autoInstall;
+
+    /**
      * @description The path to which you want to upload the pushed file in the cloud phone instance.
      *
      * This parameter is required.
@@ -75,6 +80,7 @@ class SendFileRequest extends Model
     public $uploadUrl;
     protected $_name = [
         'androidInstanceIdList' => 'AndroidInstanceIdList',
+        'autoInstall' => 'AutoInstall',
         'sourceFilePath' => 'SourceFilePath',
         'targetFileName' => 'TargetFileName',
         'uploadEndpoint' => 'UploadEndpoint',
@@ -89,6 +95,9 @@ class SendFileRequest extends Model
         $res = [];
         if (null !== $this->androidInstanceIdList) {
             $res['AndroidInstanceIdList'] = $this->androidInstanceIdList;
+        }
+        if (null !== $this->autoInstall) {
+            $res['AutoInstall'] = $this->autoInstall;
         }
         if (null !== $this->sourceFilePath) {
             $res['SourceFilePath'] = $this->sourceFilePath;
@@ -121,6 +130,9 @@ class SendFileRequest extends Model
             if (!empty($map['AndroidInstanceIdList'])) {
                 $model->androidInstanceIdList = $map['AndroidInstanceIdList'];
             }
+        }
+        if (isset($map['AutoInstall'])) {
+            $model->autoInstall = $map['AutoInstall'];
         }
         if (isset($map['SourceFilePath'])) {
             $model->sourceFilePath = $map['SourceFilePath'];

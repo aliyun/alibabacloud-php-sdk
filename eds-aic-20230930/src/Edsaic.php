@@ -105,6 +105,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\ImportKeyPairRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ImportKeyPairResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallAppRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallAppResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallMonitorAgentRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallMonitorAgentResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyAndroidInstanceGroupRequest;
@@ -154,6 +156,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\StopAndroidInstanceRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\StopAndroidInstanceResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UninstallAppRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UninstallAppResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\UninstallMonitorAgentRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\UninstallMonitorAgentResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateCustomImageNameRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateCustomImageNameResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateInstanceGroupImageRequest;
@@ -3196,6 +3200,56 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * @summary 安装监控插件
+     *  *
+     * @param InstallMonitorAgentRequest $request InstallMonitorAgentRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return InstallMonitorAgentResponse InstallMonitorAgentResponse
+     */
+    public function installMonitorAgentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->androidInstanceIds)) {
+            $body['AndroidInstanceIds'] = $request->androidInstanceIds;
+        }
+        if (!Utils::isUnset($request->saleMode)) {
+            $body['SaleMode'] = $request->saleMode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'InstallMonitorAgent',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return InstallMonitorAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 安装监控插件
+     *  *
+     * @param InstallMonitorAgentRequest $request InstallMonitorAgentRequest
+     *
+     * @return InstallMonitorAgentResponse InstallMonitorAgentResponse
+     */
+    public function installMonitorAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->installMonitorAgentWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries policies.
      *  *
      * @param ListPolicyGroupsRequest $request ListPolicyGroupsRequest
@@ -4218,6 +4272,9 @@ class Edsaic extends OpenApiClient
         if (!Utils::isUnset($request->androidInstanceIdList)) {
             $query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
         }
+        if (!Utils::isUnset($request->autoInstall)) {
+            $query['AutoInstall'] = $request->autoInstall;
+        }
         if (!Utils::isUnset($request->sourceFilePath)) {
             $query['SourceFilePath'] = $request->sourceFilePath;
         }
@@ -4542,6 +4599,56 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->uninstallAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 卸载监控插件
+     *  *
+     * @param UninstallMonitorAgentRequest $request UninstallMonitorAgentRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UninstallMonitorAgentResponse UninstallMonitorAgentResponse
+     */
+    public function uninstallMonitorAgentWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->androidInstanceIds)) {
+            $body['AndroidInstanceIds'] = $request->androidInstanceIds;
+        }
+        if (!Utils::isUnset($request->saleMode)) {
+            $body['SaleMode'] = $request->saleMode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UninstallMonitorAgent',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UninstallMonitorAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 卸载监控插件
+     *  *
+     * @param UninstallMonitorAgentRequest $request UninstallMonitorAgentRequest
+     *
+     * @return UninstallMonitorAgentResponse UninstallMonitorAgentResponse
+     */
+    public function uninstallMonitorAgent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uninstallMonitorAgentWithOptions($request, $runtime);
     }
 
     /**
