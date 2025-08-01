@@ -335,6 +335,11 @@ class instanceModel extends Model
     /**
      * @var string
      */
+    public $serverStatus;
+
+    /**
+     * @var string
+     */
     public $serverType;
 
     /**
@@ -418,6 +423,7 @@ class instanceModel extends Model
         'rate' => 'Rate',
         'regionId' => 'RegionId',
         'renderingType' => 'RenderingType',
+        'serverStatus' => 'ServerStatus',
         'serverType' => 'ServerType',
         'sessionStatus' => 'SessionStatus',
         'streamMode' => 'StreamMode',
@@ -563,6 +569,9 @@ class instanceModel extends Model
         }
         if (null !== $this->renderingType) {
             $res['RenderingType'] = $this->renderingType;
+        }
+        if (null !== $this->serverStatus) {
+            $res['ServerStatus'] = $this->serverStatus;
         }
         if (null !== $this->serverType) {
             $res['ServerType'] = $this->serverType;
@@ -734,6 +743,9 @@ class instanceModel extends Model
         }
         if (isset($map['RenderingType'])) {
             $model->renderingType = $map['RenderingType'];
+        }
+        if (isset($map['ServerStatus'])) {
+            $model->serverStatus = $map['ServerStatus'];
         }
         if (isset($map['ServerType'])) {
             $model->serverType = $map['ServerType'];

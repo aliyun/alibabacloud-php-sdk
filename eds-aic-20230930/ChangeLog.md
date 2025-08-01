@@ -1,3 +1,7 @@
+2025-08-01 Version: 4.10.3
+- Update API DescribeAndroidInstances: add response parameters Body.InstanceModel.$.ServerStatus.
+
+
 2025-08-01 Version: 4.10.2
 - Generated php 2023-09-30 for eds-aic.
 
