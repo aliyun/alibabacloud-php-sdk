@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRouteDetailResponseBody\data\routeServices\httpDubboTranscoder\mothedMapList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class paramMapsList extends Model
 {
@@ -28,22 +28,17 @@ class paramMapsList extends Model
         'mappingType' => 'MappingType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->extractKey) {
             $res['ExtractKey'] = $this->extractKey;
         }
-
         if (null !== $this->extractKeySpec) {
             $res['ExtractKeySpec'] = $this->extractKeySpec;
         }
-
         if (null !== $this->mappingType) {
             $res['MappingType'] = $this->mappingType;
         }
@@ -51,22 +46,20 @@ class paramMapsList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return paramMapsList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExtractKey'])) {
             $model->extractKey = $map['ExtractKey'];
         }
-
         if (isset($map['ExtractKeySpec'])) {
             $model->extractKeySpec = $map['ExtractKeySpec'];
         }
-
         if (isset($map['MappingType'])) {
             $model->mappingType = $map['MappingType'];
         }

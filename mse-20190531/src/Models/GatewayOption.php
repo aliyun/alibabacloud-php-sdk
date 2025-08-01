@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GatewayOption\logConfigDetails;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GatewayOption\traceDetails;
+use AlibabaCloud\Tea\Model;
 
 class GatewayOption extends Model
 {
@@ -42,67 +42,50 @@ class GatewayOption extends Model
         'traceDetails' => 'TraceDetails',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->logConfigDetails) {
-            $this->logConfigDetails->validate();
-        }
-        if (null !== $this->traceDetails) {
-            $this->traceDetails->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->disableHttp2Alpn) {
             $res['DisableHttp2Alpn'] = $this->disableHttp2Alpn;
         }
-
         if (null !== $this->enableHardwareAcceleration) {
             $res['EnableHardwareAcceleration'] = $this->enableHardwareAcceleration;
         }
-
         if (null !== $this->enableWaf) {
             $res['EnableWaf'] = $this->enableWaf;
         }
-
         if (null !== $this->logConfigDetails) {
-            $res['LogConfigDetails'] = null !== $this->logConfigDetails ? $this->logConfigDetails->toArray($noStream) : $this->logConfigDetails;
+            $res['LogConfigDetails'] = null !== $this->logConfigDetails ? $this->logConfigDetails->toMap() : null;
         }
-
         if (null !== $this->traceDetails) {
-            $res['TraceDetails'] = null !== $this->traceDetails ? $this->traceDetails->toArray($noStream) : $this->traceDetails;
+            $res['TraceDetails'] = null !== $this->traceDetails ? $this->traceDetails->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GatewayOption
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DisableHttp2Alpn'])) {
             $model->disableHttp2Alpn = $map['DisableHttp2Alpn'];
         }
-
         if (isset($map['EnableHardwareAcceleration'])) {
             $model->enableHardwareAcceleration = $map['EnableHardwareAcceleration'];
         }
-
         if (isset($map['EnableWaf'])) {
             $model->enableWaf = $map['EnableWaf'];
         }
-
         if (isset($map['LogConfigDetails'])) {
             $model->logConfigDetails = logConfigDetails::fromMap($map['LogConfigDetails']);
         }
-
         if (isset($map['TraceDetails'])) {
             $model->traceDetails = traceDetails::fromMap($map['TraceDetails']);
         }

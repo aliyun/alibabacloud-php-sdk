@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\TrafficPolicy;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tlsSetting extends Model
 {
@@ -24,6 +24,10 @@ class tlsSetting extends Model
     public $sni;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example SIMPLE
+     *
      * @var string
      */
     public $tlsMode;
@@ -34,26 +38,20 @@ class tlsSetting extends Model
         'tlsMode' => 'TlsMode',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->caCertContent) {
             $res['CaCertContent'] = $this->caCertContent;
         }
-
         if (null !== $this->certId) {
             $res['CertId'] = $this->certId;
         }
-
         if (null !== $this->sni) {
             $res['Sni'] = $this->sni;
         }
-
         if (null !== $this->tlsMode) {
             $res['TlsMode'] = $this->tlsMode;
         }
@@ -61,26 +59,23 @@ class tlsSetting extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tlsSetting
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CaCertContent'])) {
             $model->caCertContent = $map['CaCertContent'];
         }
-
         if (isset($map['CertId'])) {
             $model->certId = $map['CertId'];
         }
-
         if (isset($map['Sni'])) {
             $model->sni = $map['Sni'];
         }
-
         if (isset($map['TlsMode'])) {
             $model->tlsMode = $map['TlsMode'];
         }

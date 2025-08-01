@@ -4,32 +4,53 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListZnodeChildrenResponseBody\data;
+use AlibabaCloud\Tea\Model;
 
 class ListZnodeChildrenResponseBody extends Model
 {
     /**
+     * @description The details of the data.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The error code returned if the request failed.
+     *
+     * @example mse-100-000
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The message returned.
+     *
+     * @example The request is successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BDB6CE0B-9CAF-41B5-9FEA-E08BE8E2****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
@@ -41,40 +62,29 @@ class ListZnodeChildrenResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->data)) {
-            Model::validateArray($this->data);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
-            if (\is_array($this->data)) {
-                $res['Data'] = [];
-                $n1 = 0;
-                foreach ($this->data as $item1) {
-                    $res['Data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -82,37 +92,32 @@ class ListZnodeChildrenResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListZnodeChildrenResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n1 = 0;
-                foreach ($map['Data'] as $item1) {
-                    $model->data[$n1] = data::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

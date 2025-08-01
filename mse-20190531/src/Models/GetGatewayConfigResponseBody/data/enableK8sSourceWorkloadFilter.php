@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayConfigResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class enableK8sSourceWorkloadFilter extends Model
 {
@@ -34,26 +34,20 @@ class enableK8sSourceWorkloadFilter extends Model
         'labelValue' => 'LabelValue',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
-
         if (null !== $this->filterOpt) {
             $res['FilterOpt'] = $this->filterOpt;
         }
-
         if (null !== $this->labelKey) {
             $res['LabelKey'] = $this->labelKey;
         }
-
         if (null !== $this->labelValue) {
             $res['LabelValue'] = $this->labelValue;
         }
@@ -61,26 +55,23 @@ class enableK8sSourceWorkloadFilter extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return enableK8sSourceWorkloadFilter
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
-
         if (isset($map['FilterOpt'])) {
             $model->filterOpt = $map['FilterOpt'];
         }
-
         if (isset($map['LabelKey'])) {
             $model->labelKey = $map['LabelKey'];
         }
-
         if (isset($map['LabelValue'])) {
             $model->labelValue = $map['LabelValue'];
         }

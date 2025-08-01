@@ -4,46 +4,99 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ExportNacosConfigRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The application tag.
+     *
+     * @example qjl-gateway-openapi
+     *
+     * @deprecated
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The ID of the data that you want to export.
+     *
+     * >
+     *
+     *   Multiple export methods are supported.
+     *
+     *   If you want to export a single configuration, you must leave the Ids parameter empty and specify the DataID and Group parameters.
+     *
+     * @example sms-mes-develop.prop****
+     *
+     * @deprecated
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description The configuration group name and the ID of the configuration that you want to export. Separate multiple configurations with comma (,).
+     *
+     * @example testGroup+testDataId1,testGroup+testDataId2
+     *
      * @var string
      */
     public $dataIds;
 
     /**
+     * @description The name of the configuration group.
+     *
+     * @example TIMEDTASK_COMMON_GROUP
+     *
+     * @deprecated
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The ID of the primary key of a configuration item.
+     *
+     * >  - Multiple export methods are supported. You must specify this parameter if you want to export multiple configurations. - You can obtain the value of this parameter by calling the ListNacosConfigs operation. - If you specify this parameter, multiple configurations are exported. The DataId and Group parameters are invalid.
+     *
+     * @example 1709,1710
+     *
+     * @deprecated
+     *
      * @var string
      */
     public $ids;
 
     /**
+     * @description The ID of the instance.
+     *
+     * This parameter is required.
+     *
+     * @example mse-cn-2r42ddc****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example ae77c258-4d4f-478f-baaa-084aee0****
+     *
      * @var string
      */
     public $namespaceId;
@@ -58,42 +111,32 @@ class ExportNacosConfigRequest extends Model
         'namespaceId' => 'NamespaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
-
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
         }
-
         if (null !== $this->dataIds) {
             $res['DataIds'] = $this->dataIds;
         }
-
         if (null !== $this->group) {
             $res['Group'] = $this->group;
         }
-
         if (null !== $this->ids) {
             $res['Ids'] = $this->ids;
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
@@ -101,42 +144,35 @@ class ExportNacosConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ExportNacosConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
-
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
         }
-
         if (isset($map['DataIds'])) {
             $model->dataIds = $map['DataIds'];
         }
-
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
         }
-
         if (isset($map['Ids'])) {
             $model->ids = $map['Ids'];
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }

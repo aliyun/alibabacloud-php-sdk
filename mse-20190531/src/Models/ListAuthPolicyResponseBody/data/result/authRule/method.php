@@ -4,36 +4,58 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListAuthPolicyResponseBody\data\result\authRule;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class method extends Model
 {
     /**
+     * @description The group.
+     *
+     * @example default
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The method name.
+     *
+     * @example hello
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The types of request parameters.
+     *
      * @var string[]
      */
     public $parameterTypes;
 
     /**
+     * @description The type of the return value.
+     *
+     * @example Boolean
+     *
      * @var string
      */
     public $returnType;
 
     /**
+     * @description The service name.
+     *
+     * @example spring-cloud-a
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The method version.
+     *
+     * @example 0.0.1
+     *
      * @var string
      */
     public $version;
@@ -46,44 +68,26 @@ class method extends Model
         'version' => 'Version',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->parameterTypes)) {
-            Model::validateArray($this->parameterTypes);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->group) {
             $res['Group'] = $this->group;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->parameterTypes) {
-            if (\is_array($this->parameterTypes)) {
-                $res['ParameterTypes'] = [];
-                $n1 = 0;
-                foreach ($this->parameterTypes as $item1) {
-                    $res['ParameterTypes'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['ParameterTypes'] = $this->parameterTypes;
         }
-
         if (null !== $this->returnType) {
             $res['ReturnType'] = $this->returnType;
         }
-
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
-
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -91,41 +95,31 @@ class method extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return method
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['ParameterTypes'])) {
             if (!empty($map['ParameterTypes'])) {
-                $model->parameterTypes = [];
-                $n1 = 0;
-                foreach ($map['ParameterTypes'] as $item1) {
-                    $model->parameterTypes[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->parameterTypes = $map['ParameterTypes'];
             }
         }
-
         if (isset($map['ReturnType'])) {
             $model->returnType = $map['ReturnType'];
         }
-
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
-
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

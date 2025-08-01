@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteIsolationRulesShrinkRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example spring-cloud-a
+     *
      * @var string
      */
     public $appName;
@@ -24,6 +30,10 @@ class DeleteIsolationRulesShrinkRequest extends Model
     public $idsShrink;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
@@ -34,26 +44,20 @@ class DeleteIsolationRulesShrinkRequest extends Model
         'namespace' => 'Namespace',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
-
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-
         if (null !== $this->idsShrink) {
             $res['Ids'] = $this->idsShrink;
         }
-
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -61,26 +65,23 @@ class DeleteIsolationRulesShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteIsolationRulesShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
-
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-
         if (isset($map['Ids'])) {
             $model->idsShrink = $map['Ids'];
         }
-
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }

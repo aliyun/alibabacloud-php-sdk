@@ -4,21 +4,39 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetPluginConfigRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     * zh: Chinese en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * This parameter is required.
+     *
+     * @example gw-ubuwqygbq4783gqb2y3f87q****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the gateway plug-in.
+     *
+     * This parameter is required.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $pluginId;
@@ -28,22 +46,17 @@ class GetPluginConfigRequest extends Model
         'pluginId' => 'PluginId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
-
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
         }
-
         if (null !== $this->pluginId) {
             $res['PluginId'] = $this->pluginId;
         }
@@ -51,22 +64,20 @@ class GetPluginConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetPluginConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
-
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }
-
         if (isset($map['PluginId'])) {
             $model->pluginId = $map['PluginId'];
         }

@@ -4,21 +4,27 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\InitializeServiceLinkRoleResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example ram:CreateServiceLinkedRole
+     *
      * @var string
      */
     public $requiredPermission;
 
     /**
+     * @example AliyunServiceRoleForMSE
+     *
      * @var string
      */
     public $roleName;
 
     /**
+     * @example mse.aliyuncs.com
+     *
      * @var string
      */
     public $serviceName;
@@ -28,22 +34,17 @@ class data extends Model
         'serviceName' => 'ServiceName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requiredPermission) {
             $res['RequiredPermission'] = $this->requiredPermission;
         }
-
         if (null !== $this->roleName) {
             $res['RoleName'] = $this->roleName;
         }
-
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
@@ -51,22 +52,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequiredPermission'])) {
             $model->requiredPermission = $map['RequiredPermission'];
         }
-
         if (isset($map['RoleName'])) {
             $model->roleName = $map['RoleName'];
         }
-
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }

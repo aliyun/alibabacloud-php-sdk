@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListListenersByIpResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class listeners extends Model
 {
     /**
+     * @description The ID of the data.
+     *
+     * @example test.yaml
+     *
      * @var string
      */
     public $dataId;
 
     /**
+     * @description The group.
+     *
+     * @example default
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description The verification string.
+     *
+     * @example 23sdfdf
+     *
      * @var string
      */
     public $md5;
@@ -34,26 +46,20 @@ class listeners extends Model
         'namespaceId' => 'NamespaceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
         }
-
         if (null !== $this->group) {
             $res['Group'] = $this->group;
         }
-
         if (null !== $this->md5) {
             $res['Md5'] = $this->md5;
         }
-
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
@@ -61,26 +67,23 @@ class listeners extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return listeners
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
         }
-
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
         }
-
         if (isset($map['Md5'])) {
             $model->md5 = $map['Md5'];
         }
-
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }

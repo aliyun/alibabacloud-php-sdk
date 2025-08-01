@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayServiceDetailResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class labelDetails extends Model
 {
     /**
+     * @description The tag.
+     *
+     * @example label
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The tag value.
+     *
      * @var string[]
      */
     public $values;
@@ -22,55 +28,35 @@ class labelDetails extends Model
         'values' => 'Values',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->values)) {
-            Model::validateArray($this->values);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->values) {
-            if (\is_array($this->values)) {
-                $res['Values'] = [];
-                $n1 = 0;
-                foreach ($this->values as $item1) {
-                    $res['Values'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Values'] = $this->values;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return labelDetails
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
-                $model->values = [];
-                $n1 = 0;
-                foreach ($map['Values'] as $item1) {
-                    $model->values[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->values = $map['Values'];
             }
         }
 

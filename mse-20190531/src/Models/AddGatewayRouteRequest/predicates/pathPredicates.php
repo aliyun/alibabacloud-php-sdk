@@ -4,21 +4,37 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayRouteRequest\predicates;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class pathPredicates extends Model
 {
     /**
+     * @description Specifies whether to ignore case sensitivity.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ignoreCase;
 
     /**
+     * @description The path.
+     *
+     * @example /test
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @description The route matching type. Valid values:
+     *
+     *   PRE: prefix matching
+     *   EQUAL: exact matching
+     *   ERGULAR: regular expression matching
+     *
+     * @example PRE
+     *
      * @var string
      */
     public $type;
@@ -28,22 +44,17 @@ class pathPredicates extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ignoreCase) {
             $res['IgnoreCase'] = $this->ignoreCase;
         }
-
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -51,22 +62,20 @@ class pathPredicates extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return pathPredicates
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IgnoreCase'])) {
             $model->ignoreCase = $map['IgnoreCase'];
         }
-
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class QueryGatewayRegionRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
@@ -16,12 +23,9 @@ class QueryGatewayRegionRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
@@ -31,11 +35,11 @@ class QueryGatewayRegionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return QueryGatewayRegionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRouteDetailResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class timeout extends Model
 {
     /**
+     * @description The status.
+     *
+     * @example off
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The time unit.
+     *
+     * @example s
+     *
      * @var string
      */
     public $timeUnit;
 
     /**
+     * @description The unit number.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $unitNum;
@@ -28,22 +40,17 @@ class timeout extends Model
         'unitNum' => 'UnitNum',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-
         if (null !== $this->timeUnit) {
             $res['TimeUnit'] = $this->timeUnit;
         }
-
         if (null !== $this->unitNum) {
             $res['UnitNum'] = $this->unitNum;
         }
@@ -51,22 +58,20 @@ class timeout extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return timeout
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-
         if (isset($map['TimeUnit'])) {
             $model->timeUnit = $map['TimeUnit'];
         }
-
         if (isset($map['UnitNum'])) {
             $model->unitNum = $map['UnitNum'];
         }

@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteNamespaceRequest extends Model
 {
     /**
+     * @description The language in which you want to display the results. Valid values: zh and en. Default value: zh. The value zh indicates Chinese, and the value en indicates English.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @example prod
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
@@ -28,22 +36,17 @@ class DeleteNamespaceRequest extends Model
         'region' => 'Region',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -51,22 +54,20 @@ class DeleteNamespaceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteNamespaceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

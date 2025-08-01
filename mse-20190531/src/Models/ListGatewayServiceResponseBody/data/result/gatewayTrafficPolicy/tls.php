@@ -4,36 +4,63 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayServiceResponseBody\data\result\gatewayTrafficPolicy;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tls extends Model
 {
     /**
+     * @description The public key of the CA certificate .
+     *
+     * @example content
+     *
      * @var string
      */
     public $caCertContent;
 
     /**
+     * @description The ID of the certification authority (CA) certificate.
+     *
+     * @example 5******-cn-hangzhou
+     *
      * @var string
      */
     public $caCertId;
 
     /**
+     * @description The ID of the certificate.
+     *
+     * @example 5******-cn-hangzhou
+     *
      * @var string
      */
     public $certId;
 
     /**
+     * @description The TLS mode.
+     *
+     *   DISABLE
+     *   SIMPLE
+     *   MUTUAL
+     *   ISTIO_MUTUAL
+     *
+     * @example SIMPLE
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The Server Name Indication (SNI) value.
+     *
+     * @example name-sni
+     *
      * @var string
      */
     public $sni;
 
     /**
+     * @description The array of subject aliases.
+     *
      * @var string[]
      */
     public $subjectAltNames;
@@ -46,87 +73,59 @@ class tls extends Model
         'subjectAltNames' => 'SubjectAltNames',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->subjectAltNames)) {
-            Model::validateArray($this->subjectAltNames);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->caCertContent) {
             $res['CaCertContent'] = $this->caCertContent;
         }
-
         if (null !== $this->caCertId) {
             $res['CaCertId'] = $this->caCertId;
         }
-
         if (null !== $this->certId) {
             $res['CertId'] = $this->certId;
         }
-
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
-
         if (null !== $this->sni) {
             $res['Sni'] = $this->sni;
         }
-
         if (null !== $this->subjectAltNames) {
-            if (\is_array($this->subjectAltNames)) {
-                $res['SubjectAltNames'] = [];
-                $n1 = 0;
-                foreach ($this->subjectAltNames as $item1) {
-                    $res['SubjectAltNames'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['SubjectAltNames'] = $this->subjectAltNames;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tls
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CaCertContent'])) {
             $model->caCertContent = $map['CaCertContent'];
         }
-
         if (isset($map['CaCertId'])) {
             $model->caCertId = $map['CaCertId'];
         }
-
         if (isset($map['CertId'])) {
             $model->certId = $map['CertId'];
         }
-
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
-
         if (isset($map['Sni'])) {
             $model->sni = $map['Sni'];
         }
-
         if (isset($map['SubjectAltNames'])) {
             if (!empty($map['SubjectAltNames'])) {
-                $model->subjectAltNames = [];
-                $n1 = 0;
-                foreach ($map['SubjectAltNames'] as $item1) {
-                    $model->subjectAltNames[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->subjectAltNames = $map['SubjectAltNames'];
             }
         }
 

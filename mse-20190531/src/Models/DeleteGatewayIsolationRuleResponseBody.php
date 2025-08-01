@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteGatewayIsolationRuleResponseBody extends Model
 {
     /**
+     * @example True
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @example 94B12406-E44D-57C9-BF93-A8B35BFF****
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +26,14 @@ class DeleteGatewayIsolationRuleResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +41,17 @@ class DeleteGatewayIsolationRuleResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteGatewayIsolationRuleResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

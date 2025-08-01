@@ -4,26 +4,49 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteFlowRulesRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The application name.
+     *
+     * This parameter is required.
+     *
+     * @example spring-cloud-a
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The IDs of the rules to be deleted.
+     *
+     * @example [1,2]
+     *
      * @var int[]
      */
     public $ids;
 
     /**
+     * @description The microservice namespace to which the application belongs.
+     *
+     * This parameter is required.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
@@ -34,36 +57,20 @@ class DeleteFlowRulesRequest extends Model
         'namespace' => 'Namespace',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ids)) {
-            Model::validateArray($this->ids);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
-
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-
         if (null !== $this->ids) {
-            if (\is_array($this->ids)) {
-                $res['Ids'] = [];
-                $n1 = 0;
-                foreach ($this->ids as $item1) {
-                    $res['Ids'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Ids'] = $this->ids;
         }
-
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -71,33 +78,25 @@ class DeleteFlowRulesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteFlowRulesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
-
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-
         if (isset($map['Ids'])) {
             if (!empty($map['Ids'])) {
-                $model->ids = [];
-                $n1 = 0;
-                foreach ($map['Ids'] as $item1) {
-                    $model->ids[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->ids = $map['Ids'];
             }
         }
-
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }

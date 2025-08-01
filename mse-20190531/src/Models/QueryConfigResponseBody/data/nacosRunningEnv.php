@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\QueryConfigResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class nacosRunningEnv extends Model
 {
     /**
+     * @description Indicates whether empty list protection is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $emptyProtect;
@@ -22,18 +26,14 @@ class nacosRunningEnv extends Model
         'grayAuth' => 'grayAuth',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->emptyProtect) {
             $res['emptyProtect'] = $this->emptyProtect;
         }
-
         if (null !== $this->grayAuth) {
             $res['grayAuth'] = $this->grayAuth;
         }
@@ -41,18 +41,17 @@ class nacosRunningEnv extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return nacosRunningEnv
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['emptyProtect'])) {
             $model->emptyProtect = $map['emptyProtect'];
         }
-
         if (isset($map['grayAuth'])) {
             $model->grayAuth = $map['grayAuth'];
         }

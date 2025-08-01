@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteWafStatusResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteWafStatusResponseBody\data\headerOp\headerOpItems;
+use AlibabaCloud\Tea\Model;
 
 class headerOp extends Model
 {
     /**
+     * @description The policy.
+     *
      * @var headerOpItems[]
      */
     public $headerOpItems;
 
     /**
+     * @description The status.
+     *
+     * @example off
+     *
      * @var string
      */
     public $status;
@@ -23,28 +29,20 @@ class headerOp extends Model
         'status' => 'Status',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->headerOpItems)) {
-            Model::validateArray($this->headerOpItems);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->headerOpItems) {
-            if (\is_array($this->headerOpItems)) {
-                $res['HeaderOpItems'] = [];
-                $n1 = 0;
-                foreach ($this->headerOpItems as $item1) {
-                    $res['HeaderOpItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['HeaderOpItems'] = [];
+            if (null !== $this->headerOpItems && \is_array($this->headerOpItems)) {
+                $n = 0;
+                foreach ($this->headerOpItems as $item) {
+                    $res['HeaderOpItems'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -52,25 +50,23 @@ class headerOp extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return headerOp
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HeaderOpItems'])) {
             if (!empty($map['HeaderOpItems'])) {
                 $model->headerOpItems = [];
-                $n1 = 0;
-                foreach ($map['HeaderOpItems'] as $item1) {
-                    $model->headerOpItems[$n1] = headerOpItems::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['HeaderOpItems'] as $item) {
+                    $model->headerOpItems[$n++] = null !== $item ? headerOpItems::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

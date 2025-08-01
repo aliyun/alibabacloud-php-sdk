@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GatewayDomain extends Model
 {
@@ -70,50 +70,38 @@ class GatewayDomain extends Model
         'protocol' => 'Protocol',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->certIdentifier) {
             $res['CertIdentifier'] = $this->certIdentifier;
         }
-
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
         }
-
         if (null !== $this->gatewayName) {
             $res['GatewayName'] = $this->gatewayName;
         }
-
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
         }
-
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
-
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
-
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-
         if (null !== $this->mustHttps) {
             $res['MustHttps'] = $this->mustHttps;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
@@ -121,50 +109,41 @@ class GatewayDomain extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GatewayDomain
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertIdentifier'])) {
             $model->certIdentifier = $map['CertIdentifier'];
         }
-
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
         }
-
         if (isset($map['GatewayName'])) {
             $model->gatewayName = $map['GatewayName'];
         }
-
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }
-
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
-
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
-
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-
         if (isset($map['MustHttps'])) {
             $model->mustHttps = $map['MustHttps'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }

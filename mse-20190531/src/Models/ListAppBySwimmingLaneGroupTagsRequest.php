@@ -4,26 +4,44 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListAppBySwimmingLaneGroupTagsRequest extends Model
 {
     /**
+     * @description The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the lane group.
+     *
+     * This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @description The name of the MSE namespace that you want to query.
+     *
+     * This parameter is required.
+     *
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The tag based on which you want to list applications.
+     *
      * @var string[]
      */
     public $tags;
@@ -34,71 +52,47 @@ class ListAppBySwimmingLaneGroupTagsRequest extends Model
         'tags' => 'Tags',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->tags)) {
-            Model::validateArray($this->tags);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
-
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-
         if (null !== $this->tags) {
-            if (\is_array($this->tags)) {
-                $res['Tags'] = [];
-                $n1 = 0;
-                foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Tags'] = $this->tags;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListAppBySwimmingLaneGroupTagsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
-
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n1 = 0;
-                foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->tags = $map['Tags'];
             }
         }
 

@@ -4,26 +4,34 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayAuthDetailResponseBody\data\externalAuthZ;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class service extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example httpbin-auth-service
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example K8S
+     *
      * @var string
      */
     public $sourceType;
@@ -34,26 +42,20 @@ class service extends Model
         'sourceType' => 'SourceType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
-
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
@@ -61,26 +63,23 @@ class service extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return service
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
-
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }

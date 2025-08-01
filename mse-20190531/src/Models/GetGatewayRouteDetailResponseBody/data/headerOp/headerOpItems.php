@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRouteDetailResponseBody\data\headerOp;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class headerOpItems extends Model
 {
     /**
+     * @description The request or response.
+     *
+     * @example Response
+     *
      * @var string
      */
     public $directionType;
 
     /**
+     * @description The header key.
+     *
+     * @example debug
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The type of the operation.
+     *
+     * @example Add
+     *
      * @var string
      */
     public $opType;
 
     /**
+     * @description The header value.
+     *
+     * @example test
+     *
      * @var string
      */
     public $value;
@@ -34,26 +50,20 @@ class headerOpItems extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->directionType) {
             $res['DirectionType'] = $this->directionType;
         }
-
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-
         if (null !== $this->opType) {
             $res['OpType'] = $this->opType;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -61,26 +71,23 @@ class headerOpItems extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return headerOpItems
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DirectionType'])) {
             $model->directionType = $map['DirectionType'];
         }
-
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-
         if (isset($map['OpType'])) {
             $model->opType = $map['OpType'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

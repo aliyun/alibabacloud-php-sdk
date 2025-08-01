@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationInstanceListResponseBody\data\result;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tags extends Model
 {
     /**
+     * @description 标签值。
+     *
+     * @example gray
+     *
      * @var string
      */
     public $tag;
@@ -16,12 +20,9 @@ class tags extends Model
         'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tag) {
@@ -31,11 +32,11 @@ class tags extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tags
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

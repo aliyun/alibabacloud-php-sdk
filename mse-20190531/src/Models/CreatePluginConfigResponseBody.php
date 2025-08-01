@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreatePluginConfigResponseBody extends Model
 {
     /**
+     * @description The plug-in configuration ID.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pluginConfigID;
 
     /**
+     * @description The request ID.
+     *
+     * @example 03A3E2F4-6804-5663-9D5D-2EC47A1*****
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class CreatePluginConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->pluginConfigID) {
             $res['PluginConfigID'] = $this->pluginConfigID;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class CreatePluginConfigResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreatePluginConfigResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PluginConfigID'])) {
             $model->pluginConfigID = $map['PluginConfigID'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

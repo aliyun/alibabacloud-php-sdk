@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class gatewayEntry extends Model
 {
     /**
+     * @example gw-*****5c2cd6144f4bfa1c32289f45ea8.cn-hangzhou.alicloudapi.com
+     *
      * @var string
      */
     public $entryDomain;
@@ -29,6 +31,8 @@ class gatewayEntry extends Model
     public $ipList;
 
     /**
+     * @example PUB_NET
+     *
      * @var string
      */
     public $netType;
@@ -40,60 +44,23 @@ class gatewayEntry extends Model
         'netType' => 'NetType',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->httpPorts)) {
-            Model::validateArray($this->httpPorts);
-        }
-        if (\is_array($this->httpsPorts)) {
-            Model::validateArray($this->httpsPorts);
-        }
-        if (\is_array($this->ipList)) {
-            Model::validateArray($this->ipList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->entryDomain) {
             $res['EntryDomain'] = $this->entryDomain;
         }
-
         if (null !== $this->httpPorts) {
-            if (\is_array($this->httpPorts)) {
-                $res['HttpPorts'] = [];
-                $n1 = 0;
-                foreach ($this->httpPorts as $item1) {
-                    $res['HttpPorts'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['HttpPorts'] = $this->httpPorts;
         }
-
         if (null !== $this->httpsPorts) {
-            if (\is_array($this->httpsPorts)) {
-                $res['HttpsPorts'] = [];
-                $n1 = 0;
-                foreach ($this->httpsPorts as $item1) {
-                    $res['HttpsPorts'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['HttpsPorts'] = $this->httpsPorts;
         }
-
         if (null !== $this->ipList) {
-            if (\is_array($this->ipList)) {
-                $res['IpList'] = [];
-                $n1 = 0;
-                foreach ($this->ipList as $item1) {
-                    $res['IpList'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['IpList'] = $this->ipList;
         }
-
         if (null !== $this->netType) {
             $res['NetType'] = $this->netType;
         }
@@ -101,51 +68,32 @@ class gatewayEntry extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return gatewayEntry
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EntryDomain'])) {
             $model->entryDomain = $map['EntryDomain'];
         }
-
         if (isset($map['HttpPorts'])) {
             if (!empty($map['HttpPorts'])) {
-                $model->httpPorts = [];
-                $n1 = 0;
-                foreach ($map['HttpPorts'] as $item1) {
-                    $model->httpPorts[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->httpPorts = $map['HttpPorts'];
             }
         }
-
         if (isset($map['HttpsPorts'])) {
             if (!empty($map['HttpsPorts'])) {
-                $model->httpsPorts = [];
-                $n1 = 0;
-                foreach ($map['HttpsPorts'] as $item1) {
-                    $model->httpsPorts[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->httpsPorts = $map['HttpsPorts'];
             }
         }
-
         if (isset($map['IpList'])) {
             if (!empty($map['IpList'])) {
-                $model->ipList = [];
-                $n1 = 0;
-                foreach ($map['IpList'] as $item1) {
-                    $model->ipList[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->ipList = $map['IpList'];
             }
         }
-
         if (isset($map['NetType'])) {
             $model->netType = $map['NetType'];
         }

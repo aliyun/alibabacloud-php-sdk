@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GatewayOption;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class logConfigDetails extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var bool
      */
     public $logEnabled;
@@ -28,22 +30,17 @@ class logConfigDetails extends Model
         'projectName' => 'ProjectName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->logEnabled) {
             $res['LogEnabled'] = $this->logEnabled;
         }
-
         if (null !== $this->logStoreName) {
             $res['LogStoreName'] = $this->logStoreName;
         }
-
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -51,22 +48,20 @@ class logConfigDetails extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return logConfigDetails
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogEnabled'])) {
             $model->logEnabled = $map['LogEnabled'];
         }
-
         if (isset($map['LogStoreName'])) {
             $model->logStoreName = $map['LogStoreName'];
         }
-
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }

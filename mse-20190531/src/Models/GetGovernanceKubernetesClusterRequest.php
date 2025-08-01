@@ -4,21 +4,40 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetGovernanceKubernetesClusterRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The ID of the instance.
+     *
+     * This parameter is required.
+     *
+     * @example cd23228b3c80c4d4f9ad7af1d87cc****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The ID of the region in which the instance resides. The region is supported by MSE.
+     *
+     * This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -28,22 +47,17 @@ class GetGovernanceKubernetesClusterRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
-
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -51,22 +65,20 @@ class GetGovernanceKubernetesClusterRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetGovernanceKubernetesClusterRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
-
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

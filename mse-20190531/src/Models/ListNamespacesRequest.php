@@ -4,32 +4,44 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNamespacesRequest\tag;
+use AlibabaCloud\Tea\Model;
 
 class ListNamespacesRequest extends Model
 {
     /**
+     * @example zh
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @example myNamespace
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
@@ -47,44 +59,32 @@ class ListNamespacesRequest extends Model
         'tag' => 'Tag',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->tag)) {
-            Model::validateArray($this->tag);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-
         if (null !== $this->tag) {
-            if (\is_array($this->tag)) {
-                $res['Tag'] = [];
-                $n1 = 0;
-                foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -92,41 +92,35 @@ class ListNamespacesRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListNamespacesRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
-
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1 = 0;
-                foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1] = tag::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
         }
