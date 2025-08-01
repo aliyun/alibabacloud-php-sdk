@@ -14,6 +14,9 @@ use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppInstanceForPartnerR
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppInstanceForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppServiceForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\OperateAppServiceForPartnerResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SearchImageRequest;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SearchImageResponse;
+use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SearchImageShrinkRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerRequest;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerResponse;
 use AlibabaCloud\SDK\WebsiteBuild\V20250429\Models\SyncAppInstanceForPartnerShrinkRequest;
@@ -263,6 +266,100 @@ class WebsiteBuild extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->operateAppServiceForPartnerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 图片检索
+     *  *
+     * @param SearchImageRequest $tmpReq  SearchImageRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SearchImageResponse SearchImageResponse
+     */
+    public function searchImageWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SearchImageShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->colorHex)) {
+            $query['ColorHex'] = $request->colorHex;
+        }
+        if (!Utils::isUnset($request->hasPerson)) {
+            $query['HasPerson'] = $request->hasPerson;
+        }
+        if (!Utils::isUnset($request->imageCategory)) {
+            $query['ImageCategory'] = $request->imageCategory;
+        }
+        if (!Utils::isUnset($request->imageRatio)) {
+            $query['ImageRatio'] = $request->imageRatio;
+        }
+        if (!Utils::isUnset($request->maxHeight)) {
+            $query['MaxHeight'] = $request->maxHeight;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->maxWidth)) {
+            $query['MaxWidth'] = $request->maxWidth;
+        }
+        if (!Utils::isUnset($request->minHeight)) {
+            $query['MinHeight'] = $request->minHeight;
+        }
+        if (!Utils::isUnset($request->minWidth)) {
+            $query['MinWidth'] = $request->minWidth;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ossKey)) {
+            $query['OssKey'] = $request->ossKey;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['Size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->start)) {
+            $query['Start'] = $request->start;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->text)) {
+            $query['Text'] = $request->text;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SearchImage',
+            'version' => '2025-04-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SearchImageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 图片检索
+     *  *
+     * @param SearchImageRequest $request SearchImageRequest
+     *
+     * @return SearchImageResponse SearchImageResponse
+     */
+    public function searchImage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->searchImageWithOptions($request, $runtime);
     }
 
     /**
