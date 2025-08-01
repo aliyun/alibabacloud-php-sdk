@@ -70,18 +70,16 @@ class SendMessageWithTemplateResponseBody extends Model
      */
     public $to;
     protected $_name = [
-        'messageId'           => 'MessageId',
-        'numberDetail'        => 'NumberDetail',
-        'requestId'           => 'RequestId',
-        'responseCode'        => 'ResponseCode',
+        'messageId' => 'MessageId',
+        'numberDetail' => 'NumberDetail',
+        'requestId' => 'RequestId',
+        'responseCode' => 'ResponseCode',
         'responseDescription' => 'ResponseDescription',
-        'segments'            => 'Segments',
-        'to'                  => 'To',
+        'segments' => 'Segments',
+        'to' => 'To',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

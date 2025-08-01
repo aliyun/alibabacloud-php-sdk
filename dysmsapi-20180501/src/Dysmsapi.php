@@ -30,13 +30,13 @@ class Dysmsapi extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'central';
-        $this->_endpointMap  = [
+        $this->_endpointMap = [
             'ap-southeast-1' => 'dysmsapi.ap-southeast-1.aliyuncs.com',
             'ap-southeast-5' => 'dysmsapi.ap-southeast-5.aliyuncs.com',
-            'cn-beijing'     => 'dysmsapi-proxy.cn-beijing.aliyuncs.com',
-            'cn-hongkong'    => 'dysmsapi-xman.cn-hongkong.aliyuncs.com',
-            'eu-central-1'   => 'dysmsapi.eu-central-1.aliyuncs.com',
-            'us-east-1'      => 'dysmsapi.us-east-1.aliyuncs.com',
+            'cn-beijing' => 'dysmsapi-proxy.cn-beijing.aliyuncs.com',
+            'cn-hongkong' => 'dysmsapi-xman.cn-hongkong.aliyuncs.com',
+            'eu-central-1' => 'dysmsapi.eu-central-1.aliyuncs.com',
+            'us-east-1' => 'dysmsapi.us-east-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dysmsapi', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -68,12 +68,11 @@ class Dysmsapi extends OpenApiClient
     /**
      * @summary Sends a message to multiple recipients in countries or regions outside the Chinese mainland.
      *  *
-     * @description *   You cannot call the BatchSendMessageToGlobe operation to send messages to the Chinese mainland.
-     * *   You can call the BatchSendMessageToGlobe operation to send notifications and promotional messages to a limited number of mobile phone numbers at a time. To send messages to a large number of mobile phone numbers at a time, use the mass messaging feature in the SMS console.
-     * *   For time-sensitive related messages, we recommend that you use the [SendMessageToGlobe](https://www.alibabacloud.com/help/en/sms/developer-reference/api-dysmsapi-2018-05-01-batchsendmessagetoglobe) operation to ensure that messages are delivered on time.
+     * @description ## Usage notes
+     * *   You cannot call the BatchSendMessageToGlobe operation to send messages to the Chinese mainland.
+     * *   You can call the BatchSendMessageToGlobe operation to send notifications and promotional messages to a small number of mobile phone numbers at a time. To send messages to a large number of mobile phone numbers at a time, use the mass messaging feature of the SMS console.
+     * *   To ensure that messages can be sent on time, call the [SendMessageToGlobe](https://help.aliyun.com/document_detail/406238.html) operation.
      * *   In each request, you can send messages to up to 1,000 mobile phone numbers.
-     * ### [](#qps-)QPS limit
-     * You can call this operation only once per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *  *
      * @param BatchSendMessageToGlobeRequest $request BatchSendMessageToGlobeRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -109,15 +108,15 @@ class Dysmsapi extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchSendMessageToGlobe',
-            'version'     => '2018-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchSendMessageToGlobe',
+            'version' => '2018-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchSendMessageToGlobeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -126,12 +125,11 @@ class Dysmsapi extends OpenApiClient
     /**
      * @summary Sends a message to multiple recipients in countries or regions outside the Chinese mainland.
      *  *
-     * @description *   You cannot call the BatchSendMessageToGlobe operation to send messages to the Chinese mainland.
-     * *   You can call the BatchSendMessageToGlobe operation to send notifications and promotional messages to a limited number of mobile phone numbers at a time. To send messages to a large number of mobile phone numbers at a time, use the mass messaging feature in the SMS console.
-     * *   For time-sensitive related messages, we recommend that you use the [SendMessageToGlobe](https://www.alibabacloud.com/help/en/sms/developer-reference/api-dysmsapi-2018-05-01-batchsendmessagetoglobe) operation to ensure that messages are delivered on time.
+     * @description ## Usage notes
+     * *   You cannot call the BatchSendMessageToGlobe operation to send messages to the Chinese mainland.
+     * *   You can call the BatchSendMessageToGlobe operation to send notifications and promotional messages to a small number of mobile phone numbers at a time. To send messages to a large number of mobile phone numbers at a time, use the mass messaging feature of the SMS console.
+     * *   To ensure that messages can be sent on time, call the [SendMessageToGlobe](https://help.aliyun.com/document_detail/406238.html) operation.
      * *   In each request, you can send messages to up to 1,000 mobile phone numbers.
-     * ### [](#qps-)QPS limit
-     * You can call this operation only once per second. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *  *
      * @param BatchSendMessageToGlobeRequest $request BatchSendMessageToGlobeRequest
      *
@@ -171,15 +169,15 @@ class Dysmsapi extends OpenApiClient
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ConversionData',
-            'version'     => '2018-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConversionData',
+            'version' => '2018-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ConversionDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -226,15 +224,15 @@ class Dysmsapi extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryMessage',
-            'version'     => '2018-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryMessage',
+            'version' => '2018-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryMessageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -260,10 +258,10 @@ class Dysmsapi extends OpenApiClient
     /**
      * @summary Sends a message to regions outside the Chinese mainland.
      *  *
-     * @description ### [](#)Usage notes
+     * @description ### [](#)
      * The SendMessageToGlobe API operation does not support message delivery to the Chinese mainland.
      * ### [](#qps-)QPS limit
-     * You can call this operation up to 30 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * You can call this operation up to 2,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
      *  *
      * @param SendMessageToGlobeRequest $request SendMessageToGlobeRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -289,6 +287,9 @@ class Dysmsapi extends OpenApiClient
         if (!Utils::isUnset($request->to)) {
             $query['To'] = $request->to;
         }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
         if (!Utils::isUnset($request->validityPeriod)) {
             $query['ValidityPeriod'] = $request->validityPeriod;
         }
@@ -296,15 +297,15 @@ class Dysmsapi extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SendMessageToGlobe',
-            'version'     => '2018-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendMessageToGlobe',
+            'version' => '2018-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SendMessageToGlobeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -313,10 +314,10 @@ class Dysmsapi extends OpenApiClient
     /**
      * @summary Sends a message to regions outside the Chinese mainland.
      *  *
-     * @description ### [](#)Usage notes
+     * @description ### [](#)
      * The SendMessageToGlobe API operation does not support message delivery to the Chinese mainland.
      * ### [](#qps-)QPS limit
-     * You can call this operation up to 30 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * You can call this operation up to 2,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
      *  *
      * @param SendMessageToGlobeRequest $request SendMessageToGlobeRequest
      *
@@ -369,15 +370,15 @@ class Dysmsapi extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SendMessageWithTemplate',
-            'version'     => '2018-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendMessageWithTemplate',
+            'version' => '2018-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SendMessageWithTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -408,8 +409,8 @@ class Dysmsapi extends OpenApiClient
      * *   Verified OTP messages
      * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
      * > If you call the SmsConversion operation to query OTP conversion rates, your business may be affected. We recommend that you perform the following operations:
-     * > * Call the SmsConversion operation in an asynchronous manner by configuring queues or events.
-     * > * Manually degrade your services or use a circuit breaker to automatically degrade services.
+     * >*   Call the SmsConversion operation in an asynchronous manner by configuring queues or events.
+     * >*   Manually degrade your services or use a circuit breaker to automatically degrade services.
      *  *
      * @param SmsConversionRequest $request SmsConversionRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -436,15 +437,15 @@ class Dysmsapi extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SmsConversion',
-            'version'     => '2018-05-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SmsConversion',
+            'version' => '2018-05-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SmsConversionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -458,8 +459,8 @@ class Dysmsapi extends OpenApiClient
      * *   Verified OTP messages
      * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
      * > If you call the SmsConversion operation to query OTP conversion rates, your business may be affected. We recommend that you perform the following operations:
-     * > * Call the SmsConversion operation in an asynchronous manner by configuring queues or events.
-     * > * Manually degrade your services or use a circuit breaker to automatically degrade services.
+     * >*   Call the SmsConversion operation in an asynchronous manner by configuring queues or events.
+     * >*   Manually degrade your services or use a circuit breaker to automatically degrade services.
      *  *
      * @param SmsConversionRequest $request SmsConversionRequest
      *

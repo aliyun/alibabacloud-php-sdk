@@ -37,12 +37,10 @@ class numberDetail extends Model
     protected $_name = [
         'carrier' => 'Carrier',
         'country' => 'Country',
-        'region'  => 'Region',
+        'region' => 'Region',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BatchSendMessageToGlobeResponseBody extends Model
 {
     /**
-     * @description The list of mobile phone numbers that failed to receive the message.
+     * @description The list of the mobile phone numbers that failed to receive the messages.
      *
      * @example ["931520581****","931530581****"]
      *
@@ -18,7 +18,7 @@ class BatchSendMessageToGlobeResponseBody extends Model
     public $failedList;
 
     /**
-     * @description The sender ID returned.
+     * @description The sender ID that was returned. The API operation returns the sender ID that you have specified in the request parameters.
      *
      * @example Alicloud321
      *
@@ -27,7 +27,7 @@ class BatchSendMessageToGlobeResponseBody extends Model
     public $from;
 
     /**
-     * @description The ID of the message.
+     * @description The ID of the sent message.
      *
      * @example ["123****","124****"]
      *
@@ -45,7 +45,7 @@ class BatchSendMessageToGlobeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status code. If OK is returned, the request is successful. For more information, see [Error codes](https://www.alibabacloud.com/help/en/short-message-service/latest/error-codes).
+     * @description The HTTP status code. If OK is returned, the request is successful. For more information, see [Error codes](https://help.aliyun.com/document_detail/180674.html).
      *
      * @example OK
      *
@@ -63,7 +63,7 @@ class BatchSendMessageToGlobeResponseBody extends Model
     public $responseDescription;
 
     /**
-     * @description The number of mobile phone numbers that received the message.
+     * @description The number of sent messages.
      *
      * @example 2
      *
@@ -71,18 +71,16 @@ class BatchSendMessageToGlobeResponseBody extends Model
      */
     public $successCount;
     protected $_name = [
-        'failedList'          => 'FailedList',
-        'from'                => 'From',
-        'messageIdList'       => 'MessageIdList',
-        'requestId'           => 'RequestId',
-        'responseCode'        => 'ResponseCode',
+        'failedList' => 'FailedList',
+        'from' => 'From',
+        'messageIdList' => 'MessageIdList',
+        'requestId' => 'RequestId',
+        'responseCode' => 'ResponseCode',
         'responseDescription' => 'ResponseDescription',
-        'successCount'        => 'SuccessCount',
+        'successCount' => 'SuccessCount',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

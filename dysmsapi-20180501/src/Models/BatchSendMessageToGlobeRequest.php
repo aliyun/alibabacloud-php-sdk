@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchSendMessageToGlobeRequest extends Model
 {
     /**
+     * @description The ID of the delivery channel.
+     *
      * @example sms-djnfjn344
      *
      * @var string
@@ -16,7 +18,7 @@ class BatchSendMessageToGlobeRequest extends Model
     public $channelId;
 
     /**
-     * @description The mobile phone number of the sender. You can also specify a sender ID. The sender ID can contain both letters and digits. If it does, the ID must be between 1 to 11 characters in length. If the sender ID contains only digits, it must be 1 to 15 characters in length.
+     * @description The mobile phone number of the sender. You can specify the sender ID when you call the API operation. The sender ID can contain only digits and letters. If the sender ID contains letters, it can be a maximum of 11 characters in length. If the sender ID contains only digits, it can be a maximum of 15 characters in length.
      *
      * @example Alicloud321
      *
@@ -28,6 +30,7 @@ class BatchSendMessageToGlobeRequest extends Model
      * @description The content of the message.
      *
      * This parameter is required.
+     *
      * @example [\\"message to 931520581****\\",\\"message to 931530581****\\",\\"message to 931540581****\\",\\"message to 931550581****\\"]
      *
      * @var string
@@ -44,9 +47,12 @@ class BatchSendMessageToGlobeRequest extends Model
     public $taskId;
 
     /**
-     * @description The mobile phone numbers to which the message is sent. You must add the dialing code to the beginning of each mobile phone number.
+     * @description The mobile phone number of the recipient. You must add the dialing code to the beginning of each mobile phone number.
+     *
+     * For more information, see [Dialing codes](https://help.aliyun.com/document_detail/158400.html).
      *
      * This parameter is required.
+     *
      * @example [\\"931520581****\\",\\"931530581****\\",\\"931540581****\\",\\"931550581****\\"]
      *
      * @var string
@@ -68,24 +74,22 @@ class BatchSendMessageToGlobeRequest extends Model
     /**
      * @description The validity period of the message. Unit: seconds.
      *
-     * @example 1
+     * @example 600
      *
      * @var int
      */
     public $validityPeriod;
     protected $_name = [
-        'channelId'      => 'ChannelId',
-        'from'           => 'From',
-        'message'        => 'Message',
-        'taskId'         => 'TaskId',
-        'to'             => 'To',
-        'type'           => 'Type',
+        'channelId' => 'ChannelId',
+        'from' => 'From',
+        'message' => 'Message',
+        'taskId' => 'TaskId',
+        'to' => 'To',
+        'type' => 'Type',
         'validityPeriod' => 'ValidityPeriod',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

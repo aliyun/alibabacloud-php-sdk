@@ -30,6 +30,7 @@ class SendMessageToGlobeRequest extends Model
      * @description The content of the message.
      *
      * This parameter is required.
+     *
      * @example Hello
      *
      * @var string
@@ -48,12 +49,22 @@ class SendMessageToGlobeRequest extends Model
     /**
      * @description The mobile phone number to which the message is sent. You must add the dialing code to the beginning of the mobile phone number. Example: 8521245567\\*\\*\\*\\*.
      *
+     * For more information, see [Dialing codes](https://www.alibabacloud.com/help/en/sms/product-overview/dialing-codes?spm=a2c63.p38356.0.0.48b940a1PFYRMz).
+     *
+     * >  You cannot call the SendMessageToGlobe operation to send messages to the Chinese mainland.
+     *
      * This parameter is required.
+     *
      * @example 8521245567****
      *
      * @var string
      */
     public $to;
+
+    /**
+     * @var string
+     */
+    public $type;
 
     /**
      * @description The validity period of the message. Unit: seconds.
@@ -64,17 +75,16 @@ class SendMessageToGlobeRequest extends Model
      */
     public $validityPeriod;
     protected $_name = [
-        'channelId'      => 'ChannelId',
-        'from'           => 'From',
-        'message'        => 'Message',
-        'taskId'         => 'TaskId',
-        'to'             => 'To',
+        'channelId' => 'ChannelId',
+        'from' => 'From',
+        'message' => 'Message',
+        'taskId' => 'TaskId',
+        'to' => 'To',
+        'type' => 'Type',
         'validityPeriod' => 'ValidityPeriod',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
@@ -93,6 +103,9 @@ class SendMessageToGlobeRequest extends Model
         }
         if (null !== $this->to) {
             $res['To'] = $this->to;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->validityPeriod) {
             $res['ValidityPeriod'] = $this->validityPeriod;
@@ -123,6 +136,9 @@ class SendMessageToGlobeRequest extends Model
         }
         if (isset($map['To'])) {
             $model->to = $map['To'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['ValidityPeriod'])) {
             $model->validityPeriod = $map['ValidityPeriod'];

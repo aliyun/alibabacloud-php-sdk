@@ -11,7 +11,10 @@ class ConversionDataRequest extends Model
     /**
      * @description Conversion rate monitoring return value.
      *
+     * >  The value of this parameter is of type double, and the value is between [0,1].
+     *
      * This parameter is required.
+     *
      * @example 0.53
      *
      * @var string
@@ -22,6 +25,7 @@ class ConversionDataRequest extends Model
      * @description Timestamp of the conversion rate observation should be a Unix timestamp, a millisecond-level long integer.
      *
      * >  If this field is not specified: the current timestamp is the default.
+     *
      * @example 1349055900000
      *
      * @var int
@@ -29,12 +33,10 @@ class ConversionDataRequest extends Model
     public $reportTime;
     protected $_name = [
         'conversionRate' => 'ConversionRate',
-        'reportTime'     => 'ReportTime',
+        'reportTime' => 'ReportTime',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

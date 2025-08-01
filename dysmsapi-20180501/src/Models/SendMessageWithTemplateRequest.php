@@ -21,6 +21,7 @@ class SendMessageWithTemplateRequest extends Model
      * @description The signature. To query the signature, log on to the [Short Message Service (SMS) console](https://sms-intl.console.aliyun.com/overview) and navigate to the **Signatures** tab of the **Go China** page.
      *
      * This parameter is required.
+     *
      * @example Alicloud321
      *
      * @var string
@@ -40,6 +41,7 @@ class SendMessageWithTemplateRequest extends Model
      * @description The code of the message template. To query the code, log on to the [SMS console](https://sms-intl.console.aliyun.com/overview) and navigate to the **Templates** tab of the **Go China** page.
      *
      * This parameter is required.
+     *
      * @example SMS_****
      *
      * @var string
@@ -58,7 +60,10 @@ class SendMessageWithTemplateRequest extends Model
     /**
      * @description The mobile phone number to which the message is sent. You must add the country code to the beginning of the mobile phone number. Example: 861503871\\*\\*\\*\\*.
      *
+     * For more information, see [Dialing codes](https://www.alibabacloud.com/help/en/sms/product-overview/dialing-codes?spm=a2c63.p38356.0.0.367279cbwQFoeM).
+     *
      * This parameter is required.
+     *
      * @example 861503871****
      *
      * @var string
@@ -74,18 +79,16 @@ class SendMessageWithTemplateRequest extends Model
      */
     public $validityPeriod;
     protected $_name = [
-        'channelId'       => 'ChannelId',
-        'from'            => 'From',
+        'channelId' => 'ChannelId',
+        'from' => 'From',
         'smsUpExtendCode' => 'SmsUpExtendCode',
-        'templateCode'    => 'TemplateCode',
-        'templateParam'   => 'TemplateParam',
-        'to'              => 'To',
-        'validityPeriod'  => 'ValidityPeriod',
+        'templateCode' => 'TemplateCode',
+        'templateParam' => 'TemplateParam',
+        'to' => 'To',
+        'validityPeriod' => 'ValidityPeriod',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

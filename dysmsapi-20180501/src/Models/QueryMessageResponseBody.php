@@ -119,23 +119,21 @@ class QueryMessageResponseBody extends Model
      */
     public $to;
     protected $_name = [
-        'errorCode'           => 'ErrorCode',
-        'errorDescription'    => 'ErrorDescription',
-        'message'             => 'Message',
-        'messageId'           => 'MessageId',
-        'numberDetail'        => 'NumberDetail',
-        'receiveDate'         => 'ReceiveDate',
-        'requestId'           => 'RequestId',
-        'responseCode'        => 'ResponseCode',
+        'errorCode' => 'ErrorCode',
+        'errorDescription' => 'ErrorDescription',
+        'message' => 'Message',
+        'messageId' => 'MessageId',
+        'numberDetail' => 'NumberDetail',
+        'receiveDate' => 'ReceiveDate',
+        'requestId' => 'RequestId',
+        'responseCode' => 'ResponseCode',
         'responseDescription' => 'ResponseDescription',
-        'sendDate'            => 'SendDate',
-        'status'              => 'Status',
-        'to'                  => 'To',
+        'sendDate' => 'SendDate',
+        'status' => 'Status',
+        'to' => 'To',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

@@ -35,14 +35,12 @@ class SmsConversionResponseBody extends Model
      */
     public $responseDescription;
     protected $_name = [
-        'requestId'           => 'RequestId',
-        'responseCode'        => 'ResponseCode',
+        'requestId' => 'RequestId',
+        'responseCode' => 'ResponseCode',
         'responseDescription' => 'ResponseDescription',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

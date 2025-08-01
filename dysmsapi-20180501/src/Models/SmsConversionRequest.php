@@ -24,6 +24,7 @@ class SmsConversionRequest extends Model
      * @description Specifies whether customers replied to the OTP message. Valid values: true and false.
      *
      * This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -40,19 +41,23 @@ class SmsConversionRequest extends Model
     public $messageId;
 
     /**
+     * @description The mobile phone number of the recipient. You must add the dialing code to the beginning of the mobile phone number.
+     *
+     * For more information, see [Dialing codes](https://help.aliyun.com/document_detail/158400.html).
+     *
+     * @example 8521245567****
+     *
      * @var string
      */
     public $to;
     protected $_name = [
         'conversionTime' => 'ConversionTime',
-        'delivered'      => 'Delivered',
-        'messageId'      => 'MessageId',
-        'to'             => 'To',
+        'delivered' => 'Delivered',
+        'messageId' => 'MessageId',
+        'to' => 'To',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {

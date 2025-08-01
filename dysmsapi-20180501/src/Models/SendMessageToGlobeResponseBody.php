@@ -79,19 +79,17 @@ class SendMessageToGlobeResponseBody extends Model
      */
     public $to;
     protected $_name = [
-        'from'                => 'From',
-        'messageId'           => 'MessageId',
-        'numberDetail'        => 'NumberDetail',
-        'requestId'           => 'RequestId',
-        'responseCode'        => 'ResponseCode',
+        'from' => 'From',
+        'messageId' => 'MessageId',
+        'numberDetail' => 'NumberDetail',
+        'requestId' => 'RequestId',
+        'responseCode' => 'ResponseCode',
         'responseDescription' => 'ResponseDescription',
-        'segments'            => 'Segments',
-        'to'                  => 'To',
+        'segments' => 'Segments',
+        'to' => 'To',
     ];
 
-    public function validate()
-    {
-    }
+    public function validate() {}
 
     public function toMap()
     {
