@@ -4,21 +4,29 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models\GetServiceFuncStatusRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class params extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example mullprof
+     *
      * @var string
      */
     public $functionName;
 
     /**
+     * @example i-2zei55fwj8nnu31h3z46
+     *
      * @var string
      */
     public $instance;
 
     /**
+     * @example 1338904783509062
+     *
      * @var string
      */
     public $uid;
@@ -28,22 +36,17 @@ class params extends Model
         'uid' => 'uid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->functionName) {
             $res['function_name'] = $this->functionName;
         }
-
         if (null !== $this->instance) {
             $res['instance'] = $this->instance;
         }
-
         if (null !== $this->uid) {
             $res['uid'] = $this->uid;
         }
@@ -51,22 +54,20 @@ class params extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return params
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['function_name'])) {
             $model->functionName = $map['function_name'];
         }
-
         if (isset($map['instance'])) {
             $model->instance = $map['instance'];
         }
-
         if (isset($map['uid'])) {
             $model->uid = $map['uid'];
         }

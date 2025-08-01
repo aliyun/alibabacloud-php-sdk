@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models\ListInstanceStatusResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,6 +19,8 @@ class data extends Model
     public $region;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
@@ -28,22 +30,17 @@ class data extends Model
         'status' => 'status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instance) {
             $res['instance'] = $this->instance;
         }
-
         if (null !== $this->region) {
             $res['region'] = $this->region;
         }
-
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -51,22 +48,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['instance'])) {
             $model->instance = $map['instance'];
         }
-
         if (isset($map['region'])) {
             $model->region = $map['region'];
         }
-
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

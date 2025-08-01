@@ -4,22 +4,32 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetServiceFuncStatusRequest\params;
+use AlibabaCloud\Tea\Model;
 
 class GetServiceFuncStatusRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $channel;
 
     /**
+     * @description This parameter is required.
+     *
      * @var params
      */
     public $params;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example livetrace
+     *
      * @var string
      */
     public $serviceName;
@@ -29,25 +39,17 @@ class GetServiceFuncStatusRequest extends Model
         'serviceName' => 'service_name',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->params) {
-            $this->params->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->channel) {
             $res['channel'] = $this->channel;
         }
-
         if (null !== $this->params) {
-            $res['params'] = null !== $this->params ? $this->params->toArray($noStream) : $this->params;
+            $res['params'] = null !== $this->params ? $this->params->toMap() : null;
         }
-
         if (null !== $this->serviceName) {
             $res['service_name'] = $this->serviceName;
         }
@@ -55,22 +57,20 @@ class GetServiceFuncStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetServiceFuncStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['channel'])) {
             $model->channel = $map['channel'];
         }
-
         if (isset($map['params'])) {
             $model->params = params::fromMap($map['params']);
         }
-
         if (isset($map['service_name'])) {
             $model->serviceName = $map['service_name'];
         }

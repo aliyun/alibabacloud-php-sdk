@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GenerateCopilotResponseRequest extends Model
 {
@@ -16,12 +16,9 @@ class GenerateCopilotResponseRequest extends Model
         'llmParamString' => 'llmParamString',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->llmParamString) {
@@ -31,11 +28,11 @@ class GenerateCopilotResponseRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GenerateCopilotResponseRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

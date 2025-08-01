@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models\GetAgentTaskResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class jobs extends Model
 {
@@ -34,6 +34,8 @@ class jobs extends Model
     public $result;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
@@ -46,34 +48,26 @@ class jobs extends Model
         'status' => 'status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->error) {
             $res['error'] = $this->error;
         }
-
         if (null !== $this->instance) {
             $res['instance'] = $this->instance;
         }
-
         if (null !== $this->params) {
             $res['params'] = $this->params;
         }
-
         if (null !== $this->region) {
             $res['region'] = $this->region;
         }
-
         if (null !== $this->result) {
             $res['result'] = $this->result;
         }
-
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -81,34 +75,29 @@ class jobs extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return jobs
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['error'])) {
             $model->error = $map['error'];
         }
-
         if (isset($map['instance'])) {
             $model->instance = $map['instance'];
         }
-
         if (isset($map['params'])) {
             $model->params = $map['params'];
         }
-
         if (isset($map['region'])) {
             $model->region = $map['region'];
         }
-
         if (isset($map['result'])) {
             $model->result = $map['result'];
         }
-
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

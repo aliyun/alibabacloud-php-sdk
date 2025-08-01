@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetListRecordRequest extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $current;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -22,18 +26,14 @@ class GetListRecordRequest extends Model
         'pageSize' => 'pageSize',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->current) {
             $res['current'] = $this->current;
         }
-
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
@@ -41,18 +41,17 @@ class GetListRecordRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetListRecordRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['current'])) {
             $model->current = $map['current'];
         }
-
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }

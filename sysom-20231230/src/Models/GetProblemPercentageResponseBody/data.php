@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models\GetProblemPercentageResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @example saturation
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $value;
@@ -22,18 +26,14 @@ class data extends Model
         'value' => 'value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
-
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -41,18 +41,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
-
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

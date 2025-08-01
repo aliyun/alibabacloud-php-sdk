@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models\AuthDiagnosisRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class instances extends Model
 {
@@ -22,18 +22,14 @@ class instances extends Model
         'region' => 'region',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instance) {
             $res['instance'] = $this->instance;
         }
-
         if (null !== $this->region) {
             $res['region'] = $this->region;
         }
@@ -41,18 +37,17 @@ class instances extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return instances
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['instance'])) {
             $model->instance = $map['instance'];
         }
-
         if (isset($map['region'])) {
             $model->region = $map['region'];
         }

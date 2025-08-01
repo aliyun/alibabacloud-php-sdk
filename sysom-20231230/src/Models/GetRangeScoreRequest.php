@@ -4,26 +4,38 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetRangeScoreRequest extends Model
 {
     /**
+     * @example 1808078950770264
+     *
      * @var string
      */
     public $cluster;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1725801327754
+     *
      * @var float
      */
     public $end;
 
     /**
+     * @example i-wz9d00ut2ska3mlyhn6j
+     *
      * @var string
      */
     public $instance;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1725797727754
+     *
      * @var float
      */
     public $start;
@@ -34,26 +46,20 @@ class GetRangeScoreRequest extends Model
         'start' => 'start',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->cluster) {
             $res['cluster'] = $this->cluster;
         }
-
         if (null !== $this->end) {
             $res['end'] = $this->end;
         }
-
         if (null !== $this->instance) {
             $res['instance'] = $this->instance;
         }
-
         if (null !== $this->start) {
             $res['start'] = $this->start;
         }
@@ -61,26 +67,23 @@ class GetRangeScoreRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetRangeScoreRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cluster'])) {
             $model->cluster = $map['cluster'];
         }
-
         if (isset($map['end'])) {
             $model->end = $map['end'];
         }
-
         if (isset($map['instance'])) {
             $model->instance = $map['instance'];
         }
-
         if (isset($map['start'])) {
             $model->start = $map['start'];
         }

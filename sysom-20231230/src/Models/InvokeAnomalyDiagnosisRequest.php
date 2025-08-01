@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class InvokeAnomalyDiagnosisRequest extends Model
 {
     /**
+     * @example 8047d763-5465-4a8c-b1cd-23f5a8ba2594
+     *
      * @var string
      */
     public $uuid;
@@ -16,12 +18,9 @@ class InvokeAnomalyDiagnosisRequest extends Model
         'uuid' => 'uuid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->uuid) {
@@ -31,11 +30,11 @@ class InvokeAnomalyDiagnosisRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return InvokeAnomalyDiagnosisRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

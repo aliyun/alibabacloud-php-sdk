@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models\StartAIDiffAnalysisRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class task1 extends Model
 {
     /**
+     * @example 16896fa8-37f6-4c70-bb32-67fa9817d426
+     *
      * @var string
      */
     public $analysisId;
@@ -19,11 +21,15 @@ class task1 extends Model
     public $pids;
 
     /**
+     * @example 4660551334179.955
+     *
      * @var float
      */
     public $stepEnd;
 
     /**
+     * @example 4660550379415.497
+     *
      * @var float
      */
     public $stepStart;
@@ -34,36 +40,20 @@ class task1 extends Model
         'stepStart' => 'step_start',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->pids)) {
-            Model::validateArray($this->pids);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->analysisId) {
             $res['analysisId'] = $this->analysisId;
         }
-
         if (null !== $this->pids) {
-            if (\is_array($this->pids)) {
-                $res['pids'] = [];
-                $n1 = 0;
-                foreach ($this->pids as $item1) {
-                    $res['pids'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['pids'] = $this->pids;
         }
-
         if (null !== $this->stepEnd) {
             $res['step_end'] = $this->stepEnd;
         }
-
         if (null !== $this->stepStart) {
             $res['step_start'] = $this->stepStart;
         }
@@ -71,33 +61,25 @@ class task1 extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return task1
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['analysisId'])) {
             $model->analysisId = $map['analysisId'];
         }
-
         if (isset($map['pids'])) {
             if (!empty($map['pids'])) {
-                $model->pids = [];
-                $n1 = 0;
-                foreach ($map['pids'] as $item1) {
-                    $model->pids[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->pids = $map['pids'];
             }
         }
-
         if (isset($map['step_end'])) {
             $model->stepEnd = $map['step_end'];
         }
-
         if (isset($map['step_start'])) {
             $model->stepStart = $map['step_start'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models\ListAbnormalyEventsResponseBody\data\opts;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
@@ -22,18 +22,14 @@ class result extends Model
         'url' => 'url',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
-
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -41,18 +37,17 @@ class result extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return result
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
-
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

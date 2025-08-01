@@ -4,31 +4,41 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListInstanceStatusRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $current;
 
     /**
+     * @example i-wz9b9vucz1iubsz355rh
+     *
      * @var string
      */
     public $instance;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
@@ -40,30 +50,23 @@ class ListInstanceStatusRequest extends Model
         'status' => 'status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->current) {
             $res['current'] = $this->current;
         }
-
         if (null !== $this->instance) {
             $res['instance'] = $this->instance;
         }
-
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
-
         if (null !== $this->region) {
             $res['region'] = $this->region;
         }
-
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -71,30 +74,26 @@ class ListInstanceStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListInstanceStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['current'])) {
             $model->current = $map['current'];
         }
-
         if (isset($map['instance'])) {
             $model->instance = $map['instance'];
         }
-
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
-
         if (isset($map['region'])) {
             $model->region = $map['region'];
         }
-
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

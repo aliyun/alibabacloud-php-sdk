@@ -4,27 +4,37 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InstallAgentRequest\instances;
+use AlibabaCloud\Tea\Model;
 
 class InstallAgentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $agentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $agentVersion;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example InstallAndUpgrade
+     *
      * @var string
      */
     public $installType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var instances[]
      */
     public $instances;
@@ -35,36 +45,26 @@ class InstallAgentRequest extends Model
         'instances' => 'instances',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->instances)) {
-            Model::validateArray($this->instances);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->agentId) {
             $res['agent_id'] = $this->agentId;
         }
-
         if (null !== $this->agentVersion) {
             $res['agent_version'] = $this->agentVersion;
         }
-
         if (null !== $this->installType) {
             $res['install_type'] = $this->installType;
         }
-
         if (null !== $this->instances) {
-            if (\is_array($this->instances)) {
-                $res['instances'] = [];
-                $n1 = 0;
-                foreach ($this->instances as $item1) {
-                    $res['instances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['instances'] = [];
+            if (null !== $this->instances && \is_array($this->instances)) {
+                $n = 0;
+                foreach ($this->instances as $item) {
+                    $res['instances'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -72,33 +72,29 @@ class InstallAgentRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return InstallAgentRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['agent_id'])) {
             $model->agentId = $map['agent_id'];
         }
-
         if (isset($map['agent_version'])) {
             $model->agentVersion = $map['agent_version'];
         }
-
         if (isset($map['install_type'])) {
             $model->installType = $map['install_type'];
         }
-
         if (isset($map['instances'])) {
             if (!empty($map['instances'])) {
                 $model->instances = [];
-                $n1 = 0;
-                foreach ($map['instances'] as $item1) {
-                    $model->instances[$n1] = instances::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['instances'] as $item) {
+                    $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
                 }
             }
         }

@@ -4,31 +4,45 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ListInstancesEcsInfoListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example ip
+     *
      * @var string
      */
     public $infoType;
 
     /**
+     * @example i-bp118piqcio9tiwgh84b
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example managed
+     *
      * @var string
      */
     public $managedType;
 
     /**
+     * @example 74a86327-3170-412c-8e67-da3389ec56a9
+     *
      * @var string
      */
     public $pluginId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $region;
@@ -40,30 +54,23 @@ class ListInstancesEcsInfoListRequest extends Model
         'region' => 'region',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->infoType) {
             $res['info_type'] = $this->infoType;
         }
-
         if (null !== $this->instanceId) {
             $res['instance_id'] = $this->instanceId;
         }
-
         if (null !== $this->managedType) {
             $res['managed_type'] = $this->managedType;
         }
-
         if (null !== $this->pluginId) {
             $res['plugin_id'] = $this->pluginId;
         }
-
         if (null !== $this->region) {
             $res['region'] = $this->region;
         }
@@ -71,30 +78,26 @@ class ListInstancesEcsInfoListRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ListInstancesEcsInfoListRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['info_type'])) {
             $model->infoType = $map['info_type'];
         }
-
         if (isset($map['instance_id'])) {
             $model->instanceId = $map['instance_id'];
         }
-
         if (isset($map['managed_type'])) {
             $model->managedType = $map['managed_type'];
         }
-
         if (isset($map['plugin_id'])) {
             $model->pluginId = $map['plugin_id'];
         }
-
         if (isset($map['region'])) {
             $model->region = $map['region'];
         }

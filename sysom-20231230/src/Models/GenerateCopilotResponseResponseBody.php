@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GenerateCopilotResponseResponseBody extends Model
 {
     /**
+     * @example SysomOpenAPI.ServerError
+     *
      * @var string
      */
     public $code;
@@ -19,11 +21,17 @@ class GenerateCopilotResponseResponseBody extends Model
     public $data;
 
     /**
+     * @example Requests for llm service failed
+     *
      * @var string
      */
     public $massage;
 
     /**
+     * @description Id of the request
+     *
+     * @example 2D693121-C925-5154-8DF6-C09A8B369822
+     *
      * @var string
      */
     public $requestId;
@@ -34,26 +42,20 @@ class GenerateCopilotResponseResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
-
         if (null !== $this->data) {
             $res['data'] = $this->data;
         }
-
         if (null !== $this->massage) {
             $res['massage'] = $this->massage;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -61,26 +63,23 @@ class GenerateCopilotResponseResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GenerateCopilotResponseResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
-
         if (isset($map['data'])) {
             $model->data = $map['data'];
         }
-
         if (isset($map['massage'])) {
             $model->massage = $map['massage'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

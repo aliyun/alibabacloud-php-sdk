@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetAIQueryResultRequest extends Model
 {
     /**
+     * @example 16896fa8-37f6-4c70-bb32-67fa9817d426
+     *
      * @var string
      */
     public $analysisId;
@@ -16,12 +18,9 @@ class GetAIQueryResultRequest extends Model
         'analysisId' => 'analysisId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->analysisId) {
@@ -31,11 +30,11 @@ class GetAIQueryResultRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetAIQueryResultRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models\GetServiceFuncStatusResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetServiceFuncStatusResponseBody\data\args;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,29 +17,23 @@ class data extends Model
         'args' => 'args',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->args) {
-            $this->args->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->args) {
-            $res['args'] = null !== $this->args ? $this->args->toArray($noStream) : $this->args;
+            $res['args'] = null !== $this->args ? $this->args->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

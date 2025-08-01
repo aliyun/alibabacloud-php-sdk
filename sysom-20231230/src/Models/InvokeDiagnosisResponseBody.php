@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\SysOM\V20231230\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InvokeDiagnosisResponseBody\data;
+use AlibabaCloud\Tea\Model;
 
 class InvokeDiagnosisResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,6 +22,8 @@ class InvokeDiagnosisResponseBody extends Model
     public $data;
 
     /**
+     * @example SysomOpenAPIAssumeRoleException: EntityNotExist.Role The role not exists: acs:ram::xxxxx:role/aliyunserviceroleforsysom
+     *
      * @var string
      */
     public $message;
@@ -35,29 +39,20 @@ class InvokeDiagnosisResponseBody extends Model
         'requestId' => 'request_id',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
-
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
-
         if (null !== $this->requestId) {
             $res['request_id'] = $this->requestId;
         }
@@ -65,26 +60,23 @@ class InvokeDiagnosisResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return InvokeDiagnosisResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
-
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
         }
-
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
-
         if (isset($map['request_id'])) {
             $model->requestId = $map['request_id'];
         }
