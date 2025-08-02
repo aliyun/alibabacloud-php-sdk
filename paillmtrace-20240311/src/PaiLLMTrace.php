@@ -591,6 +591,9 @@ class PaiLLMTrace extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
         if (!Utils::isUnset($request->keyword)) {
             $query['Keyword'] = $request->keyword;
         }
@@ -611,6 +614,9 @@ class PaiLLMTrace extends OpenApiClient
         }
         if (!Utils::isUnset($request->sortOrder)) {
             $query['SortOrder'] = $request->sortOrder;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,

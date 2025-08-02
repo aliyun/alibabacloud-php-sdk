@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListOnlineEvalTasksRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appName;
+
+    /**
      * @description Search keyword. It will match on fields such as task name, application name (appName), task description, and evaluation metric name.
      *
      * @example foo
@@ -64,7 +69,13 @@ class ListOnlineEvalTasksRequest extends Model
      * @var string
      */
     public $sortOrder;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
+        'appName' => 'AppName',
         'keyword' => 'Keyword',
         'maxTime' => 'MaxTime',
         'minTime' => 'MinTime',
@@ -72,6 +83,7 @@ class ListOnlineEvalTasksRequest extends Model
         'pageSize' => 'PageSize',
         'sortBy' => 'SortBy',
         'sortOrder' => 'SortOrder',
+        'status' => 'Status',
     ];
 
     public function validate() {}
@@ -79,6 +91,9 @@ class ListOnlineEvalTasksRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
+        }
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
@@ -100,6 +115,9 @@ class ListOnlineEvalTasksRequest extends Model
         if (null !== $this->sortOrder) {
             $res['SortOrder'] = $this->sortOrder;
         }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
 
         return $res;
     }
@@ -112,6 +130,9 @@ class ListOnlineEvalTasksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
+        }
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
@@ -132,6 +153,9 @@ class ListOnlineEvalTasksRequest extends Model
         }
         if (isset($map['SortOrder'])) {
             $model->sortOrder = $map['SortOrder'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;
