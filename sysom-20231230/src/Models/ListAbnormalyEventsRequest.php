@@ -30,6 +30,11 @@ class ListAbnormalyEventsRequest extends Model
     public $end;
 
     /**
+     * @var string
+     */
+    public $event;
+
+    /**
      * @example i-wz9d00ut2ska3mlyhn6j
      *
      * @var string
@@ -81,6 +86,7 @@ class ListAbnormalyEventsRequest extends Model
         'cluster' => 'cluster',
         'current' => 'current',
         'end' => 'end',
+        'event' => 'event',
         'instance' => 'instance',
         'level' => 'level',
         'namespace' => 'namespace',
@@ -103,6 +109,9 @@ class ListAbnormalyEventsRequest extends Model
         }
         if (null !== $this->end) {
             $res['end'] = $this->end;
+        }
+        if (null !== $this->event) {
+            $res['event'] = $this->event;
         }
         if (null !== $this->instance) {
             $res['instance'] = $this->instance;
@@ -145,6 +154,9 @@ class ListAbnormalyEventsRequest extends Model
         }
         if (isset($map['end'])) {
             $model->end = $map['end'];
+        }
+        if (isset($map['event'])) {
+            $model->event = $map['event'];
         }
         if (isset($map['instance'])) {
             $model->instance = $map['instance'];

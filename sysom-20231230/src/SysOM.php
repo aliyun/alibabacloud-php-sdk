@@ -430,6 +430,9 @@ class SysOM extends OpenApiClient
         if (!Utils::isUnset($request->instance)) {
             $query['instance'] = $request->instance;
         }
+        if (!Utils::isUnset($request->level)) {
+            $query['level'] = $request->level;
+        }
         if (!Utils::isUnset($request->namespace_)) {
             $query['namespace'] = $request->namespace_;
         }
@@ -1823,6 +1826,9 @@ class SysOM extends OpenApiClient
         }
         if (!Utils::isUnset($request->end)) {
             $query['end'] = $request->end;
+        }
+        if (!Utils::isUnset($request->event)) {
+            $query['event'] = $request->event;
         }
         if (!Utils::isUnset($request->instance)) {
             $query['instance'] = $request->instance;

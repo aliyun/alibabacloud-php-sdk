@@ -23,13 +23,16 @@ class GetAbnormalEventsCountRequest extends Model
     public $end;
 
     /**
-     * @description This parameter is required.
-     *
      * @example i-wz9d00ut2ska3mlyhn6j
      *
      * @var string
      */
     public $instance;
+
+    /**
+     * @var string
+     */
+    public $level;
 
     /**
      * @example default
@@ -60,6 +63,7 @@ class GetAbnormalEventsCountRequest extends Model
         'cluster' => 'cluster',
         'end' => 'end',
         'instance' => 'instance',
+        'level' => 'level',
         'namespace' => 'namespace',
         'pod' => 'pod',
         'showPod' => 'showPod',
@@ -79,6 +83,9 @@ class GetAbnormalEventsCountRequest extends Model
         }
         if (null !== $this->instance) {
             $res['instance'] = $this->instance;
+        }
+        if (null !== $this->level) {
+            $res['level'] = $this->level;
         }
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
@@ -112,6 +119,9 @@ class GetAbnormalEventsCountRequest extends Model
         }
         if (isset($map['instance'])) {
             $model->instance = $map['instance'];
+        }
+        if (isset($map['level'])) {
+            $model->level = $map['level'];
         }
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
