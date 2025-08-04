@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppAgentTemplateRequest;
 
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppAgentTemplateRequest\asrConfig\vadConfig;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppAgentTemplateRequest\asrConfig\wordWeights;
 use AlibabaCloud\Tea\Model;
 
@@ -26,6 +27,11 @@ class asrConfig extends Model
     public $name;
 
     /**
+     * @var vadConfig
+     */
+    public $vadConfig;
+
+    /**
      * @example 0bb1776b1745123332074d1b6b
      *
      * @var string
@@ -39,6 +45,7 @@ class asrConfig extends Model
     protected $_name = [
         'maxSentenceSilence' => 'MaxSentenceSilence',
         'name' => 'Name',
+        'vadConfig' => 'VadConfig',
         'vocabularyId' => 'VocabularyId',
         'wordWeights' => 'WordWeights',
     ];
@@ -53,6 +60,9 @@ class asrConfig extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->vadConfig) {
+            $res['VadConfig'] = null !== $this->vadConfig ? $this->vadConfig->toMap() : null;
         }
         if (null !== $this->vocabularyId) {
             $res['VocabularyId'] = $this->vocabularyId;
@@ -83,6 +93,9 @@ class asrConfig extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['VadConfig'])) {
+            $model->vadConfig = vadConfig::fromMap($map['VadConfig']);
         }
         if (isset($map['VocabularyId'])) {
             $model->vocabularyId = $map['VocabularyId'];

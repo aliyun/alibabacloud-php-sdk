@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartAgentRequest;
 
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartAgentRequest\voiceChatConfig\agentSilenceConfig;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartAgentRequest\voiceChatConfig\ASRConfig;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartAgentRequest\voiceChatConfig\LLMConfig;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartAgentRequest\voiceChatConfig\TTSConfig;
@@ -15,6 +16,11 @@ class voiceChatConfig extends Model
      * @var ASRConfig
      */
     public $ASRConfig;
+
+    /**
+     * @var agentSilenceConfig
+     */
+    public $agentSilenceConfig;
 
     /**
      * @example 1
@@ -46,6 +52,7 @@ class voiceChatConfig extends Model
     public $TTSConfig;
     protected $_name = [
         'ASRConfig' => 'ASRConfig',
+        'agentSilenceConfig' => 'AgentSilenceConfig',
         'chatMode' => 'ChatMode',
         'greeting' => 'Greeting',
         'interruptMode' => 'InterruptMode',
@@ -60,6 +67,9 @@ class voiceChatConfig extends Model
         $res = [];
         if (null !== $this->ASRConfig) {
             $res['ASRConfig'] = null !== $this->ASRConfig ? $this->ASRConfig->toMap() : null;
+        }
+        if (null !== $this->agentSilenceConfig) {
+            $res['AgentSilenceConfig'] = null !== $this->agentSilenceConfig ? $this->agentSilenceConfig->toMap() : null;
         }
         if (null !== $this->chatMode) {
             $res['ChatMode'] = $this->chatMode;
@@ -90,6 +100,9 @@ class voiceChatConfig extends Model
         $model = new self();
         if (isset($map['ASRConfig'])) {
             $model->ASRConfig = ASRConfig::fromMap($map['ASRConfig']);
+        }
+        if (isset($map['AgentSilenceConfig'])) {
+            $model->agentSilenceConfig = agentSilenceConfig::fromMap($map['AgentSilenceConfig']);
         }
         if (isset($map['ChatMode'])) {
             $model->chatMode = $map['ChatMode'];

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppAgentTemplateRequest;
 
+use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppAgentTemplateRequest\asrConfig\vadConfig;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppAgentTemplateRequest\asrConfig\wordWeights;
 use AlibabaCloud\Tea\Model;
 
@@ -26,12 +27,18 @@ class asrConfig extends Model
     public $name;
 
     /**
+     * @var vadConfig
+     */
+    public $vadConfig;
+
+    /**
      * @var wordWeights[]
      */
     public $wordWeights;
     protected $_name = [
         'maxSentenceSilence' => 'MaxSentenceSilence',
         'name' => 'Name',
+        'vadConfig' => 'VadConfig',
         'wordWeights' => 'WordWeights',
     ];
 
@@ -45,6 +52,9 @@ class asrConfig extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->vadConfig) {
+            $res['VadConfig'] = null !== $this->vadConfig ? $this->vadConfig->toMap() : null;
         }
         if (null !== $this->wordWeights) {
             $res['WordWeights'] = [];
@@ -72,6 +82,9 @@ class asrConfig extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['VadConfig'])) {
+            $model->vadConfig = vadConfig::fromMap($map['VadConfig']);
         }
         if (isset($map['WordWeights'])) {
             if (!empty($map['WordWeights'])) {

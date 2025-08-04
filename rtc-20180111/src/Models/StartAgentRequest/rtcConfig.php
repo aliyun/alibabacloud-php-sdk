@@ -21,9 +21,15 @@ class rtcConfig extends Model
      * @var string
      */
     public $userId;
+
+    /**
+     * @var int
+     */
+    public $userInactivityTimeout;
     protected $_name = [
         'targetUserIds' => 'TargetUserIds',
         'userId' => 'UserId',
+        'userInactivityTimeout' => 'UserInactivityTimeout',
     ];
 
     public function validate() {}
@@ -36,6 +42,9 @@ class rtcConfig extends Model
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->userInactivityTimeout) {
+            $res['UserInactivityTimeout'] = $this->userInactivityTimeout;
         }
 
         return $res;
@@ -56,6 +65,9 @@ class rtcConfig extends Model
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
+        }
+        if (isset($map['UserInactivityTimeout'])) {
+            $model->userInactivityTimeout = $map['UserInactivityTimeout'];
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class llmConfig extends Model
 {
     /**
+     * @var string
+     */
+    public $agentAppId;
+
+    /**
      * @example qW8GpBOdHK/pv9gdUSVLvQ==
      *
      * @var string
@@ -76,6 +81,7 @@ class llmConfig extends Model
      */
     public $vendor;
     protected $_name = [
+        'agentAppId' => 'AgentAppId',
         'apiKey' => 'ApiKey',
         'historyDepth' => 'HistoryDepth',
         'maxToken' => 'MaxToken',
@@ -93,6 +99,9 @@ class llmConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentAppId) {
+            $res['AgentAppId'] = $this->agentAppId;
+        }
         if (null !== $this->apiKey) {
             $res['ApiKey'] = $this->apiKey;
         }
@@ -135,6 +144,9 @@ class llmConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentAppId'])) {
+            $model->agentAppId = $map['AgentAppId'];
+        }
         if (isset($map['ApiKey'])) {
             $model->apiKey = $map['ApiKey'];
         }

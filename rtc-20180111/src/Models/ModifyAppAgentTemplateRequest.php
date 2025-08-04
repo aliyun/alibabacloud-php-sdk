@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppAgentTemplateRequest\agentSilenceConfig;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppAgentTemplateRequest\asrConfig;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppAgentTemplateRequest\llmConfig;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyAppAgentTemplateRequest\ttsConfig;
@@ -11,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 
 class ModifyAppAgentTemplateRequest extends Model
 {
+    /**
+     * @var agentSilenceConfig
+     */
+    public $agentSilenceConfig;
+
     /**
      * @description This parameter is required.
      *
@@ -79,6 +85,7 @@ class ModifyAppAgentTemplateRequest extends Model
      */
     public $type;
     protected $_name = [
+        'agentSilenceConfig' => 'AgentSilenceConfig',
         'appId' => 'AppId',
         'asrConfig' => 'AsrConfig',
         'chatMode' => 'ChatMode',
@@ -96,6 +103,9 @@ class ModifyAppAgentTemplateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentSilenceConfig) {
+            $res['AgentSilenceConfig'] = null !== $this->agentSilenceConfig ? $this->agentSilenceConfig->toMap() : null;
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -138,6 +148,9 @@ class ModifyAppAgentTemplateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentSilenceConfig'])) {
+            $model->agentSilenceConfig = agentSilenceConfig::fromMap($map['AgentSilenceConfig']);
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }

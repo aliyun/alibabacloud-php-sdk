@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartAgentRequest\voiceChatConfig;
 
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartAgentRequest\voiceChatConfig\ASRConfig\vadConfig;
 use AlibabaCloud\Tea\Model;
 
 class ASRConfig extends Model
@@ -35,6 +36,11 @@ class ASRConfig extends Model
     public $sourceLanguage;
 
     /**
+     * @var vadConfig
+     */
+    public $vadConfig;
+
+    /**
      * @example vocab-xxx-24ee19fa8cfb4d52902170a0xxxxxxxx
      *
      * @var string
@@ -45,6 +51,7 @@ class ASRConfig extends Model
         'maxSentenceSilence' => 'MaxSentenceSilence',
         'semanticPunctuationEnabled' => 'SemanticPunctuationEnabled',
         'sourceLanguage' => 'SourceLanguage',
+        'vadConfig' => 'VadConfig',
         'vocabularyId' => 'VocabularyId',
     ];
 
@@ -64,6 +71,9 @@ class ASRConfig extends Model
         }
         if (null !== $this->sourceLanguage) {
             $res['SourceLanguage'] = $this->sourceLanguage;
+        }
+        if (null !== $this->vadConfig) {
+            $res['VadConfig'] = null !== $this->vadConfig ? $this->vadConfig->toMap() : null;
         }
         if (null !== $this->vocabularyId) {
             $res['VocabularyId'] = $this->vocabularyId;
@@ -93,6 +103,9 @@ class ASRConfig extends Model
         }
         if (isset($map['SourceLanguage'])) {
             $model->sourceLanguage = $map['SourceLanguage'];
+        }
+        if (isset($map['VadConfig'])) {
+            $model->vadConfig = vadConfig::fromMap($map['VadConfig']);
         }
         if (isset($map['VocabularyId'])) {
             $model->vocabularyId = $map['VocabularyId'];

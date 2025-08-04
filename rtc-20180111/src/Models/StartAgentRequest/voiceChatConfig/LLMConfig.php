@@ -16,6 +16,11 @@ class LLMConfig extends Model
     public $apiKey;
 
     /**
+     * @var string
+     */
+    public $appId;
+
+    /**
      * @example 3
      *
      * @var int
@@ -35,6 +40,11 @@ class LLMConfig extends Model
      * @var string
      */
     public $model;
+
+    /**
+     * @var mixed[]
+     */
+    public $params;
 
     /**
      * @example xxxx
@@ -72,9 +82,11 @@ class LLMConfig extends Model
     public $vendor;
     protected $_name = [
         'apiKey' => 'ApiKey',
+        'appId' => 'AppId',
         'historyDepth' => 'HistoryDepth',
         'maxToken' => 'MaxToken',
         'model' => 'Model',
+        'params' => 'Params',
         'prompt' => 'Prompt',
         'temperature' => 'Temperature',
         'topP' => 'TopP',
@@ -90,6 +102,9 @@ class LLMConfig extends Model
         if (null !== $this->apiKey) {
             $res['ApiKey'] = $this->apiKey;
         }
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
         if (null !== $this->historyDepth) {
             $res['HistoryDepth'] = $this->historyDepth;
         }
@@ -98,6 +113,9 @@ class LLMConfig extends Model
         }
         if (null !== $this->model) {
             $res['Model'] = $this->model;
+        }
+        if (null !== $this->params) {
+            $res['Params'] = $this->params;
         }
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
@@ -129,6 +147,9 @@ class LLMConfig extends Model
         if (isset($map['ApiKey'])) {
             $model->apiKey = $map['ApiKey'];
         }
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
         if (isset($map['HistoryDepth'])) {
             $model->historyDepth = $map['HistoryDepth'];
         }
@@ -137,6 +158,9 @@ class LLMConfig extends Model
         }
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
+        }
+        if (isset($map['Params'])) {
+            $model->params = $map['Params'];
         }
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];

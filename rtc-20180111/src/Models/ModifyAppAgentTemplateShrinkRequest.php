@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyAppAgentTemplateShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $agentSilenceConfigShrink;
+
+    /**
      * @description This parameter is required.
      *
      * @example ac7N****
@@ -76,6 +81,7 @@ class ModifyAppAgentTemplateShrinkRequest extends Model
      */
     public $type;
     protected $_name = [
+        'agentSilenceConfigShrink' => 'AgentSilenceConfig',
         'appId' => 'AppId',
         'asrConfigShrink' => 'AsrConfig',
         'chatMode' => 'ChatMode',
@@ -93,6 +99,9 @@ class ModifyAppAgentTemplateShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentSilenceConfigShrink) {
+            $res['AgentSilenceConfig'] = $this->agentSilenceConfigShrink;
+        }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
@@ -135,6 +144,9 @@ class ModifyAppAgentTemplateShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentSilenceConfig'])) {
+            $model->agentSilenceConfigShrink = $map['AgentSilenceConfig'];
+        }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }

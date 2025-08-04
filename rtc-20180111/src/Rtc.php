@@ -421,6 +421,9 @@ class Rtc extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new CreateAppAgentTemplateShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->agentSilenceConfig)) {
+            $request->agentSilenceConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->agentSilenceConfig, 'AgentSilenceConfig', 'json');
+        }
         if (!Utils::isUnset($tmpReq->asrConfig)) {
             $request->asrConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->asrConfig, 'AsrConfig', 'json');
         }
@@ -431,6 +434,9 @@ class Rtc extends OpenApiClient
             $request->ttsConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ttsConfig, 'TtsConfig', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->agentSilenceConfigShrink)) {
+            $query['AgentSilenceConfig'] = $request->agentSilenceConfigShrink;
+        }
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
         }
@@ -4920,6 +4926,9 @@ class Rtc extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new ModifyAppAgentTemplateShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->agentSilenceConfig)) {
+            $request->agentSilenceConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->agentSilenceConfig, 'AgentSilenceConfig', 'json');
+        }
         if (!Utils::isUnset($tmpReq->asrConfig)) {
             $request->asrConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->asrConfig, 'AsrConfig', 'json');
         }
@@ -4930,6 +4939,9 @@ class Rtc extends OpenApiClient
             $request->ttsConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ttsConfig, 'TtsConfig', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->agentSilenceConfigShrink)) {
+            $query['AgentSilenceConfig'] = $request->agentSilenceConfigShrink;
+        }
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
         }

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppAgentTemplatesResponseBody;
 
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppAgentTemplatesResponseBody\templates\agentSilenceConfig;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppAgentTemplatesResponseBody\templates\asrConfig;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppAgentTemplatesResponseBody\templates\llmConfig;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppAgentTemplatesResponseBody\templates\ttsConfig;
@@ -11,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 
 class templates extends Model
 {
+    /**
+     * @var agentSilenceConfig
+     */
+    public $agentSilenceConfig;
+
     /**
      * @var asrConfig
      */
@@ -75,6 +81,7 @@ class templates extends Model
      */
     public $type;
     protected $_name = [
+        'agentSilenceConfig' => 'AgentSilenceConfig',
         'asrConfig' => 'AsrConfig',
         'chatMode' => 'ChatMode',
         'createTime' => 'CreateTime',
@@ -92,6 +99,9 @@ class templates extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentSilenceConfig) {
+            $res['AgentSilenceConfig'] = null !== $this->agentSilenceConfig ? $this->agentSilenceConfig->toMap() : null;
+        }
         if (null !== $this->asrConfig) {
             $res['AsrConfig'] = null !== $this->asrConfig ? $this->asrConfig->toMap() : null;
         }
@@ -134,6 +144,9 @@ class templates extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentSilenceConfig'])) {
+            $model->agentSilenceConfig = agentSilenceConfig::fromMap($map['AgentSilenceConfig']);
+        }
         if (isset($map['AsrConfig'])) {
             $model->asrConfig = asrConfig::fromMap($map['AsrConfig']);
         }
