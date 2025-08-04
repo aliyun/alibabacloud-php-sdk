@@ -54,6 +54,8 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\ListFileRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListFileResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndexDocumentsRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndexDocumentsResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndexFileDetailsRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndexFileDetailsResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndicesRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndicesResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListMemoriesRequest;
@@ -78,6 +80,8 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentSelectiveRequ
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentSelectiveResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentSelectiveShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentShrinkRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateChunkRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateChunkResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateFileTagRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateFileTagResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateFileTagShrinkRequest;
@@ -1795,6 +1799,73 @@ class Bailian extends OpenApiClient
     }
 
     /**
+     * @summary 查询Index文件详情
+     *  *
+     * @param string                      $WorkspaceId
+     * @param ListIndexFileDetailsRequest $request     ListIndexFileDetailsRequest
+     * @param string[]                    $headers     map
+     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return ListIndexFileDetailsResponse ListIndexFileDetailsResponse
+     */
+    public function listIndexFileDetailsWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->documentName)) {
+            $query['DocumentName'] = $request->documentName;
+        }
+        if (!Utils::isUnset($request->documentStatus)) {
+            $query['DocumentStatus'] = $request->documentStatus;
+        }
+        if (!Utils::isUnset($request->enableNameLike)) {
+            $query['EnableNameLike'] = $request->enableNameLike;
+        }
+        if (!Utils::isUnset($request->indexId)) {
+            $query['IndexId'] = $request->indexId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListIndexFileDetails',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/index/list_index_file_detail',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListIndexFileDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询Index文件详情
+     *  *
+     * @param string                      $WorkspaceId
+     * @param ListIndexFileDetailsRequest $request     ListIndexFileDetailsRequest
+     *
+     * @return ListIndexFileDetailsResponse ListIndexFileDetailsResponse
+     */
+    public function listIndexFileDetails($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listIndexFileDetailsWithOptions($WorkspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary Lists knowledge bases in a specified workspace.
      *  *
      * @description This interface is idempotent.
@@ -2502,6 +2573,73 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->updateAndPublishAgentSelectiveWithOptions($workspaceId, $appCode, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新切片信息
+     *  *
+     * @param string             $WorkspaceId
+     * @param UpdateChunkRequest $request     UpdateChunkRequest
+     * @param string[]           $headers     map
+     * @param RuntimeOptions     $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return UpdateChunkResponse UpdateChunkResponse
+     */
+    public function updateChunkWithOptions($WorkspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->chunkId)) {
+            $query['ChunkId'] = $request->chunkId;
+        }
+        if (!Utils::isUnset($request->dataId)) {
+            $query['DataId'] = $request->dataId;
+        }
+        if (!Utils::isUnset($request->isDisplayedChunkContent)) {
+            $query['IsDisplayedChunkContent'] = $request->isDisplayedChunkContent;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $query['PipelineId'] = $request->pipelineId;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $query['content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateChunk',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . OpenApiUtilClient::getEncodeParam($WorkspaceId) . '/chunk/update',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateChunkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新切片信息
+     *  *
+     * @param string             $WorkspaceId
+     * @param UpdateChunkRequest $request     UpdateChunkRequest
+     *
+     * @return UpdateChunkResponse UpdateChunkResponse
+     */
+    public function updateChunk($WorkspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateChunkWithOptions($WorkspaceId, $request, $headers, $runtime);
     }
 
     /**
