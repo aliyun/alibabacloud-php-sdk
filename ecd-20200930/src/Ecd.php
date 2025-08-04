@@ -7803,6 +7803,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->desktopId)) {
             $query['DesktopId'] = $request->desktopId;
         }
+        if (!Utils::isUnset($request->needExtraInfo)) {
+            $query['NeedExtraInfo'] = $request->needExtraInfo;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
