@@ -11,6 +11,11 @@ class SubmitSmartAuditShrinkRequest extends Model
     /**
      * @var string
      */
+    public $imageUrlListShrink;
+
+    /**
+     * @var string
+     */
     public $subCodesShrink;
 
     /**
@@ -30,6 +35,7 @@ class SubmitSmartAuditShrinkRequest extends Model
      */
     public $imageUrlsShrink;
     protected $_name = [
+        'imageUrlListShrink' => 'ImageUrlList',
         'subCodesShrink' => 'SubCodes',
         'text' => 'Text',
         'workspaceId' => 'WorkspaceId',
@@ -41,6 +47,9 @@ class SubmitSmartAuditShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->imageUrlListShrink) {
+            $res['ImageUrlList'] = $this->imageUrlListShrink;
+        }
         if (null !== $this->subCodesShrink) {
             $res['SubCodes'] = $this->subCodesShrink;
         }
@@ -65,6 +74,9 @@ class SubmitSmartAuditShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ImageUrlList'])) {
+            $model->imageUrlListShrink = $map['ImageUrlList'];
+        }
         if (isset($map['SubCodes'])) {
             $model->subCodesShrink = $map['SubCodes'];
         }

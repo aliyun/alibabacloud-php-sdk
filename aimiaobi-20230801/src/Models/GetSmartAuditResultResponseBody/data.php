@@ -15,6 +15,11 @@ class data extends Model
     public $errorItemDetails;
 
     /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
      * @example SUCCESSED
      *
      * @var string
@@ -22,6 +27,7 @@ class data extends Model
     public $status;
     protected $_name = [
         'errorItemDetails' => 'ErrorItemDetails',
+        'errorMessage' => 'ErrorMessage',
         'status' => 'Status',
     ];
 
@@ -38,6 +44,9 @@ class data extends Model
                     $res['ErrorItemDetails'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -62,6 +71,9 @@ class data extends Model
                     $model->errorItemDetails[$n++] = null !== $item ? errorItemDetails::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -10073,6 +10073,9 @@ class AiMiaoBi extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new SubmitSmartAuditShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->imageUrlList)) {
+            $request->imageUrlListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageUrlList, 'ImageUrlList', 'json');
+        }
         if (!Utils::isUnset($tmpReq->subCodes)) {
             $request->subCodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->subCodes, 'SubCodes', 'json');
         }
@@ -10080,6 +10083,9 @@ class AiMiaoBi extends OpenApiClient
             $request->imageUrlsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageUrls, 'imageUrls', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->imageUrlListShrink)) {
+            $body['ImageUrlList'] = $request->imageUrlListShrink;
+        }
         if (!Utils::isUnset($request->subCodesShrink)) {
             $body['SubCodes'] = $request->subCodesShrink;
         }

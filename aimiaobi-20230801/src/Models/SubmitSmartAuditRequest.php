@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\AiMiaoBi\V20230801\Models;
 
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartAuditRequest\imageUrlList;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartAuditRequest\imageUrls;
 use AlibabaCloud\Tea\Model;
 
 class SubmitSmartAuditRequest extends Model
 {
+    /**
+     * @var imageUrlList[]
+     */
+    public $imageUrlList;
+
     /**
      * @var string[]
      */
@@ -31,6 +37,7 @@ class SubmitSmartAuditRequest extends Model
      */
     public $imageUrls;
     protected $_name = [
+        'imageUrlList' => 'ImageUrlList',
         'subCodes' => 'SubCodes',
         'text' => 'Text',
         'workspaceId' => 'WorkspaceId',
@@ -42,6 +49,15 @@ class SubmitSmartAuditRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->imageUrlList) {
+            $res['ImageUrlList'] = [];
+            if (null !== $this->imageUrlList && \is_array($this->imageUrlList)) {
+                $n = 0;
+                foreach ($this->imageUrlList as $item) {
+                    $res['ImageUrlList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->subCodes) {
             $res['SubCodes'] = $this->subCodes;
         }
@@ -72,6 +88,15 @@ class SubmitSmartAuditRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ImageUrlList'])) {
+            if (!empty($map['ImageUrlList'])) {
+                $model->imageUrlList = [];
+                $n = 0;
+                foreach ($map['ImageUrlList'] as $item) {
+                    $model->imageUrlList[$n++] = null !== $item ? imageUrlList::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['SubCodes'])) {
             if (!empty($map['SubCodes'])) {
                 $model->subCodes = $map['SubCodes'];
