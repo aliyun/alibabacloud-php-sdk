@@ -8,6 +8,9 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\CioMarketPop\V20250709\Models\GetEveryOneSellsFormListRequest;
 use AlibabaCloud\SDK\CioMarketPop\V20250709\Models\GetEveryOneSellsFormListResponse;
+use AlibabaCloud\SDK\CioMarketPop\V20250709\Models\PushEveryOneSellMsgRequest;
+use AlibabaCloud\SDK\CioMarketPop\V20250709\Models\PushEveryOneSellMsgResponse;
+use AlibabaCloud\SDK\CioMarketPop\V20250709\Models\PushEveryOneSellMsgShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -90,5 +93,63 @@ class CioMarketPop extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getEveryOneSellsFormListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 推送钉钉消息
+     *  *
+     * @param PushEveryOneSellMsgRequest $tmpReq  PushEveryOneSellMsgRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PushEveryOneSellMsgResponse PushEveryOneSellMsgResponse
+     */
+    public function pushEveryOneSellMsgWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new PushEveryOneSellMsgShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dingIdList)) {
+            $request->dingIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dingIdList, 'DingIdList', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dingIdListShrink)) {
+            $body['DingIdList'] = $request->dingIdListShrink;
+        }
+        if (!Utils::isUnset($request->pushMsg)) {
+            $body['PushMsg'] = $request->pushMsg;
+        }
+        if (!Utils::isUnset($request->pushType)) {
+            $body['PushType'] = $request->pushType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'PushEveryOneSellMsg',
+            'version' => '2025-07-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'Anonymous',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'string',
+        ]);
+
+        return PushEveryOneSellMsgResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 推送钉钉消息
+     *  *
+     * @param PushEveryOneSellMsgRequest $request PushEveryOneSellMsgRequest
+     *
+     * @return PushEveryOneSellMsgResponse PushEveryOneSellMsgResponse
+     */
+    public function pushEveryOneSellMsg($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pushEveryOneSellMsgWithOptions($request, $runtime);
     }
 }
