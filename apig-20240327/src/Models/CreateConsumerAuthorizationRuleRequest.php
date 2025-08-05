@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateConsumerAuthorizationRuleRequest extends Model
 {
@@ -14,29 +14,21 @@ class CreateConsumerAuthorizationRuleRequest extends Model
     public $authorizationResourceInfos;
 
     /**
-     * @example LongTerm
-     *
      * @var string
      */
     public $expireMode;
 
     /**
-     * @example 1750852089975
-     *
      * @var int
      */
     public $expireTimestamp;
 
     /**
-     * @example API
-     *
      * @var string
      */
     public $parentResourceType;
 
     /**
-     * @example API
-     *
      * @var string
      */
     public $resourceType;
@@ -48,29 +40,40 @@ class CreateConsumerAuthorizationRuleRequest extends Model
         'resourceType' => 'resourceType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->authorizationResourceInfos)) {
+            Model::validateArray($this->authorizationResourceInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authorizationResourceInfos) {
-            $res['authorizationResourceInfos'] = [];
-            if (null !== $this->authorizationResourceInfos && \is_array($this->authorizationResourceInfos)) {
-                $n = 0;
-                foreach ($this->authorizationResourceInfos as $item) {
-                    $res['authorizationResourceInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->authorizationResourceInfos)) {
+                $res['authorizationResourceInfos'] = [];
+                $n1 = 0;
+                foreach ($this->authorizationResourceInfos as $item1) {
+                    $res['authorizationResourceInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->expireMode) {
             $res['expireMode'] = $this->expireMode;
         }
+
         if (null !== $this->expireTimestamp) {
             $res['expireTimestamp'] = $this->expireTimestamp;
         }
+
         if (null !== $this->parentResourceType) {
             $res['parentResourceType'] = $this->parentResourceType;
         }
+
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
@@ -78,32 +81,37 @@ class CreateConsumerAuthorizationRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateConsumerAuthorizationRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['authorizationResourceInfos'])) {
             if (!empty($map['authorizationResourceInfos'])) {
                 $model->authorizationResourceInfos = [];
-                $n = 0;
-                foreach ($map['authorizationResourceInfos'] as $item) {
-                    $model->authorizationResourceInfos[$n++] = null !== $item ? AuthorizationResourceInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['authorizationResourceInfos'] as $item1) {
+                    $model->authorizationResourceInfos[$n1] = AuthorizationResourceInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['expireMode'])) {
             $model->expireMode = $map['expireMode'];
         }
+
         if (isset($map['expireTimestamp'])) {
             $model->expireTimestamp = $map['expireTimestamp'];
         }
+
         if (isset($map['parentResourceType'])) {
             $model->parentResourceType = $map['parentResourceType'];
         }
+
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\Service\ports;
-use AlibabaCloud\Tea\Model;
 
 class Service extends Model
 {
@@ -30,22 +30,16 @@ class Service extends Model
     public $createTimestamp;
 
     /**
-     * @example StartExecution
-     *
      * @var string
      */
     public $expressType;
 
     /**
-     * @example gw-xxxx
-     *
      * @var string
      */
     public $gatewayId;
 
     /**
-     * @example publich
-     *
      * @var string
      */
     public $groupName;
@@ -81,22 +75,16 @@ class Service extends Model
     public $ports;
 
     /**
-     * @example HTTP
-     *
      * @var string
      */
     public $protocol;
 
     /**
-     * @example LATEST
-     *
      * @var string
      */
     public $qualifier;
 
     /**
-     * @example rg-xxx
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -143,74 +131,132 @@ class Service extends Model
         'updateTimestamp' => 'updateTimestamp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->addresses)) {
+            Model::validateArray($this->addresses);
+        }
+        if (null !== $this->agentServiceConfig) {
+            $this->agentServiceConfig->validate();
+        }
+        if (null !== $this->aiServiceConfig) {
+            $this->aiServiceConfig->validate();
+        }
+        if (null !== $this->healthCheck) {
+            $this->healthCheck->validate();
+        }
+        if (null !== $this->labelDetails) {
+            $this->labelDetails->validate();
+        }
+        if (\is_array($this->ports)) {
+            Model::validateArray($this->ports);
+        }
+        if (\is_array($this->unhealthyEndpoints)) {
+            Model::validateArray($this->unhealthyEndpoints);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addresses) {
-            $res['addresses'] = $this->addresses;
-        }
-        if (null !== $this->agentServiceConfig) {
-            $res['agentServiceConfig'] = null !== $this->agentServiceConfig ? $this->agentServiceConfig->toMap() : null;
-        }
-        if (null !== $this->aiServiceConfig) {
-            $res['aiServiceConfig'] = null !== $this->aiServiceConfig ? $this->aiServiceConfig->toMap() : null;
-        }
-        if (null !== $this->createTimestamp) {
-            $res['createTimestamp'] = $this->createTimestamp;
-        }
-        if (null !== $this->expressType) {
-            $res['expressType'] = $this->expressType;
-        }
-        if (null !== $this->gatewayId) {
-            $res['gatewayId'] = $this->gatewayId;
-        }
-        if (null !== $this->groupName) {
-            $res['groupName'] = $this->groupName;
-        }
-        if (null !== $this->healthCheck) {
-            $res['healthCheck'] = null !== $this->healthCheck ? $this->healthCheck->toMap() : null;
-        }
-        if (null !== $this->healthStatus) {
-            $res['healthStatus'] = $this->healthStatus;
-        }
-        if (null !== $this->labelDetails) {
-            $res['labelDetails'] = null !== $this->labelDetails ? $this->labelDetails->toMap() : null;
-        }
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
-        }
-        if (null !== $this->namespace) {
-            $res['namespace'] = $this->namespace;
-        }
-        if (null !== $this->ports) {
-            $res['ports'] = [];
-            if (null !== $this->ports && \is_array($this->ports)) {
-                $n = 0;
-                foreach ($this->ports as $item) {
-                    $res['ports'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->addresses)) {
+                $res['addresses'] = [];
+                $n1 = 0;
+                foreach ($this->addresses as $item1) {
+                    $res['addresses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->agentServiceConfig) {
+            $res['agentServiceConfig'] = null !== $this->agentServiceConfig ? $this->agentServiceConfig->toArray($noStream) : $this->agentServiceConfig;
+        }
+
+        if (null !== $this->aiServiceConfig) {
+            $res['aiServiceConfig'] = null !== $this->aiServiceConfig ? $this->aiServiceConfig->toArray($noStream) : $this->aiServiceConfig;
+        }
+
+        if (null !== $this->createTimestamp) {
+            $res['createTimestamp'] = $this->createTimestamp;
+        }
+
+        if (null !== $this->expressType) {
+            $res['expressType'] = $this->expressType;
+        }
+
+        if (null !== $this->gatewayId) {
+            $res['gatewayId'] = $this->gatewayId;
+        }
+
+        if (null !== $this->groupName) {
+            $res['groupName'] = $this->groupName;
+        }
+
+        if (null !== $this->healthCheck) {
+            $res['healthCheck'] = null !== $this->healthCheck ? $this->healthCheck->toArray($noStream) : $this->healthCheck;
+        }
+
+        if (null !== $this->healthStatus) {
+            $res['healthStatus'] = $this->healthStatus;
+        }
+
+        if (null !== $this->labelDetails) {
+            $res['labelDetails'] = null !== $this->labelDetails ? $this->labelDetails->toArray($noStream) : $this->labelDetails;
+        }
+
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
+        }
+
+        if (null !== $this->namespace) {
+            $res['namespace'] = $this->namespace;
+        }
+
+        if (null !== $this->ports) {
+            if (\is_array($this->ports)) {
+                $res['ports'] = [];
+                $n1 = 0;
+                foreach ($this->ports as $item1) {
+                    $res['ports'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
         }
+
         if (null !== $this->qualifier) {
             $res['qualifier'] = $this->qualifier;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->serviceId) {
             $res['serviceId'] = $this->serviceId;
         }
+
         if (null !== $this->sourceType) {
             $res['sourceType'] = $this->sourceType;
         }
+
         if (null !== $this->unhealthyEndpoints) {
-            $res['unhealthyEndpoints'] = $this->unhealthyEndpoints;
+            if (\is_array($this->unhealthyEndpoints)) {
+                $res['unhealthyEndpoints'] = [];
+                $n1 = 0;
+                foreach ($this->unhealthyEndpoints as $item1) {
+                    $res['unhealthyEndpoints'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->updateTimestamp) {
             $res['updateTimestamp'] = $this->updateTimestamp;
         }
@@ -218,81 +264,111 @@ class Service extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Service
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['addresses'])) {
             if (!empty($map['addresses'])) {
-                $model->addresses = $map['addresses'];
-            }
-        }
-        if (isset($map['agentServiceConfig'])) {
-            $model->agentServiceConfig = AgentServiceConfig::fromMap($map['agentServiceConfig']);
-        }
-        if (isset($map['aiServiceConfig'])) {
-            $model->aiServiceConfig = AiServiceConfig::fromMap($map['aiServiceConfig']);
-        }
-        if (isset($map['createTimestamp'])) {
-            $model->createTimestamp = $map['createTimestamp'];
-        }
-        if (isset($map['expressType'])) {
-            $model->expressType = $map['expressType'];
-        }
-        if (isset($map['gatewayId'])) {
-            $model->gatewayId = $map['gatewayId'];
-        }
-        if (isset($map['groupName'])) {
-            $model->groupName = $map['groupName'];
-        }
-        if (isset($map['healthCheck'])) {
-            $model->healthCheck = ServiceHealthCheck::fromMap($map['healthCheck']);
-        }
-        if (isset($map['healthStatus'])) {
-            $model->healthStatus = $map['healthStatus'];
-        }
-        if (isset($map['labelDetails'])) {
-            $model->labelDetails = LabelDetail::fromMap($map['labelDetails']);
-        }
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
-        }
-        if (isset($map['namespace'])) {
-            $model->namespace = $map['namespace'];
-        }
-        if (isset($map['ports'])) {
-            if (!empty($map['ports'])) {
-                $model->ports = [];
-                $n = 0;
-                foreach ($map['ports'] as $item) {
-                    $model->ports[$n++] = null !== $item ? ports::fromMap($item) : $item;
+                $model->addresses = [];
+                $n1 = 0;
+                foreach ($map['addresses'] as $item1) {
+                    $model->addresses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['agentServiceConfig'])) {
+            $model->agentServiceConfig = AgentServiceConfig::fromMap($map['agentServiceConfig']);
+        }
+
+        if (isset($map['aiServiceConfig'])) {
+            $model->aiServiceConfig = AiServiceConfig::fromMap($map['aiServiceConfig']);
+        }
+
+        if (isset($map['createTimestamp'])) {
+            $model->createTimestamp = $map['createTimestamp'];
+        }
+
+        if (isset($map['expressType'])) {
+            $model->expressType = $map['expressType'];
+        }
+
+        if (isset($map['gatewayId'])) {
+            $model->gatewayId = $map['gatewayId'];
+        }
+
+        if (isset($map['groupName'])) {
+            $model->groupName = $map['groupName'];
+        }
+
+        if (isset($map['healthCheck'])) {
+            $model->healthCheck = ServiceHealthCheck::fromMap($map['healthCheck']);
+        }
+
+        if (isset($map['healthStatus'])) {
+            $model->healthStatus = $map['healthStatus'];
+        }
+
+        if (isset($map['labelDetails'])) {
+            $model->labelDetails = LabelDetail::fromMap($map['labelDetails']);
+        }
+
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
+        }
+
+        if (isset($map['namespace'])) {
+            $model->namespace = $map['namespace'];
+        }
+
+        if (isset($map['ports'])) {
+            if (!empty($map['ports'])) {
+                $model->ports = [];
+                $n1 = 0;
+                foreach ($map['ports'] as $item1) {
+                    $model->ports[$n1] = ports::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
         }
+
         if (isset($map['qualifier'])) {
             $model->qualifier = $map['qualifier'];
         }
+
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
         }
+
         if (isset($map['serviceId'])) {
             $model->serviceId = $map['serviceId'];
         }
+
         if (isset($map['sourceType'])) {
             $model->sourceType = $map['sourceType'];
         }
+
         if (isset($map['unhealthyEndpoints'])) {
             if (!empty($map['unhealthyEndpoints'])) {
-                $model->unhealthyEndpoints = $map['unhealthyEndpoints'];
+                $model->unhealthyEndpoints = [];
+                $n1 = 0;
+                foreach ($map['unhealthyEndpoints'] as $item1) {
+                    $model->unhealthyEndpoints[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['updateTimestamp'])) {
             $model->updateTimestamp = $map['updateTimestamp'];
         }

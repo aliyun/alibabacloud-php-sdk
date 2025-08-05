@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerAuthorizationRulesRequest\authorizationRules;
-use AlibabaCloud\Tea\Model;
 
 class CreateConsumerAuthorizationRulesRequest extends Model
 {
     /**
-     * @description The consumer authentication rules to be created.
-     *
      * @var authorizationRules[]
      */
     public $authorizationRules;
@@ -19,17 +17,24 @@ class CreateConsumerAuthorizationRulesRequest extends Model
         'authorizationRules' => 'authorizationRules',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->authorizationRules)) {
+            Model::validateArray($this->authorizationRules);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authorizationRules) {
-            $res['authorizationRules'] = [];
-            if (null !== $this->authorizationRules && \is_array($this->authorizationRules)) {
-                $n = 0;
-                foreach ($this->authorizationRules as $item) {
-                    $res['authorizationRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->authorizationRules)) {
+                $res['authorizationRules'] = [];
+                $n1 = 0;
+                foreach ($this->authorizationRules as $item1) {
+                    $res['authorizationRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class CreateConsumerAuthorizationRulesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateConsumerAuthorizationRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['authorizationRules'])) {
             if (!empty($map['authorizationRules'])) {
                 $model->authorizationRules = [];
-                $n = 0;
-                foreach ($map['authorizationRules'] as $item) {
-                    $model->authorizationRules[$n++] = null !== $item ? authorizationRules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['authorizationRules'] as $item1) {
+                    $model->authorizationRules[$n1] = authorizationRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

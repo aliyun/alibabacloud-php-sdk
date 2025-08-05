@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPublishRevisionInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiBackendMatchConditions;
-use AlibabaCloud\Tea\Model;
 
 class dnsConfigs extends Model
 {
@@ -20,8 +20,6 @@ class dnsConfigs extends Model
     public $match;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $weight;
@@ -31,17 +29,35 @@ class dnsConfigs extends Model
         'weight' => 'weight',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dnsList)) {
+            Model::validateArray($this->dnsList);
+        }
+        if (null !== $this->match) {
+            $this->match->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dnsList) {
-            $res['dnsList'] = $this->dnsList;
+            if (\is_array($this->dnsList)) {
+                $res['dnsList'] = [];
+                $n1 = 0;
+                foreach ($this->dnsList as $item1) {
+                    $res['dnsList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->match) {
-            $res['match'] = null !== $this->match ? $this->match->toMap() : null;
+            $res['match'] = null !== $this->match ? $this->match->toArray($noStream) : $this->match;
         }
+
         if (null !== $this->weight) {
             $res['weight'] = $this->weight;
         }
@@ -49,22 +65,29 @@ class dnsConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dnsConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dnsList'])) {
             if (!empty($map['dnsList'])) {
-                $model->dnsList = $map['dnsList'];
+                $model->dnsList = [];
+                $n1 = 0;
+                foreach ($map['dnsList'] as $item1) {
+                    $model->dnsList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['match'])) {
             $model->match = HttpApiBackendMatchConditions::fromMap($map['match']);
         }
+
         if (isset($map['weight'])) {
             $model->weight = $map['weight'];
         }

@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTraceConfigRequest extends Model
 {
     /**
-     * @description Language Type:
-     * zh: Chinese
-     * en: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
@@ -22,9 +16,12 @@ class GetTraceConfigRequest extends Model
         'acceptLanguage' => 'acceptLanguage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
@@ -34,11 +31,11 @@ class GetTraceConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTraceConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

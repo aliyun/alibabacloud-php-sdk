@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\CreateGatewayRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class networkAccessConfig extends Model
 {
     /**
-     * @example Internet
-     *
      * @var string
      */
     public $type;
@@ -18,9 +16,12 @@ class networkAccessConfig extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->type) {
@@ -30,11 +31,11 @@ class networkAccessConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkAccessConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

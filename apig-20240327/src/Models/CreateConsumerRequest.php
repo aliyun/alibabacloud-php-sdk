@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateConsumerRequest extends Model
 {
@@ -19,22 +19,16 @@ class CreateConsumerRequest extends Model
     public $apikeyIdentityConfig;
 
     /**
-     * @example consumer for test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @example API
-     *
      * @var string
      */
     public $gatewayType;
@@ -45,8 +39,6 @@ class CreateConsumerRequest extends Model
     public $jwtIdentityConfig;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $name;
@@ -60,35 +52,54 @@ class CreateConsumerRequest extends Model
         'name' => 'name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->akSkIdentityConfigs)) {
+            Model::validateArray($this->akSkIdentityConfigs);
+        }
+        if (null !== $this->apikeyIdentityConfig) {
+            $this->apikeyIdentityConfig->validate();
+        }
+        if (null !== $this->jwtIdentityConfig) {
+            $this->jwtIdentityConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->akSkIdentityConfigs) {
-            $res['akSkIdentityConfigs'] = [];
-            if (null !== $this->akSkIdentityConfigs && \is_array($this->akSkIdentityConfigs)) {
-                $n = 0;
-                foreach ($this->akSkIdentityConfigs as $item) {
-                    $res['akSkIdentityConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->akSkIdentityConfigs)) {
+                $res['akSkIdentityConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->akSkIdentityConfigs as $item1) {
+                    $res['akSkIdentityConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->apikeyIdentityConfig) {
-            $res['apikeyIdentityConfig'] = null !== $this->apikeyIdentityConfig ? $this->apikeyIdentityConfig->toMap() : null;
+            $res['apikeyIdentityConfig'] = null !== $this->apikeyIdentityConfig ? $this->apikeyIdentityConfig->toArray($noStream) : $this->apikeyIdentityConfig;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
         }
+
         if (null !== $this->gatewayType) {
             $res['gatewayType'] = $this->gatewayType;
         }
+
         if (null !== $this->jwtIdentityConfig) {
-            $res['jwtIdentityConfig'] = null !== $this->jwtIdentityConfig ? $this->jwtIdentityConfig->toMap() : null;
+            $res['jwtIdentityConfig'] = null !== $this->jwtIdentityConfig ? $this->jwtIdentityConfig->toArray($noStream) : $this->jwtIdentityConfig;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -96,38 +107,45 @@ class CreateConsumerRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateConsumerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['akSkIdentityConfigs'])) {
             if (!empty($map['akSkIdentityConfigs'])) {
                 $model->akSkIdentityConfigs = [];
-                $n = 0;
-                foreach ($map['akSkIdentityConfigs'] as $item) {
-                    $model->akSkIdentityConfigs[$n++] = null !== $item ? AkSkIdentityConfig::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['akSkIdentityConfigs'] as $item1) {
+                    $model->akSkIdentityConfigs[$n1] = AkSkIdentityConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['apikeyIdentityConfig'])) {
             $model->apikeyIdentityConfig = ApiKeyIdentityConfig::fromMap($map['apikeyIdentityConfig']);
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
         }
+
         if (isset($map['gatewayType'])) {
             $model->gatewayType = $map['gatewayType'];
         }
+
         if (isset($map['jwtIdentityConfig'])) {
             $model->jwtIdentityConfig = JwtIdentityConfig::fromMap($map['jwtIdentityConfig']);
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

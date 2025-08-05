@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ApiKeyIdentityConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class apikeySource extends Model
 {
@@ -22,14 +22,18 @@ class apikeySource extends Model
         'value' => 'value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->source) {
             $res['source'] = $this->source;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -37,17 +41,18 @@ class apikeySource extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return apikeySource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['source'])) {
             $model->source = $map['source'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

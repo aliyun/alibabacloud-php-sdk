@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateGatewayFeatureRequest extends Model
 {
     /**
-     * @description Parameter value.
-     *
-     * @example "true"
-     *
      * @var string
      */
     public $value;
@@ -20,9 +16,12 @@ class UpdateGatewayFeatureRequest extends Model
         'value' => 'value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->value) {
@@ -32,11 +31,11 @@ class UpdateGatewayFeatureRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateGatewayFeatureRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\CreateConsumerAuthorizationRulesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The authentication rule IDs.
-     *
      * @var string[]
      */
     public $consumerAuthorizationRuleIds;
@@ -18,29 +16,47 @@ class data extends Model
         'consumerAuthorizationRuleIds' => 'consumerAuthorizationRuleIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->consumerAuthorizationRuleIds)) {
+            Model::validateArray($this->consumerAuthorizationRuleIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->consumerAuthorizationRuleIds) {
-            $res['consumerAuthorizationRuleIds'] = $this->consumerAuthorizationRuleIds;
+            if (\is_array($this->consumerAuthorizationRuleIds)) {
+                $res['consumerAuthorizationRuleIds'] = [];
+                $n1 = 0;
+                foreach ($this->consumerAuthorizationRuleIds as $item1) {
+                    $res['consumerAuthorizationRuleIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['consumerAuthorizationRuleIds'])) {
             if (!empty($map['consumerAuthorizationRuleIds'])) {
-                $model->consumerAuthorizationRuleIds = $map['consumerAuthorizationRuleIds'];
+                $model->consumerAuthorizationRuleIds = [];
+                $n1 = 0;
+                foreach ($map['consumerAuthorizationRuleIds'] as $item1) {
+                    $model->consumerAuthorizationRuleIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

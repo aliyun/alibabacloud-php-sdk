@@ -4,16 +4,12 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class ListGatewaysRequest extends Model
 {
     /**
-     * @description The instance ID. If you specify an ID, an exact search is performed.
-     *
-     * @example gw-cpv4sqdl****
-     *
      * @var string
      */
     public $gatewayId;
@@ -24,53 +20,31 @@ class ListGatewaysRequest extends Model
     public $gatewayType;
 
     /**
-     * @description The search keyword. A full match is performed. The search is case-insensitive.
-     *
-     * @example dev
-     *
      * @var string
      */
     public $keyword;
 
     /**
-     * @description The instance name. If you specify a name, an exact search is performed.
-     *
-     * @example itemcenter-gateway
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The number of the page to return.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The resource group ID.
-     *
-     * @example rg-aekz3wes3hnre5a
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The tags that you want to use for the search.
-     *
      * @var tag[]
      */
     public $tag;
@@ -85,38 +59,52 @@ class ListGatewaysRequest extends Model
         'tag' => 'tag',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
         }
+
         if (null !== $this->gatewayType) {
             $res['gatewayType'] = $this->gatewayType;
         }
+
         if (null !== $this->keyword) {
             $res['keyword'] = $this->keyword;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->tag) {
-            $res['tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -124,41 +112,49 @@ class ListGatewaysRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListGatewaysRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
         }
+
         if (isset($map['gatewayType'])) {
             $model->gatewayType = $map['gatewayType'];
         }
+
         if (isset($map['keyword'])) {
             $model->keyword = $map['keyword'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
         }
+
         if (isset($map['tag'])) {
             if (!empty($map['tag'])) {
                 $model->tag = [];
-                $n = 0;
-                foreach ($map['tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

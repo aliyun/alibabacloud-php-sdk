@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class HttpApiMockContract extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $responseCode;
@@ -32,17 +28,22 @@ class HttpApiMockContract extends Model
         'responseContent' => 'responseContent',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
         }
+
         if (null !== $this->responseCode) {
             $res['responseCode'] = $this->responseCode;
         }
+
         if (null !== $this->responseContent) {
             $res['responseContent'] = $this->responseContent;
         }
@@ -50,20 +51,22 @@ class HttpApiMockContract extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return HttpApiMockContract
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
         }
+
         if (isset($map['responseCode'])) {
             $model->responseCode = $map['responseCode'];
         }
+
         if (isset($map['responseContent'])) {
             $model->responseContent = $map['responseContent'];
         }

@@ -4,57 +4,27 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceRequest\serviceConfigs;
-use AlibabaCloud\Tea\Model;
 
 class CreateServiceRequest extends Model
 {
     /**
-     * @description The gateway instance ID.
-     *
-     * @example gw-cq7l5s5lhtg***
-     *
      * @var string
      */
     public $gatewayId;
 
     /**
-     * @description The resource group ID.
-     *
-     * @example rg-xxx
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The list of service configurations.
-     *
      * @var serviceConfigs[]
      */
     public $serviceConfigs;
 
     /**
-     * @description The service source. Valid values:
-     *
-     *   MSE_NACOS: a service in an MSE Nacos instance
-     *   K8S: a service in a Kubernetes (K8s) cluster in Container Service for Kubernetes (ACK)
-     *   VIP: a fixed IP address
-     *   DNS: a Domain Name System (DNS) domain name
-     *   FC3: a service in Function Compute
-     *   SAE_K8S_SERVICE: a service in a K8s cluster in Serverless App Engine (SAE)
-     *
-     * Enumerated values:
-     *
-     *   SAE_K8S_SERVICE
-     *   K8S
-     *   FC3
-     *   DNS
-     *   VIP
-     *   MSE_NACOS
-     *
-     * @example MSE_NACOS
-     *
      * @var string
      */
     public $sourceType;
@@ -65,26 +35,36 @@ class CreateServiceRequest extends Model
         'sourceType' => 'sourceType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->serviceConfigs)) {
+            Model::validateArray($this->serviceConfigs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->serviceConfigs) {
-            $res['serviceConfigs'] = [];
-            if (null !== $this->serviceConfigs && \is_array($this->serviceConfigs)) {
-                $n = 0;
-                foreach ($this->serviceConfigs as $item) {
-                    $res['serviceConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->serviceConfigs)) {
+                $res['serviceConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->serviceConfigs as $item1) {
+                    $res['serviceConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->sourceType) {
             $res['sourceType'] = $this->sourceType;
         }
@@ -92,29 +72,33 @@ class CreateServiceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateServiceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
         }
+
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
         }
+
         if (isset($map['serviceConfigs'])) {
             if (!empty($map['serviceConfigs'])) {
                 $model->serviceConfigs = [];
-                $n = 0;
-                foreach ($map['serviceConfigs'] as $item) {
-                    $model->serviceConfigs[$n++] = null !== $item ? serviceConfigs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['serviceConfigs'] as $item1) {
+                    $model->serviceConfigs[$n1] = serviceConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['sourceType'])) {
             $model->sourceType = $map['sourceType'];
         }

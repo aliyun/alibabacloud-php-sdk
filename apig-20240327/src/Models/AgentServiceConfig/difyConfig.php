@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\AgentServiceConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class difyConfig extends Model
 {
@@ -22,14 +22,18 @@ class difyConfig extends Model
         'botType' => 'botType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiKey) {
             $res['apiKey'] = $this->apiKey;
         }
+
         if (null !== $this->botType) {
             $res['botType'] = $this->botType;
         }
@@ -37,17 +41,18 @@ class difyConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return difyConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['apiKey'])) {
             $model->apiKey = $map['apiKey'];
         }
+
         if (isset($map['botType'])) {
             $model->botType = $map['botType'];
         }

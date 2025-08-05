@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\QueryConsumerAuthorizationRulesResponseBody\data\items;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiOperationInfo;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpRoute;
-use AlibabaCloud\Tea\Model;
 
 class resourceInfo extends Model
 {
     /**
-     * @description The operation information.
-     *
      * @var HttpApiOperationInfo
      */
     public $operationInfo;
 
     /**
-     * @description The route.
-     *
      * @var HttpRoute
      */
     public $route;
@@ -28,32 +24,43 @@ class resourceInfo extends Model
         'route' => 'route',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->operationInfo) {
+            $this->operationInfo->validate();
+        }
+        if (null !== $this->route) {
+            $this->route->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operationInfo) {
-            $res['operationInfo'] = null !== $this->operationInfo ? $this->operationInfo->toMap() : null;
+            $res['operationInfo'] = null !== $this->operationInfo ? $this->operationInfo->toArray($noStream) : $this->operationInfo;
         }
+
         if (null !== $this->route) {
-            $res['route'] = null !== $this->route ? $this->route->toMap() : null;
+            $res['route'] = null !== $this->route ? $this->route->toArray($noStream) : $this->route;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['operationInfo'])) {
             $model->operationInfo = HttpApiOperationInfo::fromMap($map['operationInfo']);
         }
+
         if (isset($map['route'])) {
             $model->route = HttpRoute::fromMap($map['route']);
         }

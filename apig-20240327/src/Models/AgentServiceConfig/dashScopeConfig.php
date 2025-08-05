@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\AgentServiceConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AgentServiceConfig\dashScopeConfig\appCredentials;
-use AlibabaCloud\Tea\Model;
 
 class dashScopeConfig extends Model
 {
@@ -17,17 +17,24 @@ class dashScopeConfig extends Model
         'appCredentials' => 'appCredentials',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->appCredentials)) {
+            Model::validateArray($this->appCredentials);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appCredentials) {
-            $res['appCredentials'] = [];
-            if (null !== $this->appCredentials && \is_array($this->appCredentials)) {
-                $n = 0;
-                foreach ($this->appCredentials as $item) {
-                    $res['appCredentials'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->appCredentials)) {
+                $res['appCredentials'] = [];
+                $n1 = 0;
+                foreach ($this->appCredentials as $item1) {
+                    $res['appCredentials'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class dashScopeConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dashScopeConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['appCredentials'])) {
             if (!empty($map['appCredentials'])) {
                 $model->appCredentials = [];
-                $n = 0;
-                foreach ($map['appCredentials'] as $item) {
-                    $model->appCredentials[$n++] = null !== $item ? appCredentials::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['appCredentials'] as $item1) {
+                    $model->appCredentials[$n1] = appCredentials::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

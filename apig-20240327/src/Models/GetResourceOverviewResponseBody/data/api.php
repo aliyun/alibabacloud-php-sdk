@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\GetResourceOverviewResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class api extends Model
 {
     /**
-     * @description Number of published APIs.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $publishedCount;
 
     /**
-     * @description Number of APIs.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -30,14 +22,18 @@ class api extends Model
         'totalCount' => 'totalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->publishedCount) {
             $res['publishedCount'] = $this->publishedCount;
         }
+
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
@@ -45,17 +41,18 @@ class api extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return api
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['publishedCount'])) {
             $model->publishedCount = $map['publishedCount'];
         }
+
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }

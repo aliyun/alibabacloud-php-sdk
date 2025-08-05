@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ServiceLinkedRole extends Model
 {
@@ -58,32 +58,42 @@ class ServiceLinkedRole extends Model
         'rolePrincipalName' => 'rolePrincipalName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->arn) {
             $res['arn'] = $this->arn;
         }
+
         if (null !== $this->assumeRolePolicyDocument) {
             $res['assumeRolePolicyDocument'] = $this->assumeRolePolicyDocument;
         }
+
         if (null !== $this->createDate) {
             $res['createDate'] = $this->createDate;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->isServiceLinkedRole) {
             $res['isServiceLinkedRole'] = $this->isServiceLinkedRole;
         }
+
         if (null !== $this->roleId) {
             $res['roleId'] = $this->roleId;
         }
+
         if (null !== $this->roleName) {
             $res['roleName'] = $this->roleName;
         }
+
         if (null !== $this->rolePrincipalName) {
             $res['rolePrincipalName'] = $this->rolePrincipalName;
         }
@@ -91,35 +101,42 @@ class ServiceLinkedRole extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ServiceLinkedRole
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['arn'])) {
             $model->arn = $map['arn'];
         }
+
         if (isset($map['assumeRolePolicyDocument'])) {
             $model->assumeRolePolicyDocument = $map['assumeRolePolicyDocument'];
         }
+
         if (isset($map['createDate'])) {
             $model->createDate = $map['createDate'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['isServiceLinkedRole'])) {
             $model->isServiceLinkedRole = $map['isServiceLinkedRole'];
         }
+
         if (isset($map['roleId'])) {
             $model->roleId = $map['roleId'];
         }
+
         if (isset($map['roleName'])) {
             $model->roleName = $map['roleName'];
         }
+
         if (isset($map['rolePrincipalName'])) {
             $model->rolePrincipalName = $map['rolePrincipalName'];
         }

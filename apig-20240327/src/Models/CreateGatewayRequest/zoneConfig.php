@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\CreateGatewayRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateGatewayRequest\zoneConfig\zones;
-use AlibabaCloud\Tea\Model;
 
 class zoneConfig extends Model
 {
     /**
-     * @example Manual
-     *
      * @var string
      */
     public $selectOption;
 
     /**
-     * @example vsw-xxx
-     *
      * @var string
      */
     public $vSwitchId;
@@ -33,23 +29,32 @@ class zoneConfig extends Model
         'zones' => 'zones',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->zones)) {
+            Model::validateArray($this->zones);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->selectOption) {
             $res['selectOption'] = $this->selectOption;
         }
+
         if (null !== $this->vSwitchId) {
             $res['vSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->zones) {
-            $res['zones'] = [];
-            if (null !== $this->zones && \is_array($this->zones)) {
-                $n = 0;
-                foreach ($this->zones as $item) {
-                    $res['zones'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->zones)) {
+                $res['zones'] = [];
+                $n1 = 0;
+                foreach ($this->zones as $item1) {
+                    $res['zones'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -57,26 +62,29 @@ class zoneConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return zoneConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['selectOption'])) {
             $model->selectOption = $map['selectOption'];
         }
+
         if (isset($map['vSwitchId'])) {
             $model->vSwitchId = $map['vSwitchId'];
         }
+
         if (isset($map['zones'])) {
             if (!empty($map['zones'])) {
                 $model->zones = [];
-                $n = 0;
-                foreach ($map['zones'] as $item) {
-                    $model->zones[$n++] = null !== $item ? zones::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['zones'] as $item1) {
+                    $model->zones[$n1] = zones::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

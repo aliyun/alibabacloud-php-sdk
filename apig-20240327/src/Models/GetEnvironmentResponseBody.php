@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetEnvironmentResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class GetEnvironmentResponseBody extends Model
 {
     /**
-     * @description Response code.
-     *
-     * @example Ok
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description Response data.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description Response message.
-     *
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Request ID, used for tracing the API call chain.
-     *
-     * @example 3F8EE674-BB08-5E92-BE6F-E4756A748B0F
-     *
      * @var string
      */
     public $requestId;
@@ -49,20 +35,29 @@ class GetEnvironmentResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -70,23 +65,26 @@ class GetEnvironmentResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetEnvironmentResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

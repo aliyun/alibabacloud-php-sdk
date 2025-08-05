@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PolicyDetailInfo extends Model
 {
@@ -46,26 +46,34 @@ class PolicyDetailInfo extends Model
         'policyId' => 'policyId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->classId) {
             $res['classId'] = $this->classId;
         }
+
         if (null !== $this->className) {
             $res['className'] = $this->className;
         }
+
         if (null !== $this->config) {
             $res['config'] = $this->config;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->policyId) {
             $res['policyId'] = $this->policyId;
         }
@@ -73,29 +81,34 @@ class PolicyDetailInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PolicyDetailInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['classId'])) {
             $model->classId = $map['classId'];
         }
+
         if (isset($map['className'])) {
             $model->className = $map['className'];
         }
+
         if (isset($map['config'])) {
             $model->config = $map['config'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['policyId'])) {
             $model->policyId = $map['policyId'];
         }

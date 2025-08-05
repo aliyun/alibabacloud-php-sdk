@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDeployConfig\policyConfigs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class aiFallbackConfig extends Model
 {
@@ -16,29 +16,47 @@ class aiFallbackConfig extends Model
         'serviceIds' => 'serviceIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->serviceIds)) {
+            Model::validateArray($this->serviceIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serviceIds) {
-            $res['serviceIds'] = $this->serviceIds;
+            if (\is_array($this->serviceIds)) {
+                $res['serviceIds'] = [];
+                $n1 = 0;
+                foreach ($this->serviceIds as $item1) {
+                    $res['serviceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return aiFallbackConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['serviceIds'])) {
             if (!empty($map['serviceIds'])) {
-                $model->serviceIds = $map['serviceIds'];
+                $model->serviceIds = [];
+                $n1 = 0;
+                foreach ($map['serviceIds'] as $item1) {
+                    $model->serviceIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

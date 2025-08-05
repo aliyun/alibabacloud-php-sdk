@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\CreateGatewayRequest\zoneConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class zones extends Model
 {
     /**
-     * @example vsw-xx
-     *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @example cn-wulanchabu-a
-     *
      * @var string
      */
     public $zoneId;
@@ -26,14 +22,18 @@ class zones extends Model
         'zoneId' => 'zoneId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vSwitchId) {
             $res['vSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->zoneId) {
             $res['zoneId'] = $this->zoneId;
         }
@@ -41,17 +41,18 @@ class zones extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return zones
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['vSwitchId'])) {
             $model->vSwitchId = $map['vSwitchId'];
         }
+
         if (isset($map['zoneId'])) {
             $model->zoneId = $map['zoneId'];
         }

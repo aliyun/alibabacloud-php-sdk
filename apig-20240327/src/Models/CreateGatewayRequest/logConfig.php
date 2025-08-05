@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\CreateGatewayRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateGatewayRequest\logConfig\sls;
-use AlibabaCloud\Tea\Model;
 
 class logConfig extends Model
 {
@@ -17,23 +17,29 @@ class logConfig extends Model
         'sls' => 'sls',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->sls) {
+            $this->sls->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sls) {
-            $res['sls'] = null !== $this->sls ? $this->sls->toMap() : null;
+            $res['sls'] = null !== $this->sls ? $this->sls->toArray($noStream) : $this->sls;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
