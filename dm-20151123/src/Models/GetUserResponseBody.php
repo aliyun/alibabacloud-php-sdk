@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetUserResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class GetUserResponseBody extends Model
 {
     /**
-     * @description Returned Content
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description Request ID
-     *
-     * @example 10A1AD70-E48E-476D-98D9-39BD92193837
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetUserResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetUserResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

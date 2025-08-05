@@ -4,50 +4,32 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models\DedicatedIpPoolListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DedicatedIpPoolListResponseBody\ipPools\ips;
-use AlibabaCloud\Tea\Model;
 
 class ipPools extends Model
 {
     /**
-     * @description Creation time
-     *
-     * @example 2025-05-23T07:41:43Z
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description IP pool ID
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description Number of source IP addresses
-     *
-     * @example 1
-     *
      * @var int
      */
     public $ipCount;
 
     /**
-     * @description List of IPs
-     *
      * @var ips[]
      */
     public $ips;
 
     /**
-     * @description IP pool name
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $name;
@@ -59,29 +41,40 @@ class ipPools extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ips)) {
+            Model::validateArray($this->ips);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->ipCount) {
             $res['IpCount'] = $this->ipCount;
         }
+
         if (null !== $this->ips) {
-            $res['Ips'] = [];
-            if (null !== $this->ips && \is_array($this->ips)) {
-                $n = 0;
-                foreach ($this->ips as $item) {
-                    $res['Ips'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ips)) {
+                $res['Ips'] = [];
+                $n1 = 0;
+                foreach ($this->ips as $item1) {
+                    $res['Ips'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -89,32 +82,37 @@ class ipPools extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipPools
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['IpCount'])) {
             $model->ipCount = $map['IpCount'];
         }
+
         if (isset($map['Ips'])) {
             if (!empty($map['Ips'])) {
                 $model->ips = [];
-                $n = 0;
-                foreach ($map['Ips'] as $item) {
-                    $model->ips[$n++] = null !== $item ? ips::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Ips'] as $item1) {
+                    $model->ips[$n1] = ips::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

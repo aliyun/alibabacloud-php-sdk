@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DedicatedIpChangeWarmupTypeRequest extends Model
 {
     /**
-     * @description Dedicated IP ID
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description Warmup method
-     *
-     * @example sysCusStream
-     *
      * @var string
      */
     public $warmupType;
@@ -30,14 +22,18 @@ class DedicatedIpChangeWarmupTypeRequest extends Model
         'warmupType' => 'WarmupType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->warmupType) {
             $res['WarmupType'] = $this->warmupType;
         }
@@ -45,17 +41,18 @@ class DedicatedIpChangeWarmupTypeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DedicatedIpChangeWarmupTypeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['WarmupType'])) {
             $model->warmupType = $map['WarmupType'];
         }

@@ -4,25 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DedicatedIpPoolCreateRequest extends Model
 {
     /**
-     * @description Purchased IP instance IDs, separated by commas; derived from the IP purchase instance IDs returned by the DedicatedIpNonePoolList interface.
-     *
-     * @example xxx,xxx
-     *
      * @var string
      */
     public $buyResourceIds;
 
     /**
-     * @description IP pool name;
-     * Length should be 1-50 characters, allowing English letters, numbers, _, and -. The name cannot be modified after the IP pool is created.
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $name;
@@ -31,14 +22,18 @@ class DedicatedIpPoolCreateRequest extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buyResourceIds) {
             $res['BuyResourceIds'] = $this->buyResourceIds;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -46,17 +41,18 @@ class DedicatedIpPoolCreateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DedicatedIpPoolCreateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BuyResourceIds'])) {
             $model->buyResourceIds = $map['BuyResourceIds'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

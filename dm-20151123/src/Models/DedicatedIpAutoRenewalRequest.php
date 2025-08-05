@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DedicatedIpAutoRenewalRequest extends Model
 {
     /**
-     * @description Whether to enable auto-renewal
-     *
-     * This parameter is required.
-     *
-     * @example false
-     *
      * @var string
      */
     public $autoRenewal;
 
     /**
-     * @description Purchase instance ID, separated by English commas if multiple.
-     *
-     * This parameter is required.
-     *
-     * @example xxx,xxx
-     *
      * @var string
      */
     public $buyResourceIds;
@@ -34,14 +22,18 @@ class DedicatedIpAutoRenewalRequest extends Model
         'buyResourceIds' => 'BuyResourceIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoRenewal) {
             $res['AutoRenewal'] = $this->autoRenewal;
         }
+
         if (null !== $this->buyResourceIds) {
             $res['BuyResourceIds'] = $this->buyResourceIds;
         }
@@ -49,17 +41,18 @@ class DedicatedIpAutoRenewalRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DedicatedIpAutoRenewalRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoRenewal'])) {
             $model->autoRenewal = $map['AutoRenewal'];
         }
+
         if (isset($map['BuyResourceIds'])) {
             $model->buyResourceIds = $map['BuyResourceIds'];
         }

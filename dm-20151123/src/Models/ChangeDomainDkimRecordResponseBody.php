@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ChangeDomainDkimRecordResponseBody extends Model
 {
@@ -40,23 +40,30 @@ class ChangeDomainDkimRecordResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changed) {
             $res['Changed'] = $this->changed;
         }
+
         if (null !== $this->dkimPublicKey) {
             $res['DkimPublicKey'] = $this->dkimPublicKey;
         }
+
         if (null !== $this->dkimRsaLength) {
             $res['DkimRsaLength'] = $this->dkimRsaLength;
         }
+
         if (null !== $this->hostname) {
             $res['Hostname'] = $this->hostname;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -64,26 +71,30 @@ class ChangeDomainDkimRecordResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ChangeDomainDkimRecordResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Changed'])) {
             $model->changed = $map['Changed'];
         }
+
         if (isset($map['DkimPublicKey'])) {
             $model->dkimPublicKey = $map['DkimPublicKey'];
         }
+
         if (isset($map['DkimRsaLength'])) {
             $model->dkimRsaLength = $map['DkimRsaLength'];
         }
+
         if (isset($map['Hostname'])) {
             $model->hostname = $map['Hostname'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

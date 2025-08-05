@@ -4,59 +4,37 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DedicatedIpPoolListResponseBody\ipPools;
-use AlibabaCloud\Tea\Model;
 
 class DedicatedIpPoolListResponseBody extends Model
 {
     /**
-     * @description Current page
-     *
-     * @example 1
-     *
      * @var string
      */
     public $currentPage;
 
     /**
-     * @description Whether there is a next page
-     *
-     * @example false
-     *
      * @var bool
      */
     public $hasMore;
 
     /**
-     * @description List of IP pools
-     *
      * @var ipPools[]
      */
     public $ipPools;
 
     /**
-     * @description Page size
-     *
-     * @example 10
-     *
      * @var string
      */
     public $pageSize;
 
     /**
-     * @description Request ID
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Total number of data under the current request conditions
-     *
-     * @example 5
-     *
      * @var int
      */
     public $totalCounts;
@@ -69,32 +47,44 @@ class DedicatedIpPoolListResponseBody extends Model
         'totalCounts' => 'TotalCounts',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ipPools)) {
+            Model::validateArray($this->ipPools);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->hasMore) {
             $res['HasMore'] = $this->hasMore;
         }
+
         if (null !== $this->ipPools) {
-            $res['IpPools'] = [];
-            if (null !== $this->ipPools && \is_array($this->ipPools)) {
-                $n = 0;
-                foreach ($this->ipPools as $item) {
-                    $res['IpPools'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipPools)) {
+                $res['IpPools'] = [];
+                $n1 = 0;
+                foreach ($this->ipPools as $item1) {
+                    $res['IpPools'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCounts) {
             $res['TotalCounts'] = $this->totalCounts;
         }
@@ -102,35 +92,41 @@ class DedicatedIpPoolListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DedicatedIpPoolListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['HasMore'])) {
             $model->hasMore = $map['HasMore'];
         }
+
         if (isset($map['IpPools'])) {
             if (!empty($map['IpPools'])) {
                 $model->ipPools = [];
-                $n = 0;
-                foreach ($map['IpPools'] as $item) {
-                    $model->ipPools[$n++] = null !== $item ? ipPools::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['IpPools'] as $item1) {
+                    $model->ipPools[$n1] = ipPools::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCounts'])) {
             $model->totalCounts = $map['TotalCounts'];
         }

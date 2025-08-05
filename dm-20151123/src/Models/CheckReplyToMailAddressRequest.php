@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckReplyToMailAddressRequest extends Model
 {
     /**
-     * @description Language.
-     *
-     * en is English, and any other value or an empty value defaults to Chinese.
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
 
     /**
-     * @description Sender Address ID
-     *
-     * This parameter is required.
-     *
-     * @example 126545
-     *
      * @var int
      */
     public $mailAddressId;
@@ -36,10 +24,6 @@ class CheckReplyToMailAddressRequest extends Model
     public $ownerId;
 
     /**
-     * @description Region
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $region;
@@ -62,26 +46,34 @@ class CheckReplyToMailAddressRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->mailAddressId) {
             $res['MailAddressId'] = $this->mailAddressId;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -89,29 +81,34 @@ class CheckReplyToMailAddressRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckReplyToMailAddressRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['MailAddressId'])) {
             $model->mailAddressId = $map['MailAddressId'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

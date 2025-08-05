@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models\DedicatedIpNonePoolListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ips extends Model
 {
     /**
-     * @description Purchased instance ID
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description IP address
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $ip;
@@ -30,14 +22,18 @@ class ips extends Model
         'ip' => 'Ip',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
@@ -45,17 +41,18 @@ class ips extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ips
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }

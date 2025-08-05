@@ -4,60 +4,71 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models\DedicatedIpListResponseBody\ips;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ipExt extends Model
 {
     /**
-     * @description Whether auto-renewal is enabled
-     *
-     * @example false
-     *
      * @var bool
      */
     public $autoRenewal;
 
     /**
-     * @description Whether an email has been sent
-     *
-     * @example true
-     *
      * @var bool
      */
     public $hasSendMail;
+
+    /**
+     * @var string
+     */
+    public $lastWarmUpTypeChangedTime;
     protected $_name = [
         'autoRenewal' => 'AutoRenewal',
         'hasSendMail' => 'HasSendMail',
+        'lastWarmUpTypeChangedTime' => 'LastWarmUpTypeChangedTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoRenewal) {
             $res['AutoRenewal'] = $this->autoRenewal;
         }
+
         if (null !== $this->hasSendMail) {
             $res['HasSendMail'] = $this->hasSendMail;
+        }
+
+        if (null !== $this->lastWarmUpTypeChangedTime) {
+            $res['LastWarmUpTypeChangedTime'] = $this->lastWarmUpTypeChangedTime;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipExt
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoRenewal'])) {
             $model->autoRenewal = $map['AutoRenewal'];
         }
+
         if (isset($map['HasSendMail'])) {
             $model->hasSendMail = $map['HasSendMail'];
+        }
+
+        if (isset($map['LastWarmUpTypeChangedTime'])) {
+            $model->lastWarmUpTypeChangedTime = $map['LastWarmUpTypeChangedTime'];
         }
 
         return $model;

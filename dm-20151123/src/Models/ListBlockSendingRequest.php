@@ -4,57 +4,41 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListBlockSendingRequest extends Model
 {
     /**
-     * @example 1731463398242
-     *
      * @var int
      */
     public $beginTime;
 
     /**
-     * @example xxxx@rcpt.com
-     *
      * @var string
      */
     public $blockEmail;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example UNSUB
-     *
      * @var string
      */
     public $blockType;
 
     /**
-     * @example 1732463398242
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @example 50
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example xxxxxyyyyyy
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example xxxx@sender.com
-     *
      * @var string
      */
     public $senderEmail;
@@ -68,29 +52,38 @@ class ListBlockSendingRequest extends Model
         'senderEmail' => 'SenderEmail',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
         }
+
         if (null !== $this->blockEmail) {
             $res['BlockEmail'] = $this->blockEmail;
         }
+
         if (null !== $this->blockType) {
             $res['BlockType'] = $this->blockType;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->senderEmail) {
             $res['SenderEmail'] = $this->senderEmail;
         }
@@ -98,32 +91,38 @@ class ListBlockSendingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListBlockSendingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
         }
+
         if (isset($map['BlockEmail'])) {
             $model->blockEmail = $map['BlockEmail'];
         }
+
         if (isset($map['BlockType'])) {
             $model->blockType = $map['BlockType'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['SenderEmail'])) {
             $model->senderEmail = $map['SenderEmail'];
         }

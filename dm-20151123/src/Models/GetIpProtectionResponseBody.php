@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetIpProtectionResponseBody extends Model
 {
     /**
-     * @description IP protection switch, On: 1 Off: 0
-     *
-     * @example 0
-     *
      * @var string
      */
     public $ipProtection;
 
     /**
-     * @description Request ID
-     *
-     * @example B30E5A62-2E64-577D-A70E-8C6781D6C975
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class GetIpProtectionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipProtection) {
             $res['IpProtection'] = $this->ipProtection;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class GetIpProtectionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetIpProtectionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpProtection'])) {
             $model->ipProtection = $map['IpProtection'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

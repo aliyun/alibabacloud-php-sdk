@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DedicatedIpPoolUpdateRequest extends Model
 {
     /**
-     * @description Purchased IP instance IDs, separated by commas; sourced from the DedicatedIpNonePoolList API\\"s returned IP purchase instance IDs
-     *
-     * @example xxx,xxx
-     *
      * @var string
      */
     public $buyResourceIds;
 
     /**
-     * @description IP pool ID
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description Whether to change the associated IP, enter true
-     *
-     * @example true
-     *
      * @var bool
      */
     public $updateResource;
@@ -40,17 +28,22 @@ class DedicatedIpPoolUpdateRequest extends Model
         'updateResource' => 'UpdateResource',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buyResourceIds) {
             $res['BuyResourceIds'] = $this->buyResourceIds;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->updateResource) {
             $res['UpdateResource'] = $this->updateResource;
         }
@@ -58,20 +51,22 @@ class DedicatedIpPoolUpdateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DedicatedIpPoolUpdateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BuyResourceIds'])) {
             $model->buyResourceIds = $map['BuyResourceIds'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['UpdateResource'])) {
             $model->updateResource = $map['UpdateResource'];
         }

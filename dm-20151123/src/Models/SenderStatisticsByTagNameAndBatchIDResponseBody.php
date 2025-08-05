@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dm\V20151123\Models\SenderStatisticsByTagNameAndBatchIDResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class SenderStatisticsByTagNameAndBatchIDResponseBody extends Model
 {
     /**
-     * @description Request ID
-     *
-     * @example 10A1AD70-E48E-476D-98D9-39BD92193837
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Total count
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description Data records
-     *
      * @var data
      */
     public $data;
@@ -39,38 +29,48 @@ class SenderStatisticsByTagNameAndBatchIDResponseBody extends Model
         'data' => 'data',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SenderStatisticsByTagNameAndBatchIDResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
         }

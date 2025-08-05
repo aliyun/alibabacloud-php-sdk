@@ -4,8 +4,13 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Dara;
+use AlibabaCloud\Dara\Models\FileField;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Request;
+use AlibabaCloud\Dara\Util\FormUtil;
+use AlibabaCloud\Dara\Util\StreamUtil;
+use AlibabaCloud\Dara\Util\XML;
 use AlibabaCloud\SDK\Dm\V20151123\Models\AddIpfilterRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\AddIpfilterResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\ApproveReplyMailAddressRequest;
@@ -61,6 +66,10 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\DescAccountSummaryRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DescAccountSummaryResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DescDomainRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DescDomainResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\GetDedicatedIpWarmUpDetailRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\GetDedicatedIpWarmUpDetailResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\GetDedicatedIpWarmUpInfoRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\GetDedicatedIpWarmUpInfoResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetIpfilterListRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetIpfilterListResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\GetIpProtectionRequest;
@@ -118,18 +127,12 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateIpProtectionResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateUserResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\UpdateUserShrinkRequest;
-use AlibabaCloud\Tea\Exception\TeaError;
-use AlibabaCloud\Tea\FileForm\FileForm;
-use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Request;
-use AlibabaCloud\Tea\Tea;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
-use AlibabaCloud\Tea\XML\XML;
+use Darabonba\OpenApi\Exceptions\ClientException;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Dm extends OpenApiClient
 {
@@ -143,49 +146,47 @@ class Dm extends OpenApiClient
 
     /**
      * @param string  $bucketName
-     * @param mixed[] $data
+     * @param mixed[] $form
      *
-     * @return array
-     *
-     * @throws TeaError
+     * @return mixed[]
      */
-    public function _postOSSObject($bucketName, $data)
+    public function _postOSSObject($bucketName, $form)
     {
         $_request = new Request();
-        $form = Utils::assertAsMap($data);
-        $boundary = FileForm::getBoundary();
-        $host = Utils::assertAsString(@$form['host']);
+        $boundary = FormUtil::getBoundary();
         $_request->protocol = 'HTTPS';
         $_request->method = 'POST';
         $_request->pathname = '/';
         $_request->headers = [
-            'host' => $host,
+            'host' => '' . @$form['host'],
             'date' => Utils::getDateUTCString(),
             'user-agent' => Utils::getUserAgent(''),
         ];
-        $_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
-        $_request->body = FileForm::toFileForm($form, $boundary);
-        $_lastRequest = $_request;
-        $_response = Tea::send($_request);
-        $respMap = null;
-        $bodyStr = Utils::readAsString($_response->body);
-        if (Utils::is4xx($_response->statusCode) || Utils::is5xx($_response->statusCode)) {
-            $respMap = XML::parseXml($bodyStr, null);
-            $err = Utils::assertAsMap(@$respMap['Error']);
+        @$_request->headers['content-type'] = 'multipart/form-data; boundary=' . $boundary . '';
+        $_request->body = FormUtil::toFileForm($form, $boundary);
+        $_response = Dara::send($_request);
 
-            throw new TeaError([
-                'code' => @$err['Code'],
-                'message' => @$err['Message'],
+        $respMap = null;
+        $bodyStr = StreamUtil::readAsString($_response->body);
+        if (($_response->statusCode >= 400) && ($_response->statusCode < 600)) {
+            $respMap = XML::parseXml($bodyStr, null);
+            $err = @$respMap['Error'];
+
+            throw new ClientException([
+                'code' => '' . @$err['Code'],
+                'message' => '' . @$err['Message'],
                 'data' => [
                     'httpCode' => $_response->statusCode,
-                    'requestId' => @$err['RequestId'],
-                    'hostId' => @$err['HostId'],
+                    'requestId' => '' . @$err['RequestId'],
+                    'hostId' => '' . @$err['HostId'],
                 ],
             ]);
         }
+
         $respMap = XML::parseXml($bodyStr, null);
 
-        return Tea::merge($respMap);
+        return Dara::merge([
+        ], $respMap);
     }
 
     /**
@@ -201,42 +202,52 @@ class Dm extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Add IP Protection Information
-     *  *
-     * @param AddIpfilterRequest $request AddIpfilterRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Add IP Protection Information.
      *
-     * @return AddIpfilterResponse AddIpfilterResponse
+     * @param Request - AddIpfilterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddIpfilterResponse
+     *
+     * @param AddIpfilterRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return AddIpfilterResponse
      */
     public function addIpfilterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ipAddress)) {
-            $query['IpAddress'] = $request->ipAddress;
+        if (null !== $request->ipAddress) {
+            @$query['IpAddress'] = $request->ipAddress;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AddIpfilter',
@@ -254,11 +265,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Add IP Protection Information
-     *  *
-     * @param AddIpfilterRequest $request AddIpfilterRequest
+     * Add IP Protection Information.
      *
-     * @return AddIpfilterResponse AddIpfilterResponse
+     * @param Request - AddIpfilterRequest
+     *
+     * @returns AddIpfilterResponse
+     *
+     * @param AddIpfilterRequest $request
+     *
+     * @return AddIpfilterResponse
      */
     public function addIpfilter($request)
     {
@@ -268,31 +283,40 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Verify Reply Address
-     *  *
-     * @param ApproveReplyMailAddressRequest $request ApproveReplyMailAddressRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Verify Reply Address.
      *
-     * @return ApproveReplyMailAddressResponse ApproveReplyMailAddressResponse
+     * @param Request - ApproveReplyMailAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApproveReplyMailAddressResponse
+     *
+     * @param ApproveReplyMailAddressRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ApproveReplyMailAddressResponse
      */
     public function approveReplyMailAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->ticket)) {
-            $query['Ticket'] = $request->ticket;
+
+        if (null !== $request->ticket) {
+            @$query['Ticket'] = $request->ticket;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ApproveReplyMailAddress',
@@ -310,11 +334,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Verify Reply Address
-     *  *
-     * @param ApproveReplyMailAddressRequest $request ApproveReplyMailAddressRequest
+     * Verify Reply Address.
      *
-     * @return ApproveReplyMailAddressResponse ApproveReplyMailAddressResponse
+     * @param Request - ApproveReplyMailAddressRequest
+     *
+     * @returns ApproveReplyMailAddressResponse
+     *
+     * @param ApproveReplyMailAddressRequest $request
+     *
+     * @return ApproveReplyMailAddressResponse
      */
     public function approveReplyMailAddress($request)
     {
@@ -324,64 +352,84 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Batch Send Emails
-     *  *
-     * @param BatchSendMailRequest $request BatchSendMailRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Batch Send Emails.
      *
-     * @return BatchSendMailResponse BatchSendMailResponse
+     * @param Request - BatchSendMailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchSendMailResponse
+     *
+     * @param BatchSendMailRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return BatchSendMailResponse
      */
     public function batchSendMailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->addressType)) {
-            $query['AddressType'] = $request->addressType;
+
+        if (null !== $request->addressType) {
+            @$query['AddressType'] = $request->addressType;
         }
-        if (!Utils::isUnset($request->clickTrace)) {
-            $query['ClickTrace'] = $request->clickTrace;
+
+        if (null !== $request->clickTrace) {
+            @$query['ClickTrace'] = $request->clickTrace;
         }
-        if (!Utils::isUnset($request->headers)) {
-            $query['Headers'] = $request->headers;
+
+        if (null !== $request->headers) {
+            @$query['Headers'] = $request->headers;
         }
-        if (!Utils::isUnset($request->ipPoolId)) {
-            $query['IpPoolId'] = $request->ipPoolId;
+
+        if (null !== $request->ipPoolId) {
+            @$query['IpPoolId'] = $request->ipPoolId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->receiversName)) {
-            $query['ReceiversName'] = $request->receiversName;
+
+        if (null !== $request->receiversName) {
+            @$query['ReceiversName'] = $request->receiversName;
         }
-        if (!Utils::isUnset($request->replyAddress)) {
-            $query['ReplyAddress'] = $request->replyAddress;
+
+        if (null !== $request->replyAddress) {
+            @$query['ReplyAddress'] = $request->replyAddress;
         }
-        if (!Utils::isUnset($request->replyAddressAlias)) {
-            $query['ReplyAddressAlias'] = $request->replyAddressAlias;
+
+        if (null !== $request->replyAddressAlias) {
+            @$query['ReplyAddressAlias'] = $request->replyAddressAlias;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tagName)) {
-            $query['TagName'] = $request->tagName;
+
+        if (null !== $request->tagName) {
+            @$query['TagName'] = $request->tagName;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
-        if (!Utils::isUnset($request->unSubscribeFilterLevel)) {
-            $query['UnSubscribeFilterLevel'] = $request->unSubscribeFilterLevel;
+
+        if (null !== $request->unSubscribeFilterLevel) {
+            @$query['UnSubscribeFilterLevel'] = $request->unSubscribeFilterLevel;
         }
-        if (!Utils::isUnset($request->unSubscribeLinkType)) {
-            $query['UnSubscribeLinkType'] = $request->unSubscribeLinkType;
+
+        if (null !== $request->unSubscribeLinkType) {
+            @$query['UnSubscribeLinkType'] = $request->unSubscribeLinkType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'BatchSendMail',
@@ -399,11 +447,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Batch Send Emails
-     *  *
-     * @param BatchSendMailRequest $request BatchSendMailRequest
+     * Batch Send Emails.
      *
-     * @return BatchSendMailResponse BatchSendMailResponse
+     * @param Request - BatchSendMailRequest
+     *
+     * @returns BatchSendMailResponse
+     *
+     * @param BatchSendMailRequest $request
+     *
+     * @return BatchSendMailResponse
      */
     public function batchSendMail($request)
     {
@@ -413,34 +465,44 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary 修改域名DKIM记录
-     *  *
-     * @param ChangeDomainDkimRecordRequest $request ChangeDomainDkimRecordRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 修改域名DKIM记录.
      *
-     * @return ChangeDomainDkimRecordResponse ChangeDomainDkimRecordResponse
+     * @param Request - ChangeDomainDkimRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeDomainDkimRecordResponse
+     *
+     * @param ChangeDomainDkimRecordRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ChangeDomainDkimRecordResponse
      */
     public function changeDomainDkimRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dkimRsaLength)) {
-            $query['DkimRsaLength'] = $request->dkimRsaLength;
+        if (null !== $request->dkimRsaLength) {
+            @$query['DkimRsaLength'] = $request->dkimRsaLength;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ChangeDomainDkimRecord',
@@ -458,11 +520,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary 修改域名DKIM记录
-     *  *
-     * @param ChangeDomainDkimRecordRequest $request ChangeDomainDkimRecordRequest
+     * 修改域名DKIM记录.
      *
-     * @return ChangeDomainDkimRecordResponse ChangeDomainDkimRecordResponse
+     * @param Request - ChangeDomainDkimRecordRequest
+     *
+     * @returns ChangeDomainDkimRecordResponse
+     *
+     * @param ChangeDomainDkimRecordRequest $request
+     *
+     * @return ChangeDomainDkimRecordResponse
      */
     public function changeDomainDkimRecord($request)
     {
@@ -472,31 +538,40 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Check Domain Status
-     *  *
-     * @param CheckDomainRequest $request CheckDomainRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Check Domain Status.
      *
-     * @return CheckDomainResponse CheckDomainResponse
+     * @param Request - CheckDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckDomainResponse
+     *
+     * @param CheckDomainRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CheckDomainResponse
      */
     public function checkDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainId)) {
-            $query['DomainId'] = $request->domainId;
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckDomain',
@@ -514,11 +589,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Check Domain Status
-     *  *
-     * @param CheckDomainRequest $request CheckDomainRequest
+     * Check Domain Status.
      *
-     * @return CheckDomainResponse CheckDomainResponse
+     * @param Request - CheckDomainRequest
+     *
+     * @returns CheckDomainResponse
+     *
+     * @param CheckDomainRequest $request
+     *
+     * @return CheckDomainResponse
      */
     public function checkDomain($request)
     {
@@ -528,37 +607,48 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Validate Reply-To Address
-     *  *
-     * @param CheckReplyToMailAddressRequest $request CheckReplyToMailAddressRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Validate Reply-To Address.
      *
-     * @return CheckReplyToMailAddressResponse CheckReplyToMailAddressResponse
+     * @param Request - CheckReplyToMailAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckReplyToMailAddressResponse
+     *
+     * @param CheckReplyToMailAddressRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CheckReplyToMailAddressResponse
      */
     public function checkReplyToMailAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->mailAddressId)) {
-            $query['MailAddressId'] = $request->mailAddressId;
+
+        if (null !== $request->mailAddressId) {
+            @$query['MailAddressId'] = $request->mailAddressId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckReplyToMailAddress',
@@ -576,11 +666,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Validate Reply-To Address
-     *  *
-     * @param CheckReplyToMailAddressRequest $request CheckReplyToMailAddressRequest
+     * Validate Reply-To Address.
      *
-     * @return CheckReplyToMailAddressResponse CheckReplyToMailAddressResponse
+     * @param Request - CheckReplyToMailAddressRequest
+     *
+     * @returns CheckReplyToMailAddressResponse
+     *
+     * @param CheckReplyToMailAddressRequest $request
+     *
+     * @return CheckReplyToMailAddressResponse
      */
     public function checkReplyToMailAddress($request)
     {
@@ -590,34 +684,44 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Create Domain
-     *  *
-     * @param CreateDomainRequest $request CreateDomainRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Create Domain.
      *
-     * @return CreateDomainResponse CreateDomainResponse
+     * @param Request - CreateDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDomainResponse
+     *
+     * @param CreateDomainRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateDomainResponse
      */
     public function createDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->dkimSelector)) {
-            $query['dkimSelector'] = $request->dkimSelector;
+
+        if (null !== $request->dkimSelector) {
+            @$query['dkimSelector'] = $request->dkimSelector;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateDomain',
@@ -635,11 +739,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Create Domain
-     *  *
-     * @param CreateDomainRequest $request CreateDomainRequest
+     * Create Domain.
      *
-     * @return CreateDomainResponse CreateDomainResponse
+     * @param Request - CreateDomainRequest
+     *
+     * @returns CreateDomainResponse
+     *
+     * @param CreateDomainRequest $request
+     *
+     * @return CreateDomainResponse
      */
     public function createDomain($request)
     {
@@ -649,37 +757,48 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Create a mail address.
-     *  *
-     * @param CreateMailAddressRequest $request CreateMailAddressRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Create a mail address.
      *
-     * @return CreateMailAddressResponse CreateMailAddressResponse
+     * @param Request - CreateMailAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMailAddressResponse
+     *
+     * @param CreateMailAddressRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateMailAddressResponse
      */
     public function createMailAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->replyAddress)) {
-            $query['ReplyAddress'] = $request->replyAddress;
+
+        if (null !== $request->replyAddress) {
+            @$query['ReplyAddress'] = $request->replyAddress;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sendtype)) {
-            $query['Sendtype'] = $request->sendtype;
+
+        if (null !== $request->sendtype) {
+            @$query['Sendtype'] = $request->sendtype;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateMailAddress',
@@ -697,11 +816,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Create a mail address.
-     *  *
-     * @param CreateMailAddressRequest $request CreateMailAddressRequest
+     * Create a mail address.
      *
-     * @return CreateMailAddressResponse CreateMailAddressResponse
+     * @param Request - CreateMailAddressRequest
+     *
+     * @returns CreateMailAddressResponse
+     *
+     * @param CreateMailAddressRequest $request
+     *
+     * @return CreateMailAddressResponse
      */
     public function createMailAddress($request)
     {
@@ -711,37 +834,48 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Create Receiver List
-     *  *
-     * @param CreateReceiverRequest $request CreateReceiverRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Create Receiver List.
      *
-     * @return CreateReceiverResponse CreateReceiverResponse
+     * @param Request - CreateReceiverRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateReceiverResponse
+     *
+     * @param CreateReceiverRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateReceiverResponse
      */
     public function createReceiverWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->desc)) {
-            $query['Desc'] = $request->desc;
+        if (null !== $request->desc) {
+            @$query['Desc'] = $request->desc;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->receiversAlias)) {
-            $query['ReceiversAlias'] = $request->receiversAlias;
+
+        if (null !== $request->receiversAlias) {
+            @$query['ReceiversAlias'] = $request->receiversAlias;
         }
-        if (!Utils::isUnset($request->receiversName)) {
-            $query['ReceiversName'] = $request->receiversName;
+
+        if (null !== $request->receiversName) {
+            @$query['ReceiversName'] = $request->receiversName;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateReceiver',
@@ -759,11 +893,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Create Receiver List
-     *  *
-     * @param CreateReceiverRequest $request CreateReceiverRequest
+     * Create Receiver List.
      *
-     * @return CreateReceiverResponse CreateReceiverResponse
+     * @param Request - CreateReceiverRequest
+     *
+     * @returns CreateReceiverResponse
+     *
+     * @param CreateReceiverRequest $request
+     *
+     * @return CreateReceiverResponse
      */
     public function createReceiver($request)
     {
@@ -773,34 +911,44 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Create Tag
-     *  *
-     * @param CreateTagRequest $request CreateTagRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Create Tag.
      *
-     * @return CreateTagResponse CreateTagResponse
+     * @param Request - CreateTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTagResponse
+     *
+     * @param CreateTagRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateTagResponse
      */
     public function createTagWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tagDescription)) {
-            $query['TagDescription'] = $request->tagDescription;
+
+        if (null !== $request->tagDescription) {
+            @$query['TagDescription'] = $request->tagDescription;
         }
-        if (!Utils::isUnset($request->tagName)) {
-            $query['TagName'] = $request->tagName;
+
+        if (null !== $request->tagName) {
+            @$query['TagName'] = $request->tagName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateTag',
@@ -818,11 +966,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Create Tag
-     *  *
-     * @param CreateTagRequest $request CreateTagRequest
+     * Create Tag.
      *
-     * @return CreateTagResponse CreateTagResponse
+     * @param Request - CreateTagRequest
+     *
+     * @returns CreateTagResponse
+     *
+     * @param CreateTagRequest $request
+     *
+     * @return CreateTagResponse
      */
     public function createTag($request)
     {
@@ -832,31 +984,40 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Create User\\"s Invalid Address
-     *  *
-     * @param CreateUserSuppressionRequest $request CreateUserSuppressionRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Create User\\"s Invalid Address.
      *
-     * @return CreateUserSuppressionResponse CreateUserSuppressionResponse
+     * @param Request - CreateUserSuppressionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateUserSuppressionResponse
+     *
+     * @param CreateUserSuppressionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateUserSuppressionResponse
      */
     public function createUserSuppressionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->address)) {
-            $query['Address'] = $request->address;
+        if (null !== $request->address) {
+            @$query['Address'] = $request->address;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateUserSuppression',
@@ -874,11 +1035,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Create User\\"s Invalid Address
-     *  *
-     * @param CreateUserSuppressionRequest $request CreateUserSuppressionRequest
+     * Create User\\"s Invalid Address.
      *
-     * @return CreateUserSuppressionResponse CreateUserSuppressionResponse
+     * @param Request - CreateUserSuppressionRequest
+     *
+     * @returns CreateUserSuppressionResponse
+     *
+     * @param CreateUserSuppressionRequest $request
+     *
+     * @return CreateUserSuppressionResponse
      */
     public function createUserSuppression($request)
     {
@@ -888,25 +1053,32 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Set Dedicated IP Auto Renewal
-     *  *
-     * @param DedicatedIpAutoRenewalRequest $request DedicatedIpAutoRenewalRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Set Dedicated IP Auto Renewal.
      *
-     * @return DedicatedIpAutoRenewalResponse DedicatedIpAutoRenewalResponse
+     * @param Request - DedicatedIpAutoRenewalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DedicatedIpAutoRenewalResponse
+     *
+     * @param DedicatedIpAutoRenewalRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DedicatedIpAutoRenewalResponse
      */
     public function dedicatedIpAutoRenewalWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoRenewal)) {
-            $query['AutoRenewal'] = $request->autoRenewal;
+        if (null !== $request->autoRenewal) {
+            @$query['AutoRenewal'] = $request->autoRenewal;
         }
-        if (!Utils::isUnset($request->buyResourceIds)) {
-            $query['BuyResourceIds'] = $request->buyResourceIds;
+
+        if (null !== $request->buyResourceIds) {
+            @$query['BuyResourceIds'] = $request->buyResourceIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DedicatedIpAutoRenewal',
@@ -924,11 +1096,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Set Dedicated IP Auto Renewal
-     *  *
-     * @param DedicatedIpAutoRenewalRequest $request DedicatedIpAutoRenewalRequest
+     * Set Dedicated IP Auto Renewal.
      *
-     * @return DedicatedIpAutoRenewalResponse DedicatedIpAutoRenewalResponse
+     * @param Request - DedicatedIpAutoRenewalRequest
+     *
+     * @returns DedicatedIpAutoRenewalResponse
+     *
+     * @param DedicatedIpAutoRenewalRequest $request
+     *
+     * @return DedicatedIpAutoRenewalResponse
      */
     public function dedicatedIpAutoRenewal($request)
     {
@@ -938,25 +1114,32 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Change the warmup method for a dedicated IP
-     *  *
-     * @param DedicatedIpChangeWarmupTypeRequest $request DedicatedIpChangeWarmupTypeRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Change the warmup method for a dedicated IP.
      *
-     * @return DedicatedIpChangeWarmupTypeResponse DedicatedIpChangeWarmupTypeResponse
+     * @param Request - DedicatedIpChangeWarmupTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DedicatedIpChangeWarmupTypeResponse
+     *
+     * @param DedicatedIpChangeWarmupTypeRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DedicatedIpChangeWarmupTypeResponse
      */
     public function dedicatedIpChangeWarmupTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->warmupType)) {
-            $query['WarmupType'] = $request->warmupType;
+
+        if (null !== $request->warmupType) {
+            @$query['WarmupType'] = $request->warmupType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DedicatedIpChangeWarmupType',
@@ -974,11 +1157,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Change the warmup method for a dedicated IP
-     *  *
-     * @param DedicatedIpChangeWarmupTypeRequest $request DedicatedIpChangeWarmupTypeRequest
+     * Change the warmup method for a dedicated IP.
      *
-     * @return DedicatedIpChangeWarmupTypeResponse DedicatedIpChangeWarmupTypeResponse
+     * @param Request - DedicatedIpChangeWarmupTypeRequest
+     *
+     * @returns DedicatedIpChangeWarmupTypeResponse
+     *
+     * @param DedicatedIpChangeWarmupTypeRequest $request
+     *
+     * @return DedicatedIpChangeWarmupTypeResponse
      */
     public function dedicatedIpChangeWarmupType($request)
     {
@@ -988,28 +1175,36 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Dedicated IP User IP List
-     *  *
-     * @param DedicatedIpListRequest $request DedicatedIpListRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Dedicated IP User IP List.
      *
-     * @return DedicatedIpListResponse DedicatedIpListResponse
+     * @param Request - DedicatedIpListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DedicatedIpListResponse
+     *
+     * @param DedicatedIpListRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DedicatedIpListResponse
      */
     public function dedicatedIpListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['PageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$query['PageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DedicatedIpList',
@@ -1027,11 +1222,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Dedicated IP User IP List
-     *  *
-     * @param DedicatedIpListRequest $request DedicatedIpListRequest
+     * Dedicated IP User IP List.
      *
-     * @return DedicatedIpListResponse DedicatedIpListResponse
+     * @param Request - DedicatedIpListRequest
+     *
+     * @returns DedicatedIpListResponse
+     *
+     * @param DedicatedIpListRequest $request
+     *
+     * @return DedicatedIpListResponse
      */
     public function dedicatedIpList($request)
     {
@@ -1041,11 +1240,16 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Purchased Independent IPs Not Added to Pool
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Purchased Independent IPs Not Added to Pool.
      *
-     * @return DedicatedIpNonePoolListResponse DedicatedIpNonePoolListResponse
+     * @param Request - DedicatedIpNonePoolListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DedicatedIpNonePoolListResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DedicatedIpNonePoolListResponse
      */
     public function dedicatedIpNonePoolListWithOptions($runtime)
     {
@@ -1066,9 +1270,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Purchased Independent IPs Not Added to Pool
-     *  *
-     * @return DedicatedIpNonePoolListResponse DedicatedIpNonePoolListResponse
+     * Purchased Independent IPs Not Added to Pool.
+     *
+     * @returns DedicatedIpNonePoolListResponse
+     *
+     * @return DedicatedIpNonePoolListResponse
      */
     public function dedicatedIpNonePoolList()
     {
@@ -1078,25 +1284,32 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Creation of Independent IP Pool
-     *  *
-     * @param DedicatedIpPoolCreateRequest $request DedicatedIpPoolCreateRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Creation of Independent IP Pool.
      *
-     * @return DedicatedIpPoolCreateResponse DedicatedIpPoolCreateResponse
+     * @param Request - DedicatedIpPoolCreateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DedicatedIpPoolCreateResponse
+     *
+     * @param DedicatedIpPoolCreateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DedicatedIpPoolCreateResponse
      */
     public function dedicatedIpPoolCreateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->buyResourceIds)) {
-            $query['BuyResourceIds'] = $request->buyResourceIds;
+        if (null !== $request->buyResourceIds) {
+            @$query['BuyResourceIds'] = $request->buyResourceIds;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DedicatedIpPoolCreate',
@@ -1114,11 +1327,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Creation of Independent IP Pool
-     *  *
-     * @param DedicatedIpPoolCreateRequest $request DedicatedIpPoolCreateRequest
+     * Creation of Independent IP Pool.
      *
-     * @return DedicatedIpPoolCreateResponse DedicatedIpPoolCreateResponse
+     * @param Request - DedicatedIpPoolCreateRequest
+     *
+     * @returns DedicatedIpPoolCreateResponse
+     *
+     * @param DedicatedIpPoolCreateRequest $request
+     *
+     * @return DedicatedIpPoolCreateResponse
      */
     public function dedicatedIpPoolCreate($request)
     {
@@ -1128,22 +1345,28 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary 独立IP池删除
-     *  *
-     * @param DedicatedIpPoolDeleteRequest $request DedicatedIpPoolDeleteRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 独立IP池删除.
      *
-     * @return DedicatedIpPoolDeleteResponse DedicatedIpPoolDeleteResponse
+     * @param Request - DedicatedIpPoolDeleteRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DedicatedIpPoolDeleteResponse
+     *
+     * @param DedicatedIpPoolDeleteRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DedicatedIpPoolDeleteResponse
      */
     public function dedicatedIpPoolDeleteWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DedicatedIpPoolDelete',
@@ -1161,11 +1384,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary 独立IP池删除
-     *  *
-     * @param DedicatedIpPoolDeleteRequest $request DedicatedIpPoolDeleteRequest
+     * 独立IP池删除.
      *
-     * @return DedicatedIpPoolDeleteResponse DedicatedIpPoolDeleteResponse
+     * @param Request - DedicatedIpPoolDeleteRequest
+     *
+     * @returns DedicatedIpPoolDeleteResponse
+     *
+     * @param DedicatedIpPoolDeleteRequest $request
+     *
+     * @return DedicatedIpPoolDeleteResponse
      */
     public function dedicatedIpPoolDelete($request)
     {
@@ -1175,28 +1402,36 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Dedicated IP Pool List
-     *  *
-     * @param DedicatedIpPoolListRequest $request DedicatedIpPoolListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Dedicated IP Pool List.
      *
-     * @return DedicatedIpPoolListResponse DedicatedIpPoolListResponse
+     * @param Request - DedicatedIpPoolListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DedicatedIpPoolListResponse
+     *
+     * @param DedicatedIpPoolListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DedicatedIpPoolListResponse
      */
     public function dedicatedIpPoolListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['PageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$query['PageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DedicatedIpPoolList',
@@ -1214,11 +1449,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Dedicated IP Pool List
-     *  *
-     * @param DedicatedIpPoolListRequest $request DedicatedIpPoolListRequest
+     * Dedicated IP Pool List.
      *
-     * @return DedicatedIpPoolListResponse DedicatedIpPoolListResponse
+     * @param Request - DedicatedIpPoolListRequest
+     *
+     * @returns DedicatedIpPoolListResponse
+     *
+     * @param DedicatedIpPoolListRequest $request
+     *
+     * @return DedicatedIpPoolListResponse
      */
     public function dedicatedIpPoolList($request)
     {
@@ -1228,28 +1467,36 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Update of dedicated IP Pool
-     *  *
-     * @param DedicatedIpPoolUpdateRequest $request DedicatedIpPoolUpdateRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Update of dedicated IP Pool.
      *
-     * @return DedicatedIpPoolUpdateResponse DedicatedIpPoolUpdateResponse
+     * @param Request - DedicatedIpPoolUpdateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DedicatedIpPoolUpdateResponse
+     *
+     * @param DedicatedIpPoolUpdateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DedicatedIpPoolUpdateResponse
      */
     public function dedicatedIpPoolUpdateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->buyResourceIds)) {
-            $query['BuyResourceIds'] = $request->buyResourceIds;
+        if (null !== $request->buyResourceIds) {
+            @$query['BuyResourceIds'] = $request->buyResourceIds;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->updateResource)) {
-            $query['UpdateResource'] = $request->updateResource;
+
+        if (null !== $request->updateResource) {
+            @$query['UpdateResource'] = $request->updateResource;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DedicatedIpPoolUpdate',
@@ -1267,11 +1514,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Update of dedicated IP Pool
-     *  *
-     * @param DedicatedIpPoolUpdateRequest $request DedicatedIpPoolUpdateRequest
+     * Update of dedicated IP Pool.
      *
-     * @return DedicatedIpPoolUpdateResponse DedicatedIpPoolUpdateResponse
+     * @param Request - DedicatedIpPoolUpdateRequest
+     *
+     * @returns DedicatedIpPoolUpdateResponse
+     *
+     * @param DedicatedIpPoolUpdateRequest $request
+     *
+     * @return DedicatedIpPoolUpdateResponse
      */
     public function dedicatedIpPoolUpdate($request)
     {
@@ -1281,31 +1532,40 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Delete Domain
-     *  *
-     * @param DeleteDomainRequest $request DeleteDomainRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Delete Domain.
      *
-     * @return DeleteDomainResponse DeleteDomainResponse
+     * @param Request - DeleteDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDomainResponse
+     *
+     * @param DeleteDomainRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteDomainResponse
      */
     public function deleteDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainId)) {
-            $query['DomainId'] = $request->domainId;
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDomain',
@@ -1323,11 +1583,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Delete Domain
-     *  *
-     * @param DeleteDomainRequest $request DeleteDomainRequest
+     * Delete Domain.
      *
-     * @return DeleteDomainResponse DeleteDomainResponse
+     * @param Request - DeleteDomainRequest
+     *
+     * @returns DeleteDomainResponse
+     *
+     * @param DeleteDomainRequest $request
+     *
+     * @return DeleteDomainResponse
      */
     public function deleteDomain($request)
     {
@@ -1337,31 +1601,40 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Remove invalid addresses from the invalid address database
-     *  *
-     * @param DeleteInvalidAddressRequest $request DeleteInvalidAddressRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Remove invalid addresses from the invalid address database.
      *
-     * @return DeleteInvalidAddressResponse DeleteInvalidAddressResponse
+     * @param Request - DeleteInvalidAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInvalidAddressResponse
+     *
+     * @param DeleteInvalidAddressRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteInvalidAddressResponse
      */
     public function deleteInvalidAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->toAddress)) {
-            $query['ToAddress'] = $request->toAddress;
+
+        if (null !== $request->toAddress) {
+            @$query['ToAddress'] = $request->toAddress;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteInvalidAddress',
@@ -1379,11 +1652,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Remove invalid addresses from the invalid address database
-     *  *
-     * @param DeleteInvalidAddressRequest $request DeleteInvalidAddressRequest
+     * Remove invalid addresses from the invalid address database.
      *
-     * @return DeleteInvalidAddressResponse DeleteInvalidAddressResponse
+     * @param Request - DeleteInvalidAddressRequest
+     *
+     * @returns DeleteInvalidAddressResponse
+     *
+     * @param DeleteInvalidAddressRequest $request
+     *
+     * @return DeleteInvalidAddressResponse
      */
     public function deleteInvalidAddress($request)
     {
@@ -1393,34 +1670,44 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Delete IP Protection Information
-     *  *
-     * @param DeleteIpfilterByEdmIdRequest $request DeleteIpfilterByEdmIdRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Delete IP Protection Information.
      *
-     * @return DeleteIpfilterByEdmIdResponse DeleteIpfilterByEdmIdResponse
+     * @param Request - DeleteIpfilterByEdmIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteIpfilterByEdmIdResponse
+     *
+     * @param DeleteIpfilterByEdmIdRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteIpfilterByEdmIdResponse
      */
     public function deleteIpfilterByEdmIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fromType)) {
-            $query['FromType'] = $request->fromType;
+        if (null !== $request->fromType) {
+            @$query['FromType'] = $request->fromType;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteIpfilterByEdmId',
@@ -1438,11 +1725,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Delete IP Protection Information
-     *  *
-     * @param DeleteIpfilterByEdmIdRequest $request DeleteIpfilterByEdmIdRequest
+     * Delete IP Protection Information.
      *
-     * @return DeleteIpfilterByEdmIdResponse DeleteIpfilterByEdmIdResponse
+     * @param Request - DeleteIpfilterByEdmIdRequest
+     *
+     * @returns DeleteIpfilterByEdmIdResponse
+     *
+     * @param DeleteIpfilterByEdmIdRequest $request
+     *
+     * @return DeleteIpfilterByEdmIdResponse
      */
     public function deleteIpfilterByEdmId($request)
     {
@@ -1452,31 +1743,40 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Delete Mail Address
-     *  *
-     * @param DeleteMailAddressRequest $request DeleteMailAddressRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Delete Mail Address.
      *
-     * @return DeleteMailAddressResponse DeleteMailAddressResponse
+     * @param Request - DeleteMailAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMailAddressResponse
+     *
+     * @param DeleteMailAddressRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteMailAddressResponse
      */
     public function deleteMailAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mailAddressId)) {
-            $query['MailAddressId'] = $request->mailAddressId;
+        if (null !== $request->mailAddressId) {
+            @$query['MailAddressId'] = $request->mailAddressId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteMailAddress',
@@ -1494,11 +1794,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Delete Mail Address
-     *  *
-     * @param DeleteMailAddressRequest $request DeleteMailAddressRequest
+     * Delete Mail Address.
      *
-     * @return DeleteMailAddressResponse DeleteMailAddressResponse
+     * @param Request - DeleteMailAddressRequest
+     *
+     * @returns DeleteMailAddressResponse
+     *
+     * @param DeleteMailAddressRequest $request
+     *
+     * @return DeleteMailAddressResponse
      */
     public function deleteMailAddress($request)
     {
@@ -1508,31 +1812,40 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Delete Receiver List
-     *  *
-     * @param DeleteReceiverRequest $request DeleteReceiverRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Delete Receiver List.
      *
-     * @return DeleteReceiverResponse DeleteReceiverResponse
+     * @param Request - DeleteReceiverRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteReceiverResponse
+     *
+     * @param DeleteReceiverRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteReceiverResponse
      */
     public function deleteReceiverWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->receiverId)) {
-            $query['ReceiverId'] = $request->receiverId;
+
+        if (null !== $request->receiverId) {
+            @$query['ReceiverId'] = $request->receiverId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteReceiver',
@@ -1550,11 +1863,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Delete Receiver List
-     *  *
-     * @param DeleteReceiverRequest $request DeleteReceiverRequest
+     * Delete Receiver List.
      *
-     * @return DeleteReceiverResponse DeleteReceiverResponse
+     * @param Request - DeleteReceiverRequest
+     *
+     * @returns DeleteReceiverResponse
+     *
+     * @param DeleteReceiverRequest $request
+     *
+     * @return DeleteReceiverResponse
      */
     public function deleteReceiver($request)
     {
@@ -1564,34 +1881,44 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Delete a Single Recipient
-     *  *
-     * @param DeleteReceiverDetailRequest $request DeleteReceiverDetailRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Delete a Single Recipient.
      *
-     * @return DeleteReceiverDetailResponse DeleteReceiverDetailResponse
+     * @param Request - DeleteReceiverDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteReceiverDetailResponse
+     *
+     * @param DeleteReceiverDetailRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteReceiverDetailResponse
      */
     public function deleteReceiverDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->receiverId)) {
-            $query['ReceiverId'] = $request->receiverId;
+
+        if (null !== $request->receiverId) {
+            @$query['ReceiverId'] = $request->receiverId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteReceiverDetail',
@@ -1609,11 +1936,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Delete a Single Recipient
-     *  *
-     * @param DeleteReceiverDetailRequest $request DeleteReceiverDetailRequest
+     * Delete a Single Recipient.
      *
-     * @return DeleteReceiverDetailResponse DeleteReceiverDetailResponse
+     * @param Request - DeleteReceiverDetailRequest
+     *
+     * @returns DeleteReceiverDetailResponse
+     *
+     * @param DeleteReceiverDetailRequest $request
+     *
+     * @return DeleteReceiverDetailResponse
      */
     public function deleteReceiverDetail($request)
     {
@@ -1623,31 +1954,40 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Delete Tag
-     *  *
-     * @param DeleteTagRequest $request DeleteTagRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Delete Tag.
      *
-     * @return DeleteTagResponse DeleteTagResponse
+     * @param Request - DeleteTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTagResponse
+     *
+     * @param DeleteTagRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteTagResponse
      */
     public function deleteTagWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tagId)) {
-            $query['TagId'] = $request->tagId;
+
+        if (null !== $request->tagId) {
+            @$query['TagId'] = $request->tagId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteTag',
@@ -1665,11 +2005,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Delete Tag
-     *  *
-     * @param DeleteTagRequest $request DeleteTagRequest
+     * Delete Tag.
      *
-     * @return DeleteTagResponse DeleteTagResponse
+     * @param Request - DeleteTagRequest
+     *
+     * @returns DeleteTagResponse
+     *
+     * @param DeleteTagRequest $request
+     *
+     * @return DeleteTagResponse
      */
     public function deleteTag($request)
     {
@@ -1679,28 +2023,36 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Retrieve account information.
-     *  *
-     * @param DescAccountSummaryRequest $request DescAccountSummaryRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Retrieve account information.
      *
-     * @return DescAccountSummaryResponse DescAccountSummaryResponse
+     * @param Request - DescAccountSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescAccountSummaryResponse
+     *
+     * @param DescAccountSummaryRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescAccountSummaryResponse
      */
     public function descAccountSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescAccountSummary',
@@ -1718,11 +2070,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Retrieve account information.
-     *  *
-     * @param DescAccountSummaryRequest $request DescAccountSummaryRequest
+     * Retrieve account information.
      *
-     * @return DescAccountSummaryResponse DescAccountSummaryResponse
+     * @param Request - DescAccountSummaryRequest
+     *
+     * @returns DescAccountSummaryResponse
+     *
+     * @param DescAccountSummaryRequest $request
+     *
+     * @return DescAccountSummaryResponse
      */
     public function descAccountSummary($request)
     {
@@ -1732,34 +2088,44 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Get Domain Details
-     *  *
-     * @param DescDomainRequest $request DescDomainRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Get Domain Details.
      *
-     * @return DescDomainResponse DescDomainResponse
+     * @param Request - DescDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescDomainResponse
+     *
+     * @param DescDomainRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DescDomainResponse
      */
     public function descDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainId)) {
-            $query['DomainId'] = $request->domainId;
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->requireRealTimeDnsRecords)) {
-            $query['RequireRealTimeDnsRecords'] = $request->requireRealTimeDnsRecords;
+
+        if (null !== $request->requireRealTimeDnsRecords) {
+            @$query['RequireRealTimeDnsRecords'] = $request->requireRealTimeDnsRecords;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescDomain',
@@ -1777,11 +2143,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Get Domain Details
-     *  *
-     * @param DescDomainRequest $request DescDomainRequest
+     * Get Domain Details.
      *
-     * @return DescDomainResponse DescDomainResponse
+     * @param Request - DescDomainRequest
+     *
+     * @returns DescDomainResponse
+     *
+     * @param DescDomainRequest $request
+     *
+     * @return DescDomainResponse
      */
     public function descDomain($request)
     {
@@ -1791,28 +2161,162 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Get IP Protection Information
-     *  *
-     * @param GetIpProtectionRequest $request GetIpProtectionRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 获取专属ip的预热详情信息.
      *
-     * @return GetIpProtectionResponse GetIpProtectionResponse
+     * @param Request - GetDedicatedIpWarmUpDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDedicatedIpWarmUpDetailResponse
+     *
+     * @param GetDedicatedIpWarmUpDetailRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetDedicatedIpWarmUpDetailResponse
+     */
+    public function getDedicatedIpWarmUpDetailWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dedicatedIp) {
+            @$query['DedicatedIp'] = $request->dedicatedIp;
+        }
+
+        if (null !== $request->endDayMark) {
+            @$query['EndDayMark'] = $request->endDayMark;
+        }
+
+        if (null !== $request->esp) {
+            @$query['Esp'] = $request->esp;
+        }
+
+        if (null !== $request->startDayMark) {
+            @$query['StartDayMark'] = $request->startDayMark;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDedicatedIpWarmUpDetail',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDedicatedIpWarmUpDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取专属ip的预热详情信息.
+     *
+     * @param Request - GetDedicatedIpWarmUpDetailRequest
+     *
+     * @returns GetDedicatedIpWarmUpDetailResponse
+     *
+     * @param GetDedicatedIpWarmUpDetailRequest $request
+     *
+     * @return GetDedicatedIpWarmUpDetailResponse
+     */
+    public function getDedicatedIpWarmUpDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDedicatedIpWarmUpDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取专属ip的预热信息.
+     *
+     * @param Request - GetDedicatedIpWarmUpInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDedicatedIpWarmUpInfoResponse
+     *
+     * @param GetDedicatedIpWarmUpInfoRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDedicatedIpWarmUpInfoResponse
+     */
+    public function getDedicatedIpWarmUpInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dedicatedIp) {
+            @$query['DedicatedIp'] = $request->dedicatedIp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetDedicatedIpWarmUpInfo',
+            'version' => '2015-11-23',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return GetDedicatedIpWarmUpInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取专属ip的预热信息.
+     *
+     * @param Request - GetDedicatedIpWarmUpInfoRequest
+     *
+     * @returns GetDedicatedIpWarmUpInfoResponse
+     *
+     * @param GetDedicatedIpWarmUpInfoRequest $request
+     *
+     * @return GetDedicatedIpWarmUpInfoResponse
+     */
+    public function getDedicatedIpWarmUpInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDedicatedIpWarmUpInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * Get IP Protection Information.
+     *
+     * @param Request - GetIpProtectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIpProtectionResponse
+     *
+     * @param GetIpProtectionRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetIpProtectionResponse
      */
     public function getIpProtectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetIpProtection',
@@ -1830,11 +2334,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Get IP Protection Information
-     *  *
-     * @param GetIpProtectionRequest $request GetIpProtectionRequest
+     * Get IP Protection Information.
      *
-     * @return GetIpProtectionResponse GetIpProtectionResponse
+     * @param Request - GetIpProtectionRequest
+     *
+     * @returns GetIpProtectionResponse
+     *
+     * @param GetIpProtectionRequest $request
+     *
+     * @return GetIpProtectionResponse
      */
     public function getIpProtection($request)
     {
@@ -1844,28 +2352,36 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Retrieve IP Protection Information
-     *  *
-     * @param GetIpfilterListRequest $request GetIpfilterListRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Retrieve IP Protection Information.
      *
-     * @return GetIpfilterListResponse GetIpfilterListResponse
+     * @param Request - GetIpfilterListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIpfilterListResponse
+     *
+     * @param GetIpfilterListRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetIpfilterListResponse
      */
     public function getIpfilterListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetIpfilterList',
@@ -1883,11 +2399,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Retrieve IP Protection Information
-     *  *
-     * @param GetIpfilterListRequest $request GetIpfilterListRequest
+     * Retrieve IP Protection Information.
      *
-     * @return GetIpfilterListResponse GetIpfilterListResponse
+     * @param Request - GetIpfilterListRequest
+     *
+     * @returns GetIpfilterListResponse
+     *
+     * @param GetIpfilterListRequest $request
+     *
+     * @return GetIpfilterListResponse
      */
     public function getIpfilterList($request)
     {
@@ -1897,28 +2417,36 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户无效地址级别配置
-     *  *
-     * @param GetSuppressionListLevelRequest $request GetSuppressionListLevelRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 获取用户无效地址级别配置.
      *
-     * @return GetSuppressionListLevelResponse GetSuppressionListLevelResponse
+     * @param Request - GetSuppressionListLevelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSuppressionListLevelResponse
+     *
+     * @param GetSuppressionListLevelRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetSuppressionListLevelResponse
      */
     public function getSuppressionListLevelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetSuppressionListLevel',
@@ -1936,11 +2464,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户无效地址级别配置
-     *  *
-     * @param GetSuppressionListLevelRequest $request GetSuppressionListLevelRequest
+     * 获取用户无效地址级别配置.
      *
-     * @return GetSuppressionListLevelResponse GetSuppressionListLevelResponse
+     * @param Request - GetSuppressionListLevelRequest
+     *
+     * @returns GetSuppressionListLevelResponse
+     *
+     * @param GetSuppressionListLevelRequest $request
+     *
+     * @return GetSuppressionListLevelResponse
      */
     public function getSuppressionListLevel($request)
     {
@@ -1950,67 +2482,88 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Get tracking information
-     *  *
-     * @param GetTrackListRequest $request GetTrackListRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Get tracking information.
      *
-     * @return GetTrackListResponse GetTrackListResponse
+     * @param Request - GetTrackListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTrackListResponse
+     *
+     * @param GetTrackListRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetTrackListResponse
      */
     public function getTrackListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->dedicatedIp)) {
-            $query['DedicatedIp'] = $request->dedicatedIp;
+
+        if (null !== $request->dedicatedIp) {
+            @$query['DedicatedIp'] = $request->dedicatedIp;
         }
-        if (!Utils::isUnset($request->dedicatedIpPoolId)) {
-            $query['DedicatedIpPoolId'] = $request->dedicatedIpPoolId;
+
+        if (null !== $request->dedicatedIpPoolId) {
+            @$query['DedicatedIpPoolId'] = $request->dedicatedIpPoolId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->esp)) {
-            $query['Esp'] = $request->esp;
+
+        if (null !== $request->esp) {
+            @$query['Esp'] = $request->esp;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['Offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['Offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->offsetCreateTime)) {
-            $query['OffsetCreateTime'] = $request->offsetCreateTime;
+
+        if (null !== $request->offsetCreateTime) {
+            @$query['OffsetCreateTime'] = $request->offsetCreateTime;
         }
-        if (!Utils::isUnset($request->offsetCreateTimeDesc)) {
-            $query['OffsetCreateTimeDesc'] = $request->offsetCreateTimeDesc;
+
+        if (null !== $request->offsetCreateTimeDesc) {
+            @$query['OffsetCreateTimeDesc'] = $request->offsetCreateTimeDesc;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->tagName)) {
-            $query['TagName'] = $request->tagName;
+
+        if (null !== $request->tagName) {
+            @$query['TagName'] = $request->tagName;
         }
-        if (!Utils::isUnset($request->total)) {
-            $query['Total'] = $request->total;
+
+        if (null !== $request->total) {
+            @$query['Total'] = $request->total;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetTrackList',
@@ -2028,11 +2581,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Get tracking information
-     *  *
-     * @param GetTrackListRequest $request GetTrackListRequest
+     * Get tracking information.
      *
-     * @return GetTrackListResponse GetTrackListResponse
+     * @param Request - GetTrackListRequest
+     *
+     * @returns GetTrackListResponse
+     *
+     * @param GetTrackListRequest $request
+     *
+     * @return GetTrackListResponse
      */
     public function getTrackList($request)
     {
@@ -2042,67 +2599,88 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Get tracking information based on the sender address and tag name
-     *  *
-     * @param GetTrackListByMailFromAndTagNameRequest $request GetTrackListByMailFromAndTagNameRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Get tracking information based on the sender address and tag name.
      *
-     * @return GetTrackListByMailFromAndTagNameResponse GetTrackListByMailFromAndTagNameResponse
+     * @param Request - GetTrackListByMailFromAndTagNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTrackListByMailFromAndTagNameResponse
+     *
+     * @param GetTrackListByMailFromAndTagNameRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetTrackListByMailFromAndTagNameResponse
      */
     public function getTrackListByMailFromAndTagNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->dedicatedIp)) {
-            $query['DedicatedIp'] = $request->dedicatedIp;
+
+        if (null !== $request->dedicatedIp) {
+            @$query['DedicatedIp'] = $request->dedicatedIp;
         }
-        if (!Utils::isUnset($request->dedicatedIpPoolId)) {
-            $query['DedicatedIpPoolId'] = $request->dedicatedIpPoolId;
+
+        if (null !== $request->dedicatedIpPoolId) {
+            @$query['DedicatedIpPoolId'] = $request->dedicatedIpPoolId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->esp)) {
-            $query['Esp'] = $request->esp;
+
+        if (null !== $request->esp) {
+            @$query['Esp'] = $request->esp;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['Offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['Offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->offsetCreateTime)) {
-            $query['OffsetCreateTime'] = $request->offsetCreateTime;
+
+        if (null !== $request->offsetCreateTime) {
+            @$query['OffsetCreateTime'] = $request->offsetCreateTime;
         }
-        if (!Utils::isUnset($request->offsetCreateTimeDesc)) {
-            $query['OffsetCreateTimeDesc'] = $request->offsetCreateTimeDesc;
+
+        if (null !== $request->offsetCreateTimeDesc) {
+            @$query['OffsetCreateTimeDesc'] = $request->offsetCreateTimeDesc;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->tagName)) {
-            $query['TagName'] = $request->tagName;
+
+        if (null !== $request->tagName) {
+            @$query['TagName'] = $request->tagName;
         }
-        if (!Utils::isUnset($request->total)) {
-            $query['Total'] = $request->total;
+
+        if (null !== $request->total) {
+            @$query['Total'] = $request->total;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetTrackListByMailFromAndTagName',
@@ -2120,11 +2698,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Get tracking information based on the sender address and tag name
-     *  *
-     * @param GetTrackListByMailFromAndTagNameRequest $request GetTrackListByMailFromAndTagNameRequest
+     * Get tracking information based on the sender address and tag name.
      *
-     * @return GetTrackListByMailFromAndTagNameResponse GetTrackListByMailFromAndTagNameResponse
+     * @param Request - GetTrackListByMailFromAndTagNameRequest
+     *
+     * @returns GetTrackListByMailFromAndTagNameResponse
+     *
+     * @param GetTrackListByMailFromAndTagNameRequest $request
+     *
+     * @return GetTrackListByMailFromAndTagNameResponse
      */
     public function getTrackListByMailFromAndTagName($request)
     {
@@ -2134,11 +2716,16 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Get Account Details
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Get Account Details.
      *
-     * @return GetUserResponse GetUserResponse
+     * @param Request - GetUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetUserResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetUserResponse
      */
     public function getUserWithOptions($runtime)
     {
@@ -2159,9 +2746,11 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Get Account Details
-     *  *
-     * @return GetUserResponse GetUserResponse
+     * Get Account Details.
+     *
+     * @returns GetUserResponse
+     *
+     * @return GetUserResponse
      */
     public function getUser()
     {
@@ -2171,40 +2760,52 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary 获取发信的黑名单列表
-     *  *
-     * @param ListBlockSendingRequest $request ListBlockSendingRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取发信的黑名单列表.
      *
-     * @return ListBlockSendingResponse ListBlockSendingResponse
+     * @param Request - ListBlockSendingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListBlockSendingResponse
+     *
+     * @param ListBlockSendingRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListBlockSendingResponse
      */
     public function listBlockSendingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['BeginTime'] = $request->beginTime;
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->blockEmail)) {
-            $query['BlockEmail'] = $request->blockEmail;
+
+        if (null !== $request->blockEmail) {
+            @$query['BlockEmail'] = $request->blockEmail;
         }
-        if (!Utils::isUnset($request->blockType)) {
-            $query['BlockType'] = $request->blockType;
+
+        if (null !== $request->blockType) {
+            @$query['BlockType'] = $request->blockType;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->senderEmail)) {
-            $query['SenderEmail'] = $request->senderEmail;
+
+        if (null !== $request->senderEmail) {
+            @$query['SenderEmail'] = $request->senderEmail;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListBlockSending',
@@ -2222,11 +2823,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary 获取发信的黑名单列表
-     *  *
-     * @param ListBlockSendingRequest $request ListBlockSendingRequest
+     * 获取发信的黑名单列表.
      *
-     * @return ListBlockSendingResponse ListBlockSendingResponse
+     * @param Request - ListBlockSendingRequest
+     *
+     * @returns ListBlockSendingResponse
+     *
+     * @param ListBlockSendingRequest $request
+     *
+     * @return ListBlockSendingResponse
      */
     public function listBlockSending($request)
     {
@@ -2236,49 +2841,64 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary List User Invalid Addresses.
-     *  *
-     * @param ListUserSuppressionRequest $request ListUserSuppressionRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * List User Invalid Addresses.
      *
-     * @return ListUserSuppressionResponse ListUserSuppressionResponse
+     * @param Request - ListUserSuppressionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserSuppressionResponse
+     *
+     * @param ListUserSuppressionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListUserSuppressionResponse
      */
     public function listUserSuppressionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->address)) {
-            $query['Address'] = $request->address;
+        if (null !== $request->address) {
+            @$query['Address'] = $request->address;
         }
-        if (!Utils::isUnset($request->endBounceTime)) {
-            $query['EndBounceTime'] = $request->endBounceTime;
+
+        if (null !== $request->endBounceTime) {
+            @$query['EndBounceTime'] = $request->endBounceTime;
         }
-        if (!Utils::isUnset($request->endCreateTime)) {
-            $query['EndCreateTime'] = $request->endCreateTime;
+
+        if (null !== $request->endCreateTime) {
+            @$query['EndCreateTime'] = $request->endCreateTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->startBounceTime)) {
-            $query['StartBounceTime'] = $request->startBounceTime;
+
+        if (null !== $request->startBounceTime) {
+            @$query['StartBounceTime'] = $request->startBounceTime;
         }
-        if (!Utils::isUnset($request->startCreateTime)) {
-            $query['StartCreateTime'] = $request->startCreateTime;
+
+        if (null !== $request->startCreateTime) {
+            @$query['StartCreateTime'] = $request->startCreateTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListUserSuppression',
@@ -2296,11 +2916,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary List User Invalid Addresses.
-     *  *
-     * @param ListUserSuppressionRequest $request ListUserSuppressionRequest
+     * List User Invalid Addresses.
      *
-     * @return ListUserSuppressionResponse ListUserSuppressionResponse
+     * @param Request - ListUserSuppressionRequest
+     *
+     * @returns ListUserSuppressionResponse
+     *
+     * @param ListUserSuppressionRequest $request
+     *
+     * @return ListUserSuppressionResponse
      */
     public function listUserSuppression($request)
     {
@@ -2310,37 +2934,48 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Modify the sending address
-     *  *
-     * @param ModifyMailAddressRequest $request ModifyMailAddressRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Modify the sending address.
      *
-     * @return ModifyMailAddressResponse ModifyMailAddressResponse
+     * @param Request - ModifyMailAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyMailAddressResponse
+     *
+     * @param ModifyMailAddressRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyMailAddressResponse
      */
     public function modifyMailAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mailAddressId)) {
-            $query['MailAddressId'] = $request->mailAddressId;
+        if (null !== $request->mailAddressId) {
+            @$query['MailAddressId'] = $request->mailAddressId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->replyAddress)) {
-            $query['ReplyAddress'] = $request->replyAddress;
+
+        if (null !== $request->replyAddress) {
+            @$query['ReplyAddress'] = $request->replyAddress;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyMailAddress',
@@ -2358,11 +2993,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Modify the sending address
-     *  *
-     * @param ModifyMailAddressRequest $request ModifyMailAddressRequest
+     * Modify the sending address.
      *
-     * @return ModifyMailAddressResponse ModifyMailAddressResponse
+     * @param Request - ModifyMailAddressRequest
+     *
+     * @returns ModifyMailAddressResponse
+     *
+     * @param ModifyMailAddressRequest $request
+     *
+     * @return ModifyMailAddressResponse
      */
     public function modifyMailAddress($request)
     {
@@ -2372,34 +3011,44 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Modify the domain-level password
-     *  *
-     * @param ModifyPWByDomainRequest $request ModifyPWByDomainRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Modify the domain-level password.
      *
-     * @return ModifyPWByDomainResponse ModifyPWByDomainResponse
+     * @param Request - ModifyPWByDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPWByDomainResponse
+     *
+     * @param ModifyPWByDomainRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyPWByDomainResponse
      */
     public function modifyPWByDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
+        if (null !== $request->domainName) {
+            @$query['DomainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyPWByDomain',
@@ -2417,11 +3066,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Modify the domain-level password
-     *  *
-     * @param ModifyPWByDomainRequest $request ModifyPWByDomainRequest
+     * Modify the domain-level password.
      *
-     * @return ModifyPWByDomainResponse ModifyPWByDomainResponse
+     * @param Request - ModifyPWByDomainRequest
+     *
+     * @returns ModifyPWByDomainResponse
+     *
+     * @param ModifyPWByDomainRequest $request
+     *
+     * @return ModifyPWByDomainResponse
      */
     public function modifyPWByDomain($request)
     {
@@ -2431,37 +3084,48 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Modify Tag
-     *  *
-     * @param ModifyTagRequest $request ModifyTagRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Modify Tag.
      *
-     * @return ModifyTagResponse ModifyTagResponse
+     * @param Request - ModifyTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyTagResponse
+     *
+     * @param ModifyTagRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ModifyTagResponse
      */
     public function modifyTagWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tagDescription)) {
-            $query['TagDescription'] = $request->tagDescription;
+
+        if (null !== $request->tagDescription) {
+            @$query['TagDescription'] = $request->tagDescription;
         }
-        if (!Utils::isUnset($request->tagId)) {
-            $query['TagId'] = $request->tagId;
+
+        if (null !== $request->tagId) {
+            @$query['TagId'] = $request->tagId;
         }
-        if (!Utils::isUnset($request->tagName)) {
-            $query['TagName'] = $request->tagName;
+
+        if (null !== $request->tagName) {
+            @$query['TagName'] = $request->tagName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyTag',
@@ -2479,11 +3143,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Modify Tag
-     *  *
-     * @param ModifyTagRequest $request ModifyTagRequest
+     * Modify Tag.
      *
-     * @return ModifyTagResponse ModifyTagResponse
+     * @param Request - ModifyTagRequest
+     *
+     * @returns ModifyTagResponse
+     *
+     * @param ModifyTagRequest $request
+     *
+     * @return ModifyTagResponse
      */
     public function modifyTag($request)
     {
@@ -2493,40 +3161,52 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Query domain information
-     *  *
-     * @param QueryDomainByParamRequest $request QueryDomainByParamRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Query domain information.
      *
-     * @return QueryDomainByParamResponse QueryDomainByParamResponse
+     * @param Request - QueryDomainByParamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryDomainByParamResponse
+     *
+     * @param QueryDomainByParamRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryDomainByParamResponse
      */
     public function queryDomainByParamWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyWord)) {
-            $query['KeyWord'] = $request->keyWord;
+        if (null !== $request->keyWord) {
+            @$query['KeyWord'] = $request->keyWord;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryDomainByParam',
@@ -2544,11 +3224,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Query domain information
-     *  *
-     * @param QueryDomainByParamRequest $request QueryDomainByParamRequest
+     * Query domain information.
      *
-     * @return QueryDomainByParamResponse QueryDomainByParamResponse
+     * @param Request - QueryDomainByParamRequest
+     *
+     * @returns QueryDomainByParamResponse
+     *
+     * @param QueryDomainByParamRequest $request
+     *
+     * @return QueryDomainByParamResponse
      */
     public function queryDomainByParam($request)
     {
@@ -2558,45 +3242,59 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary NextStart changed to string
-     *  *
-     * @description Retrieve deduplicated invalid address information. If an email is sent to the same invalid address multiple times, only the first occurrence will be recorded. The query should be based on the time when the address was first classified as invalid.
-     *  *
-     * @param QueryInvalidAddressRequest $request QueryInvalidAddressRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * NextStart changed to string.
      *
-     * @return QueryInvalidAddressResponse QueryInvalidAddressResponse
+     * @remarks
+     * Retrieve deduplicated invalid address information. If an email is sent to the same invalid address multiple times, only the first occurrence will be recorded. The query should be based on the time when the address was first classified as invalid.
+     *
+     * @param Request - QueryInvalidAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryInvalidAddressResponse
+     *
+     * @param QueryInvalidAddressRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryInvalidAddressResponse
      */
     public function queryInvalidAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->keyWord)) {
-            $query['KeyWord'] = $request->keyWord;
+
+        if (null !== $request->keyWord) {
+            @$query['KeyWord'] = $request->keyWord;
         }
-        if (!Utils::isUnset($request->length)) {
-            $query['Length'] = $request->length;
+
+        if (null !== $request->length) {
+            @$query['Length'] = $request->length;
         }
-        if (!Utils::isUnset($request->nextStart)) {
-            $query['NextStart'] = $request->nextStart;
+
+        if (null !== $request->nextStart) {
+            @$query['NextStart'] = $request->nextStart;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryInvalidAddress',
@@ -2614,13 +3312,18 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary NextStart changed to string
-     *  *
-     * @description Retrieve deduplicated invalid address information. If an email is sent to the same invalid address multiple times, only the first occurrence will be recorded. The query should be based on the time when the address was first classified as invalid.
-     *  *
-     * @param QueryInvalidAddressRequest $request QueryInvalidAddressRequest
+     * NextStart changed to string.
      *
-     * @return QueryInvalidAddressResponse QueryInvalidAddressResponse
+     * @remarks
+     * Retrieve deduplicated invalid address information. If an email is sent to the same invalid address multiple times, only the first occurrence will be recorded. The query should be based on the time when the address was first classified as invalid.
+     *
+     * @param Request - QueryInvalidAddressRequest
+     *
+     * @returns QueryInvalidAddressResponse
+     *
+     * @param QueryInvalidAddressRequest $request
+     *
+     * @return QueryInvalidAddressResponse
      */
     public function queryInvalidAddress($request)
     {
@@ -2630,40 +3333,52 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Query the list of sending addresses.
-     *  *
-     * @param QueryMailAddressByParamRequest $request QueryMailAddressByParamRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Query the list of sending addresses.
      *
-     * @return QueryMailAddressByParamResponse QueryMailAddressByParamResponse
+     * @param Request - QueryMailAddressByParamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryMailAddressByParamResponse
+     *
+     * @param QueryMailAddressByParamRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryMailAddressByParamResponse
      */
     public function queryMailAddressByParamWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyWord)) {
-            $query['KeyWord'] = $request->keyWord;
+        if (null !== $request->keyWord) {
+            @$query['KeyWord'] = $request->keyWord;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sendtype)) {
-            $query['Sendtype'] = $request->sendtype;
+
+        if (null !== $request->sendtype) {
+            @$query['Sendtype'] = $request->sendtype;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryMailAddressByParam',
@@ -2681,11 +3396,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Query the list of sending addresses.
-     *  *
-     * @param QueryMailAddressByParamRequest $request QueryMailAddressByParamRequest
+     * Query the list of sending addresses.
      *
-     * @return QueryMailAddressByParamResponse QueryMailAddressByParamResponse
+     * @param Request - QueryMailAddressByParamRequest
+     *
+     * @returns QueryMailAddressByParamResponse
+     *
+     * @param QueryMailAddressByParamRequest $request
+     *
+     * @return QueryMailAddressByParamResponse
      */
     public function queryMailAddressByParam($request)
     {
@@ -2695,40 +3414,52 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Query the details of the recipient list
-     *  *
-     * @param QueryReceiverByParamRequest $request QueryReceiverByParamRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Query the details of the recipient list.
      *
-     * @return QueryReceiverByParamResponse QueryReceiverByParamResponse
+     * @param Request - QueryReceiverByParamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryReceiverByParamResponse
+     *
+     * @param QueryReceiverByParamRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryReceiverByParamResponse
      */
     public function queryReceiverByParamWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyWord)) {
-            $query['KeyWord'] = $request->keyWord;
+        if (null !== $request->keyWord) {
+            @$query['KeyWord'] = $request->keyWord;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryReceiverByParam',
@@ -2746,11 +3477,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Query the details of the recipient list
-     *  *
-     * @param QueryReceiverByParamRequest $request QueryReceiverByParamRequest
+     * Query the details of the recipient list.
      *
-     * @return QueryReceiverByParamResponse QueryReceiverByParamResponse
+     * @param Request - QueryReceiverByParamRequest
+     *
+     * @returns QueryReceiverByParamResponse
+     *
+     * @param QueryReceiverByParamRequest $request
+     *
+     * @return QueryReceiverByParamResponse
      */
     public function queryReceiverByParam($request)
     {
@@ -2760,40 +3495,52 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Retrieve detailed information about a recipient list
-     *  *
-     * @param QueryReceiverDetailRequest $request QueryReceiverDetailRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Retrieve detailed information about a recipient list.
      *
-     * @return QueryReceiverDetailResponse QueryReceiverDetailResponse
+     * @param Request - QueryReceiverDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryReceiverDetailResponse
+     *
+     * @param QueryReceiverDetailRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryReceiverDetailResponse
      */
     public function queryReceiverDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyWord)) {
-            $query['KeyWord'] = $request->keyWord;
+        if (null !== $request->keyWord) {
+            @$query['KeyWord'] = $request->keyWord;
         }
-        if (!Utils::isUnset($request->nextStart)) {
-            $query['NextStart'] = $request->nextStart;
+
+        if (null !== $request->nextStart) {
+            @$query['NextStart'] = $request->nextStart;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->receiverId)) {
-            $query['ReceiverId'] = $request->receiverId;
+
+        if (null !== $request->receiverId) {
+            @$query['ReceiverId'] = $request->receiverId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryReceiverDetail',
@@ -2811,11 +3558,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Retrieve detailed information about a recipient list
-     *  *
-     * @param QueryReceiverDetailRequest $request QueryReceiverDetailRequest
+     * Retrieve detailed information about a recipient list.
      *
-     * @return QueryReceiverDetailResponse QueryReceiverDetailResponse
+     * @param Request - QueryReceiverDetailRequest
+     *
+     * @returns QueryReceiverDetailResponse
+     *
+     * @param QueryReceiverDetailRequest $request
+     *
+     * @return QueryReceiverDetailResponse
      */
     public function queryReceiverDetail($request)
     {
@@ -2825,37 +3576,48 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Call QueryTagByParam to retrieve tags.
-     *  *
-     * @param QueryTagByParamRequest $request QueryTagByParamRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Call QueryTagByParam to retrieve tags.
      *
-     * @return QueryTagByParamResponse QueryTagByParamResponse
+     * @param Request - QueryTagByParamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryTagByParamResponse
+     *
+     * @param QueryTagByParamRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryTagByParamResponse
      */
     public function queryTagByParamWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyWord)) {
-            $query['KeyWord'] = $request->keyWord;
+        if (null !== $request->keyWord) {
+            @$query['KeyWord'] = $request->keyWord;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryTagByParam',
@@ -2873,11 +3635,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Call QueryTagByParam to retrieve tags.
-     *  *
-     * @param QueryTagByParamRequest $request QueryTagByParamRequest
+     * Call QueryTagByParam to retrieve tags.
      *
-     * @return QueryTagByParamResponse QueryTagByParamResponse
+     * @param Request - QueryTagByParamRequest
+     *
+     * @returns QueryTagByParamResponse
+     *
+     * @param QueryTagByParamRequest $request
+     *
+     * @return QueryTagByParamResponse
      */
     public function queryTagByParam($request)
     {
@@ -2887,40 +3653,52 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Query task list
-     *  *
-     * @param QueryTaskByParamRequest $request QueryTaskByParamRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Query task list.
      *
-     * @return QueryTaskByParamResponse QueryTaskByParamResponse
+     * @param Request - QueryTaskByParamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryTaskByParamResponse
+     *
+     * @param QueryTaskByParamRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryTaskByParamResponse
      */
     public function queryTaskByParamWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyWord)) {
-            $query['KeyWord'] = $request->keyWord;
+        if (null !== $request->keyWord) {
+            @$query['KeyWord'] = $request->keyWord;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryTaskByParam',
@@ -2938,11 +3716,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Query task list
-     *  *
-     * @param QueryTaskByParamRequest $request QueryTaskByParamRequest
+     * Query task list.
      *
-     * @return QueryTaskByParamResponse QueryTaskByParamResponse
+     * @param Request - QueryTaskByParamRequest
+     *
+     * @returns QueryTaskByParamResponse
+     *
+     * @param QueryTaskByParamRequest $request
+     *
+     * @return QueryTaskByParamResponse
      */
     public function queryTaskByParam($request)
     {
@@ -2952,31 +3734,40 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary 删除用户无效地址
-     *  *
-     * @param RemoveUserSuppressionRequest $request RemoveUserSuppressionRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 删除用户无效地址
      *
-     * @return RemoveUserSuppressionResponse RemoveUserSuppressionResponse
+     * @param Request - RemoveUserSuppressionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveUserSuppressionResponse
+     *
+     * @param RemoveUserSuppressionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RemoveUserSuppressionResponse
      */
     public function removeUserSuppressionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->suppressionIds)) {
-            $query['SuppressionIds'] = $request->suppressionIds;
+
+        if (null !== $request->suppressionIds) {
+            @$query['SuppressionIds'] = $request->suppressionIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RemoveUserSuppression',
@@ -2994,11 +3785,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary 删除用户无效地址
-     *  *
-     * @param RemoveUserSuppressionRequest $request RemoveUserSuppressionRequest
+     * 删除用户无效地址
      *
-     * @return RemoveUserSuppressionResponse RemoveUserSuppressionResponse
+     * @param Request - RemoveUserSuppressionRequest
+     *
+     * @returns RemoveUserSuppressionResponse
+     *
+     * @param RemoveUserSuppressionRequest $request
+     *
+     * @return RemoveUserSuppressionResponse
      */
     public function removeUserSuppression($request)
     {
@@ -3008,34 +3803,44 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Create a Single Recipient
-     *  *
-     * @param SaveReceiverDetailRequest $request SaveReceiverDetailRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Create a Single Recipient.
      *
-     * @return SaveReceiverDetailResponse SaveReceiverDetailResponse
+     * @param Request - SaveReceiverDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveReceiverDetailResponse
+     *
+     * @param SaveReceiverDetailRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SaveReceiverDetailResponse
      */
     public function saveReceiverDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->detail)) {
-            $query['Detail'] = $request->detail;
+        if (null !== $request->detail) {
+            @$query['Detail'] = $request->detail;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->receiverId)) {
-            $query['ReceiverId'] = $request->receiverId;
+
+        if (null !== $request->receiverId) {
+            @$query['ReceiverId'] = $request->receiverId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SaveReceiverDetail',
@@ -3053,11 +3858,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Create a Single Recipient
-     *  *
-     * @param SaveReceiverDetailRequest $request SaveReceiverDetailRequest
+     * Create a Single Recipient.
      *
-     * @return SaveReceiverDetailResponse SaveReceiverDetailResponse
+     * @param Request - SaveReceiverDetailRequest
+     *
+     * @returns SaveReceiverDetailResponse
+     *
+     * @param SaveReceiverDetailRequest $request
+     *
+     * @return SaveReceiverDetailResponse
      */
     public function saveReceiverDetail($request)
     {
@@ -3067,52 +3876,68 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Send Template Test Email
-     *  *
-     * @param SendTestByTemplateRequest $request SendTestByTemplateRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Send Template Test Email.
      *
-     * @return SendTestByTemplateResponse SendTestByTemplateResponse
+     * @param Request - SendTestByTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendTestByTemplateResponse
+     *
+     * @param SendTestByTemplateRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SendTestByTemplateResponse
      */
     public function sendTestByTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->birthday)) {
-            $query['Birthday'] = $request->birthday;
+
+        if (null !== $request->birthday) {
+            @$query['Birthday'] = $request->birthday;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->gender)) {
-            $query['Gender'] = $request->gender;
+
+        if (null !== $request->gender) {
+            @$query['Gender'] = $request->gender;
         }
-        if (!Utils::isUnset($request->mobile)) {
-            $query['Mobile'] = $request->mobile;
+
+        if (null !== $request->mobile) {
+            @$query['Mobile'] = $request->mobile;
         }
-        if (!Utils::isUnset($request->nickName)) {
-            $query['NickName'] = $request->nickName;
+
+        if (null !== $request->nickName) {
+            @$query['NickName'] = $request->nickName;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SendTestByTemplate',
@@ -3130,11 +3955,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Send Template Test Email
-     *  *
-     * @param SendTestByTemplateRequest $request SendTestByTemplateRequest
+     * Send Template Test Email.
      *
-     * @return SendTestByTemplateResponse SendTestByTemplateResponse
+     * @param Request - SendTestByTemplateRequest
+     *
+     * @returns SendTestByTemplateResponse
+     *
+     * @param SendTestByTemplateRequest $request
+     *
+     * @return SendTestByTemplateResponse
      */
     public function sendTestByTemplate($request)
     {
@@ -3144,49 +3973,64 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Retrieve Sending Data under Specified Conditions
-     *  *
-     * @param SenderStatisticsByTagNameAndBatchIDRequest $request SenderStatisticsByTagNameAndBatchIDRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * Retrieve Sending Data under Specified Conditions.
      *
-     * @return SenderStatisticsByTagNameAndBatchIDResponse SenderStatisticsByTagNameAndBatchIDResponse
+     * @param Request - SenderStatisticsByTagNameAndBatchIDRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SenderStatisticsByTagNameAndBatchIDResponse
+     *
+     * @param SenderStatisticsByTagNameAndBatchIDRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return SenderStatisticsByTagNameAndBatchIDResponse
      */
     public function senderStatisticsByTagNameAndBatchIDWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->dedicatedIp)) {
-            $query['DedicatedIp'] = $request->dedicatedIp;
+
+        if (null !== $request->dedicatedIp) {
+            @$query['DedicatedIp'] = $request->dedicatedIp;
         }
-        if (!Utils::isUnset($request->dedicatedIpPoolId)) {
-            $query['DedicatedIpPoolId'] = $request->dedicatedIpPoolId;
+
+        if (null !== $request->dedicatedIpPoolId) {
+            @$query['DedicatedIpPoolId'] = $request->dedicatedIpPoolId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->esp)) {
-            $query['Esp'] = $request->esp;
+
+        if (null !== $request->esp) {
+            @$query['Esp'] = $request->esp;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->tagName)) {
-            $query['TagName'] = $request->tagName;
+
+        if (null !== $request->tagName) {
+            @$query['TagName'] = $request->tagName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SenderStatisticsByTagNameAndBatchID',
@@ -3204,11 +4048,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Retrieve Sending Data under Specified Conditions
-     *  *
-     * @param SenderStatisticsByTagNameAndBatchIDRequest $request SenderStatisticsByTagNameAndBatchIDRequest
+     * Retrieve Sending Data under Specified Conditions.
      *
-     * @return SenderStatisticsByTagNameAndBatchIDResponse SenderStatisticsByTagNameAndBatchIDResponse
+     * @param Request - SenderStatisticsByTagNameAndBatchIDRequest
+     *
+     * @returns SenderStatisticsByTagNameAndBatchIDResponse
+     *
+     * @param SenderStatisticsByTagNameAndBatchIDRequest $request
+     *
+     * @return SenderStatisticsByTagNameAndBatchIDResponse
      */
     public function senderStatisticsByTagNameAndBatchID($request)
     {
@@ -3218,52 +4066,68 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Query Delivery Result Details
-     *  *
-     * @param SenderStatisticsDetailByParamRequest $request SenderStatisticsDetailByParamRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Query Delivery Result Details.
      *
-     * @return SenderStatisticsDetailByParamResponse SenderStatisticsDetailByParamResponse
+     * @param Request - SenderStatisticsDetailByParamRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SenderStatisticsDetailByParamResponse
+     *
+     * @param SenderStatisticsDetailByParamRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return SenderStatisticsDetailByParamResponse
      */
     public function senderStatisticsDetailByParamWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->length)) {
-            $query['Length'] = $request->length;
+
+        if (null !== $request->length) {
+            @$query['Length'] = $request->length;
         }
-        if (!Utils::isUnset($request->nextStart)) {
-            $query['NextStart'] = $request->nextStart;
+
+        if (null !== $request->nextStart) {
+            @$query['NextStart'] = $request->nextStart;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tagName)) {
-            $query['TagName'] = $request->tagName;
+
+        if (null !== $request->tagName) {
+            @$query['TagName'] = $request->tagName;
         }
-        if (!Utils::isUnset($request->toAddress)) {
-            $query['ToAddress'] = $request->toAddress;
+
+        if (null !== $request->toAddress) {
+            @$query['ToAddress'] = $request->toAddress;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SenderStatisticsDetailByParam',
@@ -3281,11 +4145,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Query Delivery Result Details
-     *  *
-     * @param SenderStatisticsDetailByParamRequest $request SenderStatisticsDetailByParamRequest
+     * Query Delivery Result Details.
      *
-     * @return SenderStatisticsDetailByParamResponse SenderStatisticsDetailByParamResponse
+     * @param Request - SenderStatisticsDetailByParamRequest
+     *
+     * @returns SenderStatisticsDetailByParamResponse
+     *
+     * @param SenderStatisticsDetailByParamRequest $request
+     *
+     * @return SenderStatisticsDetailByParamResponse
      */
     public function senderStatisticsDetailByParam($request)
     {
@@ -3295,31 +4163,40 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary 设置用户无效地址级别配置
-     *  *
-     * @param SetSuppressionListLevelRequest $request SetSuppressionListLevelRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 设置用户无效地址级别配置.
      *
-     * @return SetSuppressionListLevelResponse SetSuppressionListLevelResponse
+     * @param Request - SetSuppressionListLevelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetSuppressionListLevelResponse
+     *
+     * @param SetSuppressionListLevelRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SetSuppressionListLevelResponse
      */
     public function setSuppressionListLevelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->suppressionListLevel)) {
-            $query['SuppressionListLevel'] = $request->suppressionListLevel;
+
+        if (null !== $request->suppressionListLevel) {
+            @$query['SuppressionListLevel'] = $request->suppressionListLevel;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SetSuppressionListLevel',
@@ -3337,11 +4214,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary 设置用户无效地址级别配置
-     *  *
-     * @param SetSuppressionListLevelRequest $request SetSuppressionListLevelRequest
+     * 设置用户无效地址级别配置.
      *
-     * @return SetSuppressionListLevelResponse SetSuppressionListLevelResponse
+     * @param Request - SetSuppressionListLevelRequest
+     *
+     * @returns SetSuppressionListLevelResponse
+     *
+     * @param SetSuppressionListLevelRequest $request
+     *
+     * @return SetSuppressionListLevelResponse
      */
     public function setSuppressionListLevel($request)
     {
@@ -3351,81 +4232,106 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary API for Sending Emails
-     *  *
-     * @param SingleSendMailRequest $request SingleSendMailRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * API for Sending Emails.
      *
-     * @return SingleSendMailResponse SingleSendMailResponse
+     * @param Request - SingleSendMailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SingleSendMailResponse
+     *
+     * @param SingleSendMailRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SingleSendMailResponse
      */
     public function singleSendMailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->addressType)) {
-            $body['AddressType'] = $request->addressType;
+
+        if (null !== $request->addressType) {
+            @$body['AddressType'] = $request->addressType;
         }
-        if (!Utils::isUnset($request->attachments)) {
-            $body['Attachments'] = $request->attachments;
+
+        if (null !== $request->attachments) {
+            @$body['Attachments'] = $request->attachments;
         }
-        if (!Utils::isUnset($request->clickTrace)) {
-            $body['ClickTrace'] = $request->clickTrace;
+
+        if (null !== $request->clickTrace) {
+            @$body['ClickTrace'] = $request->clickTrace;
         }
-        if (!Utils::isUnset($request->fromAlias)) {
-            $body['FromAlias'] = $request->fromAlias;
+
+        if (null !== $request->fromAlias) {
+            @$body['FromAlias'] = $request->fromAlias;
         }
-        if (!Utils::isUnset($request->headers)) {
-            $body['Headers'] = $request->headers;
+
+        if (null !== $request->headers) {
+            @$body['Headers'] = $request->headers;
         }
-        if (!Utils::isUnset($request->htmlBody)) {
-            $body['HtmlBody'] = $request->htmlBody;
+
+        if (null !== $request->htmlBody) {
+            @$body['HtmlBody'] = $request->htmlBody;
         }
-        if (!Utils::isUnset($request->ipPoolId)) {
-            $body['IpPoolId'] = $request->ipPoolId;
+
+        if (null !== $request->ipPoolId) {
+            @$body['IpPoolId'] = $request->ipPoolId;
         }
-        if (!Utils::isUnset($request->replyAddress)) {
-            $body['ReplyAddress'] = $request->replyAddress;
+
+        if (null !== $request->replyAddress) {
+            @$body['ReplyAddress'] = $request->replyAddress;
         }
-        if (!Utils::isUnset($request->replyAddressAlias)) {
-            $body['ReplyAddressAlias'] = $request->replyAddressAlias;
+
+        if (null !== $request->replyAddressAlias) {
+            @$body['ReplyAddressAlias'] = $request->replyAddressAlias;
         }
-        if (!Utils::isUnset($request->replyToAddress)) {
-            $body['ReplyToAddress'] = $request->replyToAddress;
+
+        if (null !== $request->replyToAddress) {
+            @$body['ReplyToAddress'] = $request->replyToAddress;
         }
-        if (!Utils::isUnset($request->subject)) {
-            $body['Subject'] = $request->subject;
+
+        if (null !== $request->subject) {
+            @$body['Subject'] = $request->subject;
         }
-        if (!Utils::isUnset($request->tagName)) {
-            $body['TagName'] = $request->tagName;
+
+        if (null !== $request->tagName) {
+            @$body['TagName'] = $request->tagName;
         }
-        if (!Utils::isUnset($request->textBody)) {
-            $body['TextBody'] = $request->textBody;
+
+        if (null !== $request->textBody) {
+            @$body['TextBody'] = $request->textBody;
         }
-        if (!Utils::isUnset($request->toAddress)) {
-            $body['ToAddress'] = $request->toAddress;
+
+        if (null !== $request->toAddress) {
+            @$body['ToAddress'] = $request->toAddress;
         }
-        if (!Utils::isUnset($request->unSubscribeFilterLevel)) {
-            $body['UnSubscribeFilterLevel'] = $request->unSubscribeFilterLevel;
+
+        if (null !== $request->unSubscribeFilterLevel) {
+            @$body['UnSubscribeFilterLevel'] = $request->unSubscribeFilterLevel;
         }
-        if (!Utils::isUnset($request->unSubscribeLinkType)) {
-            $body['UnSubscribeLinkType'] = $request->unSubscribeLinkType;
+
+        if (null !== $request->unSubscribeLinkType) {
+            @$body['UnSubscribeLinkType'] = $request->unSubscribeLinkType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SingleSendMail',
@@ -3443,11 +4349,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary API for Sending Emails
-     *  *
-     * @param SingleSendMailRequest $request SingleSendMailRequest
+     * API for Sending Emails.
      *
-     * @return SingleSendMailResponse SingleSendMailResponse
+     * @param Request - SingleSendMailRequest
+     *
+     * @returns SingleSendMailResponse
+     *
+     * @param SingleSendMailRequest $request
+     *
+     * @return SingleSendMailResponse
      */
     public function singleSendMail($request)
     {
@@ -3461,31 +4371,31 @@ class Dm extends OpenApiClient
      * @param RuntimeOptions               $runtime
      *
      * @return SingleSendMailResponse
-     *
-     * @throws TeaError
      */
     public function singleSendMailAdvance($request, $runtime)
     {
         // Step 0: init client
-        $credentialModel = null;
-        if (Utils::isUnset($this->_credential)) {
-            throw new TeaError([
+        if (null === $this->_credential) {
+            throw new ClientException([
                 'code' => 'InvalidCredentials',
                 'message' => 'Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.',
             ]);
         }
+
         $credentialModel = $this->_credential->getCredential();
         $accessKeyId = $credentialModel->accessKeyId;
         $accessKeySecret = $credentialModel->accessKeySecret;
         $securityToken = $credentialModel->securityToken;
         $credentialType = $credentialModel->type;
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::empty_($openPlatformEndpoint)) {
+        if (null === $openPlatformEndpoint || '' == $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-        if (Utils::isUnset($credentialType)) {
+
+        if (null === $credentialType) {
             $credentialType = 'access_key';
         }
+
         $authConfig = new Config([
             'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -3501,7 +4411,7 @@ class Dm extends OpenApiClient
             'RegionId' => $this->_regionId,
         ];
         $authReq = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($authRequest),
+            'query' => Utils::query($authRequest),
         ]);
         $authParams = new Params([
             'action' => 'AuthorizeFileUpload',
@@ -3521,15 +4431,15 @@ class Dm extends OpenApiClient
         $useAccelerate = false;
         $authResponseBody = [];
         $singleSendMailReq = new SingleSendMailRequest([]);
-        OpenApiUtilClient::convert($request, $singleSendMailReq);
-        if (!Utils::isUnset($request->attachments)) {
+        Utils::convert($request, $singleSendMailReq);
+        if (null !== $request->attachments) {
             $i0 = 0;
+
             foreach ($request->attachments as $item0) {
-                if (!Utils::isUnset($item0->attachmentUrlObject)) {
-                    $tmpResp0 = $authClient->callApi($authParams, $authReq, $runtime);
-                    $authResponse = Utils::assertAsMap($tmpResp0);
-                    $tmpBody = Utils::assertAsMap(@$authResponse['body']);
-                    $useAccelerate = Utils::assertAsBoolean(@$tmpBody['UseAccelerate']);
+                if (null !== $item0->attachmentUrlObject) {
+                    $authResponse = $authClient->callApi($authParams, $authReq, $runtime);
+                    $tmpBody = @$authResponse['body'];
+                    $useAccelerate = (bool) (@$tmpBody['UseAccelerate']);
                     $authResponseBody = Utils::stringifyMapValue($tmpBody);
                     $fileObj = new FileField([
                         'filename' => @$authResponseBody['ObjectKey'],
@@ -3537,7 +4447,7 @@ class Dm extends OpenApiClient
                         'contentType' => '',
                     ]);
                     $ossHeader = [
-                        'host' => '' . @$authResponseBody['Bucket'] . '.' . OpenApiUtilClient::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
+                        'host' => '' . @$authResponseBody['Bucket'] . '.' . Utils::getEndpoint(@$authResponseBody['Endpoint'], $useAccelerate, $this->_endpointType) . '',
                         'OSSAccessKeyId' => @$authResponseBody['AccessKeyId'],
                         'policy' => @$authResponseBody['EncodedPolicy'],
                         'Signature' => @$authResponseBody['Signature'],
@@ -3546,8 +4456,8 @@ class Dm extends OpenApiClient
                         'success_action_status' => '201',
                     ];
                     $this->_postOSSObject(@$authResponseBody['Bucket'], $ossHeader);
-                    $tmp = @$singleSendMailReq->attachments[$i0];
-                    $tmp->attachmentUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
+                    $tmpObj = @$singleSendMailReq->attachments[$i0];
+                    $tmpObj->attachmentUrl = 'http://' . @$authResponseBody['Bucket'] . '.' . @$authResponseBody['Endpoint'] . '/' . @$authResponseBody['ObjectKey'] . '';
                     ++$i0;
                 }
             }
@@ -3557,28 +4467,36 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Lift sending restrictions due to unsubscription, reporting, etc.
-     *  *
-     * @param UnblockSendingRequest $request UnblockSendingRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Lift sending restrictions due to unsubscription, reporting, etc.
      *
-     * @return UnblockSendingResponse UnblockSendingResponse
+     * @param Request - UnblockSendingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnblockSendingResponse
+     *
+     * @param UnblockSendingRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UnblockSendingResponse
      */
     public function unblockSendingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->blockEmail)) {
-            $query['BlockEmail'] = $request->blockEmail;
+        if (null !== $request->blockEmail) {
+            @$query['BlockEmail'] = $request->blockEmail;
         }
-        if (!Utils::isUnset($request->blockType)) {
-            $query['BlockType'] = $request->blockType;
+
+        if (null !== $request->blockType) {
+            @$query['BlockType'] = $request->blockType;
         }
-        if (!Utils::isUnset($request->senderEmail)) {
-            $query['SenderEmail'] = $request->senderEmail;
+
+        if (null !== $request->senderEmail) {
+            @$query['SenderEmail'] = $request->senderEmail;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UnblockSending',
@@ -3596,11 +4514,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Lift sending restrictions due to unsubscription, reporting, etc.
-     *  *
-     * @param UnblockSendingRequest $request UnblockSendingRequest
+     * Lift sending restrictions due to unsubscription, reporting, etc.
      *
-     * @return UnblockSendingResponse UnblockSendingResponse
+     * @param Request - UnblockSendingRequest
+     *
+     * @returns UnblockSendingResponse
+     *
+     * @param UnblockSendingRequest $request
+     *
+     * @return UnblockSendingResponse
      */
     public function unblockSending($request)
     {
@@ -3610,31 +4532,40 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Update IP Protection API
-     *  *
-     * @param UpdateIpProtectionRequest $request UpdateIpProtectionRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Update IP Protection API.
      *
-     * @return UpdateIpProtectionResponse UpdateIpProtectionResponse
+     * @param Request - UpdateIpProtectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateIpProtectionResponse
+     *
+     * @param UpdateIpProtectionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateIpProtectionResponse
      */
     public function updateIpProtectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ipProtection)) {
-            $query['IpProtection'] = $request->ipProtection;
+        if (null !== $request->ipProtection) {
+            @$query['IpProtection'] = $request->ipProtection;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateIpProtection',
@@ -3652,11 +4583,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Update IP Protection API
-     *  *
-     * @param UpdateIpProtectionRequest $request UpdateIpProtectionRequest
+     * Update IP Protection API.
      *
-     * @return UpdateIpProtectionResponse UpdateIpProtectionResponse
+     * @param Request - UpdateIpProtectionRequest
+     *
+     * @returns UpdateIpProtectionResponse
+     *
+     * @param UpdateIpProtectionRequest $request
+     *
+     * @return UpdateIpProtectionResponse
      */
     public function updateIpProtection($request)
     {
@@ -3666,27 +4601,34 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Update account information
-     *  *
-     * @param UpdateUserRequest $tmpReq  UpdateUserRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Update account information.
      *
-     * @return UpdateUserResponse UpdateUserResponse
+     * @param tmpReq - UpdateUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateUserResponse
+     *
+     * @param UpdateUserRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateUserResponse
      */
     public function updateUserWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateUserShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->user)) {
-            $request->userShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->user, 'User', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->user) {
+            $request->userShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->user, 'User', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->userShrink)) {
-            $body['User'] = $request->userShrink;
+        if (null !== $request->userShrink) {
+            @$body['User'] = $request->userShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateUser',
@@ -3704,11 +4646,15 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary Update account information
-     *  *
-     * @param UpdateUserRequest $request UpdateUserRequest
+     * Update account information.
      *
-     * @return UpdateUserResponse UpdateUserResponse
+     * @param Request - UpdateUserRequest
+     *
+     * @returns UpdateUserResponse
+     *
+     * @param UpdateUserRequest $request
+     *
+     * @return UpdateUserResponse
      */
     public function updateUser($request)
     {

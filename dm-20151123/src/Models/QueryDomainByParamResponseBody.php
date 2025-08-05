@@ -4,50 +4,32 @@
 
 namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dm\V20151123\Models\QueryDomainByParamResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class QueryDomainByParamResponseBody extends Model
 {
     /**
-     * @description Current page number
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description Page size
-     *
-     * @example 50
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description Request ID
-     *
-     * @example 8C90CCD3-627C-4F87-AD8C-2F03146071EB
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Total count
-     *
-     * @example 2
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description List of domains
-     *
      * @var data
      */
     public $data;
@@ -59,50 +41,64 @@ class QueryDomainByParamResponseBody extends Model
         'data' => 'data',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryDomainByParamResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
         }
