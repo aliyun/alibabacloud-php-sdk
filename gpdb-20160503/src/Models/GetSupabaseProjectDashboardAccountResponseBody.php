@@ -4,41 +4,31 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSupabaseProjectDashboardAccountResponseBody extends Model
 {
     /**
-     * @example xxpassword
-     *
      * @var string
      */
     public $dashboardPassword;
 
     /**
-     * @example xxuser
-     *
      * @var string
      */
     public $dashboardUsername;
 
     /**
-     * @example sbp-twmoe9bakow
-     *
      * @var string
      */
     public $projectId;
 
     /**
-     * @example supabase_prod
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @example ABB39CC3-4488-4857-905D-2E4A051D****
-     *
      * @var string
      */
     public $requestId;
@@ -50,23 +40,30 @@ class GetSupabaseProjectDashboardAccountResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dashboardPassword) {
             $res['DashboardPassword'] = $this->dashboardPassword;
         }
+
         if (null !== $this->dashboardUsername) {
             $res['DashboardUsername'] = $this->dashboardUsername;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -74,26 +71,30 @@ class GetSupabaseProjectDashboardAccountResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSupabaseProjectDashboardAccountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DashboardPassword'])) {
             $model->dashboardPassword = $map['DashboardPassword'];
         }
+
         if (isset($map['DashboardUsername'])) {
             $model->dashboardUsername = $map['DashboardUsername'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

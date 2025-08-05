@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeTableResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ColumnMetadata;
-use AlibabaCloud\Tea\Model;
 
 class columnList extends Model
 {
@@ -17,17 +17,24 @@ class columnList extends Model
         'columnList' => 'ColumnList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->columnList)) {
+            Model::validateArray($this->columnList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columnList) {
-            $res['ColumnList'] = [];
-            if (null !== $this->columnList && \is_array($this->columnList)) {
-                $n = 0;
-                foreach ($this->columnList as $item) {
-                    $res['ColumnList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->columnList)) {
+                $res['ColumnList'] = [];
+                $n1 = 0;
+                foreach ($this->columnList as $item1) {
+                    $res['ColumnList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class columnList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return columnList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColumnList'])) {
             if (!empty($map['ColumnList'])) {
                 $model->columnList = [];
-                $n = 0;
-                foreach ($map['ColumnList'] as $item) {
-                    $model->columnList[$n++] = null !== $item ? ColumnMetadata::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ColumnList'] as $item1) {
+                    $model->columnList[$n1] = ColumnMetadata::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceIPArrayListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceIPArrayListResponseBody\items\DBInstanceIPArray;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
@@ -17,17 +17,24 @@ class items extends Model
         'DBInstanceIPArray' => 'DBInstanceIPArray',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->DBInstanceIPArray)) {
+            Model::validateArray($this->DBInstanceIPArray);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceIPArray) {
-            $res['DBInstanceIPArray'] = [];
-            if (null !== $this->DBInstanceIPArray && \is_array($this->DBInstanceIPArray)) {
-                $n = 0;
-                foreach ($this->DBInstanceIPArray as $item) {
-                    $res['DBInstanceIPArray'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->DBInstanceIPArray)) {
+                $res['DBInstanceIPArray'] = [];
+                $n1 = 0;
+                foreach ($this->DBInstanceIPArray as $item1) {
+                    $res['DBInstanceIPArray'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceIPArray'])) {
             if (!empty($map['DBInstanceIPArray'])) {
                 $model->DBInstanceIPArray = [];
-                $n = 0;
-                foreach ($map['DBInstanceIPArray'] as $item) {
-                    $model->DBInstanceIPArray[$n++] = null !== $item ? DBInstanceIPArray::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DBInstanceIPArray'] as $item1) {
+                    $model->DBInstanceIPArray[$n1] = DBInstanceIPArray::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeHadoopDataSourceRequest extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example gp-xxx
-     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @description The data source ID.
-     *
-     * @example 123
-     *
      * @var string
      */
     public $dataSourceId;
 
     /**
-     * @description The region ID of the instance.
-     *
-     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2361846.html) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -44,17 +28,22 @@ class DescribeHadoopDataSourceRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -62,20 +51,22 @@ class DescribeHadoopDataSourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeHadoopDataSourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

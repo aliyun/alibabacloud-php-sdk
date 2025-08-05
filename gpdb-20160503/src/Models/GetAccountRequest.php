@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAccountRequest extends Model
 {
     /**
-     * @description The name of the database account.
-     *
-     * This parameter is required.
-     *
-     * @example testuser
-     *
      * @var string
      */
     public $accountName;
 
     /**
-     * @description The instance ID.
-     *
-     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specific region.
-     *
-     * This parameter is required.
-     *
-     * @example gp-xxxxxxxxx
-     *
      * @var string
      */
     public $DBInstanceId;
@@ -36,14 +22,18 @@ class GetAccountRequest extends Model
         'DBInstanceId' => 'DBInstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -51,17 +41,18 @@ class GetAccountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAccountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }

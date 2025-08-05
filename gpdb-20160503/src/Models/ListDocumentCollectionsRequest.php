@@ -4,43 +4,21 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDocumentCollectionsRequest extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
-     *
-     * This parameter is required.
-     *
-     * @example gp-xxxxxxxxx
-     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @description The name of the namespace. Default value: public.
-     *
-     * >  You can call the CreateNamespace operation to create a namespace and call the ListNamespaces operation to query a list of namespaces.
-     *
-     * @example mynamespace
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The password of the namespace.
-     *
-     * >  This value is specified when you call the CreateNamespace operation.
-     *
-     * This parameter is required.
-     *
-     * @example testpassword
-     *
      * @var string
      */
     public $namespacePassword;
@@ -51,12 +29,6 @@ class ListDocumentCollectionsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -68,23 +40,30 @@ class ListDocumentCollectionsRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->namespacePassword) {
             $res['NamespacePassword'] = $this->namespacePassword;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -92,26 +71,30 @@ class ListDocumentCollectionsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDocumentCollectionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['NamespacePassword'])) {
             $model->namespacePassword = $map['NamespacePassword'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sparseVector extends Model
 {
@@ -22,37 +22,72 @@ class sparseVector extends Model
         'values' => 'Values',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->indices)) {
+            Model::validateArray($this->indices);
+        }
+        if (\is_array($this->values)) {
+            Model::validateArray($this->values);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->indices) {
-            $res['Indices'] = $this->indices;
+            if (\is_array($this->indices)) {
+                $res['Indices'] = [];
+                $n1 = 0;
+                foreach ($this->indices as $item1) {
+                    $res['Indices'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->values) {
-            $res['Values'] = $this->values;
+            if (\is_array($this->values)) {
+                $res['Values'] = [];
+                $n1 = 0;
+                foreach ($this->values as $item1) {
+                    $res['Values'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sparseVector
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Indices'])) {
             if (!empty($map['Indices'])) {
-                $model->indices = $map['Indices'];
+                $model->indices = [];
+                $n1 = 0;
+                foreach ($map['Indices'] as $item1) {
+                    $model->indices[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
-                $model->values = $map['Values'];
+                $model->values = [];
+                $n1 = 0;
+                foreach ($map['Values'] as $item1) {
+                    $model->values[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

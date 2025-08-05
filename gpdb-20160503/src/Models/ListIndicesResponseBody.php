@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListIndicesResponseBody\indices;
-use AlibabaCloud\Tea\Model;
 
 class ListIndicesResponseBody extends Model
 {
@@ -15,24 +15,16 @@ class ListIndicesResponseBody extends Model
     public $indices;
 
     /**
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Request ID.
-     *
-     * @example ABB39CC3-4488-4857-905D-2E4A051D0521
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example success
-     *
      * @var string
      */
     public $status;
@@ -43,20 +35,29 @@ class ListIndicesResponseBody extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->indices) {
+            $this->indices->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->indices) {
-            $res['Indices'] = null !== $this->indices ? $this->indices->toMap() : null;
+            $res['Indices'] = null !== $this->indices ? $this->indices->toArray($noStream) : $this->indices;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -64,23 +65,26 @@ class ListIndicesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListIndicesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Indices'])) {
             $model->indices = indices::fromMap($map['Indices']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

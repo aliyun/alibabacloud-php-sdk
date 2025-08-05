@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAvailableResourcesResponseBody\resources\supportedEngines\supportedInstanceClasses;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nodeCount extends Model
 {
     /**
-     * @description The maximum number of compute nodes.
-     *
-     * @example 256
-     *
      * @var string
      */
     public $maxCount;
 
     /**
-     * @description The minimum number of compute nodes.
-     *
-     * @example 4
-     *
      * @var string
      */
     public $minCount;
 
     /**
-     * @description The step size for adding compute nodes.
-     *
-     * For example, if the value of this parameter is 4, compute nodes must be added by multiples of 4.
-     *
-     * @example 4
-     *
      * @var string
      */
     public $step;
@@ -42,17 +28,22 @@ class nodeCount extends Model
         'step' => 'Step',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxCount) {
             $res['MaxCount'] = $this->maxCount;
         }
+
         if (null !== $this->minCount) {
             $res['MinCount'] = $this->minCount;
         }
+
         if (null !== $this->step) {
             $res['Step'] = $this->step;
         }
@@ -60,20 +51,22 @@ class nodeCount extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodeCount
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxCount'])) {
             $model->maxCount = $map['MaxCount'];
         }
+
         if (isset($map['MinCount'])) {
             $model->minCount = $map['MinCount'];
         }
+
         if (isset($map['Step'])) {
             $model->step = $map['Step'];
         }

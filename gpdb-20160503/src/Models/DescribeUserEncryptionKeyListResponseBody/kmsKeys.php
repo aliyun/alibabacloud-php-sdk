@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeUserEncryptionKeyListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class kmsKeys extends Model
 {
     /**
-     * @description The ID of the KMS key.
-     *
-     * @example 0b8b1825-fd99-418f-875e-e4dec1dd8715
-     *
      * @var string
      */
     public $keyId;
@@ -20,9 +16,12 @@ class kmsKeys extends Model
         'keyId' => 'KeyId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyId) {
@@ -32,11 +31,11 @@ class kmsKeys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return kmsKeys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

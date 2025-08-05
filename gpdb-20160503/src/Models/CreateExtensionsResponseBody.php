@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateExtensionsResponseBody extends Model
 {
     /**
-     * @description The name of the extension that you want to install. Multiple extension names are separated with commas (,).
-     *
-     * @example citext, dblink
-     *
      * @var string
      */
     public $extensions;
 
     /**
-     * @description The request ID.
-     *
-     * @example ABB39CC3-4488-4857-905D-2E4A051D0521
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class CreateExtensionsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extensions) {
             $res['Extensions'] = $this->extensions;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class CreateExtensionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateExtensionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Extensions'])) {
             $model->extensions = $map['Extensions'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

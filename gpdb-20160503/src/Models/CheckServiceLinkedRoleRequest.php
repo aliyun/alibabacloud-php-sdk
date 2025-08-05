@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckServiceLinkedRoleRequest extends Model
 {
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -20,9 +16,12 @@ class CheckServiceLinkedRoleRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
@@ -32,11 +31,11 @@ class CheckServiceLinkedRoleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckServiceLinkedRoleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

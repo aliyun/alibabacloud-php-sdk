@@ -4,29 +4,37 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\GetStatementResultResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ColumnMetadata;
 
 class columnMetadata extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Gpdb\V20160503\Models\ColumnMetadata[]
+     * @var ColumnMetadata[]
      */
     public $columnMetadata;
     protected $_name = [
         'columnMetadata' => 'ColumnMetadata',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->columnMetadata)) {
+            Model::validateArray($this->columnMetadata);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columnMetadata) {
-            $res['ColumnMetadata'] = [];
-            if (null !== $this->columnMetadata && \is_array($this->columnMetadata)) {
-                $n = 0;
-                foreach ($this->columnMetadata as $item) {
-                    $res['ColumnMetadata'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->columnMetadata)) {
+                $res['ColumnMetadata'] = [];
+                $n1 = 0;
+                foreach ($this->columnMetadata as $item1) {
+                    $res['ColumnMetadata'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +42,21 @@ class columnMetadata extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return columnMetadata
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColumnMetadata'])) {
             if (!empty($map['ColumnMetadata'])) {
                 $model->columnMetadata = [];
-                $n = 0;
-                foreach ($map['ColumnMetadata'] as $item) {
-                    $model->columnMetadata[$n++] = null !== $item ? \AlibabaCloud\SDK\Gpdb\V20160503\Models\ColumnMetadata::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ColumnMetadata'] as $item1) {
+                    $model->columnMetadata[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListStreamingDataServicesResponseBody\serviceItems;
-use AlibabaCloud\Tea\Model;
 
 class ListStreamingDataServicesResponseBody extends Model
 {
     /**
-     * @description Request ID.
-     *
-     * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Returns real-time data service items
-     *
      * @var serviceItems[]
      */
     public $serviceItems;
 
     /**
-     * @description Total record count.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalRecordCount;
@@ -39,23 +29,32 @@ class ListStreamingDataServicesResponseBody extends Model
         'totalRecordCount' => 'TotalRecordCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->serviceItems)) {
+            Model::validateArray($this->serviceItems);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->serviceItems) {
-            $res['ServiceItems'] = [];
-            if (null !== $this->serviceItems && \is_array($this->serviceItems)) {
-                $n = 0;
-                foreach ($this->serviceItems as $item) {
-                    $res['ServiceItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->serviceItems)) {
+                $res['ServiceItems'] = [];
+                $n1 = 0;
+                foreach ($this->serviceItems as $item1) {
+                    $res['ServiceItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->totalRecordCount) {
             $res['TotalRecordCount'] = $this->totalRecordCount;
         }
@@ -63,26 +62,29 @@ class ListStreamingDataServicesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListStreamingDataServicesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ServiceItems'])) {
             if (!empty($map['ServiceItems'])) {
                 $model->serviceItems = [];
-                $n = 0;
-                foreach ($map['ServiceItems'] as $item) {
-                    $model->serviceItems[$n++] = null !== $item ? serviceItems::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ServiceItems'] as $item1) {
+                    $model->serviceItems[$n1] = serviceItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TotalRecordCount'])) {
             $model->totalRecordCount = $map['TotalRecordCount'];
         }

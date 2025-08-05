@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateIndexRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example testcollection
-     *
      * @var string
      */
     public $collection;
 
     /**
-     * @example gp-xxxxxxxxx
-     *
      * @var string
      */
     public $DBInstanceId;
@@ -30,33 +24,21 @@ class CreateIndexRequest extends Model
     public $indexConfig;
 
     /**
-     * @example title
-     *
      * @var string
      */
     public $indexField;
 
     /**
-     * @example testindex
-     *
      * @var string
      */
     public $indexName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example mynamespace
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example testpassword
-     *
      * @var string
      */
     public $namespacePassword;
@@ -67,17 +49,11 @@ class CreateIndexRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example gp-ws-*****
-     *
      * @var string
      */
     public $workspaceId;
@@ -94,38 +70,50 @@ class CreateIndexRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->collection) {
             $res['Collection'] = $this->collection;
         }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->indexConfig) {
             $res['IndexConfig'] = $this->indexConfig;
         }
+
         if (null !== $this->indexField) {
             $res['IndexField'] = $this->indexField;
         }
+
         if (null !== $this->indexName) {
             $res['IndexName'] = $this->indexName;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->namespacePassword) {
             $res['NamespacePassword'] = $this->namespacePassword;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -133,41 +121,50 @@ class CreateIndexRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateIndexRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Collection'])) {
             $model->collection = $map['Collection'];
         }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['IndexConfig'])) {
             $model->indexConfig = $map['IndexConfig'];
         }
+
         if (isset($map['IndexField'])) {
             $model->indexField = $map['IndexField'];
         }
+
         if (isset($map['IndexName'])) {
             $model->indexName = $map['IndexName'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['NamespacePassword'])) {
             $model->namespacePassword = $map['NamespacePassword'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

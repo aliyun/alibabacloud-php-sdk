@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\ListRemoteADBDataSourcesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListRemoteADBDataSourcesResponseBody\dataSourceItems\remoteDataSources;
-use AlibabaCloud\Tea\Model;
 
 class dataSourceItems extends Model
 {
@@ -17,17 +17,24 @@ class dataSourceItems extends Model
         'remoteDataSources' => 'RemoteDataSources',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->remoteDataSources)) {
+            Model::validateArray($this->remoteDataSources);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->remoteDataSources) {
-            $res['RemoteDataSources'] = [];
-            if (null !== $this->remoteDataSources && \is_array($this->remoteDataSources)) {
-                $n = 0;
-                foreach ($this->remoteDataSources as $item) {
-                    $res['RemoteDataSources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->remoteDataSources)) {
+                $res['RemoteDataSources'] = [];
+                $n1 = 0;
+                foreach ($this->remoteDataSources as $item1) {
+                    $res['RemoteDataSources'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class dataSourceItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataSourceItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RemoteDataSources'])) {
             if (!empty($map['RemoteDataSources'])) {
                 $model->remoteDataSources = [];
-                $n = 0;
-                foreach ($map['RemoteDataSources'] as $item) {
-                    $model->remoteDataSources[$n++] = null !== $item ? remoteDataSources::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RemoteDataSources'] as $item1) {
+                    $model->remoteDataSources[$n1] = remoteDataSources::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

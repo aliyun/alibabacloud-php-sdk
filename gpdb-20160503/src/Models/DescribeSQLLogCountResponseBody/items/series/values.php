@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogCountResponseBody\items\series;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class values extends Model
 {
     /**
-     * @description The time when the audit logs were generated and the number of the audit logs.
-     *
      * @var string[]
      */
     public $point;
@@ -18,29 +16,47 @@ class values extends Model
         'point' => 'Point',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->point)) {
+            Model::validateArray($this->point);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->point) {
-            $res['Point'] = $this->point;
+            if (\is_array($this->point)) {
+                $res['Point'] = [];
+                $n1 = 0;
+                foreach ($this->point as $item1) {
+                    $res['Point'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return values
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Point'])) {
             if (!empty($map['Point'])) {
-                $model->point = $map['Point'];
+                $model->point = [];
+                $n1 = 0;
+                foreach ($map['Point'] as $item1) {
+                    $model->point[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

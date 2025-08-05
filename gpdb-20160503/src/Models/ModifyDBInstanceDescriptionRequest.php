@@ -4,41 +4,21 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDBInstanceDescriptionRequest extends Model
 {
     /**
-     * @description The description of the instance.
-     *
-     * The description must be 2 to 256 characters in length. It cannot start with http:// or https://.
-     *
-     * This parameter is required.
-     *
-     * @example test
-     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
-     * @description The ID of the instance.
-     *
-     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the instance IDs of all AnalyticDB for PostgreSQL instances in a specific region.
-     *
-     * This parameter is required.
-     *
-     * @example gp-bp12ga6v69h86****
-     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @description This parameter is no longer used.
-     *
-     * @example rg-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -48,17 +28,22 @@ class ModifyDBInstanceDescriptionRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceDescription) {
             $res['DBInstanceDescription'] = $this->DBInstanceDescription;
         }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -66,20 +51,22 @@ class ModifyDBInstanceDescriptionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDBInstanceDescriptionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceDescription'])) {
             $model->DBInstanceDescription = $map['DBInstanceDescription'];
         }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

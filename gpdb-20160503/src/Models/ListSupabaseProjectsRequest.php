@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListSupabaseProjectsRequest extends Model
 {
     /**
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example caeba0bbb2be03f84eb48b699f0a****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -34,17 +28,22 @@ class ListSupabaseProjectsRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -52,20 +51,22 @@ class ListSupabaseProjectsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSupabaseProjectsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

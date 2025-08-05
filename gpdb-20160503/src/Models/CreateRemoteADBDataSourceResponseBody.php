@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateRemoteADBDataSourceResponseBody\dataSourceItem;
-use AlibabaCloud\Tea\Model;
 
 class CreateRemoteADBDataSourceResponseBody extends Model
 {
     /**
-     * @description Returns the successfully added data sharing service data.
-     *
      * @var dataSourceItem
      */
     public $dataSourceItem;
 
     /**
-     * @description Request ID.
-     *
-     * @example e9d60eb1-e90d-4bc6-a470-c8b767460858
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Workflow task ID.
-     *
-     * @example 90000
-     *
      * @var int
      */
     public $taskId;
@@ -39,17 +29,25 @@ class CreateRemoteADBDataSourceResponseBody extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->dataSourceItem) {
+            $this->dataSourceItem->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataSourceItem) {
-            $res['DataSourceItem'] = null !== $this->dataSourceItem ? $this->dataSourceItem->toMap() : null;
+            $res['DataSourceItem'] = null !== $this->dataSourceItem ? $this->dataSourceItem->toArray($noStream) : $this->dataSourceItem;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -57,20 +55,22 @@ class CreateRemoteADBDataSourceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateRemoteADBDataSourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSourceItem'])) {
             $model->dataSourceItem = dataSourceItem::fromMap($map['DataSourceItem']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

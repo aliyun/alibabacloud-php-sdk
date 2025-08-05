@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResetIMVMonitorDataRequest extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
-     *
-     * This parameter is required.
-     *
-     * @example gp-bp152460513z****
-     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @description The name of the database.
-     *
-     * This parameter is required.
-     *
-     * @example testdb
-     *
      * @var string
      */
     public $database;
@@ -36,14 +22,18 @@ class ResetIMVMonitorDataRequest extends Model
         'database' => 'Database',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->database) {
             $res['Database'] = $this->database;
         }
@@ -51,17 +41,18 @@ class ResetIMVMonitorDataRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResetIMVMonitorDataRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['Database'])) {
             $model->database = $map['Database'];
         }

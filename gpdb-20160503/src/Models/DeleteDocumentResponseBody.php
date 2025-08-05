@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDocumentResponseBody extends Model
 {
     /**
-     * @description Detailed information returned by the API.
-     *
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Request ID.
-     *
-     * @example ABB39CC3-4488-4857-905D-2E4A051D0521
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Creation status, value description: - **success**: Success - **fail**: Fail
-     *
-     * @example success
-     *
      * @var string
      */
     public $status;
@@ -40,17 +28,22 @@ class DeleteDocumentResponseBody extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -58,20 +51,22 @@ class DeleteDocumentResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDocumentResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

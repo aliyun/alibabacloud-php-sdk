@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckHadoopNetConnectionResponseBody extends Model
 {
     /**
-     * @description Return message: Returns error information if the connection fails, otherwise returns an empty string ("").
-     *
-     * @example connection timeout
-     *
      * @var string
      */
     public $connectionMessage;
 
     /**
-     * @description Connection status:
-     *
-     * - Network connected: Success
-     *
-     * - Network not connected: Failed
-     *
-     * @example Success
-     *
      * @var string
      */
     public $connectionStatus;
 
     /**
-     * @description Request ID.
-     *
-     * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
-     *
      * @var string
      */
     public $requestId;
@@ -44,17 +28,22 @@ class CheckHadoopNetConnectionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectionMessage) {
             $res['ConnectionMessage'] = $this->connectionMessage;
         }
+
         if (null !== $this->connectionStatus) {
             $res['ConnectionStatus'] = $this->connectionStatus;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -62,20 +51,22 @@ class CheckHadoopNetConnectionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckHadoopNetConnectionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionMessage'])) {
             $model->connectionMessage = $map['ConnectionMessage'];
         }
+
         if (isset($map['ConnectionStatus'])) {
             $model->connectionStatus = $map['ConnectionStatus'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

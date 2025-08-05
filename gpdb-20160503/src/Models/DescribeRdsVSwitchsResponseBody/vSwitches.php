@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRdsVSwitchsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRdsVSwitchsResponseBody\vSwitches\vSwitch;
-use AlibabaCloud\Tea\Model;
 
 class vSwitches extends Model
 {
     /**
-     * @description Details of the vSwitch.
-     *
      * @var vSwitch[]
      */
     public $vSwitch;
@@ -19,17 +17,24 @@ class vSwitches extends Model
         'vSwitch' => 'VSwitch',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->vSwitch)) {
+            Model::validateArray($this->vSwitch);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vSwitch) {
-            $res['VSwitch'] = [];
-            if (null !== $this->vSwitch && \is_array($this->vSwitch)) {
-                $n = 0;
-                foreach ($this->vSwitch as $item) {
-                    $res['VSwitch'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->vSwitch)) {
+                $res['VSwitch'] = [];
+                $n1 = 0;
+                foreach ($this->vSwitch as $item1) {
+                    $res['VSwitch'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class vSwitches extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vSwitches
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VSwitch'])) {
             if (!empty($map['VSwitch'])) {
                 $model->vSwitch = [];
-                $n = 0;
-                foreach ($map['VSwitch'] as $item) {
-                    $model->vSwitch[$n++] = null !== $item ? vSwitch::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VSwitch'] as $item1) {
+                    $model->vSwitch[$n1] = vSwitch::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

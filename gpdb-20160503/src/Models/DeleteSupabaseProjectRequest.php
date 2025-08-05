@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSupabaseProjectRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example sbp-1****
-     *
      * @var string
      */
     public $projectId;
 
     /**
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
@@ -28,14 +22,18 @@ class DeleteSupabaseProjectRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -43,17 +41,18 @@ class DeleteSupabaseProjectRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSupabaseProjectRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

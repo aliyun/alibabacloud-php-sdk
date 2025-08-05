@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\ListIndicesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class indices extends Model
 {
@@ -16,17 +16,24 @@ class indices extends Model
         'indices' => 'Indices',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->indices)) {
+            Model::validateArray($this->indices);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->indices) {
-            $res['Indices'] = [];
-            if (null !== $this->indices && \is_array($this->indices)) {
-                $n = 0;
-                foreach ($this->indices as $item) {
-                    $res['Indices'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->indices)) {
+                $res['Indices'] = [];
+                $n1 = 0;
+                foreach ($this->indices as $item1) {
+                    $res['Indices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +41,21 @@ class indices extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return indices
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Indices'])) {
             if (!empty($map['Indices'])) {
                 $model->indices = [];
-                $n = 0;
-                foreach ($map['Indices'] as $item) {
-                    $model->indices[$n++] = null !== $item ? indices\indices::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Indices'] as $item1) {
+                    $model->indices[$n1] = indices\indices::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

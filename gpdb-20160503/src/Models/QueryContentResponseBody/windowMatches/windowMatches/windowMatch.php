@@ -4,29 +4,37 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponseBody\windowMatches\windowMatches;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryContentResponseBody\windowMatches\windowMatches\windowMatch\windowMatch;
 
 class windowMatch extends Model
 {
     /**
-     * @var windowMatch\windowMatch[]
+     * @var windowMatch[]
      */
     public $windowMatch;
     protected $_name = [
         'windowMatch' => 'windowMatch',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->windowMatch)) {
+            Model::validateArray($this->windowMatch);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->windowMatch) {
-            $res['windowMatch'] = [];
-            if (null !== $this->windowMatch && \is_array($this->windowMatch)) {
-                $n = 0;
-                foreach ($this->windowMatch as $item) {
-                    $res['windowMatch'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->windowMatch)) {
+                $res['windowMatch'] = [];
+                $n1 = 0;
+                foreach ($this->windowMatch as $item1) {
+                    $res['windowMatch'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +42,21 @@ class windowMatch extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return windowMatch
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['windowMatch'])) {
             if (!empty($map['windowMatch'])) {
                 $model->windowMatch = [];
-                $n = 0;
-                foreach ($map['windowMatch'] as $item) {
-                    $model->windowMatch[$n++] = null !== $item ? windowMatch\windowMatch::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['windowMatch'] as $item1) {
+                    $model->windowMatch[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

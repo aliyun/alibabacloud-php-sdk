@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDBResourceGroupShrinkRequest extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
-     *
-     * This parameter is required.
-     *
-     * @example gp-xxxxxxxxx
-     *
      * @var string
      */
     public $DBInstanceId;
@@ -27,10 +19,6 @@ class ModifyDBResourceGroupShrinkRequest extends Model
     public $ownerId;
 
     /**
-     * @description The information about the resource group.
-     *
-     * This parameter is required.
-     *
      * @var string
      */
     public $resourceGroupItemsShrink;
@@ -40,17 +28,22 @@ class ModifyDBResourceGroupShrinkRequest extends Model
         'resourceGroupItemsShrink' => 'ResourceGroupItems',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceGroupItemsShrink) {
             $res['ResourceGroupItems'] = $this->resourceGroupItemsShrink;
         }
@@ -58,20 +51,22 @@ class ModifyDBResourceGroupShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDBResourceGroupShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceGroupItems'])) {
             $model->resourceGroupItemsShrink = $map['ResourceGroupItems'];
         }

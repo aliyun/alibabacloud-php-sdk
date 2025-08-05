@@ -4,72 +4,42 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancePlansResponseBody\items;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDBInstancePlansResponseBody extends Model
 {
     /**
-     * @description The error message.
-     *
-     * This parameter is returned only if the request fails.
-     *
-     * @example ****
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description The queried plans.
-     *
      * @var items
      */
     public $items;
 
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
-     * @description The request ID.
-     *
-     * @example 34b32a0a-08ef-4a87-b6be-cdd988888888
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful.
-     *
-     * If the request was successful, **success** is returned. If the request failed, this parameter is not returned.
-     *
-     * @example success
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalRecordCount;
@@ -83,29 +53,41 @@ class DescribeDBInstancePlansResponseBody extends Model
         'totalRecordCount' => 'TotalRecordCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->items) {
+            $this->items->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->items) {
-            $res['Items'] = null !== $this->items ? $this->items->toMap() : null;
+            $res['Items'] = null !== $this->items ? $this->items->toArray($noStream) : $this->items;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageRecordCount) {
             $res['PageRecordCount'] = $this->pageRecordCount;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->totalRecordCount) {
             $res['TotalRecordCount'] = $this->totalRecordCount;
         }
@@ -113,32 +95,38 @@ class DescribeDBInstancePlansResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBInstancePlansResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['Items'])) {
             $model->items = items::fromMap($map['Items']);
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageRecordCount'])) {
             $model->pageRecordCount = $map['PageRecordCount'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['TotalRecordCount'])) {
             $model->totalRecordCount = $map['TotalRecordCount'];
         }

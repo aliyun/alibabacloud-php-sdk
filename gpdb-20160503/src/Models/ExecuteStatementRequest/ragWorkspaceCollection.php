@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\ExecuteStatementRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ragWorkspaceCollection extends Model
 {
@@ -22,14 +22,18 @@ class ragWorkspaceCollection extends Model
         'namespace' => 'Namespace',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->collection) {
             $res['Collection'] = $this->collection;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -37,17 +41,18 @@ class ragWorkspaceCollection extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ragWorkspaceCollection
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Collection'])) {
             $model->collection = $map['Collection'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }

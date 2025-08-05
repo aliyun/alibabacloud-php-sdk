@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GetSupabaseProjectApiKeysResponseBody\apiKeys;
-use AlibabaCloud\Tea\Model;
 
 class GetSupabaseProjectApiKeysResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class GetSupabaseProjectApiKeysResponseBody extends Model
     public $apiKeys;
 
     /**
-     * @example ABB39CC3-4488-4857-905D-2E4A051D****
-     *
      * @var string
      */
     public $requestId;
@@ -25,20 +23,28 @@ class GetSupabaseProjectApiKeysResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->apiKeys)) {
+            Model::validateArray($this->apiKeys);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiKeys) {
-            $res['ApiKeys'] = [];
-            if (null !== $this->apiKeys && \is_array($this->apiKeys)) {
-                $n = 0;
-                foreach ($this->apiKeys as $item) {
-                    $res['ApiKeys'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->apiKeys)) {
+                $res['ApiKeys'] = [];
+                $n1 = 0;
+                foreach ($this->apiKeys as $item1) {
+                    $res['ApiKeys'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,23 +52,25 @@ class GetSupabaseProjectApiKeysResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSupabaseProjectApiKeysResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiKeys'])) {
             if (!empty($map['ApiKeys'])) {
                 $model->apiKeys = [];
-                $n = 0;
-                foreach ($map['ApiKeys'] as $item) {
-                    $model->apiKeys[$n++] = null !== $item ? apiKeys::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ApiKeys'] as $item1) {
+                    $model->apiKeys[$n1] = apiKeys::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

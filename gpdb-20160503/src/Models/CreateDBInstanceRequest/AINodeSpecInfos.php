@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstanceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AINodeSpecInfos extends Model
 {
@@ -22,14 +22,18 @@ class AINodeSpecInfos extends Model
         'AINodeSpec' => 'AINodeSpec',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->AINodeNum) {
             $res['AINodeNum'] = $this->AINodeNum;
         }
+
         if (null !== $this->AINodeSpec) {
             $res['AINodeSpec'] = $this->AINodeSpec;
         }
@@ -37,17 +41,18 @@ class AINodeSpecInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AINodeSpecInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AINodeNum'])) {
             $model->AINodeNum = $map['AINodeNum'];
         }
+
         if (isset($map['AINodeSpec'])) {
             $model->AINodeSpec = $map['AINodeSpec'];
         }

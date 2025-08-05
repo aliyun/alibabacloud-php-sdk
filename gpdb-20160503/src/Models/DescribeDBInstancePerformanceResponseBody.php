@@ -4,58 +4,36 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDBInstancePerformanceResponseBody extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * @example gp-bp12ga6v69h86****
-     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @description The end time of the query.
-     *
-     * @example 2022-07-09T03:47Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The database engine of the instance.
-     *
-     * @example gpdb
-     *
      * @var string
      */
     public $engine;
 
     /**
-     * @description The queried performance metrics.
-     *
      * @var string[]
      */
     public $performanceKeys;
 
     /**
-     * @description The request ID.
-     *
-     * @example 5E85244A-AB47-46A3-A3AD-5F307DCB407E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The start time of the query.
-     *
-     * @example 2022-07-08T03:47Z
-     *
      * @var string
      */
     public $startTime;
@@ -68,26 +46,44 @@ class DescribeDBInstancePerformanceResponseBody extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->performanceKeys)) {
+            Model::validateArray($this->performanceKeys);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
+
         if (null !== $this->performanceKeys) {
-            $res['PerformanceKeys'] = $this->performanceKeys;
+            if (\is_array($this->performanceKeys)) {
+                $res['PerformanceKeys'] = [];
+                $n1 = 0;
+                foreach ($this->performanceKeys as $item1) {
+                    $res['PerformanceKeys'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -95,31 +91,41 @@ class DescribeDBInstancePerformanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBInstancePerformanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
+
         if (isset($map['PerformanceKeys'])) {
             if (!empty($map['PerformanceKeys'])) {
-                $model->performanceKeys = $map['PerformanceKeys'];
+                $model->performanceKeys = [];
+                $n1 = 0;
+                foreach ($map['PerformanceKeys'] as $item1) {
+                    $model->performanceKeys[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

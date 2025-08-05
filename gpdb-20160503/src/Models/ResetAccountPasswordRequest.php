@@ -4,42 +4,21 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResetAccountPasswordRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     *
-     * @example testaccount_1
-     *
      * @var string
      */
     public $accountName;
 
     /**
-     * @description The name of the account.
-     *
-     * This parameter is required.
-     *
-     * @example Testaccount_1
-     *
      * @var string
      */
     public $accountPassword;
 
     /**
-     * @description Before you call this operation, make sure that the following requirements are met:
-     *
-     *   The instance is in the running state.
-     *   The instance is not locked.
-     *
-     * This parameter is required.
-     *
-     * @example gp-t4nf48vf15713****
-     *
      * @var string
      */
     public $DBInstanceId;
@@ -49,17 +28,22 @@ class ResetAccountPasswordRequest extends Model
         'DBInstanceId' => 'DBInstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->accountPassword) {
             $res['AccountPassword'] = $this->accountPassword;
         }
+
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -67,20 +51,22 @@ class ResetAccountPasswordRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResetAccountPasswordRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['AccountPassword'])) {
             $model->accountPassword = $map['AccountPassword'];
         }
+
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
