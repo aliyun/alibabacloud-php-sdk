@@ -4,80 +4,47 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeHanaDatabasesResponseBody\hanaDatabases;
-use AlibabaCloud\Tea\Model;
 
 class DescribeHanaDatabasesResponseBody extends Model
 {
     /**
-     * @description The response code. The status code 200 indicates that the request was successful.
-     *
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The information about SAP HANA databases.
-     *
      * @var hanaDatabases
      */
     public $hanaDatabases;
 
     /**
-     * @description The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
-     *
-     * @example successful
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The page number. Pages start from page 1. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Valid values: 1 to 99. Default value: 10.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The request ID.
-     *
-     * @example DAAB6A29-34EB-5F56-962F-D5BDBFE8A5C2
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -92,32 +59,45 @@ class DescribeHanaDatabasesResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->hanaDatabases) {
+            $this->hanaDatabases->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->hanaDatabases) {
-            $res['HanaDatabases'] = null !== $this->hanaDatabases ? $this->hanaDatabases->toMap() : null;
+            $res['HanaDatabases'] = null !== $this->hanaDatabases ? $this->hanaDatabases->toArray($noStream) : $this->hanaDatabases;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -125,35 +105,42 @@ class DescribeHanaDatabasesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeHanaDatabasesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['HanaDatabases'])) {
             $model->hanaDatabases = hanaDatabases::fromMap($map['HanaDatabases']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

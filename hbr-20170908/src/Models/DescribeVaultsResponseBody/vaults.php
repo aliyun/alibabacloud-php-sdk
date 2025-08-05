@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeVaultsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeVaultsResponseBody\vaults\vault;
-use AlibabaCloud\Tea\Model;
 
 class vaults extends Model
 {
@@ -17,17 +17,24 @@ class vaults extends Model
         'vault' => 'Vault',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->vault)) {
+            Model::validateArray($this->vault);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vault) {
-            $res['Vault'] = [];
-            if (null !== $this->vault && \is_array($this->vault)) {
-                $n = 0;
-                foreach ($this->vault as $item) {
-                    $res['Vault'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->vault)) {
+                $res['Vault'] = [];
+                $n1 = 0;
+                foreach ($this->vault as $item1) {
+                    $res['Vault'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class vaults extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vaults
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Vault'])) {
             if (!empty($map['Vault'])) {
                 $model->vault = [];
-                $n = 0;
-                foreach ($map['Vault'] as $item) {
-                    $model->vault[$n++] = null !== $item ? vault::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Vault'] as $item1) {
+                    $model->vault[$n1] = vault::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

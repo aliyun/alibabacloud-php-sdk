@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteBackupClientRequest extends Model
 {
     /**
-     * @description The ID of the Cloud Backup client.
-     *
-     * This parameter is required.
-     *
-     * @example c-*********************
-     *
      * @var string
      */
     public $clientId;
@@ -22,9 +16,12 @@ class DeleteBackupClientRequest extends Model
         'clientId' => 'ClientId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientId) {
@@ -34,11 +31,11 @@ class DeleteBackupClientRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteBackupClientRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

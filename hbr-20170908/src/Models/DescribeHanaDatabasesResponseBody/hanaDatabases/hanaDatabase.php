@@ -4,63 +4,36 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeHanaDatabasesResponseBody\hanaDatabases;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hanaDatabase extends Model
 {
     /**
-     * @description Indicates whether the database is started. Valid values:
-     *
-     *   **YES**: The database is started.
-     *   **NO**: The database is not started.
-     *
-     * @example YES
-     *
      * @var string
      */
     public $activeStatus;
 
     /**
-     * @description The database name.
-     *
-     * @example SYSTEMDB
-     *
      * @var string
      */
     public $databaseName;
 
     /**
-     * @description The detailed information.
-     *
-     * @example master
-     *
      * @var string
      */
     public $detail;
 
     /**
-     * @description The hostname.
-     *
-     * @example izbp1jbf3zy******antqmz
-     *
      * @var string
      */
     public $host;
 
     /**
-     * @description The service name.
-     *
-     * @example indexserver
-     *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description The port number.
-     *
-     * @example 30013
-     *
      * @var int
      */
     public $sqlPort;
@@ -73,26 +46,34 @@ class hanaDatabase extends Model
         'sqlPort' => 'SqlPort',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->activeStatus) {
             $res['ActiveStatus'] = $this->activeStatus;
         }
+
         if (null !== $this->databaseName) {
             $res['DatabaseName'] = $this->databaseName;
         }
+
         if (null !== $this->detail) {
             $res['Detail'] = $this->detail;
         }
+
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
+
         if (null !== $this->sqlPort) {
             $res['SqlPort'] = $this->sqlPort;
         }
@@ -100,29 +81,34 @@ class hanaDatabase extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hanaDatabase
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActiveStatus'])) {
             $model->activeStatus = $map['ActiveStatus'];
         }
+
         if (isset($map['DatabaseName'])) {
             $model->databaseName = $map['DatabaseName'];
         }
+
         if (isset($map['Detail'])) {
             $model->detail = $map['Detail'];
         }
+
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
+
         if (isset($map['SqlPort'])) {
             $model->sqlPort = $map['SqlPort'];
         }

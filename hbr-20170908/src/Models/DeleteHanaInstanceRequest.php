@@ -4,48 +4,26 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteHanaInstanceRequest extends Model
 {
     /**
-     * @description The ID of the SAP HANA instance.
-     *
-     * This parameter is required.
-     *
-     * @example cl-000g4z09******9cfc
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-acfmwutpyat2kwy
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The security identifier (SID) of the SAP HANA database. You must specify a valid SID. The SID must be three characters in length and start with a letter. For more information, see [How to find sid user and instance number of HANA db?](https://answers.sap.com/questions/555192/how-to-find-sid-user-and-instance-number-of-hana-d.html?)
-     *
-     * This parameter is required.
-     *
-     * @example HXE
-     *
      * @var string
      */
     public $sid;
 
     /**
-     * @description The ID of the backup vault.
-     *
-     * This parameter is required.
-     *
-     * @example v-0008n2******ax3
-     *
      * @var string
      */
     public $vaultId;
@@ -56,20 +34,26 @@ class DeleteHanaInstanceRequest extends Model
         'vaultId' => 'VaultId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->sid) {
             $res['Sid'] = $this->sid;
         }
+
         if (null !== $this->vaultId) {
             $res['VaultId'] = $this->vaultId;
         }
@@ -77,23 +61,26 @@ class DeleteHanaInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteHanaInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Sid'])) {
             $model->sid = $map['Sid'];
         }
+
         if (isset($map['VaultId'])) {
             $model->vaultId = $map['VaultId'];
         }

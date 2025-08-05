@@ -4,62 +4,37 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\UpgradeBackupClientsResponseBody\instanceStatuses;
-use AlibabaCloud\Tea\Model;
 
 class UpgradeBackupClientsResponseBody extends Model
 {
     /**
-     * @description The HTTP status code. The status code 200 indicates that the call is successful.
-     *
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The status of the ECS instance. If the status of an ECS instance cannot meet the requirements to install an HBR client and the value of the InstanceIds parameter is greater than 1, an error message is returned based on the value of this parameter.
-     *
      * @var instanceStatuses[]
      */
     public $instanceStatuses;
 
     /**
-     * @description The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
-     *
-     * @example successful
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful. Valid values:
-     *
-     *   true: The call is successful.
-     *   false: The call fails.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description The ID of the asynchronous job. You can call the DescribeTask operation to query the execution result of an asynchronous job.
-     *
-     * @example t-*********************
-     *
      * @var string
      */
     public $taskId;
@@ -72,32 +47,44 @@ class UpgradeBackupClientsResponseBody extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceStatuses)) {
+            Model::validateArray($this->instanceStatuses);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->instanceStatuses) {
-            $res['InstanceStatuses'] = [];
-            if (null !== $this->instanceStatuses && \is_array($this->instanceStatuses)) {
-                $n = 0;
-                foreach ($this->instanceStatuses as $item) {
-                    $res['InstanceStatuses'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceStatuses)) {
+                $res['InstanceStatuses'] = [];
+                $n1 = 0;
+                foreach ($this->instanceStatuses as $item1) {
+                    $res['InstanceStatuses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -105,35 +92,41 @@ class UpgradeBackupClientsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeBackupClientsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['InstanceStatuses'])) {
             if (!empty($map['InstanceStatuses'])) {
                 $model->instanceStatuses = [];
-                $n = 0;
-                foreach ($map['InstanceStatuses'] as $item) {
-                    $model->instanceStatuses[$n++] = null !== $item ? instanceStatuses::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceStatuses'] as $item1) {
+                    $model->instanceStatuses[$n1] = instanceStatuses::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OtsTableRestoreDetail extends Model
 {
@@ -52,29 +52,38 @@ class OtsTableRestoreDetail extends Model
         'searchIndexNameSuffix' => 'SearchIndexNameSuffix',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->batchChannelCount) {
             $res['BatchChannelCount'] = $this->batchChannelCount;
         }
+
         if (null !== $this->indexNameSuffix) {
             $res['IndexNameSuffix'] = $this->indexNameSuffix;
         }
+
         if (null !== $this->overwriteExisting) {
             $res['OverwriteExisting'] = $this->overwriteExisting;
         }
+
         if (null !== $this->reGenerateAutoIncrementPK) {
             $res['ReGenerateAutoIncrementPK'] = $this->reGenerateAutoIncrementPK;
         }
+
         if (null !== $this->restoreIndex) {
             $res['RestoreIndex'] = $this->restoreIndex;
         }
+
         if (null !== $this->restoreSearchIndex) {
             $res['RestoreSearchIndex'] = $this->restoreSearchIndex;
         }
+
         if (null !== $this->searchIndexNameSuffix) {
             $res['SearchIndexNameSuffix'] = $this->searchIndexNameSuffix;
         }
@@ -82,32 +91,38 @@ class OtsTableRestoreDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OtsTableRestoreDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BatchChannelCount'])) {
             $model->batchChannelCount = $map['BatchChannelCount'];
         }
+
         if (isset($map['IndexNameSuffix'])) {
             $model->indexNameSuffix = $map['IndexNameSuffix'];
         }
+
         if (isset($map['OverwriteExisting'])) {
             $model->overwriteExisting = $map['OverwriteExisting'];
         }
+
         if (isset($map['ReGenerateAutoIncrementPK'])) {
             $model->reGenerateAutoIncrementPK = $map['ReGenerateAutoIncrementPK'];
         }
+
         if (isset($map['RestoreIndex'])) {
             $model->restoreIndex = $map['RestoreIndex'];
         }
+
         if (isset($map['RestoreSearchIndex'])) {
             $model->restoreSearchIndex = $map['RestoreSearchIndex'];
         }
+
         if (isset($map['SearchIndexNameSuffix'])) {
             $model->searchIndexNameSuffix = $map['SearchIndexNameSuffix'];
         }

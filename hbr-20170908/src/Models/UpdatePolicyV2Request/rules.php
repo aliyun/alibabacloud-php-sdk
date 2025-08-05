@@ -4,151 +4,79 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\UpdatePolicyV2Request;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdatePolicyV2Request\rules\dataSourceFilters;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdatePolicyV2Request\rules\retentionRules;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\UpdatePolicyV2Request\rules\tagFilters;
-use AlibabaCloud\Tea\Model;
 
 class rules extends Model
 {
     /**
-     * @description This parameter is required only if the **RuleType** parameter is set to **TRANSITION**. This parameter specifies the time when data is dumped from a backup vault to an archive vault. Unit: days.
-     *
-     * @example 90
-     *
      * @var int
      */
     public $archiveDays;
 
     /**
-     * @description This parameter is required only if the **RuleType** parameter is set to **BACKUP**. This parameter specifies the backup type. Valid value: **COMPLETE**, which indicates full backup.
-     *
-     * @example COMPLETE
-     *
      * @var string
      */
     public $backupType;
 
     /**
-     * @description This parameter is required only if the **RuleType** parameter is set to **TRANSITION**. This parameter specifies the time when data is dumped from a backup vault to a cold archive vault. Unit: days.
-     *
-     * @example 365
-     *
      * @var int
      */
     public $coldArchiveDays;
 
     /**
-     * @description This parameter is required only if the **RuleType** parameter is set to **TAG**. This parameter specifies the data source filter rule.
-     *
      * @var dataSourceFilters[]
      */
     public $dataSourceFilters;
 
     /**
-     * @description This parameter is required only if the **PolicyType** parameter is set to **UDM_ECS_ONLY**. This parameter specifies whether to enable the immutable backup feature.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $immutable;
 
     /**
-     * @description Specifies whether to enable the feature of keeping at least one backup version. Valid values:
-     *
-     *   0: The feature is disabled.
-     *   1: The feature is enabled.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $keepLatestSnapshots;
 
     /**
-     * @description This parameter is required only if the **RuleType** parameter is set to **REPLICATION**. This parameter specifies the ID of the destination region.
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $replicationRegionId;
 
     /**
-     * @description This parameter is required only if the **RuleType** parameter is set to **TRANSITION** or **REPLICATION**.
-     *
-     *   If the **RuleType** parameter is set to **TRANSITION**, this parameter specifies the retention period of the backup data. Minimum value: 1. Unit: days.
-     *   If the **RuleType** parameter is set to **REPLICATION**, this parameter specifies the retention period of remote backups. Minimum value: 1. Unit: days.
-     *
-     * @example 7
-     *
      * @var int
      */
     public $retention;
 
     /**
-     * @description This parameter is required only if the **RuleType** parameter is set to **TRANSITION**. This parameter specifies the special retention rules.
-     *
      * @var retentionRules[]
      */
     public $retentionRules;
 
     /**
-     * @description The rule ID.
-     *
-     * @example rule-000************rof
-     *
      * @var string
      */
     public $ruleId;
 
     /**
-     * @description The type of the rule. Each backup policy must have at least one rule of the **BACKUP** type and only one rule of the **TRANSITION** type. Valid values:
-     *
-     *   **BACKUP**: backup rule
-     *   **TRANSITION**: lifecycle rule
-     *   **REPLICATION**: replication rule
-     *
-     * @example BACKUP
-     *
      * @var string
      */
     public $ruleType;
 
     /**
-     * @description This parameter is required only if the **RuleType** parameter is set to **BACKUP**. This parameter specifies the backup schedule settings. Formats:
-     *
-     *   `I|{startTime}|{interval}`: The system runs the first backup job at a point in time that is specified in the {startTime} parameter and the subsequent backup jobs at an interval that is specified in the {interval} parameter. For example, `I|1631685600|P1D` indicates that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
-     *
-     *   startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
-     *   interval: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, `PT1H` specifies an interval of 1 hour. `P1D` specifies an interval of one day.
-     *
-     *   `C|{startTime}|{crontab}`: The system runs backup jobs at a point in time that is specified in the {startTime} parameter based on the {crontab} expression. For example, C|1631685600|0 0 2 ?\\* 3,5,7 indicates that the system runs backup jobs at 02:00:00 every Tuesday, Thursday, and Saturday from14:00:00 on September 15, 2021.``
-     *
-     *   startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
-     *   crontab: the crontab expression. For example, 0 0 2 ?\\* 3,5,7 indicates 02:00:00 every Tuesday, Thursday, and Saturday.``
-     *
-     * The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is completed.
-     *
-     * @example I|1648647166|P1D
-     *
      * @var string
      */
     public $schedule;
 
     /**
-     * @description This parameter is required only if the **RuleType** parameter is set to **TAG**. This parameter specifies the resource tag filter rule.
-     *
      * @var tagFilters[]
      */
     public $tagFilters;
 
     /**
-     * @description This parameter is required only if the RuleType parameter is set to BACKUP. The ID of the backup vault.
-     *
-     * @example v-0001************aseg
-     *
      * @var string
      */
     public $vaultId;
@@ -169,68 +97,96 @@ class rules extends Model
         'vaultId' => 'VaultId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dataSourceFilters)) {
+            Model::validateArray($this->dataSourceFilters);
+        }
+        if (\is_array($this->retentionRules)) {
+            Model::validateArray($this->retentionRules);
+        }
+        if (\is_array($this->tagFilters)) {
+            Model::validateArray($this->tagFilters);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->archiveDays) {
             $res['ArchiveDays'] = $this->archiveDays;
         }
+
         if (null !== $this->backupType) {
             $res['BackupType'] = $this->backupType;
         }
+
         if (null !== $this->coldArchiveDays) {
             $res['ColdArchiveDays'] = $this->coldArchiveDays;
         }
+
         if (null !== $this->dataSourceFilters) {
-            $res['DataSourceFilters'] = [];
-            if (null !== $this->dataSourceFilters && \is_array($this->dataSourceFilters)) {
-                $n = 0;
-                foreach ($this->dataSourceFilters as $item) {
-                    $res['DataSourceFilters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataSourceFilters)) {
+                $res['DataSourceFilters'] = [];
+                $n1 = 0;
+                foreach ($this->dataSourceFilters as $item1) {
+                    $res['DataSourceFilters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->immutable) {
             $res['Immutable'] = $this->immutable;
         }
+
         if (null !== $this->keepLatestSnapshots) {
             $res['KeepLatestSnapshots'] = $this->keepLatestSnapshots;
         }
+
         if (null !== $this->replicationRegionId) {
             $res['ReplicationRegionId'] = $this->replicationRegionId;
         }
+
         if (null !== $this->retention) {
             $res['Retention'] = $this->retention;
         }
+
         if (null !== $this->retentionRules) {
-            $res['RetentionRules'] = [];
-            if (null !== $this->retentionRules && \is_array($this->retentionRules)) {
-                $n = 0;
-                foreach ($this->retentionRules as $item) {
-                    $res['RetentionRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->retentionRules)) {
+                $res['RetentionRules'] = [];
+                $n1 = 0;
+                foreach ($this->retentionRules as $item1) {
+                    $res['RetentionRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
+
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
         }
+
         if (null !== $this->schedule) {
             $res['Schedule'] = $this->schedule;
         }
+
         if (null !== $this->tagFilters) {
-            $res['TagFilters'] = [];
-            if (null !== $this->tagFilters && \is_array($this->tagFilters)) {
-                $n = 0;
-                foreach ($this->tagFilters as $item) {
-                    $res['TagFilters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tagFilters)) {
+                $res['TagFilters'] = [];
+                $n1 = 0;
+                foreach ($this->tagFilters as $item1) {
+                    $res['TagFilters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->vaultId) {
             $res['VaultId'] = $this->vaultId;
         }
@@ -238,71 +194,87 @@ class rules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArchiveDays'])) {
             $model->archiveDays = $map['ArchiveDays'];
         }
+
         if (isset($map['BackupType'])) {
             $model->backupType = $map['BackupType'];
         }
+
         if (isset($map['ColdArchiveDays'])) {
             $model->coldArchiveDays = $map['ColdArchiveDays'];
         }
+
         if (isset($map['DataSourceFilters'])) {
             if (!empty($map['DataSourceFilters'])) {
                 $model->dataSourceFilters = [];
-                $n = 0;
-                foreach ($map['DataSourceFilters'] as $item) {
-                    $model->dataSourceFilters[$n++] = null !== $item ? dataSourceFilters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DataSourceFilters'] as $item1) {
+                    $model->dataSourceFilters[$n1] = dataSourceFilters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Immutable'])) {
             $model->immutable = $map['Immutable'];
         }
+
         if (isset($map['KeepLatestSnapshots'])) {
             $model->keepLatestSnapshots = $map['KeepLatestSnapshots'];
         }
+
         if (isset($map['ReplicationRegionId'])) {
             $model->replicationRegionId = $map['ReplicationRegionId'];
         }
+
         if (isset($map['Retention'])) {
             $model->retention = $map['Retention'];
         }
+
         if (isset($map['RetentionRules'])) {
             if (!empty($map['RetentionRules'])) {
                 $model->retentionRules = [];
-                $n = 0;
-                foreach ($map['RetentionRules'] as $item) {
-                    $model->retentionRules[$n++] = null !== $item ? retentionRules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RetentionRules'] as $item1) {
+                    $model->retentionRules[$n1] = retentionRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
+
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
         }
+
         if (isset($map['Schedule'])) {
             $model->schedule = $map['Schedule'];
         }
+
         if (isset($map['TagFilters'])) {
             if (!empty($map['TagFilters'])) {
                 $model->tagFilters = [];
-                $n = 0;
-                foreach ($map['TagFilters'] as $item) {
-                    $model->tagFilters[$n++] = null !== $item ? tagFilters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TagFilters'] as $item1) {
+                    $model->tagFilters[$n1] = tagFilters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['VaultId'])) {
             $model->vaultId = $map['VaultId'];
         }

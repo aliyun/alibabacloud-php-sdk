@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePolicyBindingsResponseBody\policyBindings\advancedOptions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class commonFileSystemDetail extends Model
 {
     /**
-     * @description Backup shard size (number of files).
-     *
-     * @example 100000
-     *
      * @var int
      */
     public $fetchSliceSize;
 
     /**
-     * @description Whether to switch to a full backup when an incremental backup fails. Values:
-     * - **true**: Switch to full backup on failure.
-     * - **false**: Do not switch to full backup on failure.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $fullOnIncrementFail;
@@ -32,14 +22,18 @@ class commonFileSystemDetail extends Model
         'fullOnIncrementFail' => 'FullOnIncrementFail',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fetchSliceSize) {
             $res['FetchSliceSize'] = $this->fetchSliceSize;
         }
+
         if (null !== $this->fullOnIncrementFail) {
             $res['FullOnIncrementFail'] = $this->fullOnIncrementFail;
         }
@@ -47,17 +41,18 @@ class commonFileSystemDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return commonFileSystemDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FetchSliceSize'])) {
             $model->fetchSliceSize = $map['FetchSliceSize'];
         }
+
         if (isset($map['FullOnIncrementFail'])) {
             $model->fullOnIncrementFail = $map['FullOnIncrementFail'];
         }

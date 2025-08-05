@@ -4,52 +4,26 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GenerateRamPolicyRequest extends Model
 {
     /**
-     * @description The type of policy that you want to generate. Valid values:
-     *
-     *   BACKUP: the permission to back up data to a backup vault
-     *   RESTORE: the permission to restore data from a backup vault
-     *
-     * This parameter is required.
-     *
-     * @example system
-     *
      * @var string
      */
     public $actionType;
 
     /**
-     * @description Specifies whether to generate the policy based on an existing instance-specific rule. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $requireBasePolicy;
 
     /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-*********************
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The ID of the backup vault.
-     *
-     * This parameter is required.
-     *
-     * @example v-0007al3m******7ao
-     *
      * @var string
      */
     public $vaultId;
@@ -60,20 +34,26 @@ class GenerateRamPolicyRequest extends Model
         'vaultId' => 'VaultId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionType) {
             $res['ActionType'] = $this->actionType;
         }
+
         if (null !== $this->requireBasePolicy) {
             $res['RequireBasePolicy'] = $this->requireBasePolicy;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->vaultId) {
             $res['VaultId'] = $this->vaultId;
         }
@@ -81,23 +61,26 @@ class GenerateRamPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenerateRamPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActionType'])) {
             $model->actionType = $map['ActionType'];
         }
+
         if (isset($map['RequireBasePolicy'])) {
             $model->requireBasePolicy = $map['RequireBasePolicy'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['VaultId'])) {
             $model->vaultId = $map['VaultId'];
         }

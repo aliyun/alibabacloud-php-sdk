@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeContainerClusterRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example cc-000*************hg9
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The identifier of the container cluster. For a Container Service for Kubernetes (ACK) cluster, specify the cluster ID.
-     *
-     * @example cca*******************************87a
-     *
      * @var string
      */
     public $identifier;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 99. Default value: 10.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -50,20 +34,26 @@ class DescribeContainerClusterRequest extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->identifier) {
             $res['Identifier'] = $this->identifier;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -71,23 +61,26 @@ class DescribeContainerClusterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeContainerClusterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['Identifier'])) {
             $model->identifier = $map['Identifier'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

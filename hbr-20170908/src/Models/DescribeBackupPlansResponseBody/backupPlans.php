@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupPlansResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupPlansResponseBody\backupPlans\backupPlan;
-use AlibabaCloud\Tea\Model;
 
 class backupPlans extends Model
 {
@@ -17,17 +17,24 @@ class backupPlans extends Model
         'backupPlan' => 'BackupPlan',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->backupPlan)) {
+            Model::validateArray($this->backupPlan);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupPlan) {
-            $res['BackupPlan'] = [];
-            if (null !== $this->backupPlan && \is_array($this->backupPlan)) {
-                $n = 0;
-                foreach ($this->backupPlan as $item) {
-                    $res['BackupPlan'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->backupPlan)) {
+                $res['BackupPlan'] = [];
+                $n1 = 0;
+                foreach ($this->backupPlan as $item1) {
+                    $res['BackupPlan'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class backupPlans extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backupPlans
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupPlan'])) {
             if (!empty($map['BackupPlan'])) {
                 $model->backupPlan = [];
-                $n = 0;
-                foreach ($map['BackupPlan'] as $item) {
-                    $model->backupPlan[$n++] = null !== $item ? backupPlan::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BackupPlan'] as $item1) {
+                    $model->backupPlan[$n1] = backupPlan::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

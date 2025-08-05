@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupPlansResponseBody\backupPlans\backupPlan;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupPlansResponseBody\backupPlans\backupPlan\hitTags\hitTag;
-use AlibabaCloud\Tea\Model;
 
 class hitTags extends Model
 {
@@ -17,17 +17,24 @@ class hitTags extends Model
         'hitTag' => 'HitTag',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->hitTag)) {
+            Model::validateArray($this->hitTag);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hitTag) {
-            $res['HitTag'] = [];
-            if (null !== $this->hitTag && \is_array($this->hitTag)) {
-                $n = 0;
-                foreach ($this->hitTag as $item) {
-                    $res['HitTag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hitTag)) {
+                $res['HitTag'] = [];
+                $n1 = 0;
+                foreach ($this->hitTag as $item1) {
+                    $res['HitTag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class hitTags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hitTags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HitTag'])) {
             if (!empty($map['HitTag'])) {
                 $model->hitTag = [];
-                $n = 0;
-                foreach ($map['HitTag'] as $item) {
-                    $model->hitTag[$n++] = null !== $item ? hitTag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['HitTag'] as $item1) {
+                    $model->hitTag[$n1] = hitTag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

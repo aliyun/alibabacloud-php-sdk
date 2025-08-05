@@ -4,60 +4,37 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePolicyBindingsRequest\filters;
-use AlibabaCloud\Tea\Model;
 
 class DescribePolicyBindingsRequest extends Model
 {
     /**
-     * @description List of data source IDs.
-     *
      * @var string[]
      */
     public $dataSourceIds;
 
     /**
-     * @description Query filters.
-     *
      * @var filters[]
      */
     public $filters;
 
     /**
-     * @description Number of results per query.
-     *
-     * Range: 10~100. Default: 10.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description Token required to fetch the next page of policy and data source associations.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description Policy ID.
-     *
-     * @example po-000************hky
-     *
      * @var string
      */
     public $policyId;
 
     /**
-     * @description Data source type. Possible values:
-     * **UDM_ECS**: Indicates ECS full machine backup.
-     *
-     * @example UDM_ECS
-     *
      * @var string
      */
     public $sourceType;
@@ -70,32 +47,54 @@ class DescribePolicyBindingsRequest extends Model
         'sourceType' => 'SourceType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dataSourceIds)) {
+            Model::validateArray($this->dataSourceIds);
+        }
+        if (\is_array($this->filters)) {
+            Model::validateArray($this->filters);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataSourceIds) {
-            $res['DataSourceIds'] = $this->dataSourceIds;
-        }
-        if (null !== $this->filters) {
-            $res['Filters'] = [];
-            if (null !== $this->filters && \is_array($this->filters)) {
-                $n = 0;
-                foreach ($this->filters as $item) {
-                    $res['Filters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataSourceIds)) {
+                $res['DataSourceIds'] = [];
+                $n1 = 0;
+                foreach ($this->dataSourceIds as $item1) {
+                    $res['DataSourceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->filters) {
+            if (\is_array($this->filters)) {
+                $res['Filters'] = [];
+                $n1 = 0;
+                foreach ($this->filters as $item1) {
+                    $res['Filters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
+
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
@@ -103,37 +102,48 @@ class DescribePolicyBindingsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePolicyBindingsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataSourceIds'])) {
             if (!empty($map['DataSourceIds'])) {
-                $model->dataSourceIds = $map['DataSourceIds'];
-            }
-        }
-        if (isset($map['Filters'])) {
-            if (!empty($map['Filters'])) {
-                $model->filters = [];
-                $n = 0;
-                foreach ($map['Filters'] as $item) {
-                    $model->filters[$n++] = null !== $item ? filters::fromMap($item) : $item;
+                $model->dataSourceIds = [];
+                $n1 = 0;
+                foreach ($map['DataSourceIds'] as $item1) {
+                    $model->dataSourceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['Filters'])) {
+            if (!empty($map['Filters'])) {
+                $model->filters = [];
+                $n1 = 0;
+                foreach ($map['Filters'] as $item1) {
+                    $model->filters[$n1] = filters::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
+
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }

@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeHanaRetentionSettingRequest extends Model
 {
     /**
-     * @description The ID of the SAP HANA instance.
-     *
-     * This parameter is required.
-     *
-     * @example cl-0002ys1i******wwtf
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The database name.
-     *
-     * @example C4P
-     *
      * @var string
      */
     public $databaseName;
 
     /**
-     * @description The ID of the backup vault.
-     *
-     * This parameter is required.
-     *
-     * @example v-000ii8t******ntrt2
-     *
      * @var string
      */
     public $vaultId;
@@ -44,17 +28,22 @@ class DescribeHanaRetentionSettingRequest extends Model
         'vaultId' => 'VaultId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->databaseName) {
             $res['DatabaseName'] = $this->databaseName;
         }
+
         if (null !== $this->vaultId) {
             $res['VaultId'] = $this->vaultId;
         }
@@ -62,20 +51,22 @@ class DescribeHanaRetentionSettingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeHanaRetentionSettingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['DatabaseName'])) {
             $model->databaseName = $map['DatabaseName'];
         }
+
         if (isset($map['VaultId'])) {
             $model->vaultId = $map['VaultId'];
         }
