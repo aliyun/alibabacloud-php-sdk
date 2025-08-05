@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeEcdReportTasksRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @example 20。
-     *
      * @var int
      */
     public $pageSize;
@@ -28,22 +24,16 @@ class DescribeEcdReportTasksRequest extends Model
     public $status;
 
     /**
-     * @example DESKTOP
-     *
      * @var string
      */
     public $subType;
 
     /**
-     * @example ret-sfkdsjfi*****
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @example RESOURCE_REPORT
-     *
      * @var string
      */
     public $taskType;
@@ -56,26 +46,44 @@ class DescribeEcdReportTasksRequest extends Model
         'taskType' => 'TaskType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->status)) {
+            Model::validateArray($this->status);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->status) {
-            $res['Status'] = $this->status;
+            if (\is_array($this->status)) {
+                $res['Status'] = [];
+                $n1 = 0;
+                foreach ($this->status as $item1) {
+                    $res['Status'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->subType) {
             $res['SubType'] = $this->subType;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
@@ -83,31 +91,41 @@ class DescribeEcdReportTasksRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEcdReportTasksRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Status'])) {
             if (!empty($map['Status'])) {
-                $model->status = $map['Status'];
+                $model->status = [];
+                $n1 = 0;
+                foreach ($map['Status'] as $item1) {
+                    $model->status[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SubType'])) {
             $model->subType = $map['SubType'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSnatTableEntriesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class snatTableEntries extends Model
 {
@@ -64,35 +64,46 @@ class snatTableEntries extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eipAffinity) {
             $res['EipAffinity'] = $this->eipAffinity;
         }
+
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
         }
+
         if (null !== $this->snatEntryId) {
             $res['SnatEntryId'] = $this->snatEntryId;
         }
+
         if (null !== $this->snatEntryName) {
             $res['SnatEntryName'] = $this->snatEntryName;
         }
+
         if (null !== $this->snatIp) {
             $res['SnatIp'] = $this->snatIp;
         }
+
         if (null !== $this->snatTableId) {
             $res['SnatTableId'] = $this->snatTableId;
         }
+
         if (null !== $this->sourceCIDR) {
             $res['SourceCIDR'] = $this->sourceCIDR;
         }
+
         if (null !== $this->sourceVSwitchId) {
             $res['SourceVSwitchId'] = $this->sourceVSwitchId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -100,38 +111,46 @@ class snatTableEntries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return snatTableEntries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EipAffinity'])) {
             $model->eipAffinity = $map['EipAffinity'];
         }
+
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
         }
+
         if (isset($map['SnatEntryId'])) {
             $model->snatEntryId = $map['SnatEntryId'];
         }
+
         if (isset($map['SnatEntryName'])) {
             $model->snatEntryName = $map['SnatEntryName'];
         }
+
         if (isset($map['SnatIp'])) {
             $model->snatIp = $map['SnatIp'];
         }
+
         if (isset($map['SnatTableId'])) {
             $model->snatTableId = $map['SnatTableId'];
         }
+
         if (isset($map['SourceCIDR'])) {
             $model->sourceCIDR = $map['SourceCIDR'];
         }
+
         if (isset($map['SourceVSwitchId'])) {
             $model->sourceVSwitchId = $map['SourceVSwitchId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

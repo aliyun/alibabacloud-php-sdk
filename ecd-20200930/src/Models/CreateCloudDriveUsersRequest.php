@@ -4,48 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateCloudDriveUsersRequest extends Model
 {
     /**
-     * @description The ID of the cloud disk.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou+cds-352282****
-     *
      * @var string
      */
     public $cdsId;
 
     /**
-     * @description The IDs of the end users.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $endUserId;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The maximum storage space of an end user. Unit: bytes.
-     *
-     * This parameter is required.
-     *
-     * @example 1024
-     *
      * @var int
      */
     public $userMaxSize;
@@ -56,20 +34,36 @@ class CreateCloudDriveUsersRequest extends Model
         'userMaxSize' => 'UserMaxSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->endUserId)) {
+            Model::validateArray($this->endUserId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cdsId) {
             $res['CdsId'] = $this->cdsId;
         }
+
         if (null !== $this->endUserId) {
-            $res['EndUserId'] = $this->endUserId;
+            if (\is_array($this->endUserId)) {
+                $res['EndUserId'] = [];
+                $n1 = 0;
+                foreach ($this->endUserId as $item1) {
+                    $res['EndUserId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->userMaxSize) {
             $res['UserMaxSize'] = $this->userMaxSize;
         }
@@ -77,25 +71,33 @@ class CreateCloudDriveUsersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCloudDriveUsersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CdsId'])) {
             $model->cdsId = $map['CdsId'];
         }
+
         if (isset($map['EndUserId'])) {
             if (!empty($map['EndUserId'])) {
-                $model->endUserId = $map['EndUserId'];
+                $model->endUserId = [];
+                $n1 = 0;
+                foreach ($map['EndUserId'] as $item1) {
+                    $model->endUserId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['UserMaxSize'])) {
             $model->userMaxSize = $map['UserMaxSize'];
         }

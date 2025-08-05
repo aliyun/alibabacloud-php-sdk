@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyOfficeSiteDnsInfoRequest extends Model
 {
@@ -14,19 +14,11 @@ class ModifyOfficeSiteDnsInfoRequest extends Model
     public $dnsAddress;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou+dir-778418****
-     *
      * @var string
      */
     public $officeSiteId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -36,17 +28,32 @@ class ModifyOfficeSiteDnsInfoRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dnsAddress)) {
+            Model::validateArray($this->dnsAddress);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dnsAddress) {
-            $res['DnsAddress'] = $this->dnsAddress;
+            if (\is_array($this->dnsAddress)) {
+                $res['DnsAddress'] = [];
+                $n1 = 0;
+                foreach ($this->dnsAddress as $item1) {
+                    $res['DnsAddress'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -54,22 +61,29 @@ class ModifyOfficeSiteDnsInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyOfficeSiteDnsInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DnsAddress'])) {
             if (!empty($map['DnsAddress'])) {
-                $model->dnsAddress = $map['DnsAddress'];
+                $model->dnsAddress = [];
+                $n1 = 0;
+                foreach ($map['DnsAddress'] as $item1) {
+                    $model->dnsAddress[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

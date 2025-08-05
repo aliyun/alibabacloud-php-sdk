@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeIpAddressesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ipAddresses extends Model
 {
@@ -46,26 +46,34 @@ class ipAddresses extends Model
         'instanceType' => 'InstanceType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createByWuying) {
             $res['CreateByWuying'] = $this->createByWuying;
         }
+
         if (null !== $this->eipAddress) {
             $res['EipAddress'] = $this->eipAddress;
         }
+
         if (null !== $this->eipId) {
             $res['EipId'] = $this->eipId;
         }
+
         if (null !== $this->eipStatus) {
             $res['EipStatus'] = $this->eipStatus;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
@@ -73,29 +81,34 @@ class ipAddresses extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipAddresses
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateByWuying'])) {
             $model->createByWuying = $map['CreateByWuying'];
         }
+
         if (isset($map['EipAddress'])) {
             $model->eipAddress = $map['EipAddress'];
         }
+
         if (isset($map['EipId'])) {
             $model->eipId = $map['EipId'];
         }
+
         if (isset($map['EipStatus'])) {
             $model->eipStatus = $map['EipStatus'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }

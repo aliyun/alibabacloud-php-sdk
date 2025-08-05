@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDrivesResponseBody\drives;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class desktopGroups extends Model
 {
     /**
-     * @example dg-aaaa****
-     *
      * @var string
      */
     public $desktopGroupId;
 
     /**
-     * @example group01
-     *
      * @var string
      */
     public $desktopGroupName;
@@ -26,14 +22,18 @@ class desktopGroups extends Model
         'desktopGroupName' => 'DesktopGroupName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desktopGroupId) {
             $res['DesktopGroupId'] = $this->desktopGroupId;
         }
+
         if (null !== $this->desktopGroupName) {
             $res['DesktopGroupName'] = $this->desktopGroupName;
         }
@@ -41,17 +41,18 @@ class desktopGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return desktopGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesktopGroupId'])) {
             $model->desktopGroupId = $map['DesktopGroupId'];
         }
+
         if (isset($map['DesktopGroupName'])) {
             $model->desktopGroupName = $map['DesktopGroupName'];
         }

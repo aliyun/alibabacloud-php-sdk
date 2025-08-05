@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRecordingsResponseBody\recordings;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRecordingsResponseBody extends Model
 {
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-     *
-     * @example AAAAAV3MpHK1AP0pfERHZN5pu6nbCQ7ar+fECeh1IuWQXi39R5eoJ68zWp99mTAKRRNRhw==
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The screen recording files.
-     *
      * @var recordings[]
      */
     public $recordings;
 
     /**
-     * @description The request ID.
-     *
-     * @example 327CFE78-1C0D-51AC-A9C6-BCEDF0DD44D6
-     *
      * @var string
      */
     public $requestId;
@@ -39,23 +29,32 @@ class DescribeRecordingsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->recordings)) {
+            Model::validateArray($this->recordings);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->recordings) {
-            $res['Recordings'] = [];
-            if (null !== $this->recordings && \is_array($this->recordings)) {
-                $n = 0;
-                foreach ($this->recordings as $item) {
-                    $res['Recordings'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->recordings)) {
+                $res['Recordings'] = [];
+                $n1 = 0;
+                foreach ($this->recordings as $item1) {
+                    $res['Recordings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,26 +62,29 @@ class DescribeRecordingsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRecordingsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['Recordings'])) {
             if (!empty($map['Recordings'])) {
                 $model->recordings = [];
-                $n = 0;
-                foreach ($map['Recordings'] as $item) {
-                    $model->recordings[$n++] = null !== $item ? recordings::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Recordings'] as $item1) {
+                    $model->recordings[$n1] = recordings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

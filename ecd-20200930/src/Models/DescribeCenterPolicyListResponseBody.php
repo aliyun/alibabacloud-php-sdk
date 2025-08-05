@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCenterPolicyListResponseBody\describePolicyGroups;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCenterPolicyListResponseBody extends Model
 {
     /**
-     * @description The cloud computer policies.
-     *
      * @var describePolicyGroups[]
      */
     public $describePolicyGroups;
 
     /**
-     * @description The request ID.
-     *
-     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $totalCount;
@@ -39,23 +29,32 @@ class DescribeCenterPolicyListResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->describePolicyGroups)) {
+            Model::validateArray($this->describePolicyGroups);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->describePolicyGroups) {
-            $res['DescribePolicyGroups'] = [];
-            if (null !== $this->describePolicyGroups && \is_array($this->describePolicyGroups)) {
-                $n = 0;
-                foreach ($this->describePolicyGroups as $item) {
-                    $res['DescribePolicyGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->describePolicyGroups)) {
+                $res['DescribePolicyGroups'] = [];
+                $n1 = 0;
+                foreach ($this->describePolicyGroups as $item1) {
+                    $res['DescribePolicyGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -63,26 +62,29 @@ class DescribeCenterPolicyListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCenterPolicyListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DescribePolicyGroups'])) {
             if (!empty($map['DescribePolicyGroups'])) {
                 $model->describePolicyGroups = [];
-                $n = 0;
-                foreach ($map['DescribePolicyGroups'] as $item) {
-                    $model->describePolicyGroups[$n++] = null !== $item ? describePolicyGroups::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DescribePolicyGroups'] as $item1) {
+                    $model->describePolicyGroups[$n1] = describePolicyGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

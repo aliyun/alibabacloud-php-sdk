@@ -4,120 +4,67 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ExportDesktopGroupInfoRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class ExportDesktopGroupInfoRequest extends Model
 {
     /**
-     * @description The billing method of the cloud computer share.
-     *
-     * Valid values:
-     *
-     *   PostPaid: pay-as-you-go.
-     *   PrePaid: subscription.
-     *
-     * @example PrePaid
-     *
      * @var string
      */
     public $chargeType;
 
     /**
-     * @description The IDs of the cloud computer shares.
-     *
      * @var string[]
      */
     public $desktopGroupId;
 
     /**
-     * @description The name of the cloud computer share.
-     *
-     * @example test
-     *
      * @var string
      */
     public $desktopGroupName;
 
     /**
-     * @description The IDs of the users to be authorized.
-     *
      * @var string[]
      */
     public $endUserId;
 
     /**
-     * @description The expiration date of the subscription cloud computer share.
-     *
-     * @example 2022-12-31T15:59Z
-     *
      * @var string
      */
     public $expiredTime;
 
     /**
-     * @description The language of the response.
-     *
-     * @example zh-CN
-     *
      * @var string
      */
     public $langType;
 
     /**
-     * @description The number of entries to return on each page.
-     *
-     * Maximum value: 100.
-     *
-     * Default value: 10.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the next query. If this parameter is left empty, all results are returned.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a4883
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The ID of the office network.
-     *
-     * @example cn-hangzhou+dir-467671****
-     *
      * @var string
      */
     public $officeSiteId;
 
     /**
-     * @description The ID of the security policy.
-     *
-     * @example pg-53iyi2aar0nd6****
-     *
      * @var string
      */
     public $policyGroupId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The tags. You can specify up to 20 tags.
-     *
      * @var tag[]
      */
     public $tag;
@@ -136,50 +83,88 @@ class ExportDesktopGroupInfoRequest extends Model
         'tag' => 'Tag',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->desktopGroupId)) {
+            Model::validateArray($this->desktopGroupId);
+        }
+        if (\is_array($this->endUserId)) {
+            Model::validateArray($this->endUserId);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
+
         if (null !== $this->desktopGroupId) {
-            $res['DesktopGroupId'] = $this->desktopGroupId;
+            if (\is_array($this->desktopGroupId)) {
+                $res['DesktopGroupId'] = [];
+                $n1 = 0;
+                foreach ($this->desktopGroupId as $item1) {
+                    $res['DesktopGroupId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->desktopGroupName) {
             $res['DesktopGroupName'] = $this->desktopGroupName;
         }
+
         if (null !== $this->endUserId) {
-            $res['EndUserId'] = $this->endUserId;
+            if (\is_array($this->endUserId)) {
+                $res['EndUserId'] = [];
+                $n1 = 0;
+                foreach ($this->endUserId as $item1) {
+                    $res['EndUserId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
         }
+
         if (null !== $this->langType) {
             $res['LangType'] = $this->langType;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
+
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -187,57 +172,79 @@ class ExportDesktopGroupInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExportDesktopGroupInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
+
         if (isset($map['DesktopGroupId'])) {
             if (!empty($map['DesktopGroupId'])) {
-                $model->desktopGroupId = $map['DesktopGroupId'];
+                $model->desktopGroupId = [];
+                $n1 = 0;
+                foreach ($map['DesktopGroupId'] as $item1) {
+                    $model->desktopGroupId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['DesktopGroupName'])) {
             $model->desktopGroupName = $map['DesktopGroupName'];
         }
+
         if (isset($map['EndUserId'])) {
             if (!empty($map['EndUserId'])) {
-                $model->endUserId = $map['EndUserId'];
+                $model->endUserId = [];
+                $n1 = 0;
+                foreach ($map['EndUserId'] as $item1) {
+                    $model->endUserId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
         }
+
         if (isset($map['LangType'])) {
             $model->langType = $map['LangType'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
+
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

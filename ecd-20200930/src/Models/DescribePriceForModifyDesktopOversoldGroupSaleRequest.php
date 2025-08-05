@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribePriceForModifyDesktopOversoldGroupSaleRequest extends Model
 {
@@ -28,17 +28,22 @@ class DescribePriceForModifyDesktopOversoldGroupSaleRequest extends Model
         'oversoldUserCount' => 'OversoldUserCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->concurrenceCount) {
             $res['ConcurrenceCount'] = $this->concurrenceCount;
         }
+
         if (null !== $this->oversoldGroupId) {
             $res['OversoldGroupId'] = $this->oversoldGroupId;
         }
+
         if (null !== $this->oversoldUserCount) {
             $res['OversoldUserCount'] = $this->oversoldUserCount;
         }
@@ -46,20 +51,22 @@ class DescribePriceForModifyDesktopOversoldGroupSaleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePriceForModifyDesktopOversoldGroupSaleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConcurrenceCount'])) {
             $model->concurrenceCount = $map['ConcurrenceCount'];
         }
+
         if (isset($map['OversoldGroupId'])) {
             $model->oversoldGroupId = $map['OversoldGroupId'];
         }
+
         if (isset($map['OversoldUserCount'])) {
             $model->oversoldUserCount = $map['OversoldUserCount'];
         }

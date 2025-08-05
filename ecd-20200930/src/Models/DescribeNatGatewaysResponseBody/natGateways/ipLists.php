@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNatGatewaysResponseBody\natGateways;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ipLists extends Model
 {
@@ -40,23 +40,30 @@ class ipLists extends Model
         'usingStatus' => 'UsingStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allocationId) {
             $res['AllocationId'] = $this->allocationId;
         }
+
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
+
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
         }
+
         if (null !== $this->snatEntryEnabled) {
             $res['SnatEntryEnabled'] = $this->snatEntryEnabled;
         }
+
         if (null !== $this->usingStatus) {
             $res['UsingStatus'] = $this->usingStatus;
         }
@@ -64,26 +71,30 @@ class ipLists extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipLists
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllocationId'])) {
             $model->allocationId = $map['AllocationId'];
         }
+
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
         }
+
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
         }
+
         if (isset($map['SnatEntryEnabled'])) {
             $model->snatEntryEnabled = $map['SnatEntryEnabled'];
         }
+
         if (isset($map['UsingStatus'])) {
             $model->usingStatus = $map['UsingStatus'];
         }

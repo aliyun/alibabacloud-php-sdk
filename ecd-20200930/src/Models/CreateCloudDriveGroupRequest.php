@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateCloudDriveGroupRequest extends Model
 {
@@ -14,45 +14,21 @@ class CreateCloudDriveGroupRequest extends Model
     public $adminUserIds;
 
     /**
-     * @description The ID of the cloud disk in Cloud Drive Service.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou+cds-532033****
-     *
      * @var string
      */
     public $cdsId;
 
     /**
-     * @description The ID of the team.
-     *
-     * This parameter is required.
-     *
-     * @example 7f4bbccda0cf40bb85981b65fb5e****
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The ID of the region.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The size of the cloud disk in Cloud Drive Service. Unit: bytes. The size is unlimited.
-     *
-     * This parameter is required.
-     *
-     * @example 1024000
-     *
      * @var int
      */
     public $totalSize;
@@ -64,23 +40,40 @@ class CreateCloudDriveGroupRequest extends Model
         'totalSize' => 'TotalSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->adminUserIds)) {
+            Model::validateArray($this->adminUserIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->adminUserIds) {
-            $res['AdminUserIds'] = $this->adminUserIds;
+            if (\is_array($this->adminUserIds)) {
+                $res['AdminUserIds'] = [];
+                $n1 = 0;
+                foreach ($this->adminUserIds as $item1) {
+                    $res['AdminUserIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->cdsId) {
             $res['CdsId'] = $this->cdsId;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->totalSize) {
             $res['TotalSize'] = $this->totalSize;
         }
@@ -88,28 +81,37 @@ class CreateCloudDriveGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCloudDriveGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdminUserIds'])) {
             if (!empty($map['AdminUserIds'])) {
-                $model->adminUserIds = $map['AdminUserIds'];
+                $model->adminUserIds = [];
+                $n1 = 0;
+                foreach ($map['AdminUserIds'] as $item1) {
+                    $model->adminUserIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['CdsId'])) {
             $model->cdsId = $map['CdsId'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TotalSize'])) {
             $model->totalSize = $map['TotalSize'];
         }

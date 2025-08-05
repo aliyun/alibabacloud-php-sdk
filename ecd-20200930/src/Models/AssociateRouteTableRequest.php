@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AssociateRouteTableRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $routeTableId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $vSwitchId;
@@ -34,17 +28,22 @@ class AssociateRouteTableRequest extends Model
         'vSwitchId' => 'VSwitchId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -52,20 +51,22 @@ class AssociateRouteTableRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AssociateRouteTableRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

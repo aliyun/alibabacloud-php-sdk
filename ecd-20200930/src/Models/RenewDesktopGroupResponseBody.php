@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RenewDesktopGroupResponseBody extends Model
 {
     /**
-     * @description The order IDs.
-     *
      * @var string[]
      */
     public $orderId;
 
     /**
-     * @description The request ID.
-     *
-     * @example E55E6732-2028-52FA-AB06-EA29C36B****
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +22,28 @@ class RenewDesktopGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->orderId)) {
+            Model::validateArray($this->orderId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
+            if (\is_array($this->orderId)) {
+                $res['OrderId'] = [];
+                $n1 = 0;
+                foreach ($this->orderId as $item1) {
+                    $res['OrderId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,19 +51,25 @@ class RenewDesktopGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RenewDesktopGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             if (!empty($map['OrderId'])) {
-                $model->orderId = $map['OrderId'];
+                $model->orderId = [];
+                $n1 = 0;
+                foreach ($map['OrderId'] as $item1) {
+                    $model->orderId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

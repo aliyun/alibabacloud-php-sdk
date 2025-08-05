@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CancelCdsFileShareLinkRequest extends Model
 {
     /**
-     * @description The ID of the cloud disk.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou+cds-352282****
-     *
      * @var string
      */
     public $cdsId;
 
     /**
-     * @description The ID of the file sharing task.
-     *
-     * This parameter is required.
-     *
-     * @example 7JQX1Fsw****
-     *
      * @var string
      */
     public $shareId;
@@ -34,14 +22,18 @@ class CancelCdsFileShareLinkRequest extends Model
         'shareId' => 'ShareId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cdsId) {
             $res['CdsId'] = $this->cdsId;
         }
+
         if (null !== $this->shareId) {
             $res['ShareId'] = $this->shareId;
         }
@@ -49,17 +41,18 @@ class CancelCdsFileShareLinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CancelCdsFileShareLinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CdsId'])) {
             $model->cdsId = $map['CdsId'];
         }
+
         if (isset($map['ShareId'])) {
             $model->shareId = $map['ShareId'];
         }

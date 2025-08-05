@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSitesResponseBody\officeSites;
-use AlibabaCloud\Tea\Model;
 
 class DescribeOfficeSitesResponseBody extends Model
 {
     /**
-     * @description The token that determines the start point of the next query. If this parameter is empty, all results are returned.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a4883
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The office networks.
-     *
      * @var officeSites[]
      */
     public $officeSites;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $totalCount;
@@ -49,26 +35,36 @@ class DescribeOfficeSitesResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->officeSites)) {
+            Model::validateArray($this->officeSites);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->officeSites) {
-            $res['OfficeSites'] = [];
-            if (null !== $this->officeSites && \is_array($this->officeSites)) {
-                $n = 0;
-                foreach ($this->officeSites as $item) {
-                    $res['OfficeSites'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->officeSites)) {
+                $res['OfficeSites'] = [];
+                $n1 = 0;
+                foreach ($this->officeSites as $item1) {
+                    $res['OfficeSites'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -76,29 +72,33 @@ class DescribeOfficeSitesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeOfficeSitesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['OfficeSites'])) {
             if (!empty($map['OfficeSites'])) {
                 $model->officeSites = [];
-                $n = 0;
-                foreach ($map['OfficeSites'] as $item) {
-                    $model->officeSites[$n++] = null !== $item ? officeSites::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OfficeSites'] as $item1) {
+                    $model->officeSites[$n1] = officeSites::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

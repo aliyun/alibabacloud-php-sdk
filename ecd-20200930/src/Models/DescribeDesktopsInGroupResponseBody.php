@@ -4,104 +4,63 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsInGroupResponseBody\paidDesktops;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsInGroupResponseBody\postPaidDesktops;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDesktopsInGroupResponseBody extends Model
 {
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
-     * If NextToken is empty, no next page exists.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a4883
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The number of subscription cloud computers that are in the Connected state.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $onlinePrePaidDesktopsCount;
 
     /**
-     * @description The subscription cloud computers.
-     *
      * @var paidDesktops[]
      */
     public $paidDesktops;
 
     /**
-     * @description The total number of subscription cloud computers.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $paidDesktopsCount;
 
     /**
-     * @description The pay-as-you-go cloud computers.
-     *
      * @var postPaidDesktops[]
      */
     public $postPaidDesktops;
 
     /**
-     * @description The total number of pay-as-you-go cloud computers.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $postPaidDesktopsCount;
 
     /**
-     * @description The total amount of bills for pay-as-you-go cloud computers.
-     *
-     * @example 10000
-     *
      * @var int
      */
     public $postPaidDesktopsTotalAmount;
 
     /**
-     * @description The request ID.
-     *
-     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The number of subscription cloud computers that are in the Running state.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $runningPrePaidDesktopsCount;
 
     /**
-     * @description The number of subscription cloud computers that are in the Stopped state.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $stopedPrePaidDesktopsCount;
 
     /**
-     * @description The number of subscription cloud computers that are in the Stopped state.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $stoppedPrePaidDesktopsCount;
@@ -119,53 +78,74 @@ class DescribeDesktopsInGroupResponseBody extends Model
         'stoppedPrePaidDesktopsCount' => 'StoppedPrePaidDesktopsCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->paidDesktops)) {
+            Model::validateArray($this->paidDesktops);
+        }
+        if (\is_array($this->postPaidDesktops)) {
+            Model::validateArray($this->postPaidDesktops);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->onlinePrePaidDesktopsCount) {
             $res['OnlinePrePaidDesktopsCount'] = $this->onlinePrePaidDesktopsCount;
         }
+
         if (null !== $this->paidDesktops) {
-            $res['PaidDesktops'] = [];
-            if (null !== $this->paidDesktops && \is_array($this->paidDesktops)) {
-                $n = 0;
-                foreach ($this->paidDesktops as $item) {
-                    $res['PaidDesktops'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->paidDesktops)) {
+                $res['PaidDesktops'] = [];
+                $n1 = 0;
+                foreach ($this->paidDesktops as $item1) {
+                    $res['PaidDesktops'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->paidDesktopsCount) {
             $res['PaidDesktopsCount'] = $this->paidDesktopsCount;
         }
+
         if (null !== $this->postPaidDesktops) {
-            $res['PostPaidDesktops'] = [];
-            if (null !== $this->postPaidDesktops && \is_array($this->postPaidDesktops)) {
-                $n = 0;
-                foreach ($this->postPaidDesktops as $item) {
-                    $res['PostPaidDesktops'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->postPaidDesktops)) {
+                $res['PostPaidDesktops'] = [];
+                $n1 = 0;
+                foreach ($this->postPaidDesktops as $item1) {
+                    $res['PostPaidDesktops'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->postPaidDesktopsCount) {
             $res['PostPaidDesktopsCount'] = $this->postPaidDesktopsCount;
         }
+
         if (null !== $this->postPaidDesktopsTotalAmount) {
             $res['PostPaidDesktopsTotalAmount'] = $this->postPaidDesktopsTotalAmount;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->runningPrePaidDesktopsCount) {
             $res['RunningPrePaidDesktopsCount'] = $this->runningPrePaidDesktopsCount;
         }
+
         if (null !== $this->stopedPrePaidDesktopsCount) {
             $res['StopedPrePaidDesktopsCount'] = $this->stopedPrePaidDesktopsCount;
         }
+
         if (null !== $this->stoppedPrePaidDesktopsCount) {
             $res['StoppedPrePaidDesktopsCount'] = $this->stoppedPrePaidDesktopsCount;
         }
@@ -173,56 +153,68 @@ class DescribeDesktopsInGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDesktopsInGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['OnlinePrePaidDesktopsCount'])) {
             $model->onlinePrePaidDesktopsCount = $map['OnlinePrePaidDesktopsCount'];
         }
+
         if (isset($map['PaidDesktops'])) {
             if (!empty($map['PaidDesktops'])) {
                 $model->paidDesktops = [];
-                $n = 0;
-                foreach ($map['PaidDesktops'] as $item) {
-                    $model->paidDesktops[$n++] = null !== $item ? paidDesktops::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PaidDesktops'] as $item1) {
+                    $model->paidDesktops[$n1] = paidDesktops::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PaidDesktopsCount'])) {
             $model->paidDesktopsCount = $map['PaidDesktopsCount'];
         }
+
         if (isset($map['PostPaidDesktops'])) {
             if (!empty($map['PostPaidDesktops'])) {
                 $model->postPaidDesktops = [];
-                $n = 0;
-                foreach ($map['PostPaidDesktops'] as $item) {
-                    $model->postPaidDesktops[$n++] = null !== $item ? postPaidDesktops::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PostPaidDesktops'] as $item1) {
+                    $model->postPaidDesktops[$n1] = postPaidDesktops::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PostPaidDesktopsCount'])) {
             $model->postPaidDesktopsCount = $map['PostPaidDesktopsCount'];
         }
+
         if (isset($map['PostPaidDesktopsTotalAmount'])) {
             $model->postPaidDesktopsTotalAmount = $map['PostPaidDesktopsTotalAmount'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RunningPrePaidDesktopsCount'])) {
             $model->runningPrePaidDesktopsCount = $map['RunningPrePaidDesktopsCount'];
         }
+
         if (isset($map['StopedPrePaidDesktopsCount'])) {
             $model->stopedPrePaidDesktopsCount = $map['StopedPrePaidDesktopsCount'];
         }
+
         if (isset($map['StoppedPrePaidDesktopsCount'])) {
             $model->stoppedPrePaidDesktopsCount = $map['StoppedPrePaidDesktopsCount'];
         }

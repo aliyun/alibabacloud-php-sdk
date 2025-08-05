@@ -4,134 +4,72 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopSessionsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopSessionsResponseBody\sessions\resourceGroups;
-use AlibabaCloud\Tea\Model;
 
 class sessions extends Model
 {
     /**
-     * @description The IP address of the client.
-     *
-     * @example 172.21.XX.XX
-     *
      * @var string
      */
     public $clientIp;
 
     /**
-     * @description The client OS.
-     *
-     * @example windows_\\"Windows10Enterprise\\"10.0(Build22000)
-     *
      * @var string
      */
     public $clientOS;
 
     /**
-     * @description The client version.
-     *
-     * @example 2.0.0-R-20221030.08****
-     *
      * @var string
      */
     public $clientVersion;
 
     /**
-     * @description The ID of the cloud computer.
-     *
-     * @example ecd-g6t1ukbaea****
-     *
      * @var string
      */
     public $desktopId;
 
     /**
-     * @description The name of the cloud computer.
-     *
-     * @example testDesktop
-     *
      * @var string
      */
     public $desktopName;
 
     /**
-     * @description The duration of the remote assistance. Unit: seconds.
-     *
-     * @example 120
-     *
      * @var int
      */
     public $endUserApplyCoordinateTime;
 
     /**
-     * @description The ID of the end user.
-     *
-     * @example testUser
-     *
      * @var string
      */
     public $endUserId;
 
     /**
-     * @description The duration of the last connection to the cloud computer. Unit: seconds.
-     *
-     * @example 120
-     *
      * @var int
      */
     public $latestConnectionTime;
 
     /**
-     * @description The ID of the office network.
-     *
-     * @example cn-hangzhou+dir-8904****
-     *
      * @var string
      */
     public $officeSiteId;
 
     /**
-     * @description The name of the office network.
-     *
-     * @example DemoOfficeSite
-     *
      * @var string
      */
     public $officeSiteName;
 
     /**
-     * @description Indicates whether the switch to check session status of cloud computers is turned on.
-     *
-     * @example true
-     *
      * @var string
      */
     public $osSessionStatus;
 
     /**
-     * @description The OS.
-     *
-     * Valid values:
-     *
-     *   Linux
-     *   Windows
-     *
-     * @example Windows
-     *
      * @var string
      */
     public $osType;
 
     /**
-     * @description The protocol type.
-     *
-     * Valid values:
-     *
-     *   HDX
-     *   ASP
-     *
-     * @example ASP
-     *
      * @var string
      */
     public $protocolType;
@@ -142,67 +80,31 @@ class sessions extends Model
     public $resourceGroups;
 
     /**
-     * @description The end time of the session.
-     *
-     * @example 2023-01-28T02:31:43Z
-     *
      * @var string
      */
     public $sessionEndTime;
 
     /**
-     * @description The idle duration of the session. Unit: seconds.
-     *
-     * @example 120
-     *
      * @var int
      */
     public $sessionIdleTime;
 
     /**
-     * @description The start time of the session.
-     *
-     * @example 2023-01-28T02:31:43Z
-     *
      * @var string
      */
     public $sessionStartTime;
 
     /**
-     * @description The state of the session.
-     *
-     * Valid values:
-     *
-     *   Connected
-     *   Disconnected
-     *
-     * @example Connected
-     *
      * @var string
      */
     public $sessionStatus;
 
     /**
-     * @description The billing method of cloud computers.
-     *
-     * Valid values:
-     *
-     *   duration: hourly plan (available for users in the whitelist)
-     *   postPaid: pay-as-you-go
-     *   monthPackage: monthly subscription (120-hour computing plan and 250-hour computing plan)
-     *   prePaid: monthly subscription (Unlimited computing plan)
-     *
-     * @example monthPackage
-     *
      * @var string
      */
     public $subPayType;
 
     /**
-     * @description The total connection duration. Unit: seconds.
-     *
-     * @example 240
-     *
      * @var int
      */
     public $totalConnectionTime;
@@ -229,74 +131,100 @@ class sessions extends Model
         'totalConnectionTime' => 'TotalConnectionTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->resourceGroups)) {
+            Model::validateArray($this->resourceGroups);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientIp) {
             $res['ClientIp'] = $this->clientIp;
         }
+
         if (null !== $this->clientOS) {
             $res['ClientOS'] = $this->clientOS;
         }
+
         if (null !== $this->clientVersion) {
             $res['ClientVersion'] = $this->clientVersion;
         }
+
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
         }
+
         if (null !== $this->desktopName) {
             $res['DesktopName'] = $this->desktopName;
         }
+
         if (null !== $this->endUserApplyCoordinateTime) {
             $res['EndUserApplyCoordinateTime'] = $this->endUserApplyCoordinateTime;
         }
+
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
+
         if (null !== $this->latestConnectionTime) {
             $res['LatestConnectionTime'] = $this->latestConnectionTime;
         }
+
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
+
         if (null !== $this->officeSiteName) {
             $res['OfficeSiteName'] = $this->officeSiteName;
         }
+
         if (null !== $this->osSessionStatus) {
             $res['OsSessionStatus'] = $this->osSessionStatus;
         }
+
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
         }
+
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
         }
+
         if (null !== $this->resourceGroups) {
-            $res['ResourceGroups'] = [];
-            if (null !== $this->resourceGroups && \is_array($this->resourceGroups)) {
-                $n = 0;
-                foreach ($this->resourceGroups as $item) {
-                    $res['ResourceGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceGroups)) {
+                $res['ResourceGroups'] = [];
+                $n1 = 0;
+                foreach ($this->resourceGroups as $item1) {
+                    $res['ResourceGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->sessionEndTime) {
             $res['SessionEndTime'] = $this->sessionEndTime;
         }
+
         if (null !== $this->sessionIdleTime) {
             $res['SessionIdleTime'] = $this->sessionIdleTime;
         }
+
         if (null !== $this->sessionStartTime) {
             $res['SessionStartTime'] = $this->sessionStartTime;
         }
+
         if (null !== $this->sessionStatus) {
             $res['SessionStatus'] = $this->sessionStatus;
         }
+
         if (null !== $this->subPayType) {
             $res['SubPayType'] = $this->subPayType;
         }
+
         if (null !== $this->totalConnectionTime) {
             $res['TotalConnectionTime'] = $this->totalConnectionTime;
         }
@@ -304,77 +232,97 @@ class sessions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sessions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientIp'])) {
             $model->clientIp = $map['ClientIp'];
         }
+
         if (isset($map['ClientOS'])) {
             $model->clientOS = $map['ClientOS'];
         }
+
         if (isset($map['ClientVersion'])) {
             $model->clientVersion = $map['ClientVersion'];
         }
+
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
         }
+
         if (isset($map['DesktopName'])) {
             $model->desktopName = $map['DesktopName'];
         }
+
         if (isset($map['EndUserApplyCoordinateTime'])) {
             $model->endUserApplyCoordinateTime = $map['EndUserApplyCoordinateTime'];
         }
+
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
+
         if (isset($map['LatestConnectionTime'])) {
             $model->latestConnectionTime = $map['LatestConnectionTime'];
         }
+
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
+
         if (isset($map['OfficeSiteName'])) {
             $model->officeSiteName = $map['OfficeSiteName'];
         }
+
         if (isset($map['OsSessionStatus'])) {
             $model->osSessionStatus = $map['OsSessionStatus'];
         }
+
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
         }
+
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
         }
+
         if (isset($map['ResourceGroups'])) {
             if (!empty($map['ResourceGroups'])) {
                 $model->resourceGroups = [];
-                $n = 0;
-                foreach ($map['ResourceGroups'] as $item) {
-                    $model->resourceGroups[$n++] = null !== $item ? resourceGroups::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ResourceGroups'] as $item1) {
+                    $model->resourceGroups[$n1] = resourceGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SessionEndTime'])) {
             $model->sessionEndTime = $map['SessionEndTime'];
         }
+
         if (isset($map['SessionIdleTime'])) {
             $model->sessionIdleTime = $map['SessionIdleTime'];
         }
+
         if (isset($map['SessionStartTime'])) {
             $model->sessionStartTime = $map['SessionStartTime'];
         }
+
         if (isset($map['SessionStatus'])) {
             $model->sessionStatus = $map['SessionStatus'];
         }
+
         if (isset($map['SubPayType'])) {
             $model->subPayType = $map['SubPayType'];
         }
+
         if (isset($map['TotalConnectionTime'])) {
             $model->totalConnectionTime = $map['TotalConnectionTime'];
         }

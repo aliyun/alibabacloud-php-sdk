@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSnatEntryRequest extends Model
 {
@@ -14,8 +14,6 @@ class CreateSnatEntryRequest extends Model
     public $eipAffinity;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $regionId;
@@ -26,22 +24,16 @@ class CreateSnatEntryRequest extends Model
     public $snatEntryName;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $snatIp;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $snatTableId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $sourceCIDR;
@@ -54,26 +46,34 @@ class CreateSnatEntryRequest extends Model
         'sourceCIDR' => 'SourceCIDR',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eipAffinity) {
             $res['EipAffinity'] = $this->eipAffinity;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->snatEntryName) {
             $res['SnatEntryName'] = $this->snatEntryName;
         }
+
         if (null !== $this->snatIp) {
             $res['SnatIp'] = $this->snatIp;
         }
+
         if (null !== $this->snatTableId) {
             $res['SnatTableId'] = $this->snatTableId;
         }
+
         if (null !== $this->sourceCIDR) {
             $res['SourceCIDR'] = $this->sourceCIDR;
         }
@@ -81,29 +81,34 @@ class CreateSnatEntryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSnatEntryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EipAffinity'])) {
             $model->eipAffinity = $map['EipAffinity'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SnatEntryName'])) {
             $model->snatEntryName = $map['SnatEntryName'];
         }
+
         if (isset($map['SnatIp'])) {
             $model->snatIp = $map['SnatIp'];
         }
+
         if (isset($map['SnatTableId'])) {
             $model->snatTableId = $map['SnatTableId'];
         }
+
         if (isset($map['SourceCIDR'])) {
             $model->sourceCIDR = $map['SourceCIDR'];
         }

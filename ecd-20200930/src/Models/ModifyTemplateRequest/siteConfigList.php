@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyTemplateRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class siteConfigList extends Model
 {
@@ -22,14 +22,18 @@ class siteConfigList extends Model
         'siteId' => 'SiteId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appRuleId) {
             $res['AppRuleId'] = $this->appRuleId;
         }
+
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
@@ -37,17 +41,18 @@ class siteConfigList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return siteConfigList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppRuleId'])) {
             $model->appRuleId = $map['AppRuleId'];
         }
+
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }

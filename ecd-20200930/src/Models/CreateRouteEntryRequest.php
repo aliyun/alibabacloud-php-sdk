@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateRouteEntryRequest extends Model
 {
@@ -14,8 +14,6 @@ class CreateRouteEntryRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $destinationCidrBlock;
@@ -31,8 +29,6 @@ class CreateRouteEntryRequest extends Model
     public $nextHopType;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $regionId;
@@ -43,8 +39,6 @@ class CreateRouteEntryRequest extends Model
     public $routeEntryName;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $routeTableId;
@@ -58,29 +52,38 @@ class CreateRouteEntryRequest extends Model
         'routeTableId' => 'RouteTableId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->destinationCidrBlock) {
             $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
         }
+
         if (null !== $this->nextHopId) {
             $res['NextHopId'] = $this->nextHopId;
         }
+
         if (null !== $this->nextHopType) {
             $res['NextHopType'] = $this->nextHopType;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->routeEntryName) {
             $res['RouteEntryName'] = $this->routeEntryName;
         }
+
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
         }
@@ -88,32 +91,38 @@ class CreateRouteEntryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateRouteEntryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['DestinationCidrBlock'])) {
             $model->destinationCidrBlock = $map['DestinationCidrBlock'];
         }
+
         if (isset($map['NextHopId'])) {
             $model->nextHopId = $map['NextHopId'];
         }
+
         if (isset($map['NextHopType'])) {
             $model->nextHopType = $map['NextHopType'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RouteEntryName'])) {
             $model->routeEntryName = $map['RouteEntryName'];
         }
+
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];
         }

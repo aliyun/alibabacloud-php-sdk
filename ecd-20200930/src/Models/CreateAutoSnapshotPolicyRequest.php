@@ -4,50 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAutoSnapshotPolicyRequest extends Model
 {
     /**
-     * @description The CRON expression for periodic scheduling.
-     *
-     * This parameter is required.
-     *
-     * @example 0 0 2 ? * 1-7
-     *
      * @var string
      */
     public $cronExpression;
 
     /**
-     * @description The name of the automatic snapshot policy. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-). This parameter is empty by default.
-     *
-     * This parameter is required.
-     *
-     * @example test_auto_policy
-     *
      * @var string
      */
     public $policyName;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The retention period of the automatic snapshots. Unit: days. Valid values: 1 to 180.
-     *
-     * This parameter is required.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $retentionDays;
@@ -58,20 +34,26 @@ class CreateAutoSnapshotPolicyRequest extends Model
         'retentionDays' => 'RetentionDays',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cronExpression) {
             $res['CronExpression'] = $this->cronExpression;
         }
+
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->retentionDays) {
             $res['RetentionDays'] = $this->retentionDays;
         }
@@ -79,23 +61,26 @@ class CreateAutoSnapshotPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAutoSnapshotPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CronExpression'])) {
             $model->cronExpression = $map['CronExpression'];
         }
+
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RetentionDays'])) {
             $model->retentionDays = $map['RetentionDays'];
         }

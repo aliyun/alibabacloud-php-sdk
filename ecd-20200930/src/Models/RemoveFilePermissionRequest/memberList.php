@@ -4,185 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\RemoveFilePermissionRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RemoveFilePermissionRequest\memberList\cdsIdentity;
-use AlibabaCloud\Tea\Model;
 
 class memberList extends Model
 {
     /**
-     * @description The permission information.
-     *
-     * This parameter is required.
-     *
      * @var cdsIdentity
      */
     public $cdsIdentity;
 
     /**
-     * @description The role ID. You can configure permissions on roles or actions. This parameter is used to specify the permissions on roles, which conflicts with the ActionList parameter. When you configure both the parameters, this parameter shall prevail.
-     *
-     * Valid values:
-     *
-     *   SystemFileEditorWithoutShareLink
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * the role that has the permissions to edit files but cannot share files
-     *
-     * <!-- -->
-     *
-     *   SystemFileUploaderAndDownloaderWithShareLink
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * the role that has the permissions to upload, download, and share files
-     *
-     * <!-- -->
-     *
-     *   SystemFileDownloader
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * the role that has the permissions to download files
-     *
-     * <!-- -->
-     *
-     *   SystemFileEditorWithoutDelete
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * the role that has the permissions to edit files but cannot delete files
-     *
-     * <!-- -->
-     *
-     *   SystemFileOwner
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * the role that has the permissions to collaborate with others
-     *
-     * <!-- -->
-     *
-     *   SystemFileDownloaderWithShareLink
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * the role that has the permissions to download and share files
-     *
-     * <!-- -->
-     *
-     *   SystemFileUploaderAndViewer
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * the role that has the permissions to preview or upload files
-     *
-     * <!-- -->
-     *
-     *   SystemFileViewer
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * the role that has the permissions to preview files
-     *
-     * <!-- -->
-     *
-     *   SystemFileEditor
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * the role that has the permissions to edit files
-     *
-     * <!-- -->
-     *
-     *   SystemFileUploaderWithShareLink
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * the role that has the permissions to upload or share files
-     *
-     * <!-- -->
-     *
-     *   SystemFileUploader
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * the role that has the permission to upload files
-     *
-     * <!-- -->
-     *
-     *   SystemFileUploaderAndDownloader
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * the role that has the permissions to upload or download files
-     *
-     * <!-- -->
-     *
-     *   SystemFileMetaViewer
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * the role that has the permissions to view files
-     *
-     * <!-- -->
-     *
-     * This parameter is required.
-     *
-     * @example SystemFileUploaderAndDownloader
-     *
      * @var string
      */
     public $roleId;
@@ -191,14 +23,21 @@ class memberList extends Model
         'roleId' => 'RoleId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->cdsIdentity) {
+            $this->cdsIdentity->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cdsIdentity) {
-            $res['CdsIdentity'] = null !== $this->cdsIdentity ? $this->cdsIdentity->toMap() : null;
+            $res['CdsIdentity'] = null !== $this->cdsIdentity ? $this->cdsIdentity->toArray($noStream) : $this->cdsIdentity;
         }
+
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
         }
@@ -206,17 +45,18 @@ class memberList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return memberList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CdsIdentity'])) {
             $model->cdsIdentity = cdsIdentity::fromMap($map['CdsIdentity']);
         }
+
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];
         }

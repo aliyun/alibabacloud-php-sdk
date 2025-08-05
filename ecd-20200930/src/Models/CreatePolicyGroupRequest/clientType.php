@@ -4,41 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\CreatePolicyGroupRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class clientType extends Model
 {
     /**
-     * @description The type of the Alibaba Cloud Workspace client.
-     *
-     * >  If you do not specify the `ClientType` parameter, all types of the client are allowed by default.
-     *
-     * Valid values:
-     *
-     *   html5: web client
-     *   android: Android client
-     *   ios: iOS client
-     *   windows: Windows client
-     *   macos: macOS client
-     *
-     * @example windows
-     *
      * @var string
      */
     public $clientType;
 
     /**
-     * @description Specifies whether to allow end users to use a specific type of the client to connect to cloud computers.
-     *
-     * >  If you do not specify the `ClientType` parameter, all types of the client are allowed by default.
-     *
-     * Valid values:
-     *
-     *   OFF
-     *   ON
-     *
-     * @example ON
-     *
      * @var string
      */
     public $status;
@@ -47,14 +22,18 @@ class clientType extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientType) {
             $res['ClientType'] = $this->clientType;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -62,17 +41,18 @@ class clientType extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clientType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientType'])) {
             $model->clientType = $map['ClientType'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

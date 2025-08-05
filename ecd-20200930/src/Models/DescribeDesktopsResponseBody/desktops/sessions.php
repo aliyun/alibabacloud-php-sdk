@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsResponseBody\desktops;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sessions extends Model
 {
     /**
-     * @description The ID of the end user that connects to the cloud computer.
-     *
-     * @example 29615820929547****
-     *
      * @var string
      */
     public $endUserId;
 
     /**
-     * @description The time when the cloud computer session was established.
-     *
-     * @example 2021-03-07T08:23Z
-     *
      * @var string
      */
     public $establishmentTime;
 
     /**
-     * @description The name of the external user.
-     *
-     * @example Testname
-     *
      * @var string
      */
     public $externalUserName;
@@ -40,17 +28,22 @@ class sessions extends Model
         'externalUserName' => 'ExternalUserName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
+
         if (null !== $this->establishmentTime) {
             $res['EstablishmentTime'] = $this->establishmentTime;
         }
+
         if (null !== $this->externalUserName) {
             $res['ExternalUserName'] = $this->externalUserName;
         }
@@ -58,20 +51,22 @@ class sessions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sessions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
+
         if (isset($map['EstablishmentTime'])) {
             $model->establishmentTime = $map['EstablishmentTime'];
         }
+
         if (isset($map['ExternalUserName'])) {
             $model->externalUserName = $map['ExternalUserName'];
         }

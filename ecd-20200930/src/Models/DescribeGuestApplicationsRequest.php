@@ -4,39 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeGuestApplicationsRequest extends Model
 {
     /**
-     * @description The ID of the cloud computer.
-     *
-     * This parameter is required.
-     *
-     * @example ecd-asw3giklqvfqe****
-     *
      * @var string
      */
     public $desktopId;
 
     /**
-     * @description The user ID.
-     *
-     * This parameter is required.
-     *
-     * @example demo001
-     *
      * @var string
      */
     public $endUserId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -46,17 +28,22 @@ class DescribeGuestApplicationsRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desktopId) {
             $res['DesktopId'] = $this->desktopId;
         }
+
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -64,20 +51,22 @@ class DescribeGuestApplicationsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeGuestApplicationsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesktopId'])) {
             $model->desktopId = $map['DesktopId'];
         }
+
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

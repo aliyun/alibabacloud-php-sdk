@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDriveUsersResponseBody\cloudDriveUsers;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCloudDriveUsersResponseBody extends Model
 {
@@ -15,15 +15,11 @@ class DescribeCloudDriveUsersResponseBody extends Model
     public $cloudDriveUsers;
 
     /**
-     * @example aGN4YzAxQGNuLWhhbmd6aG91LjExNzU5NTMyNjgzMTQ1****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example F083AAE5-7AA9-53BB-9060-AFFB2C18****
-     *
      * @var string
      */
     public $requestId;
@@ -33,23 +29,32 @@ class DescribeCloudDriveUsersResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->cloudDriveUsers)) {
+            Model::validateArray($this->cloudDriveUsers);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cloudDriveUsers) {
-            $res['CloudDriveUsers'] = [];
-            if (null !== $this->cloudDriveUsers && \is_array($this->cloudDriveUsers)) {
-                $n = 0;
-                foreach ($this->cloudDriveUsers as $item) {
-                    $res['CloudDriveUsers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->cloudDriveUsers)) {
+                $res['CloudDriveUsers'] = [];
+                $n1 = 0;
+                foreach ($this->cloudDriveUsers as $item1) {
+                    $res['CloudDriveUsers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -57,26 +62,29 @@ class DescribeCloudDriveUsersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCloudDriveUsersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CloudDriveUsers'])) {
             if (!empty($map['CloudDriveUsers'])) {
                 $model->cloudDriveUsers = [];
-                $n = 0;
-                foreach ($map['CloudDriveUsers'] as $item) {
-                    $model->cloudDriveUsers[$n++] = null !== $item ? cloudDriveUsers::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CloudDriveUsers'] as $item1) {
+                    $model->cloudDriveUsers[$n1] = cloudDriveUsers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

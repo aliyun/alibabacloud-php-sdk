@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupsResponseBody\desktopGroups;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDesktopGroupsResponseBody extends Model
 {
     /**
-     * @description The cloud computer shares.
-     *
      * @var desktopGroups[]
      */
     public $desktopGroups;
 
     /**
-     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a4883
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The request ID.
-     *
-     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-     *
      * @var string
      */
     public $requestId;
@@ -39,23 +29,32 @@ class DescribeDesktopGroupsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->desktopGroups)) {
+            Model::validateArray($this->desktopGroups);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desktopGroups) {
-            $res['DesktopGroups'] = [];
-            if (null !== $this->desktopGroups && \is_array($this->desktopGroups)) {
-                $n = 0;
-                foreach ($this->desktopGroups as $item) {
-                    $res['DesktopGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->desktopGroups)) {
+                $res['DesktopGroups'] = [];
+                $n1 = 0;
+                foreach ($this->desktopGroups as $item1) {
+                    $res['DesktopGroups'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,26 +62,29 @@ class DescribeDesktopGroupsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDesktopGroupsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesktopGroups'])) {
             if (!empty($map['DesktopGroups'])) {
                 $model->desktopGroups = [];
-                $n = 0;
-                foreach ($map['DesktopGroups'] as $item) {
-                    $model->desktopGroups[$n++] = null !== $item ? desktopGroups::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DesktopGroups'] as $item1) {
+                    $model->desktopGroups[$n1] = desktopGroups::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

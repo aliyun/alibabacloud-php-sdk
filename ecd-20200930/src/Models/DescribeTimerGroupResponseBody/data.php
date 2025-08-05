@@ -4,95 +4,52 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeTimerGroupResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeTimerGroupResponseBody\data\configTimers;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The number of resources that are bound to the configuration group.
-     *
-     * @example 50
-     *
      * @var int
      */
     public $bindCount;
 
     /**
-     * @description The number of bound resources.
-     *
      * @var int[]
      */
     public $bindCountMap;
 
     /**
-     * @description The scheduled task configurations.
-     *
      * @var configTimers[]
      */
     public $configTimers;
 
     /**
-     * @description The description of the configuration group.
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the configuration group.
-     *
-     * @example cg-75aazkg2tnqb2*****
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The name of the configuration group.
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The service type of the configuration group.
-     *
-     * Valid value:
-     *
-     *   CLOUD_DESKTOP: the cloud computer service.
-     *
-     * @example CLOUD_DESKTOP
-     *
      * @var string
      */
     public $productType;
 
     /**
-     * @description The state of the configuration group.
-     *
-     * Valid values:
-     *
-     *   AVAILABLE: The configuration group is available.
-     *   UNAVAILABLE: The configuration group is deleted.
-     *   DELETING: The configuration group is being deleted.
-     *   UPDATING: The configuration group is being modified.
-     *
-     * @example AVAILABLE
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The type of the configuration group.
-     *
-     * Valid value:
-     *
-     *   Timer: the scheduled task type.
-     *
-     * @example Timer
-     *
      * @var string
      */
     public $type;
@@ -108,41 +65,64 @@ class data extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->bindCountMap)) {
+            Model::validateArray($this->bindCountMap);
+        }
+        if (\is_array($this->configTimers)) {
+            Model::validateArray($this->configTimers);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bindCount) {
             $res['BindCount'] = $this->bindCount;
         }
+
         if (null !== $this->bindCountMap) {
-            $res['BindCountMap'] = $this->bindCountMap;
-        }
-        if (null !== $this->configTimers) {
-            $res['ConfigTimers'] = [];
-            if (null !== $this->configTimers && \is_array($this->configTimers)) {
-                $n = 0;
-                foreach ($this->configTimers as $item) {
-                    $res['ConfigTimers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->bindCountMap)) {
+                $res['BindCountMap'] = [];
+                foreach ($this->bindCountMap as $key1 => $value1) {
+                    $res['BindCountMap'][$key1] = $value1;
                 }
             }
         }
+
+        if (null !== $this->configTimers) {
+            if (\is_array($this->configTimers)) {
+                $res['ConfigTimers'] = [];
+                $n1 = 0;
+                foreach ($this->configTimers as $item1) {
+                    $res['ConfigTimers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -150,44 +130,58 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BindCount'])) {
             $model->bindCount = $map['BindCount'];
         }
+
         if (isset($map['BindCountMap'])) {
-            $model->bindCountMap = $map['BindCountMap'];
-        }
-        if (isset($map['ConfigTimers'])) {
-            if (!empty($map['ConfigTimers'])) {
-                $model->configTimers = [];
-                $n = 0;
-                foreach ($map['ConfigTimers'] as $item) {
-                    $model->configTimers[$n++] = null !== $item ? configTimers::fromMap($item) : $item;
+            if (!empty($map['BindCountMap'])) {
+                $model->bindCountMap = [];
+                foreach ($map['BindCountMap'] as $key1 => $value1) {
+                    $model->bindCountMap[$key1] = $value1;
                 }
             }
         }
+
+        if (isset($map['ConfigTimers'])) {
+            if (!empty($map['ConfigTimers'])) {
+                $model->configTimers = [];
+                $n1 = 0;
+                foreach ($map['ConfigTimers'] as $item1) {
+                    $model->configTimers[$n1] = configTimers::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

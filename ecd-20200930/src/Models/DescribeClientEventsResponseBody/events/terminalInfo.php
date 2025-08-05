@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeClientEventsResponseBody\events;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class terminalInfo extends Model
 {
@@ -28,17 +28,22 @@ class terminalInfo extends Model
         'serialNumber' => 'SerialNumber',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->model) {
             $res['Model'] = $this->model;
         }
+
         if (null !== $this->productName) {
             $res['ProductName'] = $this->productName;
         }
+
         if (null !== $this->serialNumber) {
             $res['SerialNumber'] = $this->serialNumber;
         }
@@ -46,20 +51,22 @@ class terminalInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return terminalInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
         }
+
         if (isset($map['ProductName'])) {
             $model->productName = $map['ProductName'];
         }
+
         if (isset($map['SerialNumber'])) {
             $model->serialNumber = $map['SerialNumber'];
         }

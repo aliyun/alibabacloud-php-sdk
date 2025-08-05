@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeForwardTableEntriesResponseBody\forwardTableEntries;
-use AlibabaCloud\Tea\Model;
 
 class DescribeForwardTableEntriesResponseBody extends Model
 {
@@ -35,26 +35,36 @@ class DescribeForwardTableEntriesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->forwardTableEntries)) {
+            Model::validateArray($this->forwardTableEntries);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->forwardTableEntries) {
-            $res['ForwardTableEntries'] = [];
-            if (null !== $this->forwardTableEntries && \is_array($this->forwardTableEntries)) {
-                $n = 0;
-                foreach ($this->forwardTableEntries as $item) {
-                    $res['ForwardTableEntries'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->forwardTableEntries)) {
+                $res['ForwardTableEntries'] = [];
+                $n1 = 0;
+                foreach ($this->forwardTableEntries as $item1) {
+                    $res['ForwardTableEntries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -62,29 +72,33 @@ class DescribeForwardTableEntriesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeForwardTableEntriesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ForwardTableEntries'])) {
             if (!empty($map['ForwardTableEntries'])) {
                 $model->forwardTableEntries = [];
-                $n = 0;
-                foreach ($map['ForwardTableEntries'] as $item) {
-                    $model->forwardTableEntries[$n++] = null !== $item ? forwardTableEntries::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ForwardTableEntries'] as $item1) {
+                    $model->forwardTableEntries[$n1] = forwardTableEntries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
