@@ -4,27 +4,44 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallPolicyBackUpAssociationListRequest\candidateList;
+use AlibabaCloud\Tea\Model;
 
 class DescribeTrFirewallPolicyBackUpAssociationListRequest extends Model
 {
     /**
+     * @description The traffic redirection instances.
+     *
      * @var candidateList[]
      */
     public $candidateList;
 
     /**
+     * @description The instance ID of the VPC firewall.
+     *
+     * @example vfw-tr-8b268ce1b26e4c68****
+     *
      * @var string
      */
     public $firewallId;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the routing policy.
+     *
+     * @example policy-5dcafb12ff794a56****
+     *
      * @var string
      */
     public $trFirewallRoutePolicyId;
@@ -35,35 +52,26 @@ class DescribeTrFirewallPolicyBackUpAssociationListRequest extends Model
         'trFirewallRoutePolicyId' => 'TrFirewallRoutePolicyId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->candidateList)) {
-            Model::validateArray($this->candidateList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->candidateList) {
-            if (\is_array($this->candidateList)) {
-                $res['CandidateList'] = [];
-                $n1 = 0;
-                foreach ($this->candidateList as $item1) {
-                    $res['CandidateList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['CandidateList'] = [];
+            if (null !== $this->candidateList && \is_array($this->candidateList)) {
+                $n = 0;
+                foreach ($this->candidateList as $item) {
+                    $res['CandidateList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->firewallId) {
             $res['FirewallId'] = $this->firewallId;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->trFirewallRoutePolicyId) {
             $res['TrFirewallRoutePolicyId'] = $this->trFirewallRoutePolicyId;
         }
@@ -71,32 +79,29 @@ class DescribeTrFirewallPolicyBackUpAssociationListRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeTrFirewallPolicyBackUpAssociationListRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CandidateList'])) {
             if (!empty($map['CandidateList'])) {
                 $model->candidateList = [];
-                $n1 = 0;
-                foreach ($map['CandidateList'] as $item1) {
-                    $model->candidateList[$n1++] = candidateList::fromMap($item1);
+                $n = 0;
+                foreach ($map['CandidateList'] as $item) {
+                    $model->candidateList[$n++] = null !== $item ? candidateList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['FirewallId'])) {
             $model->firewallId = $map['FirewallId'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['TrFirewallRoutePolicyId'])) {
             $model->trFirewallRoutePolicyId = $map['TrFirewallRoutePolicyId'];
         }

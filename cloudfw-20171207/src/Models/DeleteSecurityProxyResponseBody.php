@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteSecurityProxyResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 7447795A-39AB-52CB-8F92-128DF4898F36
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteSecurityProxyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteSecurityProxyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteSecurityProxyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

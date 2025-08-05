@@ -4,22 +4,32 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeSignatureLibVersionResponseBody\version;
+use AlibabaCloud\Tea\Model;
 
 class DescribeSignatureLibVersionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 9C50C2A9-4BBB-5504-8ADA-C41A79B8C946
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 132
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The version information.
+     *
      * @var version[]
      */
     public $version;
@@ -29,31 +39,23 @@ class DescribeSignatureLibVersionResponseBody extends Model
         'version' => 'Version',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->version)) {
-            Model::validateArray($this->version);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
-
         if (null !== $this->version) {
-            if (\is_array($this->version)) {
-                $res['Version'] = [];
-                $n1 = 0;
-                foreach ($this->version as $item1) {
-                    $res['Version'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Version'] = [];
+            if (null !== $this->version && \is_array($this->version)) {
+                $n = 0;
+                foreach ($this->version as $item) {
+                    $res['Version'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -61,28 +63,26 @@ class DescribeSignatureLibVersionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeSignatureLibVersionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
-
         if (isset($map['Version'])) {
             if (!empty($map['Version'])) {
                 $model->version = [];
-                $n1 = 0;
-                foreach ($map['Version'] as $item1) {
-                    $model->version[$n1++] = version::fromMap($item1);
+                $n = 0;
+                foreach ($map['Version'] as $item) {
+                    $model->version[$n++] = null !== $item ? version::fromMap($item) : $item;
                 }
             }
         }

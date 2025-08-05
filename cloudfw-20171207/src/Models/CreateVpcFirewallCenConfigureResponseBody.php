@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateVpcFirewallCenConfigureResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 850A84D6-0DE4-4797-A1E8-00090125h4j6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The instance ID of the VPC firewall.
+     *
+     * @example vfw-m5e7dbc4y****
+     *
      * @var string
      */
     public $vpcFirewallId;
@@ -22,18 +30,14 @@ class CreateVpcFirewallCenConfigureResponseBody extends Model
         'vpcFirewallId' => 'VpcFirewallId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->vpcFirewallId) {
             $res['VpcFirewallId'] = $this->vpcFirewallId;
         }
@@ -41,18 +45,17 @@ class CreateVpcFirewallCenConfigureResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateVpcFirewallCenConfigureResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['VpcFirewallId'])) {
             $model->vpcFirewallId = $map['VpcFirewallId'];
         }

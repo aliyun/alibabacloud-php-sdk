@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteDownloadTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 064022A8-F415-572C-B3C1-657152833F11
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteDownloadTaskResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteDownloadTaskResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteDownloadTaskResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

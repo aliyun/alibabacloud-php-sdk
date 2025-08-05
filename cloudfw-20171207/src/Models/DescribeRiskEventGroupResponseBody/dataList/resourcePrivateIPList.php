@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventGroupResponseBody\dataList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class resourcePrivateIPList extends Model
 {
     /**
+     * @description The ID of the region to which the private IP address belongs.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionNo;
 
     /**
+     * @description The ID of the instance that uses the private IP address.
+     *
+     * @example i-wz92jf4scg2zb74p****
+     *
      * @var string
      */
     public $resourceInstanceId;
 
     /**
+     * @description The name of the instance that uses the private IP address.
+     *
+     * @example LD-shenzhen-zy****
+     *
      * @var string
      */
     public $resourceInstanceName;
 
     /**
+     * @description The private IP address.
+     *
+     * @example 10.255.XX.XX
+     *
      * @var string
      */
     public $resourcePrivateIP;
@@ -34,26 +50,20 @@ class resourcePrivateIPList extends Model
         'resourcePrivateIP' => 'ResourcePrivateIP',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regionNo) {
             $res['RegionNo'] = $this->regionNo;
         }
-
         if (null !== $this->resourceInstanceId) {
             $res['ResourceInstanceId'] = $this->resourceInstanceId;
         }
-
         if (null !== $this->resourceInstanceName) {
             $res['ResourceInstanceName'] = $this->resourceInstanceName;
         }
-
         if (null !== $this->resourcePrivateIP) {
             $res['ResourcePrivateIP'] = $this->resourcePrivateIP;
         }
@@ -61,26 +71,23 @@ class resourcePrivateIPList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return resourcePrivateIPList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionNo'])) {
             $model->regionNo = $map['RegionNo'];
         }
-
         if (isset($map['ResourceInstanceId'])) {
             $model->resourceInstanceId = $map['ResourceInstanceId'];
         }
-
         if (isset($map['ResourceInstanceName'])) {
             $model->resourceInstanceName = $map['ResourceInstanceName'];
         }
-
         if (isset($map['ResourcePrivateIP'])) {
             $model->resourcePrivateIP = $map['ResourcePrivateIP'];
         }

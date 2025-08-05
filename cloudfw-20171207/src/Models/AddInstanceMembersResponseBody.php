@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddInstanceMembersResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example B40A54DF-C142-44F7-8441-B31C1EADB36E
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class AddInstanceMembersResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class AddInstanceMembersResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddInstanceMembersResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

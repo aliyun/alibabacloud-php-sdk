@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDownloadTaskTypeResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class taskTypeArray extends Model
 {
     /**
+     * @description The name of the task type.
+     *
+     * @example Internet Boundary Firewall Assets
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The type of the task.
+     *
+     * @example InternetFirewallAsset
+     *
      * @var string
      */
     public $taskType;
@@ -22,18 +30,14 @@ class taskTypeArray extends Model
         'taskType' => 'TaskType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
-
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
@@ -41,18 +45,17 @@ class taskTypeArray extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return taskTypeArray
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }
-
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }

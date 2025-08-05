@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallListResponseBody\vpcFirewalls\peerVpc;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallListResponseBody\vpcFirewalls\peerVpc\vpcCidrTableList\routeEntryList;
+use AlibabaCloud\Tea\Model;
 
 class vpcCidrTableList extends Model
 {
     /**
+     * @description An array that consists of the route entries of the peer VPC.
+     *
      * @var routeEntryList[]
      */
     public $routeEntryList;
 
     /**
+     * @description The ID of the route table for the peer VPC.
+     *
+     * @example vtb-1256
+     *
      * @var string
      */
     public $routeTableId;
@@ -23,27 +29,20 @@ class vpcCidrTableList extends Model
         'routeTableId' => 'RouteTableId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->routeEntryList)) {
-            Model::validateArray($this->routeEntryList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->routeEntryList) {
-            if (\is_array($this->routeEntryList)) {
-                $res['RouteEntryList'] = [];
-                $n1 = 0;
-                foreach ($this->routeEntryList as $item1) {
-                    $res['RouteEntryList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['RouteEntryList'] = [];
+            if (null !== $this->routeEntryList && \is_array($this->routeEntryList)) {
+                $n = 0;
+                foreach ($this->routeEntryList as $item) {
+                    $res['RouteEntryList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
         }
@@ -51,24 +50,23 @@ class vpcCidrTableList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return vpcCidrTableList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RouteEntryList'])) {
             if (!empty($map['RouteEntryList'])) {
                 $model->routeEntryList = [];
-                $n1 = 0;
-                foreach ($map['RouteEntryList'] as $item1) {
-                    $model->routeEntryList[$n1++] = routeEntryList::fromMap($item1);
+                $n = 0;
+                foreach ($map['RouteEntryList'] as $item) {
+                    $model->routeEntryList[$n++] = null !== $item ? routeEntryList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];
         }

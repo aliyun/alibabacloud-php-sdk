@@ -4,21 +4,40 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeVpcFirewallCenDetailRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the VPC for which the VPC firewall is created.
+     *
+     * @example vpc-2zefk9fbn8j7v585g****
+     *
      * @var string
      */
     public $networkInstanceId;
 
     /**
+     * @description The instance ID of the VPC firewall.
+     *
+     * > You can call the [DescribeVpcFirewallCenList](https://help.aliyun.com/document_detail/345777.html) operation to query the instance IDs of VPC firewalls.
+     *
+     * This parameter is required.
+     *
+     * @example vfw-m5e7dbc4y****
+     *
      * @var string
      */
     public $vpcFirewallId;
@@ -28,22 +47,17 @@ class DescribeVpcFirewallCenDetailRequest extends Model
         'vpcFirewallId' => 'VpcFirewallId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->networkInstanceId) {
             $res['NetworkInstanceId'] = $this->networkInstanceId;
         }
-
         if (null !== $this->vpcFirewallId) {
             $res['VpcFirewallId'] = $this->vpcFirewallId;
         }
@@ -51,22 +65,20 @@ class DescribeVpcFirewallCenDetailRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeVpcFirewallCenDetailRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['NetworkInstanceId'])) {
             $model->networkInstanceId = $map['NetworkInstanceId'];
         }
-
         if (isset($map['VpcFirewallId'])) {
             $model->vpcFirewallId = $map['VpcFirewallId'];
         }

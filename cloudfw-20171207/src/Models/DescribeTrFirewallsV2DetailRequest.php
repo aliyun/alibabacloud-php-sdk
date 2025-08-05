@@ -4,16 +4,27 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeTrFirewallsV2DetailRequest extends Model
 {
     /**
+     * @description The instance ID of the VPC firewall.
+     *
+     * @example vfw-tr-a5a6b89f46764928****
+     *
      * @var string
      */
     public $firewallId;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
@@ -22,18 +33,14 @@ class DescribeTrFirewallsV2DetailRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->firewallId) {
             $res['FirewallId'] = $this->firewallId;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -41,18 +48,17 @@ class DescribeTrFirewallsV2DetailRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeTrFirewallsV2DetailRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FirewallId'])) {
             $model->firewallId = $map['FirewallId'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

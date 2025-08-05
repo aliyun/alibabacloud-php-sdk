@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribePrefixListsRequest extends Model
 {
     /**
+     * @description The region ID of the instance.
+     *
+     * This parameter is required.
+     *
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $regionNo;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 47.100.XX.XX
+     *
      * @var string
      */
     public $sourceIp;
@@ -22,18 +32,14 @@ class DescribePrefixListsRequest extends Model
         'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->regionNo) {
             $res['RegionNo'] = $this->regionNo;
         }
-
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
@@ -41,18 +47,17 @@ class DescribePrefixListsRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePrefixListsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionNo'])) {
             $model->regionNo = $map['RegionNo'];
         }
-
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }

@@ -4,22 +4,32 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetRiskListResponseBody\assetList;
+use AlibabaCloud\Tea\Model;
 
 class DescribeAssetRiskListResponseBody extends Model
 {
     /**
+     * @description The details of the assets.
+     *
      * @var assetList[]
      */
     public $assetList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 443C5781-1C03-5FCD-8EC5-FB9C0B9AC396
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $totalCount;
@@ -29,31 +39,23 @@ class DescribeAssetRiskListResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->assetList)) {
-            Model::validateArray($this->assetList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->assetList) {
-            if (\is_array($this->assetList)) {
-                $res['AssetList'] = [];
-                $n1 = 0;
-                foreach ($this->assetList as $item1) {
-                    $res['AssetList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AssetList'] = [];
+            if (null !== $this->assetList && \is_array($this->assetList)) {
+                $n = 0;
+                foreach ($this->assetList as $item) {
+                    $res['AssetList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -61,28 +63,26 @@ class DescribeAssetRiskListResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeAssetRiskListResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetList'])) {
             if (!empty($map['AssetList'])) {
                 $model->assetList = [];
-                $n1 = 0;
-                foreach ($map['AssetList'] as $item1) {
-                    $model->assetList[$n1++] = assetList::fromMap($item1);
+                $n = 0;
+                foreach ($map['AssetList'] as $item) {
+                    $model->assetList[$n++] = null !== $item ? assetList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

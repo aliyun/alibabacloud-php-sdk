@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class PutEnableAllFwSwitchResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example B2841452-CB8D-4F7D-B247-38E1CF7334F8
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class PutEnableAllFwSwitchResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class PutEnableAllFwSwitchResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return PutEnableAllFwSwitchResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateTrFirewallV2RoutePolicyRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class srcCandidateList extends Model
 {
     /**
+     * @description The ID of the traffic redirection instance.
+     *
+     * @example vpc-2ze9epancaw8t4sha****
+     *
      * @var string
      */
     public $candidateId;
 
     /**
+     * @description The type of the traffic redirection instance.
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $candidateType;
@@ -22,18 +30,14 @@ class srcCandidateList extends Model
         'candidateType' => 'CandidateType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->candidateId) {
             $res['CandidateId'] = $this->candidateId;
         }
-
         if (null !== $this->candidateType) {
             $res['CandidateType'] = $this->candidateType;
         }
@@ -41,18 +45,17 @@ class srcCandidateList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return srcCandidateList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CandidateId'])) {
             $model->candidateId = $map['CandidateId'];
         }
-
         if (isset($map['CandidateType'])) {
             $model->candidateType = $map['CandidateType'];
         }

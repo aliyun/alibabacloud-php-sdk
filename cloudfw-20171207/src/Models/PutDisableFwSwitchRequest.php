@@ -4,31 +4,62 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class PutDisableFwSwitchRequest extends Model
 {
     /**
+     * @description The IP addresses.
+     *
+     * >  You must specify at least one of the IpaddrList, RegionList, and ResourceTypeList parameters.
+     *
+     * @example ["192.0.XX.XX","192.0.XX.XX"]
+     *
      * @var string[]
      */
     public $ipaddrList;
 
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The regions.
+     *
+     * >  You must specify at least one of the IpaddrList, RegionList, and ResourceTypeList parameters.
+     *
+     * @example ["cn-hangzhou","cn-shanghai"]
+     *
      * @var string[]
      */
     public $regionList;
 
     /**
+     * @description The types of the assets.
+     *
+     * > You must specify at least one of the IpaddrList, RegionList, and ResourceTypeList parameters.
+     *
+     * @example ["EcsPublicIp","NatEip"]
+     *
      * @var string[]
      */
     public $resourceTypeList;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 192.0.XX.XX
+     *
+     * @deprecated
+     *
      * @var string
      */
     public $sourceIp;
@@ -40,57 +71,23 @@ class PutDisableFwSwitchRequest extends Model
         'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ipaddrList)) {
-            Model::validateArray($this->ipaddrList);
-        }
-        if (\is_array($this->regionList)) {
-            Model::validateArray($this->regionList);
-        }
-        if (\is_array($this->resourceTypeList)) {
-            Model::validateArray($this->resourceTypeList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ipaddrList) {
-            if (\is_array($this->ipaddrList)) {
-                $res['IpaddrList'] = [];
-                $n1 = 0;
-                foreach ($this->ipaddrList as $item1) {
-                    $res['IpaddrList'][$n1++] = $item1;
-                }
-            }
+            $res['IpaddrList'] = $this->ipaddrList;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->regionList) {
-            if (\is_array($this->regionList)) {
-                $res['RegionList'] = [];
-                $n1 = 0;
-                foreach ($this->regionList as $item1) {
-                    $res['RegionList'][$n1++] = $item1;
-                }
-            }
+            $res['RegionList'] = $this->regionList;
         }
-
         if (null !== $this->resourceTypeList) {
-            if (\is_array($this->resourceTypeList)) {
-                $res['ResourceTypeList'] = [];
-                $n1 = 0;
-                foreach ($this->resourceTypeList as $item1) {
-                    $res['ResourceTypeList'][$n1++] = $item1;
-                }
-            }
+            $res['ResourceTypeList'] = $this->resourceTypeList;
         }
-
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
@@ -98,48 +95,32 @@ class PutDisableFwSwitchRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return PutDisableFwSwitchRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpaddrList'])) {
             if (!empty($map['IpaddrList'])) {
-                $model->ipaddrList = [];
-                $n1 = 0;
-                foreach ($map['IpaddrList'] as $item1) {
-                    $model->ipaddrList[$n1++] = $item1;
-                }
+                $model->ipaddrList = $map['IpaddrList'];
             }
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['RegionList'])) {
             if (!empty($map['RegionList'])) {
-                $model->regionList = [];
-                $n1 = 0;
-                foreach ($map['RegionList'] as $item1) {
-                    $model->regionList[$n1++] = $item1;
-                }
+                $model->regionList = $map['RegionList'];
             }
         }
-
         if (isset($map['ResourceTypeList'])) {
             if (!empty($map['ResourceTypeList'])) {
-                $model->resourceTypeList = [];
-                $n1 = 0;
-                foreach ($map['ResourceTypeList'] as $item1) {
-                    $model->resourceTypeList[$n1++] = $item1;
-                }
+                $model->resourceTypeList = $map['ResourceTypeList'];
             }
         }
-
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }

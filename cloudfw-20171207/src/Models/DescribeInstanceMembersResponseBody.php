@@ -4,23 +4,31 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceMembersResponseBody\members;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceMembersResponseBody\pageInfo;
+use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceMembersResponseBody extends Model
 {
     /**
+     * @description The information about the member.
+     *
      * @var members[]
      */
     public $members;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
+     * @example A531AE1A-FBA2-48B6-BAB8-84D02BD409EE
+     *
      * @var string
      */
     public $requestId;
@@ -30,34 +38,23 @@ class DescribeInstanceMembersResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->members)) {
-            Model::validateArray($this->members);
-        }
-        if (null !== $this->pageInfo) {
-            $this->pageInfo->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->members) {
-            if (\is_array($this->members)) {
-                $res['Members'] = [];
-                $n1 = 0;
-                foreach ($this->members as $item1) {
-                    $res['Members'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Members'] = [];
+            if (null !== $this->members && \is_array($this->members)) {
+                $n = 0;
+                foreach ($this->members as $item) {
+                    $res['Members'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,28 +62,26 @@ class DescribeInstanceMembersResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeInstanceMembersResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Members'])) {
             if (!empty($map['Members'])) {
                 $model->members = [];
-                $n1 = 0;
-                foreach ($map['Members'] as $item1) {
-                    $model->members[$n1++] = members::fromMap($item1);
+                $n = 0;
+                foreach ($map['Members'] as $item) {
+                    $model->members[$n++] = null !== $item ? members::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

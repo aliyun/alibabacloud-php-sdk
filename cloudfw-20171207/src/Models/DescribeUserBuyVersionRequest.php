@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeUserBuyVersionRequest extends Model
 {
     /**
+     * @description Instance ID. If the Instance ID is provided, the query will be based on this ID. If not provided, the latest instance will be queried by default.
+     *
+     * @example cfw_elasticity_public_cn-*******
+     *
      * @var string
      */
     public $instanceId;
@@ -16,12 +20,9 @@ class DescribeUserBuyVersionRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -31,11 +32,11 @@ class DescribeUserBuyVersionRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeUserBuyVersionRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

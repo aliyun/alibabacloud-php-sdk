@@ -4,11 +4,20 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallListResponseBody\vpcFirewalls;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class aclConfig extends Model
 {
     /**
+     * @description Specifies whether to enable the strict mode. Valid values:
+     *
+     *   1: yes
+     *   0: no
+     *
+     * This parameter is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $strictMode;
@@ -16,12 +25,9 @@ class aclConfig extends Model
         'strictMode' => 'StrictMode',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->strictMode) {
@@ -31,11 +37,11 @@ class aclConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return aclConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

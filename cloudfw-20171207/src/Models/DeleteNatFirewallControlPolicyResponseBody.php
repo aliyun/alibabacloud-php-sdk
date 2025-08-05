@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteNatFirewallControlPolicyResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 31306869-C4BC-56F3-BBE6-C377CF9C8E1C
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteNatFirewallControlPolicyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteNatFirewallControlPolicyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteNatFirewallControlPolicyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

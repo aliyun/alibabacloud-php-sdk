@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class AddAddressBookResponseBody extends Model
 {
     /**
+     * @description The UUID of the returned address book.
+     *
+     * @example f04ac7ce-628b-4cb7-be61-310222b7****
+     *
      * @var string
      */
     public $groupUuid;
 
     /**
+     * @description The request ID.
+     *
+     * @example CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2****
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class AddAddressBookResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->groupUuid) {
             $res['GroupUuid'] = $this->groupUuid;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class AddAddressBookResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return AddAddressBookResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupUuid'])) {
             $model->groupUuid = $map['GroupUuid'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

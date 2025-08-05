@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribeNatAclPageStatusRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
@@ -16,12 +23,9 @@ class DescribeNatAclPageStatusRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->lang) {
@@ -31,11 +35,11 @@ class DescribeNatAclPageStatusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeNatAclPageStatusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

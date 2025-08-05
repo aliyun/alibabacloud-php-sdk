@@ -4,17 +4,23 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\PutEnableFwSwitchResponseBody\abnormalResourceStatusList;
+use AlibabaCloud\Tea\Model;
 
 class PutEnableFwSwitchResponseBody extends Model
 {
     /**
+     * @description The status information of the asset when it is not synchronized to Cloud Firewall.
+     *
      * @var abnormalResourceStatusList[]
      */
     public $abnormalResourceStatusList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B2841452-CB8D-4F7D-B247-38E1CF7334F8
+     *
      * @var string
      */
     public $requestId;
@@ -23,27 +29,20 @@ class PutEnableFwSwitchResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->abnormalResourceStatusList)) {
-            Model::validateArray($this->abnormalResourceStatusList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->abnormalResourceStatusList) {
-            if (\is_array($this->abnormalResourceStatusList)) {
-                $res['AbnormalResourceStatusList'] = [];
-                $n1 = 0;
-                foreach ($this->abnormalResourceStatusList as $item1) {
-                    $res['AbnormalResourceStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['AbnormalResourceStatusList'] = [];
+            if (null !== $this->abnormalResourceStatusList && \is_array($this->abnormalResourceStatusList)) {
+                $n = 0;
+                foreach ($this->abnormalResourceStatusList as $item) {
+                    $res['AbnormalResourceStatusList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,24 +50,23 @@ class PutEnableFwSwitchResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return PutEnableFwSwitchResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AbnormalResourceStatusList'])) {
             if (!empty($map['AbnormalResourceStatusList'])) {
                 $model->abnormalResourceStatusList = [];
-                $n1 = 0;
-                foreach ($map['AbnormalResourceStatusList'] as $item1) {
-                    $model->abnormalResourceStatusList[$n1++] = abnormalResourceStatusList::fromMap($item1);
+                $n = 0;
+                foreach ($map['AbnormalResourceStatusList'] as $item) {
+                    $model->abnormalResourceStatusList[$n++] = null !== $item ? abnormalResourceStatusList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

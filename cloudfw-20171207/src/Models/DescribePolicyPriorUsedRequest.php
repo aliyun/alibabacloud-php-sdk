@@ -4,26 +4,61 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribePolicyPriorUsedRequest extends Model
 {
     /**
+     * @description The direction of the traffic to which the access control policy applies.
+     *
+     * Valid values:
+     *
+     *   **in**: inbound.
+     *   **out**: outbound.
+     *
+     * This parameter is required.
+     *
+     * @example in
+     *
      * @var string
      */
     public $direction;
 
     /**
+     * @description The IP version of the asset that is protected by Cloud Firewall.
+     *
+     * Valid values:
+     *
+     *   **4** (default): IPv4.
+     *   **6**: IPv6.
+     *
+     * @example 6
+     *
      * @var string
      */
     public $ipVersion;
 
     /**
+     * @description The language of the content within the request and response.
+     *
+     * Valid values:
+     *
+     *   **zh** (default)
+     *   **en**
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 192.0.XX.XX
+     *
+     * @deprecated
+     *
      * @var string
      */
     public $sourceIp;
@@ -34,26 +69,20 @@ class DescribePolicyPriorUsedRequest extends Model
         'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
         }
-
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
@@ -61,26 +90,23 @@ class DescribePolicyPriorUsedRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePolicyPriorUsedRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
         }
-
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }

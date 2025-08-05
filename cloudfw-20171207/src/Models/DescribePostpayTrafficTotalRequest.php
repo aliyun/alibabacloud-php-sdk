@@ -4,11 +4,18 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DescribePostpayTrafficTotalRequest extends Model
 {
     /**
+     * @description The language of the content within the response. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
@@ -16,12 +23,9 @@ class DescribePostpayTrafficTotalRequest extends Model
         'lang' => 'Lang',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->lang) {
@@ -31,11 +35,11 @@ class DescribePostpayTrafficTotalRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribePostpayTrafficTotalRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

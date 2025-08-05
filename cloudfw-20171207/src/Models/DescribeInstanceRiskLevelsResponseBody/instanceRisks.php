@@ -4,22 +4,34 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceRiskLevelsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceRiskLevelsResponseBody\instanceRisks\details;
+use AlibabaCloud\Tea\Model;
 
 class instanceRisks extends Model
 {
     /**
+     * @description The risk levels of the Elastic Compute Service (ECS) instance.
+     *
      * @var details[]
      */
     public $details;
 
     /**
+     * @description The instance ID of your Cloud Firewall.
+     *
+     * @example vipcloudfw-cn-7mz2fj8nm0u
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The risk levels. Valid values:
+     *
+     *   **medium**
+     *
+     * @example medium
+     *
      * @var string
      */
     public $level;
@@ -29,31 +41,23 @@ class instanceRisks extends Model
         'level' => 'Level',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->details)) {
-            Model::validateArray($this->details);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->details) {
-            if (\is_array($this->details)) {
-                $res['Details'] = [];
-                $n1 = 0;
-                foreach ($this->details as $item1) {
-                    $res['Details'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Details'] = [];
+            if (null !== $this->details && \is_array($this->details)) {
+                $n = 0;
+                foreach ($this->details as $item) {
+                    $res['Details'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
@@ -61,28 +65,26 @@ class instanceRisks extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return instanceRisks
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Details'])) {
             if (!empty($map['Details'])) {
                 $model->details = [];
-                $n1 = 0;
-                foreach ($map['Details'] as $item1) {
-                    $model->details[$n1++] = details::fromMap($item1);
+                $n = 0;
+                foreach ($map['Details'] as $item) {
+                    $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }

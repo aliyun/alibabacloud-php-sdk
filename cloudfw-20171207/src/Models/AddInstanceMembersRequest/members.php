@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddInstanceMembersRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class members extends Model
 {
     /**
+     * @description The remarks of the member. The value must be 1 to 256 characters in length.
+     *
+     * @example renewal
+     *
      * @var string
      */
     public $memberDesc;
 
     /**
+     * @description The UID of the member. You can add up to 20 members to Cloud Firewall at a time.
+     *
+     * This parameter is required.
+     *
+     * @example 258039427902****
+     *
      * @var int
      */
     public $memberUid;
@@ -22,18 +32,14 @@ class members extends Model
         'memberUid' => 'MemberUid',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->memberDesc) {
             $res['MemberDesc'] = $this->memberDesc;
         }
-
         if (null !== $this->memberUid) {
             $res['MemberUid'] = $this->memberUid;
         }
@@ -41,18 +47,17 @@ class members extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return members
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MemberDesc'])) {
             $model->memberDesc = $map['MemberDesc'];
         }
-
         if (isset($map['MemberUid'])) {
             $model->memberUid = $map['MemberUid'];
         }

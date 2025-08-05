@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponseBody\acls;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tagList extends Model
 {
     /**
+     * @description The key of the ECS tag.
+     *
+     * @example company
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The value of the ECS tag.
+     *
+     * @example admin
+     *
      * @var string
      */
     public $tagValue;
@@ -22,18 +30,14 @@ class tagList extends Model
         'tagValue' => 'TagValue',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
-
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
         }
@@ -41,18 +45,17 @@ class tagList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tagList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }
-
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
         }

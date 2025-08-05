@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyTrFirewallV2ConfigurationResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example A74C8FDD-2BEF-52D5-8B01-EB6FD94606F9
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class ModifyTrFirewallV2ConfigurationResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class ModifyTrFirewallV2ConfigurationResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyTrFirewallV2ConfigurationResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

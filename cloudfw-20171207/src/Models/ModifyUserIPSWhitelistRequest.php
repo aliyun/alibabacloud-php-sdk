@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyUserIPSWhitelistRequest extends Model
 {
@@ -52,38 +52,29 @@ class ModifyUserIPSWhitelistRequest extends Model
         'whiteType' => 'WhiteType',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
         }
-
         if (null !== $this->ipVersion) {
             $res['IpVersion'] = $this->ipVersion;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->listType) {
             $res['ListType'] = $this->listType;
         }
-
         if (null !== $this->listValue) {
             $res['ListValue'] = $this->listValue;
         }
-
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
-
         if (null !== $this->whiteType) {
             $res['WhiteType'] = $this->whiteType;
         }
@@ -91,38 +82,32 @@ class ModifyUserIPSWhitelistRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyUserIPSWhitelistRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
         }
-
         if (isset($map['IpVersion'])) {
             $model->ipVersion = $map['IpVersion'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['ListType'])) {
             $model->listType = $map['ListType'];
         }
-
         if (isset($map['ListValue'])) {
             $model->listValue = $map['ListValue'];
         }
-
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
-
         if (isset($map['WhiteType'])) {
             $model->whiteType = $map['WhiteType'];
         }

@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateVpcFirewallControlPolicyResponseBody extends Model
 {
     /**
+     * @description The ID of the access control policy.
+     *
+     * @example 00281255-d220-4db1-8f4f-c4df221ad84c
+     *
      * @var string
      */
     public $aclUuid;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class CreateVpcFirewallControlPolicyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->aclUuid) {
             $res['AclUuid'] = $this->aclUuid;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class CreateVpcFirewallControlPolicyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateVpcFirewallControlPolicyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclUuid'])) {
             $model->aclUuid = $map['AclUuid'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

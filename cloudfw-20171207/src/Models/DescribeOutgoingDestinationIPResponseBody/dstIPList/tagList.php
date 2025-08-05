@@ -4,31 +4,59 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDestinationIPResponseBody\dstIPList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tagList extends Model
 {
     /**
+     * @description The type of the tag. Valid values:
+     *
+     *   **Suspicious**
+     *   **Malicious**
+     *   **Trusted**
+     *
+     * @example Trusted
+     *
      * @var string
      */
     public $classId;
 
     /**
+     * @description The risk level. Valid values:
+     *
+     *   **1**: low.
+     *   **2**: medium.
+     *   **3**: high.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $riskLevel;
 
     /**
+     * @description The description of the tag.
+     *
+     * @example Tag that indicates traffic is allowed
+     *
      * @var string
      */
     public $tagDescribe;
 
     /**
+     * @description The ID of the tag.
+     *
+     * @example AliYun
+     *
      * @var string
      */
     public $tagId;
 
     /**
+     * @description The name of the tag.
+     *
+     * @example Tag that indicates traffic is allowed
+     *
      * @var string
      */
     public $tagName;
@@ -40,30 +68,23 @@ class tagList extends Model
         'tagName' => 'TagName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->classId) {
             $res['ClassId'] = $this->classId;
         }
-
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
         }
-
         if (null !== $this->tagDescribe) {
             $res['TagDescribe'] = $this->tagDescribe;
         }
-
         if (null !== $this->tagId) {
             $res['TagId'] = $this->tagId;
         }
-
         if (null !== $this->tagName) {
             $res['TagName'] = $this->tagName;
         }
@@ -71,30 +92,26 @@ class tagList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tagList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClassId'])) {
             $model->classId = $map['ClassId'];
         }
-
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
         }
-
         if (isset($map['TagDescribe'])) {
             $model->tagDescribe = $map['TagDescribe'];
         }
-
         if (isset($map['TagId'])) {
             $model->tagId = $map['TagId'];
         }
-
         if (isset($map['TagName'])) {
             $model->tagName = $map['TagName'];
         }

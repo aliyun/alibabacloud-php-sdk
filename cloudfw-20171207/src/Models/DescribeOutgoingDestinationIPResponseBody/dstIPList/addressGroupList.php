@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDestinationIPResponseBody\dstIPList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class addressGroupList extends Model
 {
     /**
+     * @description The name of the address book.
+     *
+     * @example IP address book
+     *
      * @var string
      */
     public $addressGroupName;
 
     /**
+     * @description The UUID of the address book.
+     *
+     * @example f04ac7ce-628b-4cb7-be61-310222b7****
+     *
      * @var string
      */
     public $addressGroupUUID;
@@ -22,18 +30,14 @@ class addressGroupList extends Model
         'addressGroupUUID' => 'AddressGroupUUID',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->addressGroupName) {
             $res['AddressGroupName'] = $this->addressGroupName;
         }
-
         if (null !== $this->addressGroupUUID) {
             $res['AddressGroupUUID'] = $this->addressGroupUUID;
         }
@@ -41,18 +45,17 @@ class addressGroupList extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return addressGroupList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddressGroupName'])) {
             $model->addressGroupName = $map['AddressGroupName'];
         }
-
         if (isset($map['AddressGroupUUID'])) {
             $model->addressGroupUUID = $map['AddressGroupUUID'];
         }

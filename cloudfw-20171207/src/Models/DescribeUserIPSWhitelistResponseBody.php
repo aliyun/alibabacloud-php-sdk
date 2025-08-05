@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserIPSWhitelistResponseBody\ipv6Whitelists;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserIPSWhitelistResponseBody\whitelists;
+use AlibabaCloud\Tea\Model;
 
 class DescribeUserIPSWhitelistResponseBody extends Model
 {
@@ -30,40 +30,29 @@ class DescribeUserIPSWhitelistResponseBody extends Model
         'whitelists' => 'Whitelists',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ipv6Whitelists)) {
-            Model::validateArray($this->ipv6Whitelists);
-        }
-        if (\is_array($this->whitelists)) {
-            Model::validateArray($this->whitelists);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ipv6Whitelists) {
-            if (\is_array($this->ipv6Whitelists)) {
-                $res['Ipv6Whitelists'] = [];
-                $n1 = 0;
-                foreach ($this->ipv6Whitelists as $item1) {
-                    $res['Ipv6Whitelists'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Ipv6Whitelists'] = [];
+            if (null !== $this->ipv6Whitelists && \is_array($this->ipv6Whitelists)) {
+                $n = 0;
+                foreach ($this->ipv6Whitelists as $item) {
+                    $res['Ipv6Whitelists'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->whitelists) {
-            if (\is_array($this->whitelists)) {
-                $res['Whitelists'] = [];
-                $n1 = 0;
-                foreach ($this->whitelists as $item1) {
-                    $res['Whitelists'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Whitelists'] = [];
+            if (null !== $this->whitelists && \is_array($this->whitelists)) {
+                $n = 0;
+                foreach ($this->whitelists as $item) {
+                    $res['Whitelists'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -71,34 +60,32 @@ class DescribeUserIPSWhitelistResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeUserIPSWhitelistResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ipv6Whitelists'])) {
             if (!empty($map['Ipv6Whitelists'])) {
                 $model->ipv6Whitelists = [];
-                $n1 = 0;
-                foreach ($map['Ipv6Whitelists'] as $item1) {
-                    $model->ipv6Whitelists[$n1++] = ipv6Whitelists::fromMap($item1);
+                $n = 0;
+                foreach ($map['Ipv6Whitelists'] as $item) {
+                    $model->ipv6Whitelists[$n++] = null !== $item ? ipv6Whitelists::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['Whitelists'])) {
             if (!empty($map['Whitelists'])) {
                 $model->whitelists = [];
-                $n1 = 0;
-                foreach ($map['Whitelists'] as $item1) {
-                    $model->whitelists[$n1++] = whitelists::fromMap($item1);
+                $n = 0;
+                foreach ($map['Whitelists'] as $item) {
+                    $model->whitelists[$n++] = null !== $item ? whitelists::fromMap($item) : $item;
                 }
             }
         }

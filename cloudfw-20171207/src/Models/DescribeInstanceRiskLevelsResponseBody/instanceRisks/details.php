@@ -4,21 +4,35 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceRiskLevelsResponseBody\instanceRisks;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class details extends Model
 {
     /**
+     * @description The IP addresses of servers.
+     *
+     * @example 203.107.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The risk levels. Valid values:
+     *
+     *   **medium**
+     *
+     * @example medium
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The type.
+     *
+     * @example ResourceNotProtected
+     *
      * @var string
      */
     public $type;
@@ -28,22 +42,17 @@ class details extends Model
         'type' => 'Type',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
-
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -51,22 +60,20 @@ class details extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return details
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
-
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

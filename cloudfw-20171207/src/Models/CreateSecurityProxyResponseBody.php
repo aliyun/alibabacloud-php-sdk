@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateSecurityProxyResponseBody extends Model
 {
     /**
+     * @description The ID of the NAT firewall.
+     *
+     * @example proxy-nat97ac4d7cc3834a5daf40
+     *
      * @var string
      */
     public $proxyId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 15FCCC52-1E23-57AE-B5EF-3E00A3DC3CAB
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +30,14 @@ class CreateSecurityProxyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->proxyId) {
             $res['ProxyId'] = $this->proxyId;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,18 +45,17 @@ class CreateSecurityProxyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateSecurityProxyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProxyId'])) {
             $model->proxyId = $map['ProxyId'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

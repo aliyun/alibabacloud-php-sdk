@@ -4,26 +4,50 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ModifyPolicyAdvancedConfigRequest extends Model
 {
     /**
+     * @description The IP addresses. The versions of the IP addresses must be the same. You can specify a maximum of 100 IP addresses.
+     *
      * @var string[]
      */
     public $eips;
 
     /**
+     * @description Specifies whether to enable the strict mode for the access control policy. Valid values:
+     *
+     *   **on**: enables the strict mode.
+     *   **off**: disables the strict mode.
+     *
+     * This parameter is required.
+     *
+     * @example off
+     *
      * @var string
      */
     public $internetSwitch;
 
     /**
+     * @description The natural language of the request and response. Valid values:
+     *
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 192.0.XX.XX
+     *
+     * @deprecated
+     *
      * @var string
      */
     public $sourceIp;
@@ -34,35 +58,20 @@ class ModifyPolicyAdvancedConfigRequest extends Model
         'sourceIp' => 'SourceIp',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->eips)) {
-            Model::validateArray($this->eips);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eips) {
-            if (\is_array($this->eips)) {
-                $res['Eips'] = [];
-                $n1 = 0;
-                foreach ($this->eips as $item1) {
-                    $res['Eips'][$n1++] = $item1;
-                }
-            }
+            $res['Eips'] = $this->eips;
         }
-
         if (null !== $this->internetSwitch) {
             $res['InternetSwitch'] = $this->internetSwitch;
         }
-
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
@@ -70,32 +79,25 @@ class ModifyPolicyAdvancedConfigRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ModifyPolicyAdvancedConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Eips'])) {
             if (!empty($map['Eips'])) {
-                $model->eips = [];
-                $n1 = 0;
-                foreach ($map['Eips'] as $item1) {
-                    $model->eips[$n1++] = $item1;
-                }
+                $model->eips = $map['Eips'];
             }
         }
-
         if (isset($map['InternetSwitch'])) {
             $model->internetSwitch = $map['InternetSwitch'];
         }
-
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }

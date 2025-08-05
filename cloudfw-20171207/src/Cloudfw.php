@@ -4,13 +4,18 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddAddressBookResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddDnsFirewallPolicyRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddDnsFirewallPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddInstanceMembersRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddInstanceMembersResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddPrivateDnsDomainNameRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddPrivateDnsDomainNameResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchCopyVpcFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchCopyVpcFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchDeleteVpcFirewallControlPolicyRequest;
@@ -30,6 +35,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateTrFirewallV2RoutePolicyRespo
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateTrFirewallV2RoutePolicyShrinkRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallCenConfigureRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallCenConfigureResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallCenManualConfigureRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallCenManualConfigureResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallConfigureRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallConfigureResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateVpcFirewallControlPolicyRequest;
@@ -40,6 +47,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteControlPolicyTemplateRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteControlPolicyTemplateResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteDnsFirewallPolicyRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteDnsFirewallPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteDownloadTaskRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteDownloadTaskResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteFirewallV2RoutePoliciesRequest;
@@ -50,6 +59,12 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteNatFirewallControlPolicyBatc
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteNatFirewallControlPolicyBatchResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteNatFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteNatFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeletePrivateDnsAllDomainNameRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeletePrivateDnsAllDomainNameResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeletePrivateDnsDomainNameRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeletePrivateDnsDomainNameResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeletePrivateDnsEndpointRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeletePrivateDnsEndpointResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteSecurityProxyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteSecurityProxyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteTrFirewallV2Request;
@@ -64,6 +79,7 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeACLProtectTrendRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeACLProtectTrendResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAITrafficAnalysisStatusResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetRiskListRequest;
@@ -76,6 +92,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDefaultIPSConfigRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDefaultIPSConfigResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDnsFirewallPolicyRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDnsFirewallPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDomainResolveRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDomainResolveResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDownloadTaskRequest;
@@ -117,6 +135,12 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePostpayTrafficTotalRequest
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePostpayTrafficTotalResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrefixListsRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrefixListsResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrivateDnsDomainNameListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrivateDnsDomainNameListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrivateDnsEndpointDetailRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrivateDnsEndpointDetailResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrivateDnsEndpointListRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePrivateDnsEndpointListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventGroupRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventGroupResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventPayloadRequest;
@@ -167,10 +191,14 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyAddressBookResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPositionRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPositionResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPriorityRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPriorityResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyDefaultIPSConfigRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyDefaultIPSConfigResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyDnsFirewallPolicyRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyDnsFirewallPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyFirewallV2RoutePolicySwitchRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyFirewallV2RoutePolicySwitchResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyInstanceMemberAttributesRequest;
@@ -183,6 +211,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyObjectGroupOperationRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyObjectGroupOperationResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyPolicyAdvancedConfigRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyPolicyAdvancedConfigResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyPrivateDnsEndpointRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyPrivateDnsEndpointResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyTrFirewallV2ConfigurationRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyTrFirewallV2ConfigurationResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyTrFirewallV2RoutePolicyScopeRequest;
@@ -214,6 +244,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\PutEnableAllFwSwitchRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\PutEnableAllFwSwitchResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\PutEnableFwSwitchRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\PutEnableFwSwitchResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ReleaseExpiredInstanceRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ReleaseExpiredInstanceResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ReleasePostInstanceRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ReleasePostInstanceResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetNatFirewallRuleHitCountRequest;
@@ -222,10 +254,13 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetVpcFirewallRuleHitCountReques
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ResetVpcFirewallRuleHitCountResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\SwitchSecurityProxyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\SwitchSecurityProxyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateAITrafficAnalysisStatusRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\UpdateAITrafficAnalysisStatusResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class Cloudfw extends OpenApiClient
 {
@@ -254,77 +289,61 @@ class Cloudfw extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Creates an address book for access control. Supported address book types are IP address books, Elastic Compute Service (ECS) tag-based address books, port address books, and domain address books. An ECS tag-based address book includes the public IP addresses of the ECS instances that have specific tags.
-     *
-     * @remarks
-     * You can call the AddAddressBook operation to create an address book for access control. The address book can be an IP address book, an ECS tag-based address book, a port address book, or a domain address book.
+     * @summary Creates an address book for access control. Supported address book types are IP address books, Elastic Compute Service (ECS) tag-based address books, port address books, and domain address books. An ECS tag-based address book includes the public IP addresses of the ECS instances that have specific tags.
+     *  *
+     * @description You can call the AddAddressBook operation to create an address book for access control. The address book can be an IP address book, an ECS tag-based address book, a port address book, or a domain address book.
      * ## [](#qps)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param AddAddressBookRequest $request AddAddressBookRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddAddressBookRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddAddressBookResponse
-     *
-     * @param AddAddressBookRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return AddAddressBookResponse
+     * @return AddAddressBookResponse AddAddressBookResponse
      */
     public function addAddressBookWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->addressList) {
-            @$query['AddressList'] = $request->addressList;
+        if (!Utils::isUnset($request->addressList)) {
+            $query['AddressList'] = $request->addressList;
         }
-
-        if (null !== $request->autoAddTagEcs) {
-            @$query['AutoAddTagEcs'] = $request->autoAddTagEcs;
+        if (!Utils::isUnset($request->autoAddTagEcs)) {
+            $query['AutoAddTagEcs'] = $request->autoAddTagEcs;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->groupName) {
-            @$query['GroupName'] = $request->groupName;
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
         }
-
-        if (null !== $request->groupType) {
-            @$query['GroupType'] = $request->groupType;
+        if (!Utils::isUnset($request->groupType)) {
+            $query['GroupType'] = $request->groupType;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
-        if (null !== $request->tagList) {
-            @$query['TagList'] = $request->tagList;
+        if (!Utils::isUnset($request->tagList)) {
+            $query['TagList'] = $request->tagList;
         }
-
-        if (null !== $request->tagRelation) {
-            @$query['TagRelation'] = $request->tagRelation;
+        if (!Utils::isUnset($request->tagRelation)) {
+            $query['TagRelation'] = $request->tagRelation;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddAddressBook',
@@ -342,20 +361,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates an address book for access control. Supported address book types are IP address books, Elastic Compute Service (ECS) tag-based address books, port address books, and domain address books. An ECS tag-based address book includes the public IP addresses of the ECS instances that have specific tags.
-     *
-     * @remarks
-     * You can call the AddAddressBook operation to create an address book for access control. The address book can be an IP address book, an ECS tag-based address book, a port address book, or a domain address book.
+     * @summary Creates an address book for access control. Supported address book types are IP address books, Elastic Compute Service (ECS) tag-based address books, port address books, and domain address books. An ECS tag-based address book includes the public IP addresses of the ECS instances that have specific tags.
+     *  *
+     * @description You can call the AddAddressBook operation to create an address book for access control. The address book can be an IP address book, an ECS tag-based address book, a port address book, or a domain address book.
      * ## [](#qps)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param AddAddressBookRequest $request AddAddressBookRequest
      *
-     * @param request - AddAddressBookRequest
-     *
-     * @returns AddAddressBookResponse
-     *
-     * @param AddAddressBookRequest $request
-     *
-     * @return AddAddressBookResponse
+     * @return AddAddressBookResponse AddAddressBookResponse
      */
     public function addAddressBook($request)
     {
@@ -365,129 +379,98 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates an access control policy.
-     *
-     * @remarks
-     * You can call the AddControlPolicy operation to create an access control policy to allow, block, or monitor traffic that reaches Cloud Firewall.
+     * @summary Creates an access control policy.
+     *  *
+     * @description You can call the AddControlPolicy operation to create an access control policy to allow, block, or monitor traffic that reaches Cloud Firewall.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param AddControlPolicyRequest $request AddControlPolicyRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddControlPolicyResponse
-     *
-     * @param AddControlPolicyRequest $request
-     * @param RuntimeOptions          $runtime
-     *
-     * @return AddControlPolicyResponse
+     * @return AddControlPolicyResponse AddControlPolicyResponse
      */
     public function addControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclAction) {
-            @$query['AclAction'] = $request->aclAction;
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
         }
-
-        if (null !== $request->applicationName) {
-            @$query['ApplicationName'] = $request->applicationName;
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
         }
-
-        if (null !== $request->applicationNameList) {
-            @$query['ApplicationNameList'] = $request->applicationNameList;
+        if (!Utils::isUnset($request->applicationNameList)) {
+            $query['ApplicationNameList'] = $request->applicationNameList;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->destPort) {
-            @$query['DestPort'] = $request->destPort;
+        if (!Utils::isUnset($request->destPort)) {
+            $query['DestPort'] = $request->destPort;
         }
-
-        if (null !== $request->destPortGroup) {
-            @$query['DestPortGroup'] = $request->destPortGroup;
+        if (!Utils::isUnset($request->destPortGroup)) {
+            $query['DestPortGroup'] = $request->destPortGroup;
         }
-
-        if (null !== $request->destPortType) {
-            @$query['DestPortType'] = $request->destPortType;
+        if (!Utils::isUnset($request->destPortType)) {
+            $query['DestPortType'] = $request->destPortType;
         }
-
-        if (null !== $request->destination) {
-            @$query['Destination'] = $request->destination;
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
         }
-
-        if (null !== $request->destinationType) {
-            @$query['DestinationType'] = $request->destinationType;
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
         }
-
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->domainResolveType) {
-            @$query['DomainResolveType'] = $request->domainResolveType;
+        if (!Utils::isUnset($request->domainResolveType)) {
+            $query['DomainResolveType'] = $request->domainResolveType;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->ipVersion) {
-            @$query['IpVersion'] = $request->ipVersion;
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->newOrder) {
-            @$query['NewOrder'] = $request->newOrder;
+        if (!Utils::isUnset($request->newOrder)) {
+            $query['NewOrder'] = $request->newOrder;
         }
-
-        if (null !== $request->proto) {
-            @$query['Proto'] = $request->proto;
+        if (!Utils::isUnset($request->proto)) {
+            $query['Proto'] = $request->proto;
         }
-
-        if (null !== $request->release) {
-            @$query['Release'] = $request->release;
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
         }
-
-        if (null !== $request->repeatDays) {
-            @$query['RepeatDays'] = $request->repeatDays;
+        if (!Utils::isUnset($request->repeatDays)) {
+            $query['RepeatDays'] = $request->repeatDays;
         }
-
-        if (null !== $request->repeatEndTime) {
-            @$query['RepeatEndTime'] = $request->repeatEndTime;
+        if (!Utils::isUnset($request->repeatEndTime)) {
+            $query['RepeatEndTime'] = $request->repeatEndTime;
         }
-
-        if (null !== $request->repeatStartTime) {
-            @$query['RepeatStartTime'] = $request->repeatStartTime;
+        if (!Utils::isUnset($request->repeatStartTime)) {
+            $query['RepeatStartTime'] = $request->repeatStartTime;
         }
-
-        if (null !== $request->repeatType) {
-            @$query['RepeatType'] = $request->repeatType;
+        if (!Utils::isUnset($request->repeatType)) {
+            $query['RepeatType'] = $request->repeatType;
         }
-
-        if (null !== $request->source) {
-            @$query['Source'] = $request->source;
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddControlPolicy',
@@ -505,20 +488,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates an access control policy.
-     *
-     * @remarks
-     * You can call the AddControlPolicy operation to create an access control policy to allow, block, or monitor traffic that reaches Cloud Firewall.
+     * @summary Creates an access control policy.
+     *  *
+     * @description You can call the AddControlPolicy operation to create an access control policy to allow, block, or monitor traffic that reaches Cloud Firewall.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param AddControlPolicyRequest $request AddControlPolicyRequest
      *
-     * @param request - AddControlPolicyRequest
-     *
-     * @returns AddControlPolicyResponse
-     *
-     * @param AddControlPolicyRequest $request
-     *
-     * @return AddControlPolicyResponse
+     * @return AddControlPolicyResponse AddControlPolicyResponse
      */
     public function addControlPolicy($request)
     {
@@ -528,33 +506,106 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Adds members to Cloud Firewall.
+     * @summary 添加DNS防火墙ACL
+     *  *
+     * @param AddDnsFirewallPolicyRequest $request AddDnsFirewallPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation to add members to Cloud Firewall.
+     * @return AddDnsFirewallPolicyResponse AddDnsFirewallPolicyResponse
+     */
+    public function addDnsFirewallPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
+        }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddDnsFirewallPolicy',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddDnsFirewallPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 添加DNS防火墙ACL
+     *  *
+     * @param AddDnsFirewallPolicyRequest $request AddDnsFirewallPolicyRequest
+     *
+     * @return AddDnsFirewallPolicyResponse AddDnsFirewallPolicyResponse
+     */
+    public function addDnsFirewallPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDnsFirewallPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Adds members to Cloud Firewall.
+     *  *
+     * @description You can call this operation to add members to Cloud Firewall.
      * ## [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param AddInstanceMembersRequest $request AddInstanceMembersRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - AddInstanceMembersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns AddInstanceMembersResponse
-     *
-     * @param AddInstanceMembersRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return AddInstanceMembersResponse
+     * @return AddInstanceMembersResponse AddInstanceMembersResponse
      */
     public function addInstanceMembersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->members) {
-            @$query['Members'] = $request->members;
+        if (!Utils::isUnset($request->members)) {
+            $query['Members'] = $request->members;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'AddInstanceMembers',
@@ -572,20 +623,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Adds members to Cloud Firewall.
-     *
-     * @remarks
-     * You can call this operation to add members to Cloud Firewall.
+     * @summary Adds members to Cloud Firewall.
+     *  *
+     * @description You can call this operation to add members to Cloud Firewall.
      * ## [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param AddInstanceMembersRequest $request AddInstanceMembersRequest
      *
-     * @param request - AddInstanceMembersRequest
-     *
-     * @returns AddInstanceMembersResponse
-     *
-     * @param AddInstanceMembersRequest $request
-     *
-     * @return AddInstanceMembersResponse
+     * @return AddInstanceMembersResponse AddInstanceMembersResponse
      */
     public function addInstanceMembers($request)
     {
@@ -595,48 +641,91 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Copies all access control policies from a policy group of a source virtual private cloud (VPC) firewall to a policy group of a destination VPC firewall.
+     * @summary 添加私网DNS域名
+     *  *
+     * @param AddPrivateDnsDomainNameRequest $request AddPrivateDnsDomainNameRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call the BatchCopyVpcFirewallControlPolicy operation to copy all access control policies from a policy group of a source VPC firewall to a policy group of a destination VPC firewall.
+     * @return AddPrivateDnsDomainNameResponse AddPrivateDnsDomainNameResponse
+     */
+    public function addPrivateDnsDomainNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessInstanceId)) {
+            $query['AccessInstanceId'] = $request->accessInstanceId;
+        }
+        if (!Utils::isUnset($request->domainNameList)) {
+            $query['DomainNameList'] = $request->domainNameList;
+        }
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'AddPrivateDnsDomainName',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return AddPrivateDnsDomainNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 添加私网DNS域名
+     *  *
+     * @param AddPrivateDnsDomainNameRequest $request AddPrivateDnsDomainNameRequest
+     *
+     * @return AddPrivateDnsDomainNameResponse AddPrivateDnsDomainNameResponse
+     */
+    public function addPrivateDnsDomainName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addPrivateDnsDomainNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Copies all access control policies from a policy group of a source virtual private cloud (VPC) firewall to a policy group of a destination VPC firewall.
+     *  *
+     * @description You can call the BatchCopyVpcFirewallControlPolicy operation to copy all access control policies from a policy group of a source VPC firewall to a policy group of a destination VPC firewall.
      * Before you call this operation, we recommend that you back up access control policies. For more information about how to back up an access control policy, see [Back up an access control policy](https://www.alibabacloud.com/help/en/cloud-firewall/latest/back-up-and-roll-back-an-access-control-policy).
      * After you call this operation, all the access control policies in the policy group of the destination VPC firewall are replaced.
      * The policy groups of the source VPC firewall and the destination VPC firewall must belong to the same Alibaba Cloud account.
      * ## Limits
      * You can call this operation up to 10 times per second per account. When the number of calls to this operation per second exceeds the limit, throttling is triggered. Throttling may affect your business. We recommend that you take note of the limit on this operation.
+     *  *
+     * @param BatchCopyVpcFirewallControlPolicyRequest $request BatchCopyVpcFirewallControlPolicyRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - BatchCopyVpcFirewallControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns BatchCopyVpcFirewallControlPolicyResponse
-     *
-     * @param BatchCopyVpcFirewallControlPolicyRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return BatchCopyVpcFirewallControlPolicyResponse
+     * @return BatchCopyVpcFirewallControlPolicyResponse BatchCopyVpcFirewallControlPolicyResponse
      */
     public function batchCopyVpcFirewallControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
-        if (null !== $request->sourceVpcFirewallId) {
-            @$query['SourceVpcFirewallId'] = $request->sourceVpcFirewallId;
+        if (!Utils::isUnset($request->sourceVpcFirewallId)) {
+            $query['SourceVpcFirewallId'] = $request->sourceVpcFirewallId;
         }
-
-        if (null !== $request->targetVpcFirewallId) {
-            @$query['TargetVpcFirewallId'] = $request->targetVpcFirewallId;
+        if (!Utils::isUnset($request->targetVpcFirewallId)) {
+            $query['TargetVpcFirewallId'] = $request->targetVpcFirewallId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'BatchCopyVpcFirewallControlPolicy',
@@ -654,23 +743,18 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Copies all access control policies from a policy group of a source virtual private cloud (VPC) firewall to a policy group of a destination VPC firewall.
-     *
-     * @remarks
-     * You can call the BatchCopyVpcFirewallControlPolicy operation to copy all access control policies from a policy group of a source VPC firewall to a policy group of a destination VPC firewall.
+     * @summary Copies all access control policies from a policy group of a source virtual private cloud (VPC) firewall to a policy group of a destination VPC firewall.
+     *  *
+     * @description You can call the BatchCopyVpcFirewallControlPolicy operation to copy all access control policies from a policy group of a source VPC firewall to a policy group of a destination VPC firewall.
      * Before you call this operation, we recommend that you back up access control policies. For more information about how to back up an access control policy, see [Back up an access control policy](https://www.alibabacloud.com/help/en/cloud-firewall/latest/back-up-and-roll-back-an-access-control-policy).
      * After you call this operation, all the access control policies in the policy group of the destination VPC firewall are replaced.
      * The policy groups of the source VPC firewall and the destination VPC firewall must belong to the same Alibaba Cloud account.
      * ## Limits
      * You can call this operation up to 10 times per second per account. When the number of calls to this operation per second exceeds the limit, throttling is triggered. Throttling may affect your business. We recommend that you take note of the limit on this operation.
+     *  *
+     * @param BatchCopyVpcFirewallControlPolicyRequest $request BatchCopyVpcFirewallControlPolicyRequest
      *
-     * @param request - BatchCopyVpcFirewallControlPolicyRequest
-     *
-     * @returns BatchCopyVpcFirewallControlPolicyResponse
-     *
-     * @param BatchCopyVpcFirewallControlPolicyRequest $request
-     *
-     * @return BatchCopyVpcFirewallControlPolicyResponse
+     * @return BatchCopyVpcFirewallControlPolicyResponse BatchCopyVpcFirewallControlPolicyResponse
      */
     public function batchCopyVpcFirewallControlPolicy($request)
     {
@@ -680,32 +764,25 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes multiple access control policies for a virtual private cloud (VPC) firewall at a time.
+     * @summary Deletes multiple access control policies for a virtual private cloud (VPC) firewall at a time.
+     *  *
+     * @param BatchDeleteVpcFirewallControlPolicyRequest $request BatchDeleteVpcFirewallControlPolicyRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - BatchDeleteVpcFirewallControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns BatchDeleteVpcFirewallControlPolicyResponse
-     *
-     * @param BatchDeleteVpcFirewallControlPolicyRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return BatchDeleteVpcFirewallControlPolicyResponse
+     * @return BatchDeleteVpcFirewallControlPolicyResponse BatchDeleteVpcFirewallControlPolicyResponse
      */
     public function batchDeleteVpcFirewallControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclUuidList) {
-            @$query['AclUuidList'] = $request->aclUuidList;
+        if (!Utils::isUnset($request->aclUuidList)) {
+            $query['AclUuidList'] = $request->aclUuidList;
         }
-
-        if (null !== $request->vpcFirewallId) {
-            @$query['VpcFirewallId'] = $request->vpcFirewallId;
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'BatchDeleteVpcFirewallControlPolicy',
@@ -723,15 +800,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes multiple access control policies for a virtual private cloud (VPC) firewall at a time.
+     * @summary Deletes multiple access control policies for a virtual private cloud (VPC) firewall at a time.
+     *  *
+     * @param BatchDeleteVpcFirewallControlPolicyRequest $request BatchDeleteVpcFirewallControlPolicyRequest
      *
-     * @param request - BatchDeleteVpcFirewallControlPolicyRequest
-     *
-     * @returns BatchDeleteVpcFirewallControlPolicyResponse
-     *
-     * @param BatchDeleteVpcFirewallControlPolicyRequest $request
-     *
-     * @return BatchDeleteVpcFirewallControlPolicyResponse
+     * @return BatchDeleteVpcFirewallControlPolicyResponse BatchDeleteVpcFirewallControlPolicyResponse
      */
     public function batchDeleteVpcFirewallControlPolicy($request)
     {
@@ -741,40 +814,31 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a file download task.
+     * @summary Creates a file download task.
+     *  *
+     * @param CreateDownloadTaskRequest $request CreateDownloadTaskRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateDownloadTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateDownloadTaskResponse
-     *
-     * @param CreateDownloadTaskRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateDownloadTaskResponse
+     * @return CreateDownloadTaskResponse CreateDownloadTaskResponse
      */
     public function createDownloadTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->taskData) {
-            @$query['TaskData'] = $request->taskData;
+        if (!Utils::isUnset($request->taskData)) {
+            $query['TaskData'] = $request->taskData;
         }
-
-        if (null !== $request->taskType) {
-            @$query['TaskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
         }
-
-        if (null !== $request->timeZone) {
-            @$query['TimeZone'] = $request->timeZone;
+        if (!Utils::isUnset($request->timeZone)) {
+            $query['TimeZone'] = $request->timeZone;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateDownloadTask',
@@ -792,15 +856,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a file download task.
+     * @summary Creates a file download task.
+     *  *
+     * @param CreateDownloadTaskRequest $request CreateDownloadTaskRequest
      *
-     * @param request - CreateDownloadTaskRequest
-     *
-     * @returns CreateDownloadTaskResponse
-     *
-     * @param CreateDownloadTaskRequest $request
-     *
-     * @return CreateDownloadTaskResponse
+     * @return CreateDownloadTaskResponse CreateDownloadTaskResponse
      */
     public function createDownloadTask($request)
     {
@@ -810,123 +870,93 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates an access control policy for a NAT firewall.
+     * @summary Creates an access control policy for a NAT firewall.
+     *  *
+     * @description You can call this operation to create a policy that allows, denies, or monitors the traffic that passes through the NAT firewall.
+     *  *
+     * @param CreateNatFirewallControlPolicyRequest $request CreateNatFirewallControlPolicyRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation to create a policy that allows, denies, or monitors the traffic that passes through the NAT firewall.
-     *
-     * @param request - CreateNatFirewallControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateNatFirewallControlPolicyResponse
-     *
-     * @param CreateNatFirewallControlPolicyRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return CreateNatFirewallControlPolicyResponse
+     * @return CreateNatFirewallControlPolicyResponse CreateNatFirewallControlPolicyResponse
      */
     public function createNatFirewallControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclAction) {
-            @$query['AclAction'] = $request->aclAction;
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
         }
-
-        if (null !== $request->applicationNameList) {
-            @$query['ApplicationNameList'] = $request->applicationNameList;
+        if (!Utils::isUnset($request->applicationNameList)) {
+            $query['ApplicationNameList'] = $request->applicationNameList;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->destPort) {
-            @$query['DestPort'] = $request->destPort;
+        if (!Utils::isUnset($request->destPort)) {
+            $query['DestPort'] = $request->destPort;
         }
-
-        if (null !== $request->destPortGroup) {
-            @$query['DestPortGroup'] = $request->destPortGroup;
+        if (!Utils::isUnset($request->destPortGroup)) {
+            $query['DestPortGroup'] = $request->destPortGroup;
         }
-
-        if (null !== $request->destPortType) {
-            @$query['DestPortType'] = $request->destPortType;
+        if (!Utils::isUnset($request->destPortType)) {
+            $query['DestPortType'] = $request->destPortType;
         }
-
-        if (null !== $request->destination) {
-            @$query['Destination'] = $request->destination;
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
         }
-
-        if (null !== $request->destinationType) {
-            @$query['DestinationType'] = $request->destinationType;
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
         }
-
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->domainResolveType) {
-            @$query['DomainResolveType'] = $request->domainResolveType;
+        if (!Utils::isUnset($request->domainResolveType)) {
+            $query['DomainResolveType'] = $request->domainResolveType;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->ipVersion) {
-            @$query['IpVersion'] = $request->ipVersion;
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->natGatewayId) {
-            @$query['NatGatewayId'] = $request->natGatewayId;
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
         }
-
-        if (null !== $request->newOrder) {
-            @$query['NewOrder'] = $request->newOrder;
+        if (!Utils::isUnset($request->newOrder)) {
+            $query['NewOrder'] = $request->newOrder;
         }
-
-        if (null !== $request->proto) {
-            @$query['Proto'] = $request->proto;
+        if (!Utils::isUnset($request->proto)) {
+            $query['Proto'] = $request->proto;
         }
-
-        if (null !== $request->release) {
-            @$query['Release'] = $request->release;
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
         }
-
-        if (null !== $request->repeatDays) {
-            @$query['RepeatDays'] = $request->repeatDays;
+        if (!Utils::isUnset($request->repeatDays)) {
+            $query['RepeatDays'] = $request->repeatDays;
         }
-
-        if (null !== $request->repeatEndTime) {
-            @$query['RepeatEndTime'] = $request->repeatEndTime;
+        if (!Utils::isUnset($request->repeatEndTime)) {
+            $query['RepeatEndTime'] = $request->repeatEndTime;
         }
-
-        if (null !== $request->repeatStartTime) {
-            @$query['RepeatStartTime'] = $request->repeatStartTime;
+        if (!Utils::isUnset($request->repeatStartTime)) {
+            $query['RepeatStartTime'] = $request->repeatStartTime;
         }
-
-        if (null !== $request->repeatType) {
-            @$query['RepeatType'] = $request->repeatType;
+        if (!Utils::isUnset($request->repeatType)) {
+            $query['RepeatType'] = $request->repeatType;
         }
-
-        if (null !== $request->source) {
-            @$query['Source'] = $request->source;
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateNatFirewallControlPolicy',
@@ -944,18 +974,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates an access control policy for a NAT firewall.
+     * @summary Creates an access control policy for a NAT firewall.
+     *  *
+     * @description You can call this operation to create a policy that allows, denies, or monitors the traffic that passes through the NAT firewall.
+     *  *
+     * @param CreateNatFirewallControlPolicyRequest $request CreateNatFirewallControlPolicyRequest
      *
-     * @remarks
-     * You can call this operation to create a policy that allows, denies, or monitors the traffic that passes through the NAT firewall.
-     *
-     * @param request - CreateNatFirewallControlPolicyRequest
-     *
-     * @returns CreateNatFirewallControlPolicyResponse
-     *
-     * @param CreateNatFirewallControlPolicyRequest $request
-     *
-     * @return CreateNatFirewallControlPolicyResponse
+     * @return CreateNatFirewallControlPolicyResponse CreateNatFirewallControlPolicyResponse
      */
     public function createNatFirewallControlPolicy($request)
     {
@@ -965,68 +990,52 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a NAT firewall.
+     * @summary Creates a NAT firewall.
+     *  *
+     * @param CreateSecurityProxyRequest $request CreateSecurityProxyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateSecurityProxyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateSecurityProxyResponse
-     *
-     * @param CreateSecurityProxyRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CreateSecurityProxyResponse
+     * @return CreateSecurityProxyResponse CreateSecurityProxyResponse
      */
     public function createSecurityProxyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->firewallSwitch) {
-            @$query['FirewallSwitch'] = $request->firewallSwitch;
+        if (!Utils::isUnset($request->firewallSwitch)) {
+            $query['FirewallSwitch'] = $request->firewallSwitch;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->natGatewayId) {
-            @$query['NatGatewayId'] = $request->natGatewayId;
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
         }
-
-        if (null !== $request->natRouteEntryList) {
-            @$query['NatRouteEntryList'] = $request->natRouteEntryList;
+        if (!Utils::isUnset($request->natRouteEntryList)) {
+            $query['NatRouteEntryList'] = $request->natRouteEntryList;
         }
-
-        if (null !== $request->proxyName) {
-            @$query['ProxyName'] = $request->proxyName;
+        if (!Utils::isUnset($request->proxyName)) {
+            $query['ProxyName'] = $request->proxyName;
         }
-
-        if (null !== $request->regionNo) {
-            @$query['RegionNo'] = $request->regionNo;
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
         }
-
-        if (null !== $request->strictMode) {
-            @$query['StrictMode'] = $request->strictMode;
+        if (!Utils::isUnset($request->strictMode)) {
+            $query['StrictMode'] = $request->strictMode;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
-        if (null !== $request->vswitchAuto) {
-            @$query['VswitchAuto'] = $request->vswitchAuto;
+        if (!Utils::isUnset($request->vswitchAuto)) {
+            $query['VswitchAuto'] = $request->vswitchAuto;
         }
-
-        if (null !== $request->vswitchCidr) {
-            @$query['VswitchCidr'] = $request->vswitchCidr;
+        if (!Utils::isUnset($request->vswitchCidr)) {
+            $query['VswitchCidr'] = $request->vswitchCidr;
         }
-
-        if (null !== $request->vswitchId) {
-            @$query['VswitchId'] = $request->vswitchId;
+        if (!Utils::isUnset($request->vswitchId)) {
+            $query['VswitchId'] = $request->vswitchId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateSecurityProxy',
@@ -1044,15 +1053,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a NAT firewall.
+     * @summary Creates a NAT firewall.
+     *  *
+     * @param CreateSecurityProxyRequest $request CreateSecurityProxyRequest
      *
-     * @param request - CreateSecurityProxyRequest
-     *
-     * @returns CreateSecurityProxyResponse
-     *
-     * @param CreateSecurityProxyRequest $request
-     *
-     * @return CreateSecurityProxyResponse
+     * @return CreateSecurityProxyResponse CreateSecurityProxyResponse
      */
     public function createSecurityProxy($request)
     {
@@ -1062,32 +1067,25 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * 创建云防火墙SLS日志投递.
+     * @summary Create Cloud Firewall SLS Log Delivery
+     *  *
+     * @param CreateSlsLogDispatchRequest $request CreateSlsLogDispatchRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateSlsLogDispatchRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateSlsLogDispatchResponse
-     *
-     * @param CreateSlsLogDispatchRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return CreateSlsLogDispatchResponse
+     * @return CreateSlsLogDispatchResponse CreateSlsLogDispatchResponse
      */
     public function createSlsLogDispatchWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->slsRegionId) {
-            @$body['SlsRegionId'] = $request->slsRegionId;
+        if (!Utils::isUnset($request->slsRegionId)) {
+            $body['SlsRegionId'] = $request->slsRegionId;
         }
-
-        if (null !== $request->ttl) {
-            @$body['Ttl'] = $request->ttl;
+        if (!Utils::isUnset($request->ttl)) {
+            $body['Ttl'] = $request->ttl;
         }
-
         $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateSlsLogDispatch',
@@ -1105,15 +1103,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * 创建云防火墙SLS日志投递.
+     * @summary Create Cloud Firewall SLS Log Delivery
+     *  *
+     * @param CreateSlsLogDispatchRequest $request CreateSlsLogDispatchRequest
      *
-     * @param request - CreateSlsLogDispatchRequest
-     *
-     * @returns CreateSlsLogDispatchResponse
-     *
-     * @param CreateSlsLogDispatchRequest $request
-     *
-     * @return CreateSlsLogDispatchResponse
+     * @return CreateSlsLogDispatchResponse CreateSlsLogDispatchResponse
      */
     public function createSlsLogDispatch($request)
     {
@@ -1123,84 +1117,64 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a virtual private cloud (VPC) firewall for a transit router.
+     * @summary Creates a virtual private cloud (VPC) firewall for a transit router.
+     *  *
+     * @param CreateTrFirewallV2Request $request CreateTrFirewallV2Request
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateTrFirewallV2Request
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateTrFirewallV2Response
-     *
-     * @param CreateTrFirewallV2Request $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return CreateTrFirewallV2Response
+     * @return CreateTrFirewallV2Response CreateTrFirewallV2Response
      */
     public function createTrFirewallV2WithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cenId) {
-            @$query['CenId'] = $request->cenId;
+        if (!Utils::isUnset($request->cenId)) {
+            $query['CenId'] = $request->cenId;
         }
-
-        if (null !== $request->firewallDescription) {
-            @$query['FirewallDescription'] = $request->firewallDescription;
+        if (!Utils::isUnset($request->firewallDescription)) {
+            $query['FirewallDescription'] = $request->firewallDescription;
         }
-
-        if (null !== $request->firewallName) {
-            @$query['FirewallName'] = $request->firewallName;
+        if (!Utils::isUnset($request->firewallName)) {
+            $query['FirewallName'] = $request->firewallName;
         }
-
-        if (null !== $request->firewallSubnetCidr) {
-            @$query['FirewallSubnetCidr'] = $request->firewallSubnetCidr;
+        if (!Utils::isUnset($request->firewallSubnetCidr)) {
+            $query['FirewallSubnetCidr'] = $request->firewallSubnetCidr;
         }
-
-        if (null !== $request->firewallVpcCidr) {
-            @$query['FirewallVpcCidr'] = $request->firewallVpcCidr;
+        if (!Utils::isUnset($request->firewallVpcCidr)) {
+            $query['FirewallVpcCidr'] = $request->firewallVpcCidr;
         }
-
-        if (null !== $request->firewallVpcId) {
-            @$query['FirewallVpcId'] = $request->firewallVpcId;
+        if (!Utils::isUnset($request->firewallVpcId)) {
+            $query['FirewallVpcId'] = $request->firewallVpcId;
         }
-
-        if (null !== $request->firewallVswitchId) {
-            @$query['FirewallVswitchId'] = $request->firewallVswitchId;
+        if (!Utils::isUnset($request->firewallVswitchId)) {
+            $query['FirewallVswitchId'] = $request->firewallVswitchId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->regionNo) {
-            @$query['RegionNo'] = $request->regionNo;
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
         }
-
-        if (null !== $request->routeMode) {
-            @$query['RouteMode'] = $request->routeMode;
+        if (!Utils::isUnset($request->routeMode)) {
+            $query['RouteMode'] = $request->routeMode;
         }
-
-        if (null !== $request->trAttachmentMasterCidr) {
-            @$query['TrAttachmentMasterCidr'] = $request->trAttachmentMasterCidr;
+        if (!Utils::isUnset($request->trAttachmentMasterCidr)) {
+            $query['TrAttachmentMasterCidr'] = $request->trAttachmentMasterCidr;
         }
-
-        if (null !== $request->trAttachmentMasterZone) {
-            @$query['TrAttachmentMasterZone'] = $request->trAttachmentMasterZone;
+        if (!Utils::isUnset($request->trAttachmentMasterZone)) {
+            $query['TrAttachmentMasterZone'] = $request->trAttachmentMasterZone;
         }
-
-        if (null !== $request->trAttachmentSlaveCidr) {
-            @$query['TrAttachmentSlaveCidr'] = $request->trAttachmentSlaveCidr;
+        if (!Utils::isUnset($request->trAttachmentSlaveCidr)) {
+            $query['TrAttachmentSlaveCidr'] = $request->trAttachmentSlaveCidr;
         }
-
-        if (null !== $request->trAttachmentSlaveZone) {
-            @$query['TrAttachmentSlaveZone'] = $request->trAttachmentSlaveZone;
+        if (!Utils::isUnset($request->trAttachmentSlaveZone)) {
+            $query['TrAttachmentSlaveZone'] = $request->trAttachmentSlaveZone;
         }
-
-        if (null !== $request->transitRouterId) {
-            @$query['TransitRouterId'] = $request->transitRouterId;
+        if (!Utils::isUnset($request->transitRouterId)) {
+            $query['TransitRouterId'] = $request->transitRouterId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateTrFirewallV2',
@@ -1218,15 +1192,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a virtual private cloud (VPC) firewall for a transit router.
+     * @summary Creates a virtual private cloud (VPC) firewall for a transit router.
+     *  *
+     * @param CreateTrFirewallV2Request $request CreateTrFirewallV2Request
      *
-     * @param request - CreateTrFirewallV2Request
-     *
-     * @returns CreateTrFirewallV2Response
-     *
-     * @param CreateTrFirewallV2Request $request
-     *
-     * @return CreateTrFirewallV2Response
+     * @return CreateTrFirewallV2Response CreateTrFirewallV2Response
      */
     public function createTrFirewallV2($request)
     {
@@ -1236,62 +1206,48 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a routing policy for a VPC firewall of a transit router.
+     * @summary Creates a routing policy for a VPC firewall of a transit router.
+     *  *
+     * @param CreateTrFirewallV2RoutePolicyRequest $tmpReq  CreateTrFirewallV2RoutePolicyRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - CreateTrFirewallV2RoutePolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateTrFirewallV2RoutePolicyResponse
-     *
-     * @param CreateTrFirewallV2RoutePolicyRequest $tmpReq
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return CreateTrFirewallV2RoutePolicyResponse
+     * @return CreateTrFirewallV2RoutePolicyResponse CreateTrFirewallV2RoutePolicyResponse
      */
     public function createTrFirewallV2RoutePolicyWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new CreateTrFirewallV2RoutePolicyShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->destCandidateList) {
-            $request->destCandidateListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->destCandidateList, 'DestCandidateList', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->destCandidateList)) {
+            $request->destCandidateListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->destCandidateList, 'DestCandidateList', 'json');
         }
-
-        if (null !== $tmpReq->srcCandidateList) {
-            $request->srcCandidateListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->srcCandidateList, 'SrcCandidateList', 'json');
+        if (!Utils::isUnset($tmpReq->srcCandidateList)) {
+            $request->srcCandidateListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->srcCandidateList, 'SrcCandidateList', 'json');
         }
-
         $query = [];
-        if (null !== $request->destCandidateListShrink) {
-            @$query['DestCandidateList'] = $request->destCandidateListShrink;
+        if (!Utils::isUnset($request->destCandidateListShrink)) {
+            $query['DestCandidateList'] = $request->destCandidateListShrink;
         }
-
-        if (null !== $request->firewallId) {
-            @$query['FirewallId'] = $request->firewallId;
+        if (!Utils::isUnset($request->firewallId)) {
+            $query['FirewallId'] = $request->firewallId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->policyDescription) {
-            @$query['PolicyDescription'] = $request->policyDescription;
+        if (!Utils::isUnset($request->policyDescription)) {
+            $query['PolicyDescription'] = $request->policyDescription;
         }
-
-        if (null !== $request->policyName) {
-            @$query['PolicyName'] = $request->policyName;
+        if (!Utils::isUnset($request->policyName)) {
+            $query['PolicyName'] = $request->policyName;
         }
-
-        if (null !== $request->policyType) {
-            @$query['PolicyType'] = $request->policyType;
+        if (!Utils::isUnset($request->policyType)) {
+            $query['PolicyType'] = $request->policyType;
         }
-
-        if (null !== $request->srcCandidateListShrink) {
-            @$query['SrcCandidateList'] = $request->srcCandidateListShrink;
+        if (!Utils::isUnset($request->srcCandidateListShrink)) {
+            $query['SrcCandidateList'] = $request->srcCandidateListShrink;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateTrFirewallV2RoutePolicy',
@@ -1309,15 +1265,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a routing policy for a VPC firewall of a transit router.
+     * @summary Creates a routing policy for a VPC firewall of a transit router.
+     *  *
+     * @param CreateTrFirewallV2RoutePolicyRequest $request CreateTrFirewallV2RoutePolicyRequest
      *
-     * @param request - CreateTrFirewallV2RoutePolicyRequest
-     *
-     * @returns CreateTrFirewallV2RoutePolicyResponse
-     *
-     * @param CreateTrFirewallV2RoutePolicyRequest $request
-     *
-     * @return CreateTrFirewallV2RoutePolicyResponse
+     * @return CreateTrFirewallV2RoutePolicyResponse CreateTrFirewallV2RoutePolicyResponse
      */
     public function createTrFirewallV2RoutePolicy($request)
     {
@@ -1327,77 +1279,59 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a virtual private cloud (VPC) firewall to protect traffic between a specified VPC and a network instance that is attached to a Cloud Enterprise Network (CEN) instance.
-     *
-     * @remarks
-     * You can call the CreateVpcFirewallCenConfigure operation to create a VPC firewall. The VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. The VPC firewall cannot protect mutual access traffic between VBRs, between CCN instances, or between VBRs and CCN instances. For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
+     * @summary Creates a virtual private cloud (VPC) firewall to protect traffic between a specified VPC and a network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the CreateVpcFirewallCenConfigure operation to create a VPC firewall. The VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. The VPC firewall cannot protect mutual access traffic between VBRs, between CCN instances, or between VBRs and CCN instances. For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateVpcFirewallCenConfigureRequest $request CreateVpcFirewallCenConfigureRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateVpcFirewallCenConfigureRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateVpcFirewallCenConfigureResponse
-     *
-     * @param CreateVpcFirewallCenConfigureRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return CreateVpcFirewallCenConfigureResponse
+     * @return CreateVpcFirewallCenConfigureResponse CreateVpcFirewallCenConfigureResponse
      */
     public function createVpcFirewallCenConfigureWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cenId) {
-            @$query['CenId'] = $request->cenId;
+        if (!Utils::isUnset($request->cenId)) {
+            $query['CenId'] = $request->cenId;
         }
-
-        if (null !== $request->firewallSwitch) {
-            @$query['FirewallSwitch'] = $request->firewallSwitch;
+        if (!Utils::isUnset($request->firewallSwitch)) {
+            $query['FirewallSwitch'] = $request->firewallSwitch;
         }
-
-        if (null !== $request->firewallVSwitchCidrBlock) {
-            @$query['FirewallVSwitchCidrBlock'] = $request->firewallVSwitchCidrBlock;
+        if (!Utils::isUnset($request->firewallVSwitchCidrBlock)) {
+            $query['FirewallVSwitchCidrBlock'] = $request->firewallVSwitchCidrBlock;
         }
-
-        if (null !== $request->firewallVpcCidrBlock) {
-            @$query['FirewallVpcCidrBlock'] = $request->firewallVpcCidrBlock;
+        if (!Utils::isUnset($request->firewallVpcCidrBlock)) {
+            $query['FirewallVpcCidrBlock'] = $request->firewallVpcCidrBlock;
         }
-
-        if (null !== $request->firewallVpcStandbyZoneId) {
-            @$query['FirewallVpcStandbyZoneId'] = $request->firewallVpcStandbyZoneId;
+        if (!Utils::isUnset($request->firewallVpcStandbyZoneId)) {
+            $query['FirewallVpcStandbyZoneId'] = $request->firewallVpcStandbyZoneId;
         }
-
-        if (null !== $request->firewallVpcZoneId) {
-            @$query['FirewallVpcZoneId'] = $request->firewallVpcZoneId;
+        if (!Utils::isUnset($request->firewallVpcZoneId)) {
+            $query['FirewallVpcZoneId'] = $request->firewallVpcZoneId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->networkInstanceId) {
-            @$query['NetworkInstanceId'] = $request->networkInstanceId;
+        if (!Utils::isUnset($request->networkInstanceId)) {
+            $query['NetworkInstanceId'] = $request->networkInstanceId;
         }
-
-        if (null !== $request->vSwitchId) {
-            @$query['VSwitchId'] = $request->vSwitchId;
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
         }
-
-        if (null !== $request->vpcFirewallName) {
-            @$query['VpcFirewallName'] = $request->vpcFirewallName;
+        if (!Utils::isUnset($request->vpcFirewallName)) {
+            $query['VpcFirewallName'] = $request->vpcFirewallName;
         }
-
-        if (null !== $request->vpcRegion) {
-            @$query['VpcRegion'] = $request->vpcRegion;
+        if (!Utils::isUnset($request->vpcRegion)) {
+            $query['VpcRegion'] = $request->vpcRegion;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateVpcFirewallCenConfigure',
@@ -1415,20 +1349,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a virtual private cloud (VPC) firewall to protect traffic between a specified VPC and a network instance that is attached to a Cloud Enterprise Network (CEN) instance.
-     *
-     * @remarks
-     * You can call the CreateVpcFirewallCenConfigure operation to create a VPC firewall. The VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. The VPC firewall cannot protect mutual access traffic between VBRs, between CCN instances, or between VBRs and CCN instances. For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
+     * @summary Creates a virtual private cloud (VPC) firewall to protect traffic between a specified VPC and a network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the CreateVpcFirewallCenConfigure operation to create a VPC firewall. The VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. The VPC firewall cannot protect mutual access traffic between VBRs, between CCN instances, or between VBRs and CCN instances. For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateVpcFirewallCenConfigureRequest $request CreateVpcFirewallCenConfigureRequest
      *
-     * @param request - CreateVpcFirewallCenConfigureRequest
-     *
-     * @returns CreateVpcFirewallCenConfigureResponse
-     *
-     * @param CreateVpcFirewallCenConfigureRequest $request
-     *
-     * @return CreateVpcFirewallCenConfigureResponse
+     * @return CreateVpcFirewallCenConfigureResponse CreateVpcFirewallCenConfigureResponse
      */
     public function createVpcFirewallCenConfigure($request)
     {
@@ -1438,69 +1367,115 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a Virtual Private Cloud (VPC) firewall to protect traffic between two VPCs that are connected by using an Express Connect.
+     * @summary 创建VPC防火墙手动配置
+     *  *
+     * @param CreateVpcFirewallCenManualConfigureRequest $request CreateVpcFirewallCenManualConfigureRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation to create a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. The VPC firewall does not control the mutual access traffic between VPCs that reside in different regions or belong to different Alibaba Cloud accounts. The firewall also does not control the mutual access traffic between VPCs and virtual border routers (VBRs). For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
+     * @return CreateVpcFirewallCenManualConfigureResponse CreateVpcFirewallCenManualConfigureResponse
+     */
+    public function createVpcFirewallCenManualConfigureWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cenId)) {
+            $query['CenId'] = $request->cenId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcFirewallName)) {
+            $query['VpcFirewallName'] = $request->vpcFirewallName;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateVpcFirewallCenManualConfigure',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return CreateVpcFirewallCenManualConfigureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建VPC防火墙手动配置
+     *  *
+     * @param CreateVpcFirewallCenManualConfigureRequest $request CreateVpcFirewallCenManualConfigureRequest
+     *
+     * @return CreateVpcFirewallCenManualConfigureResponse CreateVpcFirewallCenManualConfigureResponse
+     */
+    public function createVpcFirewallCenManualConfigure($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVpcFirewallCenManualConfigureWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates a Virtual Private Cloud (VPC) firewall to protect traffic between two VPCs that are connected by using an Express Connect.
+     *  *
+     * @description You can call this operation to create a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. The VPC firewall does not control the mutual access traffic between VPCs that reside in different regions or belong to different Alibaba Cloud accounts. The firewall also does not control the mutual access traffic between VPCs and virtual border routers (VBRs). For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
      * ### [](#qps)QPS limit
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateVpcFirewallConfigureRequest $request CreateVpcFirewallConfigureRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateVpcFirewallConfigureRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateVpcFirewallConfigureResponse
-     *
-     * @param CreateVpcFirewallConfigureRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return CreateVpcFirewallConfigureResponse
+     * @return CreateVpcFirewallConfigureResponse CreateVpcFirewallConfigureResponse
      */
     public function createVpcFirewallConfigureWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->firewallSwitch) {
-            @$query['FirewallSwitch'] = $request->firewallSwitch;
+        if (!Utils::isUnset($request->firewallSwitch)) {
+            $query['FirewallSwitch'] = $request->firewallSwitch;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->localVpcCidrTableList) {
-            @$query['LocalVpcCidrTableList'] = $request->localVpcCidrTableList;
+        if (!Utils::isUnset($request->localVpcCidrTableList)) {
+            $query['LocalVpcCidrTableList'] = $request->localVpcCidrTableList;
         }
-
-        if (null !== $request->localVpcId) {
-            @$query['LocalVpcId'] = $request->localVpcId;
+        if (!Utils::isUnset($request->localVpcId)) {
+            $query['LocalVpcId'] = $request->localVpcId;
         }
-
-        if (null !== $request->localVpcRegion) {
-            @$query['LocalVpcRegion'] = $request->localVpcRegion;
+        if (!Utils::isUnset($request->localVpcRegion)) {
+            $query['LocalVpcRegion'] = $request->localVpcRegion;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->peerVpcCidrTableList) {
-            @$query['PeerVpcCidrTableList'] = $request->peerVpcCidrTableList;
+        if (!Utils::isUnset($request->peerVpcCidrTableList)) {
+            $query['PeerVpcCidrTableList'] = $request->peerVpcCidrTableList;
         }
-
-        if (null !== $request->peerVpcId) {
-            @$query['PeerVpcId'] = $request->peerVpcId;
+        if (!Utils::isUnset($request->peerVpcId)) {
+            $query['PeerVpcId'] = $request->peerVpcId;
         }
-
-        if (null !== $request->peerVpcRegion) {
-            @$query['PeerVpcRegion'] = $request->peerVpcRegion;
+        if (!Utils::isUnset($request->peerVpcRegion)) {
+            $query['PeerVpcRegion'] = $request->peerVpcRegion;
         }
-
-        if (null !== $request->vpcFirewallName) {
-            @$query['VpcFirewallName'] = $request->vpcFirewallName;
+        if (!Utils::isUnset($request->vpcFirewallName)) {
+            $query['VpcFirewallName'] = $request->vpcFirewallName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateVpcFirewallConfigure',
@@ -1518,20 +1493,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates a Virtual Private Cloud (VPC) firewall to protect traffic between two VPCs that are connected by using an Express Connect.
-     *
-     * @remarks
-     * You can call this operation to create a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. The VPC firewall does not control the mutual access traffic between VPCs that reside in different regions or belong to different Alibaba Cloud accounts. The firewall also does not control the mutual access traffic between VPCs and virtual border routers (VBRs). For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
+     * @summary Creates a Virtual Private Cloud (VPC) firewall to protect traffic between two VPCs that are connected by using an Express Connect.
+     *  *
+     * @description You can call this operation to create a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. The VPC firewall does not control the mutual access traffic between VPCs that reside in different regions or belong to different Alibaba Cloud accounts. The firewall also does not control the mutual access traffic between VPCs and virtual border routers (VBRs). For more information, see [VPC firewall limits](https://help.aliyun.com/document_detail/172295.html).
      * ### [](#qps)QPS limit
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateVpcFirewallConfigureRequest $request CreateVpcFirewallConfigureRequest
      *
-     * @param request - CreateVpcFirewallConfigureRequest
-     *
-     * @returns CreateVpcFirewallConfigureResponse
-     *
-     * @param CreateVpcFirewallConfigureRequest $request
-     *
-     * @return CreateVpcFirewallConfigureResponse
+     * @return CreateVpcFirewallConfigureResponse CreateVpcFirewallConfigureResponse
      */
     public function createVpcFirewallConfigure($request)
     {
@@ -1541,125 +1511,95 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates an access control policy in a specified policy group for a virtual private cloud (VPC) firewall.
-     *
-     * @remarks
-     * You can call the CreateVpcFirewallControlPolicy operation to create an access control policy in a specified policy group for a VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
+     * @summary Creates an access control policy in a specified policy group for a virtual private cloud (VPC) firewall.
+     *  *
+     * @description You can call the CreateVpcFirewallControlPolicy operation to create an access control policy in a specified policy group for a VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateVpcFirewallControlPolicyRequest $request CreateVpcFirewallControlPolicyRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateVpcFirewallControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateVpcFirewallControlPolicyResponse
-     *
-     * @param CreateVpcFirewallControlPolicyRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return CreateVpcFirewallControlPolicyResponse
+     * @return CreateVpcFirewallControlPolicyResponse CreateVpcFirewallControlPolicyResponse
      */
     public function createVpcFirewallControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclAction) {
-            @$query['AclAction'] = $request->aclAction;
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
         }
-
-        if (null !== $request->applicationName) {
-            @$query['ApplicationName'] = $request->applicationName;
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
         }
-
-        if (null !== $request->applicationNameList) {
-            @$query['ApplicationNameList'] = $request->applicationNameList;
+        if (!Utils::isUnset($request->applicationNameList)) {
+            $query['ApplicationNameList'] = $request->applicationNameList;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->destPort) {
-            @$query['DestPort'] = $request->destPort;
+        if (!Utils::isUnset($request->destPort)) {
+            $query['DestPort'] = $request->destPort;
         }
-
-        if (null !== $request->destPortGroup) {
-            @$query['DestPortGroup'] = $request->destPortGroup;
+        if (!Utils::isUnset($request->destPortGroup)) {
+            $query['DestPortGroup'] = $request->destPortGroup;
         }
-
-        if (null !== $request->destPortType) {
-            @$query['DestPortType'] = $request->destPortType;
+        if (!Utils::isUnset($request->destPortType)) {
+            $query['DestPortType'] = $request->destPortType;
         }
-
-        if (null !== $request->destination) {
-            @$query['Destination'] = $request->destination;
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
         }
-
-        if (null !== $request->destinationType) {
-            @$query['DestinationType'] = $request->destinationType;
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
         }
-
-        if (null !== $request->domainResolveType) {
-            @$query['DomainResolveType'] = $request->domainResolveType;
+        if (!Utils::isUnset($request->domainResolveType)) {
+            $query['DomainResolveType'] = $request->domainResolveType;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->newOrder) {
-            @$query['NewOrder'] = $request->newOrder;
+        if (!Utils::isUnset($request->newOrder)) {
+            $query['NewOrder'] = $request->newOrder;
         }
-
-        if (null !== $request->proto) {
-            @$query['Proto'] = $request->proto;
+        if (!Utils::isUnset($request->proto)) {
+            $query['Proto'] = $request->proto;
         }
-
-        if (null !== $request->release) {
-            @$query['Release'] = $request->release;
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
         }
-
-        if (null !== $request->repeatDays) {
-            @$query['RepeatDays'] = $request->repeatDays;
+        if (!Utils::isUnset($request->repeatDays)) {
+            $query['RepeatDays'] = $request->repeatDays;
         }
-
-        if (null !== $request->repeatEndTime) {
-            @$query['RepeatEndTime'] = $request->repeatEndTime;
+        if (!Utils::isUnset($request->repeatEndTime)) {
+            $query['RepeatEndTime'] = $request->repeatEndTime;
         }
-
-        if (null !== $request->repeatStartTime) {
-            @$query['RepeatStartTime'] = $request->repeatStartTime;
+        if (!Utils::isUnset($request->repeatStartTime)) {
+            $query['RepeatStartTime'] = $request->repeatStartTime;
         }
-
-        if (null !== $request->repeatType) {
-            @$query['RepeatType'] = $request->repeatType;
+        if (!Utils::isUnset($request->repeatType)) {
+            $query['RepeatType'] = $request->repeatType;
         }
-
-        if (null !== $request->source) {
-            @$query['Source'] = $request->source;
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->vpcFirewallId) {
-            @$query['VpcFirewallId'] = $request->vpcFirewallId;
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateVpcFirewallControlPolicy',
@@ -1677,20 +1617,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Creates an access control policy in a specified policy group for a virtual private cloud (VPC) firewall.
-     *
-     * @remarks
-     * You can call the CreateVpcFirewallControlPolicy operation to create an access control policy in a specified policy group for a VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
+     * @summary Creates an access control policy in a specified policy group for a virtual private cloud (VPC) firewall.
+     *  *
+     * @description You can call the CreateVpcFirewallControlPolicy operation to create an access control policy in a specified policy group for a VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param CreateVpcFirewallControlPolicyRequest $request CreateVpcFirewallControlPolicyRequest
      *
-     * @param request - CreateVpcFirewallControlPolicyRequest
-     *
-     * @returns CreateVpcFirewallControlPolicyResponse
-     *
-     * @param CreateVpcFirewallControlPolicyRequest $request
-     *
-     * @return CreateVpcFirewallControlPolicyResponse
+     * @return CreateVpcFirewallControlPolicyResponse CreateVpcFirewallControlPolicyResponse
      */
     public function createVpcFirewallControlPolicy($request)
     {
@@ -1700,41 +1635,32 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes an address book for access control.
-     *
-     * @remarks
-     * You can call the DeleteAddressBook operation to delete an address book for access control.
+     * @summary Deletes an address book for access control.
+     *  *
+     * @description You can call the DeleteAddressBook operation to delete an address book for access control.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteAddressBookRequest $request DeleteAddressBookRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteAddressBookRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteAddressBookResponse
-     *
-     * @param DeleteAddressBookRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DeleteAddressBookResponse
+     * @return DeleteAddressBookResponse DeleteAddressBookResponse
      */
     public function deleteAddressBookWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->groupUuid) {
-            @$query['GroupUuid'] = $request->groupUuid;
+        if (!Utils::isUnset($request->groupUuid)) {
+            $query['GroupUuid'] = $request->groupUuid;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteAddressBook',
@@ -1752,20 +1678,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes an address book for access control.
-     *
-     * @remarks
-     * You can call the DeleteAddressBook operation to delete an address book for access control.
+     * @summary Deletes an address book for access control.
+     *  *
+     * @description You can call the DeleteAddressBook operation to delete an address book for access control.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteAddressBookRequest $request DeleteAddressBookRequest
      *
-     * @param request - DeleteAddressBookRequest
-     *
-     * @returns DeleteAddressBookResponse
-     *
-     * @param DeleteAddressBookRequest $request
-     *
-     * @return DeleteAddressBookResponse
+     * @return DeleteAddressBookResponse DeleteAddressBookResponse
      */
     public function deleteAddressBook($request)
     {
@@ -1775,45 +1696,35 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes an access control policy.
-     *
-     * @remarks
-     * You can call the DeleteControlPolicy operation to delete an access control policy that applies to inbound or outbound traffic.
+     * @summary Deletes an access control policy.
+     *  *
+     * @description You can call the DeleteControlPolicy operation to delete an access control policy that applies to inbound or outbound traffic.
      * ## [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteControlPolicyRequest $request DeleteControlPolicyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteControlPolicyResponse
-     *
-     * @param DeleteControlPolicyRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DeleteControlPolicyResponse
+     * @return DeleteControlPolicyResponse DeleteControlPolicyResponse
      */
     public function deleteControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclUuid) {
-            @$query['AclUuid'] = $request->aclUuid;
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
         }
-
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteControlPolicy',
@@ -1831,20 +1742,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes an access control policy.
-     *
-     * @remarks
-     * You can call the DeleteControlPolicy operation to delete an access control policy that applies to inbound or outbound traffic.
+     * @summary Deletes an access control policy.
+     *  *
+     * @description You can call the DeleteControlPolicy operation to delete an access control policy that applies to inbound or outbound traffic.
      * ## [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteControlPolicyRequest $request DeleteControlPolicyRequest
      *
-     * @param request - DeleteControlPolicyRequest
-     *
-     * @returns DeleteControlPolicyResponse
-     *
-     * @param DeleteControlPolicyRequest $request
-     *
-     * @return DeleteControlPolicyResponse
+     * @return DeleteControlPolicyResponse DeleteControlPolicyResponse
      */
     public function deleteControlPolicy($request)
     {
@@ -1854,40 +1760,31 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes an access control policy template.
+     * @summary Deletes an access control policy template.
+     *  *
+     * @param DeleteControlPolicyTemplateRequest $request DeleteControlPolicyTemplateRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteControlPolicyTemplateRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteControlPolicyTemplateResponse
-     *
-     * @param DeleteControlPolicyTemplateRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DeleteControlPolicyTemplateResponse
+     * @return DeleteControlPolicyTemplateResponse DeleteControlPolicyTemplateResponse
      */
     public function deleteControlPolicyTemplateWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
-        if (null !== $request->templateId) {
-            @$query['TemplateId'] = $request->templateId;
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteControlPolicyTemplate',
@@ -1905,15 +1802,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes an access control policy template.
+     * @summary Deletes an access control policy template.
+     *  *
+     * @param DeleteControlPolicyTemplateRequest $request DeleteControlPolicyTemplateRequest
      *
-     * @param request - DeleteControlPolicyTemplateRequest
-     *
-     * @returns DeleteControlPolicyTemplateResponse
-     *
-     * @param DeleteControlPolicyTemplateRequest $request
-     *
-     * @return DeleteControlPolicyTemplateResponse
+     * @return DeleteControlPolicyTemplateResponse DeleteControlPolicyTemplateResponse
      */
     public function deleteControlPolicyTemplate($request)
     {
@@ -1923,37 +1816,82 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes file download tasks.
+     * @summary 删除DNS防火墙规则
+     *  *
+     * @param DeleteDnsFirewallPolicyRequest $request DeleteDnsFirewallPolicyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation to delete file download tasks and delete the files.
+     * @return DeleteDnsFirewallPolicyResponse DeleteDnsFirewallPolicyResponse
+     */
+    public function deleteDnsFirewallPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteDnsFirewallPolicy',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteDnsFirewallPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除DNS防火墙规则
+     *  *
+     * @param DeleteDnsFirewallPolicyRequest $request DeleteDnsFirewallPolicyRequest
+     *
+     * @return DeleteDnsFirewallPolicyResponse DeleteDnsFirewallPolicyResponse
+     */
+    public function deleteDnsFirewallPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDnsFirewallPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes file download tasks.
+     *  *
+     * @description You can call this operation to delete file download tasks and delete the files.
      * **
      * **Warning** Both tasks and involved files are deleted. You can no longer download the involved files by using the download links. This operation is irreversible. Proceed with caution.
+     *  *
+     * @param DeleteDownloadTaskRequest $request DeleteDownloadTaskRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteDownloadTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteDownloadTaskResponse
-     *
-     * @param DeleteDownloadTaskRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteDownloadTaskResponse
+     * @return DeleteDownloadTaskResponse DeleteDownloadTaskResponse
      */
     public function deleteDownloadTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->taskId) {
-            @$query['TaskId'] = $request->taskId;
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDownloadTask',
@@ -1971,20 +1909,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes file download tasks.
-     *
-     * @remarks
-     * You can call this operation to delete file download tasks and delete the files.
+     * @summary Deletes file download tasks.
+     *  *
+     * @description You can call this operation to delete file download tasks and delete the files.
      * **
      * **Warning** Both tasks and involved files are deleted. You can no longer download the involved files by using the download links. This operation is irreversible. Proceed with caution.
+     *  *
+     * @param DeleteDownloadTaskRequest $request DeleteDownloadTaskRequest
      *
-     * @param request - DeleteDownloadTaskRequest
-     *
-     * @returns DeleteDownloadTaskResponse
-     *
-     * @param DeleteDownloadTaskRequest $request
-     *
-     * @return DeleteDownloadTaskResponse
+     * @return DeleteDownloadTaskResponse DeleteDownloadTaskResponse
      */
     public function deleteDownloadTask($request)
     {
@@ -1994,36 +1927,28 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes routing policies for a virtual private cloud (VPC) firewall of a transit router.
+     * @summary Deletes routing policies for a virtual private cloud (VPC) firewall of a transit router.
+     *  *
+     * @param DeleteFirewallV2RoutePoliciesRequest $request DeleteFirewallV2RoutePoliciesRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteFirewallV2RoutePoliciesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteFirewallV2RoutePoliciesResponse
-     *
-     * @param DeleteFirewallV2RoutePoliciesRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DeleteFirewallV2RoutePoliciesResponse
+     * @return DeleteFirewallV2RoutePoliciesResponse DeleteFirewallV2RoutePoliciesResponse
      */
     public function deleteFirewallV2RoutePoliciesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->firewallId) {
-            @$query['FirewallId'] = $request->firewallId;
+        if (!Utils::isUnset($request->firewallId)) {
+            $query['FirewallId'] = $request->firewallId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->trFirewallRoutePolicyId) {
-            @$query['TrFirewallRoutePolicyId'] = $request->trFirewallRoutePolicyId;
+        if (!Utils::isUnset($request->trFirewallRoutePolicyId)) {
+            $query['TrFirewallRoutePolicyId'] = $request->trFirewallRoutePolicyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteFirewallV2RoutePolicies',
@@ -2041,15 +1966,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes routing policies for a virtual private cloud (VPC) firewall of a transit router.
+     * @summary Deletes routing policies for a virtual private cloud (VPC) firewall of a transit router.
+     *  *
+     * @param DeleteFirewallV2RoutePoliciesRequest $request DeleteFirewallV2RoutePoliciesRequest
      *
-     * @param request - DeleteFirewallV2RoutePoliciesRequest
-     *
-     * @returns DeleteFirewallV2RoutePoliciesResponse
-     *
-     * @param DeleteFirewallV2RoutePoliciesRequest $request
-     *
-     * @return DeleteFirewallV2RoutePoliciesResponse
+     * @return DeleteFirewallV2RoutePoliciesResponse DeleteFirewallV2RoutePoliciesResponse
      */
     public function deleteFirewallV2RoutePolicies($request)
     {
@@ -2059,33 +1980,26 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Removes members from Cloud Firewall.
-     *
-     * @remarks
-     * You can call this operation to remove up to 20 members from Cloud Firewall at a time. Separate multiple members with commas (,). After a member is removed, Cloud Firewall can no longer access the cloud resources of the member. Proceed with caution. Before you call this operation, call the [DescribeInstanceMembers](https://help.aliyun.com/document_detail/271704.html) operation to obtain the information about the members that are added to Cloud Firewall.
+     * @summary Removes members from Cloud Firewall.
+     *  *
+     * @description You can call this operation to remove up to 20 members from Cloud Firewall at a time. Separate multiple members with commas (,). After a member is removed, Cloud Firewall can no longer access the cloud resources of the member. Proceed with caution. Before you call this operation, call the [DescribeInstanceMembers](https://help.aliyun.com/document_detail/271704.html) operation to obtain the information about the members that are added to Cloud Firewall.
      * ## [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteInstanceMembersRequest $request DeleteInstanceMembersRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteInstanceMembersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteInstanceMembersResponse
-     *
-     * @param DeleteInstanceMembersRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DeleteInstanceMembersResponse
+     * @return DeleteInstanceMembersResponse DeleteInstanceMembersResponse
      */
     public function deleteInstanceMembersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->memberUids) {
-            @$query['MemberUids'] = $request->memberUids;
+        if (!Utils::isUnset($request->memberUids)) {
+            $query['MemberUids'] = $request->memberUids;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteInstanceMembers',
@@ -2103,20 +2017,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Removes members from Cloud Firewall.
-     *
-     * @remarks
-     * You can call this operation to remove up to 20 members from Cloud Firewall at a time. Separate multiple members with commas (,). After a member is removed, Cloud Firewall can no longer access the cloud resources of the member. Proceed with caution. Before you call this operation, call the [DescribeInstanceMembers](https://help.aliyun.com/document_detail/271704.html) operation to obtain the information about the members that are added to Cloud Firewall.
+     * @summary Removes members from Cloud Firewall.
+     *  *
+     * @description You can call this operation to remove up to 20 members from Cloud Firewall at a time. Separate multiple members with commas (,). After a member is removed, Cloud Firewall can no longer access the cloud resources of the member. Proceed with caution. Before you call this operation, call the [DescribeInstanceMembers](https://help.aliyun.com/document_detail/271704.html) operation to obtain the information about the members that are added to Cloud Firewall.
      * ## [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteInstanceMembersRequest $request DeleteInstanceMembersRequest
      *
-     * @param request - DeleteInstanceMembersRequest
-     *
-     * @returns DeleteInstanceMembersResponse
-     *
-     * @param DeleteInstanceMembersRequest $request
-     *
-     * @return DeleteInstanceMembersResponse
+     * @return DeleteInstanceMembersResponse DeleteInstanceMembersResponse
      */
     public function deleteInstanceMembers($request)
     {
@@ -2126,43 +2035,33 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes an access control policy that is created for a NAT firewall.
+     * @summary Deletes an access control policy that is created for a NAT firewall.
+     *  *
+     * @description You can use this operation to delete an outbound access control policy that is created for a NAT firewall.
+     *  *
+     * @param DeleteNatFirewallControlPolicyRequest $request DeleteNatFirewallControlPolicyRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can use this operation to delete an outbound access control policy that is created for a NAT firewall.
-     *
-     * @param request - DeleteNatFirewallControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteNatFirewallControlPolicyResponse
-     *
-     * @param DeleteNatFirewallControlPolicyRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DeleteNatFirewallControlPolicyResponse
+     * @return DeleteNatFirewallControlPolicyResponse DeleteNatFirewallControlPolicyResponse
      */
     public function deleteNatFirewallControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclUuid) {
-            @$query['AclUuid'] = $request->aclUuid;
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
         }
-
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->natGatewayId) {
-            @$query['NatGatewayId'] = $request->natGatewayId;
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteNatFirewallControlPolicy',
@@ -2180,18 +2079,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes an access control policy that is created for a NAT firewall.
+     * @summary Deletes an access control policy that is created for a NAT firewall.
+     *  *
+     * @description You can use this operation to delete an outbound access control policy that is created for a NAT firewall.
+     *  *
+     * @param DeleteNatFirewallControlPolicyRequest $request DeleteNatFirewallControlPolicyRequest
      *
-     * @remarks
-     * You can use this operation to delete an outbound access control policy that is created for a NAT firewall.
-     *
-     * @param request - DeleteNatFirewallControlPolicyRequest
-     *
-     * @returns DeleteNatFirewallControlPolicyResponse
-     *
-     * @param DeleteNatFirewallControlPolicyRequest $request
-     *
-     * @return DeleteNatFirewallControlPolicyResponse
+     * @return DeleteNatFirewallControlPolicyResponse DeleteNatFirewallControlPolicyResponse
      */
     public function deleteNatFirewallControlPolicy($request)
     {
@@ -2201,40 +2095,31 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes access control policies that are created for a NAT firewall at a time.
+     * @summary Deletes access control policies that are created for a NAT firewall at a time.
+     *  *
+     * @param DeleteNatFirewallControlPolicyBatchRequest $request DeleteNatFirewallControlPolicyBatchRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteNatFirewallControlPolicyBatchRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteNatFirewallControlPolicyBatchResponse
-     *
-     * @param DeleteNatFirewallControlPolicyBatchRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return DeleteNatFirewallControlPolicyBatchResponse
+     * @return DeleteNatFirewallControlPolicyBatchResponse DeleteNatFirewallControlPolicyBatchResponse
      */
     public function deleteNatFirewallControlPolicyBatchWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclUuidList) {
-            @$query['AclUuidList'] = $request->aclUuidList;
+        if (!Utils::isUnset($request->aclUuidList)) {
+            $query['AclUuidList'] = $request->aclUuidList;
         }
-
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->natGatewayId) {
-            @$query['NatGatewayId'] = $request->natGatewayId;
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteNatFirewallControlPolicyBatch',
@@ -2252,15 +2137,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes access control policies that are created for a NAT firewall at a time.
+     * @summary Deletes access control policies that are created for a NAT firewall at a time.
+     *  *
+     * @param DeleteNatFirewallControlPolicyBatchRequest $request DeleteNatFirewallControlPolicyBatchRequest
      *
-     * @param request - DeleteNatFirewallControlPolicyBatchRequest
-     *
-     * @returns DeleteNatFirewallControlPolicyBatchResponse
-     *
-     * @param DeleteNatFirewallControlPolicyBatchRequest $request
-     *
-     * @return DeleteNatFirewallControlPolicyBatchResponse
+     * @return DeleteNatFirewallControlPolicyBatchResponse DeleteNatFirewallControlPolicyBatchResponse
      */
     public function deleteNatFirewallControlPolicyBatch($request)
     {
@@ -2270,32 +2151,178 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes a NAT firewall.
+     * @summary 清空私网DNS域名
+     *  *
+     * @param DeletePrivateDnsAllDomainNameRequest $request DeletePrivateDnsAllDomainNameRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteSecurityProxyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return DeletePrivateDnsAllDomainNameResponse DeletePrivateDnsAllDomainNameResponse
+     */
+    public function deletePrivateDnsAllDomainNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessInstanceId)) {
+            $query['AccessInstanceId'] = $request->accessInstanceId;
+        }
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePrivateDnsAllDomainName',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePrivateDnsAllDomainNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 清空私网DNS域名
+     *  *
+     * @param DeletePrivateDnsAllDomainNameRequest $request DeletePrivateDnsAllDomainNameRequest
      *
-     * @returns DeleteSecurityProxyResponse
+     * @return DeletePrivateDnsAllDomainNameResponse DeletePrivateDnsAllDomainNameResponse
+     */
+    public function deletePrivateDnsAllDomainName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePrivateDnsAllDomainNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除私网DNS域名
+     *  *
+     * @param DeletePrivateDnsDomainNameRequest $request DeletePrivateDnsDomainNameRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param DeleteSecurityProxyRequest $request
-     * @param RuntimeOptions             $runtime
+     * @return DeletePrivateDnsDomainNameResponse DeletePrivateDnsDomainNameResponse
+     */
+    public function deletePrivateDnsDomainNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessInstanceId)) {
+            $query['AccessInstanceId'] = $request->accessInstanceId;
+        }
+        if (!Utils::isUnset($request->domainNameList)) {
+            $query['DomainNameList'] = $request->domainNameList;
+        }
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePrivateDnsDomainName',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePrivateDnsDomainNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除私网DNS域名
+     *  *
+     * @param DeletePrivateDnsDomainNameRequest $request DeletePrivateDnsDomainNameRequest
      *
-     * @return DeleteSecurityProxyResponse
+     * @return DeletePrivateDnsDomainNameResponse DeletePrivateDnsDomainNameResponse
+     */
+    public function deletePrivateDnsDomainName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePrivateDnsDomainNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除私网DNS终端节点
+     *  *
+     * @param DeletePrivateDnsEndpointRequest $request DeletePrivateDnsEndpointRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeletePrivateDnsEndpointResponse DeletePrivateDnsEndpointResponse
+     */
+    public function deletePrivateDnsEndpointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessInstanceId)) {
+            $query['AccessInstanceId'] = $request->accessInstanceId;
+        }
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeletePrivateDnsEndpoint',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeletePrivateDnsEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除私网DNS终端节点
+     *  *
+     * @param DeletePrivateDnsEndpointRequest $request DeletePrivateDnsEndpointRequest
+     *
+     * @return DeletePrivateDnsEndpointResponse DeletePrivateDnsEndpointResponse
+     */
+    public function deletePrivateDnsEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePrivateDnsEndpointWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a NAT firewall.
+     *  *
+     * @param DeleteSecurityProxyRequest $request DeleteSecurityProxyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteSecurityProxyResponse DeleteSecurityProxyResponse
      */
     public function deleteSecurityProxyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->proxyId) {
-            @$query['ProxyId'] = $request->proxyId;
+        if (!Utils::isUnset($request->proxyId)) {
+            $query['ProxyId'] = $request->proxyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteSecurityProxy',
@@ -2313,15 +2340,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes a NAT firewall.
+     * @summary Deletes a NAT firewall.
+     *  *
+     * @param DeleteSecurityProxyRequest $request DeleteSecurityProxyRequest
      *
-     * @param request - DeleteSecurityProxyRequest
-     *
-     * @returns DeleteSecurityProxyResponse
-     *
-     * @param DeleteSecurityProxyRequest $request
-     *
-     * @return DeleteSecurityProxyResponse
+     * @return DeleteSecurityProxyResponse DeleteSecurityProxyResponse
      */
     public function deleteSecurityProxy($request)
     {
@@ -2331,32 +2354,25 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes a virtual private cloud (VPC) firewall that is created for a transit router.
+     * @summary Deletes a virtual private cloud (VPC) firewall that is created for a transit router.
+     *  *
+     * @param DeleteTrFirewallV2Request $request DeleteTrFirewallV2Request
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteTrFirewallV2Request
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteTrFirewallV2Response
-     *
-     * @param DeleteTrFirewallV2Request $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return DeleteTrFirewallV2Response
+     * @return DeleteTrFirewallV2Response DeleteTrFirewallV2Response
      */
     public function deleteTrFirewallV2WithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->firewallId) {
-            @$query['FirewallId'] = $request->firewallId;
+        if (!Utils::isUnset($request->firewallId)) {
+            $query['FirewallId'] = $request->firewallId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteTrFirewallV2',
@@ -2374,15 +2390,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes a virtual private cloud (VPC) firewall that is created for a transit router.
+     * @summary Deletes a virtual private cloud (VPC) firewall that is created for a transit router.
+     *  *
+     * @param DeleteTrFirewallV2Request $request DeleteTrFirewallV2Request
      *
-     * @param request - DeleteTrFirewallV2Request
-     *
-     * @returns DeleteTrFirewallV2Response
-     *
-     * @param DeleteTrFirewallV2Request $request
-     *
-     * @return DeleteTrFirewallV2Response
+     * @return DeleteTrFirewallV2Response DeleteTrFirewallV2Response
      */
     public function deleteTrFirewallV2($request)
     {
@@ -2392,41 +2404,32 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes a virtual private cloud (VPC) firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance.
-     *
-     * @remarks
-     * You can call the DeleteVpcFirewallCenConfigure operation to delete a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](https://help.aliyun.com/document_detail/345772.html) operation.
+     * @summary Deletes a virtual private cloud (VPC) firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the DeleteVpcFirewallCenConfigure operation to delete a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](https://help.aliyun.com/document_detail/345772.html) operation.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteVpcFirewallCenConfigureRequest $request DeleteVpcFirewallCenConfigureRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteVpcFirewallCenConfigureRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteVpcFirewallCenConfigureResponse
-     *
-     * @param DeleteVpcFirewallCenConfigureRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DeleteVpcFirewallCenConfigureResponse
+     * @return DeleteVpcFirewallCenConfigureResponse DeleteVpcFirewallCenConfigureResponse
      */
     public function deleteVpcFirewallCenConfigureWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->vpcFirewallIdList) {
-            @$query['VpcFirewallIdList'] = $request->vpcFirewallIdList;
+        if (!Utils::isUnset($request->vpcFirewallIdList)) {
+            $query['VpcFirewallIdList'] = $request->vpcFirewallIdList;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteVpcFirewallCenConfigure',
@@ -2444,20 +2447,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes a virtual private cloud (VPC) firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance.
-     *
-     * @remarks
-     * You can call the DeleteVpcFirewallCenConfigure operation to delete a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](https://help.aliyun.com/document_detail/345772.html) operation.
+     * @summary Deletes a virtual private cloud (VPC) firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the DeleteVpcFirewallCenConfigure operation to delete a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](https://help.aliyun.com/document_detail/345772.html) operation.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteVpcFirewallCenConfigureRequest $request DeleteVpcFirewallCenConfigureRequest
      *
-     * @param request - DeleteVpcFirewallCenConfigureRequest
-     *
-     * @returns DeleteVpcFirewallCenConfigureResponse
-     *
-     * @param DeleteVpcFirewallCenConfigureRequest $request
-     *
-     * @return DeleteVpcFirewallCenConfigureResponse
+     * @return DeleteVpcFirewallCenConfigureResponse DeleteVpcFirewallCenConfigureResponse
      */
     public function deleteVpcFirewallCenConfigure($request)
     {
@@ -2467,41 +2465,32 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes a virtual private cloud (VPC) firewall that controls traffic between two VPCs. The VPCs are connected by using an Express Connect circuit.
-     *
-     * @remarks
-     * You can call the DeleteVpcFirewallConfigure operation to delete a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
+     * @summary Deletes a virtual private cloud (VPC) firewall that controls traffic between two VPCs. The VPCs are connected by using an Express Connect circuit.
+     *  *
+     * @description You can call the DeleteVpcFirewallConfigure operation to delete a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteVpcFirewallConfigureRequest $request DeleteVpcFirewallConfigureRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteVpcFirewallConfigureRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteVpcFirewallConfigureResponse
-     *
-     * @param DeleteVpcFirewallConfigureRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DeleteVpcFirewallConfigureResponse
+     * @return DeleteVpcFirewallConfigureResponse DeleteVpcFirewallConfigureResponse
      */
     public function deleteVpcFirewallConfigureWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->vpcFirewallIdList) {
-            @$query['VpcFirewallIdList'] = $request->vpcFirewallIdList;
+        if (!Utils::isUnset($request->vpcFirewallIdList)) {
+            $query['VpcFirewallIdList'] = $request->vpcFirewallIdList;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteVpcFirewallConfigure',
@@ -2519,20 +2508,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes a virtual private cloud (VPC) firewall that controls traffic between two VPCs. The VPCs are connected by using an Express Connect circuit.
-     *
-     * @remarks
-     * You can call the DeleteVpcFirewallConfigure operation to delete a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
+     * @summary Deletes a virtual private cloud (VPC) firewall that controls traffic between two VPCs. The VPCs are connected by using an Express Connect circuit.
+     *  *
+     * @description You can call the DeleteVpcFirewallConfigure operation to delete a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteVpcFirewallConfigureRequest $request DeleteVpcFirewallConfigureRequest
      *
-     * @param request - DeleteVpcFirewallConfigureRequest
-     *
-     * @returns DeleteVpcFirewallConfigureResponse
-     *
-     * @param DeleteVpcFirewallConfigureRequest $request
-     *
-     * @return DeleteVpcFirewallConfigureResponse
+     * @return DeleteVpcFirewallConfigureResponse DeleteVpcFirewallConfigureResponse
      */
     public function deleteVpcFirewallConfigure($request)
     {
@@ -2542,41 +2526,32 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes an access control policy from a specific policy group for a virtual private cloud (VPC) firewall.
-     *
-     * @remarks
-     * You can call the DeleteVpcFirewallControlPolicy operation to delete an access control policy from a specific policy group for a VPC firewall. Different access control policies are used for the VPC firewall that is used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewall that is used to protect each Express Connect circuit.
+     * @summary Deletes an access control policy from a specific policy group for a virtual private cloud (VPC) firewall.
+     *  *
+     * @description You can call the DeleteVpcFirewallControlPolicy operation to delete an access control policy from a specific policy group for a VPC firewall. Different access control policies are used for the VPC firewall that is used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewall that is used to protect each Express Connect circuit.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteVpcFirewallControlPolicyRequest $request DeleteVpcFirewallControlPolicyRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DeleteVpcFirewallControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteVpcFirewallControlPolicyResponse
-     *
-     * @param DeleteVpcFirewallControlPolicyRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DeleteVpcFirewallControlPolicyResponse
+     * @return DeleteVpcFirewallControlPolicyResponse DeleteVpcFirewallControlPolicyResponse
      */
     public function deleteVpcFirewallControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclUuid) {
-            @$query['AclUuid'] = $request->aclUuid;
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->vpcFirewallId) {
-            @$query['VpcFirewallId'] = $request->vpcFirewallId;
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteVpcFirewallControlPolicy',
@@ -2594,20 +2569,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Deletes an access control policy from a specific policy group for a virtual private cloud (VPC) firewall.
-     *
-     * @remarks
-     * You can call the DeleteVpcFirewallControlPolicy operation to delete an access control policy from a specific policy group for a VPC firewall. Different access control policies are used for the VPC firewall that is used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewall that is used to protect each Express Connect circuit.
+     * @summary Deletes an access control policy from a specific policy group for a virtual private cloud (VPC) firewall.
+     *  *
+     * @description You can call the DeleteVpcFirewallControlPolicy operation to delete an access control policy from a specific policy group for a VPC firewall. Different access control policies are used for the VPC firewall that is used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewall that is used to protect each Express Connect circuit.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DeleteVpcFirewallControlPolicyRequest $request DeleteVpcFirewallControlPolicyRequest
      *
-     * @param request - DeleteVpcFirewallControlPolicyRequest
-     *
-     * @returns DeleteVpcFirewallControlPolicyResponse
-     *
-     * @param DeleteVpcFirewallControlPolicyRequest $request
-     *
-     * @return DeleteVpcFirewallControlPolicyResponse
+     * @return DeleteVpcFirewallControlPolicyResponse DeleteVpcFirewallControlPolicyResponse
      */
     public function deleteVpcFirewallControlPolicy($request)
     {
@@ -2617,44 +2587,34 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on the requests that are blocked by the access control list (ACL) feature.
+     * @summary Queries the statistics on the requests that are blocked by the access control list (ACL) feature.
+     *  *
+     * @param DescribeACLProtectTrendRequest $request DescribeACLProtectTrendRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeACLProtectTrendRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeACLProtectTrendResponse
-     *
-     * @param DescribeACLProtectTrendRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeACLProtectTrendResponse
+     * @return DescribeACLProtectTrendResponse DescribeACLProtectTrendResponse
      */
     public function describeACLProtectTrendWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeACLProtectTrend',
@@ -2672,15 +2632,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the statistics on the requests that are blocked by the access control list (ACL) feature.
+     * @summary Queries the statistics on the requests that are blocked by the access control list (ACL) feature.
+     *  *
+     * @param DescribeACLProtectTrendRequest $request DescribeACLProtectTrendRequest
      *
-     * @param request - DescribeACLProtectTrendRequest
-     *
-     * @returns DescribeACLProtectTrendResponse
-     *
-     * @param DescribeACLProtectTrendRequest $request
-     *
-     * @return DescribeACLProtectTrendResponse
+     * @return DescribeACLProtectTrendResponse DescribeACLProtectTrendResponse
      */
     public function describeACLProtectTrend($request)
     {
@@ -2690,53 +2646,78 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the details about an address book for an access control policy.
+     * @summary 查询AI流量分析开启状态
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation to query the details about an address book for an access control policy.
+     * @return DescribeAITrafficAnalysisStatusResponse DescribeAITrafficAnalysisStatusResponse
+     */
+    public function describeAITrafficAnalysisStatusWithOptions($runtime)
+    {
+        $req = new OpenApiRequest([]);
+        $params = new Params([
+            'action' => 'DescribeAITrafficAnalysisStatus',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAITrafficAnalysisStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询AI流量分析开启状态
+     *  *
+     * @return DescribeAITrafficAnalysisStatusResponse DescribeAITrafficAnalysisStatusResponse
+     */
+    public function describeAITrafficAnalysisStatus()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAITrafficAnalysisStatusWithOptions($runtime);
+    }
+
+    /**
+     * @summary Queries the details about an address book for an access control policy.
+     *  *
+     * @description You can call this operation to query the details about an address book for an access control policy.
      * ## [](#qps)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeAddressBookRequest $request DescribeAddressBookRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAddressBookRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAddressBookResponse
-     *
-     * @param DescribeAddressBookRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeAddressBookResponse
+     * @return DescribeAddressBookResponse DescribeAddressBookResponse
      */
     public function describeAddressBookWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->containPort) {
-            @$query['ContainPort'] = $request->containPort;
+        if (!Utils::isUnset($request->containPort)) {
+            $query['ContainPort'] = $request->containPort;
         }
-
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->groupType) {
-            @$query['GroupType'] = $request->groupType;
+        if (!Utils::isUnset($request->groupType)) {
+            $query['GroupType'] = $request->groupType;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->query) {
-            @$query['Query'] = $request->query;
+        if (!Utils::isUnset($request->query)) {
+            $query['Query'] = $request->query;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAddressBook',
@@ -2754,20 +2735,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the details about an address book for an access control policy.
-     *
-     * @remarks
-     * You can call this operation to query the details about an address book for an access control policy.
+     * @summary Queries the details about an address book for an access control policy.
+     *  *
+     * @description You can call this operation to query the details about an address book for an access control policy.
      * ## [](#qps)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeAddressBookRequest $request DescribeAddressBookRequest
      *
-     * @param request - DescribeAddressBookRequest
-     *
-     * @returns DescribeAddressBookResponse
-     *
-     * @param DescribeAddressBookRequest $request
-     *
-     * @return DescribeAddressBookResponse
+     * @return DescribeAddressBookResponse DescribeAddressBookResponse
      */
     public function describeAddressBook($request)
     {
@@ -2777,89 +2753,68 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the assets that are protected by Cloud Firewall.
-     *
-     * @remarks
-     * You can call the DescribeAssetList operation to query the assets that are protected by Cloud Firewall.
+     * @summary Queries the assets that are protected by Cloud Firewall.
+     *  *
+     * @description You can call the DescribeAssetList operation to query the assets that are protected by Cloud Firewall.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeAssetListRequest $request DescribeAssetListRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAssetListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAssetListResponse
-     *
-     * @param DescribeAssetListRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeAssetListResponse
+     * @return DescribeAssetListResponse DescribeAssetListResponse
      */
     public function describeAssetListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->ipVersion) {
-            @$query['IpVersion'] = $request->ipVersion;
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->newResourceTag) {
-            @$query['NewResourceTag'] = $request->newResourceTag;
+        if (!Utils::isUnset($request->newResourceTag)) {
+            $query['NewResourceTag'] = $request->newResourceTag;
         }
-
-        if (null !== $request->outStatistic) {
-            @$query['OutStatistic'] = $request->outStatistic;
+        if (!Utils::isUnset($request->outStatistic)) {
+            $query['OutStatistic'] = $request->outStatistic;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionNo) {
-            @$query['RegionNo'] = $request->regionNo;
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
         }
-
-        if (null !== $request->resourceType) {
-            @$query['ResourceType'] = $request->resourceType;
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
         }
-
-        if (null !== $request->searchItem) {
-            @$query['SearchItem'] = $request->searchItem;
+        if (!Utils::isUnset($request->searchItem)) {
+            $query['SearchItem'] = $request->searchItem;
         }
-
-        if (null !== $request->sensitiveStatus) {
-            @$query['SensitiveStatus'] = $request->sensitiveStatus;
+        if (!Utils::isUnset($request->sensitiveStatus)) {
+            $query['SensitiveStatus'] = $request->sensitiveStatus;
         }
-
-        if (null !== $request->sgStatus) {
-            @$query['SgStatus'] = $request->sgStatus;
+        if (!Utils::isUnset($request->sgStatus)) {
+            $query['SgStatus'] = $request->sgStatus;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->type) {
-            @$query['Type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
-
-        if (null !== $request->userType) {
-            @$query['UserType'] = $request->userType;
+        if (!Utils::isUnset($request->userType)) {
+            $query['UserType'] = $request->userType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAssetList',
@@ -2877,20 +2832,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the assets that are protected by Cloud Firewall.
-     *
-     * @remarks
-     * You can call the DescribeAssetList operation to query the assets that are protected by Cloud Firewall.
+     * @summary Queries the assets that are protected by Cloud Firewall.
+     *  *
+     * @description You can call the DescribeAssetList operation to query the assets that are protected by Cloud Firewall.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeAssetListRequest $request DescribeAssetListRequest
      *
-     * @param request - DescribeAssetListRequest
-     *
-     * @returns DescribeAssetListResponse
-     *
-     * @param DescribeAssetListRequest $request
-     *
-     * @return DescribeAssetListResponse
+     * @return DescribeAssetListResponse DescribeAssetListResponse
      */
     public function describeAssetList($request)
     {
@@ -2900,40 +2850,31 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the risk levels of assets.
+     * @summary Queries the risk levels of assets.
+     *  *
+     * @param DescribeAssetRiskListRequest $request DescribeAssetRiskListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAssetRiskListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAssetRiskListResponse
-     *
-     * @param DescribeAssetRiskListRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeAssetRiskListResponse
+     * @return DescribeAssetRiskListResponse DescribeAssetRiskListResponse
      */
     public function describeAssetRiskListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ipAddrList) {
-            @$query['IpAddrList'] = $request->ipAddrList;
+        if (!Utils::isUnset($request->ipAddrList)) {
+            $query['IpAddrList'] = $request->ipAddrList;
         }
-
-        if (null !== $request->ipVersion) {
-            @$query['IpVersion'] = $request->ipVersion;
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAssetRiskList',
@@ -2951,15 +2892,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the risk levels of assets.
+     * @summary Queries the risk levels of assets.
+     *  *
+     * @param DescribeAssetRiskListRequest $request DescribeAssetRiskListRequest
      *
-     * @param request - DescribeAssetRiskListRequest
-     *
-     * @returns DescribeAssetRiskListResponse
-     *
-     * @param DescribeAssetRiskListRequest $request
-     *
-     * @return DescribeAssetRiskListResponse
+     * @return DescribeAssetRiskListResponse DescribeAssetRiskListResponse
      */
     public function describeAssetRiskList($request)
     {
@@ -2969,36 +2906,28 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries statistics on the assets that are protected by Cloud Firewall.
+     * @summary Queries statistics on the assets that are protected by Cloud Firewall.
+     *  *
+     * @param DescribeAssetStatisticRequest $request DescribeAssetStatisticRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeAssetStatisticRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeAssetStatisticResponse
-     *
-     * @param DescribeAssetStatisticRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeAssetStatisticResponse
+     * @return DescribeAssetStatisticResponse DescribeAssetStatisticResponse
      */
     public function describeAssetStatisticWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAssetStatistic',
@@ -3016,15 +2945,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries statistics on the assets that are protected by Cloud Firewall.
+     * @summary Queries statistics on the assets that are protected by Cloud Firewall.
+     *  *
+     * @param DescribeAssetStatisticRequest $request DescribeAssetStatisticRequest
      *
-     * @param request - DescribeAssetStatisticRequest
-     *
-     * @returns DescribeAssetStatisticResponse
-     *
-     * @param DescribeAssetStatisticRequest $request
-     *
-     * @return DescribeAssetStatisticResponse
+     * @return DescribeAssetStatisticResponse DescribeAssetStatisticResponse
      */
     public function describeAssetStatistic($request)
     {
@@ -3034,36 +2959,28 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the firewall risk level.
+     * @summary Queries the firewall risk level.
+     *  *
+     * @param DescribeCfwRiskLevelSummaryRequest $request DescribeCfwRiskLevelSummaryRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeCfwRiskLevelSummaryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeCfwRiskLevelSummaryResponse
-     *
-     * @param DescribeCfwRiskLevelSummaryRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeCfwRiskLevelSummaryResponse
+     * @return DescribeCfwRiskLevelSummaryResponse DescribeCfwRiskLevelSummaryResponse
      */
     public function describeCfwRiskLevelSummaryWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceType) {
-            @$query['InstanceType'] = $request->instanceType;
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->regionId) {
-            @$query['RegionId'] = $request->regionId;
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCfwRiskLevelSummary',
@@ -3081,15 +2998,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the firewall risk level.
+     * @summary Queries the firewall risk level.
+     *  *
+     * @param DescribeCfwRiskLevelSummaryRequest $request DescribeCfwRiskLevelSummaryRequest
      *
-     * @param request - DescribeCfwRiskLevelSummaryRequest
-     *
-     * @returns DescribeCfwRiskLevelSummaryResponse
-     *
-     * @param DescribeCfwRiskLevelSummaryRequest $request
-     *
-     * @return DescribeCfwRiskLevelSummaryResponse
+     * @return DescribeCfwRiskLevelSummaryResponse DescribeCfwRiskLevelSummaryResponse
      */
     public function describeCfwRiskLevelSummary($request)
     {
@@ -3099,85 +3012,65 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the details about all access control policies.
-     *
-     * @remarks
-     * You can call the DescribeControlPolicy operation to query the details about access control policies by page.
+     * @summary Queries the details about all access control policies.
+     *  *
+     * @description You can call the DescribeControlPolicy operation to query the details about access control policies by page.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeControlPolicyRequest $request DescribeControlPolicyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeControlPolicyResponse
-     *
-     * @param DescribeControlPolicyRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeControlPolicyResponse
+     * @return DescribeControlPolicyResponse DescribeControlPolicyResponse
      */
     public function describeControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclAction) {
-            @$query['AclAction'] = $request->aclAction;
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
         }
-
-        if (null !== $request->aclUuid) {
-            @$query['AclUuid'] = $request->aclUuid;
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
         }
-
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->destination) {
-            @$query['Destination'] = $request->destination;
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
         }
-
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->ipVersion) {
-            @$query['IpVersion'] = $request->ipVersion;
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->proto) {
-            @$query['Proto'] = $request->proto;
+        if (!Utils::isUnset($request->proto)) {
+            $query['Proto'] = $request->proto;
         }
-
-        if (null !== $request->release) {
-            @$query['Release'] = $request->release;
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
         }
-
-        if (null !== $request->repeatType) {
-            @$query['RepeatType'] = $request->repeatType;
+        if (!Utils::isUnset($request->repeatType)) {
+            $query['RepeatType'] = $request->repeatType;
         }
-
-        if (null !== $request->source) {
-            @$query['Source'] = $request->source;
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeControlPolicy',
@@ -3195,20 +3088,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the details about all access control policies.
-     *
-     * @remarks
-     * You can call the DescribeControlPolicy operation to query the details about access control policies by page.
+     * @summary Queries the details about all access control policies.
+     *  *
+     * @description You can call the DescribeControlPolicy operation to query the details about access control policies by page.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeControlPolicyRequest $request DescribeControlPolicyRequest
      *
-     * @param request - DescribeControlPolicyRequest
-     *
-     * @returns DescribeControlPolicyResponse
-     *
-     * @param DescribeControlPolicyRequest $request
-     *
-     * @return DescribeControlPolicyResponse
+     * @return DescribeControlPolicyResponse DescribeControlPolicyResponse
      */
     public function describeControlPolicy($request)
     {
@@ -3218,28 +3106,22 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the default intrusion prevention system (IPS) configurations.
+     * @summary Queries the default intrusion prevention system (IPS) configurations.
+     *  *
+     * @param DescribeDefaultIPSConfigRequest $request DescribeDefaultIPSConfigRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDefaultIPSConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDefaultIPSConfigResponse
-     *
-     * @param DescribeDefaultIPSConfigRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeDefaultIPSConfigResponse
+     * @return DescribeDefaultIPSConfigResponse DescribeDefaultIPSConfigResponse
      */
     public function describeDefaultIPSConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDefaultIPSConfig',
@@ -3257,15 +3139,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the default intrusion prevention system (IPS) configurations.
+     * @summary Queries the default intrusion prevention system (IPS) configurations.
+     *  *
+     * @param DescribeDefaultIPSConfigRequest $request DescribeDefaultIPSConfigRequest
      *
-     * @param request - DescribeDefaultIPSConfigRequest
-     *
-     * @returns DescribeDefaultIPSConfigResponse
-     *
-     * @param DescribeDefaultIPSConfigRequest $request
-     *
-     * @return DescribeDefaultIPSConfigResponse
+     * @return DescribeDefaultIPSConfigResponse DescribeDefaultIPSConfigResponse
      */
     public function describeDefaultIPSConfig($request)
     {
@@ -3274,53 +3152,123 @@ class Cloudfw extends OpenApiClient
         return $this->describeDefaultIPSConfigWithOptions($request, $runtime);
     }
 
-    // Deprecated
     /**
-     * Queries Domain Name System (DNS) records.
+     * @summary 获取DNS防火墙ACL列表
+     *  *
+     * @param DescribeDnsFirewallPolicyRequest $request DescribeDnsFirewallPolicyRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can use this operation to query the DNS record of a domain name. This operation can retrieve DNS records only from Alibaba Cloud DNS. Before you can call this operation, make sure that your domain name is hosted on Alibaba Cloud DNS.
+     * @return DescribeDnsFirewallPolicyResponse DescribeDnsFirewallPolicyResponse
+     */
+    public function describeDnsFirewallPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
+        }
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeDnsFirewallPolicy',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeDnsFirewallPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取DNS防火墙ACL列表
+     *  *
+     * @param DescribeDnsFirewallPolicyRequest $request DescribeDnsFirewallPolicyRequest
+     *
+     * @return DescribeDnsFirewallPolicyResponse DescribeDnsFirewallPolicyResponse
+     */
+    public function describeDnsFirewallPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDnsFirewallPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @deprecated OpenAPI DescribeDomainResolve is deprecated
+     *  *
+     * @summary Queries Domain Name System (DNS) records.
+     *  *
+     * @description You can use this operation to query the DNS record of a domain name. This operation can retrieve DNS records only from Alibaba Cloud DNS. Before you can call this operation, make sure that your domain name is hosted on Alibaba Cloud DNS.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * Deprecated
      *
-     * @deprecated OpenAPI DescribeDomainResolve is deprecated
+     * @param DescribeDomainResolveRequest $request DescribeDomainResolveRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDomainResolveRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDomainResolveResponse
-     *
-     * @param DescribeDomainResolveRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeDomainResolveResponse
+     * @return DescribeDomainResolveResponse DescribeDomainResolveResponse
      */
     public function describeDomainResolveWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->domain) {
-            @$query['Domain'] = $request->domain;
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
         }
-
-        if (null !== $request->ipVersion) {
-            @$query['IpVersion'] = $request->ipVersion;
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDomainResolve',
@@ -3337,24 +3285,20 @@ class Cloudfw extends OpenApiClient
         return DescribeDomainResolveResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
-    // Deprecated
     /**
-     * Queries Domain Name System (DNS) records.
-     *
-     * @remarks
-     * You can use this operation to query the DNS record of a domain name. This operation can retrieve DNS records only from Alibaba Cloud DNS. Before you can call this operation, make sure that your domain name is hosted on Alibaba Cloud DNS.
+     * @deprecated OpenAPI DescribeDomainResolve is deprecated
+     *  *
+     * @summary Queries Domain Name System (DNS) records.
+     *  *
+     * @description You can use this operation to query the DNS record of a domain name. This operation can retrieve DNS records only from Alibaba Cloud DNS. Before you can call this operation, make sure that your domain name is hosted on Alibaba Cloud DNS.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * Deprecated
      *
-     * @deprecated OpenAPI DescribeDomainResolve is deprecated
+     * @param DescribeDomainResolveRequest $request DescribeDomainResolveRequest
      *
-     * @param request - DescribeDomainResolveRequest
-     *
-     * @returns DescribeDomainResolveResponse
-     *
-     * @param DescribeDomainResolveRequest $request
-     *
-     * @return DescribeDomainResolveResponse
+     * @return DescribeDomainResolveResponse DescribeDomainResolveResponse
      */
     public function describeDomainResolve($request)
     {
@@ -3364,40 +3308,31 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries file download tasks, including the task information and download URLs.
+     * @summary Queries file download tasks, including the task information and download URLs.
+     *  *
+     * @param DescribeDownloadTaskRequest $request DescribeDownloadTaskRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDownloadTaskRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDownloadTaskResponse
-     *
-     * @param DescribeDownloadTaskRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return DescribeDownloadTaskResponse
+     * @return DescribeDownloadTaskResponse DescribeDownloadTaskResponse
      */
     public function describeDownloadTaskWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->taskType) {
-            @$query['TaskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDownloadTask',
@@ -3415,15 +3350,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries file download tasks, including the task information and download URLs.
+     * @summary Queries file download tasks, including the task information and download URLs.
+     *  *
+     * @param DescribeDownloadTaskRequest $request DescribeDownloadTaskRequest
      *
-     * @param request - DescribeDownloadTaskRequest
-     *
-     * @returns DescribeDownloadTaskResponse
-     *
-     * @param DescribeDownloadTaskRequest $request
-     *
-     * @return DescribeDownloadTaskResponse
+     * @return DescribeDownloadTaskResponse DescribeDownloadTaskResponse
      */
     public function describeDownloadTask($request)
     {
@@ -3433,40 +3364,31 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the types of download tasks. The type corresponds to the TaskType fields in the download task-related operations.
+     * @summary Queries the types of download tasks. The type corresponds to the TaskType fields in the download task-related operations.
+     *  *
+     * @param DescribeDownloadTaskTypeRequest $request DescribeDownloadTaskTypeRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeDownloadTaskTypeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeDownloadTaskTypeResponse
-     *
-     * @param DescribeDownloadTaskTypeRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeDownloadTaskTypeResponse
+     * @return DescribeDownloadTaskTypeResponse DescribeDownloadTaskTypeResponse
      */
     public function describeDownloadTaskTypeWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->taskType) {
-            @$query['TaskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeDownloadTaskType',
@@ -3484,15 +3406,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the types of download tasks. The type corresponds to the TaskType fields in the download task-related operations.
+     * @summary Queries the types of download tasks. The type corresponds to the TaskType fields in the download task-related operations.
+     *  *
+     * @param DescribeDownloadTaskTypeRequest $request DescribeDownloadTaskTypeRequest
      *
-     * @param request - DescribeDownloadTaskTypeRequest
-     *
-     * @returns DescribeDownloadTaskTypeResponse
-     *
-     * @param DescribeDownloadTaskTypeRequest $request
-     *
-     * @return DescribeDownloadTaskTypeResponse
+     * @return DescribeDownloadTaskTypeResponse DescribeDownloadTaskTypeResponse
      */
     public function describeDownloadTaskType($request)
     {
@@ -3502,49 +3420,38 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the information about members in Cloud Firewall.
-     *
-     * @remarks
-     * You can use this operation to query the information about members in Cloud Firewall.
+     * @summary Queries the information about members in Cloud Firewall.
+     *  *
+     * @description You can use this operation to query the information about members in Cloud Firewall.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeInstanceMembersRequest $request DescribeInstanceMembersRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceMembersRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeInstanceMembersResponse
-     *
-     * @param DescribeInstanceMembersRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeInstanceMembersResponse
+     * @return DescribeInstanceMembersResponse DescribeInstanceMembersResponse
      */
     public function describeInstanceMembersWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->memberDesc) {
-            @$query['MemberDesc'] = $request->memberDesc;
+        if (!Utils::isUnset($request->memberDesc)) {
+            $query['MemberDesc'] = $request->memberDesc;
         }
-
-        if (null !== $request->memberDisplayName) {
-            @$query['MemberDisplayName'] = $request->memberDisplayName;
+        if (!Utils::isUnset($request->memberDisplayName)) {
+            $query['MemberDisplayName'] = $request->memberDisplayName;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeInstanceMembers',
@@ -3562,20 +3469,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the information about members in Cloud Firewall.
-     *
-     * @remarks
-     * You can use this operation to query the information about members in Cloud Firewall.
+     * @summary Queries the information about members in Cloud Firewall.
+     *  *
+     * @description You can use this operation to query the information about members in Cloud Firewall.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeInstanceMembersRequest $request DescribeInstanceMembersRequest
      *
-     * @param request - DescribeInstanceMembersRequest
-     *
-     * @returns DescribeInstanceMembersResponse
-     *
-     * @param DescribeInstanceMembersRequest $request
-     *
-     * @return DescribeInstanceMembersResponse
+     * @return DescribeInstanceMembersResponse DescribeInstanceMembersResponse
      */
     public function describeInstanceMembers($request)
     {
@@ -3585,32 +3487,25 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the risk levels of instances.
+     * @summary Queries the risk levels of instances.
+     *  *
+     * @param DescribeInstanceRiskLevelsRequest $request DescribeInstanceRiskLevelsRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInstanceRiskLevelsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeInstanceRiskLevelsResponse
-     *
-     * @param DescribeInstanceRiskLevelsRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeInstanceRiskLevelsResponse
+     * @return DescribeInstanceRiskLevelsResponse DescribeInstanceRiskLevelsResponse
      */
     public function describeInstanceRiskLevelsWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instances) {
-            @$query['Instances'] = $request->instances;
+        if (!Utils::isUnset($request->instances)) {
+            $query['Instances'] = $request->instances;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeInstanceRiskLevels',
@@ -3628,15 +3523,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the risk levels of instances.
+     * @summary Queries the risk levels of instances.
+     *  *
+     * @param DescribeInstanceRiskLevelsRequest $request DescribeInstanceRiskLevelsRequest
      *
-     * @param request - DescribeInstanceRiskLevelsRequest
-     *
-     * @returns DescribeInstanceRiskLevelsResponse
-     *
-     * @param DescribeInstanceRiskLevelsRequest $request
-     *
-     * @return DescribeInstanceRiskLevelsResponse
+     * @return DescribeInstanceRiskLevelsResponse DescribeInstanceRiskLevelsResponse
      */
     public function describeInstanceRiskLevels($request)
     {
@@ -3646,76 +3537,58 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the IP addresses that are open to the Internet.
+     * @summary Queries the IP addresses that are open to the Internet.
+     *  *
+     * @param DescribeInternetOpenIpRequest $request DescribeInternetOpenIpRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInternetOpenIpRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeInternetOpenIpResponse
-     *
-     * @param DescribeInternetOpenIpRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeInternetOpenIpResponse
+     * @return DescribeInternetOpenIpResponse DescribeInternetOpenIpResponse
      */
     public function describeInternetOpenIpWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->assetsInstanceId) {
-            @$query['AssetsInstanceId'] = $request->assetsInstanceId;
+        if (!Utils::isUnset($request->assetsInstanceId)) {
+            $query['AssetsInstanceId'] = $request->assetsInstanceId;
         }
-
-        if (null !== $request->assetsInstanceName) {
-            @$query['AssetsInstanceName'] = $request->assetsInstanceName;
+        if (!Utils::isUnset($request->assetsInstanceName)) {
+            $query['AssetsInstanceName'] = $request->assetsInstanceName;
         }
-
-        if (null !== $request->assetsType) {
-            @$query['AssetsType'] = $request->assetsType;
+        if (!Utils::isUnset($request->assetsType)) {
+            $query['AssetsType'] = $request->assetsType;
         }
-
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->port) {
-            @$query['Port'] = $request->port;
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
         }
-
-        if (null !== $request->publicIp) {
-            @$query['PublicIp'] = $request->publicIp;
+        if (!Utils::isUnset($request->publicIp)) {
+            $query['PublicIp'] = $request->publicIp;
         }
-
-        if (null !== $request->regionNo) {
-            @$query['RegionNo'] = $request->regionNo;
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
         }
-
-        if (null !== $request->riskLevel) {
-            @$query['RiskLevel'] = $request->riskLevel;
+        if (!Utils::isUnset($request->riskLevel)) {
+            $query['RiskLevel'] = $request->riskLevel;
         }
-
-        if (null !== $request->serviceName) {
-            @$query['ServiceName'] = $request->serviceName;
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeInternetOpenIp',
@@ -3733,15 +3606,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the IP addresses that are open to the Internet.
+     * @summary Queries the IP addresses that are open to the Internet.
+     *  *
+     * @param DescribeInternetOpenIpRequest $request DescribeInternetOpenIpRequest
      *
-     * @param request - DescribeInternetOpenIpRequest
-     *
-     * @returns DescribeInternetOpenIpResponse
-     *
-     * @param DescribeInternetOpenIpRequest $request
-     *
-     * @return DescribeInternetOpenIpResponse
+     * @return DescribeInternetOpenIpResponse DescribeInternetOpenIpResponse
      */
     public function describeInternetOpenIp($request)
     {
@@ -3751,64 +3620,49 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the trends of Internet traffic.
+     * @summary Queries the trends of Internet traffic.
+     *  *
+     * @param DescribeInternetTrafficTrendRequest $request DescribeInternetTrafficTrendRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInternetTrafficTrendRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeInternetTrafficTrendResponse
-     *
-     * @param DescribeInternetTrafficTrendRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeInternetTrafficTrendResponse
+     * @return DescribeInternetTrafficTrendResponse DescribeInternetTrafficTrendResponse
      */
     public function describeInternetTrafficTrendWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->sourceCode) {
-            @$query['SourceCode'] = $request->sourceCode;
+        if (!Utils::isUnset($request->sourceCode)) {
+            $query['SourceCode'] = $request->sourceCode;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
-        if (null !== $request->srcPrivateIP) {
-            @$query['SrcPrivateIP'] = $request->srcPrivateIP;
+        if (!Utils::isUnset($request->srcPrivateIP)) {
+            $query['SrcPrivateIP'] = $request->srcPrivateIP;
         }
-
-        if (null !== $request->srcPublicIP) {
-            @$query['SrcPublicIP'] = $request->srcPublicIP;
+        if (!Utils::isUnset($request->srcPublicIP)) {
+            $query['SrcPublicIP'] = $request->srcPublicIP;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->trafficType) {
-            @$query['TrafficType'] = $request->trafficType;
+        if (!Utils::isUnset($request->trafficType)) {
+            $query['TrafficType'] = $request->trafficType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeInternetTrafficTrend',
@@ -3826,15 +3680,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the trends of Internet traffic.
+     * @summary Queries the trends of Internet traffic.
+     *  *
+     * @param DescribeInternetTrafficTrendRequest $request DescribeInternetTrafficTrendRequest
      *
-     * @param request - DescribeInternetTrafficTrendRequest
-     *
-     * @returns DescribeInternetTrafficTrendResponse
-     *
-     * @param DescribeInternetTrafficTrendRequest $request
-     *
-     * @return DescribeInternetTrafficTrendResponse
+     * @return DescribeInternetTrafficTrendResponse DescribeInternetTrafficTrendResponse
      */
     public function describeInternetTrafficTrend($request)
     {
@@ -3844,88 +3694,67 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the information about the breach awareness events of a firewall.
+     * @summary Queries the information about the breach awareness events of a firewall.
+     *  *
+     * @param DescribeInvadeEventListRequest $request DescribeInvadeEventListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeInvadeEventListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeInvadeEventListResponse
-     *
-     * @param DescribeInvadeEventListRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeInvadeEventListResponse
+     * @return DescribeInvadeEventListResponse DescribeInvadeEventListResponse
      */
     public function describeInvadeEventListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->assetsIP) {
-            @$query['AssetsIP'] = $request->assetsIP;
+        if (!Utils::isUnset($request->assetsIP)) {
+            $query['AssetsIP'] = $request->assetsIP;
         }
-
-        if (null !== $request->assetsInstanceId) {
-            @$query['AssetsInstanceId'] = $request->assetsInstanceId;
+        if (!Utils::isUnset($request->assetsInstanceId)) {
+            $query['AssetsInstanceId'] = $request->assetsInstanceId;
         }
-
-        if (null !== $request->assetsInstanceName) {
-            @$query['AssetsInstanceName'] = $request->assetsInstanceName;
+        if (!Utils::isUnset($request->assetsInstanceName)) {
+            $query['AssetsInstanceName'] = $request->assetsInstanceName;
         }
-
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->eventKey) {
-            @$query['EventKey'] = $request->eventKey;
+        if (!Utils::isUnset($request->eventKey)) {
+            $query['EventKey'] = $request->eventKey;
         }
-
-        if (null !== $request->eventName) {
-            @$query['EventName'] = $request->eventName;
+        if (!Utils::isUnset($request->eventName)) {
+            $query['EventName'] = $request->eventName;
         }
-
-        if (null !== $request->eventUuid) {
-            @$query['EventUuid'] = $request->eventUuid;
+        if (!Utils::isUnset($request->eventUuid)) {
+            $query['EventUuid'] = $request->eventUuid;
         }
-
-        if (null !== $request->isIgnore) {
-            @$query['IsIgnore'] = $request->isIgnore;
+        if (!Utils::isUnset($request->isIgnore)) {
+            $query['IsIgnore'] = $request->isIgnore;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->processStatusList) {
-            @$query['ProcessStatusList'] = $request->processStatusList;
+        if (!Utils::isUnset($request->processStatusList)) {
+            $query['ProcessStatusList'] = $request->processStatusList;
         }
-
-        if (null !== $request->riskLevel) {
-            @$query['RiskLevel'] = $request->riskLevel;
+        if (!Utils::isUnset($request->riskLevel)) {
+            $query['RiskLevel'] = $request->riskLevel;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeInvadeEventList',
@@ -3943,15 +3772,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the information about the breach awareness events of a firewall.
+     * @summary Queries the information about the breach awareness events of a firewall.
+     *  *
+     * @param DescribeInvadeEventListRequest $request DescribeInvadeEventListRequest
      *
-     * @param request - DescribeInvadeEventListRequest
-     *
-     * @returns DescribeInvadeEventListResponse
-     *
-     * @param DescribeInvadeEventListRequest $request
-     *
-     * @return DescribeInvadeEventListResponse
+     * @return DescribeInvadeEventListResponse DescribeInvadeEventListResponse
      */
     public function describeInvadeEventList($request)
     {
@@ -3961,16 +3786,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * 获取日志服务信息.
+     * @summary Get Log Service Information
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeLogStoreInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeLogStoreInfoResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeLogStoreInfoResponse
+     * @return DescribeLogStoreInfoResponse DescribeLogStoreInfoResponse
      */
     public function describeLogStoreInfoWithOptions($runtime)
     {
@@ -3991,11 +3811,9 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * 获取日志服务信息.
-     *
-     * @returns DescribeLogStoreInfoResponse
-     *
-     * @return DescribeLogStoreInfoResponse
+     * @summary Get Log Service Information
+     *  *
+     * @return DescribeLogStoreInfoResponse DescribeLogStoreInfoResponse
      */
     public function describeLogStoreInfo()
     {
@@ -4005,28 +3823,22 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the pagination status of NAT firewalls.
+     * @summary Queries the pagination status of NAT firewalls.
+     *  *
+     * @param DescribeNatAclPageStatusRequest $request DescribeNatAclPageStatusRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeNatAclPageStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeNatAclPageStatusResponse
-     *
-     * @param DescribeNatAclPageStatusRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeNatAclPageStatusResponse
+     * @return DescribeNatAclPageStatusResponse DescribeNatAclPageStatusResponse
      */
     public function describeNatAclPageStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeNatAclPageStatus',
@@ -4044,15 +3856,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the pagination status of NAT firewalls.
+     * @summary Queries the pagination status of NAT firewalls.
+     *  *
+     * @param DescribeNatAclPageStatusRequest $request DescribeNatAclPageStatusRequest
      *
-     * @param request - DescribeNatAclPageStatusRequest
-     *
-     * @returns DescribeNatAclPageStatusResponse
-     *
-     * @param DescribeNatAclPageStatusRequest $request
-     *
-     * @return DescribeNatAclPageStatusResponse
+     * @return DescribeNatAclPageStatusResponse DescribeNatAclPageStatusResponse
      */
     public function describeNatAclPageStatus($request)
     {
@@ -4062,79 +3870,60 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the information about all access control policies that are created for NAT firewalls.
+     * @summary Queries the information about all access control policies that are created for NAT firewalls.
+     *  *
+     * @description You can use this operation to query the information about all access control policies that are created for NAT firewalls by page.
+     *  *
+     * @param DescribeNatFirewallControlPolicyRequest $request DescribeNatFirewallControlPolicyRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can use this operation to query the information about all access control policies that are created for NAT firewalls by page.
-     *
-     * @param request - DescribeNatFirewallControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeNatFirewallControlPolicyResponse
-     *
-     * @param DescribeNatFirewallControlPolicyRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DescribeNatFirewallControlPolicyResponse
+     * @return DescribeNatFirewallControlPolicyResponse DescribeNatFirewallControlPolicyResponse
      */
     public function describeNatFirewallControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclAction) {
-            @$query['AclAction'] = $request->aclAction;
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
         }
-
-        if (null !== $request->aclUuid) {
-            @$query['AclUuid'] = $request->aclUuid;
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
         }
-
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->destination) {
-            @$query['Destination'] = $request->destination;
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
         }
-
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->natGatewayId) {
-            @$query['NatGatewayId'] = $request->natGatewayId;
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->proto) {
-            @$query['Proto'] = $request->proto;
+        if (!Utils::isUnset($request->proto)) {
+            $query['Proto'] = $request->proto;
         }
-
-        if (null !== $request->release) {
-            @$query['Release'] = $request->release;
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
         }
-
-        if (null !== $request->repeatType) {
-            @$query['RepeatType'] = $request->repeatType;
+        if (!Utils::isUnset($request->repeatType)) {
+            $query['RepeatType'] = $request->repeatType;
         }
-
-        if (null !== $request->source) {
-            @$query['Source'] = $request->source;
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeNatFirewallControlPolicy',
@@ -4152,18 +3941,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the information about all access control policies that are created for NAT firewalls.
+     * @summary Queries the information about all access control policies that are created for NAT firewalls.
+     *  *
+     * @description You can use this operation to query the information about all access control policies that are created for NAT firewalls by page.
+     *  *
+     * @param DescribeNatFirewallControlPolicyRequest $request DescribeNatFirewallControlPolicyRequest
      *
-     * @remarks
-     * You can use this operation to query the information about all access control policies that are created for NAT firewalls by page.
-     *
-     * @param request - DescribeNatFirewallControlPolicyRequest
-     *
-     * @returns DescribeNatFirewallControlPolicyResponse
-     *
-     * @param DescribeNatFirewallControlPolicyRequest $request
-     *
-     * @return DescribeNatFirewallControlPolicyResponse
+     * @return DescribeNatFirewallControlPolicyResponse DescribeNatFirewallControlPolicyResponse
      */
     public function describeNatFirewallControlPolicy($request)
     {
@@ -4173,68 +3957,52 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries details of NAT firewalls.
+     * @summary Queries details of NAT firewalls.
+     *  *
+     * @param DescribeNatFirewallListRequest $request DescribeNatFirewallListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeNatFirewallListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeNatFirewallListResponse
-     *
-     * @param DescribeNatFirewallListRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeNatFirewallListResponse
+     * @return DescribeNatFirewallListResponse DescribeNatFirewallListResponse
      */
     public function describeNatFirewallListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->natGatewayId) {
-            @$query['NatGatewayId'] = $request->natGatewayId;
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
         }
-
-        if (null !== $request->pageNo) {
-            @$query['PageNo'] = $request->pageNo;
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->proxyId) {
-            @$query['ProxyId'] = $request->proxyId;
+        if (!Utils::isUnset($request->proxyId)) {
+            $query['ProxyId'] = $request->proxyId;
         }
-
-        if (null !== $request->proxyName) {
-            @$query['ProxyName'] = $request->proxyName;
+        if (!Utils::isUnset($request->proxyName)) {
+            $query['ProxyName'] = $request->proxyName;
         }
-
-        if (null !== $request->regionNo) {
-            @$query['RegionNo'] = $request->regionNo;
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
         }
-
-        if (null !== $request->status) {
-            @$query['Status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeNatFirewallList',
@@ -4252,15 +4020,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries details of NAT firewalls.
+     * @summary Queries details of NAT firewalls.
+     *  *
+     * @param DescribeNatFirewallListRequest $request DescribeNatFirewallListRequest
      *
-     * @param request - DescribeNatFirewallListRequest
-     *
-     * @returns DescribeNatFirewallListResponse
-     *
-     * @param DescribeNatFirewallListRequest $request
-     *
-     * @return DescribeNatFirewallListResponse
+     * @return DescribeNatFirewallListResponse DescribeNatFirewallListResponse
      */
     public function describeNatFirewallList($request)
     {
@@ -4270,43 +4034,33 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the priority range of access control policies that are created for a NAT firewall.
+     * @summary Queries the priority range of access control policies that are created for a NAT firewall.
+     *  *
+     * @description You can use this operation to query the priority range of access control policies that are created for a NAT firewall.
+     *  *
+     * @param DescribeNatFirewallPolicyPriorUsedRequest $request DescribeNatFirewallPolicyPriorUsedRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can use this operation to query the priority range of access control policies that are created for a NAT firewall.
-     *
-     * @param request - DescribeNatFirewallPolicyPriorUsedRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeNatFirewallPolicyPriorUsedResponse
-     *
-     * @param DescribeNatFirewallPolicyPriorUsedRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return DescribeNatFirewallPolicyPriorUsedResponse
+     * @return DescribeNatFirewallPolicyPriorUsedResponse DescribeNatFirewallPolicyPriorUsedResponse
      */
     public function describeNatFirewallPolicyPriorUsedWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->ipVersion) {
-            @$query['IpVersion'] = $request->ipVersion;
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->natGatewayId) {
-            @$query['NatGatewayId'] = $request->natGatewayId;
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeNatFirewallPolicyPriorUsed',
@@ -4324,18 +4078,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the priority range of access control policies that are created for a NAT firewall.
+     * @summary Queries the priority range of access control policies that are created for a NAT firewall.
+     *  *
+     * @description You can use this operation to query the priority range of access control policies that are created for a NAT firewall.
+     *  *
+     * @param DescribeNatFirewallPolicyPriorUsedRequest $request DescribeNatFirewallPolicyPriorUsedRequest
      *
-     * @remarks
-     * You can use this operation to query the priority range of access control policies that are created for a NAT firewall.
-     *
-     * @param request - DescribeNatFirewallPolicyPriorUsedRequest
-     *
-     * @returns DescribeNatFirewallPolicyPriorUsedResponse
-     *
-     * @param DescribeNatFirewallPolicyPriorUsedRequest $request
-     *
-     * @return DescribeNatFirewallPolicyPriorUsedResponse
+     * @return DescribeNatFirewallPolicyPriorUsedResponse DescribeNatFirewallPolicyPriorUsedResponse
      */
     public function describeNatFirewallPolicyPriorUsed($request)
     {
@@ -4345,24 +4094,19 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * 概览页-NAT流量趋势
+     * @summary 概览页-NAT流量趋势
+     *  *
+     * @param DescribeNatFirewallTrafficTrendRequest $request DescribeNatFirewallTrafficTrendRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeNatFirewallTrafficTrendRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeNatFirewallTrafficTrendResponse
-     *
-     * @param DescribeNatFirewallTrafficTrendRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeNatFirewallTrafficTrendResponse
+     * @return DescribeNatFirewallTrafficTrendResponse DescribeNatFirewallTrafficTrendResponse
      */
     public function describeNatFirewallTrafficTrendWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeNatFirewallTrafficTrend',
@@ -4380,15 +4124,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * 概览页-NAT流量趋势
+     * @summary 概览页-NAT流量趋势
+     *  *
+     * @param DescribeNatFirewallTrafficTrendRequest $request DescribeNatFirewallTrafficTrendRequest
      *
-     * @param request - DescribeNatFirewallTrafficTrendRequest
-     *
-     * @returns DescribeNatFirewallTrafficTrendResponse
-     *
-     * @param DescribeNatFirewallTrafficTrendRequest $request
-     *
-     * @return DescribeNatFirewallTrafficTrendResponse
+     * @return DescribeNatFirewallTrafficTrendResponse DescribeNatFirewallTrafficTrendResponse
      */
     public function describeNatFirewallTrafficTrend($request)
     {
@@ -4398,80 +4138,61 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the information about the destination IP addresses in outbound connections.
+     * @summary Get details of outgoing destination IPs
+     *  *
+     * @param DescribeOutgoingDestinationIPRequest $request DescribeOutgoingDestinationIPRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeOutgoingDestinationIPRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeOutgoingDestinationIPResponse
-     *
-     * @param DescribeOutgoingDestinationIPRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeOutgoingDestinationIPResponse
+     * @return DescribeOutgoingDestinationIPResponse DescribeOutgoingDestinationIPResponse
      */
     public function describeOutgoingDestinationIPWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->applicationName) {
-            @$query['ApplicationName'] = $request->applicationName;
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
         }
-
-        if (null !== $request->categoryId) {
-            @$query['CategoryId'] = $request->categoryId;
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
         }
-
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->dstIP) {
-            @$query['DstIP'] = $request->dstIP;
+        if (!Utils::isUnset($request->dstIP)) {
+            $query['DstIP'] = $request->dstIP;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->order) {
-            @$query['Order'] = $request->order;
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->port) {
-            @$query['Port'] = $request->port;
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
         }
-
-        if (null !== $request->privateIP) {
-            @$query['PrivateIP'] = $request->privateIP;
+        if (!Utils::isUnset($request->privateIP)) {
+            $query['PrivateIP'] = $request->privateIP;
         }
-
-        if (null !== $request->publicIP) {
-            @$query['PublicIP'] = $request->publicIP;
+        if (!Utils::isUnset($request->publicIP)) {
+            $query['PublicIP'] = $request->publicIP;
         }
-
-        if (null !== $request->sort) {
-            @$query['Sort'] = $request->sort;
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->tagIdNew) {
-            @$query['TagIdNew'] = $request->tagIdNew;
+        if (!Utils::isUnset($request->tagIdNew)) {
+            $query['TagIdNew'] = $request->tagIdNew;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeOutgoingDestinationIP',
@@ -4489,15 +4210,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the information about the destination IP addresses in outbound connections.
+     * @summary Get details of outgoing destination IPs
+     *  *
+     * @param DescribeOutgoingDestinationIPRequest $request DescribeOutgoingDestinationIPRequest
      *
-     * @param request - DescribeOutgoingDestinationIPRequest
-     *
-     * @returns DescribeOutgoingDestinationIPResponse
-     *
-     * @param DescribeOutgoingDestinationIPRequest $request
-     *
-     * @return DescribeOutgoingDestinationIPResponse
+     * @return DescribeOutgoingDestinationIPResponse DescribeOutgoingDestinationIPResponse
      */
     public function describeOutgoingDestinationIP($request)
     {
@@ -4507,76 +4224,58 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the information about the domain names in outbound connections.
+     * @summary Queries the information about the domain names in outbound connections.
+     *  *
+     * @param DescribeOutgoingDomainRequest $request DescribeOutgoingDomainRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeOutgoingDomainRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeOutgoingDomainResponse
-     *
-     * @param DescribeOutgoingDomainRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeOutgoingDomainResponse
+     * @return DescribeOutgoingDomainResponse DescribeOutgoingDomainResponse
      */
     public function describeOutgoingDomainWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->categoryId) {
-            @$query['CategoryId'] = $request->categoryId;
+        if (!Utils::isUnset($request->categoryId)) {
+            $query['CategoryId'] = $request->categoryId;
         }
-
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->dataType) {
-            @$query['DataType'] = $request->dataType;
+        if (!Utils::isUnset($request->dataType)) {
+            $query['DataType'] = $request->dataType;
         }
-
-        if (null !== $request->domain) {
-            @$query['Domain'] = $request->domain;
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->isAITraffic) {
-            @$query['IsAITraffic'] = $request->isAITraffic;
+        if (!Utils::isUnset($request->isAITraffic)) {
+            $query['IsAITraffic'] = $request->isAITraffic;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->order) {
-            @$query['Order'] = $request->order;
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->publicIP) {
-            @$query['PublicIP'] = $request->publicIP;
+        if (!Utils::isUnset($request->publicIP)) {
+            $query['PublicIP'] = $request->publicIP;
         }
-
-        if (null !== $request->sort) {
-            @$query['Sort'] = $request->sort;
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->tagIdNew) {
-            @$query['TagIdNew'] = $request->tagIdNew;
+        if (!Utils::isUnset($request->tagIdNew)) {
+            $query['TagIdNew'] = $request->tagIdNew;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeOutgoingDomain',
@@ -4594,15 +4293,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the information about the domain names in outbound connections.
+     * @summary Queries the information about the domain names in outbound connections.
+     *  *
+     * @param DescribeOutgoingDomainRequest $request DescribeOutgoingDomainRequest
      *
-     * @param request - DescribeOutgoingDomainRequest
-     *
-     * @returns DescribeOutgoingDomainResponse
-     *
-     * @param DescribeOutgoingDomainRequest $request
-     *
-     * @return DescribeOutgoingDomainResponse
+     * @return DescribeOutgoingDomainResponse DescribeOutgoingDomainResponse
      */
     public function describeOutgoingDomain($request)
     {
@@ -4612,41 +4307,32 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries whether the strict mode is enabled for an access control policy.
-     *
-     * @remarks
-     * You can call the DescribePolicyAdvancedConfig operation to query whether the strict mode is enabled for an access control policy.
+     * @summary Queries whether the strict mode is enabled for an access control policy.
+     *  *
+     * @description You can call the DescribePolicyAdvancedConfig operation to query whether the strict mode is enabled for an access control policy.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribePolicyAdvancedConfigRequest $request DescribePolicyAdvancedConfigRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePolicyAdvancedConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePolicyAdvancedConfigResponse
-     *
-     * @param DescribePolicyAdvancedConfigRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribePolicyAdvancedConfigResponse
+     * @return DescribePolicyAdvancedConfigResponse DescribePolicyAdvancedConfigResponse
      */
     public function describePolicyAdvancedConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePolicyAdvancedConfig',
@@ -4664,20 +4350,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries whether the strict mode is enabled for an access control policy.
-     *
-     * @remarks
-     * You can call the DescribePolicyAdvancedConfig operation to query whether the strict mode is enabled for an access control policy.
+     * @summary Queries whether the strict mode is enabled for an access control policy.
+     *  *
+     * @description You can call the DescribePolicyAdvancedConfig operation to query whether the strict mode is enabled for an access control policy.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribePolicyAdvancedConfigRequest $request DescribePolicyAdvancedConfigRequest
      *
-     * @param request - DescribePolicyAdvancedConfigRequest
-     *
-     * @returns DescribePolicyAdvancedConfigResponse
-     *
-     * @param DescribePolicyAdvancedConfigRequest $request
-     *
-     * @return DescribePolicyAdvancedConfigResponse
+     * @return DescribePolicyAdvancedConfigResponse DescribePolicyAdvancedConfigResponse
      */
     public function describePolicyAdvancedConfig($request)
     {
@@ -4687,45 +4368,35 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the priority range of access control policies.
-     *
-     * @remarks
-     * You can call this operation to query the priority range of the access control policies that match specific query conditions.
+     * @summary Queries the priority range of access control policies.
+     *  *
+     * @description You can call this operation to query the priority range of the access control policies that match specific query conditions.
      * ## [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribePolicyPriorUsedRequest $request DescribePolicyPriorUsedRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePolicyPriorUsedRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePolicyPriorUsedResponse
-     *
-     * @param DescribePolicyPriorUsedRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribePolicyPriorUsedResponse
+     * @return DescribePolicyPriorUsedResponse DescribePolicyPriorUsedResponse
      */
     public function describePolicyPriorUsedWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->ipVersion) {
-            @$query['IpVersion'] = $request->ipVersion;
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePolicyPriorUsed',
@@ -4743,20 +4414,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the priority range of access control policies.
-     *
-     * @remarks
-     * You can call this operation to query the priority range of the access control policies that match specific query conditions.
+     * @summary Queries the priority range of access control policies.
+     *  *
+     * @description You can call this operation to query the priority range of the access control policies that match specific query conditions.
      * ## [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribePolicyPriorUsedRequest $request DescribePolicyPriorUsedRequest
      *
-     * @param request - DescribePolicyPriorUsedRequest
-     *
-     * @returns DescribePolicyPriorUsedResponse
-     *
-     * @param DescribePolicyPriorUsedRequest $request
-     *
-     * @return DescribePolicyPriorUsedResponse
+     * @return DescribePolicyPriorUsedResponse DescribePolicyPriorUsedResponse
      */
     public function describePolicyPriorUsed($request)
     {
@@ -4766,63 +4432,48 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the details of traffic billed based on the pay-as-you-go billing method.
+     * @summary Queries the details of traffic billed based on the pay-as-you-go billing method.
+     *  *
+     * @description If you use Cloud Firewall that uses the pay-as-you-go billing method, you can call this operation to query traffic details accurate to the granularity of specific resource instances. If you use Cloud Firewall that uses the subscription billing method, you can call this operation to query the overall traffic details.
+     *  *
+     * @param DescribePostpayTrafficDetailRequest $request DescribePostpayTrafficDetailRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * If you use Cloud Firewall that uses the pay-as-you-go billing method, you can call this operation to query traffic details accurate to the granularity of specific resource instances. If you use Cloud Firewall that uses the subscription billing method, you can call this operation to query the overall traffic details.
-     *
-     * @param request - DescribePostpayTrafficDetailRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePostpayTrafficDetailResponse
-     *
-     * @param DescribePostpayTrafficDetailRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribePostpayTrafficDetailResponse
+     * @return DescribePostpayTrafficDetailResponse DescribePostpayTrafficDetailResponse
      */
     public function describePostpayTrafficDetailWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->order) {
-            @$query['Order'] = $request->order;
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionNo) {
-            @$query['RegionNo'] = $request->regionNo;
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
         }
-
-        if (null !== $request->searchItem) {
-            @$query['SearchItem'] = $request->searchItem;
+        if (!Utils::isUnset($request->searchItem)) {
+            $query['SearchItem'] = $request->searchItem;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->trafficType) {
-            @$query['TrafficType'] = $request->trafficType;
+        if (!Utils::isUnset($request->trafficType)) {
+            $query['TrafficType'] = $request->trafficType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePostpayTrafficDetail',
@@ -4840,18 +4491,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the details of traffic billed based on the pay-as-you-go billing method.
+     * @summary Queries the details of traffic billed based on the pay-as-you-go billing method.
+     *  *
+     * @description If you use Cloud Firewall that uses the pay-as-you-go billing method, you can call this operation to query traffic details accurate to the granularity of specific resource instances. If you use Cloud Firewall that uses the subscription billing method, you can call this operation to query the overall traffic details.
+     *  *
+     * @param DescribePostpayTrafficDetailRequest $request DescribePostpayTrafficDetailRequest
      *
-     * @remarks
-     * If you use Cloud Firewall that uses the pay-as-you-go billing method, you can call this operation to query traffic details accurate to the granularity of specific resource instances. If you use Cloud Firewall that uses the subscription billing method, you can call this operation to query the overall traffic details.
-     *
-     * @param request - DescribePostpayTrafficDetailRequest
-     *
-     * @returns DescribePostpayTrafficDetailResponse
-     *
-     * @param DescribePostpayTrafficDetailRequest $request
-     *
-     * @return DescribePostpayTrafficDetailResponse
+     * @return DescribePostpayTrafficDetailResponse DescribePostpayTrafficDetailResponse
      */
     public function describePostpayTrafficDetail($request)
     {
@@ -4861,31 +4507,24 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the total volume of traffic that is billed based on the pay-as-you-go billing method, including all firewalls within the current account.
+     * @summary Queries the total volume of traffic that is billed based on the pay-as-you-go billing method, including all firewalls within the current account.
+     *  *
+     * @description You can call this operation to query statistics of the current Cloud Firewall from the date of purchase.
+     *  *
+     * @param DescribePostpayTrafficTotalRequest $request DescribePostpayTrafficTotalRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call this operation to query statistics of the current Cloud Firewall from the date of purchase.
-     *
-     * @param request - DescribePostpayTrafficTotalRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePostpayTrafficTotalResponse
-     *
-     * @param DescribePostpayTrafficTotalRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribePostpayTrafficTotalResponse
+     * @return DescribePostpayTrafficTotalResponse DescribePostpayTrafficTotalResponse
      */
     public function describePostpayTrafficTotalWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePostpayTrafficTotal',
@@ -4903,18 +4542,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the total volume of traffic that is billed based on the pay-as-you-go billing method, including all firewalls within the current account.
+     * @summary Queries the total volume of traffic that is billed based on the pay-as-you-go billing method, including all firewalls within the current account.
+     *  *
+     * @description You can call this operation to query statistics of the current Cloud Firewall from the date of purchase.
+     *  *
+     * @param DescribePostpayTrafficTotalRequest $request DescribePostpayTrafficTotalRequest
      *
-     * @remarks
-     * You can call this operation to query statistics of the current Cloud Firewall from the date of purchase.
-     *
-     * @param request - DescribePostpayTrafficTotalRequest
-     *
-     * @returns DescribePostpayTrafficTotalResponse
-     *
-     * @param DescribePostpayTrafficTotalRequest $request
-     *
-     * @return DescribePostpayTrafficTotalResponse
+     * @return DescribePostpayTrafficTotalResponse DescribePostpayTrafficTotalResponse
      */
     public function describePostpayTrafficTotal($request)
     {
@@ -4924,24 +4558,19 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries prefix lists.
+     * @summary Queries prefix lists.
+     *  *
+     * @param DescribePrefixListsRequest $request DescribePrefixListsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribePrefixListsRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribePrefixListsResponse
-     *
-     * @param DescribePrefixListsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribePrefixListsResponse
+     * @return DescribePrefixListsResponse DescribePrefixListsResponse
      */
     public function describePrefixListsWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribePrefixLists',
@@ -4959,15 +4588,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries prefix lists.
+     * @summary Queries prefix lists.
+     *  *
+     * @param DescribePrefixListsRequest $request DescribePrefixListsRequest
      *
-     * @param request - DescribePrefixListsRequest
-     *
-     * @returns DescribePrefixListsResponse
-     *
-     * @param DescribePrefixListsRequest $request
-     *
-     * @return DescribePrefixListsResponse
+     * @return DescribePrefixListsResponse DescribePrefixListsResponse
      */
     public function describePrefixLists($request)
     {
@@ -4977,125 +4602,230 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the details of intrusion events.
+     * @summary 查询私网DNS域名列表
+     *  *
+     * @param DescribePrivateDnsDomainNameListRequest $request DescribePrivateDnsDomainNameListRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can call the DescribeRiskEventGroup operation to query and download the details of intrusion events. We recommend that you query the details of 5 to 10 intrusion events at a time. If you do not need to query the geographical information about IP addresses, you can set the NoLocation parameter to true to prevent query timeout.
+     * @return DescribePrivateDnsDomainNameListResponse DescribePrivateDnsDomainNameListResponse
+     */
+    public function describePrivateDnsDomainNameListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePrivateDnsDomainNameList',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePrivateDnsDomainNameListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询私网DNS域名列表
+     *  *
+     * @param DescribePrivateDnsDomainNameListRequest $request DescribePrivateDnsDomainNameListRequest
+     *
+     * @return DescribePrivateDnsDomainNameListResponse DescribePrivateDnsDomainNameListResponse
+     */
+    public function describePrivateDnsDomainNameList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePrivateDnsDomainNameListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询私网DNS终端节点详情
+     *  *
+     * @param DescribePrivateDnsEndpointDetailRequest $request DescribePrivateDnsEndpointDetailRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribePrivateDnsEndpointDetailResponse DescribePrivateDnsEndpointDetailResponse
+     */
+    public function describePrivateDnsEndpointDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePrivateDnsEndpointDetail',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePrivateDnsEndpointDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询私网DNS终端节点详情
+     *  *
+     * @param DescribePrivateDnsEndpointDetailRequest $request DescribePrivateDnsEndpointDetailRequest
+     *
+     * @return DescribePrivateDnsEndpointDetailResponse DescribePrivateDnsEndpointDetailResponse
+     */
+    public function describePrivateDnsEndpointDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePrivateDnsEndpointDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询私网DNS终端节点列表
+     *  *
+     * @param DescribePrivateDnsEndpointListRequest $request DescribePrivateDnsEndpointListRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribePrivateDnsEndpointListResponse DescribePrivateDnsEndpointListResponse
+     */
+    public function describePrivateDnsEndpointListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePrivateDnsEndpointList',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribePrivateDnsEndpointListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询私网DNS终端节点列表
+     *  *
+     * @param DescribePrivateDnsEndpointListRequest $request DescribePrivateDnsEndpointListRequest
+     *
+     * @return DescribePrivateDnsEndpointListResponse DescribePrivateDnsEndpointListResponse
+     */
+    public function describePrivateDnsEndpointList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePrivateDnsEndpointListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the details of intrusion events.
+     *  *
+     * @description You can call the DescribeRiskEventGroup operation to query and download the details of intrusion events. We recommend that you query the details of 5 to 10 intrusion events at a time. If you do not need to query the geographical information about IP addresses, you can set the NoLocation parameter to true to prevent query timeout.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeRiskEventGroupRequest $request DescribeRiskEventGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeRiskEventGroupRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeRiskEventGroupResponse
-     *
-     * @param DescribeRiskEventGroupRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeRiskEventGroupResponse
+     * @return DescribeRiskEventGroupResponse DescribeRiskEventGroupResponse
      */
     public function describeRiskEventGroupWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->attackApp) {
-            @$query['AttackApp'] = $request->attackApp;
+        if (!Utils::isUnset($request->attackApp)) {
+            $query['AttackApp'] = $request->attackApp;
         }
-
-        if (null !== $request->attackType) {
-            @$query['AttackType'] = $request->attackType;
+        if (!Utils::isUnset($request->attackAppCategory)) {
+            $query['AttackAppCategory'] = $request->attackAppCategory;
         }
-
-        if (null !== $request->buyVersion) {
-            @$query['BuyVersion'] = $request->buyVersion;
+        if (!Utils::isUnset($request->attackType)) {
+            $query['AttackType'] = $request->attackType;
         }
-
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->buyVersion)) {
+            $query['BuyVersion'] = $request->buyVersion;
         }
-
-        if (null !== $request->dataType) {
-            @$query['DataType'] = $request->dataType;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->dataType)) {
+            $query['DataType'] = $request->dataType;
         }
-
-        if (null !== $request->dstIP) {
-            @$query['DstIP'] = $request->dstIP;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->dstNetworkInstanceId) {
-            @$query['DstNetworkInstanceId'] = $request->dstNetworkInstanceId;
+        if (!Utils::isUnset($request->dstIP)) {
+            $query['DstIP'] = $request->dstIP;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->dstNetworkInstanceId)) {
+            $query['DstNetworkInstanceId'] = $request->dstNetworkInstanceId;
         }
-
-        if (null !== $request->eventName) {
-            @$query['EventName'] = $request->eventName;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->firewallType) {
-            @$query['FirewallType'] = $request->firewallType;
+        if (!Utils::isUnset($request->eventName)) {
+            $query['EventName'] = $request->eventName;
         }
-
-        if (null !== $request->isOnlyPrivateAssoc) {
-            @$query['IsOnlyPrivateAssoc'] = $request->isOnlyPrivateAssoc;
+        if (!Utils::isUnset($request->firewallType)) {
+            $query['FirewallType'] = $request->firewallType;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->isOnlyPrivateAssoc)) {
+            $query['IsOnlyPrivateAssoc'] = $request->isOnlyPrivateAssoc;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->noLocation) {
-            @$query['NoLocation'] = $request->noLocation;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->order) {
-            @$query['Order'] = $request->order;
+        if (!Utils::isUnset($request->noLocation)) {
+            $query['NoLocation'] = $request->noLocation;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
         }
-
-        if (null !== $request->ruleResult) {
-            @$query['RuleResult'] = $request->ruleResult;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->ruleSource) {
-            @$query['RuleSource'] = $request->ruleSource;
+        if (!Utils::isUnset($request->ruleResult)) {
+            $query['RuleResult'] = $request->ruleResult;
         }
-
-        if (null !== $request->sort) {
-            @$query['Sort'] = $request->sort;
+        if (!Utils::isUnset($request->ruleSource)) {
+            $query['RuleSource'] = $request->ruleSource;
         }
-
-        if (null !== $request->srcIP) {
-            @$query['SrcIP'] = $request->srcIP;
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
         }
-
-        if (null !== $request->srcNetworkInstanceId) {
-            @$query['SrcNetworkInstanceId'] = $request->srcNetworkInstanceId;
+        if (!Utils::isUnset($request->srcIP)) {
+            $query['SrcIP'] = $request->srcIP;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->srcNetworkInstanceId)) {
+            $query['SrcNetworkInstanceId'] = $request->srcNetworkInstanceId;
         }
-
-        if (null !== $request->vulLevel) {
-            @$query['VulLevel'] = $request->vulLevel;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
+        if (!Utils::isUnset($request->vulLevel)) {
+            $query['VulLevel'] = $request->vulLevel;
+        }
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRiskEventGroup',
@@ -5113,20 +4843,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the details of intrusion events.
-     *
-     * @remarks
-     * You can call the DescribeRiskEventGroup operation to query and download the details of intrusion events. We recommend that you query the details of 5 to 10 intrusion events at a time. If you do not need to query the geographical information about IP addresses, you can set the NoLocation parameter to true to prevent query timeout.
+     * @summary Queries the details of intrusion events.
+     *  *
+     * @description You can call the DescribeRiskEventGroup operation to query and download the details of intrusion events. We recommend that you query the details of 5 to 10 intrusion events at a time. If you do not need to query the geographical information about IP addresses, you can set the NoLocation parameter to true to prevent query timeout.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeRiskEventGroupRequest $request DescribeRiskEventGroupRequest
      *
-     * @param request - DescribeRiskEventGroupRequest
-     *
-     * @returns DescribeRiskEventGroupResponse
-     *
-     * @param DescribeRiskEventGroupRequest $request
-     *
-     * @return DescribeRiskEventGroupResponse
+     * @return DescribeRiskEventGroupResponse DescribeRiskEventGroupResponse
      */
     public function describeRiskEventGroup($request)
     {
@@ -5136,60 +4861,46 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the attack payloads of intrusion events.
+     * @summary Queries the attack payloads of intrusion events.
+     *  *
+     * @param DescribeRiskEventPayloadRequest $request DescribeRiskEventPayloadRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeRiskEventPayloadRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeRiskEventPayloadResponse
-     *
-     * @param DescribeRiskEventPayloadRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeRiskEventPayloadResponse
+     * @return DescribeRiskEventPayloadResponse DescribeRiskEventPayloadResponse
      */
     public function describeRiskEventPayloadWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dstIP) {
-            @$query['DstIP'] = $request->dstIP;
+        if (!Utils::isUnset($request->dstIP)) {
+            $query['DstIP'] = $request->dstIP;
         }
-
-        if (null !== $request->dstVpcId) {
-            @$query['DstVpcId'] = $request->dstVpcId;
+        if (!Utils::isUnset($request->dstVpcId)) {
+            $query['DstVpcId'] = $request->dstVpcId;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->firewallType) {
-            @$query['FirewallType'] = $request->firewallType;
+        if (!Utils::isUnset($request->firewallType)) {
+            $query['FirewallType'] = $request->firewallType;
         }
-
-        if (null !== $request->publicIP) {
-            @$query['PublicIP'] = $request->publicIP;
+        if (!Utils::isUnset($request->publicIP)) {
+            $query['PublicIP'] = $request->publicIP;
         }
-
-        if (null !== $request->srcIP) {
-            @$query['SrcIP'] = $request->srcIP;
+        if (!Utils::isUnset($request->srcIP)) {
+            $query['SrcIP'] = $request->srcIP;
         }
-
-        if (null !== $request->srcVpcId) {
-            @$query['SrcVpcId'] = $request->srcVpcId;
+        if (!Utils::isUnset($request->srcVpcId)) {
+            $query['SrcVpcId'] = $request->srcVpcId;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->UUID) {
-            @$query['UUID'] = $request->UUID;
+        if (!Utils::isUnset($request->UUID)) {
+            $query['UUID'] = $request->UUID;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRiskEventPayload',
@@ -5207,15 +4918,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the attack payloads of intrusion events.
+     * @summary Queries the attack payloads of intrusion events.
+     *  *
+     * @param DescribeRiskEventPayloadRequest $request DescribeRiskEventPayloadRequest
      *
-     * @param request - DescribeRiskEventPayloadRequest
-     *
-     * @returns DescribeRiskEventPayloadResponse
-     *
-     * @param DescribeRiskEventPayloadRequest $request
-     *
-     * @return DescribeRiskEventPayloadResponse
+     * @return DescribeRiskEventPayloadResponse DescribeRiskEventPayloadResponse
      */
     public function describeRiskEventPayload($request)
     {
@@ -5225,16 +4932,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the information about signature library versions.
+     * @summary Queries the information about signature library versions.
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeSignatureLibVersionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeSignatureLibVersionResponse
-     *
-     * @param RuntimeOptions $runtime
-     *
-     * @return DescribeSignatureLibVersionResponse
+     * @return DescribeSignatureLibVersionResponse DescribeSignatureLibVersionResponse
      */
     public function describeSignatureLibVersionWithOptions($runtime)
     {
@@ -5255,11 +4957,9 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the information about signature library versions.
-     *
-     * @returns DescribeSignatureLibVersionResponse
-     *
-     * @return DescribeSignatureLibVersionResponse
+     * @summary Queries the information about signature library versions.
+     *  *
+     * @return DescribeSignatureLibVersionResponse DescribeSignatureLibVersionResponse
      */
     public function describeSignatureLibVersion()
     {
@@ -5269,46 +4969,36 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries information about the transit routers that are associated with a virtual private cloud (VPC) firewall created for a transit router.
+     * @summary Queries information about the transit routers that are associated with a virtual private cloud (VPC) firewall created for a transit router.
+     *  *
+     * @param DescribeTrFirewallPolicyBackUpAssociationListRequest $tmpReq  DescribeTrFirewallPolicyBackUpAssociationListRequest
+     * @param RuntimeOptions                                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - DescribeTrFirewallPolicyBackUpAssociationListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTrFirewallPolicyBackUpAssociationListResponse
-     *
-     * @param DescribeTrFirewallPolicyBackUpAssociationListRequest $tmpReq
-     * @param RuntimeOptions                                       $runtime
-     *
-     * @return DescribeTrFirewallPolicyBackUpAssociationListResponse
+     * @return DescribeTrFirewallPolicyBackUpAssociationListResponse DescribeTrFirewallPolicyBackUpAssociationListResponse
      */
     public function describeTrFirewallPolicyBackUpAssociationListWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new DescribeTrFirewallPolicyBackUpAssociationListShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->candidateList) {
-            $request->candidateListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->candidateList, 'CandidateList', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->candidateList)) {
+            $request->candidateListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->candidateList, 'CandidateList', 'json');
         }
-
         $query = [];
-        if (null !== $request->candidateListShrink) {
-            @$query['CandidateList'] = $request->candidateListShrink;
+        if (!Utils::isUnset($request->candidateListShrink)) {
+            $query['CandidateList'] = $request->candidateListShrink;
         }
-
-        if (null !== $request->firewallId) {
-            @$query['FirewallId'] = $request->firewallId;
+        if (!Utils::isUnset($request->firewallId)) {
+            $query['FirewallId'] = $request->firewallId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->trFirewallRoutePolicyId) {
-            @$query['TrFirewallRoutePolicyId'] = $request->trFirewallRoutePolicyId;
+        if (!Utils::isUnset($request->trFirewallRoutePolicyId)) {
+            $query['TrFirewallRoutePolicyId'] = $request->trFirewallRoutePolicyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTrFirewallPolicyBackUpAssociationList',
@@ -5326,15 +5016,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries information about the transit routers that are associated with a virtual private cloud (VPC) firewall created for a transit router.
+     * @summary Queries information about the transit routers that are associated with a virtual private cloud (VPC) firewall created for a transit router.
+     *  *
+     * @param DescribeTrFirewallPolicyBackUpAssociationListRequest $request DescribeTrFirewallPolicyBackUpAssociationListRequest
      *
-     * @param request - DescribeTrFirewallPolicyBackUpAssociationListRequest
-     *
-     * @returns DescribeTrFirewallPolicyBackUpAssociationListResponse
-     *
-     * @param DescribeTrFirewallPolicyBackUpAssociationListRequest $request
-     *
-     * @return DescribeTrFirewallPolicyBackUpAssociationListResponse
+     * @return DescribeTrFirewallPolicyBackUpAssociationListResponse DescribeTrFirewallPolicyBackUpAssociationListResponse
      */
     public function describeTrFirewallPolicyBackUpAssociationList($request)
     {
@@ -5344,44 +5030,34 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the routing policies of a virtual private cloud (VPC) firewall that is created for a transit router.
+     * @summary Queries the routing policies of a virtual private cloud (VPC) firewall that is created for a transit router.
+     *  *
+     * @param DescribeTrFirewallV2RoutePolicyListRequest $request DescribeTrFirewallV2RoutePolicyListRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeTrFirewallV2RoutePolicyListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTrFirewallV2RoutePolicyListResponse
-     *
-     * @param DescribeTrFirewallV2RoutePolicyListRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return DescribeTrFirewallV2RoutePolicyListResponse
+     * @return DescribeTrFirewallV2RoutePolicyListResponse DescribeTrFirewallV2RoutePolicyListResponse
      */
     public function describeTrFirewallV2RoutePolicyListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->firewallId) {
-            @$query['FirewallId'] = $request->firewallId;
+        if (!Utils::isUnset($request->firewallId)) {
+            $query['FirewallId'] = $request->firewallId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->policyId) {
-            @$query['PolicyId'] = $request->policyId;
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTrFirewallV2RoutePolicyList',
@@ -5399,15 +5075,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the routing policies of a virtual private cloud (VPC) firewall that is created for a transit router.
+     * @summary Queries the routing policies of a virtual private cloud (VPC) firewall that is created for a transit router.
+     *  *
+     * @param DescribeTrFirewallV2RoutePolicyListRequest $request DescribeTrFirewallV2RoutePolicyListRequest
      *
-     * @param request - DescribeTrFirewallV2RoutePolicyListRequest
-     *
-     * @returns DescribeTrFirewallV2RoutePolicyListResponse
-     *
-     * @param DescribeTrFirewallV2RoutePolicyListRequest $request
-     *
-     * @return DescribeTrFirewallV2RoutePolicyListResponse
+     * @return DescribeTrFirewallV2RoutePolicyListResponse DescribeTrFirewallV2RoutePolicyListResponse
      */
     public function describeTrFirewallV2RoutePolicyList($request)
     {
@@ -5417,32 +5089,25 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the details of the virtual private cloud (VPC) firewalls that are created for transit routers.
+     * @summary Queries the details of the virtual private cloud (VPC) firewalls that are created for transit routers.
+     *  *
+     * @param DescribeTrFirewallsV2DetailRequest $request DescribeTrFirewallsV2DetailRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeTrFirewallsV2DetailRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTrFirewallsV2DetailResponse
-     *
-     * @param DescribeTrFirewallsV2DetailRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return DescribeTrFirewallsV2DetailResponse
+     * @return DescribeTrFirewallsV2DetailResponse DescribeTrFirewallsV2DetailResponse
      */
     public function describeTrFirewallsV2DetailWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->firewallId) {
-            @$query['FirewallId'] = $request->firewallId;
+        if (!Utils::isUnset($request->firewallId)) {
+            $query['FirewallId'] = $request->firewallId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTrFirewallsV2Detail',
@@ -5460,15 +5125,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the details of the virtual private cloud (VPC) firewalls that are created for transit routers.
+     * @summary Queries the details of the virtual private cloud (VPC) firewalls that are created for transit routers.
+     *  *
+     * @param DescribeTrFirewallsV2DetailRequest $request DescribeTrFirewallsV2DetailRequest
      *
-     * @param request - DescribeTrFirewallsV2DetailRequest
-     *
-     * @returns DescribeTrFirewallsV2DetailResponse
-     *
-     * @param DescribeTrFirewallsV2DetailRequest $request
-     *
-     * @return DescribeTrFirewallsV2DetailResponse
+     * @return DescribeTrFirewallsV2DetailResponse DescribeTrFirewallsV2DetailResponse
      */
     public function describeTrFirewallsV2Detail($request)
     {
@@ -5478,68 +5139,52 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the virtual private cloud (VPC) firewalls that are created for transit routers.
+     * @summary Queries the virtual private cloud (VPC) firewalls that are created for transit routers.
+     *  *
+     * @param DescribeTrFirewallsV2ListRequest $request DescribeTrFirewallsV2ListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeTrFirewallsV2ListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTrFirewallsV2ListResponse
-     *
-     * @param DescribeTrFirewallsV2ListRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeTrFirewallsV2ListResponse
+     * @return DescribeTrFirewallsV2ListResponse DescribeTrFirewallsV2ListResponse
      */
     public function describeTrFirewallsV2ListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cenId) {
-            @$query['CenId'] = $request->cenId;
+        if (!Utils::isUnset($request->cenId)) {
+            $query['CenId'] = $request->cenId;
         }
-
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->firewallId) {
-            @$query['FirewallId'] = $request->firewallId;
+        if (!Utils::isUnset($request->firewallId)) {
+            $query['FirewallId'] = $request->firewallId;
         }
-
-        if (null !== $request->firewallName) {
-            @$query['FirewallName'] = $request->firewallName;
+        if (!Utils::isUnset($request->firewallName)) {
+            $query['FirewallName'] = $request->firewallName;
         }
-
-        if (null !== $request->firewallSwitchStatus) {
-            @$query['FirewallSwitchStatus'] = $request->firewallSwitchStatus;
+        if (!Utils::isUnset($request->firewallSwitchStatus)) {
+            $query['FirewallSwitchStatus'] = $request->firewallSwitchStatus;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionNo) {
-            @$query['RegionNo'] = $request->regionNo;
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
         }
-
-        if (null !== $request->routeMode) {
-            @$query['RouteMode'] = $request->routeMode;
+        if (!Utils::isUnset($request->routeMode)) {
+            $query['RouteMode'] = $request->routeMode;
         }
-
-        if (null !== $request->transitRouterId) {
-            @$query['TransitRouterId'] = $request->transitRouterId;
+        if (!Utils::isUnset($request->transitRouterId)) {
+            $query['TransitRouterId'] = $request->transitRouterId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTrFirewallsV2List',
@@ -5557,15 +5202,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the virtual private cloud (VPC) firewalls that are created for transit routers.
+     * @summary Queries the virtual private cloud (VPC) firewalls that are created for transit routers.
+     *  *
+     * @param DescribeTrFirewallsV2ListRequest $request DescribeTrFirewallsV2ListRequest
      *
-     * @param request - DescribeTrFirewallsV2ListRequest
-     *
-     * @returns DescribeTrFirewallsV2ListResponse
-     *
-     * @param DescribeTrFirewallsV2ListRequest $request
-     *
-     * @return DescribeTrFirewallsV2ListResponse
+     * @return DescribeTrFirewallsV2ListResponse DescribeTrFirewallsV2ListResponse
      */
     public function describeTrFirewallsV2List($request)
     {
@@ -5575,44 +5216,34 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the route tables of the VPC firewalls that are created for transit routers.
+     * @summary Queries the route tables of the VPC firewalls that are created for transit routers.
+     *  *
+     * @param DescribeTrFirewallsV2RouteListRequest $request DescribeTrFirewallsV2RouteListRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeTrFirewallsV2RouteListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeTrFirewallsV2RouteListResponse
-     *
-     * @param DescribeTrFirewallsV2RouteListRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeTrFirewallsV2RouteListResponse
+     * @return DescribeTrFirewallsV2RouteListResponse DescribeTrFirewallsV2RouteListResponse
      */
     public function describeTrFirewallsV2RouteListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->firewallId) {
-            @$query['FirewallId'] = $request->firewallId;
+        if (!Utils::isUnset($request->firewallId)) {
+            $query['FirewallId'] = $request->firewallId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->trFirewallRoutePolicyId) {
-            @$query['TrFirewallRoutePolicyId'] = $request->trFirewallRoutePolicyId;
+        if (!Utils::isUnset($request->trFirewallRoutePolicyId)) {
+            $query['TrFirewallRoutePolicyId'] = $request->trFirewallRoutePolicyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTrFirewallsV2RouteList',
@@ -5630,15 +5261,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the route tables of the VPC firewalls that are created for transit routers.
+     * @summary Queries the route tables of the VPC firewalls that are created for transit routers.
+     *  *
+     * @param DescribeTrFirewallsV2RouteListRequest $request DescribeTrFirewallsV2RouteListRequest
      *
-     * @param request - DescribeTrFirewallsV2RouteListRequest
-     *
-     * @returns DescribeTrFirewallsV2RouteListResponse
-     *
-     * @param DescribeTrFirewallsV2RouteListRequest $request
-     *
-     * @return DescribeTrFirewallsV2RouteListResponse
+     * @return DescribeTrFirewallsV2RouteListResponse DescribeTrFirewallsV2RouteListResponse
      */
     public function describeTrFirewallsV2RouteList($request)
     {
@@ -5648,24 +5275,19 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the information about the traffic of a specified asset that belongs to your Alibaba Cloud account.
+     * @summary Queries the information about the traffic of a specified asset that belongs to your Alibaba Cloud account.
+     *  *
+     * @param DescribeUserAssetIPTrafficInfoRequest $request DescribeUserAssetIPTrafficInfoRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeUserAssetIPTrafficInfoRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeUserAssetIPTrafficInfoResponse
-     *
-     * @param DescribeUserAssetIPTrafficInfoRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return DescribeUserAssetIPTrafficInfoResponse
+     * @return DescribeUserAssetIPTrafficInfoResponse DescribeUserAssetIPTrafficInfoResponse
      */
     public function describeUserAssetIPTrafficInfoWithOptions($request, $runtime)
     {
-        $request->validate();
-        $query = Utils::query($request->toMap());
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeUserAssetIPTrafficInfo',
@@ -5683,15 +5305,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the information about the traffic of a specified asset that belongs to your Alibaba Cloud account.
+     * @summary Queries the information about the traffic of a specified asset that belongs to your Alibaba Cloud account.
+     *  *
+     * @param DescribeUserAssetIPTrafficInfoRequest $request DescribeUserAssetIPTrafficInfoRequest
      *
-     * @param request - DescribeUserAssetIPTrafficInfoRequest
-     *
-     * @returns DescribeUserAssetIPTrafficInfoResponse
-     *
-     * @param DescribeUserAssetIPTrafficInfoRequest $request
-     *
-     * @return DescribeUserAssetIPTrafficInfoResponse
+     * @return DescribeUserAssetIPTrafficInfoResponse DescribeUserAssetIPTrafficInfoResponse
      */
     public function describeUserAssetIPTrafficInfo($request)
     {
@@ -5701,33 +5319,26 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the edition information about Cloud Firewall.
-     *
-     * @remarks
-     * You can call this operation to query the edition information about Cloud Firewall.
+     * @summary Queries the edition information about Cloud Firewall.
+     *  *
+     * @description You can call this operation to query the edition information about Cloud Firewall.
      * ## [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeUserBuyVersionRequest $request DescribeUserBuyVersionRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeUserBuyVersionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeUserBuyVersionResponse
-     *
-     * @param DescribeUserBuyVersionRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeUserBuyVersionResponse
+     * @return DescribeUserBuyVersionResponse DescribeUserBuyVersionResponse
      */
     public function describeUserBuyVersionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeUserBuyVersion',
@@ -5745,20 +5356,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the edition information about Cloud Firewall.
-     *
-     * @remarks
-     * You can call this operation to query the edition information about Cloud Firewall.
+     * @summary Queries the edition information about Cloud Firewall.
+     *  *
+     * @description You can call this operation to query the edition information about Cloud Firewall.
      * ## [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeUserBuyVersionRequest $request DescribeUserBuyVersionRequest
      *
-     * @param request - DescribeUserBuyVersionRequest
-     *
-     * @returns DescribeUserBuyVersionResponse
-     *
-     * @param DescribeUserBuyVersionRequest $request
-     *
-     * @return DescribeUserBuyVersionResponse
+     * @return DescribeUserBuyVersionResponse DescribeUserBuyVersionResponse
      */
     public function describeUserBuyVersion($request)
     {
@@ -5768,36 +5374,28 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * 获取用户IPS白名单.
+     * @summary 获取用户IPS白名单
+     *  *
+     * @param DescribeUserIPSWhitelistRequest $request DescribeUserIPSWhitelistRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeUserIPSWhitelistRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeUserIPSWhitelistResponse
-     *
-     * @param DescribeUserIPSWhitelistRequest $request
-     * @param RuntimeOptions                  $runtime
-     *
-     * @return DescribeUserIPSWhitelistResponse
+     * @return DescribeUserIPSWhitelistResponse DescribeUserIPSWhitelistResponse
      */
     public function describeUserIPSWhitelistWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeUserIPSWhitelist',
@@ -5815,15 +5413,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * 获取用户IPS白名单.
+     * @summary 获取用户IPS白名单
+     *  *
+     * @param DescribeUserIPSWhitelistRequest $request DescribeUserIPSWhitelistRequest
      *
-     * @param request - DescribeUserIPSWhitelistRequest
-     *
-     * @returns DescribeUserIPSWhitelistResponse
-     *
-     * @param DescribeUserIPSWhitelistRequest $request
-     *
-     * @return DescribeUserIPSWhitelistResponse
+     * @return DescribeUserIPSWhitelistResponse DescribeUserIPSWhitelistResponse
      */
     public function describeUserIPSWhitelist($request)
     {
@@ -5833,49 +5427,38 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the information about all policy groups of access control policies that are created for virtual private cloud (VPC) firewalls.
-     *
-     * @remarks
-     * You can call the DescribeVpcFirewallAclGroupList operation to query the information about all policy groups of access control policies that are created for VPC firewalls.
+     * @summary Queries the information about all policy groups of access control policies that are created for virtual private cloud (VPC) firewalls.
+     *  *
+     * @description You can call the DescribeVpcFirewallAclGroupList operation to query the information about all policy groups of access control policies that are created for VPC firewalls.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeVpcFirewallAclGroupListRequest $request DescribeVpcFirewallAclGroupListRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeVpcFirewallAclGroupListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeVpcFirewallAclGroupListResponse
-     *
-     * @param DescribeVpcFirewallAclGroupListRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeVpcFirewallAclGroupListResponse
+     * @return DescribeVpcFirewallAclGroupListResponse DescribeVpcFirewallAclGroupListResponse
      */
     public function describeVpcFirewallAclGroupListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->firewallConfigureStatus) {
-            @$query['FirewallConfigureStatus'] = $request->firewallConfigureStatus;
+        if (!Utils::isUnset($request->firewallConfigureStatus)) {
+            $query['FirewallConfigureStatus'] = $request->firewallConfigureStatus;
         }
-
-        if (null !== $request->firewallId) {
-            @$query['FirewallId'] = $request->firewallId;
+        if (!Utils::isUnset($request->firewallId)) {
+            $query['FirewallId'] = $request->firewallId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVpcFirewallAclGroupList',
@@ -5893,20 +5476,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the information about all policy groups of access control policies that are created for virtual private cloud (VPC) firewalls.
-     *
-     * @remarks
-     * You can call the DescribeVpcFirewallAclGroupList operation to query the information about all policy groups of access control policies that are created for VPC firewalls.
+     * @summary Queries the information about all policy groups of access control policies that are created for virtual private cloud (VPC) firewalls.
+     *  *
+     * @description You can call the DescribeVpcFirewallAclGroupList operation to query the information about all policy groups of access control policies that are created for VPC firewalls.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeVpcFirewallAclGroupListRequest $request DescribeVpcFirewallAclGroupListRequest
      *
-     * @param request - DescribeVpcFirewallAclGroupListRequest
-     *
-     * @returns DescribeVpcFirewallAclGroupListResponse
-     *
-     * @param DescribeVpcFirewallAclGroupListRequest $request
-     *
-     * @return DescribeVpcFirewallAclGroupListResponse
+     * @return DescribeVpcFirewallAclGroupListResponse DescribeVpcFirewallAclGroupListResponse
      */
     public function describeVpcFirewallAclGroupList($request)
     {
@@ -5916,45 +5494,35 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the details about a virtual private cloud (VPC) firewall. The VPC firewall protects access traffic between a VPC and a network instance that is attached to a Cloud Enterprise Network (CEN) instance.
-     *
-     * @remarks
-     * You can call the DescribeVpcFirewallCenDetail operation to query the details about a VPC firewall. The VPC firewall protects access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+     * @summary Queries the details about a virtual private cloud (VPC) firewall. The VPC firewall protects access traffic between a VPC and a network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the DescribeVpcFirewallCenDetail operation to query the details about a VPC firewall. The VPC firewall protects access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeVpcFirewallCenDetailRequest $request DescribeVpcFirewallCenDetailRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeVpcFirewallCenDetailRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeVpcFirewallCenDetailResponse
-     *
-     * @param DescribeVpcFirewallCenDetailRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return DescribeVpcFirewallCenDetailResponse
+     * @return DescribeVpcFirewallCenDetailResponse DescribeVpcFirewallCenDetailResponse
      */
     public function describeVpcFirewallCenDetailWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->networkInstanceId) {
-            @$query['NetworkInstanceId'] = $request->networkInstanceId;
+        if (!Utils::isUnset($request->networkInstanceId)) {
+            $query['NetworkInstanceId'] = $request->networkInstanceId;
         }
-
-        if (null !== $request->vpcFirewallId) {
-            @$query['VpcFirewallId'] = $request->vpcFirewallId;
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVpcFirewallCenDetail',
@@ -5972,20 +5540,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the details about a virtual private cloud (VPC) firewall. The VPC firewall protects access traffic between a VPC and a network instance that is attached to a Cloud Enterprise Network (CEN) instance.
-     *
-     * @remarks
-     * You can call the DescribeVpcFirewallCenDetail operation to query the details about a VPC firewall. The VPC firewall protects access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+     * @summary Queries the details about a virtual private cloud (VPC) firewall. The VPC firewall protects access traffic between a VPC and a network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the DescribeVpcFirewallCenDetail operation to query the details about a VPC firewall. The VPC firewall protects access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeVpcFirewallCenDetailRequest $request DescribeVpcFirewallCenDetailRequest
      *
-     * @param request - DescribeVpcFirewallCenDetailRequest
-     *
-     * @returns DescribeVpcFirewallCenDetailResponse
-     *
-     * @param DescribeVpcFirewallCenDetailRequest $request
-     *
-     * @return DescribeVpcFirewallCenDetailResponse
+     * @return DescribeVpcFirewallCenDetailResponse DescribeVpcFirewallCenDetailResponse
      */
     public function describeVpcFirewallCenDetail($request)
     {
@@ -5995,85 +5558,65 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries virtual private cloud (VPC) firewalls. Each VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a Cloud Enterprise Network (CEN) instance.
-     *
-     * @remarks
-     * You can call the DescribeVpcFirewallCenList operation to query VPC firewalls. A VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+     * @summary Queries virtual private cloud (VPC) firewalls. Each VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the DescribeVpcFirewallCenList operation to query VPC firewalls. A VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeVpcFirewallCenListRequest $request DescribeVpcFirewallCenListRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeVpcFirewallCenListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeVpcFirewallCenListResponse
-     *
-     * @param DescribeVpcFirewallCenListRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeVpcFirewallCenListResponse
+     * @return DescribeVpcFirewallCenListResponse DescribeVpcFirewallCenListResponse
      */
     public function describeVpcFirewallCenListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->cenId) {
-            @$query['CenId'] = $request->cenId;
+        if (!Utils::isUnset($request->cenId)) {
+            $query['CenId'] = $request->cenId;
         }
-
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->firewallSwitchStatus) {
-            @$query['FirewallSwitchStatus'] = $request->firewallSwitchStatus;
+        if (!Utils::isUnset($request->firewallSwitchStatus)) {
+            $query['FirewallSwitchStatus'] = $request->firewallSwitchStatus;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->networkInstanceId) {
-            @$query['NetworkInstanceId'] = $request->networkInstanceId;
+        if (!Utils::isUnset($request->networkInstanceId)) {
+            $query['NetworkInstanceId'] = $request->networkInstanceId;
         }
-
-        if (null !== $request->ownerId) {
-            @$query['OwnerId'] = $request->ownerId;
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->regionNo) {
-            @$query['RegionNo'] = $request->regionNo;
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
         }
-
-        if (null !== $request->routeMode) {
-            @$query['RouteMode'] = $request->routeMode;
+        if (!Utils::isUnset($request->routeMode)) {
+            $query['RouteMode'] = $request->routeMode;
         }
-
-        if (null !== $request->transitRouterType) {
-            @$query['TransitRouterType'] = $request->transitRouterType;
+        if (!Utils::isUnset($request->transitRouterType)) {
+            $query['TransitRouterType'] = $request->transitRouterType;
         }
-
-        if (null !== $request->vpcFirewallId) {
-            @$query['VpcFirewallId'] = $request->vpcFirewallId;
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
         }
-
-        if (null !== $request->vpcFirewallName) {
-            @$query['VpcFirewallName'] = $request->vpcFirewallName;
+        if (!Utils::isUnset($request->vpcFirewallName)) {
+            $query['VpcFirewallName'] = $request->vpcFirewallName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVpcFirewallCenList',
@@ -6091,20 +5634,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries virtual private cloud (VPC) firewalls. Each VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a Cloud Enterprise Network (CEN) instance.
-     *
-     * @remarks
-     * You can call the DescribeVpcFirewallCenList operation to query VPC firewalls. A VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
+     * @summary Queries virtual private cloud (VPC) firewalls. Each VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the DescribeVpcFirewallCenList operation to query VPC firewalls. A VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeVpcFirewallCenListRequest $request DescribeVpcFirewallCenListRequest
      *
-     * @param request - DescribeVpcFirewallCenListRequest
-     *
-     * @returns DescribeVpcFirewallCenListResponse
-     *
-     * @param DescribeVpcFirewallCenListRequest $request
-     *
-     * @return DescribeVpcFirewallCenListResponse
+     * @return DescribeVpcFirewallCenListResponse DescribeVpcFirewallCenListResponse
      */
     public function describeVpcFirewallCenList($request)
     {
@@ -6114,81 +5652,62 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the information about the access control policies for a specified virtual private cloud (VPC) firewall.
-     *
-     * @remarks
-     * You can call the DescribeVpcFirewallControlPolicy operation to query the information about all access control policies that are created for a specified VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
+     * @summary Queries the information about the access control policies for a specified virtual private cloud (VPC) firewall.
+     *  *
+     * @description You can call the DescribeVpcFirewallControlPolicy operation to query the information about all access control policies that are created for a specified VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeVpcFirewallControlPolicyRequest $request DescribeVpcFirewallControlPolicyRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeVpcFirewallControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeVpcFirewallControlPolicyResponse
-     *
-     * @param DescribeVpcFirewallControlPolicyRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DescribeVpcFirewallControlPolicyResponse
+     * @return DescribeVpcFirewallControlPolicyResponse DescribeVpcFirewallControlPolicyResponse
      */
     public function describeVpcFirewallControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclAction) {
-            @$query['AclAction'] = $request->aclAction;
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
         }
-
-        if (null !== $request->aclUuid) {
-            @$query['AclUuid'] = $request->aclUuid;
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
         }
-
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->destination) {
-            @$query['Destination'] = $request->destination;
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->proto) {
-            @$query['Proto'] = $request->proto;
+        if (!Utils::isUnset($request->proto)) {
+            $query['Proto'] = $request->proto;
         }
-
-        if (null !== $request->release) {
-            @$query['Release'] = $request->release;
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
         }
-
-        if (null !== $request->repeatType) {
-            @$query['RepeatType'] = $request->repeatType;
+        if (!Utils::isUnset($request->repeatType)) {
+            $query['RepeatType'] = $request->repeatType;
         }
-
-        if (null !== $request->source) {
-            @$query['Source'] = $request->source;
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
-
-        if (null !== $request->vpcFirewallId) {
-            @$query['VpcFirewallId'] = $request->vpcFirewallId;
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVpcFirewallControlPolicy',
@@ -6206,20 +5725,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the information about the access control policies for a specified virtual private cloud (VPC) firewall.
-     *
-     * @remarks
-     * You can call the DescribeVpcFirewallControlPolicy operation to query the information about all access control policies that are created for a specified VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
+     * @summary Queries the information about the access control policies for a specified virtual private cloud (VPC) firewall.
+     *  *
+     * @description You can call the DescribeVpcFirewallControlPolicy operation to query the information about all access control policies that are created for a specified VPC firewall. Different access control policies are used when a VPC firewall is used to protect traffic between two VPCs that are connected by using a Cloud Enterprise Network (CEN) instance or an Express Connect circuit.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeVpcFirewallControlPolicyRequest $request DescribeVpcFirewallControlPolicyRequest
      *
-     * @param request - DescribeVpcFirewallControlPolicyRequest
-     *
-     * @returns DescribeVpcFirewallControlPolicyResponse
-     *
-     * @param DescribeVpcFirewallControlPolicyRequest $request
-     *
-     * @return DescribeVpcFirewallControlPolicyResponse
+     * @return DescribeVpcFirewallControlPolicyResponse DescribeVpcFirewallControlPolicyResponse
      */
     public function describeVpcFirewallControlPolicy($request)
     {
@@ -6229,37 +5743,29 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the intrusion prevention configurations of a virtual private cloud (VPC) firewall.
-     *
-     * @remarks
-     * You can call the DescribeVpcFirewallDefaultIPSConfig operation to query the intrusion prevention configurations of a VPC firewall.
+     * @summary Queries the intrusion prevention configurations of a virtual private cloud (VPC) firewall.
+     *  *
+     * @description You can call the DescribeVpcFirewallDefaultIPSConfig operation to query the intrusion prevention configurations of a VPC firewall.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeVpcFirewallDefaultIPSConfigRequest $request DescribeVpcFirewallDefaultIPSConfigRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeVpcFirewallDefaultIPSConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeVpcFirewallDefaultIPSConfigResponse
-     *
-     * @param DescribeVpcFirewallDefaultIPSConfigRequest $request
-     * @param RuntimeOptions                             $runtime
-     *
-     * @return DescribeVpcFirewallDefaultIPSConfigResponse
+     * @return DescribeVpcFirewallDefaultIPSConfigResponse DescribeVpcFirewallDefaultIPSConfigResponse
      */
     public function describeVpcFirewallDefaultIPSConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->vpcFirewallId) {
-            @$query['VpcFirewallId'] = $request->vpcFirewallId;
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVpcFirewallDefaultIPSConfig',
@@ -6277,20 +5783,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the intrusion prevention configurations of a virtual private cloud (VPC) firewall.
-     *
-     * @remarks
-     * You can call the DescribeVpcFirewallDefaultIPSConfig operation to query the intrusion prevention configurations of a VPC firewall.
+     * @summary Queries the intrusion prevention configurations of a virtual private cloud (VPC) firewall.
+     *  *
+     * @description You can call the DescribeVpcFirewallDefaultIPSConfig operation to query the intrusion prevention configurations of a VPC firewall.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeVpcFirewallDefaultIPSConfigRequest $request DescribeVpcFirewallDefaultIPSConfigRequest
      *
-     * @param request - DescribeVpcFirewallDefaultIPSConfigRequest
-     *
-     * @returns DescribeVpcFirewallDefaultIPSConfigResponse
-     *
-     * @param DescribeVpcFirewallDefaultIPSConfigRequest $request
-     *
-     * @return DescribeVpcFirewallDefaultIPSConfigResponse
+     * @return DescribeVpcFirewallDefaultIPSConfigResponse DescribeVpcFirewallDefaultIPSConfigResponse
      */
     public function describeVpcFirewallDefaultIPSConfig($request)
     {
@@ -6300,50 +5801,39 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the details about a virtual private cloud (VPC) firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
-     *
-     * @remarks
-     * You can call the DescribeVpcFirewallDetail operation to query the details about a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
+     * @summary Queries the details about a virtual private cloud (VPC) firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
+     *  *
+     * @description You can call the DescribeVpcFirewallDetail operation to query the details about a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
      * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://www.alibabacloud.com/help/en/cloud-firewall/latest/createvpcfirewallconfigure) operation.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeVpcFirewallDetailRequest $request DescribeVpcFirewallDetailRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeVpcFirewallDetailRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeVpcFirewallDetailResponse
-     *
-     * @param DescribeVpcFirewallDetailRequest $request
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return DescribeVpcFirewallDetailResponse
+     * @return DescribeVpcFirewallDetailResponse DescribeVpcFirewallDetailResponse
      */
     public function describeVpcFirewallDetailWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->localVpcId) {
-            @$query['LocalVpcId'] = $request->localVpcId;
+        if (!Utils::isUnset($request->localVpcId)) {
+            $query['LocalVpcId'] = $request->localVpcId;
         }
-
-        if (null !== $request->peerVpcId) {
-            @$query['PeerVpcId'] = $request->peerVpcId;
+        if (!Utils::isUnset($request->peerVpcId)) {
+            $query['PeerVpcId'] = $request->peerVpcId;
         }
-
-        if (null !== $request->vpcFirewallId) {
-            @$query['VpcFirewallId'] = $request->vpcFirewallId;
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVpcFirewallDetail',
@@ -6361,21 +5851,16 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the details about a virtual private cloud (VPC) firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
-     *
-     * @remarks
-     * You can call the DescribeVpcFirewallDetail operation to query the details about a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
+     * @summary Queries the details about a virtual private cloud (VPC) firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
+     *  *
+     * @description You can call the DescribeVpcFirewallDetail operation to query the details about a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
      * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://www.alibabacloud.com/help/en/cloud-firewall/latest/createvpcfirewallconfigure) operation.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeVpcFirewallDetailRequest $request DescribeVpcFirewallDetailRequest
      *
-     * @param request - DescribeVpcFirewallDetailRequest
-     *
-     * @returns DescribeVpcFirewallDetailResponse
-     *
-     * @param DescribeVpcFirewallDetailRequest $request
-     *
-     * @return DescribeVpcFirewallDetailResponse
+     * @return DescribeVpcFirewallDetailResponse DescribeVpcFirewallDetailResponse
      */
     public function describeVpcFirewallDetail($request)
     {
@@ -6385,36 +5870,28 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the IPS whitelist of a virtual private cloud (VPC) firewall.
+     * @summary Queries the IPS whitelist of a virtual private cloud (VPC) firewall.
+     *  *
+     * @param DescribeVpcFirewallIPSWhitelistRequest $request DescribeVpcFirewallIPSWhitelistRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeVpcFirewallIPSWhitelistRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeVpcFirewallIPSWhitelistResponse
-     *
-     * @param DescribeVpcFirewallIPSWhitelistRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DescribeVpcFirewallIPSWhitelistResponse
+     * @return DescribeVpcFirewallIPSWhitelistResponse DescribeVpcFirewallIPSWhitelistResponse
      */
     public function describeVpcFirewallIPSWhitelistWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->vpcFirewallId) {
-            @$query['VpcFirewallId'] = $request->vpcFirewallId;
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVpcFirewallIPSWhitelist',
@@ -6432,15 +5909,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the IPS whitelist of a virtual private cloud (VPC) firewall.
+     * @summary Queries the IPS whitelist of a virtual private cloud (VPC) firewall.
+     *  *
+     * @param DescribeVpcFirewallIPSWhitelistRequest $request DescribeVpcFirewallIPSWhitelistRequest
      *
-     * @param request - DescribeVpcFirewallIPSWhitelistRequest
-     *
-     * @returns DescribeVpcFirewallIPSWhitelistResponse
-     *
-     * @param DescribeVpcFirewallIPSWhitelistRequest $request
-     *
-     * @return DescribeVpcFirewallIPSWhitelistResponse
+     * @return DescribeVpcFirewallIPSWhitelistResponse DescribeVpcFirewallIPSWhitelistResponse
      */
     public function describeVpcFirewallIPSWhitelist($request)
     {
@@ -6450,77 +5923,59 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the details about virtual private cloud (VPC) firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
-     *
-     * @remarks
-     * You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
+     * @summary Queries the details about virtual private cloud (VPC) firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
+     *  *
+     * @description You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeVpcFirewallListRequest $request DescribeVpcFirewallListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeVpcFirewallListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeVpcFirewallListResponse
-     *
-     * @param DescribeVpcFirewallListRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeVpcFirewallListResponse
+     * @return DescribeVpcFirewallListResponse DescribeVpcFirewallListResponse
      */
     public function describeVpcFirewallListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->connectSubType) {
-            @$query['ConnectSubType'] = $request->connectSubType;
+        if (!Utils::isUnset($request->connectSubType)) {
+            $query['ConnectSubType'] = $request->connectSubType;
         }
-
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->firewallSwitchStatus) {
-            @$query['FirewallSwitchStatus'] = $request->firewallSwitchStatus;
+        if (!Utils::isUnset($request->firewallSwitchStatus)) {
+            $query['FirewallSwitchStatus'] = $request->firewallSwitchStatus;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->peerUid) {
-            @$query['PeerUid'] = $request->peerUid;
+        if (!Utils::isUnset($request->peerUid)) {
+            $query['PeerUid'] = $request->peerUid;
         }
-
-        if (null !== $request->regionNo) {
-            @$query['RegionNo'] = $request->regionNo;
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
         }
-
-        if (null !== $request->vpcFirewallId) {
-            @$query['VpcFirewallId'] = $request->vpcFirewallId;
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
         }
-
-        if (null !== $request->vpcFirewallName) {
-            @$query['VpcFirewallName'] = $request->vpcFirewallName;
+        if (!Utils::isUnset($request->vpcFirewallName)) {
+            $query['VpcFirewallName'] = $request->vpcFirewallName;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVpcFirewallList',
@@ -6538,20 +5993,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the details about virtual private cloud (VPC) firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
-     *
-     * @remarks
-     * You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
+     * @summary Queries the details about virtual private cloud (VPC) firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
+     *  *
+     * @description You can call the DescribeVpcFirewallList operation to query the details about VPC firewalls by page. Each VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeVpcFirewallListRequest $request DescribeVpcFirewallListRequest
      *
-     * @param request - DescribeVpcFirewallListRequest
-     *
-     * @returns DescribeVpcFirewallListResponse
-     *
-     * @param DescribeVpcFirewallListRequest $request
-     *
-     * @return DescribeVpcFirewallListResponse
+     * @return DescribeVpcFirewallListResponse DescribeVpcFirewallListResponse
      */
     public function describeVpcFirewallList($request)
     {
@@ -6561,37 +6011,29 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the priority range of access control policies that are created for a virtual private cloud (VPC) firewall in a specific policy group.
-     *
-     * @remarks
-     * You can call this operation to query the priority range of access control policies that are created for a VPC firewall in a specific policy group.
+     * @summary Queries the priority range of access control policies that are created for a virtual private cloud (VPC) firewall in a specific policy group.
+     *  *
+     * @description You can call this operation to query the priority range of access control policies that are created for a VPC firewall in a specific policy group.
      * ## [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeVpcFirewallPolicyPriorUsedRequest $request DescribeVpcFirewallPolicyPriorUsedRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeVpcFirewallPolicyPriorUsedRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeVpcFirewallPolicyPriorUsedResponse
-     *
-     * @param DescribeVpcFirewallPolicyPriorUsedRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return DescribeVpcFirewallPolicyPriorUsedResponse
+     * @return DescribeVpcFirewallPolicyPriorUsedResponse DescribeVpcFirewallPolicyPriorUsedResponse
      */
     public function describeVpcFirewallPolicyPriorUsedWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->vpcFirewallId) {
-            @$query['VpcFirewallId'] = $request->vpcFirewallId;
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVpcFirewallPolicyPriorUsed',
@@ -6609,20 +6051,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the priority range of access control policies that are created for a virtual private cloud (VPC) firewall in a specific policy group.
-     *
-     * @remarks
-     * You can call this operation to query the priority range of access control policies that are created for a VPC firewall in a specific policy group.
+     * @summary Queries the priority range of access control policies that are created for a virtual private cloud (VPC) firewall in a specific policy group.
+     *  *
+     * @description You can call this operation to query the priority range of access control policies that are created for a VPC firewall in a specific policy group.
      * ## [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param DescribeVpcFirewallPolicyPriorUsedRequest $request DescribeVpcFirewallPolicyPriorUsedRequest
      *
-     * @param request - DescribeVpcFirewallPolicyPriorUsedRequest
-     *
-     * @returns DescribeVpcFirewallPolicyPriorUsedResponse
-     *
-     * @param DescribeVpcFirewallPolicyPriorUsedRequest $request
-     *
-     * @return DescribeVpcFirewallPolicyPriorUsedResponse
+     * @return DescribeVpcFirewallPolicyPriorUsedResponse DescribeVpcFirewallPolicyPriorUsedResponse
      */
     public function describeVpcFirewallPolicyPriorUsed($request)
     {
@@ -6632,44 +6069,34 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries virtual private clouds (VPCs).
+     * @summary Queries virtual private clouds (VPCs).
+     *  *
+     * @param DescribeVpcListLiteRequest $request DescribeVpcListLiteRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeVpcListLiteRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeVpcListLiteResponse
-     *
-     * @param DescribeVpcListLiteRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeVpcListLiteResponse
+     * @return DescribeVpcListLiteResponse DescribeVpcListLiteResponse
      */
     public function describeVpcListLiteWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->regionNo) {
-            @$query['RegionNo'] = $request->regionNo;
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
-        if (null !== $request->vpcId) {
-            @$query['VpcId'] = $request->vpcId;
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
         }
-
-        if (null !== $request->vpcName) {
-            @$query['VpcName'] = $request->vpcName;
+        if (!Utils::isUnset($request->vpcName)) {
+            $query['VpcName'] = $request->vpcName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVpcListLite',
@@ -6687,15 +6114,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries virtual private clouds (VPCs).
+     * @summary Queries virtual private clouds (VPCs).
+     *  *
+     * @param DescribeVpcListLiteRequest $request DescribeVpcListLiteRequest
      *
-     * @param request - DescribeVpcListLiteRequest
-     *
-     * @returns DescribeVpcListLiteResponse
-     *
-     * @param DescribeVpcListLiteRequest $request
-     *
-     * @return DescribeVpcListLiteResponse
+     * @return DescribeVpcListLiteResponse DescribeVpcListLiteResponse
      */
     public function describeVpcListLite($request)
     {
@@ -6705,40 +6128,31 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries virtual private cloud (VPC) zones.
+     * @summary Queries virtual private cloud (VPC) zones.
+     *  *
+     * @param DescribeVpcZoneRequest $request DescribeVpcZoneRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeVpcZoneRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeVpcZoneResponse
-     *
-     * @param DescribeVpcZoneRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeVpcZoneResponse
+     * @return DescribeVpcZoneResponse DescribeVpcZoneResponse
      */
     public function describeVpcZoneWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->environment) {
-            @$query['Environment'] = $request->environment;
+        if (!Utils::isUnset($request->environment)) {
+            $query['Environment'] = $request->environment;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->regionNo) {
-            @$query['RegionNo'] = $request->regionNo;
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVpcZone',
@@ -6756,15 +6170,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries virtual private cloud (VPC) zones.
+     * @summary Queries virtual private cloud (VPC) zones.
+     *  *
+     * @param DescribeVpcZoneRequest $request DescribeVpcZoneRequest
      *
-     * @param request - DescribeVpcZoneRequest
-     *
-     * @returns DescribeVpcZoneResponse
-     *
-     * @param DescribeVpcZoneRequest $request
-     *
-     * @return DescribeVpcZoneResponse
+     * @return DescribeVpcZoneResponse DescribeVpcZoneResponse
      */
     public function describeVpcZone($request)
     {
@@ -6774,96 +6184,73 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the vulnerabilities that are supported by Cloud Firewall.
+     * @summary Queries the vulnerabilities that are supported by Cloud Firewall.
+     *  *
+     * @param DescribeVulnerabilityProtectedListRequest $request DescribeVulnerabilityProtectedListRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - DescribeVulnerabilityProtectedListRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DescribeVulnerabilityProtectedListResponse
-     *
-     * @param DescribeVulnerabilityProtectedListRequest $request
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return DescribeVulnerabilityProtectedListResponse
+     * @return DescribeVulnerabilityProtectedListResponse DescribeVulnerabilityProtectedListResponse
      */
     public function describeVulnerabilityProtectedListWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->attackType) {
-            @$query['AttackType'] = $request->attackType;
+        if (!Utils::isUnset($request->attackType)) {
+            $query['AttackType'] = $request->attackType;
         }
-
-        if (null !== $request->buyVersion) {
-            @$query['BuyVersion'] = $request->buyVersion;
+        if (!Utils::isUnset($request->buyVersion)) {
+            $query['BuyVersion'] = $request->buyVersion;
         }
-
-        if (null !== $request->currentPage) {
-            @$query['CurrentPage'] = $request->currentPage;
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->order) {
-            @$query['Order'] = $request->order;
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['PageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->sortKey) {
-            @$query['SortKey'] = $request->sortKey;
+        if (!Utils::isUnset($request->sortKey)) {
+            $query['SortKey'] = $request->sortKey;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->userType) {
-            @$query['UserType'] = $request->userType;
+        if (!Utils::isUnset($request->userType)) {
+            $query['UserType'] = $request->userType;
         }
-
-        if (null !== $request->vulnCveName) {
-            @$query['VulnCveName'] = $request->vulnCveName;
+        if (!Utils::isUnset($request->vulnCveName)) {
+            $query['VulnCveName'] = $request->vulnCveName;
         }
-
-        if (null !== $request->vulnLevel) {
-            @$query['VulnLevel'] = $request->vulnLevel;
+        if (!Utils::isUnset($request->vulnLevel)) {
+            $query['VulnLevel'] = $request->vulnLevel;
         }
-
-        if (null !== $request->vulnResource) {
-            @$query['VulnResource'] = $request->vulnResource;
+        if (!Utils::isUnset($request->vulnResource)) {
+            $query['VulnResource'] = $request->vulnResource;
         }
-
-        if (null !== $request->vulnStatus) {
-            @$query['VulnStatus'] = $request->vulnStatus;
+        if (!Utils::isUnset($request->vulnStatus)) {
+            $query['VulnStatus'] = $request->vulnStatus;
         }
-
-        if (null !== $request->vulnType) {
-            @$query['VulnType'] = $request->vulnType;
+        if (!Utils::isUnset($request->vulnType)) {
+            $query['VulnType'] = $request->vulnType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeVulnerabilityProtectedList',
@@ -6881,15 +6268,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Queries the vulnerabilities that are supported by Cloud Firewall.
+     * @summary Queries the vulnerabilities that are supported by Cloud Firewall.
+     *  *
+     * @param DescribeVulnerabilityProtectedListRequest $request DescribeVulnerabilityProtectedListRequest
      *
-     * @param request - DescribeVulnerabilityProtectedListRequest
-     *
-     * @returns DescribeVulnerabilityProtectedListResponse
-     *
-     * @param DescribeVulnerabilityProtectedListRequest $request
-     *
-     * @return DescribeVulnerabilityProtectedListResponse
+     * @return DescribeVulnerabilityProtectedListResponse DescribeVulnerabilityProtectedListResponse
      */
     public function describeVulnerabilityProtectedList($request)
     {
@@ -6899,69 +6282,53 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the address book that is specified in an access control policy.
-     *
-     * @remarks
-     * You can call the ModifyAddressBook operation to modify the address book that is configured for access control.
+     * @summary Modifies the address book that is specified in an access control policy.
+     *  *
+     * @description You can call the ModifyAddressBook operation to modify the address book that is configured for access control.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyAddressBookRequest $request ModifyAddressBookRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyAddressBookRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyAddressBookResponse
-     *
-     * @param ModifyAddressBookRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return ModifyAddressBookResponse
+     * @return ModifyAddressBookResponse ModifyAddressBookResponse
      */
     public function modifyAddressBookWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->addressList) {
-            @$query['AddressList'] = $request->addressList;
+        if (!Utils::isUnset($request->addressList)) {
+            $query['AddressList'] = $request->addressList;
         }
-
-        if (null !== $request->autoAddTagEcs) {
-            @$query['AutoAddTagEcs'] = $request->autoAddTagEcs;
+        if (!Utils::isUnset($request->autoAddTagEcs)) {
+            $query['AutoAddTagEcs'] = $request->autoAddTagEcs;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->groupName) {
-            @$query['GroupName'] = $request->groupName;
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
         }
-
-        if (null !== $request->groupUuid) {
-            @$query['GroupUuid'] = $request->groupUuid;
+        if (!Utils::isUnset($request->groupUuid)) {
+            $query['GroupUuid'] = $request->groupUuid;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->modifyMode) {
-            @$query['ModifyMode'] = $request->modifyMode;
+        if (!Utils::isUnset($request->modifyMode)) {
+            $query['ModifyMode'] = $request->modifyMode;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
-        if (null !== $request->tagList) {
-            @$query['TagList'] = $request->tagList;
+        if (!Utils::isUnset($request->tagList)) {
+            $query['TagList'] = $request->tagList;
         }
-
-        if (null !== $request->tagRelation) {
-            @$query['TagRelation'] = $request->tagRelation;
+        if (!Utils::isUnset($request->tagRelation)) {
+            $query['TagRelation'] = $request->tagRelation;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyAddressBook',
@@ -6979,20 +6346,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the address book that is specified in an access control policy.
-     *
-     * @remarks
-     * You can call the ModifyAddressBook operation to modify the address book that is configured for access control.
+     * @summary Modifies the address book that is specified in an access control policy.
+     *  *
+     * @description You can call the ModifyAddressBook operation to modify the address book that is configured for access control.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyAddressBookRequest $request ModifyAddressBookRequest
      *
-     * @param request - ModifyAddressBookRequest
-     *
-     * @returns ModifyAddressBookResponse
-     *
-     * @param ModifyAddressBookRequest $request
-     *
-     * @return ModifyAddressBookResponse
+     * @return ModifyAddressBookResponse ModifyAddressBookResponse
      */
     public function modifyAddressBook($request)
     {
@@ -7002,121 +6364,92 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of an access control policy.
-     *
-     * @remarks
-     * You can call this operation to modify the configurations of an access control policy. The policy allows Cloud Firewall to allow, deny, or monitor the traffic that passes through Cloud Firewall.
+     * @summary Modifies the configurations of an access control policy.
+     *  *
+     * @description You can call this operation to modify the configurations of an access control policy. The policy allows Cloud Firewall to allow, deny, or monitor the traffic that passes through Cloud Firewall.
      * ## [](#qps)Limit
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyControlPolicyRequest $request ModifyControlPolicyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyControlPolicyResponse
-     *
-     * @param ModifyControlPolicyRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ModifyControlPolicyResponse
+     * @return ModifyControlPolicyResponse ModifyControlPolicyResponse
      */
     public function modifyControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclAction) {
-            @$query['AclAction'] = $request->aclAction;
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
         }
-
-        if (null !== $request->aclUuid) {
-            @$query['AclUuid'] = $request->aclUuid;
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
         }
-
-        if (null !== $request->applicationName) {
-            @$query['ApplicationName'] = $request->applicationName;
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
         }
-
-        if (null !== $request->applicationNameList) {
-            @$query['ApplicationNameList'] = $request->applicationNameList;
+        if (!Utils::isUnset($request->applicationNameList)) {
+            $query['ApplicationNameList'] = $request->applicationNameList;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->destPort) {
-            @$query['DestPort'] = $request->destPort;
+        if (!Utils::isUnset($request->destPort)) {
+            $query['DestPort'] = $request->destPort;
         }
-
-        if (null !== $request->destPortGroup) {
-            @$query['DestPortGroup'] = $request->destPortGroup;
+        if (!Utils::isUnset($request->destPortGroup)) {
+            $query['DestPortGroup'] = $request->destPortGroup;
         }
-
-        if (null !== $request->destPortType) {
-            @$query['DestPortType'] = $request->destPortType;
+        if (!Utils::isUnset($request->destPortType)) {
+            $query['DestPortType'] = $request->destPortType;
         }
-
-        if (null !== $request->destination) {
-            @$query['Destination'] = $request->destination;
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
         }
-
-        if (null !== $request->destinationType) {
-            @$query['DestinationType'] = $request->destinationType;
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
         }
-
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->domainResolveType) {
-            @$query['DomainResolveType'] = $request->domainResolveType;
+        if (!Utils::isUnset($request->domainResolveType)) {
+            $query['DomainResolveType'] = $request->domainResolveType;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->proto) {
-            @$query['Proto'] = $request->proto;
+        if (!Utils::isUnset($request->proto)) {
+            $query['Proto'] = $request->proto;
         }
-
-        if (null !== $request->release) {
-            @$query['Release'] = $request->release;
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
         }
-
-        if (null !== $request->repeatDays) {
-            @$query['RepeatDays'] = $request->repeatDays;
+        if (!Utils::isUnset($request->repeatDays)) {
+            $query['RepeatDays'] = $request->repeatDays;
         }
-
-        if (null !== $request->repeatEndTime) {
-            @$query['RepeatEndTime'] = $request->repeatEndTime;
+        if (!Utils::isUnset($request->repeatEndTime)) {
+            $query['RepeatEndTime'] = $request->repeatEndTime;
         }
-
-        if (null !== $request->repeatStartTime) {
-            @$query['RepeatStartTime'] = $request->repeatStartTime;
+        if (!Utils::isUnset($request->repeatStartTime)) {
+            $query['RepeatStartTime'] = $request->repeatStartTime;
         }
-
-        if (null !== $request->repeatType) {
-            @$query['RepeatType'] = $request->repeatType;
+        if (!Utils::isUnset($request->repeatType)) {
+            $query['RepeatType'] = $request->repeatType;
         }
-
-        if (null !== $request->source) {
-            @$query['Source'] = $request->source;
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyControlPolicy',
@@ -7134,20 +6467,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of an access control policy.
-     *
-     * @remarks
-     * You can call this operation to modify the configurations of an access control policy. The policy allows Cloud Firewall to allow, deny, or monitor the traffic that passes through Cloud Firewall.
+     * @summary Modifies the configurations of an access control policy.
+     *  *
+     * @description You can call this operation to modify the configurations of an access control policy. The policy allows Cloud Firewall to allow, deny, or monitor the traffic that passes through Cloud Firewall.
      * ## [](#qps)Limit
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyControlPolicyRequest $request ModifyControlPolicyRequest
      *
-     * @param request - ModifyControlPolicyRequest
-     *
-     * @returns ModifyControlPolicyResponse
-     *
-     * @param ModifyControlPolicyRequest $request
-     *
-     * @return ModifyControlPolicyResponse
+     * @return ModifyControlPolicyResponse ModifyControlPolicyResponse
      */
     public function modifyControlPolicy($request)
     {
@@ -7157,49 +6485,38 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the priority of an IPv4 access control policy for the Internet firewall. An IPv4 access control policy refers to a policy whose source IP address and destination IP address are IPv4 addresses.
-     *
-     * @remarks
-     * You can use this operation to modify the priority of an IPv4 access control policy for the Internet firewall. No API operations are provided for you to modify the priority of an IPv6 access control policy for the Internet firewall.
+     * @summary Modifies the priority of an IPv4 access control policy for the Internet firewall. An IPv4 access control policy refers to a policy whose source IP address and destination IP address are IPv4 addresses.
+     *  *
+     * @description You can use this operation to modify the priority of an IPv4 access control policy for the Internet firewall. No API operations are provided for you to modify the priority of an IPv6 access control policy for the Internet firewall.
      * ## [](#qps)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyControlPolicyPositionRequest $request ModifyControlPolicyPositionRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyControlPolicyPositionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyControlPolicyPositionResponse
-     *
-     * @param ModifyControlPolicyPositionRequest $request
-     * @param RuntimeOptions                     $runtime
-     *
-     * @return ModifyControlPolicyPositionResponse
+     * @return ModifyControlPolicyPositionResponse ModifyControlPolicyPositionResponse
      */
     public function modifyControlPolicyPositionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->newOrder) {
-            @$query['NewOrder'] = $request->newOrder;
+        if (!Utils::isUnset($request->newOrder)) {
+            $query['NewOrder'] = $request->newOrder;
         }
-
-        if (null !== $request->oldOrder) {
-            @$query['OldOrder'] = $request->oldOrder;
+        if (!Utils::isUnset($request->oldOrder)) {
+            $query['OldOrder'] = $request->oldOrder;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyControlPolicyPosition',
@@ -7217,20 +6534,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the priority of an IPv4 access control policy for the Internet firewall. An IPv4 access control policy refers to a policy whose source IP address and destination IP address are IPv4 addresses.
-     *
-     * @remarks
-     * You can use this operation to modify the priority of an IPv4 access control policy for the Internet firewall. No API operations are provided for you to modify the priority of an IPv6 access control policy for the Internet firewall.
+     * @summary Modifies the priority of an IPv4 access control policy for the Internet firewall. An IPv4 access control policy refers to a policy whose source IP address and destination IP address are IPv4 addresses.
+     *  *
+     * @description You can use this operation to modify the priority of an IPv4 access control policy for the Internet firewall. No API operations are provided for you to modify the priority of an IPv6 access control policy for the Internet firewall.
      * ## [](#qps)Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyControlPolicyPositionRequest $request ModifyControlPolicyPositionRequest
      *
-     * @param request - ModifyControlPolicyPositionRequest
-     *
-     * @returns ModifyControlPolicyPositionResponse
-     *
-     * @param ModifyControlPolicyPositionRequest $request
-     *
-     * @return ModifyControlPolicyPositionResponse
+     * @return ModifyControlPolicyPositionResponse ModifyControlPolicyPositionResponse
      */
     public function modifyControlPolicyPosition($request)
     {
@@ -7240,52 +6552,90 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the default configuration of the intrusion prevention system (IPS).
+     * @summary Modifies the priority of an access control policy.
+     *  *
+     * @param ModifyControlPolicyPriorityRequest $request ModifyControlPolicyPriorityRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyDefaultIPSConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return ModifyControlPolicyPriorityResponse ModifyControlPolicyPriorityResponse
+     */
+    public function modifyControlPolicyPriorityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyControlPolicyPriority',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyControlPolicyPriorityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Modifies the priority of an access control policy.
+     *  *
+     * @param ModifyControlPolicyPriorityRequest $request ModifyControlPolicyPriorityRequest
      *
-     * @returns ModifyDefaultIPSConfigResponse
+     * @return ModifyControlPolicyPriorityResponse ModifyControlPolicyPriorityResponse
+     */
+    public function modifyControlPolicyPriority($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyControlPolicyPriorityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Modifies the default configuration of the intrusion prevention system (IPS).
+     *  *
+     * @param ModifyDefaultIPSConfigRequest $request ModifyDefaultIPSConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param ModifyDefaultIPSConfigRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ModifyDefaultIPSConfigResponse
+     * @return ModifyDefaultIPSConfigResponse ModifyDefaultIPSConfigResponse
      */
     public function modifyDefaultIPSConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->basicRules) {
-            @$query['BasicRules'] = $request->basicRules;
+        if (!Utils::isUnset($request->basicRules)) {
+            $query['BasicRules'] = $request->basicRules;
         }
-
-        if (null !== $request->ctiRules) {
-            @$query['CtiRules'] = $request->ctiRules;
+        if (!Utils::isUnset($request->ctiRules)) {
+            $query['CtiRules'] = $request->ctiRules;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->maxSdl) {
-            @$query['MaxSdl'] = $request->maxSdl;
+        if (!Utils::isUnset($request->maxSdl)) {
+            $query['MaxSdl'] = $request->maxSdl;
         }
-
-        if (null !== $request->patchRules) {
-            @$query['PatchRules'] = $request->patchRules;
+        if (!Utils::isUnset($request->patchRules)) {
+            $query['PatchRules'] = $request->patchRules;
         }
-
-        if (null !== $request->ruleClass) {
-            @$query['RuleClass'] = $request->ruleClass;
+        if (!Utils::isUnset($request->ruleClass)) {
+            $query['RuleClass'] = $request->ruleClass;
         }
-
-        if (null !== $request->runMode) {
-            @$query['RunMode'] = $request->runMode;
+        if (!Utils::isUnset($request->runMode)) {
+            $query['RunMode'] = $request->runMode;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyDefaultIPSConfig',
@@ -7303,15 +6653,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the default configuration of the intrusion prevention system (IPS).
+     * @summary Modifies the default configuration of the intrusion prevention system (IPS).
+     *  *
+     * @param ModifyDefaultIPSConfigRequest $request ModifyDefaultIPSConfigRequest
      *
-     * @param request - ModifyDefaultIPSConfigRequest
-     *
-     * @returns ModifyDefaultIPSConfigResponse
-     *
-     * @param ModifyDefaultIPSConfigRequest $request
-     *
-     * @return ModifyDefaultIPSConfigResponse
+     * @return ModifyDefaultIPSConfigResponse ModifyDefaultIPSConfigResponse
      */
     public function modifyDefaultIPSConfig($request)
     {
@@ -7321,44 +6667,111 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the status of a routing policy.
+     * @summary 修改DNS防火墙规则
+     *  *
+     * @param ModifyDnsFirewallPolicyRequest $request ModifyDnsFirewallPolicyRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyFirewallV2RoutePolicySwitchRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return ModifyDnsFirewallPolicyResponse ModifyDnsFirewallPolicyResponse
+     */
+    public function modifyDnsFirewallPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
+        }
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyDnsFirewallPolicy',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyDnsFirewallPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改DNS防火墙规则
+     *  *
+     * @param ModifyDnsFirewallPolicyRequest $request ModifyDnsFirewallPolicyRequest
      *
-     * @returns ModifyFirewallV2RoutePolicySwitchResponse
+     * @return ModifyDnsFirewallPolicyResponse ModifyDnsFirewallPolicyResponse
+     */
+    public function modifyDnsFirewallPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDnsFirewallPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Modifies the status of a routing policy.
+     *  *
+     * @param ModifyFirewallV2RoutePolicySwitchRequest $request ModifyFirewallV2RoutePolicySwitchRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param ModifyFirewallV2RoutePolicySwitchRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return ModifyFirewallV2RoutePolicySwitchResponse
+     * @return ModifyFirewallV2RoutePolicySwitchResponse ModifyFirewallV2RoutePolicySwitchResponse
      */
     public function modifyFirewallV2RoutePolicySwitchWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->firewallId) {
-            @$query['FirewallId'] = $request->firewallId;
+        if (!Utils::isUnset($request->firewallId)) {
+            $query['FirewallId'] = $request->firewallId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->shouldRecover) {
-            @$query['ShouldRecover'] = $request->shouldRecover;
+        if (!Utils::isUnset($request->shouldRecover)) {
+            $query['ShouldRecover'] = $request->shouldRecover;
         }
-
-        if (null !== $request->trFirewallRoutePolicyId) {
-            @$query['TrFirewallRoutePolicyId'] = $request->trFirewallRoutePolicyId;
+        if (!Utils::isUnset($request->trFirewallRoutePolicyId)) {
+            $query['TrFirewallRoutePolicyId'] = $request->trFirewallRoutePolicyId;
         }
-
-        if (null !== $request->trFirewallRoutePolicySwitchStatus) {
-            @$query['TrFirewallRoutePolicySwitchStatus'] = $request->trFirewallRoutePolicySwitchStatus;
+        if (!Utils::isUnset($request->trFirewallRoutePolicySwitchStatus)) {
+            $query['TrFirewallRoutePolicySwitchStatus'] = $request->trFirewallRoutePolicySwitchStatus;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyFirewallV2RoutePolicySwitch',
@@ -7376,15 +6789,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the status of a routing policy.
+     * @summary Modifies the status of a routing policy.
+     *  *
+     * @param ModifyFirewallV2RoutePolicySwitchRequest $request ModifyFirewallV2RoutePolicySwitchRequest
      *
-     * @param request - ModifyFirewallV2RoutePolicySwitchRequest
-     *
-     * @returns ModifyFirewallV2RoutePolicySwitchResponse
-     *
-     * @param ModifyFirewallV2RoutePolicySwitchRequest $request
-     *
-     * @return ModifyFirewallV2RoutePolicySwitchResponse
+     * @return ModifyFirewallV2RoutePolicySwitchResponse ModifyFirewallV2RoutePolicySwitchResponse
      */
     public function modifyFirewallV2RoutePolicySwitch($request)
     {
@@ -7394,33 +6803,26 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Updates the information about members in Cloud Firewall.
-     *
-     * @remarks
-     * You can call the ModifyInstanceMemberAttributes operation to update the information about members in Cloud Firewall.
+     * @summary Updates the information about members in Cloud Firewall.
+     *  *
+     * @description You can call the ModifyInstanceMemberAttributes operation to update the information about members in Cloud Firewall.
      * ## Limits
      * You can call this operation up to 10 times per second for each account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyInstanceMemberAttributesRequest $request ModifyInstanceMemberAttributesRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyInstanceMemberAttributesRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyInstanceMemberAttributesResponse
-     *
-     * @param ModifyInstanceMemberAttributesRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return ModifyInstanceMemberAttributesResponse
+     * @return ModifyInstanceMemberAttributesResponse ModifyInstanceMemberAttributesResponse
      */
     public function modifyInstanceMemberAttributesWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->members) {
-            @$query['Members'] = $request->members;
+        if (!Utils::isUnset($request->members)) {
+            $query['Members'] = $request->members;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyInstanceMemberAttributes',
@@ -7438,20 +6840,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Updates the information about members in Cloud Firewall.
-     *
-     * @remarks
-     * You can call the ModifyInstanceMemberAttributes operation to update the information about members in Cloud Firewall.
+     * @summary Updates the information about members in Cloud Firewall.
+     *  *
+     * @description You can call the ModifyInstanceMemberAttributes operation to update the information about members in Cloud Firewall.
      * ## Limits
      * You can call this operation up to 10 times per second for each account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyInstanceMemberAttributesRequest $request ModifyInstanceMemberAttributesRequest
      *
-     * @param request - ModifyInstanceMemberAttributesRequest
-     *
-     * @returns ModifyInstanceMemberAttributesResponse
-     *
-     * @param ModifyInstanceMemberAttributesRequest $request
-     *
-     * @return ModifyInstanceMemberAttributesResponse
+     * @return ModifyInstanceMemberAttributesResponse ModifyInstanceMemberAttributesResponse
      */
     public function modifyInstanceMemberAttributes($request)
     {
@@ -7461,119 +6858,90 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of an access control policy that is created for a NAT firewall.
+     * @summary Modifies the configurations of an access control policy that is created for a NAT firewall.
+     *  *
+     * @description You can use this operation to modify the configurations of an access control policy. The policy is used to allow, deny, or monitor traffic that reaches a NAT firewall.
+     *  *
+     * @param ModifyNatFirewallControlPolicyRequest $request ModifyNatFirewallControlPolicyRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * You can use this operation to modify the configurations of an access control policy. The policy is used to allow, deny, or monitor traffic that reaches a NAT firewall.
-     *
-     * @param request - ModifyNatFirewallControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyNatFirewallControlPolicyResponse
-     *
-     * @param ModifyNatFirewallControlPolicyRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return ModifyNatFirewallControlPolicyResponse
+     * @return ModifyNatFirewallControlPolicyResponse ModifyNatFirewallControlPolicyResponse
      */
     public function modifyNatFirewallControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclAction) {
-            @$query['AclAction'] = $request->aclAction;
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
         }
-
-        if (null !== $request->aclUuid) {
-            @$query['AclUuid'] = $request->aclUuid;
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
         }
-
-        if (null !== $request->applicationNameList) {
-            @$query['ApplicationNameList'] = $request->applicationNameList;
+        if (!Utils::isUnset($request->applicationNameList)) {
+            $query['ApplicationNameList'] = $request->applicationNameList;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->destPort) {
-            @$query['DestPort'] = $request->destPort;
+        if (!Utils::isUnset($request->destPort)) {
+            $query['DestPort'] = $request->destPort;
         }
-
-        if (null !== $request->destPortGroup) {
-            @$query['DestPortGroup'] = $request->destPortGroup;
+        if (!Utils::isUnset($request->destPortGroup)) {
+            $query['DestPortGroup'] = $request->destPortGroup;
         }
-
-        if (null !== $request->destPortType) {
-            @$query['DestPortType'] = $request->destPortType;
+        if (!Utils::isUnset($request->destPortType)) {
+            $query['DestPortType'] = $request->destPortType;
         }
-
-        if (null !== $request->destination) {
-            @$query['Destination'] = $request->destination;
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
         }
-
-        if (null !== $request->destinationType) {
-            @$query['DestinationType'] = $request->destinationType;
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
         }
-
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->domainResolveType) {
-            @$query['DomainResolveType'] = $request->domainResolveType;
+        if (!Utils::isUnset($request->domainResolveType)) {
+            $query['DomainResolveType'] = $request->domainResolveType;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->natGatewayId) {
-            @$query['NatGatewayId'] = $request->natGatewayId;
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
         }
-
-        if (null !== $request->proto) {
-            @$query['Proto'] = $request->proto;
+        if (!Utils::isUnset($request->proto)) {
+            $query['Proto'] = $request->proto;
         }
-
-        if (null !== $request->release) {
-            @$query['Release'] = $request->release;
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
         }
-
-        if (null !== $request->repeatDays) {
-            @$query['RepeatDays'] = $request->repeatDays;
+        if (!Utils::isUnset($request->repeatDays)) {
+            $query['RepeatDays'] = $request->repeatDays;
         }
-
-        if (null !== $request->repeatEndTime) {
-            @$query['RepeatEndTime'] = $request->repeatEndTime;
+        if (!Utils::isUnset($request->repeatEndTime)) {
+            $query['RepeatEndTime'] = $request->repeatEndTime;
         }
-
-        if (null !== $request->repeatStartTime) {
-            @$query['RepeatStartTime'] = $request->repeatStartTime;
+        if (!Utils::isUnset($request->repeatStartTime)) {
+            $query['RepeatStartTime'] = $request->repeatStartTime;
         }
-
-        if (null !== $request->repeatType) {
-            @$query['RepeatType'] = $request->repeatType;
+        if (!Utils::isUnset($request->repeatType)) {
+            $query['RepeatType'] = $request->repeatType;
         }
-
-        if (null !== $request->source) {
-            @$query['Source'] = $request->source;
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyNatFirewallControlPolicy',
@@ -7591,18 +6959,13 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of an access control policy that is created for a NAT firewall.
+     * @summary Modifies the configurations of an access control policy that is created for a NAT firewall.
+     *  *
+     * @description You can use this operation to modify the configurations of an access control policy. The policy is used to allow, deny, or monitor traffic that reaches a NAT firewall.
+     *  *
+     * @param ModifyNatFirewallControlPolicyRequest $request ModifyNatFirewallControlPolicyRequest
      *
-     * @remarks
-     * You can use this operation to modify the configurations of an access control policy. The policy is used to allow, deny, or monitor traffic that reaches a NAT firewall.
-     *
-     * @param request - ModifyNatFirewallControlPolicyRequest
-     *
-     * @returns ModifyNatFirewallControlPolicyResponse
-     *
-     * @param ModifyNatFirewallControlPolicyRequest $request
-     *
-     * @return ModifyNatFirewallControlPolicyResponse
+     * @return ModifyNatFirewallControlPolicyResponse ModifyNatFirewallControlPolicyResponse
      */
     public function modifyNatFirewallControlPolicy($request)
     {
@@ -7612,44 +6975,34 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the priority of an access control policy that is created for a NAT firewall.
+     * @summary Modifies the priority of an access control policy that is created for a NAT firewall.
+     *  *
+     * @param ModifyNatFirewallControlPolicyPositionRequest $request ModifyNatFirewallControlPolicyPositionRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyNatFirewallControlPolicyPositionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyNatFirewallControlPolicyPositionResponse
-     *
-     * @param ModifyNatFirewallControlPolicyPositionRequest $request
-     * @param RuntimeOptions                                $runtime
-     *
-     * @return ModifyNatFirewallControlPolicyPositionResponse
+     * @return ModifyNatFirewallControlPolicyPositionResponse ModifyNatFirewallControlPolicyPositionResponse
      */
     public function modifyNatFirewallControlPolicyPositionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclUuid) {
-            @$query['AclUuid'] = $request->aclUuid;
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
         }
-
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->natGatewayId) {
-            @$query['NatGatewayId'] = $request->natGatewayId;
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
         }
-
-        if (null !== $request->newOrder) {
-            @$query['NewOrder'] = $request->newOrder;
+        if (!Utils::isUnset($request->newOrder)) {
+            $query['NewOrder'] = $request->newOrder;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyNatFirewallControlPolicyPosition',
@@ -7667,15 +7020,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the priority of an access control policy that is created for a NAT firewall.
+     * @summary Modifies the priority of an access control policy that is created for a NAT firewall.
+     *  *
+     * @param ModifyNatFirewallControlPolicyPositionRequest $request ModifyNatFirewallControlPolicyPositionRequest
      *
-     * @param request - ModifyNatFirewallControlPolicyPositionRequest
-     *
-     * @returns ModifyNatFirewallControlPolicyPositionResponse
-     *
-     * @param ModifyNatFirewallControlPolicyPositionRequest $request
-     *
-     * @return ModifyNatFirewallControlPolicyPositionResponse
+     * @return ModifyNatFirewallControlPolicyPositionResponse ModifyNatFirewallControlPolicyPositionResponse
      */
     public function modifyNatFirewallControlPolicyPosition($request)
     {
@@ -7685,52 +7034,40 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies information about an operation on an object group.
+     * @summary Modifies information about an operation on an object group.
+     *  *
+     * @param ModifyObjectGroupOperationRequest $request ModifyObjectGroupOperationRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyObjectGroupOperationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyObjectGroupOperationResponse
-     *
-     * @param ModifyObjectGroupOperationRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyObjectGroupOperationResponse
+     * @return ModifyObjectGroupOperationResponse ModifyObjectGroupOperationResponse
      */
     public function modifyObjectGroupOperationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->comment) {
-            @$query['Comment'] = $request->comment;
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
         }
-
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->objectList) {
-            @$query['ObjectList'] = $request->objectList;
+        if (!Utils::isUnset($request->objectList)) {
+            $query['ObjectList'] = $request->objectList;
         }
-
-        if (null !== $request->objectOperation) {
-            @$query['ObjectOperation'] = $request->objectOperation;
+        if (!Utils::isUnset($request->objectOperation)) {
+            $query['ObjectOperation'] = $request->objectOperation;
         }
-
-        if (null !== $request->objectType) {
-            @$query['ObjectType'] = $request->objectType;
+        if (!Utils::isUnset($request->objectType)) {
+            $query['ObjectType'] = $request->objectType;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyObjectGroupOperation',
@@ -7748,15 +7085,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies information about an operation on an object group.
+     * @summary Modifies information about an operation on an object group.
+     *  *
+     * @param ModifyObjectGroupOperationRequest $request ModifyObjectGroupOperationRequest
      *
-     * @param request - ModifyObjectGroupOperationRequest
-     *
-     * @returns ModifyObjectGroupOperationResponse
-     *
-     * @param ModifyObjectGroupOperationRequest $request
-     *
-     * @return ModifyObjectGroupOperationResponse
+     * @return ModifyObjectGroupOperationResponse ModifyObjectGroupOperationResponse
      */
     public function modifyObjectGroupOperation($request)
     {
@@ -7766,45 +7099,35 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Enables or disables the strict mode for an access control policy.
-     *
-     * @remarks
-     * You can call the ModifyPolicyAdvancedConfig operation to enable or disable the strict mode for an access control policy.
+     * @summary Enables or disables the strict mode for an access control policy.
+     *  *
+     * @description You can call the ModifyPolicyAdvancedConfig operation to enable or disable the strict mode for an access control policy.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyPolicyAdvancedConfigRequest $request ModifyPolicyAdvancedConfigRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyPolicyAdvancedConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyPolicyAdvancedConfigResponse
-     *
-     * @param ModifyPolicyAdvancedConfigRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyPolicyAdvancedConfigResponse
+     * @return ModifyPolicyAdvancedConfigResponse ModifyPolicyAdvancedConfigResponse
      */
     public function modifyPolicyAdvancedConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->eips) {
-            @$query['Eips'] = $request->eips;
+        if (!Utils::isUnset($request->eips)) {
+            $query['Eips'] = $request->eips;
         }
-
-        if (null !== $request->internetSwitch) {
-            @$query['InternetSwitch'] = $request->internetSwitch;
+        if (!Utils::isUnset($request->internetSwitch)) {
+            $query['InternetSwitch'] = $request->internetSwitch;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyPolicyAdvancedConfig',
@@ -7822,20 +7145,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Enables or disables the strict mode for an access control policy.
-     *
-     * @remarks
-     * You can call the ModifyPolicyAdvancedConfig operation to enable or disable the strict mode for an access control policy.
+     * @summary Enables or disables the strict mode for an access control policy.
+     *  *
+     * @description You can call the ModifyPolicyAdvancedConfig operation to enable or disable the strict mode for an access control policy.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyPolicyAdvancedConfigRequest $request ModifyPolicyAdvancedConfigRequest
      *
-     * @param request - ModifyPolicyAdvancedConfigRequest
-     *
-     * @returns ModifyPolicyAdvancedConfigResponse
-     *
-     * @param ModifyPolicyAdvancedConfigRequest $request
-     *
-     * @return ModifyPolicyAdvancedConfigResponse
+     * @return ModifyPolicyAdvancedConfigResponse ModifyPolicyAdvancedConfigResponse
      */
     public function modifyPolicyAdvancedConfig($request)
     {
@@ -7845,36 +7163,90 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a virtual private cloud (VPC) firewall that is created for a transit router.
+     * @summary 修改私网DNS终端节点
+     *  *
+     * @param ModifyPrivateDnsEndpointRequest $request ModifyPrivateDnsEndpointRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyTrFirewallV2ConfigurationRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return ModifyPrivateDnsEndpointResponse ModifyPrivateDnsEndpointResponse
+     */
+    public function modifyPrivateDnsEndpointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessInstanceId)) {
+            $query['AccessInstanceId'] = $request->accessInstanceId;
+        }
+        if (!Utils::isUnset($request->accessInstanceName)) {
+            $query['AccessInstanceName'] = $request->accessInstanceName;
+        }
+        if (!Utils::isUnset($request->primaryDns)) {
+            $query['PrimaryDns'] = $request->primaryDns;
+        }
+        if (!Utils::isUnset($request->privateDnsType)) {
+            $query['PrivateDnsType'] = $request->privateDnsType;
+        }
+        if (!Utils::isUnset($request->regionNo)) {
+            $query['RegionNo'] = $request->regionNo;
+        }
+        if (!Utils::isUnset($request->standbyDns)) {
+            $query['StandbyDns'] = $request->standbyDns;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyPrivateDnsEndpoint',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyPrivateDnsEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改私网DNS终端节点
+     *  *
+     * @param ModifyPrivateDnsEndpointRequest $request ModifyPrivateDnsEndpointRequest
      *
-     * @returns ModifyTrFirewallV2ConfigurationResponse
+     * @return ModifyPrivateDnsEndpointResponse ModifyPrivateDnsEndpointResponse
+     */
+    public function modifyPrivateDnsEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyPrivateDnsEndpointWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Modifies the configuration of a virtual private cloud (VPC) firewall that is created for a transit router.
+     *  *
+     * @param ModifyTrFirewallV2ConfigurationRequest $request ModifyTrFirewallV2ConfigurationRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @param ModifyTrFirewallV2ConfigurationRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return ModifyTrFirewallV2ConfigurationResponse
+     * @return ModifyTrFirewallV2ConfigurationResponse ModifyTrFirewallV2ConfigurationResponse
      */
     public function modifyTrFirewallV2ConfigurationWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->firewallId) {
-            @$query['FirewallId'] = $request->firewallId;
+        if (!Utils::isUnset($request->firewallId)) {
+            $query['FirewallId'] = $request->firewallId;
         }
-
-        if (null !== $request->firewallName) {
-            @$query['FirewallName'] = $request->firewallName;
+        if (!Utils::isUnset($request->firewallName)) {
+            $query['FirewallName'] = $request->firewallName;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyTrFirewallV2Configuration',
@@ -7892,15 +7264,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the configuration of a virtual private cloud (VPC) firewall that is created for a transit router.
+     * @summary Modifies the configuration of a virtual private cloud (VPC) firewall that is created for a transit router.
+     *  *
+     * @param ModifyTrFirewallV2ConfigurationRequest $request ModifyTrFirewallV2ConfigurationRequest
      *
-     * @param request - ModifyTrFirewallV2ConfigurationRequest
-     *
-     * @returns ModifyTrFirewallV2ConfigurationResponse
-     *
-     * @param ModifyTrFirewallV2ConfigurationRequest $request
-     *
-     * @return ModifyTrFirewallV2ConfigurationResponse
+     * @return ModifyTrFirewallV2ConfigurationResponse ModifyTrFirewallV2ConfigurationResponse
      */
     public function modifyTrFirewallV2Configuration($request)
     {
@@ -7910,58 +7278,45 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the effective scope of the routing policy created for the VPC firewall for a transit router.
+     * @summary Modifies the effective scope of the routing policy created for the VPC firewall for a transit router.
+     *  *
+     * @param ModifyTrFirewallV2RoutePolicyScopeRequest $tmpReq  ModifyTrFirewallV2RoutePolicyScopeRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ModifyTrFirewallV2RoutePolicyScopeRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyTrFirewallV2RoutePolicyScopeResponse
-     *
-     * @param ModifyTrFirewallV2RoutePolicyScopeRequest $tmpReq
-     * @param RuntimeOptions                            $runtime
-     *
-     * @return ModifyTrFirewallV2RoutePolicyScopeResponse
+     * @return ModifyTrFirewallV2RoutePolicyScopeResponse ModifyTrFirewallV2RoutePolicyScopeResponse
      */
     public function modifyTrFirewallV2RoutePolicyScopeWithOptions($tmpReq, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ModifyTrFirewallV2RoutePolicyScopeShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->destCandidateList) {
-            $request->destCandidateListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->destCandidateList, 'DestCandidateList', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->destCandidateList)) {
+            $request->destCandidateListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->destCandidateList, 'DestCandidateList', 'json');
         }
-
-        if (null !== $tmpReq->srcCandidateList) {
-            $request->srcCandidateListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->srcCandidateList, 'SrcCandidateList', 'json');
+        if (!Utils::isUnset($tmpReq->srcCandidateList)) {
+            $request->srcCandidateListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->srcCandidateList, 'SrcCandidateList', 'json');
         }
-
         $query = [];
-        if (null !== $request->destCandidateListShrink) {
-            @$query['DestCandidateList'] = $request->destCandidateListShrink;
+        if (!Utils::isUnset($request->destCandidateListShrink)) {
+            $query['DestCandidateList'] = $request->destCandidateListShrink;
         }
-
-        if (null !== $request->firewallId) {
-            @$query['FirewallId'] = $request->firewallId;
+        if (!Utils::isUnset($request->firewallId)) {
+            $query['FirewallId'] = $request->firewallId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->shouldRecover) {
-            @$query['ShouldRecover'] = $request->shouldRecover;
+        if (!Utils::isUnset($request->shouldRecover)) {
+            $query['ShouldRecover'] = $request->shouldRecover;
         }
-
-        if (null !== $request->srcCandidateListShrink) {
-            @$query['SrcCandidateList'] = $request->srcCandidateListShrink;
+        if (!Utils::isUnset($request->srcCandidateListShrink)) {
+            $query['SrcCandidateList'] = $request->srcCandidateListShrink;
         }
-
-        if (null !== $request->trFirewallRoutePolicyId) {
-            @$query['TrFirewallRoutePolicyId'] = $request->trFirewallRoutePolicyId;
+        if (!Utils::isUnset($request->trFirewallRoutePolicyId)) {
+            $query['TrFirewallRoutePolicyId'] = $request->trFirewallRoutePolicyId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyTrFirewallV2RoutePolicyScope',
@@ -7979,15 +7334,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the effective scope of the routing policy created for the VPC firewall for a transit router.
+     * @summary Modifies the effective scope of the routing policy created for the VPC firewall for a transit router.
+     *  *
+     * @param ModifyTrFirewallV2RoutePolicyScopeRequest $request ModifyTrFirewallV2RoutePolicyScopeRequest
      *
-     * @param request - ModifyTrFirewallV2RoutePolicyScopeRequest
-     *
-     * @returns ModifyTrFirewallV2RoutePolicyScopeResponse
-     *
-     * @param ModifyTrFirewallV2RoutePolicyScopeRequest $request
-     *
-     * @return ModifyTrFirewallV2RoutePolicyScopeResponse
+     * @return ModifyTrFirewallV2RoutePolicyScopeResponse ModifyTrFirewallV2RoutePolicyScopeResponse
      */
     public function modifyTrFirewallV2RoutePolicyScope($request)
     {
@@ -7997,56 +7348,43 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * 修改用户IPS白名单.
+     * @summary 修改用户IPS白名单
+     *  *
+     * @param ModifyUserIPSWhitelistRequest $request ModifyUserIPSWhitelistRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyUserIPSWhitelistRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyUserIPSWhitelistResponse
-     *
-     * @param ModifyUserIPSWhitelistRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return ModifyUserIPSWhitelistResponse
+     * @return ModifyUserIPSWhitelistResponse ModifyUserIPSWhitelistResponse
      */
     public function modifyUserIPSWhitelistWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->direction) {
-            @$query['Direction'] = $request->direction;
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
-
-        if (null !== $request->ipVersion) {
-            @$query['IpVersion'] = $request->ipVersion;
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->listType) {
-            @$query['ListType'] = $request->listType;
+        if (!Utils::isUnset($request->listType)) {
+            $query['ListType'] = $request->listType;
         }
-
-        if (null !== $request->listValue) {
-            @$query['ListValue'] = $request->listValue;
+        if (!Utils::isUnset($request->listValue)) {
+            $query['ListValue'] = $request->listValue;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
-        if (null !== $request->whiteType) {
-            @$query['WhiteType'] = $request->whiteType;
+        if (!Utils::isUnset($request->whiteType)) {
+            $query['WhiteType'] = $request->whiteType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyUserIPSWhitelist',
@@ -8064,15 +7402,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * 修改用户IPS白名单.
+     * @summary 修改用户IPS白名单
+     *  *
+     * @param ModifyUserIPSWhitelistRequest $request ModifyUserIPSWhitelistRequest
      *
-     * @param request - ModifyUserIPSWhitelistRequest
-     *
-     * @returns ModifyUserIPSWhitelistResponse
-     *
-     * @param ModifyUserIPSWhitelistRequest $request
-     *
-     * @return ModifyUserIPSWhitelistResponse
+     * @return ModifyUserIPSWhitelistResponse ModifyUserIPSWhitelistResponse
      */
     public function modifyUserIPSWhitelist($request)
     {
@@ -8082,45 +7416,35 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a virtual private cloud (VPC) firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance.
-     *
-     * @remarks
-     * You can call the ModifyVpcFirewallCenConfigure operation to modify the configurations of a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](https://help.aliyun.com/document_detail/345772.html) operation.
+     * @summary Modifies the configurations of a virtual private cloud (VPC) firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the ModifyVpcFirewallCenConfigure operation to modify the configurations of a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](https://help.aliyun.com/document_detail/345772.html) operation.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyVpcFirewallCenConfigureRequest $request ModifyVpcFirewallCenConfigureRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyVpcFirewallCenConfigureRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyVpcFirewallCenConfigureResponse
-     *
-     * @param ModifyVpcFirewallCenConfigureRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return ModifyVpcFirewallCenConfigureResponse
+     * @return ModifyVpcFirewallCenConfigureResponse ModifyVpcFirewallCenConfigureResponse
      */
     public function modifyVpcFirewallCenConfigureWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->vpcFirewallId) {
-            @$query['VpcFirewallId'] = $request->vpcFirewallId;
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
         }
-
-        if (null !== $request->vpcFirewallName) {
-            @$query['VpcFirewallName'] = $request->vpcFirewallName;
+        if (!Utils::isUnset($request->vpcFirewallName)) {
+            $query['VpcFirewallName'] = $request->vpcFirewallName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyVpcFirewallCenConfigure',
@@ -8138,20 +7462,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a virtual private cloud (VPC) firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance.
-     *
-     * @remarks
-     * You can call the ModifyVpcFirewallCenConfigure operation to modify the configurations of a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](https://help.aliyun.com/document_detail/345772.html) operation.
+     * @summary Modifies the configurations of a virtual private cloud (VPC) firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the ModifyVpcFirewallCenConfigure operation to modify the configurations of a VPC firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](https://help.aliyun.com/document_detail/345772.html) operation.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyVpcFirewallCenConfigureRequest $request ModifyVpcFirewallCenConfigureRequest
      *
-     * @param request - ModifyVpcFirewallCenConfigureRequest
-     *
-     * @returns ModifyVpcFirewallCenConfigureResponse
-     *
-     * @param ModifyVpcFirewallCenConfigureRequest $request
-     *
-     * @return ModifyVpcFirewallCenConfigureResponse
+     * @return ModifyVpcFirewallCenConfigureResponse ModifyVpcFirewallCenConfigureResponse
      */
     public function modifyVpcFirewallCenConfigure($request)
     {
@@ -8161,46 +7480,36 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Enables or disables a virtual private cloud (VPC) firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance.
-     *
-     * @remarks
-     * You can call the ModifyVpcFirewallCenSwitchStatus operation to enable or disable a VPC firewall. A VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. After you enable the VPC firewall, the VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. After you disable the VPC firewall, the VPC firewall no longer protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance.
+     * @summary Enables or disables a virtual private cloud (VPC) firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the ModifyVpcFirewallCenSwitchStatus operation to enable or disable a VPC firewall. A VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. After you enable the VPC firewall, the VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. After you disable the VPC firewall, the VPC firewall no longer protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance.
      * Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](https://help.aliyun.com/document_detail/345772.html) operation.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyVpcFirewallCenSwitchStatusRequest $request ModifyVpcFirewallCenSwitchStatusRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyVpcFirewallCenSwitchStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyVpcFirewallCenSwitchStatusResponse
-     *
-     * @param ModifyVpcFirewallCenSwitchStatusRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return ModifyVpcFirewallCenSwitchStatusResponse
+     * @return ModifyVpcFirewallCenSwitchStatusResponse ModifyVpcFirewallCenSwitchStatusResponse
      */
     public function modifyVpcFirewallCenSwitchStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->firewallSwitch) {
-            @$query['FirewallSwitch'] = $request->firewallSwitch;
+        if (!Utils::isUnset($request->firewallSwitch)) {
+            $query['FirewallSwitch'] = $request->firewallSwitch;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->vpcFirewallId) {
-            @$query['VpcFirewallId'] = $request->vpcFirewallId;
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyVpcFirewallCenSwitchStatus',
@@ -8218,21 +7527,16 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Enables or disables a virtual private cloud (VPC) firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance.
-     *
-     * @remarks
-     * You can call the ModifyVpcFirewallCenSwitchStatus operation to enable or disable a VPC firewall. A VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. After you enable the VPC firewall, the VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. After you disable the VPC firewall, the VPC firewall no longer protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance.
+     * @summary Enables or disables a virtual private cloud (VPC) firewall. The VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a Cloud Enterprise Network (CEN) instance.
+     *  *
+     * @description You can call the ModifyVpcFirewallCenSwitchStatus operation to enable or disable a VPC firewall. A VPC firewall protects mutual access traffic between a specified VPC and a network instance that is attached to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance. After you enable the VPC firewall, the VPC firewall protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance. After you disable the VPC firewall, the VPC firewall no longer protects mutual access traffic between a VPC and a specified network instance that is attached to a CEN instance.
      * Before you call this operation, make sure that you have created a VPC firewall by calling the [CreateVpcFirewallCenConfigure](https://help.aliyun.com/document_detail/345772.html) operation.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyVpcFirewallCenSwitchStatusRequest $request ModifyVpcFirewallCenSwitchStatusRequest
      *
-     * @param request - ModifyVpcFirewallCenSwitchStatusRequest
-     *
-     * @returns ModifyVpcFirewallCenSwitchStatusResponse
-     *
-     * @param ModifyVpcFirewallCenSwitchStatusRequest $request
-     *
-     * @return ModifyVpcFirewallCenSwitchStatusResponse
+     * @return ModifyVpcFirewallCenSwitchStatusResponse ModifyVpcFirewallCenSwitchStatusResponse
      */
     public function modifyVpcFirewallCenSwitchStatus($request)
     {
@@ -8242,53 +7546,41 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a virtual private cloud (VPC) firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
-     *
-     * @remarks
-     * You can call the ModifyVpcFirewallConfigure operation to modify the configurations of a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
+     * @summary Modifies the configurations of a virtual private cloud (VPC) firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
+     *  *
+     * @description You can call the ModifyVpcFirewallConfigure operation to modify the configurations of a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyVpcFirewallConfigureRequest $request ModifyVpcFirewallConfigureRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyVpcFirewallConfigureRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyVpcFirewallConfigureResponse
-     *
-     * @param ModifyVpcFirewallConfigureRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return ModifyVpcFirewallConfigureResponse
+     * @return ModifyVpcFirewallConfigureResponse ModifyVpcFirewallConfigureResponse
      */
     public function modifyVpcFirewallConfigureWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->localVpcCidrTableList) {
-            @$query['LocalVpcCidrTableList'] = $request->localVpcCidrTableList;
+        if (!Utils::isUnset($request->localVpcCidrTableList)) {
+            $query['LocalVpcCidrTableList'] = $request->localVpcCidrTableList;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->peerVpcCidrTableList) {
-            @$query['PeerVpcCidrTableList'] = $request->peerVpcCidrTableList;
+        if (!Utils::isUnset($request->peerVpcCidrTableList)) {
+            $query['PeerVpcCidrTableList'] = $request->peerVpcCidrTableList;
         }
-
-        if (null !== $request->vpcFirewallId) {
-            @$query['VpcFirewallId'] = $request->vpcFirewallId;
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
         }
-
-        if (null !== $request->vpcFirewallName) {
-            @$query['VpcFirewallName'] = $request->vpcFirewallName;
+        if (!Utils::isUnset($request->vpcFirewallName)) {
+            $query['VpcFirewallName'] = $request->vpcFirewallName;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyVpcFirewallConfigure',
@@ -8306,20 +7598,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of a virtual private cloud (VPC) firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
-     *
-     * @remarks
-     * You can call the ModifyVpcFirewallConfigure operation to modify the configurations of a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
+     * @summary Modifies the configurations of a virtual private cloud (VPC) firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit.
+     *  *
+     * @description You can call the ModifyVpcFirewallConfigure operation to modify the configurations of a VPC firewall. The VPC firewall controls traffic between two VPCs that are connected by using an Express Connect circuit. Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyVpcFirewallConfigureRequest $request ModifyVpcFirewallConfigureRequest
      *
-     * @param request - ModifyVpcFirewallConfigureRequest
-     *
-     * @returns ModifyVpcFirewallConfigureResponse
-     *
-     * @param ModifyVpcFirewallConfigureRequest $request
-     *
-     * @return ModifyVpcFirewallConfigureResponse
+     * @return ModifyVpcFirewallConfigureResponse ModifyVpcFirewallConfigureResponse
      */
     public function modifyVpcFirewallConfigure($request)
     {
@@ -8329,121 +7616,92 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of an access control policy that is created for a virtual private cloud (VPC) firewall in a specified policy group.
-     *
-     * @remarks
-     * You can call the ModifyVpcFirewallControlPolicy operation to modify the configurations of an access control policy that is created for a VPC firewall in a specified policy group. Different access control policies are used for the VPC firewalls that are used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewalls that are used to protect each Express Connect circuit.
+     * @summary Modifies the configurations of an access control policy that is created for a virtual private cloud (VPC) firewall in a specified policy group.
+     *  *
+     * @description You can call the ModifyVpcFirewallControlPolicy operation to modify the configurations of an access control policy that is created for a VPC firewall in a specified policy group. Different access control policies are used for the VPC firewalls that are used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewalls that are used to protect each Express Connect circuit.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyVpcFirewallControlPolicyRequest $request ModifyVpcFirewallControlPolicyRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyVpcFirewallControlPolicyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyVpcFirewallControlPolicyResponse
-     *
-     * @param ModifyVpcFirewallControlPolicyRequest $request
-     * @param RuntimeOptions                        $runtime
-     *
-     * @return ModifyVpcFirewallControlPolicyResponse
+     * @return ModifyVpcFirewallControlPolicyResponse ModifyVpcFirewallControlPolicyResponse
      */
     public function modifyVpcFirewallControlPolicyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclAction) {
-            @$query['AclAction'] = $request->aclAction;
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
         }
-
-        if (null !== $request->aclUuid) {
-            @$query['AclUuid'] = $request->aclUuid;
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
         }
-
-        if (null !== $request->applicationName) {
-            @$query['ApplicationName'] = $request->applicationName;
+        if (!Utils::isUnset($request->applicationName)) {
+            $query['ApplicationName'] = $request->applicationName;
         }
-
-        if (null !== $request->applicationNameList) {
-            @$query['ApplicationNameList'] = $request->applicationNameList;
+        if (!Utils::isUnset($request->applicationNameList)) {
+            $query['ApplicationNameList'] = $request->applicationNameList;
         }
-
-        if (null !== $request->description) {
-            @$query['Description'] = $request->description;
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
-
-        if (null !== $request->destPort) {
-            @$query['DestPort'] = $request->destPort;
+        if (!Utils::isUnset($request->destPort)) {
+            $query['DestPort'] = $request->destPort;
         }
-
-        if (null !== $request->destPortGroup) {
-            @$query['DestPortGroup'] = $request->destPortGroup;
+        if (!Utils::isUnset($request->destPortGroup)) {
+            $query['DestPortGroup'] = $request->destPortGroup;
         }
-
-        if (null !== $request->destPortType) {
-            @$query['DestPortType'] = $request->destPortType;
+        if (!Utils::isUnset($request->destPortType)) {
+            $query['DestPortType'] = $request->destPortType;
         }
-
-        if (null !== $request->destination) {
-            @$query['Destination'] = $request->destination;
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
         }
-
-        if (null !== $request->destinationType) {
-            @$query['DestinationType'] = $request->destinationType;
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
         }
-
-        if (null !== $request->domainResolveType) {
-            @$query['DomainResolveType'] = $request->domainResolveType;
+        if (!Utils::isUnset($request->domainResolveType)) {
+            $query['DomainResolveType'] = $request->domainResolveType;
         }
-
-        if (null !== $request->endTime) {
-            @$query['EndTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->proto) {
-            @$query['Proto'] = $request->proto;
+        if (!Utils::isUnset($request->proto)) {
+            $query['Proto'] = $request->proto;
         }
-
-        if (null !== $request->release) {
-            @$query['Release'] = $request->release;
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
         }
-
-        if (null !== $request->repeatDays) {
-            @$query['RepeatDays'] = $request->repeatDays;
+        if (!Utils::isUnset($request->repeatDays)) {
+            $query['RepeatDays'] = $request->repeatDays;
         }
-
-        if (null !== $request->repeatEndTime) {
-            @$query['RepeatEndTime'] = $request->repeatEndTime;
+        if (!Utils::isUnset($request->repeatEndTime)) {
+            $query['RepeatEndTime'] = $request->repeatEndTime;
         }
-
-        if (null !== $request->repeatStartTime) {
-            @$query['RepeatStartTime'] = $request->repeatStartTime;
+        if (!Utils::isUnset($request->repeatStartTime)) {
+            $query['RepeatStartTime'] = $request->repeatStartTime;
         }
-
-        if (null !== $request->repeatType) {
-            @$query['RepeatType'] = $request->repeatType;
+        if (!Utils::isUnset($request->repeatType)) {
+            $query['RepeatType'] = $request->repeatType;
         }
-
-        if (null !== $request->source) {
-            @$query['Source'] = $request->source;
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
-
-        if (null !== $request->sourceType) {
-            @$query['SourceType'] = $request->sourceType;
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
-
-        if (null !== $request->startTime) {
-            @$query['StartTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
-
-        if (null !== $request->vpcFirewallId) {
-            @$query['VpcFirewallId'] = $request->vpcFirewallId;
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyVpcFirewallControlPolicy',
@@ -8461,20 +7719,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the configurations of an access control policy that is created for a virtual private cloud (VPC) firewall in a specified policy group.
-     *
-     * @remarks
-     * You can call the ModifyVpcFirewallControlPolicy operation to modify the configurations of an access control policy that is created for a VPC firewall in a specified policy group. Different access control policies are used for the VPC firewalls that are used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewalls that are used to protect each Express Connect circuit.
+     * @summary Modifies the configurations of an access control policy that is created for a virtual private cloud (VPC) firewall in a specified policy group.
+     *  *
+     * @description You can call the ModifyVpcFirewallControlPolicy operation to modify the configurations of an access control policy that is created for a VPC firewall in a specified policy group. Different access control policies are used for the VPC firewalls that are used to protect each Cloud Enterprise Network (CEN) instance and the VPC firewalls that are used to protect each Express Connect circuit.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyVpcFirewallControlPolicyRequest $request ModifyVpcFirewallControlPolicyRequest
      *
-     * @param request - ModifyVpcFirewallControlPolicyRequest
-     *
-     * @returns ModifyVpcFirewallControlPolicyResponse
-     *
-     * @param ModifyVpcFirewallControlPolicyRequest $request
-     *
-     * @return ModifyVpcFirewallControlPolicyResponse
+     * @return ModifyVpcFirewallControlPolicyResponse ModifyVpcFirewallControlPolicyResponse
      */
     public function modifyVpcFirewallControlPolicy($request)
     {
@@ -8484,49 +7737,38 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the priority of an access control policy that is created for a virtual private cloud (VPC) firewall in a specific policy group.
-     *
-     * @remarks
-     * You can use this operation to modify the priority of an access control policy that is created for a VPC firewall in a specific policy group.
+     * @summary Modifies the priority of an access control policy that is created for a virtual private cloud (VPC) firewall in a specific policy group.
+     *  *
+     * @description You can use this operation to modify the priority of an access control policy that is created for a VPC firewall in a specific policy group.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyVpcFirewallControlPolicyPositionRequest $request ModifyVpcFirewallControlPolicyPositionRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyVpcFirewallControlPolicyPositionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyVpcFirewallControlPolicyPositionResponse
-     *
-     * @param ModifyVpcFirewallControlPolicyPositionRequest $request
-     * @param RuntimeOptions                                $runtime
-     *
-     * @return ModifyVpcFirewallControlPolicyPositionResponse
+     * @return ModifyVpcFirewallControlPolicyPositionResponse ModifyVpcFirewallControlPolicyPositionResponse
      */
     public function modifyVpcFirewallControlPolicyPositionWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclUuid) {
-            @$query['AclUuid'] = $request->aclUuid;
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->newOrder) {
-            @$query['NewOrder'] = $request->newOrder;
+        if (!Utils::isUnset($request->newOrder)) {
+            $query['NewOrder'] = $request->newOrder;
         }
-
-        if (null !== $request->oldOrder) {
-            @$query['OldOrder'] = $request->oldOrder;
+        if (!Utils::isUnset($request->oldOrder)) {
+            $query['OldOrder'] = $request->oldOrder;
         }
-
-        if (null !== $request->vpcFirewallId) {
-            @$query['VpcFirewallId'] = $request->vpcFirewallId;
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyVpcFirewallControlPolicyPosition',
@@ -8544,20 +7786,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the priority of an access control policy that is created for a virtual private cloud (VPC) firewall in a specific policy group.
-     *
-     * @remarks
-     * You can use this operation to modify the priority of an access control policy that is created for a VPC firewall in a specific policy group.
+     * @summary Modifies the priority of an access control policy that is created for a virtual private cloud (VPC) firewall in a specific policy group.
+     *  *
+     * @description You can use this operation to modify the priority of an access control policy that is created for a VPC firewall in a specific policy group.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyVpcFirewallControlPolicyPositionRequest $request ModifyVpcFirewallControlPolicyPositionRequest
      *
-     * @param request - ModifyVpcFirewallControlPolicyPositionRequest
-     *
-     * @returns ModifyVpcFirewallControlPolicyPositionResponse
-     *
-     * @param ModifyVpcFirewallControlPolicyPositionRequest $request
-     *
-     * @return ModifyVpcFirewallControlPolicyPositionResponse
+     * @return ModifyVpcFirewallControlPolicyPositionResponse ModifyVpcFirewallControlPolicyPositionResponse
      */
     public function modifyVpcFirewallControlPolicyPosition($request)
     {
@@ -8567,61 +7804,47 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the intrusion prevention configurations of a virtual private cloud (VPC) firewall.
-     *
-     * @remarks
-     * You can call this operation to modify the intrusion prevention configurations of a VPC firewall.
+     * @summary Modifies the intrusion prevention configurations of a virtual private cloud (VPC) firewall.
+     *  *
+     * @description You can call this operation to modify the intrusion prevention configurations of a VPC firewall.
      * ## [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyVpcFirewallDefaultIPSConfigRequest $request ModifyVpcFirewallDefaultIPSConfigRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyVpcFirewallDefaultIPSConfigRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyVpcFirewallDefaultIPSConfigResponse
-     *
-     * @param ModifyVpcFirewallDefaultIPSConfigRequest $request
-     * @param RuntimeOptions                           $runtime
-     *
-     * @return ModifyVpcFirewallDefaultIPSConfigResponse
+     * @return ModifyVpcFirewallDefaultIPSConfigResponse ModifyVpcFirewallDefaultIPSConfigResponse
      */
     public function modifyVpcFirewallDefaultIPSConfigWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->basicRules) {
-            @$query['BasicRules'] = $request->basicRules;
+        if (!Utils::isUnset($request->basicRules)) {
+            $query['BasicRules'] = $request->basicRules;
         }
-
-        if (null !== $request->enableAllPatch) {
-            @$query['EnableAllPatch'] = $request->enableAllPatch;
+        if (!Utils::isUnset($request->enableAllPatch)) {
+            $query['EnableAllPatch'] = $request->enableAllPatch;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->ruleClass) {
-            @$query['RuleClass'] = $request->ruleClass;
+        if (!Utils::isUnset($request->ruleClass)) {
+            $query['RuleClass'] = $request->ruleClass;
         }
-
-        if (null !== $request->runMode) {
-            @$query['RunMode'] = $request->runMode;
+        if (!Utils::isUnset($request->runMode)) {
+            $query['RunMode'] = $request->runMode;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
-        if (null !== $request->vpcFirewallId) {
-            @$query['VpcFirewallId'] = $request->vpcFirewallId;
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyVpcFirewallDefaultIPSConfig',
@@ -8639,20 +7862,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the intrusion prevention configurations of a virtual private cloud (VPC) firewall.
-     *
-     * @remarks
-     * You can call this operation to modify the intrusion prevention configurations of a VPC firewall.
+     * @summary Modifies the intrusion prevention configurations of a virtual private cloud (VPC) firewall.
+     *  *
+     * @description You can call this operation to modify the intrusion prevention configurations of a VPC firewall.
      * ## [](#qps-)Limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyVpcFirewallDefaultIPSConfigRequest $request ModifyVpcFirewallDefaultIPSConfigRequest
      *
-     * @param request - ModifyVpcFirewallDefaultIPSConfigRequest
-     *
-     * @returns ModifyVpcFirewallDefaultIPSConfigResponse
-     *
-     * @param ModifyVpcFirewallDefaultIPSConfigRequest $request
-     *
-     * @return ModifyVpcFirewallDefaultIPSConfigResponse
+     * @return ModifyVpcFirewallDefaultIPSConfigResponse ModifyVpcFirewallDefaultIPSConfigResponse
      */
     public function modifyVpcFirewallDefaultIPSConfig($request)
     {
@@ -8662,48 +7880,37 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the IPS whitelist of a virtual private cloud (VPC) firewall.
+     * @summary Modifies the IPS whitelist of a virtual private cloud (VPC) firewall.
+     *  *
+     * @param ModifyVpcFirewallIPSWhitelistRequest $request ModifyVpcFirewallIPSWhitelistRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyVpcFirewallIPSWhitelistRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyVpcFirewallIPSWhitelistResponse
-     *
-     * @param ModifyVpcFirewallIPSWhitelistRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return ModifyVpcFirewallIPSWhitelistResponse
+     * @return ModifyVpcFirewallIPSWhitelistResponse ModifyVpcFirewallIPSWhitelistResponse
      */
     public function modifyVpcFirewallIPSWhitelistWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->listType) {
-            @$query['ListType'] = $request->listType;
+        if (!Utils::isUnset($request->listType)) {
+            $query['ListType'] = $request->listType;
         }
-
-        if (null !== $request->listValue) {
-            @$query['ListValue'] = $request->listValue;
+        if (!Utils::isUnset($request->listValue)) {
+            $query['ListValue'] = $request->listValue;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->vpcFirewallId) {
-            @$query['VpcFirewallId'] = $request->vpcFirewallId;
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
         }
-
-        if (null !== $request->whiteType) {
-            @$query['WhiteType'] = $request->whiteType;
+        if (!Utils::isUnset($request->whiteType)) {
+            $query['WhiteType'] = $request->whiteType;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyVpcFirewallIPSWhitelist',
@@ -8721,15 +7928,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Modifies the IPS whitelist of a virtual private cloud (VPC) firewall.
+     * @summary Modifies the IPS whitelist of a virtual private cloud (VPC) firewall.
+     *  *
+     * @param ModifyVpcFirewallIPSWhitelistRequest $request ModifyVpcFirewallIPSWhitelistRequest
      *
-     * @param request - ModifyVpcFirewallIPSWhitelistRequest
-     *
-     * @returns ModifyVpcFirewallIPSWhitelistResponse
-     *
-     * @param ModifyVpcFirewallIPSWhitelistRequest $request
-     *
-     * @return ModifyVpcFirewallIPSWhitelistResponse
+     * @return ModifyVpcFirewallIPSWhitelistResponse ModifyVpcFirewallIPSWhitelistResponse
      */
     public function modifyVpcFirewallIPSWhitelist($request)
     {
@@ -8739,46 +7942,36 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Enables or disables a virtual private cloud (VPC) firewall. The VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
-     *
-     * @remarks
-     * You can call the ModifyVpcFirewallSwitchStatus operation to enable or disable a VPC firewall. The VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit. After you enable the VPC firewall, the VPC firewall protects access traffic between two VPCs that are connected by using an Express Connect circuit. After you disable the VPC firewall, the VPC firewall no longer protects access traffic between two VPCs that are connected by using an Express Connect circuit.
+     * @summary Enables or disables a virtual private cloud (VPC) firewall. The VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
+     *  *
+     * @description You can call the ModifyVpcFirewallSwitchStatus operation to enable or disable a VPC firewall. The VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit. After you enable the VPC firewall, the VPC firewall protects access traffic between two VPCs that are connected by using an Express Connect circuit. After you disable the VPC firewall, the VPC firewall no longer protects access traffic between two VPCs that are connected by using an Express Connect circuit.
      * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyVpcFirewallSwitchStatusRequest $request ModifyVpcFirewallSwitchStatusRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ModifyVpcFirewallSwitchStatusRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ModifyVpcFirewallSwitchStatusResponse
-     *
-     * @param ModifyVpcFirewallSwitchStatusRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return ModifyVpcFirewallSwitchStatusResponse
+     * @return ModifyVpcFirewallSwitchStatusResponse ModifyVpcFirewallSwitchStatusResponse
      */
     public function modifyVpcFirewallSwitchStatusWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->firewallSwitch) {
-            @$query['FirewallSwitch'] = $request->firewallSwitch;
+        if (!Utils::isUnset($request->firewallSwitch)) {
+            $query['FirewallSwitch'] = $request->firewallSwitch;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->memberUid) {
-            @$query['MemberUid'] = $request->memberUid;
+        if (!Utils::isUnset($request->memberUid)) {
+            $query['MemberUid'] = $request->memberUid;
         }
-
-        if (null !== $request->vpcFirewallId) {
-            @$query['VpcFirewallId'] = $request->vpcFirewallId;
+        if (!Utils::isUnset($request->vpcFirewallId)) {
+            $query['VpcFirewallId'] = $request->vpcFirewallId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyVpcFirewallSwitchStatus',
@@ -8796,21 +7989,16 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Enables or disables a virtual private cloud (VPC) firewall. The VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
-     *
-     * @remarks
-     * You can call the ModifyVpcFirewallSwitchStatus operation to enable or disable a VPC firewall. The VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit. After you enable the VPC firewall, the VPC firewall protects access traffic between two VPCs that are connected by using an Express Connect circuit. After you disable the VPC firewall, the VPC firewall no longer protects access traffic between two VPCs that are connected by using an Express Connect circuit.
+     * @summary Enables or disables a virtual private cloud (VPC) firewall. The VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit.
+     *  *
+     * @description You can call the ModifyVpcFirewallSwitchStatus operation to enable or disable a VPC firewall. The VPC firewall protects traffic between two VPCs that are connected by using an Express Connect circuit. After you enable the VPC firewall, the VPC firewall protects access traffic between two VPCs that are connected by using an Express Connect circuit. After you disable the VPC firewall, the VPC firewall no longer protects access traffic between two VPCs that are connected by using an Express Connect circuit.
      * Before you call the operation, make sure that you created a VPC firewall by calling the [CreateVpcFirewallConfigure](https://help.aliyun.com/document_detail/342893.html) operation.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyVpcFirewallSwitchStatusRequest $request ModifyVpcFirewallSwitchStatusRequest
      *
-     * @param request - ModifyVpcFirewallSwitchStatusRequest
-     *
-     * @returns ModifyVpcFirewallSwitchStatusResponse
-     *
-     * @param ModifyVpcFirewallSwitchStatusRequest $request
-     *
-     * @return ModifyVpcFirewallSwitchStatusResponse
+     * @return ModifyVpcFirewallSwitchStatusResponse ModifyVpcFirewallSwitchStatusResponse
      */
     public function modifyVpcFirewallSwitchStatus($request)
     {
@@ -8820,41 +8008,32 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Turns off all firewall switches.
-     *
-     * @remarks
-     * You can call the PutDisableAllFwSwitch operation to turn off all firewall switches.
+     * @summary Turns off all firewall switches.
+     *  *
+     * @description You can call the PutDisableAllFwSwitch operation to turn off all firewall switches.
      * ## [](#qps-)QPS limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param PutDisableAllFwSwitchRequest $request PutDisableAllFwSwitchRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - PutDisableAllFwSwitchRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns PutDisableAllFwSwitchResponse
-     *
-     * @param PutDisableAllFwSwitchRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return PutDisableAllFwSwitchResponse
+     * @return PutDisableAllFwSwitchResponse PutDisableAllFwSwitchResponse
      */
     public function putDisableAllFwSwitchWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'PutDisableAllFwSwitch',
@@ -8872,20 +8051,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Turns off all firewall switches.
-     *
-     * @remarks
-     * You can call the PutDisableAllFwSwitch operation to turn off all firewall switches.
+     * @summary Turns off all firewall switches.
+     *  *
+     * @description You can call the PutDisableAllFwSwitch operation to turn off all firewall switches.
      * ## [](#qps-)QPS limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param PutDisableAllFwSwitchRequest $request PutDisableAllFwSwitchRequest
      *
-     * @param request - PutDisableAllFwSwitchRequest
-     *
-     * @returns PutDisableAllFwSwitchResponse
-     *
-     * @param PutDisableAllFwSwitchRequest $request
-     *
-     * @return PutDisableAllFwSwitchResponse
+     * @return PutDisableAllFwSwitchResponse PutDisableAllFwSwitchResponse
      */
     public function putDisableAllFwSwitch($request)
     {
@@ -8895,49 +8069,38 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Disable a firewall for specific assets.
-     *
-     * @remarks
-     * You can call the PutDisableFwSwitch operation to disable a firewall for specific assets. After you disable the firewall, traffic does not pass through Cloud Firewall.
+     * @summary Disable a firewall for specific assets.
+     *  *
+     * @description You can call the PutDisableFwSwitch operation to disable a firewall for specific assets. After you disable the firewall, traffic does not pass through Cloud Firewall.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param PutDisableFwSwitchRequest $request PutDisableFwSwitchRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - PutDisableFwSwitchRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns PutDisableFwSwitchResponse
-     *
-     * @param PutDisableFwSwitchRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return PutDisableFwSwitchResponse
+     * @return PutDisableFwSwitchResponse PutDisableFwSwitchResponse
      */
     public function putDisableFwSwitchWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ipaddrList) {
-            @$query['IpaddrList'] = $request->ipaddrList;
+        if (!Utils::isUnset($request->ipaddrList)) {
+            $query['IpaddrList'] = $request->ipaddrList;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->regionList) {
-            @$query['RegionList'] = $request->regionList;
+        if (!Utils::isUnset($request->regionList)) {
+            $query['RegionList'] = $request->regionList;
         }
-
-        if (null !== $request->resourceTypeList) {
-            @$query['ResourceTypeList'] = $request->resourceTypeList;
+        if (!Utils::isUnset($request->resourceTypeList)) {
+            $query['ResourceTypeList'] = $request->resourceTypeList;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'PutDisableFwSwitch',
@@ -8955,20 +8118,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Disable a firewall for specific assets.
-     *
-     * @remarks
-     * You can call the PutDisableFwSwitch operation to disable a firewall for specific assets. After you disable the firewall, traffic does not pass through Cloud Firewall.
+     * @summary Disable a firewall for specific assets.
+     *  *
+     * @description You can call the PutDisableFwSwitch operation to disable a firewall for specific assets. After you disable the firewall, traffic does not pass through Cloud Firewall.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param PutDisableFwSwitchRequest $request PutDisableFwSwitchRequest
      *
-     * @param request - PutDisableFwSwitchRequest
-     *
-     * @returns PutDisableFwSwitchResponse
-     *
-     * @param PutDisableFwSwitchRequest $request
-     *
-     * @return PutDisableFwSwitchResponse
+     * @return PutDisableFwSwitchResponse PutDisableFwSwitchResponse
      */
     public function putDisableFwSwitch($request)
     {
@@ -8978,41 +8136,32 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Enables a firewall for all public IP addresses within your Alibaba Cloud account.
-     *
-     * @remarks
-     * You can call the PutEnableAllFwSwitch operation to enable a firewall for all public IP addresses within your Alibaba Cloud account.
+     * @summary Enables a firewall for all public IP addresses within your Alibaba Cloud account.
+     *  *
+     * @description You can call the PutEnableAllFwSwitch operation to enable a firewall for all public IP addresses within your Alibaba Cloud account.
      * ## Limits
      * You can call this operation up to 10 times per second per account. You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param PutEnableAllFwSwitchRequest $request PutEnableAllFwSwitchRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - PutEnableAllFwSwitchRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns PutEnableAllFwSwitchResponse
-     *
-     * @param PutEnableAllFwSwitchRequest $request
-     * @param RuntimeOptions              $runtime
-     *
-     * @return PutEnableAllFwSwitchResponse
+     * @return PutEnableAllFwSwitchResponse PutEnableAllFwSwitchResponse
      */
     public function putEnableAllFwSwitchWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'PutEnableAllFwSwitch',
@@ -9030,20 +8179,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Enables a firewall for all public IP addresses within your Alibaba Cloud account.
-     *
-     * @remarks
-     * You can call the PutEnableAllFwSwitch operation to enable a firewall for all public IP addresses within your Alibaba Cloud account.
+     * @summary Enables a firewall for all public IP addresses within your Alibaba Cloud account.
+     *  *
+     * @description You can call the PutEnableAllFwSwitch operation to enable a firewall for all public IP addresses within your Alibaba Cloud account.
      * ## Limits
      * You can call this operation up to 10 times per second per account. You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param PutEnableAllFwSwitchRequest $request PutEnableAllFwSwitchRequest
      *
-     * @param request - PutEnableAllFwSwitchRequest
-     *
-     * @returns PutEnableAllFwSwitchResponse
-     *
-     * @param PutEnableAllFwSwitchRequest $request
-     *
-     * @return PutEnableAllFwSwitchResponse
+     * @return PutEnableAllFwSwitchResponse PutEnableAllFwSwitchResponse
      */
     public function putEnableAllFwSwitch($request)
     {
@@ -9053,49 +8197,38 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Enables firewalls for specific assets.
-     *
-     * @remarks
-     * You can call this operation to enable a firewall. After you enable a firewall, traffic passes through Cloud Firewall.
+     * @summary Enables firewalls for specific assets.
+     *  *
+     * @description You can call this operation to enable a firewall. After you enable a firewall, traffic passes through Cloud Firewall.
      * ## [](#qps-)Limits
      * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param PutEnableFwSwitchRequest $request PutEnableFwSwitchRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - PutEnableFwSwitchRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns PutEnableFwSwitchResponse
-     *
-     * @param PutEnableFwSwitchRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return PutEnableFwSwitchResponse
+     * @return PutEnableFwSwitchResponse PutEnableFwSwitchResponse
      */
     public function putEnableFwSwitchWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ipaddrList) {
-            @$query['IpaddrList'] = $request->ipaddrList;
+        if (!Utils::isUnset($request->ipaddrList)) {
+            $query['IpaddrList'] = $request->ipaddrList;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->regionList) {
-            @$query['RegionList'] = $request->regionList;
+        if (!Utils::isUnset($request->regionList)) {
+            $query['RegionList'] = $request->regionList;
         }
-
-        if (null !== $request->resourceTypeList) {
-            @$query['ResourceTypeList'] = $request->resourceTypeList;
+        if (!Utils::isUnset($request->resourceTypeList)) {
+            $query['ResourceTypeList'] = $request->resourceTypeList;
         }
-
-        if (null !== $request->sourceIp) {
-            @$query['SourceIp'] = $request->sourceIp;
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'PutEnableFwSwitch',
@@ -9113,20 +8246,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Enables firewalls for specific assets.
-     *
-     * @remarks
-     * You can call this operation to enable a firewall. After you enable a firewall, traffic passes through Cloud Firewall.
+     * @summary Enables firewalls for specific assets.
+     *  *
+     * @description You can call this operation to enable a firewall. After you enable a firewall, traffic passes through Cloud Firewall.
      * ## [](#qps-)Limits
      * You can call this operation up to five times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param PutEnableFwSwitchRequest $request PutEnableFwSwitchRequest
      *
-     * @param request - PutEnableFwSwitchRequest
-     *
-     * @returns PutEnableFwSwitchResponse
-     *
-     * @param PutEnableFwSwitchRequest $request
-     *
-     * @return PutEnableFwSwitchResponse
+     * @return PutEnableFwSwitchResponse PutEnableFwSwitchResponse
      */
     public function putEnableFwSwitch($request)
     {
@@ -9136,28 +8264,69 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Releases Cloud Firewall that uses the pay-as-you-go billing method.
+     * @summary 释放已过期的实例
+     *  *
+     * @param ReleaseExpiredInstanceRequest $request ReleaseExpiredInstanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ReleasePostInstanceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return ReleaseExpiredInstanceResponse ReleaseExpiredInstanceResponse
+     */
+    public function releaseExpiredInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ReleaseExpiredInstance',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ReleaseExpiredInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 释放已过期的实例
+     *  *
+     * @param ReleaseExpiredInstanceRequest $request ReleaseExpiredInstanceRequest
      *
-     * @returns ReleasePostInstanceResponse
+     * @return ReleaseExpiredInstanceResponse ReleaseExpiredInstanceResponse
+     */
+    public function releaseExpiredInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseExpiredInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Releases Cloud Firewall that uses the pay-as-you-go billing method.
+     *  *
+     * @param ReleasePostInstanceRequest $request ReleasePostInstanceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param ReleasePostInstanceRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ReleasePostInstanceResponse
+     * @return ReleasePostInstanceResponse ReleasePostInstanceResponse
      */
     public function releasePostInstanceWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->instanceId) {
-            @$query['InstanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ReleasePostInstance',
@@ -9175,15 +8344,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Releases Cloud Firewall that uses the pay-as-you-go billing method.
+     * @summary Releases Cloud Firewall that uses the pay-as-you-go billing method.
+     *  *
+     * @param ReleasePostInstanceRequest $request ReleasePostInstanceRequest
      *
-     * @param request - ReleasePostInstanceRequest
-     *
-     * @returns ReleasePostInstanceResponse
-     *
-     * @param ReleasePostInstanceRequest $request
-     *
-     * @return ReleasePostInstanceResponse
+     * @return ReleasePostInstanceResponse ReleasePostInstanceResponse
      */
     public function releasePostInstance($request)
     {
@@ -9193,36 +8358,28 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Resets the number of NAT firewall hits.
+     * @summary Resets the number of NAT firewall hits.
+     *  *
+     * @param ResetNatFirewallRuleHitCountRequest $request ResetNatFirewallRuleHitCountRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ResetNatFirewallRuleHitCountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ResetNatFirewallRuleHitCountResponse
-     *
-     * @param ResetNatFirewallRuleHitCountRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ResetNatFirewallRuleHitCountResponse
+     * @return ResetNatFirewallRuleHitCountResponse ResetNatFirewallRuleHitCountResponse
      */
     public function resetNatFirewallRuleHitCountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclUuid) {
-            @$query['AclUuid'] = $request->aclUuid;
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->natGatewayId) {
-            @$query['NatGatewayId'] = $request->natGatewayId;
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ResetNatFirewallRuleHitCount',
@@ -9240,15 +8397,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Resets the number of NAT firewall hits.
+     * @summary Resets the number of NAT firewall hits.
+     *  *
+     * @param ResetNatFirewallRuleHitCountRequest $request ResetNatFirewallRuleHitCountRequest
      *
-     * @param request - ResetNatFirewallRuleHitCountRequest
-     *
-     * @returns ResetNatFirewallRuleHitCountResponse
-     *
-     * @param ResetNatFirewallRuleHitCountRequest $request
-     *
-     * @return ResetNatFirewallRuleHitCountResponse
+     * @return ResetNatFirewallRuleHitCountResponse ResetNatFirewallRuleHitCountResponse
      */
     public function resetNatFirewallRuleHitCount($request)
     {
@@ -9258,37 +8411,29 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Clears the count on hits of an access control policy that is created for a virtual private cloud (VPC) firewall in a specific policy group.
-     *
-     * @remarks
-     * You can call the ResetVpcFirewallRuleHitCount operation to clear the count on hits of an access control policy that is created for a VPC firewall in a specific policy group.
+     * @summary Clears the count on hits of an access control policy that is created for a virtual private cloud (VPC) firewall in a specific policy group.
+     *  *
+     * @description You can call the ResetVpcFirewallRuleHitCount operation to clear the count on hits of an access control policy that is created for a VPC firewall in a specific policy group.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ResetVpcFirewallRuleHitCountRequest $request ResetVpcFirewallRuleHitCountRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ResetVpcFirewallRuleHitCountRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ResetVpcFirewallRuleHitCountResponse
-     *
-     * @param ResetVpcFirewallRuleHitCountRequest $request
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ResetVpcFirewallRuleHitCountResponse
+     * @return ResetVpcFirewallRuleHitCountResponse ResetVpcFirewallRuleHitCountResponse
      */
     public function resetVpcFirewallRuleHitCountWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->aclUuid) {
-            @$query['AclUuid'] = $request->aclUuid;
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
         }
-
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ResetVpcFirewallRuleHitCount',
@@ -9306,20 +8451,15 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Clears the count on hits of an access control policy that is created for a virtual private cloud (VPC) firewall in a specific policy group.
-     *
-     * @remarks
-     * You can call the ResetVpcFirewallRuleHitCount operation to clear the count on hits of an access control policy that is created for a VPC firewall in a specific policy group.
+     * @summary Clears the count on hits of an access control policy that is created for a virtual private cloud (VPC) firewall in a specific policy group.
+     *  *
+     * @description You can call the ResetVpcFirewallRuleHitCount operation to clear the count on hits of an access control policy that is created for a VPC firewall in a specific policy group.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ResetVpcFirewallRuleHitCountRequest $request ResetVpcFirewallRuleHitCountRequest
      *
-     * @param request - ResetVpcFirewallRuleHitCountRequest
-     *
-     * @returns ResetVpcFirewallRuleHitCountResponse
-     *
-     * @param ResetVpcFirewallRuleHitCountRequest $request
-     *
-     * @return ResetVpcFirewallRuleHitCountResponse
+     * @return ResetVpcFirewallRuleHitCountResponse ResetVpcFirewallRuleHitCountResponse
      */
     public function resetVpcFirewallRuleHitCount($request)
     {
@@ -9329,36 +8469,28 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Enables or disables a NAT firewall.
+     * @summary Enables or disables a NAT firewall.
+     *  *
+     * @param SwitchSecurityProxyRequest $request SwitchSecurityProxyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - SwitchSecurityProxyRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns SwitchSecurityProxyResponse
-     *
-     * @param SwitchSecurityProxyRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return SwitchSecurityProxyResponse
+     * @return SwitchSecurityProxyResponse SwitchSecurityProxyResponse
      */
     public function switchSecurityProxyWithOptions($request, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['Lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
-
-        if (null !== $request->proxyId) {
-            @$query['ProxyId'] = $request->proxyId;
+        if (!Utils::isUnset($request->proxyId)) {
+            $query['ProxyId'] = $request->proxyId;
         }
-
-        if (null !== $request->switch) {
-            @$query['Switch'] = $request->switch;
+        if (!Utils::isUnset($request->switch_)) {
+            $query['Switch'] = $request->switch_;
         }
-
         $req = new OpenApiRequest([
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'SwitchSecurityProxy',
@@ -9376,20 +8508,63 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * Enables or disables a NAT firewall.
+     * @summary Enables or disables a NAT firewall.
+     *  *
+     * @param SwitchSecurityProxyRequest $request SwitchSecurityProxyRequest
      *
-     * @param request - SwitchSecurityProxyRequest
-     *
-     * @returns SwitchSecurityProxyResponse
-     *
-     * @param SwitchSecurityProxyRequest $request
-     *
-     * @return SwitchSecurityProxyResponse
+     * @return SwitchSecurityProxyResponse SwitchSecurityProxyResponse
      */
     public function switchSecurityProxy($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->switchSecurityProxyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改AI流量分析开启状态
+     *  *
+     * @param UpdateAITrafficAnalysisStatusRequest $request UpdateAITrafficAnalysisStatusRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateAITrafficAnalysisStatusResponse UpdateAITrafficAnalysisStatusResponse
+     */
+    public function updateAITrafficAnalysisStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateAITrafficAnalysisStatus',
+            'version' => '2017-12-07',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateAITrafficAnalysisStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改AI流量分析开启状态
+     *  *
+     * @param UpdateAITrafficAnalysisStatusRequest $request UpdateAITrafficAnalysisStatusRequest
+     *
+     * @return UpdateAITrafficAnalysisStatusResponse UpdateAITrafficAnalysisStatusResponse
+     */
+    public function updateAITrafficAnalysisStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAITrafficAnalysisStatusWithOptions($request, $runtime);
     }
 }

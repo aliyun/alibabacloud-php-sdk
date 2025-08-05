@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteTrFirewallV2ResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example A774E66E-B170-59FC-9AAF-3068B15E991F
+     *
      * @var string
      */
     public $requestId;
@@ -16,12 +20,9 @@ class DeleteTrFirewallV2ResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -31,11 +32,11 @@ class DeleteTrFirewallV2ResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteTrFirewallV2ResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

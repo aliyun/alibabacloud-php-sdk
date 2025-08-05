@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class ReleasePostInstanceRequest extends Model
 {
     /**
+     * @description The ID of the Cloud Firewall instance.
+     *
+     * @example cfw_elasticity_public_cn-xxx
+     *
      * @var string
      */
     public $instanceId;
@@ -16,12 +20,9 @@ class ReleasePostInstanceRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -31,11 +32,11 @@ class ReleasePostInstanceRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return ReleasePostInstanceRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,22 +4,32 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallControlPolicyResponseBody\policys;
+use AlibabaCloud\Tea\Model;
 
 class DescribeVpcFirewallControlPolicyResponseBody extends Model
 {
     /**
+     * @description The details of the access control policies.
+     *
      * @var policys[]
      */
     public $policys;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of access control policies returned.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $totalCount;
@@ -29,31 +39,23 @@ class DescribeVpcFirewallControlPolicyResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->policys)) {
-            Model::validateArray($this->policys);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->policys) {
-            if (\is_array($this->policys)) {
-                $res['Policys'] = [];
-                $n1 = 0;
-                foreach ($this->policys as $item1) {
-                    $res['Policys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['Policys'] = [];
+            if (null !== $this->policys && \is_array($this->policys)) {
+                $n = 0;
+                foreach ($this->policys as $item) {
+                    $res['Policys'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -61,28 +63,26 @@ class DescribeVpcFirewallControlPolicyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DescribeVpcFirewallControlPolicyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Policys'])) {
             if (!empty($map['Policys'])) {
                 $model->policys = [];
-                $n1 = 0;
-                foreach ($map['Policys'] as $item1) {
-                    $model->policys[$n1++] = policys::fromMap($item1);
+                $n = 0;
+                foreach ($map['Policys'] as $item) {
+                    $model->policys[$n++] = null !== $item ? policys::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
