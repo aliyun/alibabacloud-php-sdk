@@ -4,17 +4,25 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\CreateComputeQuotaPlanRequest\quota;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\CreateComputeQuotaPlanRequest\quota\subQuotaInfoList\parameter;
+use AlibabaCloud\Tea\Model;
 
 class subQuotaInfoList extends Model
 {
     /**
+     * @description The nickname of the level-2 quota.
+     *
+     * This parameter is required.
+     *
+     * @example os_ComputeQuota
+     *
      * @var string
      */
     public $nickName;
 
     /**
+     * @description The parameters of the level-2 quota.
+     *
      * @var parameter
      */
     public $parameter;
@@ -23,40 +31,32 @@ class subQuotaInfoList extends Model
         'parameter' => 'parameter',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->parameter) {
-            $this->parameter->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->nickName) {
             $res['nickName'] = $this->nickName;
         }
-
         if (null !== $this->parameter) {
-            $res['parameter'] = null !== $this->parameter ? $this->parameter->toArray($noStream) : $this->parameter;
+            $res['parameter'] = null !== $this->parameter ? $this->parameter->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return subQuotaInfoList
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['nickName'])) {
             $model->nickName = $map['nickName'];
         }
-
         if (isset($map['parameter'])) {
             $model->parameter = parameter::fromMap($map['parameter']);
         }

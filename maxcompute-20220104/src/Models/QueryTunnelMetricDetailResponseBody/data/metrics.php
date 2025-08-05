@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\QueryTunnelMetricDetailResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class metrics extends Model
 {
@@ -14,6 +14,8 @@ class metrics extends Model
     public $metric;
 
     /**
+     * @example "avgValue":"11.5"
+     *
      * @var mixed[]
      */
     public $value;
@@ -22,65 +24,34 @@ class metrics extends Model
         'value' => 'value',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->metric)) {
-            Model::validateArray($this->metric);
-        }
-        if (\is_array($this->value)) {
-            Model::validateArray($this->value);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->metric) {
-            if (\is_array($this->metric)) {
-                $res['metric'] = [];
-                foreach ($this->metric as $key1 => $value1) {
-                    $res['metric'][$key1] = $value1;
-                }
-            }
+            $res['metric'] = $this->metric;
         }
-
         if (null !== $this->value) {
-            if (\is_array($this->value)) {
-                $res['value'] = [];
-                foreach ($this->value as $key1 => $value1) {
-                    $res['value'][$key1] = $value1;
-                }
-            }
+            $res['value'] = $this->value;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return metrics
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['metric'])) {
-            if (!empty($map['metric'])) {
-                $model->metric = [];
-                foreach ($map['metric'] as $key1 => $value1) {
-                    $model->metric[$key1] = $value1;
-                }
-            }
+            $model->metric = $map['metric'];
         }
-
         if (isset($map['value'])) {
-            if (!empty($map['value'])) {
-                $model->value = [];
-                foreach ($map['value'] as $key1 => $value1) {
-                    $model->value[$key1] = $value1;
-                }
-            }
+            $model->value = $map['value'];
         }
 
         return $model;

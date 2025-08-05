@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104;
 
-use AlibabaCloud\Dara\Models\RuntimeOptions;
-use AlibabaCloud\Dara\Url;
+use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ApplyComputeQuotaPlanResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\CreateComputeQuotaPlanRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\CreateComputeQuotaPlanResponse;
@@ -64,6 +64,13 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetRolePolicyResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetRunningJobsRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetRunningJobsResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetRunningJobsShrinkRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetStorageAmountSummaryRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetStorageAmountSummaryResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetStorageSizeSummaryRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetStorageSizeSummaryResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetStorageSummaryComparedRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetStorageSummaryComparedResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetStorageSummaryComparedShrinkRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetTableInfoRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetTableInfoResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetTrustedProjectsResponse;
@@ -110,6 +117,8 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListRolesResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListStoragePartitionsInfoRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListStoragePartitionsInfoResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListStoragePartitionsInfoShrinkRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListStorageProjectsInfoRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListStorageProjectsInfoResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListStorageTablesInfoRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListStorageTablesInfoResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListStorageTablesInfoShrinkRequest;
@@ -121,6 +130,8 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListUsersRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListUsersResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\QueryQuotaRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\QueryQuotaResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\QueryStorageMetricRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\QueryStorageMetricResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\QueryTunnelMetricDetailRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\QueryTunnelMetricDetailResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\QueryTunnelMetricRequest;
@@ -128,6 +139,8 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\QueryTunnelMetricResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\RetryMmsJobResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\StartMmsJobResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\StopMmsJobResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumStorageMetricsByDateRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\SumStorageMetricsByDateResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateComputeQuotaPlanRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateComputeQuotaPlanResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateComputeQuotaScheduleRequest;
@@ -150,10 +163,13 @@ use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateQuotaScheduleRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateQuotaScheduleResponse;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateTunnelQuotaTimerRequest;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateTunnelQuotaTimerResponse;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateUsersToRoleRequest;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateUsersToRoleResponse;
+use AlibabaCloud\Tea\Utils\Utils;
+use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
-use Darabonba\OpenApi\Utils;
 
 class MaxCompute extends OpenApiClient
 {
@@ -234,35 +250,28 @@ class MaxCompute extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (null !== $endpoint) {
+        if (!Utils::empty_($endpoint)) {
             return $endpoint;
         }
-
-        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
             return @$endpointMap[$regionId];
         }
 
-        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * Activate a Quota Plan Immediately.
-     *
-     * @remarks
-     * Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+     * @summary Activate a Quota Plan Immediately.
+     *  *
+     * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
      * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ApplyComputeQuotaPlanResponse
-     *
+     *  *
      * @param string         $nickname
      * @param string         $planName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return ApplyComputeQuotaPlanResponse
+     * @return ApplyComputeQuotaPlanResponse ApplyComputeQuotaPlanResponse
      */
     public function applyComputeQuotaPlanWithOptions($nickname, $planName, $headers, $runtime)
     {
@@ -273,7 +282,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'ApplyComputeQuotaPlan',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . Url::percentEncode($nickname) . '/computeQuotaPlan/' . Url::percentEncode($planName) . '/apply',
+            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '/computeQuotaPlan/' . OpenApiUtilClient::getEncodeParam($planName) . '/apply',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -285,18 +294,15 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Activate a Quota Plan Immediately.
-     *
-     * @remarks
-     * Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+     * @summary Activate a Quota Plan Immediately.
+     *  *
+     * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
      * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
-     *
-     * @returns ApplyComputeQuotaPlanResponse
-     *
+     *  *
      * @param string $nickname
      * @param string $planName
      *
-     * @return ApplyComputeQuotaPlanResponse
+     * @return ApplyComputeQuotaPlanResponse ApplyComputeQuotaPlanResponse
      */
     public function applyComputeQuotaPlan($nickname, $planName)
     {
@@ -307,46 +313,37 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Create MaxCompute ComputeQuotaPlan.
-     *
-     * @remarks
-     * Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+     * @summary Create MaxCompute ComputeQuotaPlan.
+     *  *
+     * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
      * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
-     *
-     * @param request - CreateComputeQuotaPlanRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateComputeQuotaPlanResponse
-     *
+     *  *
      * @param string                        $nickname
-     * @param CreateComputeQuotaPlanRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param CreateComputeQuotaPlanRequest $request  CreateComputeQuotaPlanRequest
+     * @param string[]                      $headers  map
+     * @param RuntimeOptions                $runtime  runtime options for this request RuntimeOptions
      *
-     * @return CreateComputeQuotaPlanResponse
+     * @return CreateComputeQuotaPlanResponse CreateComputeQuotaPlanResponse
      */
     public function createComputeQuotaPlanWithOptions($nickname, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->name) {
-            @$body['name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
         }
-
-        if (null !== $request->quota) {
-            @$body['quota'] = $request->quota;
+        if (!Utils::isUnset($request->quota)) {
+            $body['quota'] = $request->quota;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateComputeQuotaPlan',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . Url::percentEncode($nickname) . '/computeQuotaPlan',
+            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '/computeQuotaPlan',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -358,20 +355,15 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Create MaxCompute ComputeQuotaPlan.
-     *
-     * @remarks
-     * Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+     * @summary Create MaxCompute ComputeQuotaPlan.
+     *  *
+     * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
      * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
-     *
-     * @param request - CreateComputeQuotaPlanRequest
-     *
-     * @returns CreateComputeQuotaPlanResponse
-     *
+     *  *
      * @param string                        $nickname
-     * @param CreateComputeQuotaPlanRequest $request
+     * @param CreateComputeQuotaPlanRequest $request  CreateComputeQuotaPlanRequest
      *
-     * @return CreateComputeQuotaPlanResponse
+     * @return CreateComputeQuotaPlanResponse CreateComputeQuotaPlanResponse
      */
     public function createComputeQuotaPlan($nickname, $request)
     {
@@ -382,43 +374,33 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * CreateMmsDataSource.
+     * @summary CreateMmsDataSource
+     *  *
+     * @param CreateMmsDataSourceRequest $request CreateMmsDataSourceRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateMmsDataSourceRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateMmsDataSourceResponse
-     *
-     * @param CreateMmsDataSourceRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
-     *
-     * @return CreateMmsDataSourceResponse
+     * @return CreateMmsDataSourceResponse CreateMmsDataSourceResponse
      */
     public function createMmsDataSourceWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->config) {
-            @$body['config'] = $request->config;
+        if (!Utils::isUnset($request->config)) {
+            $body['config'] = $request->config;
         }
-
-        if (null !== $request->name) {
-            @$body['name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
         }
-
-        if (null !== $request->networklink) {
-            @$body['networklink'] = $request->networklink;
+        if (!Utils::isUnset($request->networklink)) {
+            $body['networklink'] = $request->networklink;
         }
-
-        if (null !== $request->type) {
-            @$body['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateMmsDataSource',
@@ -436,15 +418,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * CreateMmsDataSource.
+     * @summary CreateMmsDataSource
+     *  *
+     * @param CreateMmsDataSourceRequest $request CreateMmsDataSourceRequest
      *
-     * @param request - CreateMmsDataSourceRequest
-     *
-     * @returns CreateMmsDataSourceResponse
-     *
-     * @param CreateMmsDataSourceRequest $request
-     *
-     * @return CreateMmsDataSourceResponse
+     * @return CreateMmsDataSourceResponse CreateMmsDataSourceResponse
      */
     public function createMmsDataSource($request)
     {
@@ -455,18 +433,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 创建数据源的更新元数据操作.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateMmsFetchMetadataJobResponse
-     *
+     * @summary 创建数据源的更新元数据操作
+     *  *
      * @param string         $sourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return CreateMmsFetchMetadataJobResponse
+     * @return CreateMmsFetchMetadataJobResponse CreateMmsFetchMetadataJobResponse
      */
     public function createMmsFetchMetadataJobWithOptions($sourceId, $headers, $runtime)
     {
@@ -477,7 +450,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'CreateMmsFetchMetadataJob',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/scans',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '/scans',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -489,13 +462,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 创建数据源的更新元数据操作.
-     *
-     * @returns CreateMmsFetchMetadataJobResponse
-     *
+     * @summary 创建数据源的更新元数据操作
+     *  *
      * @param string $sourceId
      *
-     * @return CreateMmsFetchMetadataJobResponse
+     * @return CreateMmsFetchMetadataJobResponse CreateMmsFetchMetadataJobResponse
      */
     public function createMmsFetchMetadataJob($sourceId)
     {
@@ -506,114 +477,88 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 创建迁移任务
-     *
-     * @param request - CreateMmsJobRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateMmsJobResponse
-     *
+     * @summary 创建迁移任务
+     *  *
      * @param string              $sourceId
-     * @param CreateMmsJobRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param CreateMmsJobRequest $request  CreateMmsJobRequest
+     * @param string[]            $headers  map
+     * @param RuntimeOptions      $runtime  runtime options for this request RuntimeOptions
      *
-     * @return CreateMmsJobResponse
+     * @return CreateMmsJobResponse CreateMmsJobResponse
      */
     public function createMmsJobWithOptions($sourceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->columnMapping) {
-            @$body['columnMapping'] = $request->columnMapping;
+        if (!Utils::isUnset($request->columnMapping)) {
+            $body['columnMapping'] = $request->columnMapping;
         }
-
-        if (null !== $request->dstDbName) {
-            @$body['dstDbName'] = $request->dstDbName;
+        if (!Utils::isUnset($request->dstDbName)) {
+            $body['dstDbName'] = $request->dstDbName;
         }
-
-        if (null !== $request->dstSchemaName) {
-            @$body['dstSchemaName'] = $request->dstSchemaName;
+        if (!Utils::isUnset($request->dstSchemaName)) {
+            $body['dstSchemaName'] = $request->dstSchemaName;
         }
-
-        if (null !== $request->enableVerification) {
-            @$body['enableVerification'] = $request->enableVerification;
+        if (!Utils::isUnset($request->enableVerification)) {
+            $body['enableVerification'] = $request->enableVerification;
         }
-
-        if (null !== $request->eta) {
-            @$body['eta'] = $request->eta;
+        if (!Utils::isUnset($request->eta)) {
+            $body['eta'] = $request->eta;
         }
-
-        if (null !== $request->increment) {
-            @$body['increment'] = $request->increment;
+        if (!Utils::isUnset($request->increment)) {
+            $body['increment'] = $request->increment;
         }
-
-        if (null !== $request->name) {
-            @$body['name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
         }
-
-        if (null !== $request->others) {
-            @$body['others'] = $request->others;
+        if (!Utils::isUnset($request->others)) {
+            $body['others'] = $request->others;
         }
-
-        if (null !== $request->partitionFilters) {
-            @$body['partitionFilters'] = $request->partitionFilters;
+        if (!Utils::isUnset($request->partitionFilters)) {
+            $body['partitionFilters'] = $request->partitionFilters;
         }
-
-        if (null !== $request->partitions) {
-            @$body['partitions'] = $request->partitions;
+        if (!Utils::isUnset($request->partitions)) {
+            $body['partitions'] = $request->partitions;
         }
-
-        if (null !== $request->schemaOnly) {
-            @$body['schemaOnly'] = $request->schemaOnly;
+        if (!Utils::isUnset($request->schemaOnly)) {
+            $body['schemaOnly'] = $request->schemaOnly;
         }
-
-        if (null !== $request->sourceId) {
-            @$body['sourceId'] = $request->sourceId;
+        if (!Utils::isUnset($request->sourceId)) {
+            $body['sourceId'] = $request->sourceId;
         }
-
-        if (null !== $request->sourceName) {
-            @$body['sourceName'] = $request->sourceName;
+        if (!Utils::isUnset($request->sourceName)) {
+            $body['sourceName'] = $request->sourceName;
         }
-
-        if (null !== $request->srcDbName) {
-            @$body['srcDbName'] = $request->srcDbName;
+        if (!Utils::isUnset($request->srcDbName)) {
+            $body['srcDbName'] = $request->srcDbName;
         }
-
-        if (null !== $request->srcSchemaName) {
-            @$body['srcSchemaName'] = $request->srcSchemaName;
+        if (!Utils::isUnset($request->srcSchemaName)) {
+            $body['srcSchemaName'] = $request->srcSchemaName;
         }
-
-        if (null !== $request->tableBlackList) {
-            @$body['tableBlackList'] = $request->tableBlackList;
+        if (!Utils::isUnset($request->tableBlackList)) {
+            $body['tableBlackList'] = $request->tableBlackList;
         }
-
-        if (null !== $request->tableMapping) {
-            @$body['tableMapping'] = $request->tableMapping;
+        if (!Utils::isUnset($request->tableMapping)) {
+            $body['tableMapping'] = $request->tableMapping;
         }
-
-        if (null !== $request->tableWhiteList) {
-            @$body['tableWhiteList'] = $request->tableWhiteList;
+        if (!Utils::isUnset($request->tableWhiteList)) {
+            $body['tableWhiteList'] = $request->tableWhiteList;
         }
-
-        if (null !== $request->tables) {
-            @$body['tables'] = $request->tables;
+        if (!Utils::isUnset($request->tables)) {
+            $body['tables'] = $request->tables;
         }
-
-        if (null !== $request->taskType) {
-            @$body['taskType'] = $request->taskType;
+        if (!Utils::isUnset($request->taskType)) {
+            $body['taskType'] = $request->taskType;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateMmsJob',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/jobs',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '/jobs',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -625,16 +570,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 创建迁移任务
-     *
-     * @param request - CreateMmsJobRequest
-     *
-     * @returns CreateMmsJobResponse
-     *
+     * @summary 创建迁移任务
+     *  *
      * @param string              $sourceId
-     * @param CreateMmsJobRequest $request
+     * @param CreateMmsJobRequest $request  CreateMmsJobRequest
      *
-     * @return CreateMmsJobResponse
+     * @return CreateMmsJobResponse CreateMmsJobResponse
      */
     public function createMmsJob($sourceId, $request)
     {
@@ -645,39 +586,32 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Creates a package.
-     *
-     * @param request - CreatePackageRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreatePackageResponse
-     *
+     * @summary Creates a package.
+     *  *
      * @param string               $projectName
-     * @param CreatePackageRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param CreatePackageRequest $request     CreatePackageRequest
+     * @param string[]             $headers     map
+     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreatePackageResponse
+     * @return CreatePackageResponse CreatePackageResponse
      */
     public function createPackageWithOptions($projectName, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->isInstall) {
-            @$query['isInstall'] = $request->isInstall;
+        if (!Utils::isUnset($request->isInstall)) {
+            $query['isInstall'] = $request->isInstall;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
             'body' => $request->body,
         ]);
         $params = new Params([
             'action' => 'CreatePackage',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/packages',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/packages',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -689,16 +623,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Creates a package.
-     *
-     * @param request - CreatePackageRequest
-     *
-     * @returns CreatePackageResponse
-     *
+     * @summary Creates a package.
+     *  *
      * @param string               $projectName
-     * @param CreatePackageRequest $request
+     * @param CreatePackageRequest $request     CreatePackageRequest
      *
-     * @return CreatePackageResponse
+     * @return CreatePackageResponse CreatePackageResponse
      */
     public function createPackage($projectName, $request)
     {
@@ -709,23 +639,17 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Creates a MaxCompute project.
+     * @summary Creates a MaxCompute project.
+     *  *
+     * @param CreateProjectRequest $request CreateProjectRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - CreateProjectRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateProjectResponse
-     *
-     * @param CreateProjectRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return CreateProjectResponse
+     * @return CreateProjectResponse CreateProjectResponse
      */
     public function createProjectWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => $request->body,
@@ -746,15 +670,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Creates a MaxCompute project.
+     * @summary Creates a MaxCompute project.
+     *  *
+     * @param CreateProjectRequest $request CreateProjectRequest
      *
-     * @param request - CreateProjectRequest
-     *
-     * @returns CreateProjectResponse
-     *
-     * @param CreateProjectRequest $request
-     *
-     * @return CreateProjectResponse
+     * @return CreateProjectResponse CreateProjectResponse
      */
     public function createProject($request)
     {
@@ -765,43 +685,35 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Creates a quota plan.
-     *
-     * @param request - CreateQuotaPlanRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateQuotaPlanResponse
-     *
+     * @summary Creates a quota plan.
+     *  *
      * @param string                 $nickname
-     * @param CreateQuotaPlanRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param CreateQuotaPlanRequest $request  CreateQuotaPlanRequest
+     * @param string[]               $headers  map
+     * @param RuntimeOptions         $runtime  runtime options for this request RuntimeOptions
      *
-     * @return CreateQuotaPlanResponse
+     * @return CreateQuotaPlanResponse CreateQuotaPlanResponse
      */
     public function createQuotaPlanWithOptions($nickname, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->region) {
-            @$query['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
         }
-
-        if (null !== $request->tenantId) {
-            @$query['tenantId'] = $request->tenantId;
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
             'body' => $request->body,
         ]);
         $params = new Params([
             'action' => 'CreateQuotaPlan',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . Url::percentEncode($nickname) . '/plans',
+            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '/plans',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -813,16 +725,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Creates a quota plan.
-     *
-     * @param request - CreateQuotaPlanRequest
-     *
-     * @returns CreateQuotaPlanResponse
-     *
+     * @summary Creates a quota plan.
+     *  *
      * @param string                 $nickname
-     * @param CreateQuotaPlanRequest $request
+     * @param CreateQuotaPlanRequest $request  CreateQuotaPlanRequest
      *
-     * @return CreateQuotaPlanResponse
+     * @return CreateQuotaPlanResponse CreateQuotaPlanResponse
      */
     public function createQuotaPlan($nickname, $request)
     {
@@ -833,24 +741,18 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Creates a role at the MaxCompute project level.
-     *
-     * @param request - CreateRoleRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns CreateRoleResponse
-     *
+     * @summary Creates a role at the MaxCompute project level.
+     *  *
      * @param string            $projectName
-     * @param CreateRoleRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param CreateRoleRequest $request     CreateRoleRequest
+     * @param string[]          $headers     map
+     * @param RuntimeOptions    $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreateRoleResponse
+     * @return CreateRoleResponse CreateRoleResponse
      */
     public function createRoleWithOptions($projectName, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => $request->body,
@@ -859,7 +761,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'CreateRole',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/roles',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/roles',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -871,16 +773,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Creates a role at the MaxCompute project level.
-     *
-     * @param request - CreateRoleRequest
-     *
-     * @returns CreateRoleResponse
-     *
+     * @summary Creates a role at the MaxCompute project level.
+     *  *
      * @param string            $projectName
-     * @param CreateRoleRequest $request
+     * @param CreateRoleRequest $request     CreateRoleRequest
      *
-     * @return CreateRoleResponse
+     * @return CreateRoleResponse CreateRoleResponse
      */
     public function createRole($projectName, $request)
     {
@@ -891,19 +789,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Delete MaxCompute compute quota plan.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteComputeQuotaPlanResponse
-     *
+     * @summary Delete MaxCompute compute quota plan.
+     *  *
      * @param string         $nickname
      * @param string         $planName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return DeleteComputeQuotaPlanResponse
+     * @return DeleteComputeQuotaPlanResponse DeleteComputeQuotaPlanResponse
      */
     public function deleteComputeQuotaPlanWithOptions($nickname, $planName, $headers, $runtime)
     {
@@ -914,7 +807,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'DeleteComputeQuotaPlan',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . Url::percentEncode($nickname) . '/computeQuotaPlan/' . Url::percentEncode($planName) . '',
+            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '/computeQuotaPlan/' . OpenApiUtilClient::getEncodeParam($planName) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -926,14 +819,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Delete MaxCompute compute quota plan.
-     *
-     * @returns DeleteComputeQuotaPlanResponse
-     *
+     * @summary Delete MaxCompute compute quota plan.
+     *  *
      * @param string $nickname
      * @param string $planName
      *
-     * @return DeleteComputeQuotaPlanResponse
+     * @return DeleteComputeQuotaPlanResponse DeleteComputeQuotaPlanResponse
      */
     public function deleteComputeQuotaPlan($nickname, $planName)
     {
@@ -944,18 +835,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 删除数据源.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteMmsDataSourceResponse
-     *
+     * @summary 删除数据源
+     *  *
      * @param string         $sourceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return DeleteMmsDataSourceResponse
+     * @return DeleteMmsDataSourceResponse DeleteMmsDataSourceResponse
      */
     public function deleteMmsDataSourceWithOptions($sourceId, $headers, $runtime)
     {
@@ -966,7 +852,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'DeleteMmsDataSource',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -978,13 +864,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 删除数据源.
-     *
-     * @returns DeleteMmsDataSourceResponse
-     *
+     * @summary 删除数据源
+     *  *
      * @param string $sourceId
      *
-     * @return DeleteMmsDataSourceResponse
+     * @return DeleteMmsDataSourceResponse DeleteMmsDataSourceResponse
      */
     public function deleteMmsDataSource($sourceId)
     {
@@ -995,19 +879,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 删除迁移计划.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteMmsJobResponse
-     *
+     * @summary 删除迁移计划
+     *  *
      * @param string         $sourceId
      * @param string         $jobId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return DeleteMmsJobResponse
+     * @return DeleteMmsJobResponse DeleteMmsJobResponse
      */
     public function deleteMmsJobWithOptions($sourceId, $jobId, $headers, $runtime)
     {
@@ -1018,7 +897,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'DeleteMmsJob',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/jobs/' . Url::percentEncode($jobId) . '',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '/jobs/' . OpenApiUtilClient::getEncodeParam($jobId) . '',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1030,14 +909,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 删除迁移计划.
-     *
-     * @returns DeleteMmsJobResponse
-     *
+     * @summary 删除迁移计划
+     *  *
      * @param string $sourceId
      * @param string $jobId
      *
-     * @return DeleteMmsJobResponse
+     * @return DeleteMmsJobResponse DeleteMmsJobResponse
      */
     public function deleteMmsJob($sourceId, $jobId)
     {
@@ -1048,43 +925,35 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Deletes a quota plan.
-     *
-     * @param request - DeleteQuotaPlanRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns DeleteQuotaPlanResponse
-     *
+     * @summary Deletes a quota plan.
+     *  *
      * @param string                 $nickname
      * @param string                 $planName
-     * @param DeleteQuotaPlanRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param DeleteQuotaPlanRequest $request  DeleteQuotaPlanRequest
+     * @param string[]               $headers  map
+     * @param RuntimeOptions         $runtime  runtime options for this request RuntimeOptions
      *
-     * @return DeleteQuotaPlanResponse
+     * @return DeleteQuotaPlanResponse DeleteQuotaPlanResponse
      */
     public function deleteQuotaPlanWithOptions($nickname, $planName, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->region) {
-            @$query['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
         }
-
-        if (null !== $request->tenantId) {
-            @$query['tenantId'] = $request->tenantId;
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteQuotaPlan',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . Url::percentEncode($nickname) . '/plans/' . Url::percentEncode($planName) . '',
+            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '/plans/' . OpenApiUtilClient::getEncodeParam($planName) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1096,17 +965,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Deletes a quota plan.
-     *
-     * @param request - DeleteQuotaPlanRequest
-     *
-     * @returns DeleteQuotaPlanResponse
-     *
+     * @summary Deletes a quota plan.
+     *  *
      * @param string                 $nickname
      * @param string                 $planName
-     * @param DeleteQuotaPlanRequest $request
+     * @param DeleteQuotaPlanRequest $request  DeleteQuotaPlanRequest
      *
-     * @return DeleteQuotaPlanResponse
+     * @return DeleteQuotaPlanResponse DeleteQuotaPlanResponse
      */
     public function deleteQuotaPlan($nickname, $planName, $request)
     {
@@ -1117,18 +982,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * GetComputeEffectivePlan.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetComputeEffectivePlanResponse
-     *
+     * @summary GetComputeEffectivePlan.
+     *  *
      * @param string         $nickname
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetComputeEffectivePlanResponse
+     * @return GetComputeEffectivePlanResponse GetComputeEffectivePlanResponse
      */
     public function getComputeEffectivePlanWithOptions($nickname, $headers, $runtime)
     {
@@ -1139,7 +999,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'GetComputeEffectivePlan',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . Url::percentEncode($nickname) . '/computeEffectivePlan/',
+            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '/computeEffectivePlan/',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1151,13 +1011,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * GetComputeEffectivePlan.
-     *
-     * @returns GetComputeEffectivePlanResponse
-     *
+     * @summary GetComputeEffectivePlan.
+     *  *
      * @param string $nickname
      *
-     * @return GetComputeEffectivePlanResponse
+     * @return GetComputeEffectivePlanResponse GetComputeEffectivePlanResponse
      */
     public function getComputeEffectivePlan($nickname)
     {
@@ -1168,19 +1026,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Get detailed information of a single compute quota plan.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetComputeQuotaPlanResponse
-     *
+     * @summary Get detailed information of a single compute quota plan.
+     *  *
      * @param string         $nickname
      * @param string         $planName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetComputeQuotaPlanResponse
+     * @return GetComputeQuotaPlanResponse GetComputeQuotaPlanResponse
      */
     public function getComputeQuotaPlanWithOptions($nickname, $planName, $headers, $runtime)
     {
@@ -1191,7 +1044,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'GetComputeQuotaPlan',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . Url::percentEncode($nickname) . '/computeQuotaPlan/' . Url::percentEncode($planName) . '',
+            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '/computeQuotaPlan/' . OpenApiUtilClient::getEncodeParam($planName) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1203,14 +1056,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Get detailed information of a single compute quota plan.
-     *
-     * @returns GetComputeQuotaPlanResponse
-     *
+     * @summary Get detailed information of a single compute quota plan.
+     *  *
      * @param string $nickname
      * @param string $planName
      *
-     * @return GetComputeQuotaPlanResponse
+     * @return GetComputeQuotaPlanResponse GetComputeQuotaPlanResponse
      */
     public function getComputeQuotaPlan($nickname, $planName)
     {
@@ -1221,38 +1072,31 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Displays the time-specific configuration of compute quota.
-     *
-     * @param request - GetComputeQuotaScheduleRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetComputeQuotaScheduleResponse
-     *
+     * @summary Displays the time-specific configuration of compute quota.
+     *  *
      * @param string                         $nickname
-     * @param GetComputeQuotaScheduleRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param GetComputeQuotaScheduleRequest $request  GetComputeQuotaScheduleRequest
+     * @param string[]                       $headers  map
+     * @param RuntimeOptions                 $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetComputeQuotaScheduleResponse
+     * @return GetComputeQuotaScheduleResponse GetComputeQuotaScheduleResponse
      */
     public function getComputeQuotaScheduleWithOptions($nickname, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->displayTimezone) {
-            @$query['displayTimezone'] = $request->displayTimezone;
+        if (!Utils::isUnset($request->displayTimezone)) {
+            $query['displayTimezone'] = $request->displayTimezone;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetComputeQuotaSchedule',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . Url::percentEncode($nickname) . '/computeQuotaSchedule',
+            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '/computeQuotaSchedule',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1264,16 +1108,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Displays the time-specific configuration of compute quota.
-     *
-     * @param request - GetComputeQuotaScheduleRequest
-     *
-     * @returns GetComputeQuotaScheduleResponse
-     *
+     * @summary Displays the time-specific configuration of compute quota.
+     *  *
      * @param string                         $nickname
-     * @param GetComputeQuotaScheduleRequest $request
+     * @param GetComputeQuotaScheduleRequest $request  GetComputeQuotaScheduleRequest
      *
-     * @return GetComputeQuotaScheduleResponse
+     * @return GetComputeQuotaScheduleResponse GetComputeQuotaScheduleResponse
      */
     public function getComputeQuotaSchedule($nickname, $request)
     {
@@ -1284,18 +1124,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the basic information about a job.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetJobInfoResponse
-     *
+     * @summary Queries the basic information about a job.
+     *  *
      * @param string         $instanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
      *
-     * @return GetJobInfoResponse
+     * @return GetJobInfoResponse GetJobInfoResponse
      */
     public function getJobInfoWithOptions($instanceId, $headers, $runtime)
     {
@@ -1306,7 +1141,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'GetJobInfo',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/jobs/' . Url::percentEncode($instanceId) . '/info',
+            'pathname' => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/info',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1318,13 +1153,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the basic information about a job.
-     *
-     * @returns GetJobInfoResponse
-     *
+     * @summary Queries the basic information about a job.
+     *  *
      * @param string $instanceId
      *
-     * @return GetJobInfoResponse
+     * @return GetJobInfoResponse GetJobInfoResponse
      */
     public function getJobInfo($instanceId)
     {
@@ -1335,57 +1168,44 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Performs statistics on all jobs that are complete on a specified day and obtains the total resource usage of each job executor on a daily basis.
+     * @summary Performs statistics on all jobs that are complete on a specified day and obtains the total resource usage of each job executor on a daily basis.
+     *  *
+     * @param GetJobResourceUsageRequest $tmpReq  GetJobResourceUsageRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - GetJobResourceUsageRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetJobResourceUsageResponse
-     *
-     * @param GetJobResourceUsageRequest $tmpReq
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
-     *
-     * @return GetJobResourceUsageResponse
+     * @return GetJobResourceUsageResponse GetJobResourceUsageResponse
      */
     public function getJobResourceUsageWithOptions($tmpReq, $headers, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new GetJobResourceUsageShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->jobOwnerList) {
-            $request->jobOwnerListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->jobOwnerList, 'jobOwnerList', 'simple');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->jobOwnerList)) {
+            $request->jobOwnerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobOwnerList, 'jobOwnerList', 'simple');
         }
-
-        if (null !== $tmpReq->quotaNicknameList) {
-            $request->quotaNicknameListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->quotaNicknameList, 'quotaNicknameList', 'simple');
+        if (!Utils::isUnset($tmpReq->quotaNicknameList)) {
+            $request->quotaNicknameListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->quotaNicknameList, 'quotaNicknameList', 'simple');
         }
-
         $query = [];
-        if (null !== $request->date) {
-            @$query['date'] = $request->date;
+        if (!Utils::isUnset($request->date)) {
+            $query['date'] = $request->date;
         }
-
-        if (null !== $request->jobOwnerListShrink) {
-            @$query['jobOwnerList'] = $request->jobOwnerListShrink;
+        if (!Utils::isUnset($request->jobOwnerListShrink)) {
+            $query['jobOwnerList'] = $request->jobOwnerListShrink;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['pageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->quotaNicknameListShrink) {
-            @$query['quotaNicknameList'] = $request->quotaNicknameListShrink;
+        if (!Utils::isUnset($request->quotaNicknameListShrink)) {
+            $query['quotaNicknameList'] = $request->quotaNicknameListShrink;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetJobResourceUsage',
@@ -1403,15 +1223,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Performs statistics on all jobs that are complete on a specified day and obtains the total resource usage of each job executor on a daily basis.
+     * @summary Performs statistics on all jobs that are complete on a specified day and obtains the total resource usage of each job executor on a daily basis.
+     *  *
+     * @param GetJobResourceUsageRequest $request GetJobResourceUsageRequest
      *
-     * @param request - GetJobResourceUsageRequest
-     *
-     * @returns GetJobResourceUsageResponse
-     *
-     * @param GetJobResourceUsageRequest $request
-     *
-     * @return GetJobResourceUsageResponse
+     * @return GetJobResourceUsageResponse GetJobResourceUsageResponse
      */
     public function getJobResourceUsage($request)
     {
@@ -1422,19 +1238,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * GetMmsAsyncTask.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetMmsAsyncTaskResponse
-     *
+     * @summary GetMmsAsyncTask
+     *  *
      * @param string         $sourceId
      * @param string         $asyncTaskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetMmsAsyncTaskResponse
+     * @return GetMmsAsyncTaskResponse GetMmsAsyncTaskResponse
      */
     public function getMmsAsyncTaskWithOptions($sourceId, $asyncTaskId, $headers, $runtime)
     {
@@ -1445,7 +1256,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'GetMmsAsyncTask',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/asyncTasks/' . Url::percentEncode($asyncTaskId) . '',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '/asyncTasks/' . OpenApiUtilClient::getEncodeParam($asyncTaskId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1457,14 +1268,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * GetMmsAsyncTask.
-     *
-     * @returns GetMmsAsyncTaskResponse
-     *
+     * @summary GetMmsAsyncTask
+     *  *
      * @param string $sourceId
      * @param string $asyncTaskId
      *
-     * @return GetMmsAsyncTaskResponse
+     * @return GetMmsAsyncTaskResponse GetMmsAsyncTaskResponse
      */
     public function getMmsAsyncTask($sourceId, $asyncTaskId)
     {
@@ -1475,42 +1284,34 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 获取数据源.
-     *
-     * @param request - GetMmsDataSourceRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetMmsDataSourceResponse
-     *
+     * @summary 获取数据源
+     *  *
      * @param string                  $sourceId
-     * @param GetMmsDataSourceRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param GetMmsDataSourceRequest $request  GetMmsDataSourceRequest
+     * @param string[]                $headers  map
+     * @param RuntimeOptions          $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetMmsDataSourceResponse
+     * @return GetMmsDataSourceResponse GetMmsDataSourceResponse
      */
     public function getMmsDataSourceWithOptions($sourceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->lang) {
-            @$query['lang'] = $request->lang;
+        if (!Utils::isUnset($request->lang)) {
+            $query['lang'] = $request->lang;
         }
-
-        if (null !== $request->withConfig) {
-            @$query['withConfig'] = $request->withConfig;
+        if (!Utils::isUnset($request->withConfig)) {
+            $query['withConfig'] = $request->withConfig;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetMmsDataSource',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1522,16 +1323,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 获取数据源.
-     *
-     * @param request - GetMmsDataSourceRequest
-     *
-     * @returns GetMmsDataSourceResponse
-     *
+     * @summary 获取数据源
+     *  *
      * @param string                  $sourceId
-     * @param GetMmsDataSourceRequest $request
+     * @param GetMmsDataSourceRequest $request  GetMmsDataSourceRequest
      *
-     * @return GetMmsDataSourceResponse
+     * @return GetMmsDataSourceResponse GetMmsDataSourceResponse
      */
     public function getMmsDataSource($sourceId, $request)
     {
@@ -1542,19 +1339,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * GetMmsDb.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetMmsDbResponse
-     *
+     * @summary GetMmsDb
+     *  *
      * @param string         $sourceId
      * @param string         $dbId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetMmsDbResponse
+     * @return GetMmsDbResponse GetMmsDbResponse
      */
     public function getMmsDbWithOptions($sourceId, $dbId, $headers, $runtime)
     {
@@ -1565,7 +1357,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'GetMmsDb',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/dbs/' . Url::percentEncode($dbId) . '',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '/dbs/' . OpenApiUtilClient::getEncodeParam($dbId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1577,14 +1369,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * GetMmsDb.
-     *
-     * @returns GetMmsDbResponse
-     *
+     * @summary GetMmsDb
+     *  *
      * @param string $sourceId
      * @param string $dbId
      *
-     * @return GetMmsDbResponse
+     * @return GetMmsDbResponse GetMmsDbResponse
      */
     public function getMmsDb($sourceId, $dbId)
     {
@@ -1595,19 +1385,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * GetMmsFetchMetadataJob.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetMmsFetchMetadataJobResponse
-     *
+     * @summary GetMmsFetchMetadataJob
+     *  *
      * @param string         $sourceId
      * @param string         $scanId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetMmsFetchMetadataJobResponse
+     * @return GetMmsFetchMetadataJobResponse GetMmsFetchMetadataJobResponse
      */
     public function getMmsFetchMetadataJobWithOptions($sourceId, $scanId, $headers, $runtime)
     {
@@ -1618,7 +1403,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'GetMmsFetchMetadataJob',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/scans/' . Url::percentEncode($scanId) . '',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '/scans/' . OpenApiUtilClient::getEncodeParam($scanId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1630,14 +1415,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * GetMmsFetchMetadataJob.
-     *
-     * @returns GetMmsFetchMetadataJobResponse
-     *
+     * @summary GetMmsFetchMetadataJob
+     *  *
      * @param string $sourceId
      * @param string $scanId
      *
-     * @return GetMmsFetchMetadataJobResponse
+     * @return GetMmsFetchMetadataJobResponse GetMmsFetchMetadataJobResponse
      */
     public function getMmsFetchMetadataJob($sourceId, $scanId)
     {
@@ -1648,19 +1431,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 获取迁移计划.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetMmsJobResponse
-     *
+     * @summary 获取迁移计划
+     *  *
      * @param string         $sourceId
      * @param string         $jobId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetMmsJobResponse
+     * @return GetMmsJobResponse GetMmsJobResponse
      */
     public function getMmsJobWithOptions($sourceId, $jobId, $headers, $runtime)
     {
@@ -1671,7 +1449,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'GetMmsJob',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/jobs/' . Url::percentEncode($jobId) . '',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '/jobs/' . OpenApiUtilClient::getEncodeParam($jobId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1683,14 +1461,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 获取迁移计划.
-     *
-     * @returns GetMmsJobResponse
-     *
+     * @summary 获取迁移计划
+     *  *
      * @param string $sourceId
      * @param string $jobId
      *
-     * @return GetMmsJobResponse
+     * @return GetMmsJobResponse GetMmsJobResponse
      */
     public function getMmsJob($sourceId, $jobId)
     {
@@ -1701,19 +1477,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * GetMmsPartition.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetMmsPartitionResponse
-     *
+     * @summary GetMmsPartition
+     *  *
      * @param string         $sourceId
      * @param string         $partitionId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetMmsPartitionResponse
+     * @return GetMmsPartitionResponse GetMmsPartitionResponse
      */
     public function getMmsPartitionWithOptions($sourceId, $partitionId, $headers, $runtime)
     {
@@ -1724,7 +1495,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'GetMmsPartition',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/partitions/' . Url::percentEncode($partitionId) . '',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '/partitions/' . OpenApiUtilClient::getEncodeParam($partitionId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1736,14 +1507,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * GetMmsPartition.
-     *
-     * @returns GetMmsPartitionResponse
-     *
+     * @summary GetMmsPartition
+     *  *
      * @param string $sourceId
      * @param string $partitionId
      *
-     * @return GetMmsPartitionResponse
+     * @return GetMmsPartitionResponse GetMmsPartitionResponse
      */
     public function getMmsPartition($sourceId, $partitionId)
     {
@@ -1754,19 +1523,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * GetMmsTable.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetMmsTableResponse
-     *
+     * @summary GetMmsTable
+     *  *
      * @param string         $sourceId
      * @param string         $tableId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetMmsTableResponse
+     * @return GetMmsTableResponse GetMmsTableResponse
      */
     public function getMmsTableWithOptions($sourceId, $tableId, $headers, $runtime)
     {
@@ -1777,7 +1541,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'GetMmsTable',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/tables/' . Url::percentEncode($tableId) . '',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1789,14 +1553,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * GetMmsTable.
-     *
-     * @returns GetMmsTableResponse
-     *
+     * @summary GetMmsTable
+     *  *
      * @param string $sourceId
      * @param string $tableId
      *
-     * @return GetMmsTableResponse
+     * @return GetMmsTableResponse GetMmsTableResponse
      */
     public function getMmsTable($sourceId, $tableId)
     {
@@ -1807,19 +1569,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * GetMmsTask.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetMmsTaskResponse
-     *
+     * @summary GetMmsTask
+     *  *
      * @param string         $sourceId
      * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetMmsTaskResponse
+     * @return GetMmsTaskResponse GetMmsTaskResponse
      */
     public function getMmsTaskWithOptions($sourceId, $taskId, $headers, $runtime)
     {
@@ -1830,7 +1587,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'GetMmsTask',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/tasks/' . Url::percentEncode($taskId) . '',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1842,14 +1599,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * GetMmsTask.
-     *
-     * @returns GetMmsTaskResponse
-     *
+     * @summary GetMmsTask
+     *  *
      * @param string $sourceId
      * @param string $taskId
      *
-     * @return GetMmsTaskResponse
+     * @return GetMmsTaskResponse GetMmsTaskResponse
      */
     public function getMmsTask($sourceId, $taskId)
     {
@@ -1860,39 +1615,32 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains the information about a package.
-     *
-     * @param request - GetPackageRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetPackageResponse
-     *
+     * @summary Obtains the information about a package.
+     *  *
      * @param string            $projectName
      * @param string            $packageName
-     * @param GetPackageRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param GetPackageRequest $request     GetPackageRequest
+     * @param string[]          $headers     map
+     * @param RuntimeOptions    $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetPackageResponse
+     * @return GetPackageResponse GetPackageResponse
      */
     public function getPackageWithOptions($projectName, $packageName, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->sourceProject) {
-            @$query['sourceProject'] = $request->sourceProject;
+        if (!Utils::isUnset($request->sourceProject)) {
+            $query['sourceProject'] = $request->sourceProject;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetPackage',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/packages/' . Url::percentEncode($packageName) . '',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/packages/' . OpenApiUtilClient::getEncodeParam($packageName) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1904,17 +1652,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains the information about a package.
-     *
-     * @param request - GetPackageRequest
-     *
-     * @returns GetPackageResponse
-     *
+     * @summary Obtains the information about a package.
+     *  *
      * @param string            $projectName
      * @param string            $packageName
-     * @param GetPackageRequest $request
+     * @param GetPackageRequest $request     GetPackageRequest
      *
-     * @return GetPackageResponse
+     * @return GetPackageResponse GetPackageResponse
      */
     public function getPackage($projectName, $packageName, $request)
     {
@@ -1925,38 +1669,31 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the information about a MaxCompute project.
-     *
-     * @param request - GetProjectRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetProjectResponse
-     *
+     * @summary Queries the information about a MaxCompute project.
+     *  *
      * @param string            $projectName
-     * @param GetProjectRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param GetProjectRequest $request     GetProjectRequest
+     * @param string[]          $headers     map
+     * @param RuntimeOptions    $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetProjectResponse
+     * @return GetProjectResponse GetProjectResponse
      */
     public function getProjectWithOptions($projectName, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->verbose) {
-            @$query['verbose'] = $request->verbose;
+        if (!Utils::isUnset($request->verbose)) {
+            $query['verbose'] = $request->verbose;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetProject',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -1968,16 +1705,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the information about a MaxCompute project.
-     *
-     * @param request - GetProjectRequest
-     *
-     * @returns GetProjectResponse
-     *
+     * @summary Queries the information about a MaxCompute project.
+     *  *
      * @param string            $projectName
-     * @param GetProjectRequest $request
+     * @param GetProjectRequest $request     GetProjectRequest
      *
-     * @return GetProjectResponse
+     * @return GetProjectResponse GetProjectResponse
      */
     public function getProject($projectName, $request)
     {
@@ -1988,50 +1721,40 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains the information about a specified level-1 quota.
-     *
-     * @param request - GetQuotaRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetQuotaResponse
-     *
+     * @summary Obtains the information about a specified level-1 quota.
+     *  *
      * @param string          $nickname
-     * @param GetQuotaRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
+     * @param GetQuotaRequest $request  GetQuotaRequest
+     * @param string[]        $headers  map
+     * @param RuntimeOptions  $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetQuotaResponse
+     * @return GetQuotaResponse GetQuotaResponse
      */
     public function getQuotaWithOptions($nickname, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->akProven) {
-            @$query['AkProven'] = $request->akProven;
+        if (!Utils::isUnset($request->akProven)) {
+            $query['AkProven'] = $request->akProven;
         }
-
-        if (null !== $request->mock) {
-            @$query['mock'] = $request->mock;
+        if (!Utils::isUnset($request->mock)) {
+            $query['mock'] = $request->mock;
         }
-
-        if (null !== $request->region) {
-            @$query['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
         }
-
-        if (null !== $request->tenantId) {
-            @$query['tenantId'] = $request->tenantId;
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetQuota',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . Url::percentEncode($nickname) . '',
+            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2043,16 +1766,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains the information about a specified level-1 quota.
-     *
-     * @param request - GetQuotaRequest
-     *
-     * @returns GetQuotaResponse
-     *
+     * @summary Obtains the information about a specified level-1 quota.
+     *  *
      * @param string          $nickname
-     * @param GetQuotaRequest $request
+     * @param GetQuotaRequest $request  GetQuotaRequest
      *
-     * @return GetQuotaResponse
+     * @return GetQuotaResponse GetQuotaResponse
      */
     public function getQuota($nickname, $request)
     {
@@ -2063,43 +1782,35 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains the information of a quota plan.
-     *
-     * @param request - GetQuotaPlanRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetQuotaPlanResponse
-     *
+     * @summary Obtains the information of a quota plan.
+     *  *
      * @param string              $nickname
      * @param string              $planName
-     * @param GetQuotaPlanRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param GetQuotaPlanRequest $request  GetQuotaPlanRequest
+     * @param string[]            $headers  map
+     * @param RuntimeOptions      $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetQuotaPlanResponse
+     * @return GetQuotaPlanResponse GetQuotaPlanResponse
      */
     public function getQuotaPlanWithOptions($nickname, $planName, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->region) {
-            @$query['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
         }
-
-        if (null !== $request->tenantId) {
-            @$query['tenantId'] = $request->tenantId;
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetQuotaPlan',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . Url::percentEncode($nickname) . '/plans/' . Url::percentEncode($planName) . '',
+            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '/plans/' . OpenApiUtilClient::getEncodeParam($planName) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2111,17 +1822,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains the information of a quota plan.
-     *
-     * @param request - GetQuotaPlanRequest
-     *
-     * @returns GetQuotaPlanResponse
-     *
+     * @summary Obtains the information of a quota plan.
+     *  *
      * @param string              $nickname
      * @param string              $planName
-     * @param GetQuotaPlanRequest $request
+     * @param GetQuotaPlanRequest $request  GetQuotaPlanRequest
      *
-     * @return GetQuotaPlanResponse
+     * @return GetQuotaPlanResponse GetQuotaPlanResponse
      */
     public function getQuotaPlan($nickname, $planName, $request)
     {
@@ -2132,46 +1839,37 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains the scheduling plan for a quota plan.
-     *
-     * @param request - GetQuotaScheduleRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetQuotaScheduleResponse
-     *
+     * @summary Obtains the scheduling plan for a quota plan.
+     *  *
      * @param string                  $nickname
-     * @param GetQuotaScheduleRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param GetQuotaScheduleRequest $request  GetQuotaScheduleRequest
+     * @param string[]                $headers  map
+     * @param RuntimeOptions          $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetQuotaScheduleResponse
+     * @return GetQuotaScheduleResponse GetQuotaScheduleResponse
      */
     public function getQuotaScheduleWithOptions($nickname, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->displayTimezone) {
-            @$query['displayTimezone'] = $request->displayTimezone;
+        if (!Utils::isUnset($request->displayTimezone)) {
+            $query['displayTimezone'] = $request->displayTimezone;
         }
-
-        if (null !== $request->region) {
-            @$query['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
         }
-
-        if (null !== $request->tenantId) {
-            @$query['tenantId'] = $request->tenantId;
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetQuotaSchedule',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . Url::percentEncode($nickname) . '/schedule',
+            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '/schedule',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2183,16 +1881,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains the scheduling plan for a quota plan.
-     *
-     * @param request - GetQuotaScheduleRequest
-     *
-     * @returns GetQuotaScheduleResponse
-     *
+     * @summary Obtains the scheduling plan for a quota plan.
+     *  *
      * @param string                  $nickname
-     * @param GetQuotaScheduleRequest $request
+     * @param GetQuotaScheduleRequest $request  GetQuotaScheduleRequest
      *
-     * @return GetQuotaScheduleResponse
+     * @return GetQuotaScheduleResponse GetQuotaScheduleResponse
      */
     public function getQuotaSchedule($nickname, $request)
     {
@@ -2203,80 +1897,63 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries quota resource consumption information.
-     *
-     * @param tmpReq - GetQuotaUsageRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetQuotaUsageResponse
-     *
+     * @summary Queries quota resource consumption information.
+     *  *
      * @param string               $nickname
-     * @param GetQuotaUsageRequest $tmpReq
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param GetQuotaUsageRequest $tmpReq   GetQuotaUsageRequest
+     * @param string[]             $headers  map
+     * @param RuntimeOptions       $runtime  runtime options for this request RuntimeOptions
      *
-     * @return GetQuotaUsageResponse
+     * @return GetQuotaUsageResponse GetQuotaUsageResponse
      */
     public function getQuotaUsageWithOptions($nickname, $tmpReq, $headers, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new GetQuotaUsageShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->plotTypes) {
-            $request->plotTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->plotTypes, 'plotTypes', 'simple');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->plotTypes)) {
+            $request->plotTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->plotTypes, 'plotTypes', 'simple');
         }
-
-        if (null !== $tmpReq->yAxisTypes) {
-            $request->yAxisTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->yAxisTypes, 'yAxisTypes', 'simple');
+        if (!Utils::isUnset($tmpReq->yAxisTypes)) {
+            $request->yAxisTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->yAxisTypes, 'yAxisTypes', 'simple');
         }
-
         $query = [];
-        if (null !== $request->aggMethod) {
-            @$query['aggMethod'] = $request->aggMethod;
+        if (!Utils::isUnset($request->aggMethod)) {
+            $query['aggMethod'] = $request->aggMethod;
         }
-
-        if (null !== $request->from) {
-            @$query['from'] = $request->from;
+        if (!Utils::isUnset($request->from)) {
+            $query['from'] = $request->from;
         }
-
-        if (null !== $request->plotTypesShrink) {
-            @$query['plotTypes'] = $request->plotTypesShrink;
+        if (!Utils::isUnset($request->plotTypesShrink)) {
+            $query['plotTypes'] = $request->plotTypesShrink;
         }
-
-        if (null !== $request->productId) {
-            @$query['productId'] = $request->productId;
+        if (!Utils::isUnset($request->productId)) {
+            $query['productId'] = $request->productId;
         }
-
-        if (null !== $request->region) {
-            @$query['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
         }
-
-        if (null !== $request->subQuotaNickname) {
-            @$query['subQuotaNickname'] = $request->subQuotaNickname;
+        if (!Utils::isUnset($request->subQuotaNickname)) {
+            $query['subQuotaNickname'] = $request->subQuotaNickname;
         }
-
-        if (null !== $request->tenantId) {
-            @$query['tenantId'] = $request->tenantId;
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
         }
-
-        if (null !== $request->to) {
-            @$query['to'] = $request->to;
+        if (!Utils::isUnset($request->to)) {
+            $query['to'] = $request->to;
         }
-
-        if (null !== $request->yAxisTypesShrink) {
-            @$query['yAxisTypes'] = $request->yAxisTypesShrink;
+        if (!Utils::isUnset($request->yAxisTypesShrink)) {
+            $query['yAxisTypes'] = $request->yAxisTypesShrink;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetQuotaUsage',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . Url::percentEncode($nickname) . '/usage',
+            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '/usage',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2288,16 +1965,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries quota resource consumption information.
-     *
-     * @param request - GetQuotaUsageRequest
-     *
-     * @returns GetQuotaUsageResponse
-     *
+     * @summary Queries quota resource consumption information.
+     *  *
      * @param string               $nickname
-     * @param GetQuotaUsageRequest $request
+     * @param GetQuotaUsageRequest $request  GetQuotaUsageRequest
      *
-     * @return GetQuotaUsageResponse
+     * @return GetQuotaUsageResponse GetQuotaUsageResponse
      */
     public function getQuotaUsage($nickname, $request)
     {
@@ -2308,19 +1981,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains the ACL-based permissions that is granted to a project-level role.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetRoleAclResponse
-     *
+     * @summary Obtains the ACL-based permissions that is granted to a project-level role.
+     *  *
      * @param string         $projectName
      * @param string         $roleName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetRoleAclResponse
+     * @return GetRoleAclResponse GetRoleAclResponse
      */
     public function getRoleAclWithOptions($projectName, $roleName, $headers, $runtime)
     {
@@ -2331,7 +1999,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'GetRoleAcl',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/roles/' . Url::percentEncode($roleName) . '/roleAcl',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/roles/' . OpenApiUtilClient::getEncodeParam($roleName) . '/roleAcl',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2343,14 +2011,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains the ACL-based permissions that is granted to a project-level role.
-     *
-     * @returns GetRoleAclResponse
-     *
+     * @summary Obtains the ACL-based permissions that is granted to a project-level role.
+     *  *
      * @param string $projectName
      * @param string $roleName
      *
-     * @return GetRoleAclResponse
+     * @return GetRoleAclResponse GetRoleAclResponse
      */
     public function getRoleAcl($projectName, $roleName)
     {
@@ -2361,43 +2027,35 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains ACL-based permissions on an object that are granted to a project-level role.
-     *
-     * @param request - GetRoleAclOnObjectRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetRoleAclOnObjectResponse
-     *
+     * @summary Obtains ACL-based permissions on an object that are granted to a project-level role.
+     *  *
      * @param string                    $projectName
      * @param string                    $roleName
-     * @param GetRoleAclOnObjectRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param GetRoleAclOnObjectRequest $request     GetRoleAclOnObjectRequest
+     * @param string[]                  $headers     map
+     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetRoleAclOnObjectResponse
+     * @return GetRoleAclOnObjectResponse GetRoleAclOnObjectResponse
      */
     public function getRoleAclOnObjectWithOptions($projectName, $roleName, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->objectName) {
-            @$query['objectName'] = $request->objectName;
+        if (!Utils::isUnset($request->objectName)) {
+            $query['objectName'] = $request->objectName;
         }
-
-        if (null !== $request->objectType) {
-            @$query['objectType'] = $request->objectType;
+        if (!Utils::isUnset($request->objectType)) {
+            $query['objectType'] = $request->objectType;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetRoleAclOnObject',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/roles/' . Url::percentEncode($roleName) . '/acl',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/roles/' . OpenApiUtilClient::getEncodeParam($roleName) . '/acl',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2409,17 +2067,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains ACL-based permissions on an object that are granted to a project-level role.
-     *
-     * @param request - GetRoleAclOnObjectRequest
-     *
-     * @returns GetRoleAclOnObjectResponse
-     *
+     * @summary Obtains ACL-based permissions on an object that are granted to a project-level role.
+     *  *
      * @param string                    $projectName
      * @param string                    $roleName
-     * @param GetRoleAclOnObjectRequest $request
+     * @param GetRoleAclOnObjectRequest $request     GetRoleAclOnObjectRequest
      *
-     * @return GetRoleAclOnObjectResponse
+     * @return GetRoleAclOnObjectResponse GetRoleAclOnObjectResponse
      */
     public function getRoleAclOnObject($projectName, $roleName, $request)
     {
@@ -2430,19 +2084,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains the policy that is attached to a project-level role.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetRolePolicyResponse
-     *
+     * @summary Obtains the policy that is attached to a project-level role.
+     *  *
      * @param string         $projectName
      * @param string         $roleName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetRolePolicyResponse
+     * @return GetRolePolicyResponse GetRolePolicyResponse
      */
     public function getRolePolicyWithOptions($projectName, $roleName, $headers, $runtime)
     {
@@ -2453,7 +2102,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'GetRolePolicy',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/roles/' . Url::percentEncode($roleName) . '/policy',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/roles/' . OpenApiUtilClient::getEncodeParam($roleName) . '/policy',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2465,14 +2114,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains the policy that is attached to a project-level role.
-     *
-     * @returns GetRolePolicyResponse
-     *
+     * @summary Obtains the policy that is attached to a project-level role.
+     *  *
      * @param string $projectName
      * @param string $roleName
      *
-     * @return GetRolePolicyResponse
+     * @return GetRolePolicyResponse GetRolePolicyResponse
      */
     public function getRolePolicy($projectName, $roleName)
     {
@@ -2483,61 +2130,47 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains the running state data of jobs that are in the running state in a specified period of time.
+     * @summary Obtains the running state data of jobs that are in the running state in a specified period of time.
+     *  *
+     * @param GetRunningJobsRequest $tmpReq  GetRunningJobsRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - GetRunningJobsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetRunningJobsResponse
-     *
-     * @param GetRunningJobsRequest $tmpReq
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return GetRunningJobsResponse
+     * @return GetRunningJobsResponse GetRunningJobsResponse
      */
     public function getRunningJobsWithOptions($tmpReq, $headers, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new GetRunningJobsShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->jobOwnerList) {
-            $request->jobOwnerListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->jobOwnerList, 'jobOwnerList', 'simple');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->jobOwnerList)) {
+            $request->jobOwnerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobOwnerList, 'jobOwnerList', 'simple');
         }
-
-        if (null !== $tmpReq->quotaNicknameList) {
-            $request->quotaNicknameListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->quotaNicknameList, 'quotaNicknameList', 'simple');
+        if (!Utils::isUnset($tmpReq->quotaNicknameList)) {
+            $request->quotaNicknameListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->quotaNicknameList, 'quotaNicknameList', 'simple');
         }
-
         $query = [];
-        if (null !== $request->from) {
-            @$query['from'] = $request->from;
+        if (!Utils::isUnset($request->from)) {
+            $query['from'] = $request->from;
         }
-
-        if (null !== $request->jobOwnerListShrink) {
-            @$query['jobOwnerList'] = $request->jobOwnerListShrink;
+        if (!Utils::isUnset($request->jobOwnerListShrink)) {
+            $query['jobOwnerList'] = $request->jobOwnerListShrink;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['pageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->quotaNicknameListShrink) {
-            @$query['quotaNicknameList'] = $request->quotaNicknameListShrink;
+        if (!Utils::isUnset($request->quotaNicknameListShrink)) {
+            $query['quotaNicknameList'] = $request->quotaNicknameListShrink;
         }
-
-        if (null !== $request->to) {
-            @$query['to'] = $request->to;
+        if (!Utils::isUnset($request->to)) {
+            $query['to'] = $request->to;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetRunningJobs',
@@ -2555,15 +2188,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains the running state data of jobs that are in the running state in a specified period of time.
+     * @summary Obtains the running state data of jobs that are in the running state in a specified period of time.
+     *  *
+     * @param GetRunningJobsRequest $request GetRunningJobsRequest
      *
-     * @param request - GetRunningJobsRequest
-     *
-     * @returns GetRunningJobsResponse
-     *
-     * @param GetRunningJobsRequest $request
-     *
-     * @return GetRunningJobsResponse
+     * @return GetRunningJobsResponse GetRunningJobsResponse
      */
     public function getRunningJobs($request)
     {
@@ -2574,43 +2203,204 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Views the information about MaxCompute internal tables, views, external tables, clustered tables, or transactional tables.
+     * @param GetStorageAmountSummaryRequest $request GetStorageAmountSummaryRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - GetTableInfoRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return GetStorageAmountSummaryResponse GetStorageAmountSummaryResponse
+     */
+    public function getStorageAmountSummaryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->date)) {
+            $query['date'] = $request->date;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetStorageAmountSummary',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/observations/analysis/storage/amount',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetStorageAmountSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetStorageAmountSummaryRequest $request GetStorageAmountSummaryRequest
      *
-     * @returns GetTableInfoResponse
+     * @return GetStorageAmountSummaryResponse GetStorageAmountSummaryResponse
+     */
+    public function getStorageAmountSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getStorageAmountSummaryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetStorageSizeSummaryRequest $request GetStorageSizeSummaryRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
+     * @return GetStorageSizeSummaryResponse GetStorageSizeSummaryResponse
+     */
+    public function getStorageSizeSummaryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->date)) {
+            $query['date'] = $request->date;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetStorageSizeSummary',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/observations/analysis/storage/size',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetStorageSizeSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetStorageSizeSummaryRequest $request GetStorageSizeSummaryRequest
+     *
+     * @return GetStorageSizeSummaryResponse GetStorageSizeSummaryResponse
+     */
+    public function getStorageSizeSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getStorageSizeSummaryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                           $type
+     * @param GetStorageSummaryComparedRequest $tmpReq  GetStorageSummaryComparedRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetStorageSummaryComparedResponse GetStorageSummaryComparedResponse
+     */
+    public function getStorageSummaryComparedWithOptions($type, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetStorageSummaryComparedShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->projects)) {
+            $request->projectsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->projects, 'projects', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->beginDate)) {
+            $query['beginDate'] = $request->beginDate;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['endDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->projectsShrink)) {
+            $query['projects'] = $request->projectsShrink;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetStorageSummaryCompared',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/observations/analysis/storage/' . OpenApiUtilClient::getEncodeParam($type) . '/compared',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetStorageSummaryComparedResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                           $type
+     * @param GetStorageSummaryComparedRequest $request GetStorageSummaryComparedRequest
+     *
+     * @return GetStorageSummaryComparedResponse GetStorageSummaryComparedResponse
+     */
+    public function getStorageSummaryCompared($type, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getStorageSummaryComparedWithOptions($type, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Views the information about MaxCompute internal tables, views, external tables, clustered tables, or transactional tables.
+     *  *
      * @param string              $projectName
      * @param string              $tableName
-     * @param GetTableInfoRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param GetTableInfoRequest $request     GetTableInfoRequest
+     * @param string[]            $headers     map
+     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetTableInfoResponse
+     * @return GetTableInfoResponse GetTableInfoResponse
      */
     public function getTableInfoWithOptions($projectName, $tableName, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->schemaName) {
-            @$query['schemaName'] = $request->schemaName;
+        if (!Utils::isUnset($request->schemaName)) {
+            $query['schemaName'] = $request->schemaName;
         }
-
-        if (null !== $request->type) {
-            @$query['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'GetTableInfo',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/tables/' . Url::percentEncode($tableName) . '',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/tables/' . OpenApiUtilClient::getEncodeParam($tableName) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2622,17 +2412,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Views the information about MaxCompute internal tables, views, external tables, clustered tables, or transactional tables.
-     *
-     * @param request - GetTableInfoRequest
-     *
-     * @returns GetTableInfoResponse
-     *
+     * @summary Views the information about MaxCompute internal tables, views, external tables, clustered tables, or transactional tables.
+     *  *
      * @param string              $projectName
      * @param string              $tableName
-     * @param GetTableInfoRequest $request
+     * @param GetTableInfoRequest $request     GetTableInfoRequest
      *
-     * @return GetTableInfoResponse
+     * @return GetTableInfoResponse GetTableInfoResponse
      */
     public function getTableInfo($projectName, $tableName, $request)
     {
@@ -2643,18 +2429,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains the trusted projects of the current project.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns GetTrustedProjectsResponse
-     *
+     * @summary Obtains the trusted projects of the current project.
+     *  *
      * @param string         $projectName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return GetTrustedProjectsResponse
+     * @return GetTrustedProjectsResponse GetTrustedProjectsResponse
      */
     public function getTrustedProjectsWithOptions($projectName, $headers, $runtime)
     {
@@ -2665,7 +2446,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'GetTrustedProjects',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/trustedProjects',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/trustedProjects',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2677,13 +2458,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains the trusted projects of the current project.
-     *
-     * @returns GetTrustedProjectsResponse
-     *
+     * @summary Obtains the trusted projects of the current project.
+     *  *
      * @param string $projectName
      *
-     * @return GetTrustedProjectsResponse
+     * @return GetTrustedProjectsResponse GetTrustedProjectsResponse
      */
     public function getTrustedProjects($projectName)
     {
@@ -2694,35 +2473,27 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Terminates a running job.
+     * @summary Terminates a running job.
+     *  *
+     * @param KillJobsRequest $request KillJobsRequest
+     * @param string[]        $headers map
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - KillJobsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns KillJobsResponse
-     *
-     * @param KillJobsRequest $request
-     * @param string[]        $headers
-     * @param RuntimeOptions  $runtime
-     *
-     * @return KillJobsResponse
+     * @return KillJobsResponse KillJobsResponse
      */
     public function killJobsWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->region) {
-            @$query['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
         }
-
-        if (null !== $request->tenantId) {
-            @$query['tenantId'] = $request->tenantId;
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
             'body' => $request->body,
         ]);
         $params = new Params([
@@ -2741,15 +2512,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Terminates a running job.
+     * @summary Terminates a running job.
+     *  *
+     * @param KillJobsRequest $request KillJobsRequest
      *
-     * @param request - KillJobsRequest
-     *
-     * @returns KillJobsResponse
-     *
-     * @param KillJobsRequest $request
-     *
-     * @return KillJobsResponse
+     * @return KillJobsResponse KillJobsResponse
      */
     public function killJobs($request)
     {
@@ -2760,71 +2527,54 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Get compute usage of pay-as-you-go jobs.
+     * @summary Get compute usage of pay-as-you-go jobs.
+     *  *
+     * @param ListComputeMetricsByInstanceRequest $request ListComputeMetricsByInstanceRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListComputeMetricsByInstanceRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListComputeMetricsByInstanceResponse
-     *
-     * @param ListComputeMetricsByInstanceRequest $request
-     * @param string[]                            $headers
-     * @param RuntimeOptions                      $runtime
-     *
-     * @return ListComputeMetricsByInstanceResponse
+     * @return ListComputeMetricsByInstanceResponse ListComputeMetricsByInstanceResponse
      */
     public function listComputeMetricsByInstanceWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->endDate) {
-            @$body['endDate'] = $request->endDate;
+        if (!Utils::isUnset($request->endDate)) {
+            $body['endDate'] = $request->endDate;
         }
-
-        if (null !== $request->instanceId) {
-            @$body['instanceId'] = $request->instanceId;
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['instanceId'] = $request->instanceId;
         }
-
-        if (null !== $request->jobOwner) {
-            @$body['jobOwner'] = $request->jobOwner;
+        if (!Utils::isUnset($request->jobOwner)) {
+            $body['jobOwner'] = $request->jobOwner;
         }
-
-        if (null !== $request->pageNumber) {
-            @$body['pageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['pageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$body['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->projectNames) {
-            @$body['projectNames'] = $request->projectNames;
+        if (!Utils::isUnset($request->projectNames)) {
+            $body['projectNames'] = $request->projectNames;
         }
-
-        if (null !== $request->region) {
-            @$body['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $body['region'] = $request->region;
         }
-
-        if (null !== $request->signature) {
-            @$body['signature'] = $request->signature;
+        if (!Utils::isUnset($request->signature)) {
+            $body['signature'] = $request->signature;
         }
-
-        if (null !== $request->specCodes) {
-            @$body['specCodes'] = $request->specCodes;
+        if (!Utils::isUnset($request->specCodes)) {
+            $body['specCodes'] = $request->specCodes;
         }
-
-        if (null !== $request->startDate) {
-            @$body['startDate'] = $request->startDate;
+        if (!Utils::isUnset($request->startDate)) {
+            $body['startDate'] = $request->startDate;
         }
-
-        if (null !== $request->types) {
-            @$body['types'] = $request->types;
+        if (!Utils::isUnset($request->types)) {
+            $body['types'] = $request->types;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListComputeMetricsByInstance',
@@ -2842,15 +2592,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Get compute usage of pay-as-you-go jobs.
+     * @summary Get compute usage of pay-as-you-go jobs.
+     *  *
+     * @param ListComputeMetricsByInstanceRequest $request ListComputeMetricsByInstanceRequest
      *
-     * @param request - ListComputeMetricsByInstanceRequest
-     *
-     * @returns ListComputeMetricsByInstanceResponse
-     *
-     * @param ListComputeMetricsByInstanceRequest $request
-     *
-     * @return ListComputeMetricsByInstanceResponse
+     * @return ListComputeMetricsByInstanceResponse ListComputeMetricsByInstanceResponse
      */
     public function listComputeMetricsByInstance($request)
     {
@@ -2861,18 +2607,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Get computeQuotaPlan list.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListComputeQuotaPlanResponse
-     *
+     * @summary Get computeQuotaPlan list.
+     *  *
      * @param string         $nickname
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return ListComputeQuotaPlanResponse
+     * @return ListComputeQuotaPlanResponse ListComputeQuotaPlanResponse
      */
     public function listComputeQuotaPlanWithOptions($nickname, $headers, $runtime)
     {
@@ -2883,7 +2624,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'ListComputeQuotaPlan',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . Url::percentEncode($nickname) . '/computeQuotaPlan',
+            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '/computeQuotaPlan',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2895,13 +2636,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Get computeQuotaPlan list.
-     *
-     * @returns ListComputeQuotaPlanResponse
-     *
+     * @summary Get computeQuotaPlan list.
+     *  *
      * @param string $nickname
      *
-     * @return ListComputeQuotaPlanResponse
+     * @return ListComputeQuotaPlanResponse ListComputeQuotaPlanResponse
      */
     public function listComputeQuotaPlan($nickname)
     {
@@ -2912,50 +2651,40 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains functions in a MaxCompute project.
-     *
-     * @param request - ListFunctionsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListFunctionsResponse
-     *
+     * @summary Obtains functions in a MaxCompute project.
+     *  *
      * @param string               $projectName
-     * @param ListFunctionsRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param ListFunctionsRequest $request     ListFunctionsRequest
+     * @param string[]             $headers     map
+     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListFunctionsResponse
+     * @return ListFunctionsResponse ListFunctionsResponse
      */
     public function listFunctionsWithOptions($projectName, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->marker) {
-            @$query['marker'] = $request->marker;
+        if (!Utils::isUnset($request->marker)) {
+            $query['marker'] = $request->marker;
         }
-
-        if (null !== $request->maxItem) {
-            @$query['maxItem'] = $request->maxItem;
+        if (!Utils::isUnset($request->maxItem)) {
+            $query['maxItem'] = $request->maxItem;
         }
-
-        if (null !== $request->prefix) {
-            @$query['prefix'] = $request->prefix;
+        if (!Utils::isUnset($request->prefix)) {
+            $query['prefix'] = $request->prefix;
         }
-
-        if (null !== $request->schemaName) {
-            @$query['schemaName'] = $request->schemaName;
+        if (!Utils::isUnset($request->schemaName)) {
+            $query['schemaName'] = $request->schemaName;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListFunctions',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/functions',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/functions',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -2967,16 +2696,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains functions in a MaxCompute project.
-     *
-     * @param request - ListFunctionsRequest
-     *
-     * @returns ListFunctionsResponse
-     *
+     * @summary Obtains functions in a MaxCompute project.
+     *  *
      * @param string               $projectName
-     * @param ListFunctionsRequest $request
+     * @param ListFunctionsRequest $request     ListFunctionsRequest
      *
-     * @return ListFunctionsResponse
+     * @return ListFunctionsResponse ListFunctionsResponse
      */
     public function listFunctions($projectName, $request)
     {
@@ -2987,109 +2712,83 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Views a list of jobs.
+     * @summary Views a list of jobs.
+     *  *
+     * @param ListJobInfosRequest $request ListJobInfosRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListJobInfosRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListJobInfosResponse
-     *
-     * @param ListJobInfosRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListJobInfosResponse
+     * @return ListJobInfosResponse ListJobInfosResponse
      */
     public function listJobInfosWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ascOrder) {
-            @$query['ascOrder'] = $request->ascOrder;
+        if (!Utils::isUnset($request->ascOrder)) {
+            $query['ascOrder'] = $request->ascOrder;
         }
-
-        if (null !== $request->orderColumn) {
-            @$query['orderColumn'] = $request->orderColumn;
+        if (!Utils::isUnset($request->orderColumn)) {
+            $query['orderColumn'] = $request->orderColumn;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['pageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->region) {
-            @$query['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
         }
-
-        if (null !== $request->tenantId) {
-            @$query['tenantId'] = $request->tenantId;
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
         }
-
         $body = [];
-        if (null !== $request->extNodeIdList) {
-            @$body['extNodeIdList'] = $request->extNodeIdList;
+        if (!Utils::isUnset($request->extNodeIdList)) {
+            $body['extNodeIdList'] = $request->extNodeIdList;
         }
-
-        if (null !== $request->from) {
-            @$body['from'] = $request->from;
+        if (!Utils::isUnset($request->from)) {
+            $body['from'] = $request->from;
         }
-
-        if (null !== $request->instanceIdList) {
-            @$body['instanceIdList'] = $request->instanceIdList;
+        if (!Utils::isUnset($request->instanceIdList)) {
+            $body['instanceIdList'] = $request->instanceIdList;
         }
-
-        if (null !== $request->jobOwnerList) {
-            @$body['jobOwnerList'] = $request->jobOwnerList;
+        if (!Utils::isUnset($request->jobOwnerList)) {
+            $body['jobOwnerList'] = $request->jobOwnerList;
         }
-
-        if (null !== $request->priorityList) {
-            @$body['priorityList'] = $request->priorityList;
+        if (!Utils::isUnset($request->priorityList)) {
+            $body['priorityList'] = $request->priorityList;
         }
-
-        if (null !== $request->projectList) {
-            @$body['projectList'] = $request->projectList;
+        if (!Utils::isUnset($request->projectList)) {
+            $body['projectList'] = $request->projectList;
         }
-
-        if (null !== $request->quotaNickname) {
-            @$body['quotaNickname'] = $request->quotaNickname;
+        if (!Utils::isUnset($request->quotaNickname)) {
+            $body['quotaNickname'] = $request->quotaNickname;
         }
-
-        if (null !== $request->sceneTagList) {
-            @$body['sceneTagList'] = $request->sceneTagList;
+        if (!Utils::isUnset($request->sceneTagList)) {
+            $body['sceneTagList'] = $request->sceneTagList;
         }
-
-        if (null !== $request->signatureList) {
-            @$body['signatureList'] = $request->signatureList;
+        if (!Utils::isUnset($request->signatureList)) {
+            $body['signatureList'] = $request->signatureList;
         }
-
-        if (null !== $request->sortByList) {
-            @$body['sortByList'] = $request->sortByList;
+        if (!Utils::isUnset($request->sortByList)) {
+            $body['sortByList'] = $request->sortByList;
         }
-
-        if (null !== $request->sortOrderList) {
-            @$body['sortOrderList'] = $request->sortOrderList;
+        if (!Utils::isUnset($request->sortOrderList)) {
+            $body['sortOrderList'] = $request->sortOrderList;
         }
-
-        if (null !== $request->statusList) {
-            @$body['statusList'] = $request->statusList;
+        if (!Utils::isUnset($request->statusList)) {
+            $body['statusList'] = $request->statusList;
         }
-
-        if (null !== $request->to) {
-            @$body['to'] = $request->to;
+        if (!Utils::isUnset($request->to)) {
+            $body['to'] = $request->to;
         }
-
-        if (null !== $request->typeList) {
-            @$body['typeList'] = $request->typeList;
+        if (!Utils::isUnset($request->typeList)) {
+            $body['typeList'] = $request->typeList;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListJobInfos',
@@ -3107,15 +2806,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Views a list of jobs.
+     * @summary Views a list of jobs.
+     *  *
+     * @param ListJobInfosRequest $request ListJobInfosRequest
      *
-     * @param request - ListJobInfosRequest
-     *
-     * @returns ListJobInfosResponse
-     *
-     * @param ListJobInfosRequest $request
-     *
-     * @return ListJobInfosResponse
+     * @return ListJobInfosResponse ListJobInfosResponse
      */
     public function listJobInfos($request)
     {
@@ -3126,61 +2821,47 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieve performance metrics for completed jobs.
+     * @summary Retrieve performance metrics for completed jobs.
+     *  *
+     * @param ListJobMetricRequest $request ListJobMetricRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListJobMetricRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListJobMetricResponse
-     *
-     * @param ListJobMetricRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ListJobMetricResponse
+     * @return ListJobMetricResponse ListJobMetricResponse
      */
     public function listJobMetricWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['endTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['endTime'] = $request->endTime;
         }
-
-        if (null !== $request->startTime) {
-            @$query['startTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['startTime'] = $request->startTime;
         }
-
         $body = [];
-        if (null !== $request->group) {
-            @$body['group'] = $request->group;
+        if (!Utils::isUnset($request->group)) {
+            $body['group'] = $request->group;
         }
-
-        if (null !== $request->metric) {
-            @$body['metric'] = $request->metric;
+        if (!Utils::isUnset($request->metric)) {
+            $body['metric'] = $request->metric;
         }
-
-        if (null !== $request->period) {
-            @$body['period'] = $request->period;
+        if (!Utils::isUnset($request->period)) {
+            $body['period'] = $request->period;
         }
-
-        if (null !== $request->project) {
-            @$body['project'] = $request->project;
+        if (!Utils::isUnset($request->project)) {
+            $body['project'] = $request->project;
         }
-
-        if (null !== $request->quota) {
-            @$body['quota'] = $request->quota;
+        if (!Utils::isUnset($request->quota)) {
+            $body['quota'] = $request->quota;
         }
-
-        if (null !== $request->type) {
-            @$body['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListJobMetric',
@@ -3198,15 +2879,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Retrieve performance metrics for completed jobs.
+     * @summary Retrieve performance metrics for completed jobs.
+     *  *
+     * @param ListJobMetricRequest $request ListJobMetricRequest
      *
-     * @param request - ListJobMetricRequest
-     *
-     * @returns ListJobMetricResponse
-     *
-     * @param ListJobMetricRequest $request
-     *
-     * @return ListJobMetricResponse
+     * @return ListJobMetricResponse ListJobMetricResponse
      */
     public function listJobMetric($request)
     {
@@ -3217,105 +2894,80 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Views a list of job snapshot data at a specific point in time.
+     * @summary Views a list of job snapshot data at a specific point in time.
+     *  *
+     * @param ListJobSnapshotInfosRequest $request ListJobSnapshotInfosRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListJobSnapshotInfosRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListJobSnapshotInfosResponse
-     *
-     * @param ListJobSnapshotInfosRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListJobSnapshotInfosResponse
+     * @return ListJobSnapshotInfosResponse ListJobSnapshotInfosResponse
      */
     public function listJobSnapshotInfosWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->ascOrder) {
-            @$query['ascOrder'] = $request->ascOrder;
+        if (!Utils::isUnset($request->ascOrder)) {
+            $query['ascOrder'] = $request->ascOrder;
         }
-
-        if (null !== $request->orderColumn) {
-            @$query['orderColumn'] = $request->orderColumn;
+        if (!Utils::isUnset($request->orderColumn)) {
+            $query['orderColumn'] = $request->orderColumn;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['pageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->region) {
-            @$query['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
         }
-
-        if (null !== $request->tenantId) {
-            @$query['tenantId'] = $request->tenantId;
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
         }
-
         $body = [];
-        if (null !== $request->extNodeIdList) {
-            @$body['extNodeIdList'] = $request->extNodeIdList;
+        if (!Utils::isUnset($request->extNodeIdList)) {
+            $body['extNodeIdList'] = $request->extNodeIdList;
         }
-
-        if (null !== $request->from) {
-            @$body['from'] = $request->from;
+        if (!Utils::isUnset($request->from)) {
+            $body['from'] = $request->from;
         }
-
-        if (null !== $request->instanceIdList) {
-            @$body['instanceIdList'] = $request->instanceIdList;
+        if (!Utils::isUnset($request->instanceIdList)) {
+            $body['instanceIdList'] = $request->instanceIdList;
         }
-
-        if (null !== $request->jobOwnerList) {
-            @$body['jobOwnerList'] = $request->jobOwnerList;
+        if (!Utils::isUnset($request->jobOwnerList)) {
+            $body['jobOwnerList'] = $request->jobOwnerList;
         }
-
-        if (null !== $request->priorityList) {
-            @$body['priorityList'] = $request->priorityList;
+        if (!Utils::isUnset($request->priorityList)) {
+            $body['priorityList'] = $request->priorityList;
         }
-
-        if (null !== $request->projectList) {
-            @$body['projectList'] = $request->projectList;
+        if (!Utils::isUnset($request->projectList)) {
+            $body['projectList'] = $request->projectList;
         }
-
-        if (null !== $request->quotaNickname) {
-            @$body['quotaNickname'] = $request->quotaNickname;
+        if (!Utils::isUnset($request->quotaNickname)) {
+            $body['quotaNickname'] = $request->quotaNickname;
         }
-
-        if (null !== $request->signatureList) {
-            @$body['signatureList'] = $request->signatureList;
+        if (!Utils::isUnset($request->signatureList)) {
+            $body['signatureList'] = $request->signatureList;
         }
-
-        if (null !== $request->sortByList) {
-            @$body['sortByList'] = $request->sortByList;
+        if (!Utils::isUnset($request->sortByList)) {
+            $body['sortByList'] = $request->sortByList;
         }
-
-        if (null !== $request->sortOrderList) {
-            @$body['sortOrderList'] = $request->sortOrderList;
+        if (!Utils::isUnset($request->sortOrderList)) {
+            $body['sortOrderList'] = $request->sortOrderList;
         }
-
-        if (null !== $request->statusList) {
-            @$body['statusList'] = $request->statusList;
+        if (!Utils::isUnset($request->statusList)) {
+            $body['statusList'] = $request->statusList;
         }
-
-        if (null !== $request->to) {
-            @$body['to'] = $request->to;
+        if (!Utils::isUnset($request->to)) {
+            $body['to'] = $request->to;
         }
-
-        if (null !== $request->typeList) {
-            @$body['typeList'] = $request->typeList;
+        if (!Utils::isUnset($request->typeList)) {
+            $body['typeList'] = $request->typeList;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListJobSnapshotInfos',
@@ -3333,15 +2985,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Views a list of job snapshot data at a specific point in time.
+     * @summary Views a list of job snapshot data at a specific point in time.
+     *  *
+     * @param ListJobSnapshotInfosRequest $request ListJobSnapshotInfosRequest
      *
-     * @param request - ListJobSnapshotInfosRequest
-     *
-     * @returns ListJobSnapshotInfosResponse
-     *
-     * @param ListJobSnapshotInfosRequest $request
-     *
-     * @return ListJobSnapshotInfosResponse
+     * @return ListJobSnapshotInfosResponse ListJobSnapshotInfosResponse
      */
     public function listJobSnapshotInfos($request)
     {
@@ -3352,47 +3000,36 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * ListMmsDataSources.
+     * @summary ListMmsDataSources
+     *  *
+     * @param ListMmsDataSourcesRequest $request ListMmsDataSourcesRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListMmsDataSourcesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListMmsDataSourcesResponse
-     *
-     * @param ListMmsDataSourcesRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return ListMmsDataSourcesResponse
+     * @return ListMmsDataSourcesResponse ListMmsDataSourcesResponse
      */
     public function listMmsDataSourcesWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->name) {
-            @$query['name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['pageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['pageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->region) {
-            @$query['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
         }
-
-        if (null !== $request->type) {
-            @$query['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListMmsDataSources',
@@ -3410,15 +3047,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * ListMmsDataSources.
+     * @summary ListMmsDataSources
+     *  *
+     * @param ListMmsDataSourcesRequest $request ListMmsDataSourcesRequest
      *
-     * @param request - ListMmsDataSourcesRequest
-     *
-     * @returns ListMmsDataSourcesResponse
-     *
-     * @param ListMmsDataSourcesRequest $request
-     *
-     * @return ListMmsDataSourcesResponse
+     * @return ListMmsDataSourcesResponse ListMmsDataSourcesResponse
      */
     public function listMmsDataSources($request)
     {
@@ -3429,60 +3062,48 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 获取一个数据源内“库”列表.
-     *
-     * @param tmpReq - ListMmsDbsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListMmsDbsResponse
-     *
+     * @summary 获取一个数据源内“库”列表
+     *  *
      * @param string            $sourceId
-     * @param ListMmsDbsRequest $tmpReq
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param ListMmsDbsRequest $tmpReq   ListMmsDbsRequest
+     * @param string[]          $headers  map
+     * @param RuntimeOptions    $runtime  runtime options for this request RuntimeOptions
      *
-     * @return ListMmsDbsResponse
+     * @return ListMmsDbsResponse ListMmsDbsResponse
      */
     public function listMmsDbsWithOptions($sourceId, $tmpReq, $headers, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ListMmsDbsShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->sorter) {
-            $request->sorterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sorter, 'sorter', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->sorter)) {
+            $request->sorterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sorter, 'sorter', 'json');
         }
-
         $query = [];
-        if (null !== $request->name) {
-            @$query['name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['pageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['pageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->sorterShrink) {
-            @$query['sorter'] = $request->sorterShrink;
+        if (!Utils::isUnset($request->sorterShrink)) {
+            $query['sorter'] = $request->sorterShrink;
         }
-
-        if (null !== $request->status) {
-            @$query['status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['status'] = $request->status;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListMmsDbs',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/dbs',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '/dbs',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3494,16 +3115,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 获取一个数据源内“库”列表.
-     *
-     * @param request - ListMmsDbsRequest
-     *
-     * @returns ListMmsDbsResponse
-     *
+     * @summary 获取一个数据源内“库”列表
+     *  *
      * @param string            $sourceId
-     * @param ListMmsDbsRequest $request
+     * @param ListMmsDbsRequest $request  ListMmsDbsRequest
      *
-     * @return ListMmsDbsResponse
+     * @return ListMmsDbsResponse ListMmsDbsResponse
      */
     public function listMmsDbs($sourceId, $request)
     {
@@ -3514,74 +3131,58 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * ListMmsJobs.
-     *
-     * @param request - ListMmsJobsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListMmsJobsResponse
-     *
+     * @summary ListMmsJobs
+     *  *
      * @param string             $sourceId
-     * @param ListMmsJobsRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @param ListMmsJobsRequest $request  ListMmsJobsRequest
+     * @param string[]           $headers  map
+     * @param RuntimeOptions     $runtime  runtime options for this request RuntimeOptions
      *
-     * @return ListMmsJobsResponse
+     * @return ListMmsJobsResponse ListMmsJobsResponse
      */
     public function listMmsJobsWithOptions($sourceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dstDbName) {
-            @$query['dstDbName'] = $request->dstDbName;
+        if (!Utils::isUnset($request->dstDbName)) {
+            $query['dstDbName'] = $request->dstDbName;
         }
-
-        if (null !== $request->dstTableName) {
-            @$query['dstTableName'] = $request->dstTableName;
+        if (!Utils::isUnset($request->dstTableName)) {
+            $query['dstTableName'] = $request->dstTableName;
         }
-
-        if (null !== $request->name) {
-            @$query['name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['pageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['pageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->srcDbName) {
-            @$query['srcDbName'] = $request->srcDbName;
+        if (!Utils::isUnset($request->srcDbName)) {
+            $query['srcDbName'] = $request->srcDbName;
         }
-
-        if (null !== $request->srcTableName) {
-            @$query['srcTableName'] = $request->srcTableName;
+        if (!Utils::isUnset($request->srcTableName)) {
+            $query['srcTableName'] = $request->srcTableName;
         }
-
-        if (null !== $request->status) {
-            @$query['status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['status'] = $request->status;
         }
-
-        if (null !== $request->stopped) {
-            @$query['stopped'] = $request->stopped;
+        if (!Utils::isUnset($request->stopped)) {
+            $query['stopped'] = $request->stopped;
         }
-
-        if (null !== $request->sorter) {
-            @$query['sorter'] = $request->sorter;
+        if (!Utils::isUnset($request->sorter)) {
+            $query['sorter'] = $request->sorter;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListMmsJobs',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/jobs',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '/jobs',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3593,16 +3194,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * ListMmsJobs.
-     *
-     * @param request - ListMmsJobsRequest
-     *
-     * @returns ListMmsJobsResponse
-     *
+     * @summary ListMmsJobs
+     *  *
      * @param string             $sourceId
-     * @param ListMmsJobsRequest $request
+     * @param ListMmsJobsRequest $request  ListMmsJobsRequest
      *
-     * @return ListMmsJobsResponse
+     * @return ListMmsJobsResponse ListMmsJobsResponse
      */
     public function listMmsJobs($sourceId, $request)
     {
@@ -3613,84 +3210,66 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 获取元数据-分区.
-     *
-     * @param tmpReq - ListMmsPartitionsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListMmsPartitionsResponse
-     *
+     * @summary 获取元数据-分区
+     *  *
      * @param string                   $sourceId
-     * @param ListMmsPartitionsRequest $tmpReq
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param ListMmsPartitionsRequest $tmpReq   ListMmsPartitionsRequest
+     * @param string[]                 $headers  map
+     * @param RuntimeOptions           $runtime  runtime options for this request RuntimeOptions
      *
-     * @return ListMmsPartitionsResponse
+     * @return ListMmsPartitionsResponse ListMmsPartitionsResponse
      */
     public function listMmsPartitionsWithOptions($sourceId, $tmpReq, $headers, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ListMmsPartitionsShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->status) {
-            $request->statusShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->status, 'status', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->status)) {
+            $request->statusShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->status, 'status', 'json');
         }
-
         $query = [];
-        if (null !== $request->dbId) {
-            @$query['dbId'] = $request->dbId;
+        if (!Utils::isUnset($request->dbId)) {
+            $query['dbId'] = $request->dbId;
         }
-
-        if (null !== $request->dbName) {
-            @$query['dbName'] = $request->dbName;
+        if (!Utils::isUnset($request->dbName)) {
+            $query['dbName'] = $request->dbName;
         }
-
-        if (null !== $request->lastDdlTimeEnd) {
-            @$query['lastDdlTimeEnd'] = $request->lastDdlTimeEnd;
+        if (!Utils::isUnset($request->lastDdlTimeEnd)) {
+            $query['lastDdlTimeEnd'] = $request->lastDdlTimeEnd;
         }
-
-        if (null !== $request->lastDdlTimeStart) {
-            @$query['lastDdlTimeStart'] = $request->lastDdlTimeStart;
+        if (!Utils::isUnset($request->lastDdlTimeStart)) {
+            $query['lastDdlTimeStart'] = $request->lastDdlTimeStart;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['pageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['pageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->statusShrink) {
-            @$query['status'] = $request->statusShrink;
+        if (!Utils::isUnset($request->statusShrink)) {
+            $query['status'] = $request->statusShrink;
         }
-
-        if (null !== $request->tableName) {
-            @$query['tableName'] = $request->tableName;
+        if (!Utils::isUnset($request->tableName)) {
+            $query['tableName'] = $request->tableName;
         }
-
-        if (null !== $request->updated) {
-            @$query['updated'] = $request->updated;
+        if (!Utils::isUnset($request->updated)) {
+            $query['updated'] = $request->updated;
         }
-
-        if (null !== $request->value) {
-            @$query['value'] = $request->value;
+        if (!Utils::isUnset($request->value)) {
+            $query['value'] = $request->value;
         }
-
-        if (null !== $request->sorter) {
-            @$query['sorter'] = $request->sorter;
+        if (!Utils::isUnset($request->sorter)) {
+            $query['sorter'] = $request->sorter;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListMmsPartitions',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/partitions',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '/partitions',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3702,16 +3281,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 获取元数据-分区.
-     *
-     * @param request - ListMmsPartitionsRequest
-     *
-     * @returns ListMmsPartitionsResponse
-     *
+     * @summary 获取元数据-分区
+     *  *
      * @param string                   $sourceId
-     * @param ListMmsPartitionsRequest $request
+     * @param ListMmsPartitionsRequest $request  ListMmsPartitionsRequest
      *
-     * @return ListMmsPartitionsResponse
+     * @return ListMmsPartitionsResponse ListMmsPartitionsResponse
      */
     public function listMmsPartitions($sourceId, $request)
     {
@@ -3722,88 +3297,69 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * ListMmsTables.
-     *
-     * @param tmpReq - ListMmsTablesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListMmsTablesResponse
-     *
+     * @summary ListMmsTables
+     *  *
      * @param string               $sourceId
-     * @param ListMmsTablesRequest $tmpReq
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param ListMmsTablesRequest $tmpReq   ListMmsTablesRequest
+     * @param string[]             $headers  map
+     * @param RuntimeOptions       $runtime  runtime options for this request RuntimeOptions
      *
-     * @return ListMmsTablesResponse
+     * @return ListMmsTablesResponse ListMmsTablesResponse
      */
     public function listMmsTablesWithOptions($sourceId, $tmpReq, $headers, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ListMmsTablesShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->status) {
-            $request->statusShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->status, 'status', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->status)) {
+            $request->statusShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->status, 'status', 'json');
         }
-
         $query = [];
-        if (null !== $request->dbId) {
-            @$query['dbId'] = $request->dbId;
+        if (!Utils::isUnset($request->dbId)) {
+            $query['dbId'] = $request->dbId;
         }
-
-        if (null !== $request->dbName) {
-            @$query['dbName'] = $request->dbName;
+        if (!Utils::isUnset($request->dbName)) {
+            $query['dbName'] = $request->dbName;
         }
-
-        if (null !== $request->hasPartitions) {
-            @$query['hasPartitions'] = $request->hasPartitions;
+        if (!Utils::isUnset($request->hasPartitions)) {
+            $query['hasPartitions'] = $request->hasPartitions;
         }
-
-        if (null !== $request->lastDdlTimeEnd) {
-            @$query['lastDdlTimeEnd'] = $request->lastDdlTimeEnd;
+        if (!Utils::isUnset($request->lastDdlTimeEnd)) {
+            $query['lastDdlTimeEnd'] = $request->lastDdlTimeEnd;
         }
-
-        if (null !== $request->lastDdlTimeStart) {
-            @$query['lastDdlTimeStart'] = $request->lastDdlTimeStart;
+        if (!Utils::isUnset($request->lastDdlTimeStart)) {
+            $query['lastDdlTimeStart'] = $request->lastDdlTimeStart;
         }
-
-        if (null !== $request->name) {
-            @$query['name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
         }
-
-        if (null !== $request->onlyName) {
-            @$query['onlyName'] = $request->onlyName;
+        if (!Utils::isUnset($request->onlyName)) {
+            $query['onlyName'] = $request->onlyName;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['pageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['pageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->statusShrink) {
-            @$query['status'] = $request->statusShrink;
+        if (!Utils::isUnset($request->statusShrink)) {
+            $query['status'] = $request->statusShrink;
         }
-
-        if (null !== $request->type) {
-            @$query['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
         }
-
-        if (null !== $request->sorter) {
-            @$query['sorter'] = $request->sorter;
+        if (!Utils::isUnset($request->sorter)) {
+            $query['sorter'] = $request->sorter;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListMmsTables',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/tables',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '/tables',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3815,16 +3371,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * ListMmsTables.
-     *
-     * @param request - ListMmsTablesRequest
-     *
-     * @returns ListMmsTablesResponse
-     *
+     * @summary ListMmsTables
+     *  *
      * @param string               $sourceId
-     * @param ListMmsTablesRequest $request
+     * @param ListMmsTablesRequest $request  ListMmsTablesRequest
      *
-     * @return ListMmsTablesResponse
+     * @return ListMmsTablesResponse ListMmsTablesResponse
      */
     public function listMmsTables($sourceId, $request)
     {
@@ -3835,19 +3387,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * ListMmsTaskLogs.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListMmsTaskLogsResponse
-     *
+     * @summary ListMmsTaskLogs
+     *  *
      * @param string         $sourceId
      * @param string         $taskId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return ListMmsTaskLogsResponse
+     * @return ListMmsTaskLogsResponse ListMmsTaskLogsResponse
      */
     public function listMmsTaskLogsWithOptions($sourceId, $taskId, $headers, $runtime)
     {
@@ -3858,7 +3405,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'ListMmsTaskLogs',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/tasks/' . Url::percentEncode($taskId) . '/logs',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '/tasks/' . OpenApiUtilClient::getEncodeParam($taskId) . '/logs',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3870,14 +3417,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * ListMmsTaskLogs.
-     *
-     * @returns ListMmsTaskLogsResponse
-     *
+     * @summary ListMmsTaskLogs
+     *  *
      * @param string $sourceId
      * @param string $taskId
      *
-     * @return ListMmsTaskLogsResponse
+     * @return ListMmsTaskLogsResponse ListMmsTaskLogsResponse
      */
     public function listMmsTaskLogs($sourceId, $taskId)
     {
@@ -3888,78 +3433,61 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * ListMmsTasks.
-     *
-     * @param request - ListMmsTasksRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListMmsTasksResponse
-     *
+     * @summary ListMmsTasks
+     *  *
      * @param string              $sourceId
-     * @param ListMmsTasksRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param ListMmsTasksRequest $request  ListMmsTasksRequest
+     * @param string[]            $headers  map
+     * @param RuntimeOptions      $runtime  runtime options for this request RuntimeOptions
      *
-     * @return ListMmsTasksResponse
+     * @return ListMmsTasksResponse ListMmsTasksResponse
      */
     public function listMmsTasksWithOptions($sourceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->dstDbName) {
-            @$query['dstDbName'] = $request->dstDbName;
+        if (!Utils::isUnset($request->dstDbName)) {
+            $query['dstDbName'] = $request->dstDbName;
         }
-
-        if (null !== $request->dstTableName) {
-            @$query['dstTableName'] = $request->dstTableName;
+        if (!Utils::isUnset($request->dstTableName)) {
+            $query['dstTableName'] = $request->dstTableName;
         }
-
-        if (null !== $request->jobId) {
-            @$query['jobId'] = $request->jobId;
+        if (!Utils::isUnset($request->jobId)) {
+            $query['jobId'] = $request->jobId;
         }
-
-        if (null !== $request->jobName) {
-            @$query['jobName'] = $request->jobName;
+        if (!Utils::isUnset($request->jobName)) {
+            $query['jobName'] = $request->jobName;
         }
-
-        if (null !== $request->pageNum) {
-            @$query['pageNum'] = $request->pageNum;
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['pageNum'] = $request->pageNum;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->partition) {
-            @$query['partition'] = $request->partition;
+        if (!Utils::isUnset($request->partition)) {
+            $query['partition'] = $request->partition;
         }
-
-        if (null !== $request->srcDbName) {
-            @$query['srcDbName'] = $request->srcDbName;
+        if (!Utils::isUnset($request->srcDbName)) {
+            $query['srcDbName'] = $request->srcDbName;
         }
-
-        if (null !== $request->srcTableName) {
-            @$query['srcTableName'] = $request->srcTableName;
+        if (!Utils::isUnset($request->srcTableName)) {
+            $query['srcTableName'] = $request->srcTableName;
         }
-
-        if (null !== $request->status) {
-            @$query['status'] = $request->status;
+        if (!Utils::isUnset($request->status)) {
+            $query['status'] = $request->status;
         }
-
-        if (null !== $request->sorter) {
-            @$query['sorter'] = $request->sorter;
+        if (!Utils::isUnset($request->sorter)) {
+            $query['sorter'] = $request->sorter;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListMmsTasks',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/tasks',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '/tasks',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -3971,16 +3499,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * ListMmsTasks.
-     *
-     * @param request - ListMmsTasksRequest
-     *
-     * @returns ListMmsTasksResponse
-     *
+     * @summary ListMmsTasks
+     *  *
      * @param string              $sourceId
-     * @param ListMmsTasksRequest $request
+     * @param ListMmsTasksRequest $request  ListMmsTasksRequest
      *
-     * @return ListMmsTasksResponse
+     * @return ListMmsTasksResponse ListMmsTasksResponse
      */
     public function listMmsTasks($sourceId, $request)
     {
@@ -3991,18 +3515,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the packages in a MaxCompute project.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListPackagesResponse
-     *
+     * @summary Queries the packages in a MaxCompute project.
+     *  *
      * @param string         $projectName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListPackagesResponse
+     * @return ListPackagesResponse ListPackagesResponse
      */
     public function listPackagesWithOptions($projectName, $headers, $runtime)
     {
@@ -4013,7 +3532,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'ListPackages',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/packages',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/packages',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4025,13 +3544,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the packages in a MaxCompute project.
-     *
-     * @returns ListPackagesResponse
-     *
+     * @summary Queries the packages in a MaxCompute project.
+     *  *
      * @param string $projectName
      *
-     * @return ListPackagesResponse
+     * @return ListPackagesResponse ListPackagesResponse
      */
     public function listPackages($projectName)
     {
@@ -4042,18 +3559,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of users in a project.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListProjectUsersResponse
-     *
+     * @summary Queries a list of users in a project.
+     *  *
      * @param string         $projectName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListProjectUsersResponse
+     * @return ListProjectUsersResponse ListProjectUsersResponse
      */
     public function listProjectUsersWithOptions($projectName, $headers, $runtime)
     {
@@ -4064,7 +3576,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'ListProjectUsers',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/users',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/users',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4076,13 +3588,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of users in a project.
-     *
-     * @returns ListProjectUsersResponse
-     *
+     * @summary Queries a list of users in a project.
+     *  *
      * @param string $projectName
      *
-     * @return ListProjectUsersResponse
+     * @return ListProjectUsersResponse ListProjectUsersResponse
      */
     public function listProjectUsers($projectName)
     {
@@ -4093,67 +3603,51 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of MaxCompute projects.
+     * @summary Queries a list of MaxCompute projects.
+     *  *
+     * @param ListProjectsRequest $request ListProjectsRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListProjectsRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListProjectsResponse
-     *
-     * @param ListProjectsRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListProjectsResponse
+     * @return ListProjectsResponse ListProjectsResponse
      */
     public function listProjectsWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->listSystemCatalog) {
-            @$query['listSystemCatalog'] = $request->listSystemCatalog;
+        if (!Utils::isUnset($request->listSystemCatalog)) {
+            $query['listSystemCatalog'] = $request->listSystemCatalog;
         }
-
-        if (null !== $request->marker) {
-            @$query['marker'] = $request->marker;
+        if (!Utils::isUnset($request->marker)) {
+            $query['marker'] = $request->marker;
         }
-
-        if (null !== $request->maxItem) {
-            @$query['maxItem'] = $request->maxItem;
+        if (!Utils::isUnset($request->maxItem)) {
+            $query['maxItem'] = $request->maxItem;
         }
-
-        if (null !== $request->prefix) {
-            @$query['prefix'] = $request->prefix;
+        if (!Utils::isUnset($request->prefix)) {
+            $query['prefix'] = $request->prefix;
         }
-
-        if (null !== $request->quotaName) {
-            @$query['quotaName'] = $request->quotaName;
+        if (!Utils::isUnset($request->quotaName)) {
+            $query['quotaName'] = $request->quotaName;
         }
-
-        if (null !== $request->quotaNickName) {
-            @$query['quotaNickName'] = $request->quotaNickName;
+        if (!Utils::isUnset($request->quotaNickName)) {
+            $query['quotaNickName'] = $request->quotaNickName;
         }
-
-        if (null !== $request->region) {
-            @$query['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
         }
-
-        if (null !== $request->saleTags) {
-            @$query['saleTags'] = $request->saleTags;
+        if (!Utils::isUnset($request->saleTags)) {
+            $query['saleTags'] = $request->saleTags;
         }
-
-        if (null !== $request->tenantId) {
-            @$query['tenantId'] = $request->tenantId;
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
         }
-
-        if (null !== $request->type) {
-            @$query['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListProjects',
@@ -4171,15 +3665,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of MaxCompute projects.
+     * @summary Queries a list of MaxCompute projects.
+     *  *
+     * @param ListProjectsRequest $request ListProjectsRequest
      *
-     * @param request - ListProjectsRequest
-     *
-     * @returns ListProjectsResponse
-     *
-     * @param ListProjectsRequest $request
-     *
-     * @return ListProjectsResponse
+     * @return ListProjectsResponse ListProjectsResponse
      */
     public function listProjects($request)
     {
@@ -4190,55 +3680,42 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries quotas.
+     * @summary Queries quotas.
+     *  *
+     * @param ListQuotasRequest $request ListQuotasRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListQuotasRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListQuotasResponse
-     *
-     * @param ListQuotasRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
-     *
-     * @return ListQuotasResponse
+     * @return ListQuotasResponse ListQuotasResponse
      */
     public function listQuotasWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->billingType) {
-            @$query['billingType'] = $request->billingType;
+        if (!Utils::isUnset($request->billingType)) {
+            $query['billingType'] = $request->billingType;
         }
-
-        if (null !== $request->marker) {
-            @$query['marker'] = $request->marker;
+        if (!Utils::isUnset($request->marker)) {
+            $query['marker'] = $request->marker;
         }
-
-        if (null !== $request->maxItem) {
-            @$query['maxItem'] = $request->maxItem;
+        if (!Utils::isUnset($request->maxItem)) {
+            $query['maxItem'] = $request->maxItem;
         }
-
-        if (null !== $request->productId) {
-            @$query['productId'] = $request->productId;
+        if (!Utils::isUnset($request->productId)) {
+            $query['productId'] = $request->productId;
         }
-
-        if (null !== $request->region) {
-            @$query['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
         }
-
-        if (null !== $request->saleTags) {
-            @$query['saleTags'] = $request->saleTags;
+        if (!Utils::isUnset($request->saleTags)) {
+            $query['saleTags'] = $request->saleTags;
         }
-
-        if (null !== $request->tenantId) {
-            @$query['tenantId'] = $request->tenantId;
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListQuotas',
@@ -4256,15 +3733,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries quotas.
+     * @summary Queries quotas.
+     *  *
+     * @param ListQuotasRequest $request ListQuotasRequest
      *
-     * @param request - ListQuotasRequest
-     *
-     * @returns ListQuotasResponse
-     *
-     * @param ListQuotasRequest $request
-     *
-     * @return ListQuotasResponse
+     * @return ListQuotasResponse ListQuotasResponse
      */
     public function listQuotas($request)
     {
@@ -4275,42 +3748,34 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains quota plans.
-     *
-     * @param request - ListQuotasPlansRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListQuotasPlansResponse
-     *
+     * @summary Obtains quota plans.
+     *  *
      * @param string                 $nickname
-     * @param ListQuotasPlansRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param ListQuotasPlansRequest $request  ListQuotasPlansRequest
+     * @param string[]               $headers  map
+     * @param RuntimeOptions         $runtime  runtime options for this request RuntimeOptions
      *
-     * @return ListQuotasPlansResponse
+     * @return ListQuotasPlansResponse ListQuotasPlansResponse
      */
     public function listQuotasPlansWithOptions($nickname, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->region) {
-            @$query['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
         }
-
-        if (null !== $request->tenantId) {
-            @$query['tenantId'] = $request->tenantId;
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListQuotasPlans',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . Url::percentEncode($nickname) . '/plans',
+            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '/plans',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4322,16 +3787,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains quota plans.
-     *
-     * @param request - ListQuotasPlansRequest
-     *
-     * @returns ListQuotasPlansResponse
-     *
+     * @summary Obtains quota plans.
+     *  *
      * @param string                 $nickname
-     * @param ListQuotasPlansRequest $request
+     * @param ListQuotasPlansRequest $request  ListQuotasPlansRequest
      *
-     * @return ListQuotasPlansResponse
+     * @return ListQuotasPlansResponse ListQuotasPlansResponse
      */
     public function listQuotasPlans($nickname, $request)
     {
@@ -4342,50 +3803,40 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains resources in a MaxCompute project.
-     *
-     * @param request - ListResourcesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListResourcesResponse
-     *
+     * @summary Obtains resources in a MaxCompute project.
+     *  *
      * @param string               $projectName
-     * @param ListResourcesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param ListResourcesRequest $request     ListResourcesRequest
+     * @param string[]             $headers     map
+     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListResourcesResponse
+     * @return ListResourcesResponse ListResourcesResponse
      */
     public function listResourcesWithOptions($projectName, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->marker) {
-            @$query['marker'] = $request->marker;
+        if (!Utils::isUnset($request->marker)) {
+            $query['marker'] = $request->marker;
         }
-
-        if (null !== $request->maxItem) {
-            @$query['maxItem'] = $request->maxItem;
+        if (!Utils::isUnset($request->maxItem)) {
+            $query['maxItem'] = $request->maxItem;
         }
-
-        if (null !== $request->name) {
-            @$query['name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
         }
-
-        if (null !== $request->schemaName) {
-            @$query['schemaName'] = $request->schemaName;
+        if (!Utils::isUnset($request->schemaName)) {
+            $query['schemaName'] = $request->schemaName;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListResources',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/resources',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/resources',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4397,16 +3848,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains resources in a MaxCompute project.
-     *
-     * @param request - ListResourcesRequest
-     *
-     * @returns ListResourcesResponse
-     *
+     * @summary Obtains resources in a MaxCompute project.
+     *  *
      * @param string               $projectName
-     * @param ListResourcesRequest $request
+     * @param ListResourcesRequest $request     ListResourcesRequest
      *
-     * @return ListResourcesResponse
+     * @return ListResourcesResponse ListResourcesResponse
      */
     public function listResources($projectName, $request)
     {
@@ -4417,18 +3864,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains MaxCompute project-level roles.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListRolesResponse
-     *
+     * @summary Obtains MaxCompute project-level roles.
+     *  *
      * @param string         $projectName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListRolesResponse
+     * @return ListRolesResponse ListRolesResponse
      */
     public function listRolesWithOptions($projectName, $headers, $runtime)
     {
@@ -4439,7 +3881,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'ListRoles',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/roles',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/roles',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4451,13 +3893,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains MaxCompute project-level roles.
-     *
-     * @returns ListRolesResponse
-     *
+     * @summary Obtains MaxCompute project-level roles.
+     *  *
      * @param string $projectName
      *
-     * @return ListRolesResponse
+     * @return ListRolesResponse ListRolesResponse
      */
     public function listRoles($projectName)
     {
@@ -4468,81 +3908,64 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the storage details of a specific partition in a partitioned table in a MaxCompute project.
-     *
-     * @param tmpReq - ListStoragePartitionsInfoRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListStoragePartitionsInfoResponse
-     *
+     * @summary Queries the storage details of a specific partition in a partitioned table in a MaxCompute project.
+     *  *
      * @param string                           $project
      * @param string                           $table
-     * @param ListStoragePartitionsInfoRequest $tmpReq
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param ListStoragePartitionsInfoRequest $tmpReq  ListStoragePartitionsInfoRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListStoragePartitionsInfoResponse
+     * @return ListStoragePartitionsInfoResponse ListStoragePartitionsInfoResponse
      */
     public function listStoragePartitionsInfoWithOptions($project, $table, $tmpReq, $headers, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ListStoragePartitionsInfoShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->types) {
-            $request->typesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->types, 'types', 'json');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->types)) {
+            $request->typesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->types, 'types', 'json');
         }
-
         $query = [];
-        if (null !== $request->ascOrder) {
-            @$query['ascOrder'] = $request->ascOrder;
+        if (!Utils::isUnset($request->ascOrder)) {
+            $query['ascOrder'] = $request->ascOrder;
         }
-
-        if (null !== $request->date) {
-            @$query['date'] = $request->date;
+        if (!Utils::isUnset($request->date)) {
+            $query['date'] = $request->date;
         }
-
-        if (null !== $request->orderColumn) {
-            @$query['orderColumn'] = $request->orderColumn;
+        if (!Utils::isUnset($request->orderColumn)) {
+            $query['orderColumn'] = $request->orderColumn;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['pageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->partitionPrefix) {
-            @$query['partitionPrefix'] = $request->partitionPrefix;
+        if (!Utils::isUnset($request->partitionPrefix)) {
+            $query['partitionPrefix'] = $request->partitionPrefix;
         }
-
-        if (null !== $request->region) {
-            @$query['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
         }
-
-        if (null !== $request->schema) {
-            @$query['schema'] = $request->schema;
+        if (!Utils::isUnset($request->schema)) {
+            $query['schema'] = $request->schema;
         }
-
-        if (null !== $request->tenantId) {
-            @$query['tenantId'] = $request->tenantId;
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
         }
-
-        if (null !== $request->typesShrink) {
-            @$query['types'] = $request->typesShrink;
+        if (!Utils::isUnset($request->typesShrink)) {
+            $query['types'] = $request->typesShrink;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListStoragePartitionsInfo',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/observations/analysis/storage/projects/' . Url::percentEncode($project) . '/tables/' . Url::percentEncode($table) . '/partitionsInfo',
+            'pathname' => '/api/v1/observations/analysis/storage/projects/' . OpenApiUtilClient::getEncodeParam($project) . '/tables/' . OpenApiUtilClient::getEncodeParam($table) . '/partitionsInfo',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4554,17 +3977,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the storage details of a specific partition in a partitioned table in a MaxCompute project.
-     *
-     * @param request - ListStoragePartitionsInfoRequest
-     *
-     * @returns ListStoragePartitionsInfoResponse
-     *
+     * @summary Queries the storage details of a specific partition in a partitioned table in a MaxCompute project.
+     *  *
      * @param string                           $project
      * @param string                           $table
-     * @param ListStoragePartitionsInfoRequest $request
+     * @param ListStoragePartitionsInfoRequest $request ListStoragePartitionsInfoRequest
      *
-     * @return ListStoragePartitionsInfoResponse
+     * @return ListStoragePartitionsInfoResponse ListStoragePartitionsInfoResponse
      */
     public function listStoragePartitionsInfo($project, $table, $request)
     {
@@ -4575,84 +3994,136 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the table storage details of a MaxCompute project.
+     * @param ListStorageProjectsInfoRequest $request ListStorageProjectsInfoRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @param tmpReq - ListStorageTablesInfoRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return ListStorageProjectsInfoResponse ListStorageProjectsInfoResponse
+     */
+    public function listStorageProjectsInfoWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ascOrder)) {
+            $query['ascOrder'] = $request->ascOrder;
+        }
+        if (!Utils::isUnset($request->date)) {
+            $query['date'] = $request->date;
+        }
+        if (!Utils::isUnset($request->orderColumn)) {
+            $query['orderColumn'] = $request->orderColumn;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->projectPrefix)) {
+            $query['projectPrefix'] = $request->projectPrefix;
+        }
+        if (!Utils::isUnset($request->recentDays)) {
+            $query['recentDays'] = $request->recentDays;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListStorageProjectsInfo',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/observations/analysis/storage/projectsInfo',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return ListStorageProjectsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListStorageProjectsInfoRequest $request ListStorageProjectsInfoRequest
      *
-     * @returns ListStorageTablesInfoResponse
-     *
+     * @return ListStorageProjectsInfoResponse ListStorageProjectsInfoResponse
+     */
+    public function listStorageProjectsInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listStorageProjectsInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Queries the table storage details of a MaxCompute project.
+     *  *
      * @param string                       $project
-     * @param ListStorageTablesInfoRequest $tmpReq
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param ListStorageTablesInfoRequest $tmpReq  ListStorageTablesInfoRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListStorageTablesInfoResponse
+     * @return ListStorageTablesInfoResponse ListStorageTablesInfoResponse
      */
     public function listStorageTablesInfoWithOptions($project, $tmpReq, $headers, $runtime)
     {
-        $tmpReq->validate();
+        Utils::validateModel($tmpReq);
         $request = new ListStorageTablesInfoShrinkRequest([]);
-        Utils::convert($tmpReq, $request);
-        if (null !== $tmpReq->types) {
-            $request->typesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->types, 'types', 'simple');
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->types)) {
+            $request->typesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->types, 'types', 'simple');
         }
-
         $query = [];
-        if (null !== $request->ascOrder) {
-            @$query['ascOrder'] = $request->ascOrder;
+        if (!Utils::isUnset($request->ascOrder)) {
+            $query['ascOrder'] = $request->ascOrder;
         }
-
-        if (null !== $request->date) {
-            @$query['date'] = $request->date;
+        if (!Utils::isUnset($request->date)) {
+            $query['date'] = $request->date;
         }
-
-        if (null !== $request->orderColumn) {
-            @$query['orderColumn'] = $request->orderColumn;
+        if (!Utils::isUnset($request->orderColumn)) {
+            $query['orderColumn'] = $request->orderColumn;
         }
-
-        if (null !== $request->pageNumber) {
-            @$query['pageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
-        if (null !== $request->recentDays) {
-            @$query['recentDays'] = $request->recentDays;
+        if (!Utils::isUnset($request->recentDays)) {
+            $query['recentDays'] = $request->recentDays;
         }
-
-        if (null !== $request->region) {
-            @$query['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
         }
-
-        if (null !== $request->schema) {
-            @$query['schema'] = $request->schema;
+        if (!Utils::isUnset($request->schema)) {
+            $query['schema'] = $request->schema;
         }
-
-        if (null !== $request->tablePrefix) {
-            @$query['tablePrefix'] = $request->tablePrefix;
+        if (!Utils::isUnset($request->tablePrefix)) {
+            $query['tablePrefix'] = $request->tablePrefix;
         }
-
-        if (null !== $request->tenantId) {
-            @$query['tenantId'] = $request->tenantId;
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
         }
-
-        if (null !== $request->typesShrink) {
-            @$query['types'] = $request->typesShrink;
+        if (!Utils::isUnset($request->typesShrink)) {
+            $query['types'] = $request->typesShrink;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListStorageTablesInfo',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/observations/analysis/storage/projects/' . Url::percentEncode($project) . '/tablesInfo',
+            'pathname' => '/api/v1/observations/analysis/storage/projects/' . OpenApiUtilClient::getEncodeParam($project) . '/tablesInfo',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4664,16 +4135,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the table storage details of a MaxCompute project.
-     *
-     * @param request - ListStorageTablesInfoRequest
-     *
-     * @returns ListStorageTablesInfoResponse
-     *
+     * @summary Queries the table storage details of a MaxCompute project.
+     *  *
      * @param string                       $project
-     * @param ListStorageTablesInfoRequest $request
+     * @param ListStorageTablesInfoRequest $request ListStorageTablesInfoRequest
      *
-     * @return ListStorageTablesInfoResponse
+     * @return ListStorageTablesInfoResponse ListStorageTablesInfoResponse
      */
     public function listStorageTablesInfo($project, $request)
     {
@@ -4684,54 +4151,43 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains tables in a MaxCompute project.
-     *
-     * @param request - ListTablesRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListTablesResponse
-     *
+     * @summary Obtains tables in a MaxCompute project.
+     *  *
      * @param string            $projectName
-     * @param ListTablesRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param ListTablesRequest $request     ListTablesRequest
+     * @param string[]          $headers     map
+     * @param RuntimeOptions    $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListTablesResponse
+     * @return ListTablesResponse ListTablesResponse
      */
     public function listTablesWithOptions($projectName, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->marker) {
-            @$query['marker'] = $request->marker;
+        if (!Utils::isUnset($request->marker)) {
+            $query['marker'] = $request->marker;
         }
-
-        if (null !== $request->maxItem) {
-            @$query['maxItem'] = $request->maxItem;
+        if (!Utils::isUnset($request->maxItem)) {
+            $query['maxItem'] = $request->maxItem;
         }
-
-        if (null !== $request->prefix) {
-            @$query['prefix'] = $request->prefix;
+        if (!Utils::isUnset($request->prefix)) {
+            $query['prefix'] = $request->prefix;
         }
-
-        if (null !== $request->schemaName) {
-            @$query['schemaName'] = $request->schemaName;
+        if (!Utils::isUnset($request->schemaName)) {
+            $query['schemaName'] = $request->schemaName;
         }
-
-        if (null !== $request->type) {
-            @$query['type'] = $request->type;
+        if (!Utils::isUnset($request->type)) {
+            $query['type'] = $request->type;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTables',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/tables',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/tables',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4743,16 +4199,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains tables in a MaxCompute project.
-     *
-     * @param request - ListTablesRequest
-     *
-     * @returns ListTablesResponse
-     *
+     * @summary Obtains tables in a MaxCompute project.
+     *  *
      * @param string            $projectName
-     * @param ListTablesRequest $request
+     * @param ListTablesRequest $request     ListTablesRequest
      *
-     * @return ListTablesResponse
+     * @return ListTablesResponse ListTablesResponse
      */
     public function listTables($projectName, $request)
     {
@@ -4763,18 +4215,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Displays the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListTunnelQuotaTimerResponse
-     *
+     * @summary Displays the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
+     *  *
      * @param string         $nickname
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return ListTunnelQuotaTimerResponse
+     * @return ListTunnelQuotaTimerResponse ListTunnelQuotaTimerResponse
      */
     public function listTunnelQuotaTimerWithOptions($nickname, $headers, $runtime)
     {
@@ -4785,7 +4232,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'ListTunnelQuotaTimer',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/tunnel/' . Url::percentEncode($nickname) . '/timers',
+            'pathname' => '/api/v1/tunnel/' . OpenApiUtilClient::getEncodeParam($nickname) . '/timers',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4797,13 +4244,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Displays the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
-     *
-     * @returns ListTunnelQuotaTimerResponse
-     *
+     * @summary Displays the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
+     *  *
      * @param string $nickname
      *
-     * @return ListTunnelQuotaTimerResponse
+     * @return ListTunnelQuotaTimerResponse ListTunnelQuotaTimerResponse
      */
     public function listTunnelQuotaTimer($nickname)
     {
@@ -4814,35 +4259,27 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of all users under a tenant.
+     * @summary Queries a list of all users under a tenant.
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - ListUsersRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListUsersResponse
-     *
-     * @param ListUsersRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsersWithOptions($request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->pageNumber) {
-            @$query['pageNumber'] = $request->pageNumber;
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
         }
-
-        if (null !== $request->pageSize) {
-            @$query['pageSize'] = $request->pageSize;
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'ListUsers',
@@ -4860,15 +4297,11 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries a list of all users under a tenant.
+     * @summary Queries a list of all users under a tenant.
+     *  *
+     * @param ListUsersRequest $request ListUsersRequest
      *
-     * @param request - ListUsersRequest
-     *
-     * @returns ListUsersResponse
-     *
-     * @param ListUsersRequest $request
-     *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsers($request)
     {
@@ -4879,19 +4312,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains information about the users who are assigned a project-level role.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns ListUsersByRoleResponse
-     *
+     * @summary Obtains information about the users who are assigned a project-level role.
+     *  *
      * @param string         $projectName
      * @param string         $roleName
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ListUsersByRoleResponse
+     * @return ListUsersByRoleResponse ListUsersByRoleResponse
      */
     public function listUsersByRoleWithOptions($projectName, $roleName, $headers, $runtime)
     {
@@ -4902,7 +4330,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'ListUsersByRole',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/roles/' . Url::percentEncode($roleName) . '/users',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/roles/' . OpenApiUtilClient::getEncodeParam($roleName) . '/users',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4914,14 +4342,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Obtains information about the users who are assigned a project-level role.
-     *
-     * @returns ListUsersByRoleResponse
-     *
+     * @summary Obtains information about the users who are assigned a project-level role.
+     *  *
      * @param string $projectName
      * @param string $roleName
      *
-     * @return ListUsersByRoleResponse
+     * @return ListUsersByRoleResponse ListUsersByRoleResponse
      */
     public function listUsersByRole($projectName, $roleName)
     {
@@ -4932,50 +4358,40 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the information about a specified level-1 quota group.
-     *
-     * @param request - QueryQuotaRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryQuotaResponse
-     *
+     * @summary Queries the information about a specified level-1 quota group.
+     *  *
      * @param string            $nickname
-     * @param QueryQuotaRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * @param QueryQuotaRequest $request  QueryQuotaRequest
+     * @param string[]          $headers  map
+     * @param RuntimeOptions    $runtime  runtime options for this request RuntimeOptions
      *
-     * @return QueryQuotaResponse
+     * @return QueryQuotaResponse QueryQuotaResponse
      */
     public function queryQuotaWithOptions($nickname, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->akProven) {
-            @$query['AkProven'] = $request->akProven;
+        if (!Utils::isUnset($request->akProven)) {
+            $query['AkProven'] = $request->akProven;
         }
-
-        if (null !== $request->mock) {
-            @$query['mock'] = $request->mock;
+        if (!Utils::isUnset($request->mock)) {
+            $query['mock'] = $request->mock;
         }
-
-        if (null !== $request->region) {
-            @$query['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
         }
-
-        if (null !== $request->tenantId) {
-            @$query['tenantId'] = $request->tenantId;
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryQuota',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . Url::percentEncode($nickname) . '/query',
+            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '/query',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -4987,16 +4403,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Queries the information about a specified level-1 quota group.
-     *
-     * @param request - QueryQuotaRequest
-     *
-     * @returns QueryQuotaResponse
-     *
+     * @summary Queries the information about a specified level-1 quota group.
+     *  *
      * @param string            $nickname
-     * @param QueryQuotaRequest $request
+     * @param QueryQuotaRequest $request  QueryQuotaRequest
      *
-     * @return QueryQuotaResponse
+     * @return QueryQuotaResponse QueryQuotaResponse
      */
     public function queryQuota($nickname, $request)
     {
@@ -5007,76 +4419,123 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 查询tunnel资源使用信息.
+     * @summary 查看存储数据的时序指标
+     *  *
+     * @param string                    $metric
+     * @param QueryStorageMetricRequest $request QueryStorageMetricRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @param request - QueryTunnelMetricRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
+     * @return QueryStorageMetricResponse QueryStorageMetricResponse
+     */
+    public function queryStorageMetricWithOptions($metric, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['startTime'] = $request->startTime;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->projectList)) {
+            $body['projectList'] = $request->projectList;
+        }
+        if (!Utils::isUnset($request->typeList)) {
+            $body['typeList'] = $request->typeList;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'QueryStorageMetric',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/observations/storage/' . OpenApiUtilClient::getEncodeParam($metric) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryStorageMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看存储数据的时序指标
+     *  *
+     * @param string                    $metric
+     * @param QueryStorageMetricRequest $request QueryStorageMetricRequest
      *
-     * @returns QueryTunnelMetricResponse
-     *
+     * @return QueryStorageMetricResponse QueryStorageMetricResponse
+     */
+    public function queryStorageMetric($metric, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryStorageMetricWithOptions($metric, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询tunnel资源使用信息
+     *  *
      * @param string                   $metric
-     * @param QueryTunnelMetricRequest $request
-     * @param string[]                 $headers
-     * @param RuntimeOptions           $runtime
+     * @param QueryTunnelMetricRequest $request QueryTunnelMetricRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryTunnelMetricResponse
+     * @return QueryTunnelMetricResponse QueryTunnelMetricResponse
      */
     public function queryTunnelMetricWithOptions($metric, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['endTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['endTime'] = $request->endTime;
         }
-
-        if (null !== $request->startTime) {
-            @$query['startTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['startTime'] = $request->startTime;
         }
-
-        if (null !== $request->strategy) {
-            @$query['strategy'] = $request->strategy;
+        if (!Utils::isUnset($request->strategy)) {
+            $query['strategy'] = $request->strategy;
         }
-
         $body = [];
-        if (null !== $request->codeList) {
-            @$body['codeList'] = $request->codeList;
+        if (!Utils::isUnset($request->codeList)) {
+            $body['codeList'] = $request->codeList;
         }
-
-        if (null !== $request->groupList) {
-            @$body['groupList'] = $request->groupList;
+        if (!Utils::isUnset($request->groupList)) {
+            $body['groupList'] = $request->groupList;
         }
-
-        if (null !== $request->operationList) {
-            @$body['operationList'] = $request->operationList;
+        if (!Utils::isUnset($request->operationList)) {
+            $body['operationList'] = $request->operationList;
         }
-
-        if (null !== $request->project) {
-            @$body['project'] = $request->project;
+        if (!Utils::isUnset($request->project)) {
+            $body['project'] = $request->project;
         }
-
-        if (null !== $request->quotaNickname) {
-            @$body['quotaNickname'] = $request->quotaNickname;
+        if (!Utils::isUnset($request->quotaNickname)) {
+            $body['quotaNickname'] = $request->quotaNickname;
         }
-
-        if (null !== $request->tableList) {
-            @$body['tableList'] = $request->tableList;
+        if (!Utils::isUnset($request->tableList)) {
+            $body['tableList'] = $request->tableList;
         }
-
-        if (null !== $request->topN) {
-            @$body['topN'] = $request->topN;
+        if (!Utils::isUnset($request->topN)) {
+            $body['topN'] = $request->topN;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'QueryTunnelMetric',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/observations/tunnel/' . Url::percentEncode($metric) . '',
+            'pathname' => '/api/v1/observations/tunnel/' . OpenApiUtilClient::getEncodeParam($metric) . '',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5088,16 +4547,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 查询tunnel资源使用信息.
-     *
-     * @param request - QueryTunnelMetricRequest
-     *
-     * @returns QueryTunnelMetricResponse
-     *
+     * @summary 查询tunnel资源使用信息
+     *  *
      * @param string                   $metric
-     * @param QueryTunnelMetricRequest $request
+     * @param QueryTunnelMetricRequest $request QueryTunnelMetricRequest
      *
-     * @return QueryTunnelMetricResponse
+     * @return QueryTunnelMetricResponse QueryTunnelMetricResponse
      */
     public function queryTunnelMetric($metric, $request)
     {
@@ -5108,76 +4563,60 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 查询tunnel资源使用详情.
-     *
-     * @param request - QueryTunnelMetricDetailRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns QueryTunnelMetricDetailResponse
-     *
+     * @summary 查询tunnel资源使用详情
+     *  *
      * @param string                         $metric
-     * @param QueryTunnelMetricDetailRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param QueryTunnelMetricDetailRequest $request QueryTunnelMetricDetailRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryTunnelMetricDetailResponse
+     * @return QueryTunnelMetricDetailResponse QueryTunnelMetricDetailResponse
      */
     public function queryTunnelMetricDetailWithOptions($metric, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->endTime) {
-            @$query['endTime'] = $request->endTime;
+        if (!Utils::isUnset($request->endTime)) {
+            $query['endTime'] = $request->endTime;
         }
-
-        if (null !== $request->startTime) {
-            @$query['startTime'] = $request->startTime;
+        if (!Utils::isUnset($request->startTime)) {
+            $query['startTime'] = $request->startTime;
         }
-
         $body = [];
-        if (null !== $request->ascOrder) {
-            @$body['ascOrder'] = $request->ascOrder;
+        if (!Utils::isUnset($request->ascOrder)) {
+            $body['ascOrder'] = $request->ascOrder;
         }
-
-        if (null !== $request->groupList) {
-            @$body['groupList'] = $request->groupList;
+        if (!Utils::isUnset($request->groupList)) {
+            $body['groupList'] = $request->groupList;
         }
-
-        if (null !== $request->limit) {
-            @$body['limit'] = $request->limit;
+        if (!Utils::isUnset($request->limit)) {
+            $body['limit'] = $request->limit;
         }
-
-        if (null !== $request->operationList) {
-            @$body['operationList'] = $request->operationList;
+        if (!Utils::isUnset($request->operationList)) {
+            $body['operationList'] = $request->operationList;
         }
-
-        if (null !== $request->orderColumn) {
-            @$body['orderColumn'] = $request->orderColumn;
+        if (!Utils::isUnset($request->orderColumn)) {
+            $body['orderColumn'] = $request->orderColumn;
         }
-
-        if (null !== $request->project) {
-            @$body['project'] = $request->project;
+        if (!Utils::isUnset($request->project)) {
+            $body['project'] = $request->project;
         }
-
-        if (null !== $request->quotaNickname) {
-            @$body['quotaNickname'] = $request->quotaNickname;
+        if (!Utils::isUnset($request->quotaNickname)) {
+            $body['quotaNickname'] = $request->quotaNickname;
         }
-
-        if (null !== $request->tableList) {
-            @$body['tableList'] = $request->tableList;
+        if (!Utils::isUnset($request->tableList)) {
+            $body['tableList'] = $request->tableList;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
-            'body' => Utils::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'QueryTunnelMetricDetail',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/observations/tunnel/' . Url::percentEncode($metric) . '/detail',
+            'pathname' => '/api/v1/observations/tunnel/' . OpenApiUtilClient::getEncodeParam($metric) . '/detail',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5189,16 +4628,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 查询tunnel资源使用详情.
-     *
-     * @param request - QueryTunnelMetricDetailRequest
-     *
-     * @returns QueryTunnelMetricDetailResponse
-     *
+     * @summary 查询tunnel资源使用详情
+     *  *
      * @param string                         $metric
-     * @param QueryTunnelMetricDetailRequest $request
+     * @param QueryTunnelMetricDetailRequest $request QueryTunnelMetricDetailRequest
      *
-     * @return QueryTunnelMetricDetailResponse
+     * @return QueryTunnelMetricDetailResponse QueryTunnelMetricDetailResponse
      */
     public function queryTunnelMetricDetail($metric, $request)
     {
@@ -5209,19 +4644,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * RetryMmsJob.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns RetryMmsJobResponse
-     *
+     * @summary RetryMmsJob
+     *  *
      * @param string         $sourceId
      * @param string         $jobId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return RetryMmsJobResponse
+     * @return RetryMmsJobResponse RetryMmsJobResponse
      */
     public function retryMmsJobWithOptions($sourceId, $jobId, $headers, $runtime)
     {
@@ -5232,7 +4662,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'RetryMmsJob',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/jobs/' . Url::percentEncode($jobId) . '/retry',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '/jobs/' . OpenApiUtilClient::getEncodeParam($jobId) . '/retry',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5244,14 +4674,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * RetryMmsJob.
-     *
-     * @returns RetryMmsJobResponse
-     *
+     * @summary RetryMmsJob
+     *  *
      * @param string $sourceId
      * @param string $jobId
      *
-     * @return RetryMmsJobResponse
+     * @return RetryMmsJobResponse RetryMmsJobResponse
      */
     public function retryMmsJob($sourceId, $jobId)
     {
@@ -5262,19 +4690,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * StartMmsJob.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns StartMmsJobResponse
-     *
+     * @summary StartMmsJob
+     *  *
      * @param string         $sourceId
      * @param string         $jobId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return StartMmsJobResponse
+     * @return StartMmsJobResponse StartMmsJobResponse
      */
     public function startMmsJobWithOptions($sourceId, $jobId, $headers, $runtime)
     {
@@ -5285,7 +4708,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'StartMmsJob',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/jobs/' . Url::percentEncode($jobId) . '/start',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '/jobs/' . OpenApiUtilClient::getEncodeParam($jobId) . '/start',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5297,14 +4720,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * StartMmsJob.
-     *
-     * @returns StartMmsJobResponse
-     *
+     * @summary StartMmsJob
+     *  *
      * @param string $sourceId
      * @param string $jobId
      *
-     * @return StartMmsJobResponse
+     * @return StartMmsJobResponse StartMmsJobResponse
      */
     public function startMmsJob($sourceId, $jobId)
     {
@@ -5315,19 +4736,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * StopMmsJob.
-     *
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns StopMmsJobResponse
-     *
+     * @summary StopMmsJob
+     *  *
      * @param string         $sourceId
      * @param string         $jobId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers  map
+     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
      *
-     * @return StopMmsJobResponse
+     * @return StopMmsJobResponse StopMmsJobResponse
      */
     public function stopMmsJobWithOptions($sourceId, $jobId, $headers, $runtime)
     {
@@ -5338,7 +4754,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'StopMmsJob',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '/jobs/' . Url::percentEncode($jobId) . '/stop',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '/jobs/' . OpenApiUtilClient::getEncodeParam($jobId) . '/stop',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5350,14 +4766,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * StopMmsJob.
-     *
-     * @returns StopMmsJobResponse
-     *
+     * @summary StopMmsJob
+     *  *
      * @param string $sourceId
      * @param string $jobId
      *
-     * @return StopMmsJobResponse
+     * @return StopMmsJobResponse StopMmsJobResponse
      */
     public function stopMmsJob($sourceId, $jobId)
     {
@@ -5368,46 +4782,98 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Update the ComputeQuotaPlan.
+     * @param SumStorageMetricsByDateRequest $request SumStorageMetricsByDateRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @remarks
-     * Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+     * @return SumStorageMetricsByDateResponse SumStorageMetricsByDateResponse
+     */
+    public function sumStorageMetricsByDateWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endDate)) {
+            $body['endDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->projectNames)) {
+            $body['projectNames'] = $request->projectNames;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $body['region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $body['startDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->statsType)) {
+            $body['statsType'] = $request->statsType;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['userId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'SumStorageMetricsByDate',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/storageMetrics/sumByDate',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return SumStorageMetricsByDateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SumStorageMetricsByDateRequest $request SumStorageMetricsByDateRequest
+     *
+     * @return SumStorageMetricsByDateResponse SumStorageMetricsByDateResponse
+     */
+    public function sumStorageMetricsByDate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->sumStorageMetricsByDateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Update the ComputeQuotaPlan.
+     *  *
+     * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
      * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
-     *
-     * @param request - UpdateComputeQuotaPlanRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateComputeQuotaPlanResponse
-     *
+     *  *
      * @param string                        $nickname
-     * @param UpdateComputeQuotaPlanRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UpdateComputeQuotaPlanRequest $request  UpdateComputeQuotaPlanRequest
+     * @param string[]                      $headers  map
+     * @param RuntimeOptions                $runtime  runtime options for this request RuntimeOptions
      *
-     * @return UpdateComputeQuotaPlanResponse
+     * @return UpdateComputeQuotaPlanResponse UpdateComputeQuotaPlanResponse
      */
     public function updateComputeQuotaPlanWithOptions($nickname, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->name) {
-            @$body['name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
         }
-
-        if (null !== $request->quota) {
-            @$body['quota'] = $request->quota;
+        if (!Utils::isUnset($request->quota)) {
+            $body['quota'] = $request->quota;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateComputeQuotaPlan',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . Url::percentEncode($nickname) . '/computeQuotaPlan',
+            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '/computeQuotaPlan',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5419,20 +4885,15 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Update the ComputeQuotaPlan.
-     *
-     * @remarks
-     * Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+     * @summary Update the ComputeQuotaPlan.
+     *  *
+     * @description Please ensure that before using this interface, you have fully understood the <props="china">[Pricing and Charges](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
      * <props="intl">[Pricing and Charges](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
-     *
-     * @param request - UpdateComputeQuotaPlanRequest
-     *
-     * @returns UpdateComputeQuotaPlanResponse
-     *
+     *  *
      * @param string                        $nickname
-     * @param UpdateComputeQuotaPlanRequest $request
+     * @param UpdateComputeQuotaPlanRequest $request  UpdateComputeQuotaPlanRequest
      *
-     * @return UpdateComputeQuotaPlanResponse
+     * @return UpdateComputeQuotaPlanResponse UpdateComputeQuotaPlanResponse
      */
     public function updateComputeQuotaPlan($nickname, $request)
     {
@@ -5443,43 +4904,35 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Update the time-based plan for computing quota.
-     *
-     * @remarks
-     * Please ensure that before using this interface, you have fully understood the<props="china">[Pricing and Billing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+     * @summary Update the time-based plan for computing quota.
+     *  *
+     * @description Please ensure that before using this interface, you have fully understood the<props="china">[Pricing and Billing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
      * <props="intl">[Pricing and Billing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
-     *
-     * @param request - UpdateComputeQuotaScheduleRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateComputeQuotaScheduleResponse
-     *
+     *  *
      * @param string                            $nickname
-     * @param UpdateComputeQuotaScheduleRequest $request
-     * @param string[]                          $headers
-     * @param RuntimeOptions                    $runtime
+     * @param UpdateComputeQuotaScheduleRequest $request  UpdateComputeQuotaScheduleRequest
+     * @param string[]                          $headers  map
+     * @param RuntimeOptions                    $runtime  runtime options for this request RuntimeOptions
      *
-     * @return UpdateComputeQuotaScheduleResponse
+     * @return UpdateComputeQuotaScheduleResponse UpdateComputeQuotaScheduleResponse
      */
     public function updateComputeQuotaScheduleWithOptions($nickname, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->scheduleTimezone) {
-            @$query['scheduleTimezone'] = $request->scheduleTimezone;
+        if (!Utils::isUnset($request->scheduleTimezone)) {
+            $query['scheduleTimezone'] = $request->scheduleTimezone;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
             'body' => Utils::toArray($request->body),
         ]);
         $params = new Params([
             'action' => 'UpdateComputeQuotaSchedule',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . Url::percentEncode($nickname) . '/computeQuotaSchedule',
+            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '/computeQuotaSchedule',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5491,20 +4944,15 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Update the time-based plan for computing quota.
-     *
-     * @remarks
-     * Please ensure that before using this interface, you have fully understood the<props="china">[Pricing and Billing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
+     * @summary Update the time-based plan for computing quota.
+     *  *
+     * @description Please ensure that before using this interface, you have fully understood the<props="china">[Pricing and Billing](https://help.aliyun.com/zh/maxcompute/product-overview/computing-pricing-1)
      * <props="intl">[Pricing and Billing](https://www.alibabacloud.com/help/maxcompute/product-overview/computing-pricing-1) of MaxCompute Elastic Reserved CU.
-     *
-     * @param request - UpdateComputeQuotaScheduleRequest
-     *
-     * @returns UpdateComputeQuotaScheduleResponse
-     *
+     *  *
      * @param string                            $nickname
-     * @param UpdateComputeQuotaScheduleRequest $request
+     * @param UpdateComputeQuotaScheduleRequest $request  UpdateComputeQuotaScheduleRequest
      *
-     * @return UpdateComputeQuotaScheduleResponse
+     * @return UpdateComputeQuotaScheduleResponse UpdateComputeQuotaScheduleResponse
      */
     public function updateComputeQuotaSchedule($nickname, $request)
     {
@@ -5515,38 +4963,31 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Update the basic configuration of the calculation quota, including adding or deleting the sub quota, modifying the basic properties of the secondary quota, and the CU configuration of the effective quota plan.
-     *
-     * @param request - UpdateComputeSubQuotaRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateComputeSubQuotaResponse
-     *
+     * @summary Update the basic configuration of the calculation quota, including adding or deleting the sub quota, modifying the basic properties of the secondary quota, and the CU configuration of the effective quota plan.
+     *  *
      * @param string                       $nickname
-     * @param UpdateComputeSubQuotaRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param UpdateComputeSubQuotaRequest $request  UpdateComputeSubQuotaRequest
+     * @param string[]                     $headers  map
+     * @param RuntimeOptions               $runtime  runtime options for this request RuntimeOptions
      *
-     * @return UpdateComputeSubQuotaResponse
+     * @return UpdateComputeSubQuotaResponse UpdateComputeSubQuotaResponse
      */
     public function updateComputeSubQuotaWithOptions($nickname, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->subQuotaInfoList) {
-            @$body['subQuotaInfoList'] = $request->subQuotaInfoList;
+        if (!Utils::isUnset($request->subQuotaInfoList)) {
+            $body['subQuotaInfoList'] = $request->subQuotaInfoList;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateComputeSubQuota',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . Url::percentEncode($nickname) . '/computeSubQuota',
+            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '/computeSubQuota',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5558,16 +4999,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Update the basic configuration of the calculation quota, including adding or deleting the sub quota, modifying the basic properties of the secondary quota, and the CU configuration of the effective quota plan.
-     *
-     * @param request - UpdateComputeSubQuotaRequest
-     *
-     * @returns UpdateComputeSubQuotaResponse
-     *
+     * @summary Update the basic configuration of the calculation quota, including adding or deleting the sub quota, modifying the basic properties of the secondary quota, and the CU configuration of the effective quota plan.
+     *  *
      * @param string                       $nickname
-     * @param UpdateComputeSubQuotaRequest $request
+     * @param UpdateComputeSubQuotaRequest $request  UpdateComputeSubQuotaRequest
      *
-     * @return UpdateComputeSubQuotaResponse
+     * @return UpdateComputeSubQuotaResponse UpdateComputeSubQuotaResponse
      */
     public function updateComputeSubQuota($nickname, $request)
     {
@@ -5578,50 +5015,40 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 更新数据源配置、名称，启/停数据源实例.
-     *
-     * @param request - UpdateMmsDataSourceRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateMmsDataSourceResponse
-     *
+     * @summary 更新数据源配置、名称，启/停数据源实例
+     *  *
      * @param string                     $sourceId
-     * @param UpdateMmsDataSourceRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param UpdateMmsDataSourceRequest $request  UpdateMmsDataSourceRequest
+     * @param string[]                   $headers  map
+     * @param RuntimeOptions             $runtime  runtime options for this request RuntimeOptions
      *
-     * @return UpdateMmsDataSourceResponse
+     * @return UpdateMmsDataSourceResponse UpdateMmsDataSourceResponse
      */
     public function updateMmsDataSourceWithOptions($sourceId, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->action) {
-            @$body['action'] = $request->action;
+        if (!Utils::isUnset($request->action)) {
+            $body['action'] = $request->action;
         }
-
-        if (null !== $request->config) {
-            @$body['config'] = $request->config;
+        if (!Utils::isUnset($request->config)) {
+            $body['config'] = $request->config;
         }
-
-        if (null !== $request->name) {
-            @$body['name'] = $request->name;
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
         }
-
-        if (null !== $request->test) {
-            @$body['test'] = $request->test;
+        if (!Utils::isUnset($request->test)) {
+            $body['test'] = $request->test;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateMmsDataSource',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/mms/datasources/' . Url::percentEncode($sourceId) . '',
+            'pathname' => '/api/v1/mms/datasources/' . OpenApiUtilClient::getEncodeParam($sourceId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5633,16 +5060,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * 更新数据源配置、名称，启/停数据源实例.
-     *
-     * @param request - UpdateMmsDataSourceRequest
-     *
-     * @returns UpdateMmsDataSourceResponse
-     *
+     * @summary 更新数据源配置、名称，启/停数据源实例
+     *  *
      * @param string                     $sourceId
-     * @param UpdateMmsDataSourceRequest $request
+     * @param UpdateMmsDataSourceRequest $request  UpdateMmsDataSourceRequest
      *
-     * @return UpdateMmsDataSourceResponse
+     * @return UpdateMmsDataSourceResponse UpdateMmsDataSourceResponse
      */
     public function updateMmsDataSource($sourceId, $request)
     {
@@ -5653,25 +5076,19 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Updates the objects in a package and projects in which the package can be installed.
-     *
-     * @param request - UpdatePackageRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdatePackageResponse
-     *
+     * @summary Updates the objects in a package and projects in which the package can be installed.
+     *  *
      * @param string               $projectName
      * @param string               $packageName
-     * @param UpdatePackageRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @param UpdatePackageRequest $request     UpdatePackageRequest
+     * @param string[]             $headers     map
+     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdatePackageResponse
+     * @return UpdatePackageResponse UpdatePackageResponse
      */
     public function updatePackageWithOptions($projectName, $packageName, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => $request->body,
@@ -5680,7 +5097,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'UpdatePackage',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/packages/' . Url::percentEncode($packageName) . '',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/packages/' . OpenApiUtilClient::getEncodeParam($packageName) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5692,17 +5109,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Updates the objects in a package and projects in which the package can be installed.
-     *
-     * @param request - UpdatePackageRequest
-     *
-     * @returns UpdatePackageResponse
-     *
+     * @summary Updates the objects in a package and projects in which the package can be installed.
+     *  *
      * @param string               $projectName
      * @param string               $packageName
-     * @param UpdatePackageRequest $request
+     * @param UpdatePackageRequest $request     UpdatePackageRequest
      *
-     * @return UpdatePackageResponse
+     * @return UpdatePackageResponse UpdatePackageResponse
      */
     public function updatePackage($projectName, $packageName, $request)
     {
@@ -5713,42 +5126,34 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Update Project Basic Information.
-     *
-     * @param request - UpdateProjectBasicMetaRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateProjectBasicMetaResponse
-     *
+     * @summary Update Project Basic Information
+     *  *
      * @param string                        $projectName
-     * @param UpdateProjectBasicMetaRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UpdateProjectBasicMetaRequest $request     UpdateProjectBasicMetaRequest
+     * @param string[]                      $headers     map
+     * @param RuntimeOptions                $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateProjectBasicMetaResponse
+     * @return UpdateProjectBasicMetaResponse UpdateProjectBasicMetaResponse
      */
     public function updateProjectBasicMetaWithOptions($projectName, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->comment) {
-            @$body['comment'] = $request->comment;
+        if (!Utils::isUnset($request->comment)) {
+            $body['comment'] = $request->comment;
         }
-
-        if (null !== $request->properties) {
-            @$body['properties'] = $request->properties;
+        if (!Utils::isUnset($request->properties)) {
+            $body['properties'] = $request->properties;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateProjectBasicMeta',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/meta',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/meta',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5760,16 +5165,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Update Project Basic Information.
-     *
-     * @param request - UpdateProjectBasicMetaRequest
-     *
-     * @returns UpdateProjectBasicMetaResponse
-     *
+     * @summary Update Project Basic Information
+     *  *
      * @param string                        $projectName
-     * @param UpdateProjectBasicMetaRequest $request
+     * @param UpdateProjectBasicMetaRequest $request     UpdateProjectBasicMetaRequest
      *
-     * @return UpdateProjectBasicMetaResponse
+     * @return UpdateProjectBasicMetaResponse UpdateProjectBasicMetaResponse
      */
     public function updateProjectBasicMeta($projectName, $request)
     {
@@ -5780,38 +5181,31 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Modify Default Project Compute Quota.
-     *
-     * @param request - UpdateProjectDefaultQuotaRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateProjectDefaultQuotaResponse
-     *
+     * @summary Modify Default Project Compute Quota
+     *  *
      * @param string                           $projectName
-     * @param UpdateProjectDefaultQuotaRequest $request
-     * @param string[]                         $headers
-     * @param RuntimeOptions                   $runtime
+     * @param UpdateProjectDefaultQuotaRequest $request     UpdateProjectDefaultQuotaRequest
+     * @param string[]                         $headers     map
+     * @param RuntimeOptions                   $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateProjectDefaultQuotaResponse
+     * @return UpdateProjectDefaultQuotaResponse UpdateProjectDefaultQuotaResponse
      */
     public function updateProjectDefaultQuotaWithOptions($projectName, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $body = [];
-        if (null !== $request->quota) {
-            @$body['quota'] = $request->quota;
+        if (!Utils::isUnset($request->quota)) {
+            $body['quota'] = $request->quota;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => Utils::parseToMap($body),
+            'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateProjectDefaultQuota',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/quota',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/quota',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5823,16 +5217,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Modify Default Project Compute Quota.
-     *
-     * @param request - UpdateProjectDefaultQuotaRequest
-     *
-     * @returns UpdateProjectDefaultQuotaResponse
-     *
+     * @summary Modify Default Project Compute Quota
+     *  *
      * @param string                           $projectName
-     * @param UpdateProjectDefaultQuotaRequest $request
+     * @param UpdateProjectDefaultQuotaRequest $request     UpdateProjectDefaultQuotaRequest
      *
-     * @return UpdateProjectDefaultQuotaResponse
+     * @return UpdateProjectDefaultQuotaResponse UpdateProjectDefaultQuotaResponse
      */
     public function updateProjectDefaultQuota($projectName, $request)
     {
@@ -5843,24 +5233,18 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Modifies the IP address whitelist of a MaxCompute project.
-     *
-     * @param request - UpdateProjectIpWhiteListRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateProjectIpWhiteListResponse
-     *
+     * @summary Modifies the IP address whitelist of a MaxCompute project.
+     *  *
      * @param string                          $projectName
-     * @param UpdateProjectIpWhiteListRequest $request
-     * @param string[]                        $headers
-     * @param RuntimeOptions                  $runtime
+     * @param UpdateProjectIpWhiteListRequest $request     UpdateProjectIpWhiteListRequest
+     * @param string[]                        $headers     map
+     * @param RuntimeOptions                  $runtime     runtime options for this request RuntimeOptions
      *
-     * @return UpdateProjectIpWhiteListResponse
+     * @return UpdateProjectIpWhiteListResponse UpdateProjectIpWhiteListResponse
      */
     public function updateProjectIpWhiteListWithOptions($projectName, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body' => $request->body,
@@ -5869,7 +5253,7 @@ class MaxCompute extends OpenApiClient
             'action' => 'UpdateProjectIpWhiteList',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/projects/' . Url::percentEncode($projectName) . '/ipWhiteList',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/ipWhiteList',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5881,16 +5265,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Modifies the IP address whitelist of a MaxCompute project.
-     *
-     * @param request - UpdateProjectIpWhiteListRequest
-     *
-     * @returns UpdateProjectIpWhiteListResponse
-     *
+     * @summary Modifies the IP address whitelist of a MaxCompute project.
+     *  *
      * @param string                          $projectName
-     * @param UpdateProjectIpWhiteListRequest $request
+     * @param UpdateProjectIpWhiteListRequest $request     UpdateProjectIpWhiteListRequest
      *
-     * @return UpdateProjectIpWhiteListResponse
+     * @return UpdateProjectIpWhiteListResponse UpdateProjectIpWhiteListResponse
      */
     public function updateProjectIpWhiteList($projectName, $request)
     {
@@ -5901,44 +5281,36 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Updates a quota plan.
-     *
-     * @param request - UpdateQuotaPlanRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateQuotaPlanResponse
-     *
+     * @summary Updates a quota plan.
+     *  *
      * @param string                 $nickname
      * @param string                 $planName
-     * @param UpdateQuotaPlanRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param UpdateQuotaPlanRequest $request  UpdateQuotaPlanRequest
+     * @param string[]               $headers  map
+     * @param RuntimeOptions         $runtime  runtime options for this request RuntimeOptions
      *
-     * @return UpdateQuotaPlanResponse
+     * @return UpdateQuotaPlanResponse UpdateQuotaPlanResponse
      */
     public function updateQuotaPlanWithOptions($nickname, $planName, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->region) {
-            @$query['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
         }
-
-        if (null !== $request->tenantId) {
-            @$query['tenantId'] = $request->tenantId;
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
             'body' => $request->body,
         ]);
         $params = new Params([
             'action' => 'UpdateQuotaPlan',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . Url::percentEncode($nickname) . '/plans/' . Url::percentEncode($planName) . '',
+            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '/plans/' . OpenApiUtilClient::getEncodeParam($planName) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -5950,17 +5322,13 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Updates a quota plan.
-     *
-     * @param request - UpdateQuotaPlanRequest
-     *
-     * @returns UpdateQuotaPlanResponse
-     *
+     * @summary Updates a quota plan.
+     *  *
      * @param string                 $nickname
      * @param string                 $planName
-     * @param UpdateQuotaPlanRequest $request
+     * @param UpdateQuotaPlanRequest $request  UpdateQuotaPlanRequest
      *
-     * @return UpdateQuotaPlanResponse
+     * @return UpdateQuotaPlanResponse UpdateQuotaPlanResponse
      */
     public function updateQuotaPlan($nickname, $planName, $request)
     {
@@ -5971,43 +5339,35 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Updates the scheduling plan for a quota plan.
-     *
-     * @param request - UpdateQuotaScheduleRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateQuotaScheduleResponse
-     *
+     * @summary Updates the scheduling plan for a quota plan.
+     *  *
      * @param string                     $nickname
-     * @param UpdateQuotaScheduleRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param UpdateQuotaScheduleRequest $request  UpdateQuotaScheduleRequest
+     * @param string[]                   $headers  map
+     * @param RuntimeOptions             $runtime  runtime options for this request RuntimeOptions
      *
-     * @return UpdateQuotaScheduleResponse
+     * @return UpdateQuotaScheduleResponse UpdateQuotaScheduleResponse
      */
     public function updateQuotaScheduleWithOptions($nickname, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->region) {
-            @$query['region'] = $request->region;
+        if (!Utils::isUnset($request->region)) {
+            $query['region'] = $request->region;
         }
-
-        if (null !== $request->tenantId) {
-            @$query['tenantId'] = $request->tenantId;
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['tenantId'] = $request->tenantId;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
             'body' => $request->body,
         ]);
         $params = new Params([
             'action' => 'UpdateQuotaSchedule',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/quotas/' . Url::percentEncode($nickname) . '/schedule',
+            'pathname' => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($nickname) . '/schedule',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -6019,16 +5379,12 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Updates the scheduling plan for a quota plan.
-     *
-     * @param request - UpdateQuotaScheduleRequest
-     *
-     * @returns UpdateQuotaScheduleResponse
-     *
+     * @summary Updates the scheduling plan for a quota plan.
+     *  *
      * @param string                     $nickname
-     * @param UpdateQuotaScheduleRequest $request
+     * @param UpdateQuotaScheduleRequest $request  UpdateQuotaScheduleRequest
      *
-     * @return UpdateQuotaScheduleResponse
+     * @return UpdateQuotaScheduleResponse UpdateQuotaScheduleResponse
      */
     public function updateQuotaSchedule($nickname, $request)
     {
@@ -6039,42 +5395,34 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Updates the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
-     *
-     * @remarks
-     * Before you call this operation, make sure that you are familiar with the [billing and prices](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of Tunnel quotas and elastically reserved computing resources.
-     *
-     * @param request - UpdateTunnelQuotaTimerRequest
-     * @param headers - map
-     * @param runtime - runtime options for this request RuntimeOptions
-     *
-     * @returns UpdateTunnelQuotaTimerResponse
-     *
+     * @summary Updates the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
+     *  *
+     * @description Before you call this operation, make sure that you are familiar with the [billing and prices](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of Tunnel quotas and elastically reserved computing resources.
+     *  *
      * @param string                        $nickname
-     * @param UpdateTunnelQuotaTimerRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UpdateTunnelQuotaTimerRequest $request  UpdateTunnelQuotaTimerRequest
+     * @param string[]                      $headers  map
+     * @param RuntimeOptions                $runtime  runtime options for this request RuntimeOptions
      *
-     * @return UpdateTunnelQuotaTimerResponse
+     * @return UpdateTunnelQuotaTimerResponse UpdateTunnelQuotaTimerResponse
      */
     public function updateTunnelQuotaTimerWithOptions($nickname, $request, $headers, $runtime)
     {
-        $request->validate();
+        Utils::validateModel($request);
         $query = [];
-        if (null !== $request->timezone) {
-            @$query['timezone'] = $request->timezone;
+        if (!Utils::isUnset($request->timezone)) {
+            $query['timezone'] = $request->timezone;
         }
-
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => Utils::query($query),
+            'query' => OpenApiUtilClient::query($query),
             'body' => Utils::toArray($request->body),
         ]);
         $params = new Params([
             'action' => 'UpdateTunnelQuotaTimer',
             'version' => '2022-01-04',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/tunnel/' . Url::percentEncode($nickname) . '/timers',
+            'pathname' => '/api/v1/tunnel/' . OpenApiUtilClient::getEncodeParam($nickname) . '/timers',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -6086,19 +5434,14 @@ class MaxCompute extends OpenApiClient
     }
 
     /**
-     * Updates the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
-     *
-     * @remarks
-     * Before you call this operation, make sure that you are familiar with the [billing and prices](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of Tunnel quotas and elastically reserved computing resources.
-     *
-     * @param request - UpdateTunnelQuotaTimerRequest
-     *
-     * @returns UpdateTunnelQuotaTimerResponse
-     *
+     * @summary Updates the time-specific configuration of an exclusive resource group for Tunnel (referred to as Tunnel quota).
+     *  *
+     * @description Before you call this operation, make sure that you are familiar with the [billing and prices](https://www.alibabacloud.com/help/maxcompute/product-overview/data-transfer-fees-hourly-billing) of Tunnel quotas and elastically reserved computing resources.
+     *  *
      * @param string                        $nickname
-     * @param UpdateTunnelQuotaTimerRequest $request
+     * @param UpdateTunnelQuotaTimerRequest $request  UpdateTunnelQuotaTimerRequest
      *
-     * @return UpdateTunnelQuotaTimerResponse
+     * @return UpdateTunnelQuotaTimerResponse UpdateTunnelQuotaTimerResponse
      */
     public function updateTunnelQuotaTimer($nickname, $request)
     {
@@ -6106,5 +5449,62 @@ class MaxCompute extends OpenApiClient
         $headers = [];
 
         return $this->updateTunnelQuotaTimerWithOptions($nickname, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Add or remove users from a project role.
+     *  *
+     * @param string                   $projectName
+     * @param string                   $roleName
+     * @param UpdateUsersToRoleRequest $request     UpdateUsersToRoleRequest
+     * @param string[]                 $headers     map
+     * @param RuntimeOptions           $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return UpdateUsersToRoleResponse UpdateUsersToRoleResponse
+     */
+    public function updateUsersToRoleWithOptions($projectName, $roleName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->add)) {
+            $body['add'] = $request->add;
+        }
+        if (!Utils::isUnset($request->remove)) {
+            $body['remove'] = $request->remove;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateUsersToRole',
+            'version' => '2022-01-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/projects/' . OpenApiUtilClient::getEncodeParam($projectName) . '/roles/' . OpenApiUtilClient::getEncodeParam($roleName) . '/users',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateUsersToRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Add or remove users from a project role.
+     *  *
+     * @param string                   $projectName
+     * @param string                   $roleName
+     * @param UpdateUsersToRoleRequest $request     UpdateUsersToRoleRequest
+     *
+     * @return UpdateUsersToRoleResponse UpdateUsersToRoleResponse
+     */
+    public function updateUsersToRole($projectName, $roleName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateUsersToRoleWithOptions($projectName, $roleName, $request, $headers, $runtime);
     }
 }

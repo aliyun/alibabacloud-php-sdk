@@ -4,16 +4,37 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetRolePolicyResponseBody extends Model
 {
     /**
+     * @description The returned data.
+     *
+     * @example {
+     * "Statement": [
+     * {
+     * "Action": [
+     * "odps:*"
+     * ],
+     * "Effect": "Allow",
+     * "Resource": [
+     * "acs:odps:*:projects/{projectname}/authorization/packages"
+     * ]
+     * }
+     * ],
+     * "Version": "1"
+     * }
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0bc1eeed16675342848904412e08dd
+     *
      * @var string
      */
     public $requestId;
@@ -22,18 +43,14 @@ class GetRolePolicyResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->data) {
             $res['data'] = $this->data;
         }
-
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -41,18 +58,17 @@ class GetRolePolicyResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetRolePolicyResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             $model->data = $map['data'];
         }
-
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

@@ -4,16 +4,20 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListMmsTasksRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class sorter extends Model
 {
     /**
+     * @example desc
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example asc
+     *
      * @var string
      */
     public $status;
@@ -22,18 +26,14 @@ class sorter extends Model
         'status' => 'status',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
         }
-
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -41,18 +41,17 @@ class sorter extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sorter
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
         }
-
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

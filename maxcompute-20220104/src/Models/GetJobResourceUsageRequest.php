@@ -4,31 +4,49 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetJobResourceUsageRequest extends Model
 {
     /**
+     * @description The date that is accurate to the day part for the query. The date must be in the yyyy-MM-dd format.
+     *
+     * This parameter is required.
+     *
+     * @example 2023-05-15
+     *
      * @var string
      */
     public $date;
 
     /**
+     * @description The list of job executors.
+     *
      * @var string[]
      */
     public $jobOwnerList;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The list of nicknames of quotas that are used by jobs.
+     *
      * @var string[]
      */
     public $quotaNicknameList;
@@ -40,92 +58,55 @@ class GetJobResourceUsageRequest extends Model
         'quotaNicknameList' => 'quotaNicknameList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->jobOwnerList)) {
-            Model::validateArray($this->jobOwnerList);
-        }
-        if (\is_array($this->quotaNicknameList)) {
-            Model::validateArray($this->quotaNicknameList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->date) {
             $res['date'] = $this->date;
         }
-
         if (null !== $this->jobOwnerList) {
-            if (\is_array($this->jobOwnerList)) {
-                $res['jobOwnerList'] = [];
-                $n1 = 0;
-                foreach ($this->jobOwnerList as $item1) {
-                    $res['jobOwnerList'][$n1++] = $item1;
-                }
-            }
+            $res['jobOwnerList'] = $this->jobOwnerList;
         }
-
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
-
         if (null !== $this->quotaNicknameList) {
-            if (\is_array($this->quotaNicknameList)) {
-                $res['quotaNicknameList'] = [];
-                $n1 = 0;
-                foreach ($this->quotaNicknameList as $item1) {
-                    $res['quotaNicknameList'][$n1++] = $item1;
-                }
-            }
+            $res['quotaNicknameList'] = $this->quotaNicknameList;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetJobResourceUsageRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['date'])) {
             $model->date = $map['date'];
         }
-
         if (isset($map['jobOwnerList'])) {
             if (!empty($map['jobOwnerList'])) {
-                $model->jobOwnerList = [];
-                $n1 = 0;
-                foreach ($map['jobOwnerList'] as $item1) {
-                    $model->jobOwnerList[$n1++] = $item1;
-                }
+                $model->jobOwnerList = $map['jobOwnerList'];
             }
         }
-
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
-
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
-
         if (isset($map['quotaNicknameList'])) {
             if (!empty($map['quotaNicknameList'])) {
-                $model->quotaNicknameList = [];
-                $n1 = 0;
-                foreach ($map['quotaNicknameList'] as $item1) {
-                    $model->quotaNicknameList[$n1++] = $item1;
-                }
+                $model->quotaNicknameList = $map['quotaNicknameList'];
             }
         }
 

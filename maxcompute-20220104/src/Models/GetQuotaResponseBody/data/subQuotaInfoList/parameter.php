@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetQuotaResponseBody\data\subQuotaInfoList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class parameter extends Model
 {
@@ -24,11 +24,15 @@ class parameter extends Model
     public $forceReservedMin;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $maxCU;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $minCU;
@@ -52,38 +56,29 @@ class parameter extends Model
         'singleJobCULimit' => 'singleJobCULimit',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->elasticReservedCU) {
             $res['elasticReservedCU'] = $this->elasticReservedCU;
         }
-
         if (null !== $this->enablePriority) {
             $res['enablePriority'] = $this->enablePriority;
         }
-
         if (null !== $this->forceReservedMin) {
             $res['forceReservedMin'] = $this->forceReservedMin;
         }
-
         if (null !== $this->maxCU) {
             $res['maxCU'] = $this->maxCU;
         }
-
         if (null !== $this->minCU) {
             $res['minCU'] = $this->minCU;
         }
-
         if (null !== $this->schedulerType) {
             $res['schedulerType'] = $this->schedulerType;
         }
-
         if (null !== $this->singleJobCULimit) {
             $res['singleJobCULimit'] = $this->singleJobCULimit;
         }
@@ -91,38 +86,32 @@ class parameter extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return parameter
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['elasticReservedCU'])) {
             $model->elasticReservedCU = $map['elasticReservedCU'];
         }
-
         if (isset($map['enablePriority'])) {
             $model->enablePriority = $map['enablePriority'];
         }
-
         if (isset($map['forceReservedMin'])) {
             $model->forceReservedMin = $map['forceReservedMin'];
         }
-
         if (isset($map['maxCU'])) {
             $model->maxCU = $map['maxCU'];
         }
-
         if (isset($map['minCU'])) {
             $model->minCU = $map['minCU'];
         }
-
         if (isset($map['schedulerType'])) {
             $model->schedulerType = $map['schedulerType'];
         }
-
         if (isset($map['singleJobCULimit'])) {
             $model->singleJobCULimit = $map['singleJobCULimit'];
         }

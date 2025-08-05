@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetQuotaUsageResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class plot extends Model
 {
     /**
+     * @description The title of the chart.
+     *
+     * @example request
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The type of the chart.
+     *
+     * @example request
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The data metric field.
+     *
      * @var string[]
      */
     public $yAxis;
@@ -28,61 +38,41 @@ class plot extends Model
         'yAxis' => 'yAxis',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->yAxis)) {
-            Model::validateArray($this->yAxis);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
-
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
-
         if (null !== $this->yAxis) {
-            if (\is_array($this->yAxis)) {
-                $res['yAxis'] = [];
-                $n1 = 0;
-                foreach ($this->yAxis as $item1) {
-                    $res['yAxis'][$n1++] = $item1;
-                }
-            }
+            $res['yAxis'] = $this->yAxis;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return plot
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }
-
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
-
         if (isset($map['yAxis'])) {
             if (!empty($map['yAxis'])) {
-                $model->yAxis = [];
-                $n1 = 0;
-                foreach ($map['yAxis'] as $item1) {
-                    $model->yAxis[$n1++] = $item1;
-                }
+                $model->yAxis = $map['yAxis'];
             }
         }
 

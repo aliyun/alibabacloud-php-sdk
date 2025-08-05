@@ -4,16 +4,27 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\UpdateProjectBasicMetaRequest\properties;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class tableLifecycle extends Model
 {
     /**
+     * @description The lifecycle type. Valid values:
+     * - *mandatory*: The lifecycle clause is required in a table creation statement.
+     * - *optional*: The lifecycle clause is optional in a table creation statement. If you do not configure a lifecycle for a table, the table does not expire.
+     * - *inherit*: If you do not configure a lifecycle for a table when you create the table, the value of the odps.table.lifecycle.value parameter is used as the table lifecycle by default.
+     *
+     * @example optional
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The table lifecycle. Unit: days. Valid values: 1 to 37231. Default value: 37231.
+     *
+     * @example 37231
+     *
      * @var string
      */
     public $value;
@@ -22,18 +33,14 @@ class tableLifecycle extends Model
         'value' => 'value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
-
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -41,18 +48,17 @@ class tableLifecycle extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return tableLifecycle
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
-
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

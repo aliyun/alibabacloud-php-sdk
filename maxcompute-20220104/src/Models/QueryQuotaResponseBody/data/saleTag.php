@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\QueryQuotaResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class saleTag extends Model
 {
     /**
+     * @description The identifier of a MaxCompute quota object. This identifier exists in the Alibaba Cloud sales bill. You can use this identifier to associate the cost of a quota object with a tag.
+     *
      * @var string[]
      */
     public $resourceIds;
 
     /**
+     * @description The object type. Valid values: quota and project.
+     *
+     * @example project
+     *
      * @var string
      */
     public $resourceType;
@@ -22,27 +28,14 @@ class saleTag extends Model
         'resourceType' => 'resourceType',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->resourceIds)) {
-            Model::validateArray($this->resourceIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->resourceIds) {
-            if (\is_array($this->resourceIds)) {
-                $res['resourceIds'] = [];
-                $n1 = 0;
-                foreach ($this->resourceIds as $item1) {
-                    $res['resourceIds'][$n1++] = $item1;
-                }
-            }
+            $res['resourceIds'] = $this->resourceIds;
         }
-
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
@@ -50,24 +43,19 @@ class saleTag extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return saleTag
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['resourceIds'])) {
             if (!empty($map['resourceIds'])) {
-                $model->resourceIds = [];
-                $n1 = 0;
-                foreach ($map['resourceIds'] as $item1) {
-                    $model->resourceIds[$n1++] = $item1;
-                }
+                $model->resourceIds = $map['resourceIds'];
             }
         }
-
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }

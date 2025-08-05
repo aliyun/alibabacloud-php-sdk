@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListComputeQuotaPlanResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListComputeQuotaPlanResponseBody\data\planList;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The list of quota plan.
+     *
      * @var planList[]
      */
     public $planList;
@@ -17,23 +19,17 @@ class data extends Model
         'planList' => 'planList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->planList)) {
-            Model::validateArray($this->planList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->planList) {
-            if (\is_array($this->planList)) {
-                $res['planList'] = [];
-                $n1 = 0;
-                foreach ($this->planList as $item1) {
-                    $res['planList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['planList'] = [];
+            if (null !== $this->planList && \is_array($this->planList)) {
+                $n = 0;
+                foreach ($this->planList as $item) {
+                    $res['planList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -41,20 +37,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['planList'])) {
             if (!empty($map['planList'])) {
                 $model->planList = [];
-                $n1 = 0;
-                foreach ($map['planList'] as $item1) {
-                    $model->planList[$n1++] = planList::fromMap($item1);
+                $n = 0;
+                foreach ($map['planList'] as $item) {
+                    $model->planList[$n++] = null !== $item ? planList::fromMap($item) : $item;
                 }
             }
         }

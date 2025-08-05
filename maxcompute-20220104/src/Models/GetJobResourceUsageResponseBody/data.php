@@ -4,27 +4,41 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetJobResourceUsageResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetJobResourceUsageResponseBody\data\jobResourceUsageList;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The data list returned.
+     *
      * @var jobResourceUsageList[]
      */
     public $jobResourceUsageList;
 
     /**
+     * @description The page number.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 64
+     *
      * @var int
      */
     public $totalCount;
@@ -35,35 +49,26 @@ class data extends Model
         'totalCount' => 'totalCount',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->jobResourceUsageList)) {
-            Model::validateArray($this->jobResourceUsageList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->jobResourceUsageList) {
-            if (\is_array($this->jobResourceUsageList)) {
-                $res['jobResourceUsageList'] = [];
-                $n1 = 0;
-                foreach ($this->jobResourceUsageList as $item1) {
-                    $res['jobResourceUsageList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['jobResourceUsageList'] = [];
+            if (null !== $this->jobResourceUsageList && \is_array($this->jobResourceUsageList)) {
+                $n = 0;
+                foreach ($this->jobResourceUsageList as $item) {
+                    $res['jobResourceUsageList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
-
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
-
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
@@ -71,32 +76,29 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['jobResourceUsageList'])) {
             if (!empty($map['jobResourceUsageList'])) {
                 $model->jobResourceUsageList = [];
-                $n1 = 0;
-                foreach ($map['jobResourceUsageList'] as $item1) {
-                    $model->jobResourceUsageList[$n1++] = jobResourceUsageList::fromMap($item1);
+                $n = 0;
+                foreach ($map['jobResourceUsageList'] as $item) {
+                    $model->jobResourceUsageList[$n++] = null !== $item ? jobResourceUsageList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
-
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
-
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }

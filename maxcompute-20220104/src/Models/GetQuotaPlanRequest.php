@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class GetQuotaPlanRequest extends Model
 {
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * @example 483212237127906
+     *
      * @var string
      */
     public $tenantId;
@@ -22,18 +30,14 @@ class GetQuotaPlanRequest extends Model
         'tenantId' => 'tenantId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->region) {
             $res['region'] = $this->region;
         }
-
         if (null !== $this->tenantId) {
             $res['tenantId'] = $this->tenantId;
         }
@@ -41,18 +45,17 @@ class GetQuotaPlanRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return GetQuotaPlanRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['region'])) {
             $model->region = $map['region'];
         }
-
         if (isset($map['tenantId'])) {
             $model->tenantId = $map['tenantId'];
         }

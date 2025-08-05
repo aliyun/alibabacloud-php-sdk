@@ -4,46 +4,78 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\QueryQuotaResponseBody\data\subQuotaInfoList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class scheduleInfo extends Model
 {
     /**
+     * @description The current quota plan that has taken effect based on the scheduling plan.
+     *
+     * @example planA
+     *
      * @var string
      */
     public $currPlan;
 
     /**
+     * @description The time when the plan specified by currPlan is scheduled.
+     *
+     * @example 0800
+     *
      * @var string
      */
     public $currTime;
 
     /**
+     * @description The quota plan that will take effect based on the scheduling plan.
+     *
+     * @example planB
+     *
      * @var string
      */
     public $nextPlan;
 
     /**
+     * @description The time when the plan specified by nextPlan is scheduled.
+     *
+     * @example 1700
+     *
      * @var string
      */
     public $nextTime;
 
     /**
+     * @description The quota plan that immediately takes effect. If the quota plan specified by this parameter is triggered and the plan is different from the plan specified by currPlan, this parameter is not empty.
+     *
+     * @example planC
+     *
      * @var string
      */
     public $oncePlan;
 
     /**
+     * @description The time when the quota plan specified by oncePlan is scheduled.
+     *
+     * @example 1500
+     *
      * @var string
      */
     public $onceTime;
 
     /**
+     * @description The operator name.
+     *
+     * @example userA
+     *
      * @var string
      */
     public $operatorName;
 
     /**
+     * @description The time zone of the project.
+     *
+     * @example UTC+8
+     *
      * @var string
      */
     public $timezone;
@@ -58,42 +90,32 @@ class scheduleInfo extends Model
         'timezone' => 'timezone',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->currPlan) {
             $res['currPlan'] = $this->currPlan;
         }
-
         if (null !== $this->currTime) {
             $res['currTime'] = $this->currTime;
         }
-
         if (null !== $this->nextPlan) {
             $res['nextPlan'] = $this->nextPlan;
         }
-
         if (null !== $this->nextTime) {
             $res['nextTime'] = $this->nextTime;
         }
-
         if (null !== $this->oncePlan) {
             $res['oncePlan'] = $this->oncePlan;
         }
-
         if (null !== $this->onceTime) {
             $res['onceTime'] = $this->onceTime;
         }
-
         if (null !== $this->operatorName) {
             $res['operatorName'] = $this->operatorName;
         }
-
         if (null !== $this->timezone) {
             $res['timezone'] = $this->timezone;
         }
@@ -101,42 +123,35 @@ class scheduleInfo extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return scheduleInfo
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['currPlan'])) {
             $model->currPlan = $map['currPlan'];
         }
-
         if (isset($map['currTime'])) {
             $model->currTime = $map['currTime'];
         }
-
         if (isset($map['nextPlan'])) {
             $model->nextPlan = $map['nextPlan'];
         }
-
         if (isset($map['nextTime'])) {
             $model->nextTime = $map['nextTime'];
         }
-
         if (isset($map['oncePlan'])) {
             $model->oncePlan = $map['oncePlan'];
         }
-
         if (isset($map['onceTime'])) {
             $model->onceTime = $map['onceTime'];
         }
-
         if (isset($map['operatorName'])) {
             $model->operatorName = $map['operatorName'];
         }
-
         if (isset($map['timezone'])) {
             $model->timezone = $map['timezone'];
         }

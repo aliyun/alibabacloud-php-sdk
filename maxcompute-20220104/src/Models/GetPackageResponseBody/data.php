@@ -4,18 +4,22 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetPackageResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetPackageResponseBody\data\allowedProjectList;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetPackageResponseBody\data\resourceList;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The projects in which the package is installed.
+     *
      * @var allowedProjectList[]
      */
     public $allowedProjectList;
 
     /**
+     * @description The details of the resources that are included in the package.
+     *
      * @var resourceList
      */
     public $resourceList;
@@ -24,55 +28,44 @@ class data extends Model
         'resourceList' => 'resourceList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->allowedProjectList)) {
-            Model::validateArray($this->allowedProjectList);
-        }
-        if (null !== $this->resourceList) {
-            $this->resourceList->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->allowedProjectList) {
-            if (\is_array($this->allowedProjectList)) {
-                $res['allowedProjectList'] = [];
-                $n1 = 0;
-                foreach ($this->allowedProjectList as $item1) {
-                    $res['allowedProjectList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+            $res['allowedProjectList'] = [];
+            if (null !== $this->allowedProjectList && \is_array($this->allowedProjectList)) {
+                $n = 0;
+                foreach ($this->allowedProjectList as $item) {
+                    $res['allowedProjectList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->resourceList) {
-            $res['resourceList'] = null !== $this->resourceList ? $this->resourceList->toArray($noStream) : $this->resourceList;
+            $res['resourceList'] = null !== $this->resourceList ? $this->resourceList->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['allowedProjectList'])) {
             if (!empty($map['allowedProjectList'])) {
                 $model->allowedProjectList = [];
-                $n1 = 0;
-                foreach ($map['allowedProjectList'] as $item1) {
-                    $model->allowedProjectList[$n1++] = allowedProjectList::fromMap($item1);
+                $n = 0;
+                foreach ($map['allowedProjectList'] as $item) {
+                    $model->allowedProjectList[$n++] = null !== $item ? allowedProjectList::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['resourceList'])) {
             $model->resourceList = resourceList::fromMap($map['resourceList']);
         }

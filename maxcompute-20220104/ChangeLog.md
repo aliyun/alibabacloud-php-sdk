@@ -1,3 +1,18 @@
+2025-08-05 Version: 2.2.0
+- Support API GetStorageAmountSummary.
+- Support API GetStorageSizeSummary.
+- Support API GetStorageSummaryCompared.
+- Support API ListStorageProjectsInfo.
+- Support API QueryStorageMetric.
+- Support API SumStorageMetricsByDate.
+- Support API UpdateUsersToRole.
+- Update API GetProject: add response parameters Body.data.properties.externalProjectProperties.externalCatalogId.
+- Update API GetProject: add response parameters Body.data.properties.externalProjectProperties.foreignServerName.
+- Update API GetProject: add response parameters Body.data.properties.externalProjectProperties.foreignServerType.
+- Update API GetProject: add response parameters Body.data.properties.externalProjectProperties.tableFormat.
+- Update API GetProject: add response parameters Body.data.properties.externalProjectProperties.warehouse.
+
+
 2025-05-30 Version: 2.1.1
 - Generated php 2022-01-04 for MaxCompute.
 
