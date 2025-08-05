@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\DescribeMigrationJobsResponseBody\migrationJobs\migrationJob\migrationObject\synchronousObject;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tableList extends Model
 {
@@ -16,29 +16,47 @@ class tableList extends Model
         'table' => 'Table',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->table)) {
+            Model::validateArray($this->table);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->table) {
-            $res['Table'] = $this->table;
+            if (\is_array($this->table)) {
+                $res['Table'] = [];
+                $n1 = 0;
+                foreach ($this->table as $item1) {
+                    $res['Table'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tableList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Table'])) {
             if (!empty($map['Table'])) {
-                $model->table = $map['Table'];
+                $model->table = [];
+                $n1 = 0;
+                foreach ($map['Table'] as $item1) {
+                    $model->table[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

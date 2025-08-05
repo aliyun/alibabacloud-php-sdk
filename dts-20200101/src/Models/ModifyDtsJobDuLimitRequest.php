@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDtsJobDuLimitRequest extends Model
 {
     /**
-     * @description The ID of the data migration, data synchronization, or change tracking task.
-     *
-     * This parameter is required.
-     *
-     * @example dtsxxx
-     *
      * @var string
      */
     public $dtsJobId;
 
     /**
-     * @description The upper limit of DUs for the DTS task.
-     *
-     * >  Minimum value: **1**.
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $duLimit;
@@ -38,19 +24,11 @@ class ModifyDtsJobDuLimitRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region in which the DTS instance resides.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description Resource group ID.
-     *
-     * @example rg-acfmzawhxxc****
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -62,23 +40,30 @@ class ModifyDtsJobDuLimitRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dtsJobId) {
             $res['DtsJobId'] = $this->dtsJobId;
         }
+
         if (null !== $this->duLimit) {
             $res['DuLimit'] = $this->duLimit;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -86,26 +71,30 @@ class ModifyDtsJobDuLimitRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDtsJobDuLimitRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DtsJobId'])) {
             $model->dtsJobId = $map['DtsJobId'];
         }
+
         if (isset($map['DuLimit'])) {
             $model->duLimit = $map['DuLimit'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

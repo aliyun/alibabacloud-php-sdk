@@ -4,48 +4,26 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDTSIPRequest extends Model
 {
     /**
-     * @description The ID of the region where the destination instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
-     *
-     * >  If the destination instance is a self-managed database with a public IP address, you can set the parameter to **cn-hangzhou** or the ID of the closest region.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $destinationEndpointRegion;
 
     /**
-     * @description The ID of the region where the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description Resource group ID.
-     *
-     * @example rg-acfmzawhxxc****
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The ID of the region where the source instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
-     *
-     * >  If the source instance is a self-managed database with a public IP address, you can set the parameter to **cn-hangzhou** or the ID of the closest region.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $sourceEndpointRegion;
@@ -56,20 +34,26 @@ class DescribeDTSIPRequest extends Model
         'sourceEndpointRegion' => 'SourceEndpointRegion',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationEndpointRegion) {
             $res['DestinationEndpointRegion'] = $this->destinationEndpointRegion;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->sourceEndpointRegion) {
             $res['SourceEndpointRegion'] = $this->sourceEndpointRegion;
         }
@@ -77,23 +61,26 @@ class DescribeDTSIPRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDTSIPRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationEndpointRegion'])) {
             $model->destinationEndpointRegion = $map['DestinationEndpointRegion'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['SourceEndpointRegion'])) {
             $model->sourceEndpointRegion = $map['SourceEndpointRegion'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeGadInstancesRequest extends Model
 {
@@ -14,8 +14,6 @@ class DescribeGadInstancesRequest extends Model
     public $dbEngineTypes;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $instanceName;
@@ -31,29 +29,21 @@ class DescribeGadInstancesRequest extends Model
     public $ownerId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 30
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example rg-acfmzawhxxc****
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -74,35 +64,46 @@ class DescribeGadInstancesRequest extends Model
         'slaveDbInstanceId' => 'SlaveDbInstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbEngineTypes) {
             $res['DbEngineTypes'] = $this->dbEngineTypes;
         }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+
         if (null !== $this->masterDbInstanceId) {
             $res['MasterDbInstanceId'] = $this->masterDbInstanceId;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->slaveDbInstanceId) {
             $res['SlaveDbInstanceId'] = $this->slaveDbInstanceId;
         }
@@ -110,38 +111,46 @@ class DescribeGadInstancesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeGadInstancesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbEngineTypes'])) {
             $model->dbEngineTypes = $map['DbEngineTypes'];
         }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+
         if (isset($map['MasterDbInstanceId'])) {
             $model->masterDbInstanceId = $map['MasterDbInstanceId'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['SlaveDbInstanceId'])) {
             $model->slaveDbInstanceId = $map['SlaveDbInstanceId'];
         }

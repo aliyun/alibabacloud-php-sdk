@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PreCheckCreateGadOrderRequest extends Model
 {
     /**
-     * @example gad-bp1i99e8l7913****
-     *
      * @var string
      */
     public $instanceId;
@@ -41,15 +39,11 @@ class PreCheckCreateGadOrderRequest extends Model
     public $ownerId;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example rg-acfntftbiobqyky
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -60,15 +54,11 @@ class PreCheckCreateGadOrderRequest extends Model
     public $slaveDatabaseName;
 
     /**
-     * @example rm-bp17562h64****
-     *
      * @var string
      */
     public $slaveDbInstanceId;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $slaveDbInstanceRegion;
@@ -92,44 +82,58 @@ class PreCheckCreateGadOrderRequest extends Model
         'slaveEngineArchType' => 'SlaveEngineArchType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->masterDatabaseName) {
             $res['MasterDatabaseName'] = $this->masterDatabaseName;
         }
+
         if (null !== $this->masterEngineArchType) {
             $res['MasterEngineArchType'] = $this->masterEngineArchType;
         }
+
         if (null !== $this->masterShardAccountName) {
             $res['MasterShardAccountName'] = $this->masterShardAccountName;
         }
+
         if (null !== $this->masterShardAccountPassword) {
             $res['MasterShardAccountPassword'] = $this->masterShardAccountPassword;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->slaveDatabaseName) {
             $res['SlaveDatabaseName'] = $this->slaveDatabaseName;
         }
+
         if (null !== $this->slaveDbInstanceId) {
             $res['SlaveDbInstanceId'] = $this->slaveDbInstanceId;
         }
+
         if (null !== $this->slaveDbInstanceRegion) {
             $res['SlaveDbInstanceRegion'] = $this->slaveDbInstanceRegion;
         }
+
         if (null !== $this->slaveEngineArchType) {
             $res['SlaveEngineArchType'] = $this->slaveEngineArchType;
         }
@@ -137,47 +141,58 @@ class PreCheckCreateGadOrderRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PreCheckCreateGadOrderRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['MasterDatabaseName'])) {
             $model->masterDatabaseName = $map['MasterDatabaseName'];
         }
+
         if (isset($map['MasterEngineArchType'])) {
             $model->masterEngineArchType = $map['MasterEngineArchType'];
         }
+
         if (isset($map['MasterShardAccountName'])) {
             $model->masterShardAccountName = $map['MasterShardAccountName'];
         }
+
         if (isset($map['MasterShardAccountPassword'])) {
             $model->masterShardAccountPassword = $map['MasterShardAccountPassword'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['SlaveDatabaseName'])) {
             $model->slaveDatabaseName = $map['SlaveDatabaseName'];
         }
+
         if (isset($map['SlaveDbInstanceId'])) {
             $model->slaveDbInstanceId = $map['SlaveDbInstanceId'];
         }
+
         if (isset($map['SlaveDbInstanceRegion'])) {
             $model->slaveDbInstanceRegion = $map['SlaveDbInstanceRegion'];
         }
+
         if (isset($map['SlaveEngineArchType'])) {
             $model->slaveEngineArchType = $map['SlaveEngineArchType'];
         }

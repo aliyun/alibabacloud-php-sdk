@@ -4,96 +4,56 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class WhiteIpListResponseBody extends Model
 {
     /**
-     * @description Target end adaptation to VPCNAT IP whitelist
-     *
-     * @example 127.0.0.1
-     *
      * @var string
      */
     public $destIpList;
 
     /**
-     * @description The dynamic error code. This parameter will be removed in the future.
-     *
-     * @example 403
-     *
      * @var string
      */
     public $dynamicCode;
 
     /**
-     * @description The dynamic error message. This parameter will be removed in the future.
-     *
-     * @example Type
-     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
-     * @description The error code returned if the call failed.
-     *
-     * @example InternalError
-     *
      * @var string
      */
     public $errCode;
 
     /**
-     * @description The error message returned if the call failed.
-     *
-     * @example The Value of Input Parameter %s is not valid.
-     *
      * @var string
      */
     public $errMessage;
 
     /**
-     * @description The HTTP status code.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @description IP address.
-     *
-     * @example 10.151.12.0/24,47.102.181.0/24,47.101.109.0/24,120.55.129.0/24,11.115.103.0/24,47.102.234.0/24
-     *
      * @var string
      */
     public $ipList;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example AD823BD3-1BA6-4117-A536-165CB280****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Source adaptation to VPC NAT IP whitelist
-     *
-     * @example 127.0.0.1
-     *
      * @var string
      */
     public $srcIpList;
 
     /**
-     * @description Indicates whether the request was successful.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -110,38 +70,50 @@ class WhiteIpListResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destIpList) {
             $res['DestIpList'] = $this->destIpList;
         }
+
         if (null !== $this->dynamicCode) {
             $res['DynamicCode'] = $this->dynamicCode;
         }
+
         if (null !== $this->dynamicMessage) {
             $res['DynamicMessage'] = $this->dynamicMessage;
         }
+
         if (null !== $this->errCode) {
             $res['ErrCode'] = $this->errCode;
         }
+
         if (null !== $this->errMessage) {
             $res['ErrMessage'] = $this->errMessage;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->ipList) {
             $res['IpList'] = $this->ipList;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->srcIpList) {
             $res['SrcIpList'] = $this->srcIpList;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -149,41 +121,50 @@ class WhiteIpListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return WhiteIpListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestIpList'])) {
             $model->destIpList = $map['DestIpList'];
         }
+
         if (isset($map['DynamicCode'])) {
             $model->dynamicCode = $map['DynamicCode'];
         }
+
         if (isset($map['DynamicMessage'])) {
             $model->dynamicMessage = $map['DynamicMessage'];
         }
+
         if (isset($map['ErrCode'])) {
             $model->errCode = $map['ErrCode'];
         }
+
         if (isset($map['ErrMessage'])) {
             $model->errMessage = $map['ErrMessage'];
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['IpList'])) {
             $model->ipList = $map['IpList'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SrcIpList'])) {
             $model->srcIpList = $map['SrcIpList'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

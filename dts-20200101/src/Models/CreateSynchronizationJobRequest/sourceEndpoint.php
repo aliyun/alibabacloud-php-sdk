@@ -4,24 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\CreateSynchronizationJobRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sourceEndpoint extends Model
 {
     /**
-     * @description The instance type of the source database. Valid values:
-     *
-     *   **MySQL**: ApsaraDB RDS for MySQL instance or self-managed MySQL database
-     *   **PolarDB**: PolarDB for MySQL cluster or PolarDB O Edition cluster
-     *   **Redis**: Redis database
-     *   **DRDS**: PolarDB-X instance V1.0
-     *
-     * >
-     *   Default value: **MySQL**.
-     *   For more information about the supported source and destination databases, see [Database types, initial synchronization types, and synchronization topologies](https://help.aliyun.com/document_detail/130744.html).
-     *
-     * @example MySQL
-     *
      * @var string
      */
     public $instanceType;
@@ -29,9 +16,12 @@ class sourceEndpoint extends Model
         'instanceType' => 'InstanceType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceType) {
@@ -41,11 +31,11 @@ class sourceEndpoint extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sourceEndpoint
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,40 +4,28 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\DescribeSynchronizationJobStatusResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeSynchronizationJobStatusResponseBody\synchronizationObjects\tableExcludes;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeSynchronizationJobStatusResponseBody\synchronizationObjects\tableIncludes;
-use AlibabaCloud\Tea\Model;
 
 class synchronizationObjects extends Model
 {
     /**
-     * @description The database name that is used in the destination instance.
-     *
-     * @example newdtstestdatabase
-     *
      * @var string
      */
     public $newSchemaName;
 
     /**
-     * @description The name of the synchronized database.
-     *
-     * @example dtstestdatabase
-     *
      * @var string
      */
     public $schemaName;
 
     /**
-     * @description The source tables that are excluded from the data synchronization task.
-     *
      * @var tableExcludes[]
      */
     public $tableExcludes;
 
     /**
-     * @description The tables that are synchronized by the task.
-     *
      * @var tableIncludes[]
      */
     public $tableIncludes;
@@ -48,32 +36,46 @@ class synchronizationObjects extends Model
         'tableIncludes' => 'TableIncludes',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tableExcludes)) {
+            Model::validateArray($this->tableExcludes);
+        }
+        if (\is_array($this->tableIncludes)) {
+            Model::validateArray($this->tableIncludes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->newSchemaName) {
             $res['NewSchemaName'] = $this->newSchemaName;
         }
+
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
         }
+
         if (null !== $this->tableExcludes) {
-            $res['TableExcludes'] = [];
-            if (null !== $this->tableExcludes && \is_array($this->tableExcludes)) {
-                $n = 0;
-                foreach ($this->tableExcludes as $item) {
-                    $res['TableExcludes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tableExcludes)) {
+                $res['TableExcludes'] = [];
+                $n1 = 0;
+                foreach ($this->tableExcludes as $item1) {
+                    $res['TableExcludes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->tableIncludes) {
-            $res['TableIncludes'] = [];
-            if (null !== $this->tableIncludes && \is_array($this->tableIncludes)) {
-                $n = 0;
-                foreach ($this->tableIncludes as $item) {
-                    $res['TableIncludes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tableIncludes)) {
+                $res['TableIncludes'] = [];
+                $n1 = 0;
+                foreach ($this->tableIncludes as $item1) {
+                    $res['TableIncludes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,35 +83,40 @@ class synchronizationObjects extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return synchronizationObjects
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NewSchemaName'])) {
             $model->newSchemaName = $map['NewSchemaName'];
         }
+
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
         }
+
         if (isset($map['TableExcludes'])) {
             if (!empty($map['TableExcludes'])) {
                 $model->tableExcludes = [];
-                $n = 0;
-                foreach ($map['TableExcludes'] as $item) {
-                    $model->tableExcludes[$n++] = null !== $item ? tableExcludes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TableExcludes'] as $item1) {
+                    $model->tableExcludes[$n1] = tableExcludes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TableIncludes'])) {
             if (!empty($map['TableIncludes'])) {
                 $model->tableIncludes = [];
-                $n = 0;
-                foreach ($map['TableIncludes'] as $item) {
-                    $model->tableIncludes[$n++] = null !== $item ? tableIncludes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TableIncludes'] as $item1) {
+                    $model->tableIncludes[$n1] = tableIncludes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

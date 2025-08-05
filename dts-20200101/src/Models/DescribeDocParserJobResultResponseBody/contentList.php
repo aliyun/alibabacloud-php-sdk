@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDocParserJobResultResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class contentList extends Model
 {
     /**
-     * @example * Demo * ** Demo title **
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
@@ -26,14 +22,18 @@ class contentList extends Model
         'pageNumber' => 'PageNumber',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -41,17 +41,18 @@ class contentList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contentList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }

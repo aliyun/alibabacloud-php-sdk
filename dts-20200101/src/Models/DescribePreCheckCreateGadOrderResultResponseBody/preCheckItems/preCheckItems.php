@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\DescribePreCheckCreateGadOrderResultResponseBody\preCheckItems;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class preCheckItems extends Model
 {
     /**
-     * @example CHECK_MASTER_DB_STATUS
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example Running
-     *
      * @var string
      */
     public $status;
@@ -34,17 +28,22 @@ class preCheckItems extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -52,20 +51,22 @@ class preCheckItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return preCheckItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
