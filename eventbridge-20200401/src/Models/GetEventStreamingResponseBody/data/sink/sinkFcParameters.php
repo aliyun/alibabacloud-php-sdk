@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkFcParameters\body;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkFcParameters\concurrency;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkFcParameters\dataFormat;
@@ -12,15 +11,20 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkFcParameters\invocationType;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkFcParameters\qualifier;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkFcParameters\serviceName;
+use AlibabaCloud\Tea\Model;
 
 class sinkFcParameters extends Model
 {
     /**
+     * @description The message body that is sent to the function.
+     *
      * @var body
      */
     public $body;
 
     /**
+     * @description The delivery concurrency. Minimum value: 1.
+     *
      * @var concurrency
      */
     public $concurrency;
@@ -31,21 +35,29 @@ class sinkFcParameters extends Model
     public $dataFormat;
 
     /**
+     * @description The function name.
+     *
      * @var functionName
      */
     public $functionName;
 
     /**
+     * @description The invocation type. Valid values: Sync: synchronous Async: asynchronous
+     *
      * @var invocationType
      */
     public $invocationType;
 
     /**
+     * @description The alias of the service to which the function belongs.
+     *
      * @var qualifier
      */
     public $qualifier;
 
     /**
+     * @description The service name.
+     *
      * @var serviceName
      */
     public $serviceName;
@@ -59,98 +71,62 @@ class sinkFcParameters extends Model
         'serviceName' => 'ServiceName',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->body) {
-            $this->body->validate();
-        }
-        if (null !== $this->concurrency) {
-            $this->concurrency->validate();
-        }
-        if (null !== $this->dataFormat) {
-            $this->dataFormat->validate();
-        }
-        if (null !== $this->functionName) {
-            $this->functionName->validate();
-        }
-        if (null !== $this->invocationType) {
-            $this->invocationType->validate();
-        }
-        if (null !== $this->qualifier) {
-            $this->qualifier->validate();
-        }
-        if (null !== $this->serviceName) {
-            $this->serviceName->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->body) {
-            $res['Body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
+            $res['Body'] = null !== $this->body ? $this->body->toMap() : null;
         }
-
         if (null !== $this->concurrency) {
-            $res['Concurrency'] = null !== $this->concurrency ? $this->concurrency->toArray($noStream) : $this->concurrency;
+            $res['Concurrency'] = null !== $this->concurrency ? $this->concurrency->toMap() : null;
         }
-
         if (null !== $this->dataFormat) {
-            $res['DataFormat'] = null !== $this->dataFormat ? $this->dataFormat->toArray($noStream) : $this->dataFormat;
+            $res['DataFormat'] = null !== $this->dataFormat ? $this->dataFormat->toMap() : null;
         }
-
         if (null !== $this->functionName) {
-            $res['FunctionName'] = null !== $this->functionName ? $this->functionName->toArray($noStream) : $this->functionName;
+            $res['FunctionName'] = null !== $this->functionName ? $this->functionName->toMap() : null;
         }
-
         if (null !== $this->invocationType) {
-            $res['InvocationType'] = null !== $this->invocationType ? $this->invocationType->toArray($noStream) : $this->invocationType;
+            $res['InvocationType'] = null !== $this->invocationType ? $this->invocationType->toMap() : null;
         }
-
         if (null !== $this->qualifier) {
-            $res['Qualifier'] = null !== $this->qualifier ? $this->qualifier->toArray($noStream) : $this->qualifier;
+            $res['Qualifier'] = null !== $this->qualifier ? $this->qualifier->toMap() : null;
         }
-
         if (null !== $this->serviceName) {
-            $res['ServiceName'] = null !== $this->serviceName ? $this->serviceName->toArray($noStream) : $this->serviceName;
+            $res['ServiceName'] = null !== $this->serviceName ? $this->serviceName->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sinkFcParameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Body'])) {
             $model->body = body::fromMap($map['Body']);
         }
-
         if (isset($map['Concurrency'])) {
             $model->concurrency = concurrency::fromMap($map['Concurrency']);
         }
-
         if (isset($map['DataFormat'])) {
             $model->dataFormat = dataFormat::fromMap($map['DataFormat']);
         }
-
         if (isset($map['FunctionName'])) {
             $model->functionName = functionName::fromMap($map['FunctionName']);
         }
-
         if (isset($map['InvocationType'])) {
             $model->invocationType = invocationType::fromMap($map['InvocationType']);
         }
-
         if (isset($map['Qualifier'])) {
             $model->qualifier = qualifier::fromMap($map['Qualifier']);
         }
-
         if (isset($map['ServiceName'])) {
             $model->serviceName = serviceName::fromMap($map['ServiceName']);
         }

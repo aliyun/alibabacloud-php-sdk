@@ -4,13 +4,13 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkDataHubParameters\body;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkDataHubParameters\project;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkDataHubParameters\roleName;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkDataHubParameters\topic;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkDataHubParameters\topicSchema;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkDataHubParameters\topicType;
+use AlibabaCloud\Tea\Model;
 
 class sinkDataHubParameters extends Model
 {
@@ -52,87 +52,56 @@ class sinkDataHubParameters extends Model
         'topicType' => 'TopicType',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->body) {
-            $this->body->validate();
-        }
-        if (null !== $this->project) {
-            $this->project->validate();
-        }
-        if (null !== $this->roleName) {
-            $this->roleName->validate();
-        }
-        if (null !== $this->topic) {
-            $this->topic->validate();
-        }
-        if (null !== $this->topicSchema) {
-            $this->topicSchema->validate();
-        }
-        if (null !== $this->topicType) {
-            $this->topicType->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->body) {
-            $res['Body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
+            $res['Body'] = null !== $this->body ? $this->body->toMap() : null;
         }
-
         if (null !== $this->project) {
-            $res['Project'] = null !== $this->project ? $this->project->toArray($noStream) : $this->project;
+            $res['Project'] = null !== $this->project ? $this->project->toMap() : null;
         }
-
         if (null !== $this->roleName) {
-            $res['RoleName'] = null !== $this->roleName ? $this->roleName->toArray($noStream) : $this->roleName;
+            $res['RoleName'] = null !== $this->roleName ? $this->roleName->toMap() : null;
         }
-
         if (null !== $this->topic) {
-            $res['Topic'] = null !== $this->topic ? $this->topic->toArray($noStream) : $this->topic;
+            $res['Topic'] = null !== $this->topic ? $this->topic->toMap() : null;
         }
-
         if (null !== $this->topicSchema) {
-            $res['TopicSchema'] = null !== $this->topicSchema ? $this->topicSchema->toArray($noStream) : $this->topicSchema;
+            $res['TopicSchema'] = null !== $this->topicSchema ? $this->topicSchema->toMap() : null;
         }
-
         if (null !== $this->topicType) {
-            $res['TopicType'] = null !== $this->topicType ? $this->topicType->toArray($noStream) : $this->topicType;
+            $res['TopicType'] = null !== $this->topicType ? $this->topicType->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sinkDataHubParameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Body'])) {
             $model->body = body::fromMap($map['Body']);
         }
-
         if (isset($map['Project'])) {
             $model->project = project::fromMap($map['Project']);
         }
-
         if (isset($map['RoleName'])) {
             $model->roleName = roleName::fromMap($map['RoleName']);
         }
-
         if (isset($map['Topic'])) {
             $model->topic = topic::fromMap($map['Topic']);
         }
-
         if (isset($map['TopicSchema'])) {
             $model->topicSchema = topicSchema::fromMap($map['TopicSchema']);
         }
-
         if (isset($map['TopicType'])) {
             $model->topicType = topicType::fromMap($map['TopicType']);
         }

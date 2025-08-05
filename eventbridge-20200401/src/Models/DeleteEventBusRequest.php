@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteEventBusRequest extends Model
 {
     /**
+     * @description The name of the event bus.
+     *
+     * This parameter is required.
+     *
+     * @example MyEventBus
+     *
      * @var string
      */
     public $eventBusName;
@@ -16,12 +22,9 @@ class DeleteEventBusRequest extends Model
         'eventBusName' => 'EventBusName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eventBusName) {
@@ -31,11 +34,11 @@ class DeleteEventBusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteEventBusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

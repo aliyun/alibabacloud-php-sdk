@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\CheckServiceLinkedRoleForProductResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description Indicates whether the service-linked role exists.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $checkPass;
 
     /**
+     * @description The name of the service-linked role.
+     *
+     * @example AliyunServiceRoleForEventBridgeConnectVPC
+     *
      * @var string
      */
     public $stsRoleName;
@@ -22,18 +30,14 @@ class data extends Model
         'stsRoleName' => 'StsRoleName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->checkPass) {
             $res['CheckPass'] = $this->checkPass;
         }
-
         if (null !== $this->stsRoleName) {
             $res['StsRoleName'] = $this->stsRoleName;
         }
@@ -41,18 +45,17 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckPass'])) {
             $model->checkPass = $map['CheckPass'];
         }
-
         if (isset($map['StsRoleName'])) {
             $model->stsRoleName = $map['StsRoleName'];
         }

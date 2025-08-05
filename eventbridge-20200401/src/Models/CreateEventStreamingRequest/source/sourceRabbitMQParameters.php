@@ -4,26 +4,42 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\source;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class sourceRabbitMQParameters extends Model
 {
     /**
+     * @description The ID of the ApsaraMQ for RabbitMQ instance.
+     *
+     * @example gtm-cn-k2c2yfgzt02
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the queue on the ApsaraMQ for RabbitMQ instance.
+     *
+     * @example demo
+     *
      * @var string
      */
     public $queueName;
 
     /**
+     * @description The ID of the region where the ApsaraMQ for RabbitMQ instance resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/62010.html) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the vhost to which the ApsaraMQ for RabbitMQ instance belongs.
+     *
+     * @example eb-connect
+     *
      * @var string
      */
     public $virtualHostName;
@@ -34,26 +50,20 @@ class sourceRabbitMQParameters extends Model
         'virtualHostName' => 'VirtualHostName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
         }
-
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-
         if (null !== $this->virtualHostName) {
             $res['VirtualHostName'] = $this->virtualHostName;
         }
@@ -61,26 +71,23 @@ class sourceRabbitMQParameters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sourceRabbitMQParameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
         }
-
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-
         if (isset($map['VirtualHostName'])) {
             $model->virtualHostName = $map['VirtualHostName'];
         }

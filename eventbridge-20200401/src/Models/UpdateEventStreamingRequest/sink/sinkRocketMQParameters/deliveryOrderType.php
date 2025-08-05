@@ -4,21 +4,36 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkRocketMQParameters;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class deliveryOrderType extends Model
 {
     /**
+     * @description The method that you want to use to transform events. Default value: CONSTANT.
+     *
+     * @example CONSTANT
+     *
      * @var string
      */
     public $form;
 
     /**
+     * @description The template based on which you want events to be transformed.
+     *
+     * @example None
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The type of the message delivery order. Valid values:
+     *
+     *   **Orderly**
+     *   **Concurrently**
+     *
+     * @example Concurrently
+     *
      * @var string
      */
     public $value;
@@ -28,22 +43,17 @@ class deliveryOrderType extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->form) {
             $res['Form'] = $this->form;
         }
-
         if (null !== $this->template) {
             $res['Template'] = $this->template;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -51,22 +61,20 @@ class deliveryOrderType extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return deliveryOrderType
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Form'])) {
             $model->form = $map['Form'];
         }
-
         if (isset($map['Template'])) {
             $model->template = $map['Template'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

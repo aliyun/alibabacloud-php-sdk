@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkRabbitMQParameters\body;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkRabbitMQParameters\exchange;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkRabbitMQParameters\instanceId;
@@ -14,50 +13,69 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\si
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkRabbitMQParameters\routingKey;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkRabbitMQParameters\targetType;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkRabbitMQParameters\virtualHostName;
+use AlibabaCloud\Tea\Model;
 
 class sinkRabbitMQParameters extends Model
 {
     /**
+     * @description The message body.
+     *
      * @var body
      */
     public $body;
 
     /**
+     * @description The exchange mode. This parameter is required only if you set TargetType to Exchange.
+     *
      * @var exchange
      */
     public $exchange;
 
     /**
+     * @description The ID of the ApsaraMQ for RabbitMQ instance.
+     *
      * @var instanceId
      */
     public $instanceId;
 
     /**
+     * @description The message ID.
+     *
      * @var messageId
      */
     public $messageId;
 
     /**
+     * @description The attributes that you want to use to filter messages.
+     *
      * @var properties
      */
     public $properties;
 
     /**
+     * @description The queue mode. This parameter is required only if you set TargetType to Queue.
+     *
      * @var queueName
      */
     public $queueName;
 
     /**
+     * @description The rule that you want to use to route messages. This parameter is required only if you set TargetType to Exchange.
+     *
      * @var routingKey
      */
     public $routingKey;
 
     /**
+     * @description The type of the resource to which you want to deliver events.
+     *
      * @var targetType
      */
     public $targetType;
 
     /**
+     * @description The name of the vhost of the ApsaraMQ for RabbitMQ instance.
+     *
      * @var virtualHostName
      */
     public $virtualHostName;
@@ -73,120 +91,74 @@ class sinkRabbitMQParameters extends Model
         'virtualHostName' => 'VirtualHostName',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->body) {
-            $this->body->validate();
-        }
-        if (null !== $this->exchange) {
-            $this->exchange->validate();
-        }
-        if (null !== $this->instanceId) {
-            $this->instanceId->validate();
-        }
-        if (null !== $this->messageId) {
-            $this->messageId->validate();
-        }
-        if (null !== $this->properties) {
-            $this->properties->validate();
-        }
-        if (null !== $this->queueName) {
-            $this->queueName->validate();
-        }
-        if (null !== $this->routingKey) {
-            $this->routingKey->validate();
-        }
-        if (null !== $this->targetType) {
-            $this->targetType->validate();
-        }
-        if (null !== $this->virtualHostName) {
-            $this->virtualHostName->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->body) {
-            $res['Body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
+            $res['Body'] = null !== $this->body ? $this->body->toMap() : null;
         }
-
         if (null !== $this->exchange) {
-            $res['Exchange'] = null !== $this->exchange ? $this->exchange->toArray($noStream) : $this->exchange;
+            $res['Exchange'] = null !== $this->exchange ? $this->exchange->toMap() : null;
         }
-
         if (null !== $this->instanceId) {
-            $res['InstanceId'] = null !== $this->instanceId ? $this->instanceId->toArray($noStream) : $this->instanceId;
+            $res['InstanceId'] = null !== $this->instanceId ? $this->instanceId->toMap() : null;
         }
-
         if (null !== $this->messageId) {
-            $res['MessageId'] = null !== $this->messageId ? $this->messageId->toArray($noStream) : $this->messageId;
+            $res['MessageId'] = null !== $this->messageId ? $this->messageId->toMap() : null;
         }
-
         if (null !== $this->properties) {
-            $res['Properties'] = null !== $this->properties ? $this->properties->toArray($noStream) : $this->properties;
+            $res['Properties'] = null !== $this->properties ? $this->properties->toMap() : null;
         }
-
         if (null !== $this->queueName) {
-            $res['QueueName'] = null !== $this->queueName ? $this->queueName->toArray($noStream) : $this->queueName;
+            $res['QueueName'] = null !== $this->queueName ? $this->queueName->toMap() : null;
         }
-
         if (null !== $this->routingKey) {
-            $res['RoutingKey'] = null !== $this->routingKey ? $this->routingKey->toArray($noStream) : $this->routingKey;
+            $res['RoutingKey'] = null !== $this->routingKey ? $this->routingKey->toMap() : null;
         }
-
         if (null !== $this->targetType) {
-            $res['TargetType'] = null !== $this->targetType ? $this->targetType->toArray($noStream) : $this->targetType;
+            $res['TargetType'] = null !== $this->targetType ? $this->targetType->toMap() : null;
         }
-
         if (null !== $this->virtualHostName) {
-            $res['VirtualHostName'] = null !== $this->virtualHostName ? $this->virtualHostName->toArray($noStream) : $this->virtualHostName;
+            $res['VirtualHostName'] = null !== $this->virtualHostName ? $this->virtualHostName->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sinkRabbitMQParameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Body'])) {
             $model->body = body::fromMap($map['Body']);
         }
-
         if (isset($map['Exchange'])) {
             $model->exchange = exchange::fromMap($map['Exchange']);
         }
-
         if (isset($map['InstanceId'])) {
             $model->instanceId = instanceId::fromMap($map['InstanceId']);
         }
-
         if (isset($map['MessageId'])) {
             $model->messageId = messageId::fromMap($map['MessageId']);
         }
-
         if (isset($map['Properties'])) {
             $model->properties = properties::fromMap($map['Properties']);
         }
-
         if (isset($map['QueueName'])) {
             $model->queueName = queueName::fromMap($map['QueueName']);
         }
-
         if (isset($map['RoutingKey'])) {
             $model->routingKey = routingKey::fromMap($map['RoutingKey']);
         }
-
         if (isset($map['TargetType'])) {
             $model->targetType = targetType::fromMap($map['TargetType']);
         }
-
         if (isset($map['VirtualHostName'])) {
             $model->virtualHostName = virtualHostName::fromMap($map['VirtualHostName']);
         }

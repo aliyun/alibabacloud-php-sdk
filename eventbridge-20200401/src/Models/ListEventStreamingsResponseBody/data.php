@@ -4,22 +4,32 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The event streams.
+     *
      * @var eventStreamings[]
      */
     public $eventStreamings;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists. You must specify the pagination token in the next request.
+     *
+     * @example 177
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The total number of records.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $total;
@@ -29,32 +39,23 @@ class data extends Model
         'total' => 'Total',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->eventStreamings)) {
-            Model::validateArray($this->eventStreamings);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eventStreamings) {
-            if (\is_array($this->eventStreamings)) {
-                $res['EventStreamings'] = [];
-                $n1 = 0;
-                foreach ($this->eventStreamings as $item1) {
-                    $res['EventStreamings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['EventStreamings'] = [];
+            if (null !== $this->eventStreamings && \is_array($this->eventStreamings)) {
+                $n = 0;
+                foreach ($this->eventStreamings as $item) {
+                    $res['EventStreamings'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
-
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -62,29 +63,26 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventStreamings'])) {
             if (!empty($map['EventStreamings'])) {
                 $model->eventStreamings = [];
-                $n1 = 0;
-                foreach ($map['EventStreamings'] as $item1) {
-                    $model->eventStreamings[$n1] = eventStreamings::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['EventStreamings'] as $item) {
+                    $model->eventStreamings[$n++] = null !== $item ? eventStreamings::fromMap($item) : $item;
                 }
             }
         }
-
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

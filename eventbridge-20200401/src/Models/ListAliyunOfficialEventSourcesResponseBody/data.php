@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListAliyunOfficialEventSourcesResponseBody;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListAliyunOfficialEventSourcesResponseBody\data\eventSourceList;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The event sources.
+     *
      * @var eventSourceList[]
      */
     public $eventSourceList;
@@ -17,24 +19,17 @@ class data extends Model
         'eventSourceList' => 'EventSourceList',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->eventSourceList)) {
-            Model::validateArray($this->eventSourceList);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eventSourceList) {
-            if (\is_array($this->eventSourceList)) {
-                $res['EventSourceList'] = [];
-                $n1 = 0;
-                foreach ($this->eventSourceList as $item1) {
-                    $res['EventSourceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                    ++$n1;
+            $res['EventSourceList'] = [];
+            if (null !== $this->eventSourceList && \is_array($this->eventSourceList)) {
+                $n = 0;
+                foreach ($this->eventSourceList as $item) {
+                    $res['EventSourceList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -42,21 +37,20 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventSourceList'])) {
             if (!empty($map['EventSourceList'])) {
                 $model->eventSourceList = [];
-                $n1 = 0;
-                foreach ($map['EventSourceList'] as $item1) {
-                    $model->eventSourceList[$n1] = eventSourceList::fromMap($item1);
-                    ++$n1;
+                $n = 0;
+                foreach ($map['EventSourceList'] as $item) {
+                    $model->eventSourceList[$n++] = null !== $item ? eventSourceList::fromMap($item) : $item;
                 }
             }
         }

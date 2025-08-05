@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\EventCenterQueryEventsRequest\body\parameters;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class orders extends Model
 {
     /**
+     * @description The column name.
+     *
+     * @example source
+     *
      * @var string
      */
     public $column;
 
     /**
+     * @description Specifies whether to sort the query results in descending order.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $desc;
 
     /**
+     * @description The operator.
+     *
+     * @example AVG
+     *
      * @var string
      */
     public $op;
@@ -28,22 +40,17 @@ class orders extends Model
         'op' => 'Op',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->column) {
             $res['Column'] = $this->column;
         }
-
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
-
         if (null !== $this->op) {
             $res['Op'] = $this->op;
         }
@@ -51,22 +58,20 @@ class orders extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return orders
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Column'])) {
             $model->column = $map['Column'];
         }
-
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
-
         if (isset($map['Op'])) {
             $model->op = $map['Op'];
         }

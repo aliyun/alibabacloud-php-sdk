@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkSLSParameters\body;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkSLSParameters\contentSchema;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkSLSParameters\contentType;
@@ -12,10 +11,13 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\si
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkSLSParameters\project;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkSLSParameters\roleName;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkSLSParameters\topic;
+use AlibabaCloud\Tea\Model;
 
 class sinkSLSParameters extends Model
 {
     /**
+     * @description The message body that you want to deliver to Simple Log Service.
+     *
      * @var body
      */
     public $body;
@@ -31,21 +33,29 @@ class sinkSLSParameters extends Model
     public $contentType;
 
     /**
+     * @description The Simple Log Service Logstore.
+     *
      * @var logStore
      */
     public $logStore;
 
     /**
+     * @description The Simple Log Service project.
+     *
      * @var project
      */
     public $project;
 
     /**
+     * @description The role name. If you want to authorize EventBridge to use this role to read logs in Simple Log Service, you must select Alibaba Cloud Service for Selected Trusted Entity and EventBridge for Select Trusted Service when you create the role in the RAM console.
+     *
      * @var roleName
      */
     public $roleName;
 
     /**
+     * @description The topic that you want to use to store logs. This parameter corresponds to the reserved field **topic** in Simple Log Service.
+     *
      * @var topic
      */
     public $topic;
@@ -59,98 +69,62 @@ class sinkSLSParameters extends Model
         'topic' => 'Topic',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->body) {
-            $this->body->validate();
-        }
-        if (null !== $this->contentSchema) {
-            $this->contentSchema->validate();
-        }
-        if (null !== $this->contentType) {
-            $this->contentType->validate();
-        }
-        if (null !== $this->logStore) {
-            $this->logStore->validate();
-        }
-        if (null !== $this->project) {
-            $this->project->validate();
-        }
-        if (null !== $this->roleName) {
-            $this->roleName->validate();
-        }
-        if (null !== $this->topic) {
-            $this->topic->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->body) {
-            $res['Body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
+            $res['Body'] = null !== $this->body ? $this->body->toMap() : null;
         }
-
         if (null !== $this->contentSchema) {
-            $res['ContentSchema'] = null !== $this->contentSchema ? $this->contentSchema->toArray($noStream) : $this->contentSchema;
+            $res['ContentSchema'] = null !== $this->contentSchema ? $this->contentSchema->toMap() : null;
         }
-
         if (null !== $this->contentType) {
-            $res['ContentType'] = null !== $this->contentType ? $this->contentType->toArray($noStream) : $this->contentType;
+            $res['ContentType'] = null !== $this->contentType ? $this->contentType->toMap() : null;
         }
-
         if (null !== $this->logStore) {
-            $res['LogStore'] = null !== $this->logStore ? $this->logStore->toArray($noStream) : $this->logStore;
+            $res['LogStore'] = null !== $this->logStore ? $this->logStore->toMap() : null;
         }
-
         if (null !== $this->project) {
-            $res['Project'] = null !== $this->project ? $this->project->toArray($noStream) : $this->project;
+            $res['Project'] = null !== $this->project ? $this->project->toMap() : null;
         }
-
         if (null !== $this->roleName) {
-            $res['RoleName'] = null !== $this->roleName ? $this->roleName->toArray($noStream) : $this->roleName;
+            $res['RoleName'] = null !== $this->roleName ? $this->roleName->toMap() : null;
         }
-
         if (null !== $this->topic) {
-            $res['Topic'] = null !== $this->topic ? $this->topic->toArray($noStream) : $this->topic;
+            $res['Topic'] = null !== $this->topic ? $this->topic->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sinkSLSParameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Body'])) {
             $model->body = body::fromMap($map['Body']);
         }
-
         if (isset($map['ContentSchema'])) {
             $model->contentSchema = contentSchema::fromMap($map['ContentSchema']);
         }
-
         if (isset($map['ContentType'])) {
             $model->contentType = contentType::fromMap($map['ContentType']);
         }
-
         if (isset($map['LogStore'])) {
             $model->logStore = logStore::fromMap($map['LogStore']);
         }
-
         if (isset($map['Project'])) {
             $model->project = project::fromMap($map['Project']);
         }
-
         if (isset($map['RoleName'])) {
             $model->roleName = roleName::fromMap($map['RoleName']);
         }
-
         if (isset($map['Topic'])) {
             $model->topic = topic::fromMap($map['Topic']);
         }

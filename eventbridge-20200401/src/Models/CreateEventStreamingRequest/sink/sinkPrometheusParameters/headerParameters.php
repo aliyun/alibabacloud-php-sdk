@@ -4,16 +4,22 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkPrometheusParameters;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class headerParameters extends Model
 {
     /**
+     * @example TEMPLATE
+     *
      * @var string
      */
     public $form;
 
     /**
+     * @example {
+     * "user_name":"${name}"
+     * }
+     *
      * @var string
      */
     public $template;
@@ -28,22 +34,17 @@ class headerParameters extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->form) {
             $res['Form'] = $this->form;
         }
-
         if (null !== $this->template) {
             $res['Template'] = $this->template;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -51,22 +52,20 @@ class headerParameters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return headerParameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Form'])) {
             $model->form = $map['Form'];
         }
-
         if (isset($map['Template'])) {
             $model->template = $map['Template'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

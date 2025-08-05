@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkRocketMQParameters;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class network extends Model
 {
     /**
+     * @example CONSTANT
+     *
      * @var string
      */
     public $form;
@@ -19,6 +21,8 @@ class network extends Model
     public $template;
 
     /**
+     * @example PublicNetwork
+     *
      * @var string
      */
     public $value;
@@ -28,22 +32,17 @@ class network extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->form) {
             $res['Form'] = $this->form;
         }
-
         if (null !== $this->template) {
             $res['Template'] = $this->template;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -51,22 +50,20 @@ class network extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return network
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Form'])) {
             $model->form = $map['Form'];
         }
-
         if (isset($map['Template'])) {
             $model->template = $map['Template'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

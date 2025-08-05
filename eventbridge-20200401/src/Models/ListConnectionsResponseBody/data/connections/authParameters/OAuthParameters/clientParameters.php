@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListConnectionsResponseBody\data\connections\authParameters\OAuthParameters;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class clientParameters extends Model
 {
     /**
+     * @description The client ID.
+     *
+     * @example ClientID
+     *
      * @var string
      */
     public $clientID;
 
     /**
+     * @description The AccessKey secret of the client.
+     *
+     * @example ClientSecret
+     *
      * @var string
      */
     public $clientSecret;
@@ -22,18 +30,14 @@ class clientParameters extends Model
         'clientSecret' => 'ClientSecret',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->clientID) {
             $res['ClientID'] = $this->clientID;
         }
-
         if (null !== $this->clientSecret) {
             $res['ClientSecret'] = $this->clientSecret;
         }
@@ -41,18 +45,17 @@ class clientParameters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return clientParameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientID'])) {
             $model->clientID = $map['ClientID'];
         }
-
         if (isset($map['ClientSecret'])) {
             $model->clientSecret = $map['ClientSecret'];
         }

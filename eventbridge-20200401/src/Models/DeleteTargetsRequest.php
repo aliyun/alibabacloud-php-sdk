@@ -4,21 +4,35 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteTargetsRequest extends Model
 {
     /**
+     * @description The name of the event bus.
+     *
+     * This parameter is required.
+     *
+     * @example MyEventBus
+     *
      * @var string
      */
     public $eventBusName;
 
     /**
+     * @description The name of the event rule.
+     *
+     * This parameter is required.
+     *
+     * @example ramrolechange-mns
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The IDs of the event targets that you want to delete.
+     *
      * @var string[]
      */
     public $targetIds;
@@ -28,63 +42,41 @@ class DeleteTargetsRequest extends Model
         'targetIds' => 'TargetIds',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->targetIds)) {
-            Model::validateArray($this->targetIds);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eventBusName) {
             $res['EventBusName'] = $this->eventBusName;
         }
-
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
-
         if (null !== $this->targetIds) {
-            if (\is_array($this->targetIds)) {
-                $res['TargetIds'] = [];
-                $n1 = 0;
-                foreach ($this->targetIds as $item1) {
-                    $res['TargetIds'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['TargetIds'] = $this->targetIds;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteTargetsRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventBusName'])) {
             $model->eventBusName = $map['EventBusName'];
         }
-
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
-
         if (isset($map['TargetIds'])) {
             if (!empty($map['TargetIds'])) {
-                $model->targetIds = [];
-                $n1 = 0;
-                foreach ($map['TargetIds'] as $item1) {
-                    $model->targetIds[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->targetIds = $map['TargetIds'];
             }
         }
 

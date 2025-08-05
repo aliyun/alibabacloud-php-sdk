@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateApiDestinationResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class date extends Model
 {
     /**
+     * @description The name of the API destination.
+     *
+     * @example ApiDestinationName
+     *
      * @var string
      */
     public $apiDestinationName;
@@ -16,12 +20,9 @@ class date extends Model
         'apiDestinationName' => 'ApiDestinationName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->apiDestinationName) {
@@ -31,11 +32,11 @@ class date extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return date
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

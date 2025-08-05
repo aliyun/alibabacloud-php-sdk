@@ -4,16 +4,23 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\EventCenterQueryEventsResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class timeSeries extends Model
 {
     /**
+     * @example {
+     * "id":"xxx",
+     * "source":"acs.ecs"
+     * }
+     *
      * @var mixed[]
      */
     public $rowData;
 
     /**
+     * @example 1683561600000
+     *
      * @var string
      */
     public $time;
@@ -22,26 +29,14 @@ class timeSeries extends Model
         'time' => 'Time',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->rowData)) {
-            Model::validateArray($this->rowData);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->rowData) {
-            if (\is_array($this->rowData)) {
-                $res['RowData'] = [];
-                foreach ($this->rowData as $key1 => $value1) {
-                    $res['RowData'][$key1] = $value1;
-                }
-            }
+            $res['RowData'] = $this->rowData;
         }
-
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
@@ -49,23 +44,17 @@ class timeSeries extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return timeSeries
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RowData'])) {
-            if (!empty($map['RowData'])) {
-                $model->rowData = [];
-                foreach ($map['RowData'] as $key1 => $value1) {
-                    $model->rowData[$key1] = $value1;
-                }
-            }
+            $model->rowData = $map['RowData'];
         }
-
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }

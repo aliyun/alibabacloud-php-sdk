@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\TestEventPatternResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The value true indicates that the event pattern matches the provided JSON format. The value false indicates that the event pattern does not match the provided JSON format.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $result;
@@ -16,12 +20,9 @@ class data extends Model
         'result' => 'Result',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->result) {
@@ -31,11 +32,11 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

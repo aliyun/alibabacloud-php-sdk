@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class StartEventStreamingRequest extends Model
 {
     /**
+     * @description The name of the event stream that you want to enable.
+     *
+     * This parameter is required.
+     *
+     * @example rocketmq-sync
+     *
      * @var string
      */
     public $eventStreamingName;
@@ -16,12 +22,9 @@ class StartEventStreamingRequest extends Model
         'eventStreamingName' => 'EventStreamingName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->eventStreamingName) {
@@ -31,11 +34,11 @@ class StartEventStreamingRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return StartEventStreamingRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

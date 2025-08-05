@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateRuleResponseBody;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description The ARN of the event rule. The ARN is used for authorization.
+     *
+     * @example acs:eventbridge:cn-hangzhou:123456789098****:eventbus/default/rule/MNSRule
+     *
      * @var string
      */
     public $ruleARN;
@@ -16,12 +20,9 @@ class data extends Model
         'ruleARN' => 'RuleARN',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ruleARN) {
@@ -31,11 +32,11 @@ class data extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return data
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

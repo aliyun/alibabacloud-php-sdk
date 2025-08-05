@@ -4,16 +4,38 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListApiDestinationsResponseBody\data\apiDestinations;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class httpApiParameters extends Model
 {
     /**
+     * @description The endpoint of the API destination.
+     *
+     * @example http://127.0.0.1:8001/api
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @description The HTTP request method. Valid values:
+     *
+     * - POST
+     *
+     * - GET
+     *
+     * - DELETE
+     *
+     * - PUT
+     *
+     * - HEAD
+     *
+     * - TRACE
+     *
+     * - PATCH
+     *
+     * @example POST
+     *
      * @var string
      */
     public $method;
@@ -22,18 +44,14 @@ class httpApiParameters extends Model
         'method' => 'Method',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->endpoint) {
             $res['Endpoint'] = $this->endpoint;
         }
-
         if (null !== $this->method) {
             $res['Method'] = $this->method;
         }
@@ -41,18 +59,17 @@ class httpApiParameters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return httpApiParameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Endpoint'])) {
             $model->endpoint = $map['Endpoint'];
         }
-
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
         }

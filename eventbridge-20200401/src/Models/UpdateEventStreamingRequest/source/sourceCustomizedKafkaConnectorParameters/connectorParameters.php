@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\source\sourceCustomizedKafkaConnectorParameters;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class connectorParameters extends Model
 {
     /**
+     * @example {
+     * "connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
+     * "tasks.max": "1",
+     * "topics": "sourceA,sourceB"
+     * }
+     *
      * @var mixed[]
      */
     public $config;
 
     /**
+     * @example test-name
+     *
      * @var string
      */
     public $name;
@@ -22,26 +30,14 @@ class connectorParameters extends Model
         'name' => 'Name',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->config)) {
-            Model::validateArray($this->config);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->config) {
-            if (\is_array($this->config)) {
-                $res['Config'] = [];
-                foreach ($this->config as $key1 => $value1) {
-                    $res['Config'][$key1] = $value1;
-                }
-            }
+            $res['Config'] = $this->config;
         }
-
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -49,23 +45,17 @@ class connectorParameters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return connectorParameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
-            if (!empty($map['Config'])) {
-                $model->config = [];
-                foreach ($map['Config'] as $key1 => $value1) {
-                    $model->config[$key1] = $value1;
-                }
-            }
+            $model->config = $map['Config'];
         }
-
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

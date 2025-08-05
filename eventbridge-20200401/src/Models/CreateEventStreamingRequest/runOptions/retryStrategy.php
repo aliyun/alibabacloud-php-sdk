@@ -4,21 +4,36 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\runOptions;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class retryStrategy extends Model
 {
     /**
+     * @description The maximum timeout period for a retry.
+     *
+     * @example 512
+     *
      * @var int
      */
     public $maximumEventAgeInSeconds;
 
     /**
+     * @description The maximum number of retries.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $maximumRetryAttempts;
 
     /**
+     * @description The retry policy. Valid values:
+     *
+     *   BACKOFF_RETRY
+     *   EXPONENTIAL_DECAY_RETRY
+     *
+     * @example BACKOFFRETRY
+     *
      * @var string
      */
     public $pushRetryStrategy;
@@ -28,22 +43,17 @@ class retryStrategy extends Model
         'pushRetryStrategy' => 'PushRetryStrategy',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->maximumEventAgeInSeconds) {
             $res['MaximumEventAgeInSeconds'] = $this->maximumEventAgeInSeconds;
         }
-
         if (null !== $this->maximumRetryAttempts) {
             $res['MaximumRetryAttempts'] = $this->maximumRetryAttempts;
         }
-
         if (null !== $this->pushRetryStrategy) {
             $res['PushRetryStrategy'] = $this->pushRetryStrategy;
         }
@@ -51,22 +61,20 @@ class retryStrategy extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return retryStrategy
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaximumEventAgeInSeconds'])) {
             $model->maximumEventAgeInSeconds = $map['MaximumEventAgeInSeconds'];
         }
-
         if (isset($map['MaximumRetryAttempts'])) {
             $model->maximumRetryAttempts = $map['MaximumRetryAttempts'];
         }
-
         if (isset($map['PushRetryStrategy'])) {
             $model->pushRetryStrategy = $map['PushRetryStrategy'];
         }

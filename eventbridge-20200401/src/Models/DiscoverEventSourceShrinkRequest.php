@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DiscoverEventSourceShrinkRequest extends Model
 {
@@ -16,12 +16,9 @@ class DiscoverEventSourceShrinkRequest extends Model
         'sourceMySQLParametersShrink' => 'SourceMySQLParameters',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->sourceMySQLParametersShrink) {
@@ -31,11 +28,11 @@ class DiscoverEventSourceShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DiscoverEventSourceShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

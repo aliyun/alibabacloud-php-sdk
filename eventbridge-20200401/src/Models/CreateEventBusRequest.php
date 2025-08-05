@@ -4,16 +4,26 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CreateEventBusRequest extends Model
 {
     /**
+     * @description The description of the event bus.
+     *
+     * @example demo
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the request is successful. The value true indicates that the request is successful.
+     *
+     * This parameter is required.
+     *
+     * @example MyEventBus
+     *
      * @var string
      */
     public $eventBusName;
@@ -22,18 +32,14 @@ class CreateEventBusRequest extends Model
         'eventBusName' => 'EventBusName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->eventBusName) {
             $res['EventBusName'] = $this->eventBusName;
         }
@@ -41,18 +47,17 @@ class CreateEventBusRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateEventBusRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['EventBusName'])) {
             $model->eventBusName = $map['EventBusName'];
         }

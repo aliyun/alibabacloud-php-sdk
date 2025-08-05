@@ -4,11 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\source;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class sourceSLSParameters extends Model
 {
     /**
+     * @description The role name. If you want to authorize EventBridge to use this role to read logs in Simple Log Service, you must select Alibaba Cloud Service for Selected Trusted Entity and EventBridge for Select Trusted Service when you create the role in the Resource Access Management (RAM) console.
+     *
+     * @example testRole
+     *
      * @var string
      */
     public $roleName;
@@ -16,12 +20,9 @@ class sourceSLSParameters extends Model
         'roleName' => 'RoleName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->roleName) {
@@ -31,11 +32,11 @@ class sourceSLSParameters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sourceSLSParameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

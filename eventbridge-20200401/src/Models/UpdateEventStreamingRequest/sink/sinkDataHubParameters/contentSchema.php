@@ -4,21 +4,31 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkDataHubParameters;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class contentSchema extends Model
 {
     /**
+     * @description The template based on which you want events to be transformed.
+     *
+     * @example CONSTANT
+     *
      * @var string
      */
     public $form;
 
     /**
+     * @description The template based on which you want events to be transformed.
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The value before event transformation.
+     *
+     * @example {"Key_1":{"form":"CONSTANT","value":"demoKey"},"Value_1":{"form":"JSONPATH","value":"$.data.value"}}
+     *
      * @var string
      */
     public $value;
@@ -28,22 +38,17 @@ class contentSchema extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->form) {
             $res['Form'] = $this->form;
         }
-
         if (null !== $this->template) {
             $res['Template'] = $this->template;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -51,22 +56,20 @@ class contentSchema extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return contentSchema
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Form'])) {
             $model->form = $map['Form'];
         }
-
         if (isset($map['Template'])) {
             $model->template = $map['Template'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

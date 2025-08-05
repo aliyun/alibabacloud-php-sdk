@@ -4,12 +4,14 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\TestEventSourceConfigRequest\sourceMySQLParameters;
+use AlibabaCloud\Tea\Model;
 
 class TestEventSourceConfigRequest extends Model
 {
     /**
+     * @description The parameters that are configured if you specify MySQL as the event source.
+     *
      * @var sourceMySQLParameters
      */
     public $sourceMySQLParameters;
@@ -17,29 +19,23 @@ class TestEventSourceConfigRequest extends Model
         'sourceMySQLParameters' => 'SourceMySQLParameters',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->sourceMySQLParameters) {
-            $this->sourceMySQLParameters->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->sourceMySQLParameters) {
-            $res['SourceMySQLParameters'] = null !== $this->sourceMySQLParameters ? $this->sourceMySQLParameters->toArray($noStream) : $this->sourceMySQLParameters;
+            $res['SourceMySQLParameters'] = null !== $this->sourceMySQLParameters ? $this->sourceMySQLParameters->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return TestEventSourceConfigRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

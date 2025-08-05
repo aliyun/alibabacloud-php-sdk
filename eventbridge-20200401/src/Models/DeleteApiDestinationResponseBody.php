@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class DeleteApiDestinationResponseBody extends Model
 {
     /**
+     * @description The returned response code. The value Success indicates that the request is successful.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The returned message. If the request is successful, success is returned. If the request failed, an error code is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example 382E6272-8E9C-5681-AC96-A8AF0BFAC1A5
+     *
      * @var string
      */
     public $requestId;
@@ -28,22 +40,17 @@ class DeleteApiDestinationResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,22 +58,20 @@ class DeleteApiDestinationResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return DeleteApiDestinationResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

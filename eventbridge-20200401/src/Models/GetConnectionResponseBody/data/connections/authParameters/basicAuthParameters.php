@@ -4,16 +4,24 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetConnectionResponseBody\data\connections\authParameters;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class basicAuthParameters extends Model
 {
     /**
+     * @description The password of basic authentication.
+     *
+     * @example ********
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @description The username of basic authentication.
+     *
+     * @example admin
+     *
      * @var string
      */
     public $username;
@@ -22,18 +30,14 @@ class basicAuthParameters extends Model
         'username' => 'Username',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
-
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
@@ -41,18 +45,17 @@ class basicAuthParameters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return basicAuthParameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
-
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }

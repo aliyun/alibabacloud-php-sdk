@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetRuleResponseBody\data\targets;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class concurrentConfig extends Model
 {
@@ -16,12 +16,9 @@ class concurrentConfig extends Model
         'concurrency' => 'Concurrency',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->concurrency) {
@@ -31,11 +28,11 @@ class concurrentConfig extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return concurrentConfig
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

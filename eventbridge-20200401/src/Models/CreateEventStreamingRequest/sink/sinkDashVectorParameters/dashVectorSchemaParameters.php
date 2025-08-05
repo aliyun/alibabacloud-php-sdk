@@ -4,21 +4,41 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkDashVectorParameters;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class dashVectorSchemaParameters extends Model
 {
     /**
+     * @example TEMPLATE
+     *
      * @var string
      */
     public $form;
 
     /**
+     * @example [
+     * {
+     * "name": "schema1",
+     * "type": "INT",
+     * "value": "${value1}"
+     * },
+     * {
+     * "name": "schema2",
+     * "type": "FLOAT",
+     * "value": "${value2}"
+     * }
+     * ]
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @example {
+     * "value1":"v1",
+     * "value2":"v2"
+     * }
+     *
      * @var string
      */
     public $value;
@@ -28,22 +48,17 @@ class dashVectorSchemaParameters extends Model
         'value' => 'Value',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->form) {
             $res['Form'] = $this->form;
         }
-
         if (null !== $this->template) {
             $res['Template'] = $this->template;
         }
-
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -51,22 +66,20 @@ class dashVectorSchemaParameters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return dashVectorSchemaParameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Form'])) {
             $model->form = $map['Form'];
         }
-
         if (isset($map['Template'])) {
             $model->template = $map['Template'];
         }
-
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

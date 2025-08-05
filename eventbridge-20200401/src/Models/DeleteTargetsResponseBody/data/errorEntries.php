@@ -4,21 +4,33 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\DeleteTargetsResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class errorEntries extends Model
 {
     /**
+     * @description The ID of the event body that failed to be processed.
+     *
+     * @example target5
+     *
      * @var string
      */
     public $entryId;
 
     /**
+     * @description The error code.
+     *
+     * @example EventRuleTargetIdDuplicate
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
+     * @example The id of event target is duplicate!
+     *
      * @var string
      */
     public $errorMessage;
@@ -28,22 +40,17 @@ class errorEntries extends Model
         'errorMessage' => 'ErrorMessage',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->entryId) {
             $res['EntryId'] = $this->entryId;
         }
-
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
-
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
@@ -51,22 +58,20 @@ class errorEntries extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return errorEntries
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EntryId'])) {
             $model->entryId = $map['EntryId'];
         }
-
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
-
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }

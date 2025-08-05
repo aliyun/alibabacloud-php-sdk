@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkPrometheusParameters\authorizationType;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkPrometheusParameters\data;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkPrometheusParameters\headerParameters;
@@ -15,55 +14,76 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\si
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkPrometheusParameters\username;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkPrometheusParameters\vpcId;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkPrometheusParameters\vSwitchId;
+use AlibabaCloud\Tea\Model;
 
 class sinkPrometheusParameters extends Model
 {
     /**
+     * @description The authentication method.
+     *
      * @var authorizationType
      */
     public $authorizationType;
 
     /**
+     * @description The metric data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The parameters that are configured for the request header.
+     *
      * @var headerParameters
      */
     public $headerParameters;
 
     /**
+     * @description The network type.
+     *
      * @var networkType
      */
     public $networkType;
 
     /**
+     * @description The password.
+     *
      * @var password
      */
     public $password;
 
     /**
+     * @description The ID of the security group.
+     *
      * @var securityGroupId
      */
     public $securityGroupId;
 
     /**
+     * @description The URL for the remote write configuration item of the Managed Service for Prometheus instance.
+     *
      * @var URL
      */
     public $URL;
 
     /**
+     * @description The username.
+     *
      * @var username
      */
     public $username;
 
     /**
+     * @description The vSwitch ID.
+     *
      * @var vSwitchId
      */
     public $vSwitchId;
 
     /**
+     * @description The VPC ID.
+     *
      * @var vpcId
      */
     public $vpcId;
@@ -80,131 +100,80 @@ class sinkPrometheusParameters extends Model
         'vpcId' => 'VpcId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->authorizationType) {
-            $this->authorizationType->validate();
-        }
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
-        if (null !== $this->headerParameters) {
-            $this->headerParameters->validate();
-        }
-        if (null !== $this->networkType) {
-            $this->networkType->validate();
-        }
-        if (null !== $this->password) {
-            $this->password->validate();
-        }
-        if (null !== $this->securityGroupId) {
-            $this->securityGroupId->validate();
-        }
-        if (null !== $this->URL) {
-            $this->URL->validate();
-        }
-        if (null !== $this->username) {
-            $this->username->validate();
-        }
-        if (null !== $this->vSwitchId) {
-            $this->vSwitchId->validate();
-        }
-        if (null !== $this->vpcId) {
-            $this->vpcId->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->authorizationType) {
-            $res['AuthorizationType'] = null !== $this->authorizationType ? $this->authorizationType->toArray($noStream) : $this->authorizationType;
+            $res['AuthorizationType'] = null !== $this->authorizationType ? $this->authorizationType->toMap() : null;
         }
-
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-
         if (null !== $this->headerParameters) {
-            $res['HeaderParameters'] = null !== $this->headerParameters ? $this->headerParameters->toArray($noStream) : $this->headerParameters;
+            $res['HeaderParameters'] = null !== $this->headerParameters ? $this->headerParameters->toMap() : null;
         }
-
         if (null !== $this->networkType) {
-            $res['NetworkType'] = null !== $this->networkType ? $this->networkType->toArray($noStream) : $this->networkType;
+            $res['NetworkType'] = null !== $this->networkType ? $this->networkType->toMap() : null;
         }
-
         if (null !== $this->password) {
-            $res['Password'] = null !== $this->password ? $this->password->toArray($noStream) : $this->password;
+            $res['Password'] = null !== $this->password ? $this->password->toMap() : null;
         }
-
         if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = null !== $this->securityGroupId ? $this->securityGroupId->toArray($noStream) : $this->securityGroupId;
+            $res['SecurityGroupId'] = null !== $this->securityGroupId ? $this->securityGroupId->toMap() : null;
         }
-
         if (null !== $this->URL) {
-            $res['URL'] = null !== $this->URL ? $this->URL->toArray($noStream) : $this->URL;
+            $res['URL'] = null !== $this->URL ? $this->URL->toMap() : null;
         }
-
         if (null !== $this->username) {
-            $res['Username'] = null !== $this->username ? $this->username->toArray($noStream) : $this->username;
+            $res['Username'] = null !== $this->username ? $this->username->toMap() : null;
         }
-
         if (null !== $this->vSwitchId) {
-            $res['VSwitchId'] = null !== $this->vSwitchId ? $this->vSwitchId->toArray($noStream) : $this->vSwitchId;
+            $res['VSwitchId'] = null !== $this->vSwitchId ? $this->vSwitchId->toMap() : null;
         }
-
         if (null !== $this->vpcId) {
-            $res['VpcId'] = null !== $this->vpcId ? $this->vpcId->toArray($noStream) : $this->vpcId;
+            $res['VpcId'] = null !== $this->vpcId ? $this->vpcId->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sinkPrometheusParameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthorizationType'])) {
             $model->authorizationType = authorizationType::fromMap($map['AuthorizationType']);
         }
-
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
-
         if (isset($map['HeaderParameters'])) {
             $model->headerParameters = headerParameters::fromMap($map['HeaderParameters']);
         }
-
         if (isset($map['NetworkType'])) {
             $model->networkType = networkType::fromMap($map['NetworkType']);
         }
-
         if (isset($map['Password'])) {
             $model->password = password::fromMap($map['Password']);
         }
-
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = securityGroupId::fromMap($map['SecurityGroupId']);
         }
-
         if (isset($map['URL'])) {
             $model->URL = URL::fromMap($map['URL']);
         }
-
         if (isset($map['Username'])) {
             $model->username = username::fromMap($map['Username']);
         }
-
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = vSwitchId::fromMap($map['VSwitchId']);
         }
-
         if (isset($map['VpcId'])) {
             $model->vpcId = vpcId::fromMap($map['VpcId']);
         }

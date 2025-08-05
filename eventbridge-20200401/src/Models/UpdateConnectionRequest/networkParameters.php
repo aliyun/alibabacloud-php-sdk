@@ -4,26 +4,47 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateConnectionRequest;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class networkParameters extends Model
 {
     /**
+     * @description *   PublicNetwork: the Internet.
+     *   PrivateNetwork: virtual private cloud (VPC).
+     *
+     * >  If you set this parameter to PrivateNetwork, you must also configure VpcId, VswitchId, and SecurityGroupId.
+     *
+     * This parameter is required.
+     *
+     * @example PublicNetwork
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The security group ID.
+     *
+     * @example eb-167adad548759-security_grop/sg-bp1addad26peuh9qh9rtyb
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description The VPC ID.
+     *
+     * @example eb-test/vpc-bp1symadadwnwgmqud
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The vSwitch ID.
+     *
+     * @example vsw-bp1iu4x7aeradadown1og8,vsw-bp193sqmadadlaszpeqbt2c
+     *
      * @var string
      */
     public $vswitcheId;
@@ -34,26 +55,20 @@ class networkParameters extends Model
         'vswitcheId' => 'VswitcheId',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
-
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
-
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
-
         if (null !== $this->vswitcheId) {
             $res['VswitcheId'] = $this->vswitcheId;
         }
@@ -61,26 +76,23 @@ class networkParameters extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return networkParameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
-
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
-
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
-
         if (isset($map['VswitcheId'])) {
             $model->vswitcheId = $map['VswitcheId'];
         }

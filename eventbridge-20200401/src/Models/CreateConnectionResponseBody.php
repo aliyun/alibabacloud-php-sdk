@@ -4,27 +4,41 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateConnectionResponseBody\data;
+use AlibabaCloud\Tea\Model;
 
 class CreateConnectionResponseBody extends Model
 {
     /**
+     * @description The returned response code. The value Success indicates that the request is successful.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message. If the request is successful, success is returned. If the request failed, an error code is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example 7DA60DED-CD36-5837-B848-C01A23D2****
+     *
      * @var string
      */
     public $requestId;
@@ -35,29 +49,20 @@ class CreateConnectionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->data) {
-            $this->data->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,26 +70,23 @@ class CreateConnectionResponseBody extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CreateConnectionResponseBody
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

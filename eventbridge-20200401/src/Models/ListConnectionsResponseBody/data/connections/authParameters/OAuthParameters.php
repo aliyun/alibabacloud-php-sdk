@@ -4,28 +4,44 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListConnectionsResponseBody\data\connections\authParameters;
 
-use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListConnectionsResponseBody\data\connections\authParameters\OAuthParameters\clientParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListConnectionsResponseBody\data\connections\authParameters\OAuthParameters\OAuthHttpParameters;
+use AlibabaCloud\Tea\Model;
 
 class OAuthParameters extends Model
 {
     /**
+     * @description The endpoint that is used to obtain the OAuth token.
+     *
+     * @example http://localhost:8080/oauth/token
+     *
      * @var string
      */
     public $authorizationEndpoint;
 
     /**
+     * @description The parameters that are returned for the client.
+     *
      * @var clientParameters
      */
     public $clientParameters;
 
     /**
+     * @description The HTTP request method. Valid values:
+     *
+     *   GET
+     *   POST
+     *   HEAD
+     *
+     * @example POST
+     *
      * @var string
      */
     public $httpMethod;
 
     /**
+     * @description The request parameters of OAuth authentication.
+     *
      * @var OAuthHttpParameters
      */
     public $OAuthHttpParameters;
@@ -36,59 +52,44 @@ class OAuthParameters extends Model
         'OAuthHttpParameters' => 'OAuthHttpParameters',
     ];
 
-    public function validate()
-    {
-        if (null !== $this->clientParameters) {
-            $this->clientParameters->validate();
-        }
-        if (null !== $this->OAuthHttpParameters) {
-            $this->OAuthHttpParameters->validate();
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->authorizationEndpoint) {
             $res['AuthorizationEndpoint'] = $this->authorizationEndpoint;
         }
-
         if (null !== $this->clientParameters) {
-            $res['ClientParameters'] = null !== $this->clientParameters ? $this->clientParameters->toArray($noStream) : $this->clientParameters;
+            $res['ClientParameters'] = null !== $this->clientParameters ? $this->clientParameters->toMap() : null;
         }
-
         if (null !== $this->httpMethod) {
             $res['HttpMethod'] = $this->httpMethod;
         }
-
         if (null !== $this->OAuthHttpParameters) {
-            $res['OAuthHttpParameters'] = null !== $this->OAuthHttpParameters ? $this->OAuthHttpParameters->toArray($noStream) : $this->OAuthHttpParameters;
+            $res['OAuthHttpParameters'] = null !== $this->OAuthHttpParameters ? $this->OAuthHttpParameters->toMap() : null;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return OAuthParameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthorizationEndpoint'])) {
             $model->authorizationEndpoint = $map['AuthorizationEndpoint'];
         }
-
         if (isset($map['ClientParameters'])) {
             $model->clientParameters = clientParameters::fromMap($map['ClientParameters']);
         }
-
         if (isset($map['HttpMethod'])) {
             $model->httpMethod = $map['HttpMethod'];
         }
-
         if (isset($map['OAuthHttpParameters'])) {
             $model->OAuthHttpParameters = OAuthHttpParameters::fromMap($map['OAuthHttpParameters']);
         }

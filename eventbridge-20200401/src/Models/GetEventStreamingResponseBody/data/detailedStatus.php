@@ -4,26 +4,37 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class detailedStatus extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $delayTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $diffOffset;
 
     /**
+     * @example {
+     * "test": "test",
+     * "test2": 1
+     * }
+     *
      * @var mixed[]
      */
     public $extensions;
 
     /**
+     * @example 5
+     *
      * @var float
      */
     public $TPS;
@@ -34,34 +45,20 @@ class detailedStatus extends Model
         'TPS' => 'TPS',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->extensions)) {
-            Model::validateArray($this->extensions);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->delayTime) {
             $res['DelayTime'] = $this->delayTime;
         }
-
         if (null !== $this->diffOffset) {
             $res['DiffOffset'] = $this->diffOffset;
         }
-
         if (null !== $this->extensions) {
-            if (\is_array($this->extensions)) {
-                $res['Extensions'] = [];
-                foreach ($this->extensions as $key1 => $value1) {
-                    $res['Extensions'][$key1] = $value1;
-                }
-            }
+            $res['Extensions'] = $this->extensions;
         }
-
         if (null !== $this->TPS) {
             $res['TPS'] = $this->TPS;
         }
@@ -69,31 +66,23 @@ class detailedStatus extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return detailedStatus
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DelayTime'])) {
             $model->delayTime = $map['DelayTime'];
         }
-
         if (isset($map['DiffOffset'])) {
             $model->diffOffset = $map['DiffOffset'];
         }
-
         if (isset($map['Extensions'])) {
-            if (!empty($map['Extensions'])) {
-                $model->extensions = [];
-                foreach ($map['Extensions'] as $key1 => $value1) {
-                    $model->extensions[$key1] = $value1;
-                }
-            }
+            $model->extensions = $map['Extensions'];
         }
-
         if (isset($map['TPS'])) {
             $model->TPS = $map['TPS'];
         }

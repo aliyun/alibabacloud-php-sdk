@@ -4,71 +4,111 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class UpdateEventSourceShrinkRequest extends Model
 {
     /**
+     * @description The description of the event source.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The event bus with which the event source is associated.
+     *
+     * This parameter is required.
+     *
+     * @example my-event-bus
+     *
      * @var string
      */
     public $eventBusName;
 
     /**
+     * @description The name of the event source.
+     *
+     * This parameter is required.
+     *
+     * @example myrabbitmq.source
+     *
      * @var string
      */
     public $eventSourceName;
 
     /**
+     * @description The configurations of the external data source.
+     *
+     * @example {\\"ConsumePosition\\":\\"end\\",\\"LogStore\\":\\"oss_log\\",\\"Project\\":\\"slsaudit-center-5795350335281001-cn-beijing\\",\\"RoleName\\":\\"sls-beijing-tf\\"}
+     *
      * @var string
      */
     public $externalSourceConfigShrink;
 
     /**
+     * @description The type of the external data source.
+     *
+     * @example SLS
+     *
      * @var string
      */
     public $externalSourceType;
 
     /**
+     * @description Specifies whether to connect to an external data source.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $linkedExternalSource;
 
     /**
+     * @description The parameters that are configured if the event source is HTTP events.
+     *
      * @var string
      */
     public $sourceHttpEventParametersShrink;
 
     /**
+     * @description The parameters that are configured if the event source is Message Queue for Apache Kafka.
+     *
      * @var string
      */
     public $sourceKafkaParametersShrink;
 
     /**
+     * @description The parameters that are configured if the event source is Message Service (MNS).
+     *
      * @var string
      */
     public $sourceMNSParametersShrink;
 
     /**
+     * @description The parameters that are configured if the event source is Message Queue for RabbitMQ.
+     *
      * @var string
      */
     public $sourceRabbitMQParametersShrink;
 
     /**
+     * @description The parameters that are configured if the event source is Message Queue for Apache RocketMQ.
+     *
      * @var string
      */
     public $sourceRocketMQParametersShrink;
 
     /**
+     * @description SourceSLSParameters
+     *
      * @var string
      */
     public $sourceSLSParametersShrink;
 
     /**
+     * @description The parameters that are configured if you specify scheduled events as the event source.
+     *
      * @var string
      */
     public $sourceScheduledEventParametersShrink;
@@ -88,62 +128,47 @@ class UpdateEventSourceShrinkRequest extends Model
         'sourceScheduledEventParametersShrink' => 'SourceScheduledEventParameters',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-
         if (null !== $this->eventBusName) {
             $res['EventBusName'] = $this->eventBusName;
         }
-
         if (null !== $this->eventSourceName) {
             $res['EventSourceName'] = $this->eventSourceName;
         }
-
         if (null !== $this->externalSourceConfigShrink) {
             $res['ExternalSourceConfig'] = $this->externalSourceConfigShrink;
         }
-
         if (null !== $this->externalSourceType) {
             $res['ExternalSourceType'] = $this->externalSourceType;
         }
-
         if (null !== $this->linkedExternalSource) {
             $res['LinkedExternalSource'] = $this->linkedExternalSource;
         }
-
         if (null !== $this->sourceHttpEventParametersShrink) {
             $res['SourceHttpEventParameters'] = $this->sourceHttpEventParametersShrink;
         }
-
         if (null !== $this->sourceKafkaParametersShrink) {
             $res['SourceKafkaParameters'] = $this->sourceKafkaParametersShrink;
         }
-
         if (null !== $this->sourceMNSParametersShrink) {
             $res['SourceMNSParameters'] = $this->sourceMNSParametersShrink;
         }
-
         if (null !== $this->sourceRabbitMQParametersShrink) {
             $res['SourceRabbitMQParameters'] = $this->sourceRabbitMQParametersShrink;
         }
-
         if (null !== $this->sourceRocketMQParametersShrink) {
             $res['SourceRocketMQParameters'] = $this->sourceRocketMQParametersShrink;
         }
-
         if (null !== $this->sourceSLSParametersShrink) {
             $res['SourceSLSParameters'] = $this->sourceSLSParametersShrink;
         }
-
         if (null !== $this->sourceScheduledEventParametersShrink) {
             $res['SourceScheduledEventParameters'] = $this->sourceScheduledEventParametersShrink;
         }
@@ -151,62 +176,50 @@ class UpdateEventSourceShrinkRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return UpdateEventSourceShrinkRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-
         if (isset($map['EventBusName'])) {
             $model->eventBusName = $map['EventBusName'];
         }
-
         if (isset($map['EventSourceName'])) {
             $model->eventSourceName = $map['EventSourceName'];
         }
-
         if (isset($map['ExternalSourceConfig'])) {
             $model->externalSourceConfigShrink = $map['ExternalSourceConfig'];
         }
-
         if (isset($map['ExternalSourceType'])) {
             $model->externalSourceType = $map['ExternalSourceType'];
         }
-
         if (isset($map['LinkedExternalSource'])) {
             $model->linkedExternalSource = $map['LinkedExternalSource'];
         }
-
         if (isset($map['SourceHttpEventParameters'])) {
             $model->sourceHttpEventParametersShrink = $map['SourceHttpEventParameters'];
         }
-
         if (isset($map['SourceKafkaParameters'])) {
             $model->sourceKafkaParametersShrink = $map['SourceKafkaParameters'];
         }
-
         if (isset($map['SourceMNSParameters'])) {
             $model->sourceMNSParametersShrink = $map['SourceMNSParameters'];
         }
-
         if (isset($map['SourceRabbitMQParameters'])) {
             $model->sourceRabbitMQParametersShrink = $map['SourceRabbitMQParameters'];
         }
-
         if (isset($map['SourceRocketMQParameters'])) {
             $model->sourceRocketMQParametersShrink = $map['SourceRocketMQParameters'];
         }
-
         if (isset($map['SourceSLSParameters'])) {
             $model->sourceSLSParametersShrink = $map['SourceSLSParameters'];
         }
-
         if (isset($map['SourceScheduledEventParameters'])) {
             $model->sourceScheduledEventParametersShrink = $map['SourceScheduledEventParameters'];
         }

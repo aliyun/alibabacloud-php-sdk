@@ -4,11 +4,13 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class CheckServiceLinkedRoleForProductRequest extends Model
 {
     /**
+     * @example AliyunServiceRoleForEventBridgeConnectVPC
+     *
      * @var string
      */
     public $productName;
@@ -16,12 +18,9 @@ class CheckServiceLinkedRoleForProductRequest extends Model
         'productName' => 'ProductName',
     ];
 
-    public function validate()
-    {
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->productName) {
@@ -31,11 +30,11 @@ class CheckServiceLinkedRoleForProductRequest extends Model
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return CheckServiceLinkedRoleForProductRequest
+     */
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,41 +4,77 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListUserDefinedEventSourcesResponseBody\data\eventSourceList;
 
-use AlibabaCloud\Dara\Model;
+use AlibabaCloud\Tea\Model;
 
 class sourceHttpEventParameters extends Model
 {
     /**
+     * @description The CIDR block that is used for security settings. This parameter is required only if SecurityConfig is set to ip. You can enter a CIDR block or an IP address.
+     *
      * @var string[]
      */
     public $ip;
 
     /**
+     * @description The HTTP request method that is supported by the generated webhook URL. You can select multiple values. Valid values:
+     *
+     *   GET
+     *   POST
+     *   PUT
+     *   PATCH
+     *   DELETE
+     *   HEAD
+     *   OPTIONS
+     *   TRACE
+     *   CONNECT
+     *
      * @var string[]
      */
     public $method;
 
     /**
+     * @description The Internet request URL.
+     *
      * @var string[]
      */
     public $publicWebHookUrl;
 
     /**
+     * @description The security domain name. This parameter is required only if SecurityConfig is set to referer. You can enter a domain name.
+     *
      * @var string[]
      */
     public $referer;
 
     /**
+     * @description The type of security settings. Valid values:
+     *
+     *   none: No configuration is required.
+     *   ip: CIDR block.
+     *   referer: security domain name.
+     *
+     * @example none
+     *
      * @var string
      */
     public $securityConfig;
 
     /**
+     * @description The protocol type that is supported by the generated webhook URL. Valid values:
+     *
+     *   HTTP
+     *   HTTPS
+     *   HTTP\\&HTTPS
+     *
+     * @example HTTPS
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The internal request URL.
+     *
      * @var string[]
      */
     public $vpcWebHookUrl;
@@ -52,163 +88,73 @@ class sourceHttpEventParameters extends Model
         'vpcWebHookUrl' => 'VpcWebHookUrl',
     ];
 
-    public function validate()
-    {
-        if (\is_array($this->ip)) {
-            Model::validateArray($this->ip);
-        }
-        if (\is_array($this->method)) {
-            Model::validateArray($this->method);
-        }
-        if (\is_array($this->publicWebHookUrl)) {
-            Model::validateArray($this->publicWebHookUrl);
-        }
-        if (\is_array($this->referer)) {
-            Model::validateArray($this->referer);
-        }
-        if (\is_array($this->vpcWebHookUrl)) {
-            Model::validateArray($this->vpcWebHookUrl);
-        }
-        parent::validate();
-    }
+    public function validate() {}
 
-    public function toArray($noStream = false)
+    public function toMap()
     {
         $res = [];
         if (null !== $this->ip) {
-            if (\is_array($this->ip)) {
-                $res['Ip'] = [];
-                $n1 = 0;
-                foreach ($this->ip as $item1) {
-                    $res['Ip'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Ip'] = $this->ip;
         }
-
         if (null !== $this->method) {
-            if (\is_array($this->method)) {
-                $res['Method'] = [];
-                $n1 = 0;
-                foreach ($this->method as $item1) {
-                    $res['Method'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Method'] = $this->method;
         }
-
         if (null !== $this->publicWebHookUrl) {
-            if (\is_array($this->publicWebHookUrl)) {
-                $res['PublicWebHookUrl'] = [];
-                $n1 = 0;
-                foreach ($this->publicWebHookUrl as $item1) {
-                    $res['PublicWebHookUrl'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['PublicWebHookUrl'] = $this->publicWebHookUrl;
         }
-
         if (null !== $this->referer) {
-            if (\is_array($this->referer)) {
-                $res['Referer'] = [];
-                $n1 = 0;
-                foreach ($this->referer as $item1) {
-                    $res['Referer'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['Referer'] = $this->referer;
         }
-
         if (null !== $this->securityConfig) {
             $res['SecurityConfig'] = $this->securityConfig;
         }
-
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
-
         if (null !== $this->vpcWebHookUrl) {
-            if (\is_array($this->vpcWebHookUrl)) {
-                $res['VpcWebHookUrl'] = [];
-                $n1 = 0;
-                foreach ($this->vpcWebHookUrl as $item1) {
-                    $res['VpcWebHookUrl'][$n1] = $item1;
-                    ++$n1;
-                }
-            }
+            $res['VpcWebHookUrl'] = $this->vpcWebHookUrl;
         }
 
         return $res;
     }
 
-    public function toMap($noStream = false)
-    {
-        return $this->toArray($noStream);
-    }
-
+    /**
+     * @param array $map
+     *
+     * @return sourceHttpEventParameters
+     */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ip'])) {
             if (!empty($map['Ip'])) {
-                $model->ip = [];
-                $n1 = 0;
-                foreach ($map['Ip'] as $item1) {
-                    $model->ip[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->ip = $map['Ip'];
             }
         }
-
         if (isset($map['Method'])) {
             if (!empty($map['Method'])) {
-                $model->method = [];
-                $n1 = 0;
-                foreach ($map['Method'] as $item1) {
-                    $model->method[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->method = $map['Method'];
             }
         }
-
         if (isset($map['PublicWebHookUrl'])) {
             if (!empty($map['PublicWebHookUrl'])) {
-                $model->publicWebHookUrl = [];
-                $n1 = 0;
-                foreach ($map['PublicWebHookUrl'] as $item1) {
-                    $model->publicWebHookUrl[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->publicWebHookUrl = $map['PublicWebHookUrl'];
             }
         }
-
         if (isset($map['Referer'])) {
             if (!empty($map['Referer'])) {
-                $model->referer = [];
-                $n1 = 0;
-                foreach ($map['Referer'] as $item1) {
-                    $model->referer[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->referer = $map['Referer'];
             }
         }
-
         if (isset($map['SecurityConfig'])) {
             $model->securityConfig = $map['SecurityConfig'];
         }
-
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
-
         if (isset($map['VpcWebHookUrl'])) {
             if (!empty($map['VpcWebHookUrl'])) {
-                $model->vpcWebHookUrl = [];
-                $n1 = 0;
-                foreach ($map['VpcWebHookUrl'] as $item1) {
-                    $model->vpcWebHookUrl[$n1] = $item1;
-                    ++$n1;
-                }
+                $model->vpcWebHookUrl = $map['VpcWebHookUrl'];
             }
         }
 
