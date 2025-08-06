@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Eipanycast\V20200309\Models\UpdateAnycastEipAddressAssociationsRequest;
+namespace AlibabaCloud\SDK\Eipanycast\V20200309\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class popLocationDeleteList extends Model
+class ChangeResourceGroupResponseBody extends Model
 {
     /**
      * @var string
      */
-    public $popLocation;
+    public $requestId;
     protected $_name = [
-        'popLocation' => 'PopLocation',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -24,8 +24,8 @@ class popLocationDeleteList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->popLocation) {
-            $res['PopLocation'] = $this->popLocation;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -39,8 +39,8 @@ class popLocationDeleteList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PopLocation'])) {
-            $model->popLocation = $map['PopLocation'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

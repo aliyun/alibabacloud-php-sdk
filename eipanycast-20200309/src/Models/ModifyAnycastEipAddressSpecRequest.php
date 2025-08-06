@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eipanycast\V20200309\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyAnycastEipAddressSpecRequest extends Model
 {
     /**
-     * @description The ID of the Anycast EIP.
-     *
-     * This parameter is required.
-     * @example aeip-bp1ix34fralt4ykf3****
-     *
      * @var string
      */
     public $anycastId;
 
     /**
-     * @description The maximum bandwidth of the Anycast EIP. Unit: Mbit/s.
-     *
-     * Valid values: **200** to **1000**.
-     *
-     * This parameter is required.
-     * @example 200
-     *
      * @var string
      */
     public $bandwidth;
@@ -36,14 +24,16 @@ class ModifyAnycastEipAddressSpecRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->anycastId) {
             $res['AnycastId'] = $this->anycastId;
         }
+
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
@@ -51,17 +41,18 @@ class ModifyAnycastEipAddressSpecRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyAnycastEipAddressSpecRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnycastId'])) {
             $model->anycastId = $map['AnycastId'];
         }
+
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }

@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\Eipanycast\V20200309\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReleaseAnycastEipAddressRequest extends Model
 {
     /**
-     * @description The ID of the Anycast EIP to be released.
-     *
-     * This parameter is required.
-     * @example aeip-bp1ix34fralt4ykf3****
-     *
      * @var string
      */
     public $anycastId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-     * @example 02fb3da4-130e-11e9-8e44-001****
-     *
      * @var string
      */
     public $clientToken;
     protected $_name = [
-        'anycastId'   => 'AnycastId',
+        'anycastId' => 'AnycastId',
         'clientToken' => 'ClientToken',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->anycastId) {
             $res['AnycastId'] = $this->anycastId;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -49,17 +41,18 @@ class ReleaseAnycastEipAddressRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReleaseAnycastEipAddressRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnycastId'])) {
             $model->anycastId = $map['AnycastId'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

@@ -2,12 +2,17 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Eipanycast\V20200309\Models\ListTagResourcesResponseBody;
+namespace AlibabaCloud\SDK\Eipanycast\V20200309\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class tagResources extends Model
+class ChangeResourceGroupRequest extends Model
 {
+    /**
+     * @var string
+     */
+    public $newResourceGroupId;
+
     /**
      * @var string
      */
@@ -17,21 +22,10 @@ class tagResources extends Model
      * @var string
      */
     public $resourceType;
-
-    /**
-     * @var string
-     */
-    public $tagKey;
-
-    /**
-     * @var string
-     */
-    public $tagValue;
     protected $_name = [
+        'newResourceGroupId' => 'NewResourceGroupId',
         'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tagKey' => 'TagKey',
-        'tagValue' => 'TagValue',
     ];
 
     public function validate()
@@ -42,20 +36,16 @@ class tagResources extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->newResourceGroupId) {
+            $res['NewResourceGroupId'] = $this->newResourceGroupId;
+        }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
 
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
-        }
-
-        if (null !== $this->tagKey) {
-            $res['TagKey'] = $this->tagKey;
-        }
-
-        if (null !== $this->tagValue) {
-            $res['TagValue'] = $this->tagValue;
         }
 
         return $res;
@@ -69,20 +59,16 @@ class tagResources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NewResourceGroupId'])) {
+            $model->newResourceGroupId = $map['NewResourceGroupId'];
+        }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
 
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
-        }
-
-        if (isset($map['TagKey'])) {
-            $model->tagKey = $map['TagKey'];
-        }
-
-        if (isset($map['TagValue'])) {
-            $model->tagValue = $map['TagValue'];
         }
 
         return $model;

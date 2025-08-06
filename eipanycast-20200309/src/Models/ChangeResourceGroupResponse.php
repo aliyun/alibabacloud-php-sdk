@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Eipanycast\V20200309\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UnassociateAnycastEipAddressResponse extends Model
+class ChangeResourceGroupResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class UnassociateAnycastEipAddressResponse extends Model
     public $statusCode;
 
     /**
-     * @var UnassociateAnycastEipAddressResponseBody
+     * @var ChangeResourceGroupResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class UnassociateAnycastEipAddressResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = UnassociateAnycastEipAddressResponseBody::fromMap($map['body']);
+            $model->body = ChangeResourceGroupResponseBody::fromMap($map['body']);
         }
 
         return $model;

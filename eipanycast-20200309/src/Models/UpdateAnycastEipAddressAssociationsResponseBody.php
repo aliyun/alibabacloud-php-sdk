@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eipanycast\V20200309\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateAnycastEipAddressAssociationsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UpdateAnycastEipAddressAssociationsResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UpdateAnycastEipAddressAssociationsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateAnycastEipAddressAssociationsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

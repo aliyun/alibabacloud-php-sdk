@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Eipanycast\V20200309\Models\DescribeAnycastServerRegionsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class anycastServerRegionList extends Model
 {
     /**
-     * @description The ID of the region.
-     *
-     * @example eu-west-1
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The name of the region.
-     *
-     * @example eu-west-1-gb33-a01
-     *
      * @var string
      */
     public $regionName;
     protected $_name = [
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
         'regionName' => 'RegionName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->regionName) {
             $res['RegionName'] = $this->regionName;
         }
@@ -47,17 +41,18 @@ class anycastServerRegionList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return anycastServerRegionList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RegionName'])) {
             $model->regionName = $map['RegionName'];
         }

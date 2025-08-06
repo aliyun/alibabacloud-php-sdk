@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eipanycast\V20200309\Models\UpdateAnycastEipAddressAssociationsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class popLocationAddList extends Model
 {
     /**
-     * @description The access points in the access areas to be added.
-     *
-     * You can call the [DescribeAnycastPopLocations](https://help.aliyun.com/document_detail/171938.html) operation to query the access points in supported access areas.
-     * @example us-west-1-pop
-     *
      * @var string
      */
     public $popLocation;
@@ -23,9 +18,10 @@ class popLocationAddList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->popLocation) {
@@ -35,11 +31,11 @@ class popLocationAddList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return popLocationAddList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

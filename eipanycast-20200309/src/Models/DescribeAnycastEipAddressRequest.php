@@ -4,57 +4,46 @@
 
 namespace AlibabaCloud\SDK\Eipanycast\V20200309\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAnycastEipAddressRequest extends Model
 {
     /**
-     * @description The ID of the Anycast EIP.
-     *
-     * > You must specify **Ip** or **AnycastId**.
-     * @example aeip-bp1ix34fralt4ykf3****
-     *
      * @var string
      */
     public $anycastId;
 
     /**
-     * @description The ID of the endpoint with which the Anycast EIP is associated.
-     *
-     * @example lb-2zebb08phyczzawe****
-     *
      * @var string
      */
     public $bindInstanceId;
 
     /**
-     * @description The IP address of the Anycast EIP.
-     *
-     * > You must specify **Ip** or **AnycastId**.
-     * @example 139.95.XX.XX
-     *
      * @var string
      */
     public $ip;
     protected $_name = [
-        'anycastId'      => 'AnycastId',
+        'anycastId' => 'AnycastId',
         'bindInstanceId' => 'BindInstanceId',
-        'ip'             => 'Ip',
+        'ip' => 'Ip',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->anycastId) {
             $res['AnycastId'] = $this->anycastId;
         }
+
         if (null !== $this->bindInstanceId) {
             $res['BindInstanceId'] = $this->bindInstanceId;
         }
+
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
@@ -62,20 +51,22 @@ class DescribeAnycastEipAddressRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAnycastEipAddressRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnycastId'])) {
             $model->anycastId = $map['AnycastId'];
         }
+
         if (isset($map['BindInstanceId'])) {
             $model->bindInstanceId = $map['BindInstanceId'];
         }
+
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }

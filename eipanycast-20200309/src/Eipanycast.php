@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Eipanycast\V20200309;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\AllocateAnycastEipAddressRequest;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\AllocateAnycastEipAddressResponse;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\AssociateAnycastEipAddressRequest;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\AssociateAnycastEipAddressResponse;
+use AlibabaCloud\SDK\Eipanycast\V20200309\Models\ChangeResourceGroupRequest;
+use AlibabaCloud\SDK\Eipanycast\V20200309\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\DescribeAnycastEipAddressRequest;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\DescribeAnycastEipAddressResponse;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\DescribeAnycastPopLocationsRequest;
@@ -34,11 +35,10 @@ use AlibabaCloud\SDK\Eipanycast\V20200309\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\UpdateAnycastEipAddressAssociationsRequest;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\UpdateAnycastEipAddressAssociationsResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Eipanycast extends OpenApiClient
 {
@@ -63,76 +63,94 @@ class Eipanycast extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Creates an Anycast elastic IP address (Anycast EIP).
-     *  *
-     * @param AllocateAnycastEipAddressRequest $request AllocateAnycastEipAddressRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Creates an Anycast elastic IP address (Anycast EIP).
      *
-     * @return AllocateAnycastEipAddressResponse AllocateAnycastEipAddressResponse
+     * @param request - AllocateAnycastEipAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AllocateAnycastEipAddressResponse
+     *
+     * @param AllocateAnycastEipAddressRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AllocateAnycastEipAddressResponse
      */
     public function allocateAnycastEipAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bandwidth)) {
-            $query['Bandwidth'] = $request->bandwidth;
+        if (null !== $request->bandwidth) {
+            @$query['Bandwidth'] = $request->bandwidth;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->instanceChargeType)) {
-            $query['InstanceChargeType'] = $request->instanceChargeType;
+
+        if (null !== $request->instanceChargeType) {
+            @$query['InstanceChargeType'] = $request->instanceChargeType;
         }
-        if (!Utils::isUnset($request->internetChargeType)) {
-            $query['InternetChargeType'] = $request->internetChargeType;
+
+        if (null !== $request->internetChargeType) {
+            @$query['InternetChargeType'] = $request->internetChargeType;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->serviceLocation)) {
-            $query['ServiceLocation'] = $request->serviceLocation;
+
+        if (null !== $request->serviceLocation) {
+            @$query['ServiceLocation'] = $request->serviceLocation;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AllocateAnycastEipAddress',
-            'version'     => '2020-03-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AllocateAnycastEipAddress',
+            'version' => '2020-03-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AllocateAnycastEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an Anycast elastic IP address (Anycast EIP).
-     *  *
-     * @param AllocateAnycastEipAddressRequest $request AllocateAnycastEipAddressRequest
+     * Creates an Anycast elastic IP address (Anycast EIP).
      *
-     * @return AllocateAnycastEipAddressResponse AllocateAnycastEipAddressResponse
+     * @param request - AllocateAnycastEipAddressRequest
+     *
+     * @returns AllocateAnycastEipAddressResponse
+     *
+     * @param AllocateAnycastEipAddressRequest $request
+     *
+     * @return AllocateAnycastEipAddressResponse
      */
     public function allocateAnycastEipAddress($request)
     {
@@ -142,68 +160,86 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @summary Associates an Anycast elastic IP address (Anycast EIP) with an endpoint.
-     *  *
-     * @param AssociateAnycastEipAddressRequest $request AssociateAnycastEipAddressRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Associates an Anycast elastic IP address (Anycast EIP) with an endpoint.
      *
-     * @return AssociateAnycastEipAddressResponse AssociateAnycastEipAddressResponse
+     * @param request - AssociateAnycastEipAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AssociateAnycastEipAddressResponse
+     *
+     * @param AssociateAnycastEipAddressRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return AssociateAnycastEipAddressResponse
      */
     public function associateAnycastEipAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->anycastId)) {
-            $query['AnycastId'] = $request->anycastId;
+        if (null !== $request->anycastId) {
+            @$query['AnycastId'] = $request->anycastId;
         }
-        if (!Utils::isUnset($request->associationMode)) {
-            $query['AssociationMode'] = $request->associationMode;
+
+        if (null !== $request->associationMode) {
+            @$query['AssociationMode'] = $request->associationMode;
         }
-        if (!Utils::isUnset($request->bindInstanceId)) {
-            $query['BindInstanceId'] = $request->bindInstanceId;
+
+        if (null !== $request->bindInstanceId) {
+            @$query['BindInstanceId'] = $request->bindInstanceId;
         }
-        if (!Utils::isUnset($request->bindInstanceRegionId)) {
-            $query['BindInstanceRegionId'] = $request->bindInstanceRegionId;
+
+        if (null !== $request->bindInstanceRegionId) {
+            @$query['BindInstanceRegionId'] = $request->bindInstanceRegionId;
         }
-        if (!Utils::isUnset($request->bindInstanceType)) {
-            $query['BindInstanceType'] = $request->bindInstanceType;
+
+        if (null !== $request->bindInstanceType) {
+            @$query['BindInstanceType'] = $request->bindInstanceType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->popLocations)) {
-            $query['PopLocations'] = $request->popLocations;
+
+        if (null !== $request->popLocations) {
+            @$query['PopLocations'] = $request->popLocations;
         }
-        if (!Utils::isUnset($request->privateIpAddress)) {
-            $query['PrivateIpAddress'] = $request->privateIpAddress;
+
+        if (null !== $request->privateIpAddress) {
+            @$query['PrivateIpAddress'] = $request->privateIpAddress;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssociateAnycastEipAddress',
-            'version'     => '2020-03-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateAnycastEipAddress',
+            'version' => '2020-03-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AssociateAnycastEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Associates an Anycast elastic IP address (Anycast EIP) with an endpoint.
-     *  *
-     * @param AssociateAnycastEipAddressRequest $request AssociateAnycastEipAddressRequest
+     * Associates an Anycast elastic IP address (Anycast EIP) with an endpoint.
      *
-     * @return AssociateAnycastEipAddressResponse AssociateAnycastEipAddressResponse
+     * @param request - AssociateAnycastEipAddressRequest
+     *
+     * @returns AssociateAnycastEipAddressResponse
+     *
+     * @param AssociateAnycastEipAddressRequest $request
+     *
+     * @return AssociateAnycastEipAddressResponse
      */
     public function associateAnycastEipAddress($request)
     {
@@ -213,50 +249,127 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @summary Queries Anycast elastic IP addresses (Anycast EIPs) associated with specified instance IP addresses or instance IDs, including instance status, maximum bandwidth, and associated resources.
-     *  *
-     * @param DescribeAnycastEipAddressRequest $request DescribeAnycastEipAddressRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 修改AnycastEIp实例资源组.
      *
-     * @return DescribeAnycastEipAddressResponse DescribeAnycastEipAddressResponse
+     * @param request - ChangeResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->newResourceGroupId) {
+            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ChangeResourceGroup',
+            'version' => '2020-03-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 修改AnycastEIp实例资源组.
+     *
+     * @param request - ChangeResourceGroupRequest
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries Anycast elastic IP addresses (Anycast EIPs) associated with specified instance IP addresses or instance IDs, including instance status, maximum bandwidth, and associated resources.
+     *
+     * @param request - DescribeAnycastEipAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAnycastEipAddressResponse
+     *
+     * @param DescribeAnycastEipAddressRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeAnycastEipAddressResponse
      */
     public function describeAnycastEipAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->anycastId)) {
-            $query['AnycastId'] = $request->anycastId;
+        if (null !== $request->anycastId) {
+            @$query['AnycastId'] = $request->anycastId;
         }
-        if (!Utils::isUnset($request->bindInstanceId)) {
-            $query['BindInstanceId'] = $request->bindInstanceId;
+
+        if (null !== $request->bindInstanceId) {
+            @$query['BindInstanceId'] = $request->bindInstanceId;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAnycastEipAddress',
-            'version'     => '2020-03-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAnycastEipAddress',
+            'version' => '2020-03-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAnycastEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries Anycast elastic IP addresses (Anycast EIPs) associated with specified instance IP addresses or instance IDs, including instance status, maximum bandwidth, and associated resources.
-     *  *
-     * @param DescribeAnycastEipAddressRequest $request DescribeAnycastEipAddressRequest
+     * Queries Anycast elastic IP addresses (Anycast EIPs) associated with specified instance IP addresses or instance IDs, including instance status, maximum bandwidth, and associated resources.
      *
-     * @return DescribeAnycastEipAddressResponse DescribeAnycastEipAddressResponse
+     * @param request - DescribeAnycastEipAddressRequest
+     *
+     * @returns DescribeAnycastEipAddressResponse
+     *
+     * @param DescribeAnycastEipAddressRequest $request
+     *
+     * @return DescribeAnycastEipAddressResponse
      */
     public function describeAnycastEipAddress($request)
     {
@@ -266,44 +379,54 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the access points in an area.
-     *  *
-     * @param DescribeAnycastPopLocationsRequest $request DescribeAnycastPopLocationsRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the information about the access points in an area.
      *
-     * @return DescribeAnycastPopLocationsResponse DescribeAnycastPopLocationsResponse
+     * @param request - DescribeAnycastPopLocationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAnycastPopLocationsResponse
+     *
+     * @param DescribeAnycastPopLocationsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeAnycastPopLocationsResponse
      */
     public function describeAnycastPopLocationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->serviceLocation)) {
-            $query['ServiceLocation'] = $request->serviceLocation;
+        if (null !== $request->serviceLocation) {
+            @$query['ServiceLocation'] = $request->serviceLocation;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAnycastPopLocations',
-            'version'     => '2020-03-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAnycastPopLocations',
+            'version' => '2020-03-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAnycastPopLocationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about the access points in an area.
-     *  *
-     * @param DescribeAnycastPopLocationsRequest $request DescribeAnycastPopLocationsRequest
+     * Queries the information about the access points in an area.
      *
-     * @return DescribeAnycastPopLocationsResponse DescribeAnycastPopLocationsResponse
+     * @param request - DescribeAnycastPopLocationsRequest
+     *
+     * @returns DescribeAnycastPopLocationsResponse
+     *
+     * @param DescribeAnycastPopLocationsRequest $request
+     *
+     * @return DescribeAnycastPopLocationsResponse
      */
     public function describeAnycastPopLocations($request)
     {
@@ -313,44 +436,54 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @summary Queries the regions where you can associate Anycast elastic IP addresses (Anycast EIPs) with endpoints.
-     *  *
-     * @param DescribeAnycastServerRegionsRequest $request DescribeAnycastServerRegionsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the regions where you can associate Anycast elastic IP addresses (Anycast EIPs) with endpoints.
      *
-     * @return DescribeAnycastServerRegionsResponse DescribeAnycastServerRegionsResponse
+     * @param request - DescribeAnycastServerRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAnycastServerRegionsResponse
+     *
+     * @param DescribeAnycastServerRegionsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeAnycastServerRegionsResponse
      */
     public function describeAnycastServerRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->serviceLocation)) {
-            $query['ServiceLocation'] = $request->serviceLocation;
+        if (null !== $request->serviceLocation) {
+            @$query['ServiceLocation'] = $request->serviceLocation;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAnycastServerRegions',
-            'version'     => '2020-03-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAnycastServerRegions',
+            'version' => '2020-03-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAnycastServerRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the regions where you can associate Anycast elastic IP addresses (Anycast EIPs) with endpoints.
-     *  *
-     * @param DescribeAnycastServerRegionsRequest $request DescribeAnycastServerRegionsRequest
+     * Queries the regions where you can associate Anycast elastic IP addresses (Anycast EIPs) with endpoints.
      *
-     * @return DescribeAnycastServerRegionsResponse DescribeAnycastServerRegionsResponse
+     * @param request - DescribeAnycastServerRegionsRequest
+     *
+     * @returns DescribeAnycastServerRegionsResponse
+     *
+     * @param DescribeAnycastServerRegionsRequest $request
+     *
+     * @return DescribeAnycastServerRegionsResponse
      */
     public function describeAnycastServerRegions($request)
     {
@@ -360,83 +493,106 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @summary 查询指定接入区域已创建的Anycast EIP实例
-     *  *
-     * @param ListAnycastEipAddressesRequest $request ListAnycastEipAddressesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries information about Anycast elastic IP addresses (Anycast EIPs) in an access area, including instance status, maximum bandwidth, and associated resources.
      *
-     * @return ListAnycastEipAddressesResponse ListAnycastEipAddressesResponse
+     * @param request - ListAnycastEipAddressesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAnycastEipAddressesResponse
+     *
+     * @param ListAnycastEipAddressesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListAnycastEipAddressesResponse
      */
     public function listAnycastEipAddressesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->anycastEipAddress)) {
-            $query['AnycastEipAddress'] = $request->anycastEipAddress;
+        if (null !== $request->anycastEipAddress) {
+            @$query['AnycastEipAddress'] = $request->anycastEipAddress;
         }
-        if (!Utils::isUnset($request->anycastId)) {
-            $query['AnycastId'] = $request->anycastId;
+
+        if (null !== $request->anycastId) {
+            @$query['AnycastId'] = $request->anycastId;
         }
-        if (!Utils::isUnset($request->anycastIds)) {
-            $query['AnycastIds'] = $request->anycastIds;
+
+        if (null !== $request->anycastIds) {
+            @$query['AnycastIds'] = $request->anycastIds;
         }
-        if (!Utils::isUnset($request->bindInstanceIds)) {
-            $query['BindInstanceIds'] = $request->bindInstanceIds;
+
+        if (null !== $request->bindInstanceIds) {
+            @$query['BindInstanceIds'] = $request->bindInstanceIds;
         }
-        if (!Utils::isUnset($request->businessStatus)) {
-            $query['BusinessStatus'] = $request->businessStatus;
+
+        if (null !== $request->businessStatus) {
+            @$query['BusinessStatus'] = $request->businessStatus;
         }
-        if (!Utils::isUnset($request->instanceChargeType)) {
-            $query['InstanceChargeType'] = $request->instanceChargeType;
+
+        if (null !== $request->instanceChargeType) {
+            @$query['InstanceChargeType'] = $request->instanceChargeType;
         }
-        if (!Utils::isUnset($request->internetChargeType)) {
-            $query['InternetChargeType'] = $request->internetChargeType;
+
+        if (null !== $request->internetChargeType) {
+            @$query['InternetChargeType'] = $request->internetChargeType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->serviceLocation)) {
-            $query['ServiceLocation'] = $request->serviceLocation;
+
+        if (null !== $request->serviceLocation) {
+            @$query['ServiceLocation'] = $request->serviceLocation;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAnycastEipAddresses',
-            'version'     => '2020-03-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAnycastEipAddresses',
+            'version' => '2020-03-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListAnycastEipAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询指定接入区域已创建的Anycast EIP实例
-     *  *
-     * @param ListAnycastEipAddressesRequest $request ListAnycastEipAddressesRequest
+     * Queries information about Anycast elastic IP addresses (Anycast EIPs) in an access area, including instance status, maximum bandwidth, and associated resources.
      *
-     * @return ListAnycastEipAddressesResponse ListAnycastEipAddressesResponse
+     * @param request - ListAnycastEipAddressesRequest
+     *
+     * @returns ListAnycastEipAddressesResponse
+     *
+     * @param ListAnycastEipAddressesRequest $request
+     *
+     * @return ListAnycastEipAddressesResponse
      */
     public function listAnycastEipAddresses($request)
     {
@@ -446,56 +602,70 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tags that are added to resources.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the tags that are added to resources.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2020-03-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2020-03-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the tags that are added to resources.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * Queries the tags that are added to resources.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -505,50 +675,62 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the name and description of an Anycast elastic IP address (Anycast EIP).
-     *  *
-     * @param ModifyAnycastEipAddressAttributeRequest $request ModifyAnycastEipAddressAttributeRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Modifies the name and description of an Anycast elastic IP address (Anycast EIP).
      *
-     * @return ModifyAnycastEipAddressAttributeResponse ModifyAnycastEipAddressAttributeResponse
+     * @param request - ModifyAnycastEipAddressAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAnycastEipAddressAttributeResponse
+     *
+     * @param ModifyAnycastEipAddressAttributeRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModifyAnycastEipAddressAttributeResponse
      */
     public function modifyAnycastEipAddressAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->anycastId)) {
-            $query['AnycastId'] = $request->anycastId;
+        if (null !== $request->anycastId) {
+            @$query['AnycastId'] = $request->anycastId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAnycastEipAddressAttribute',
-            'version'     => '2020-03-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAnycastEipAddressAttribute',
+            'version' => '2020-03-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyAnycastEipAddressAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the name and description of an Anycast elastic IP address (Anycast EIP).
-     *  *
-     * @param ModifyAnycastEipAddressAttributeRequest $request ModifyAnycastEipAddressAttributeRequest
+     * Modifies the name and description of an Anycast elastic IP address (Anycast EIP).
      *
-     * @return ModifyAnycastEipAddressAttributeResponse ModifyAnycastEipAddressAttributeResponse
+     * @param request - ModifyAnycastEipAddressAttributeRequest
+     *
+     * @returns ModifyAnycastEipAddressAttributeResponse
+     *
+     * @param ModifyAnycastEipAddressAttributeRequest $request
+     *
+     * @return ModifyAnycastEipAddressAttributeResponse
      */
     public function modifyAnycastEipAddressAttribute($request)
     {
@@ -558,47 +740,58 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the maximum bandwidth of an Anycast elastic IP address (Anycast EIP).
-     *  *
-     * @param ModifyAnycastEipAddressSpecRequest $request ModifyAnycastEipAddressSpecRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Modifies the maximum bandwidth of an Anycast elastic IP address (Anycast EIP).
      *
-     * @return ModifyAnycastEipAddressSpecResponse ModifyAnycastEipAddressSpecResponse
+     * @param request - ModifyAnycastEipAddressSpecRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAnycastEipAddressSpecResponse
+     *
+     * @param ModifyAnycastEipAddressSpecRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyAnycastEipAddressSpecResponse
      */
     public function modifyAnycastEipAddressSpecWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->anycastId)) {
-            $query['AnycastId'] = $request->anycastId;
+        if (null !== $request->anycastId) {
+            @$query['AnycastId'] = $request->anycastId;
         }
-        if (!Utils::isUnset($request->bandwidth)) {
-            $query['Bandwidth'] = $request->bandwidth;
+
+        if (null !== $request->bandwidth) {
+            @$query['Bandwidth'] = $request->bandwidth;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAnycastEipAddressSpec',
-            'version'     => '2020-03-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAnycastEipAddressSpec',
+            'version' => '2020-03-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyAnycastEipAddressSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the maximum bandwidth of an Anycast elastic IP address (Anycast EIP).
-     *  *
-     * @param ModifyAnycastEipAddressSpecRequest $request ModifyAnycastEipAddressSpecRequest
+     * Modifies the maximum bandwidth of an Anycast elastic IP address (Anycast EIP).
      *
-     * @return ModifyAnycastEipAddressSpecResponse ModifyAnycastEipAddressSpecResponse
+     * @param request - ModifyAnycastEipAddressSpecRequest
+     *
+     * @returns ModifyAnycastEipAddressSpecResponse
+     *
+     * @param ModifyAnycastEipAddressSpecRequest $request
+     *
+     * @return ModifyAnycastEipAddressSpecResponse
      */
     public function modifyAnycastEipAddressSpec($request)
     {
@@ -608,47 +801,58 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @summary Releases an Anycast elastic IP address (Anycast EIP).
-     *  *
-     * @param ReleaseAnycastEipAddressRequest $request ReleaseAnycastEipAddressRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Releases an Anycast elastic IP address (Anycast EIP).
      *
-     * @return ReleaseAnycastEipAddressResponse ReleaseAnycastEipAddressResponse
+     * @param request - ReleaseAnycastEipAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReleaseAnycastEipAddressResponse
+     *
+     * @param ReleaseAnycastEipAddressRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ReleaseAnycastEipAddressResponse
      */
     public function releaseAnycastEipAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->anycastId)) {
-            $query['AnycastId'] = $request->anycastId;
+        if (null !== $request->anycastId) {
+            @$query['AnycastId'] = $request->anycastId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseAnycastEipAddress',
-            'version'     => '2020-03-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseAnycastEipAddress',
+            'version' => '2020-03-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ReleaseAnycastEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Releases an Anycast elastic IP address (Anycast EIP).
-     *  *
-     * @param ReleaseAnycastEipAddressRequest $request ReleaseAnycastEipAddressRequest
+     * Releases an Anycast elastic IP address (Anycast EIP).
      *
-     * @return ReleaseAnycastEipAddressResponse ReleaseAnycastEipAddressResponse
+     * @param request - ReleaseAnycastEipAddressRequest
+     *
+     * @returns ReleaseAnycastEipAddressResponse
+     *
+     * @param ReleaseAnycastEipAddressRequest $request
+     *
+     * @return ReleaseAnycastEipAddressResponse
      */
     public function releaseAnycastEipAddress($request)
     {
@@ -658,50 +862,62 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @summary Creates and adds tags to resources.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Creates and adds tags to resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2020-03-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2020-03-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates and adds tags to resources.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * Creates and adds tags to resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -711,62 +927,78 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @summary Disassociates an Anycast elastic IP address (Anycast EIP) from an endpoint.
-     *  *
-     * @param UnassociateAnycastEipAddressRequest $request UnassociateAnycastEipAddressRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Disassociates an Anycast elastic IP address (Anycast EIP) from an endpoint.
      *
-     * @return UnassociateAnycastEipAddressResponse UnassociateAnycastEipAddressResponse
+     * @param request - UnassociateAnycastEipAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UnassociateAnycastEipAddressResponse
+     *
+     * @param UnassociateAnycastEipAddressRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UnassociateAnycastEipAddressResponse
      */
     public function unassociateAnycastEipAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->anycastId)) {
-            $query['AnycastId'] = $request->anycastId;
+        if (null !== $request->anycastId) {
+            @$query['AnycastId'] = $request->anycastId;
         }
-        if (!Utils::isUnset($request->bindInstanceId)) {
-            $query['BindInstanceId'] = $request->bindInstanceId;
+
+        if (null !== $request->bindInstanceId) {
+            @$query['BindInstanceId'] = $request->bindInstanceId;
         }
-        if (!Utils::isUnset($request->bindInstanceRegionId)) {
-            $query['BindInstanceRegionId'] = $request->bindInstanceRegionId;
+
+        if (null !== $request->bindInstanceRegionId) {
+            @$query['BindInstanceRegionId'] = $request->bindInstanceRegionId;
         }
-        if (!Utils::isUnset($request->bindInstanceType)) {
-            $query['BindInstanceType'] = $request->bindInstanceType;
+
+        if (null !== $request->bindInstanceType) {
+            @$query['BindInstanceType'] = $request->bindInstanceType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->privateIpAddress)) {
-            $query['PrivateIpAddress'] = $request->privateIpAddress;
+
+        if (null !== $request->privateIpAddress) {
+            @$query['PrivateIpAddress'] = $request->privateIpAddress;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnassociateAnycastEipAddress',
-            'version'     => '2020-03-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnassociateAnycastEipAddress',
+            'version' => '2020-03-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UnassociateAnycastEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Disassociates an Anycast elastic IP address (Anycast EIP) from an endpoint.
-     *  *
-     * @param UnassociateAnycastEipAddressRequest $request UnassociateAnycastEipAddressRequest
+     * Disassociates an Anycast elastic IP address (Anycast EIP) from an endpoint.
      *
-     * @return UnassociateAnycastEipAddressResponse UnassociateAnycastEipAddressResponse
+     * @param request - UnassociateAnycastEipAddressRequest
+     *
+     * @returns UnassociateAnycastEipAddressResponse
+     *
+     * @param UnassociateAnycastEipAddressRequest $request
+     *
+     * @return UnassociateAnycastEipAddressResponse
      */
     public function unassociateAnycastEipAddress($request)
     {
@@ -776,50 +1008,62 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from Anycast EIPs.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Removes tags from Anycast EIPs.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2020-03-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2020-03-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes tags from Anycast EIPs.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Removes tags from Anycast EIPs.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -829,62 +1073,78 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
-     * @summary If an Anycast EIP is associated with endpoints in different regions, you can change the access points that are mapped to an endpoint. You can call UpdateAnycastEipAddressAssociations to add or delete endpoints to modify the mappings between endpoints and access points.
-     *  *
-     * @param UpdateAnycastEipAddressAssociationsRequest $request UpdateAnycastEipAddressAssociationsRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * If an Anycast EIP is associated with endpoints in different regions, you can change the access points that are mapped to an endpoint. You can call UpdateAnycastEipAddressAssociations to add or delete endpoints to modify the mappings between endpoints and access points.
      *
-     * @return UpdateAnycastEipAddressAssociationsResponse UpdateAnycastEipAddressAssociationsResponse
+     * @param request - UpdateAnycastEipAddressAssociationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAnycastEipAddressAssociationsResponse
+     *
+     * @param UpdateAnycastEipAddressAssociationsRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return UpdateAnycastEipAddressAssociationsResponse
      */
     public function updateAnycastEipAddressAssociationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->anycastId)) {
-            $query['AnycastId'] = $request->anycastId;
+        if (null !== $request->anycastId) {
+            @$query['AnycastId'] = $request->anycastId;
         }
-        if (!Utils::isUnset($request->associationMode)) {
-            $query['AssociationMode'] = $request->associationMode;
+
+        if (null !== $request->associationMode) {
+            @$query['AssociationMode'] = $request->associationMode;
         }
-        if (!Utils::isUnset($request->bindInstanceId)) {
-            $query['BindInstanceId'] = $request->bindInstanceId;
+
+        if (null !== $request->bindInstanceId) {
+            @$query['BindInstanceId'] = $request->bindInstanceId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->popLocationAddList)) {
-            $query['PopLocationAddList'] = $request->popLocationAddList;
+
+        if (null !== $request->popLocationAddList) {
+            @$query['PopLocationAddList'] = $request->popLocationAddList;
         }
-        if (!Utils::isUnset($request->popLocationDeleteList)) {
-            $query['PopLocationDeleteList'] = $request->popLocationDeleteList;
+
+        if (null !== $request->popLocationDeleteList) {
+            @$query['PopLocationDeleteList'] = $request->popLocationDeleteList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAnycastEipAddressAssociations',
-            'version'     => '2020-03-09',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAnycastEipAddressAssociations',
+            'version' => '2020-03-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateAnycastEipAddressAssociationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary If an Anycast EIP is associated with endpoints in different regions, you can change the access points that are mapped to an endpoint. You can call UpdateAnycastEipAddressAssociations to add or delete endpoints to modify the mappings between endpoints and access points.
-     *  *
-     * @param UpdateAnycastEipAddressAssociationsRequest $request UpdateAnycastEipAddressAssociationsRequest
+     * If an Anycast EIP is associated with endpoints in different regions, you can change the access points that are mapped to an endpoint. You can call UpdateAnycastEipAddressAssociations to add or delete endpoints to modify the mappings between endpoints and access points.
      *
-     * @return UpdateAnycastEipAddressAssociationsResponse UpdateAnycastEipAddressAssociationsResponse
+     * @param request - UpdateAnycastEipAddressAssociationsRequest
+     *
+     * @returns UpdateAnycastEipAddressAssociationsResponse
+     *
+     * @param UpdateAnycastEipAddressAssociationsRequest $request
+     *
+     * @return UpdateAnycastEipAddressAssociationsResponse
      */
     public function updateAnycastEipAddressAssociations($request)
     {

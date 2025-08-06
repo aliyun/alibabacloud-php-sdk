@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eipanycast\V20200309\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAnycastServerRegionsRequest extends Model
 {
     /**
-     * @description The access area from which you use the Anycast EIP to communicate with the Internet.
-     *
-     * Set the value to **international**, which specifies the areas outside the Chinese mainland.
-     *
-     * This parameter is required.
-     * @example international
-     *
      * @var string
      */
     public $serviceLocation;
@@ -25,9 +18,10 @@ class DescribeAnycastServerRegionsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serviceLocation) {
@@ -37,11 +31,11 @@ class DescribeAnycastServerRegionsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAnycastServerRegionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

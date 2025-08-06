@@ -4,60 +4,57 @@
 
 namespace AlibabaCloud\SDK\Eipanycast\V20200309\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\DescribeAnycastPopLocationsResponseBody\anycastPopLocationList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAnycastPopLocationsResponseBody extends Model
 {
     /**
-     * @description The list of access points in the specified access area.
-     *
      * @var anycastPopLocationList[]
      */
     public $anycastPopLocationList;
 
     /**
-     * @description The number of access points.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $count;
 
     /**
-     * @description The request ID.
-     *
-     * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'anycastPopLocationList' => 'AnycastPopLocationList',
-        'count'                  => 'Count',
-        'requestId'              => 'RequestId',
+        'count' => 'Count',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->anycastPopLocationList)) {
+            Model::validateArray($this->anycastPopLocationList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->anycastPopLocationList) {
-            $res['AnycastPopLocationList'] = [];
-            if (null !== $this->anycastPopLocationList && \is_array($this->anycastPopLocationList)) {
-                $n = 0;
-                foreach ($this->anycastPopLocationList as $item) {
-                    $res['AnycastPopLocationList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->anycastPopLocationList)) {
+                $res['AnycastPopLocationList'] = [];
+                $n1 = 0;
+                foreach ($this->anycastPopLocationList as $item1) {
+                    $res['AnycastPopLocationList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,26 +62,29 @@ class DescribeAnycastPopLocationsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAnycastPopLocationsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnycastPopLocationList'])) {
             if (!empty($map['AnycastPopLocationList'])) {
                 $model->anycastPopLocationList = [];
-                $n                             = 0;
-                foreach ($map['AnycastPopLocationList'] as $item) {
-                    $model->anycastPopLocationList[$n++] = null !== $item ? anycastPopLocationList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AnycastPopLocationList'] as $item1) {
+                    $model->anycastPopLocationList[$n1] = anycastPopLocationList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
