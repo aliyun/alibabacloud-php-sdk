@@ -33,7 +33,8 @@ class data extends Model
                 $res['BpsModel'] = [];
                 $n1 = 0;
                 foreach ($this->bpsModel as $item1) {
-                    $res['BpsModel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['BpsModel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class data extends Model
                 $model->bpsModel = [];
                 $n1 = 0;
                 foreach ($map['BpsModel'] as $item1) {
-                    $model->bpsModel[$n1++] = bpsModel::fromMap($item1);
+                    $model->bpsModel[$n1] = bpsModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

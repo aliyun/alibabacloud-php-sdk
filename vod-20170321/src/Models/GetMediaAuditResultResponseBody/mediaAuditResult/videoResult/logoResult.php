@@ -71,7 +71,8 @@ class logoResult extends Model
                 $res['CounterList'] = [];
                 $n1 = 0;
                 foreach ($this->counterList as $item1) {
-                    $res['CounterList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CounterList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class logoResult extends Model
                 $res['TopList'] = [];
                 $n1 = 0;
                 foreach ($this->topList as $item1) {
-                    $res['TopList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TopList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -118,7 +120,8 @@ class logoResult extends Model
                 $model->counterList = [];
                 $n1 = 0;
                 foreach ($map['CounterList'] as $item1) {
-                    $model->counterList[$n1++] = counterList::fromMap($item1);
+                    $model->counterList[$n1] = counterList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +143,8 @@ class logoResult extends Model
                 $model->topList = [];
                 $n1 = 0;
                 foreach ($map['TopList'] as $item1) {
-                    $model->topList[$n1++] = topList::fromMap($item1);
+                    $model->topList[$n1] = topList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

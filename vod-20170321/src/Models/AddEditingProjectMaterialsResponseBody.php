@@ -39,7 +39,8 @@ class AddEditingProjectMaterialsResponseBody extends Model
                 $res['MaterialList'] = [];
                 $n1 = 0;
                 foreach ($this->materialList as $item1) {
-                    $res['MaterialList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MaterialList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class AddEditingProjectMaterialsResponseBody extends Model
                 $model->materialList = [];
                 $n1 = 0;
                 foreach ($map['MaterialList'] as $item1) {
-                    $model->materialList[$n1++] = materialList::fromMap($item1);
+                    $model->materialList[$n1] = materialList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -33,7 +33,8 @@ class DNAResult extends Model
                 $res['VideoDNA'] = [];
                 $n1 = 0;
                 foreach ($this->videoDNA as $item1) {
-                    $res['VideoDNA'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VideoDNA'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class DNAResult extends Model
                 $model->videoDNA = [];
                 $n1 = 0;
                 foreach ($map['VideoDNA'] as $item1) {
-                    $model->videoDNA[$n1++] = videoDNA::fromMap($item1);
+                    $model->videoDNA[$n1] = videoDNA::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

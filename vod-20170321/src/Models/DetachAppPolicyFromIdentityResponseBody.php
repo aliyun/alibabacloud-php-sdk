@@ -47,7 +47,8 @@ class DetachAppPolicyFromIdentityResponseBody extends Model
                 $res['FailedPolicyNames'] = [];
                 $n1 = 0;
                 foreach ($this->failedPolicyNames as $item1) {
-                    $res['FailedPolicyNames'][$n1++] = $item1;
+                    $res['FailedPolicyNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -57,7 +58,8 @@ class DetachAppPolicyFromIdentityResponseBody extends Model
                 $res['NonExistPolicyNames'] = [];
                 $n1 = 0;
                 foreach ($this->nonExistPolicyNames as $item1) {
-                    $res['NonExistPolicyNames'][$n1++] = $item1;
+                    $res['NonExistPolicyNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +84,8 @@ class DetachAppPolicyFromIdentityResponseBody extends Model
                 $model->failedPolicyNames = [];
                 $n1 = 0;
                 foreach ($map['FailedPolicyNames'] as $item1) {
-                    $model->failedPolicyNames[$n1++] = $item1;
+                    $model->failedPolicyNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +95,8 @@ class DetachAppPolicyFromIdentityResponseBody extends Model
                 $model->nonExistPolicyNames = [];
                 $n1 = 0;
                 foreach ($map['NonExistPolicyNames'] as $item1) {
-                    $model->nonExistPolicyNames[$n1++] = $item1;
+                    $model->nonExistPolicyNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

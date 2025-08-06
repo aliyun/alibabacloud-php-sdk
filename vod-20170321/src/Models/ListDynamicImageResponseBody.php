@@ -39,7 +39,8 @@ class ListDynamicImageResponseBody extends Model
                 $res['DynamicImageList'] = [];
                 $n1 = 0;
                 foreach ($this->dynamicImageList as $item1) {
-                    $res['DynamicImageList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DynamicImageList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListDynamicImageResponseBody extends Model
                 $model->dynamicImageList = [];
                 $n1 = 0;
                 foreach ($map['DynamicImageList'] as $item1) {
-                    $model->dynamicImageList[$n1++] = dynamicImageList::fromMap($item1);
+                    $model->dynamicImageList[$n1] = dynamicImageList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -43,7 +43,8 @@ class ListAITemplateResponseBody extends Model
                 $res['TemplateInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->templateInfoList as $item1) {
-                    $res['TemplateInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TemplateInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class ListAITemplateResponseBody extends Model
                 $model->templateInfoList = [];
                 $n1 = 0;
                 foreach ($map['TemplateInfoList'] as $item1) {
-                    $model->templateInfoList[$n1++] = templateInfoList::fromMap($item1);
+                    $model->templateInfoList[$n1] = templateInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

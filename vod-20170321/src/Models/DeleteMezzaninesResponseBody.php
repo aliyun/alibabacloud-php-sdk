@@ -47,7 +47,8 @@ class DeleteMezzaninesResponseBody extends Model
                 $res['NonExistVideoIds'] = [];
                 $n1 = 0;
                 foreach ($this->nonExistVideoIds as $item1) {
-                    $res['NonExistVideoIds'][$n1++] = $item1;
+                    $res['NonExistVideoIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -61,7 +62,8 @@ class DeleteMezzaninesResponseBody extends Model
                 $res['UnRemoveableVideoIds'] = [];
                 $n1 = 0;
                 foreach ($this->unRemoveableVideoIds as $item1) {
-                    $res['UnRemoveableVideoIds'][$n1++] = $item1;
+                    $res['UnRemoveableVideoIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +84,8 @@ class DeleteMezzaninesResponseBody extends Model
                 $model->nonExistVideoIds = [];
                 $n1 = 0;
                 foreach ($map['NonExistVideoIds'] as $item1) {
-                    $model->nonExistVideoIds[$n1++] = $item1;
+                    $model->nonExistVideoIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +99,8 @@ class DeleteMezzaninesResponseBody extends Model
                 $model->unRemoveableVideoIds = [];
                 $n1 = 0;
                 foreach ($map['UnRemoveableVideoIds'] as $item1) {
-                    $model->unRemoveableVideoIds[$n1++] = $item1;
+                    $model->unRemoveableVideoIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

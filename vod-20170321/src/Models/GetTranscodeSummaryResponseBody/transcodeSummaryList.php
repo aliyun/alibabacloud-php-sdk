@@ -71,7 +71,8 @@ class transcodeSummaryList extends Model
                 $res['TranscodeJobInfoSummaryList'] = [];
                 $n1 = 0;
                 foreach ($this->transcodeJobInfoSummaryList as $item1) {
-                    $res['TranscodeJobInfoSummaryList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TranscodeJobInfoSummaryList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +113,8 @@ class transcodeSummaryList extends Model
                 $model->transcodeJobInfoSummaryList = [];
                 $n1 = 0;
                 foreach ($map['TranscodeJobInfoSummaryList'] as $item1) {
-                    $model->transcodeJobInfoSummaryList[$n1++] = transcodeJobInfoSummaryList::fromMap($item1);
+                    $model->transcodeJobInfoSummaryList[$n1] = transcodeJobInfoSummaryList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

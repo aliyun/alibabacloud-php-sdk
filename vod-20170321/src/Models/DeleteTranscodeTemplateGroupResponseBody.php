@@ -38,7 +38,8 @@ class DeleteTranscodeTemplateGroupResponseBody extends Model
                 $res['NonExistTranscodeTemplateIds'] = [];
                 $n1 = 0;
                 foreach ($this->nonExistTranscodeTemplateIds as $item1) {
-                    $res['NonExistTranscodeTemplateIds'][$n1++] = $item1;
+                    $res['NonExistTranscodeTemplateIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class DeleteTranscodeTemplateGroupResponseBody extends Model
                 $model->nonExistTranscodeTemplateIds = [];
                 $n1 = 0;
                 foreach ($map['NonExistTranscodeTemplateIds'] as $item1) {
-                    $model->nonExistTranscodeTemplateIds[$n1++] = $item1;
+                    $model->nonExistTranscodeTemplateIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

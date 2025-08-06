@@ -33,7 +33,8 @@ class forbiddenList extends Model
                 $res['MediaForbiddenReasonDTO'] = [];
                 $n1 = 0;
                 foreach ($this->mediaForbiddenReasonDTO as $item1) {
-                    $res['MediaForbiddenReasonDTO'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MediaForbiddenReasonDTO'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class forbiddenList extends Model
                 $model->mediaForbiddenReasonDTO = [];
                 $n1 = 0;
                 foreach ($map['MediaForbiddenReasonDTO'] as $item1) {
-                    $model->mediaForbiddenReasonDTO[$n1++] = mediaForbiddenReasonDTO::fromMap($item1);
+                    $model->mediaForbiddenReasonDTO[$n1] = mediaForbiddenReasonDTO::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

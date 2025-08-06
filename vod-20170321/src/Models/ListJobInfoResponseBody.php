@@ -51,7 +51,8 @@ class ListJobInfoResponseBody extends Model
                 $res['JobInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->jobInfoList as $item1) {
-                    $res['JobInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['JobInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class ListJobInfoResponseBody extends Model
                 $model->jobInfoList = [];
                 $n1 = 0;
                 foreach ($map['JobInfoList'] as $item1) {
-                    $model->jobInfoList[$n1++] = jobInfoList::fromMap($item1);
+                    $model->jobInfoList[$n1] = jobInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

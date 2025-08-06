@@ -57,7 +57,8 @@ class GetUploadDetailsResponseBody extends Model
                 $res['ForbiddenMediaIds'] = [];
                 $n1 = 0;
                 foreach ($this->forbiddenMediaIds as $item1) {
-                    $res['ForbiddenMediaIds'][$n1++] = $item1;
+                    $res['ForbiddenMediaIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class GetUploadDetailsResponseBody extends Model
                 $res['NonExistMediaIds'] = [];
                 $n1 = 0;
                 foreach ($this->nonExistMediaIds as $item1) {
-                    $res['NonExistMediaIds'][$n1++] = $item1;
+                    $res['NonExistMediaIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +83,8 @@ class GetUploadDetailsResponseBody extends Model
                 $res['UploadDetails'] = [];
                 $n1 = 0;
                 foreach ($this->uploadDetails as $item1) {
-                    $res['UploadDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UploadDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +105,8 @@ class GetUploadDetailsResponseBody extends Model
                 $model->forbiddenMediaIds = [];
                 $n1 = 0;
                 foreach ($map['ForbiddenMediaIds'] as $item1) {
-                    $model->forbiddenMediaIds[$n1++] = $item1;
+                    $model->forbiddenMediaIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +116,8 @@ class GetUploadDetailsResponseBody extends Model
                 $model->nonExistMediaIds = [];
                 $n1 = 0;
                 foreach ($map['NonExistMediaIds'] as $item1) {
-                    $model->nonExistMediaIds[$n1++] = $item1;
+                    $model->nonExistMediaIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +131,8 @@ class GetUploadDetailsResponseBody extends Model
                 $model->uploadDetails = [];
                 $n1 = 0;
                 foreach ($map['UploadDetails'] as $item1) {
-                    $model->uploadDetails[$n1++] = uploadDetails::fromMap($item1);
+                    $model->uploadDetails[$n1] = uploadDetails::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

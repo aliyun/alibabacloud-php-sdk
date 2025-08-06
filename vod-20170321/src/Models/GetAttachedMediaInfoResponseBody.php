@@ -48,7 +48,8 @@ class GetAttachedMediaInfoResponseBody extends Model
                 $res['AttachedMediaList'] = [];
                 $n1 = 0;
                 foreach ($this->attachedMediaList as $item1) {
-                    $res['AttachedMediaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AttachedMediaList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -58,7 +59,8 @@ class GetAttachedMediaInfoResponseBody extends Model
                 $res['NonExistMediaIds'] = [];
                 $n1 = 0;
                 foreach ($this->nonExistMediaIds as $item1) {
-                    $res['NonExistMediaIds'][$n1++] = $item1;
+                    $res['NonExistMediaIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +85,8 @@ class GetAttachedMediaInfoResponseBody extends Model
                 $model->attachedMediaList = [];
                 $n1 = 0;
                 foreach ($map['AttachedMediaList'] as $item1) {
-                    $model->attachedMediaList[$n1++] = attachedMediaList::fromMap($item1);
+                    $model->attachedMediaList[$n1] = attachedMediaList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +96,8 @@ class GetAttachedMediaInfoResponseBody extends Model
                 $model->nonExistMediaIds = [];
                 $n1 = 0;
                 foreach ($map['NonExistMediaIds'] as $item1) {
-                    $model->nonExistMediaIds[$n1++] = $item1;
+                    $model->nonExistMediaIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

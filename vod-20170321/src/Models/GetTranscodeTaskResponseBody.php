@@ -58,7 +58,8 @@ class GetTranscodeTaskResponseBody extends Model
                 $res['NonExistJobIds'] = [];
                 $n1 = 0;
                 foreach ($this->nonExistJobIds as $item1) {
-                    $res['NonExistJobIds'][$n1++] = $item1;
+                    $res['NonExistJobIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class GetTranscodeTaskResponseBody extends Model
                 $res['TranscodeJobInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->transcodeJobInfoList as $item1) {
-                    $res['TranscodeJobInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TranscodeJobInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +99,8 @@ class GetTranscodeTaskResponseBody extends Model
                 $model->nonExistJobIds = [];
                 $n1 = 0;
                 foreach ($map['NonExistJobIds'] as $item1) {
-                    $model->nonExistJobIds[$n1++] = $item1;
+                    $model->nonExistJobIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +114,8 @@ class GetTranscodeTaskResponseBody extends Model
                 $model->transcodeJobInfoList = [];
                 $n1 = 0;
                 foreach ($map['TranscodeJobInfoList'] as $item1) {
-                    $model->transcodeJobInfoList[$n1++] = transcodeJobInfoList::fromMap($item1);
+                    $model->transcodeJobInfoList[$n1] = transcodeJobInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

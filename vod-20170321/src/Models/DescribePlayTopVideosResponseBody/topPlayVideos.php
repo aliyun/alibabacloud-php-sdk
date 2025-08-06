@@ -33,7 +33,8 @@ class topPlayVideos extends Model
                 $res['TopPlayVideoStatis'] = [];
                 $n1 = 0;
                 foreach ($this->topPlayVideoStatis as $item1) {
-                    $res['TopPlayVideoStatis'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TopPlayVideoStatis'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class topPlayVideos extends Model
                 $model->topPlayVideoStatis = [];
                 $n1 = 0;
                 foreach ($map['TopPlayVideoStatis'] as $item1) {
-                    $model->topPlayVideoStatis[$n1++] = topPlayVideoStatis::fromMap($item1);
+                    $model->topPlayVideoStatis[$n1] = topPlayVideoStatis::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

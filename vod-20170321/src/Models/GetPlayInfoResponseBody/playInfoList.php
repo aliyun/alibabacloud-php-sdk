@@ -33,7 +33,8 @@ class playInfoList extends Model
                 $res['PlayInfo'] = [];
                 $n1 = 0;
                 foreach ($this->playInfo as $item1) {
-                    $res['PlayInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PlayInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class playInfoList extends Model
                 $model->playInfo = [];
                 $n1 = 0;
                 foreach ($map['PlayInfo'] as $item1) {
-                    $model->playInfo[$n1++] = playInfo::fromMap($item1);
+                    $model->playInfo[$n1] = playInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

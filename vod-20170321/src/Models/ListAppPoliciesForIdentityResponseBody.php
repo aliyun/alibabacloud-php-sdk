@@ -39,7 +39,8 @@ class ListAppPoliciesForIdentityResponseBody extends Model
                 $res['AppPolicyList'] = [];
                 $n1 = 0;
                 foreach ($this->appPolicyList as $item1) {
-                    $res['AppPolicyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AppPolicyList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListAppPoliciesForIdentityResponseBody extends Model
                 $model->appPolicyList = [];
                 $n1 = 0;
                 foreach ($map['AppPolicyList'] as $item1) {
-                    $model->appPolicyList[$n1++] = appPolicyList::fromMap($item1);
+                    $model->appPolicyList[$n1] = appPolicyList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

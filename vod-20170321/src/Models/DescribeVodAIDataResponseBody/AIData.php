@@ -33,7 +33,8 @@ class AIData extends Model
                 $res['AIDataItem'] = [];
                 $n1 = 0;
                 foreach ($this->AIDataItem as $item1) {
-                    $res['AIDataItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AIDataItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class AIData extends Model
                 $model->AIDataItem = [];
                 $n1 = 0;
                 foreach ($map['AIDataItem'] as $item1) {
-                    $model->AIDataItem[$n1++] = AIDataItem::fromMap($item1);
+                    $model->AIDataItem[$n1] = AIDataItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

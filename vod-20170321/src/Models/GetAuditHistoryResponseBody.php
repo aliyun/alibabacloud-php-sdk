@@ -51,7 +51,8 @@ class GetAuditHistoryResponseBody extends Model
                 $res['Histories'] = [];
                 $n1 = 0;
                 foreach ($this->histories as $item1) {
-                    $res['Histories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Histories'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class GetAuditHistoryResponseBody extends Model
                 $model->histories = [];
                 $n1 = 0;
                 foreach ($map['Histories'] as $item1) {
-                    $model->histories[$n1++] = histories::fromMap($item1);
+                    $model->histories[$n1] = histories::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

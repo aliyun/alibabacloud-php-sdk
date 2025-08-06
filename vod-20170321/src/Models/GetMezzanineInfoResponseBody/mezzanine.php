@@ -139,7 +139,8 @@ class mezzanine extends Model
                 $res['AudioStreamList'] = [];
                 $n1 = 0;
                 foreach ($this->audioStreamList as $item1) {
-                    $res['AudioStreamList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AudioStreamList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -209,7 +210,8 @@ class mezzanine extends Model
                 $res['VideoStreamList'] = [];
                 $n1 = 0;
                 foreach ($this->videoStreamList as $item1) {
-                    $res['VideoStreamList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VideoStreamList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -234,7 +236,8 @@ class mezzanine extends Model
                 $model->audioStreamList = [];
                 $n1 = 0;
                 foreach ($map['AudioStreamList'] as $item1) {
-                    $model->audioStreamList[$n1++] = audioStreamList::fromMap($item1);
+                    $model->audioStreamList[$n1] = audioStreamList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -304,7 +307,8 @@ class mezzanine extends Model
                 $model->videoStreamList = [];
                 $n1 = 0;
                 foreach ($map['VideoStreamList'] as $item1) {
-                    $model->videoStreamList[$n1++] = videoStreamList::fromMap($item1);
+                    $model->videoStreamList[$n1] = videoStreamList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -168,7 +168,8 @@ class transcodeJobInfoSummaryList extends Model
                 $res['WatermarkIdList'] = [];
                 $n1 = 0;
                 foreach ($this->watermarkIdList as $item1) {
-                    $res['WatermarkIdList'][$n1++] = $item1;
+                    $res['WatermarkIdList'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -245,7 +246,8 @@ class transcodeJobInfoSummaryList extends Model
                 $model->watermarkIdList = [];
                 $n1 = 0;
                 foreach ($map['WatermarkIdList'] as $item1) {
-                    $model->watermarkIdList[$n1++] = $item1;
+                    $model->watermarkIdList[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

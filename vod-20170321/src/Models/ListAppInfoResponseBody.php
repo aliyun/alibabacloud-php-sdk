@@ -45,7 +45,8 @@ class ListAppInfoResponseBody extends Model
                 $res['AppInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->appInfoList as $item1) {
-                    $res['AppInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AppInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class ListAppInfoResponseBody extends Model
                 $model->appInfoList = [];
                 $n1 = 0;
                 foreach ($map['AppInfoList'] as $item1) {
-                    $model->appInfoList[$n1++] = appInfoList::fromMap($item1);
+                    $model->appInfoList[$n1] = appInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

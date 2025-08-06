@@ -39,7 +39,8 @@ class GetDigitalWatermarkExtractResultResponseBody extends Model
                 $res['AiExtractResultList'] = [];
                 $n1 = 0;
                 foreach ($this->aiExtractResultList as $item1) {
-                    $res['AiExtractResultList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AiExtractResultList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class GetDigitalWatermarkExtractResultResponseBody extends Model
                 $model->aiExtractResultList = [];
                 $n1 = 0;
                 foreach ($map['AiExtractResultList'] as $item1) {
-                    $model->aiExtractResultList[$n1++] = aiExtractResultList::fromMap($item1);
+                    $model->aiExtractResultList[$n1] = aiExtractResultList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -63,7 +63,8 @@ class aiLabelInfo extends Model
                 $res['Occurrences'] = [];
                 $n1 = 0;
                 foreach ($this->occurrences as $item1) {
-                    $res['Occurrences'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Occurrences'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -96,7 +97,8 @@ class aiLabelInfo extends Model
                 $model->occurrences = [];
                 $n1 = 0;
                 foreach ($map['Occurrences'] as $item1) {
-                    $model->occurrences[$n1++] = occurrences::fromMap($item1);
+                    $model->occurrences[$n1] = occurrences::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

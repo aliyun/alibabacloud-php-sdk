@@ -73,7 +73,8 @@ class videoTagResult extends Model
                 $res['Category'] = [];
                 $n1 = 0;
                 foreach ($this->category as $item1) {
-                    $res['Category'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Category'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class videoTagResult extends Model
                 $res['Keyword'] = [];
                 $n1 = 0;
                 foreach ($this->keyword as $item1) {
-                    $res['Keyword'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Keyword'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +95,8 @@ class videoTagResult extends Model
                 $res['Location'] = [];
                 $n1 = 0;
                 foreach ($this->location as $item1) {
-                    $res['Location'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Location'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +106,8 @@ class videoTagResult extends Model
                 $res['Person'] = [];
                 $n1 = 0;
                 foreach ($this->person as $item1) {
-                    $res['Person'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Person'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +117,8 @@ class videoTagResult extends Model
                 $res['Time'] = [];
                 $n1 = 0;
                 foreach ($this->time as $item1) {
-                    $res['Time'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Time'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +139,8 @@ class videoTagResult extends Model
                 $model->category = [];
                 $n1 = 0;
                 foreach ($map['Category'] as $item1) {
-                    $model->category[$n1++] = category::fromMap($item1);
+                    $model->category[$n1] = category::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +150,8 @@ class videoTagResult extends Model
                 $model->keyword = [];
                 $n1 = 0;
                 foreach ($map['Keyword'] as $item1) {
-                    $model->keyword[$n1++] = keyword::fromMap($item1);
+                    $model->keyword[$n1] = keyword::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +161,8 @@ class videoTagResult extends Model
                 $model->location = [];
                 $n1 = 0;
                 foreach ($map['Location'] as $item1) {
-                    $model->location[$n1++] = location::fromMap($item1);
+                    $model->location[$n1] = location::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +172,8 @@ class videoTagResult extends Model
                 $model->person = [];
                 $n1 = 0;
                 foreach ($map['Person'] as $item1) {
-                    $model->person[$n1++] = person::fromMap($item1);
+                    $model->person[$n1] = person::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +183,8 @@ class videoTagResult extends Model
                 $model->time = [];
                 $n1 = 0;
                 foreach ($map['Time'] as $item1) {
-                    $model->time[$n1++] = time::fromMap($item1);
+                    $model->time[$n1] = time::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

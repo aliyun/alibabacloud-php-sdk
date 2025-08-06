@@ -65,7 +65,8 @@ class DescribeVodMediaPlayDataResponseBody extends Model
                 $res['QoeInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->qoeInfoList as $item1) {
-                    $res['QoeInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['QoeInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +103,8 @@ class DescribeVodMediaPlayDataResponseBody extends Model
                 $model->qoeInfoList = [];
                 $n1 = 0;
                 foreach ($map['QoeInfoList'] as $item1) {
-                    $model->qoeInfoList[$n1++] = qoeInfoList::fromMap($item1);
+                    $model->qoeInfoList[$n1] = qoeInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

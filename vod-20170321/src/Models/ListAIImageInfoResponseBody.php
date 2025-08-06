@@ -39,7 +39,8 @@ class ListAIImageInfoResponseBody extends Model
                 $res['AIImageInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->AIImageInfoList as $item1) {
-                    $res['AIImageInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AIImageInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class ListAIImageInfoResponseBody extends Model
                 $model->AIImageInfoList = [];
                 $n1 = 0;
                 foreach ($map['AIImageInfoList'] as $item1) {
-                    $model->AIImageInfoList[$n1++] = AIImageInfoList::fromMap($item1);
+                    $model->AIImageInfoList[$n1] = AIImageInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

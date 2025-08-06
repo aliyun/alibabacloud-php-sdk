@@ -33,7 +33,8 @@ class sources extends Model
                 $res['Source'] = [];
                 $n1 = 0;
                 foreach ($this->source as $item1) {
-                    $res['Source'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Source'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class sources extends Model
                 $model->source = [];
                 $n1 = 0;
                 foreach ($map['Source'] as $item1) {
-                    $model->source[$n1++] = source::fromMap($item1);
+                    $model->source[$n1] = source::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

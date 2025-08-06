@@ -33,7 +33,8 @@ class transcodeData extends Model
                 $res['TranscodeDataItem'] = [];
                 $n1 = 0;
                 foreach ($this->transcodeDataItem as $item1) {
-                    $res['TranscodeDataItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TranscodeDataItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class transcodeData extends Model
                 $model->transcodeDataItem = [];
                 $n1 = 0;
                 foreach ($map['TranscodeDataItem'] as $item1) {
-                    $model->transcodeDataItem[$n1++] = transcodeDataItem::fromMap($item1);
+                    $model->transcodeDataItem[$n1] = transcodeDataItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

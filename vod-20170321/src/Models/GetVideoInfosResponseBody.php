@@ -48,7 +48,8 @@ class GetVideoInfosResponseBody extends Model
                 $res['NonExistVideoIds'] = [];
                 $n1 = 0;
                 foreach ($this->nonExistVideoIds as $item1) {
-                    $res['NonExistVideoIds'][$n1++] = $item1;
+                    $res['NonExistVideoIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -62,7 +63,8 @@ class GetVideoInfosResponseBody extends Model
                 $res['VideoList'] = [];
                 $n1 = 0;
                 foreach ($this->videoList as $item1) {
-                    $res['VideoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VideoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +85,8 @@ class GetVideoInfosResponseBody extends Model
                 $model->nonExistVideoIds = [];
                 $n1 = 0;
                 foreach ($map['NonExistVideoIds'] as $item1) {
-                    $model->nonExistVideoIds[$n1++] = $item1;
+                    $model->nonExistVideoIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +100,8 @@ class GetVideoInfosResponseBody extends Model
                 $model->videoList = [];
                 $n1 = 0;
                 foreach ($map['VideoList'] as $item1) {
-                    $model->videoList[$n1++] = videoList::fromMap($item1);
+                    $model->videoList[$n1] = videoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

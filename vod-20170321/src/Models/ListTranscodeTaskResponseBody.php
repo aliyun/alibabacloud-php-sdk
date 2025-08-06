@@ -43,7 +43,8 @@ class ListTranscodeTaskResponseBody extends Model
                 $res['TranscodeTaskList'] = [];
                 $n1 = 0;
                 foreach ($this->transcodeTaskList as $item1) {
-                    $res['TranscodeTaskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TranscodeTaskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class ListTranscodeTaskResponseBody extends Model
                 $model->transcodeTaskList = [];
                 $n1 = 0;
                 foreach ($map['TranscodeTaskList'] as $item1) {
-                    $model->transcodeTaskList[$n1++] = transcodeTaskList::fromMap($item1);
+                    $model->transcodeTaskList[$n1] = transcodeTaskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

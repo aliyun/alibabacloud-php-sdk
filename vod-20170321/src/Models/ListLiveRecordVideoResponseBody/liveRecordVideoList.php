@@ -33,7 +33,8 @@ class liveRecordVideoList extends Model
                 $res['LiveRecordVideo'] = [];
                 $n1 = 0;
                 foreach ($this->liveRecordVideo as $item1) {
-                    $res['LiveRecordVideo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LiveRecordVideo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class liveRecordVideoList extends Model
                 $model->liveRecordVideo = [];
                 $n1 = 0;
                 foreach ($map['LiveRecordVideo'] as $item1) {
-                    $model->liveRecordVideo[$n1++] = liveRecordVideo::fromMap($item1);
+                    $model->liveRecordVideo[$n1] = liveRecordVideo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

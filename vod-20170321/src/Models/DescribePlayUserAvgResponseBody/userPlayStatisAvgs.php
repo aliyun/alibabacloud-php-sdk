@@ -33,7 +33,8 @@ class userPlayStatisAvgs extends Model
                 $res['UserPlayStatisAvg'] = [];
                 $n1 = 0;
                 foreach ($this->userPlayStatisAvg as $item1) {
-                    $res['UserPlayStatisAvg'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserPlayStatisAvg'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class userPlayStatisAvgs extends Model
                 $model->userPlayStatisAvg = [];
                 $n1 = 0;
                 foreach ($map['UserPlayStatisAvg'] as $item1) {
-                    $model->userPlayStatisAvg[$n1++] = userPlayStatisAvg::fromMap($item1);
+                    $model->userPlayStatisAvg[$n1] = userPlayStatisAvg::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

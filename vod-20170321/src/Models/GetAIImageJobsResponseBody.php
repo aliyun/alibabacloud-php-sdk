@@ -39,7 +39,8 @@ class GetAIImageJobsResponseBody extends Model
                 $res['AIImageJobList'] = [];
                 $n1 = 0;
                 foreach ($this->AIImageJobList as $item1) {
-                    $res['AIImageJobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AIImageJobList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class GetAIImageJobsResponseBody extends Model
                 $model->AIImageJobList = [];
                 $n1 = 0;
                 foreach ($map['AIImageJobList'] as $item1) {
-                    $model->AIImageJobList[$n1++] = AIImageJobList::fromMap($item1);
+                    $model->AIImageJobList[$n1] = AIImageJobList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

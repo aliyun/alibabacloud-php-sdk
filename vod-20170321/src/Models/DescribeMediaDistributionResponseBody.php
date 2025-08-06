@@ -45,7 +45,8 @@ class DescribeMediaDistributionResponseBody extends Model
                 $res['MediaDistributionList'] = [];
                 $n1 = 0;
                 foreach ($this->mediaDistributionList as $item1) {
-                    $res['MediaDistributionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MediaDistributionList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DescribeMediaDistributionResponseBody extends Model
                 $model->mediaDistributionList = [];
                 $n1 = 0;
                 foreach ($map['MediaDistributionList'] as $item1) {
-                    $model->mediaDistributionList[$n1++] = mediaDistributionList::fromMap($item1);
+                    $model->mediaDistributionList[$n1] = mediaDistributionList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

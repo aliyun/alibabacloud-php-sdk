@@ -38,7 +38,8 @@ class UpdateAttachedMediaInfosResponseBody extends Model
                 $res['NonExistMediaIds'] = [];
                 $n1 = 0;
                 foreach ($this->nonExistMediaIds as $item1) {
-                    $res['NonExistMediaIds'][$n1++] = $item1;
+                    $res['NonExistMediaIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class UpdateAttachedMediaInfosResponseBody extends Model
                 $model->nonExistMediaIds = [];
                 $n1 = 0;
                 foreach ($map['NonExistMediaIds'] as $item1) {
-                    $model->nonExistMediaIds[$n1++] = $item1;
+                    $model->nonExistMediaIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

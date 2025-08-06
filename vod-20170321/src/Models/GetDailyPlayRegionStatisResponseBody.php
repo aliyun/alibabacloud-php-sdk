@@ -57,7 +57,8 @@ class GetDailyPlayRegionStatisResponseBody extends Model
                 $res['DailyPlayRegionStatisList'] = [];
                 $n1 = 0;
                 foreach ($this->dailyPlayRegionStatisList as $item1) {
-                    $res['DailyPlayRegionStatisList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DailyPlayRegionStatisList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class GetDailyPlayRegionStatisResponseBody extends Model
                 $res['EmptyDates'] = [];
                 $n1 = 0;
                 foreach ($this->emptyDates as $item1) {
-                    $res['EmptyDates'][$n1++] = $item1;
+                    $res['EmptyDates'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +79,8 @@ class GetDailyPlayRegionStatisResponseBody extends Model
                 $res['FailDates'] = [];
                 $n1 = 0;
                 foreach ($this->failDates as $item1) {
-                    $res['FailDates'][$n1++] = $item1;
+                    $res['FailDates'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +105,8 @@ class GetDailyPlayRegionStatisResponseBody extends Model
                 $model->dailyPlayRegionStatisList = [];
                 $n1 = 0;
                 foreach ($map['DailyPlayRegionStatisList'] as $item1) {
-                    $model->dailyPlayRegionStatisList[$n1++] = dailyPlayRegionStatisList::fromMap($item1);
+                    $model->dailyPlayRegionStatisList[$n1] = dailyPlayRegionStatisList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -112,7 +116,8 @@ class GetDailyPlayRegionStatisResponseBody extends Model
                 $model->emptyDates = [];
                 $n1 = 0;
                 foreach ($map['EmptyDates'] as $item1) {
-                    $model->emptyDates[$n1++] = $item1;
+                    $model->emptyDates[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +127,8 @@ class GetDailyPlayRegionStatisResponseBody extends Model
                 $model->failDates = [];
                 $n1 = 0;
                 foreach ($map['FailDates'] as $item1) {
-                    $model->failDates[$n1++] = $item1;
+                    $model->failDates[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

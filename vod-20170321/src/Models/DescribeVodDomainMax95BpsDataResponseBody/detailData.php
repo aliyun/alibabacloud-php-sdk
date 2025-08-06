@@ -33,7 +33,8 @@ class detailData extends Model
                 $res['Max95Detail'] = [];
                 $n1 = 0;
                 foreach ($this->max95Detail as $item1) {
-                    $res['Max95Detail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Max95Detail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class detailData extends Model
                 $model->max95Detail = [];
                 $n1 = 0;
                 foreach ($map['Max95Detail'] as $item1) {
-                    $model->max95Detail[$n1++] = max95Detail::fromMap($item1);
+                    $model->max95Detail[$n1] = max95Detail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -48,7 +48,8 @@ class RegisterMediaResponseBody extends Model
                 $res['FailedFileURLs'] = [];
                 $n1 = 0;
                 foreach ($this->failedFileURLs as $item1) {
-                    $res['FailedFileURLs'][$n1++] = $item1;
+                    $res['FailedFileURLs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -58,7 +59,8 @@ class RegisterMediaResponseBody extends Model
                 $res['RegisteredMediaList'] = [];
                 $n1 = 0;
                 foreach ($this->registeredMediaList as $item1) {
-                    $res['RegisteredMediaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RegisteredMediaList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +85,8 @@ class RegisterMediaResponseBody extends Model
                 $model->failedFileURLs = [];
                 $n1 = 0;
                 foreach ($map['FailedFileURLs'] as $item1) {
-                    $model->failedFileURLs[$n1++] = $item1;
+                    $model->failedFileURLs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +96,8 @@ class RegisterMediaResponseBody extends Model
                 $model->registeredMediaList = [];
                 $n1 = 0;
                 foreach ($map['RegisteredMediaList'] as $item1) {
-                    $model->registeredMediaList[$n1++] = registeredMediaList::fromMap($item1);
+                    $model->registeredMediaList[$n1] = registeredMediaList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

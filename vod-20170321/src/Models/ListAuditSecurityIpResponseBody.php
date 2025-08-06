@@ -43,7 +43,8 @@ class ListAuditSecurityIpResponseBody extends Model
                 $res['SecurityIpList'] = [];
                 $n1 = 0;
                 foreach ($this->securityIpList as $item1) {
-                    $res['SecurityIpList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SecurityIpList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class ListAuditSecurityIpResponseBody extends Model
                 $model->securityIpList = [];
                 $n1 = 0;
                 foreach ($map['SecurityIpList'] as $item1) {
-                    $model->securityIpList[$n1++] = securityIpList::fromMap($item1);
+                    $model->securityIpList[$n1] = securityIpList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

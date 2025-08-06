@@ -33,7 +33,8 @@ class domainLogDetails extends Model
                 $res['DomainLogDetail'] = [];
                 $n1 = 0;
                 foreach ($this->domainLogDetail as $item1) {
-                    $res['DomainLogDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['DomainLogDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class domainLogDetails extends Model
                 $model->domainLogDetail = [];
                 $n1 = 0;
                 foreach ($map['DomainLogDetail'] as $item1) {
-                    $model->domainLogDetail[$n1++] = domainLogDetail::fromMap($item1);
+                    $model->domainLogDetail[$n1] = domainLogDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

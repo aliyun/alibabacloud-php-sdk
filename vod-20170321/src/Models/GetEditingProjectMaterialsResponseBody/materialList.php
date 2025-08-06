@@ -33,7 +33,8 @@ class materialList extends Model
                 $res['Material'] = [];
                 $n1 = 0;
                 foreach ($this->material as $item1) {
-                    $res['Material'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Material'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class materialList extends Model
                 $model->material = [];
                 $n1 = 0;
                 foreach ($map['Material'] as $item1) {
-                    $model->material[$n1++] = material::fromMap($item1);
+                    $model->material[$n1] = material::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

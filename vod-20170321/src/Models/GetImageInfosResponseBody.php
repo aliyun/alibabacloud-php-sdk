@@ -48,7 +48,8 @@ class GetImageInfosResponseBody extends Model
                 $res['ImageInfo'] = [];
                 $n1 = 0;
                 foreach ($this->imageInfo as $item1) {
-                    $res['ImageInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ImageInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -58,7 +59,8 @@ class GetImageInfosResponseBody extends Model
                 $res['NonExistImageIds'] = [];
                 $n1 = 0;
                 foreach ($this->nonExistImageIds as $item1) {
-                    $res['NonExistImageIds'][$n1++] = $item1;
+                    $res['NonExistImageIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +85,8 @@ class GetImageInfosResponseBody extends Model
                 $model->imageInfo = [];
                 $n1 = 0;
                 foreach ($map['ImageInfo'] as $item1) {
-                    $model->imageInfo[$n1++] = imageInfo::fromMap($item1);
+                    $model->imageInfo[$n1] = imageInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +96,8 @@ class GetImageInfosResponseBody extends Model
                 $model->nonExistImageIds = [];
                 $n1 = 0;
                 foreach ($map['NonExistImageIds'] as $item1) {
-                    $model->nonExistImageIds[$n1++] = $item1;
+                    $model->nonExistImageIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

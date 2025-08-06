@@ -43,7 +43,8 @@ class ListVodTemplateResponseBody extends Model
                 $res['VodTemplateInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->vodTemplateInfoList as $item1) {
-                    $res['VodTemplateInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VodTemplateInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class ListVodTemplateResponseBody extends Model
                 $model->vodTemplateInfoList = [];
                 $n1 = 0;
                 foreach ($map['VodTemplateInfoList'] as $item1) {
-                    $model->vodTemplateInfoList[$n1++] = vodTemplateInfoList::fromMap($item1);
+                    $model->vodTemplateInfoList[$n1] = vodTemplateInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

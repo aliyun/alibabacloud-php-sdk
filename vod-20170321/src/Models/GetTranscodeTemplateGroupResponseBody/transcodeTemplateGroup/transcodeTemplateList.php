@@ -202,7 +202,8 @@ class transcodeTemplateList extends Model
                 $res['WatermarkIds'] = [];
                 $n1 = 0;
                 foreach ($this->watermarkIds as $item1) {
-                    $res['WatermarkIds'][$n1++] = $item1;
+                    $res['WatermarkIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -291,7 +292,8 @@ class transcodeTemplateList extends Model
                 $model->watermarkIds = [];
                 $n1 = 0;
                 foreach ($map['WatermarkIds'] as $item1) {
-                    $model->watermarkIds[$n1++] = $item1;
+                    $model->watermarkIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

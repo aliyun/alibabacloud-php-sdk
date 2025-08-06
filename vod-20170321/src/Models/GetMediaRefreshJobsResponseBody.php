@@ -39,7 +39,8 @@ class GetMediaRefreshJobsResponseBody extends Model
                 $res['MediaRefreshJobs'] = [];
                 $n1 = 0;
                 foreach ($this->mediaRefreshJobs as $item1) {
-                    $res['MediaRefreshJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['MediaRefreshJobs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -64,7 +65,8 @@ class GetMediaRefreshJobsResponseBody extends Model
                 $model->mediaRefreshJobs = [];
                 $n1 = 0;
                 foreach ($map['MediaRefreshJobs'] as $item1) {
-                    $model->mediaRefreshJobs[$n1++] = mediaRefreshJobs::fromMap($item1);
+                    $model->mediaRefreshJobs[$n1] = mediaRefreshJobs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

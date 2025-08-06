@@ -33,7 +33,8 @@ class logInfos extends Model
                 $res['LogInfoDetail'] = [];
                 $n1 = 0;
                 foreach ($this->logInfoDetail as $item1) {
-                    $res['LogInfoDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LogInfoDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class logInfos extends Model
                 $model->logInfoDetail = [];
                 $n1 = 0;
                 foreach ($map['LogInfoDetail'] as $item1) {
-                    $model->logInfoDetail[$n1++] = logInfoDetail::fromMap($item1);
+                    $model->logInfoDetail[$n1] = logInfoDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

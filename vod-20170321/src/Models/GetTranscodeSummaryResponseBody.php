@@ -48,7 +48,8 @@ class GetTranscodeSummaryResponseBody extends Model
                 $res['NonExistVideoIds'] = [];
                 $n1 = 0;
                 foreach ($this->nonExistVideoIds as $item1) {
-                    $res['NonExistVideoIds'][$n1++] = $item1;
+                    $res['NonExistVideoIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -62,7 +63,8 @@ class GetTranscodeSummaryResponseBody extends Model
                 $res['TranscodeSummaryList'] = [];
                 $n1 = 0;
                 foreach ($this->transcodeSummaryList as $item1) {
-                    $res['TranscodeSummaryList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TranscodeSummaryList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +85,8 @@ class GetTranscodeSummaryResponseBody extends Model
                 $model->nonExistVideoIds = [];
                 $n1 = 0;
                 foreach ($map['NonExistVideoIds'] as $item1) {
-                    $model->nonExistVideoIds[$n1++] = $item1;
+                    $model->nonExistVideoIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +100,8 @@ class GetTranscodeSummaryResponseBody extends Model
                 $model->transcodeSummaryList = [];
                 $n1 = 0;
                 foreach ($map['TranscodeSummaryList'] as $item1) {
-                    $model->transcodeSummaryList[$n1++] = transcodeSummaryList::fromMap($item1);
+                    $model->transcodeSummaryList[$n1] = transcodeSummaryList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

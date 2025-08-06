@@ -47,7 +47,8 @@ class UpdateVideoInfosResponseBody extends Model
                 $res['ForbiddenVideoIds'] = [];
                 $n1 = 0;
                 foreach ($this->forbiddenVideoIds as $item1) {
-                    $res['ForbiddenVideoIds'][$n1++] = $item1;
+                    $res['ForbiddenVideoIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -57,7 +58,8 @@ class UpdateVideoInfosResponseBody extends Model
                 $res['NonExistVideoIds'] = [];
                 $n1 = 0;
                 foreach ($this->nonExistVideoIds as $item1) {
-                    $res['NonExistVideoIds'][$n1++] = $item1;
+                    $res['NonExistVideoIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +84,8 @@ class UpdateVideoInfosResponseBody extends Model
                 $model->forbiddenVideoIds = [];
                 $n1 = 0;
                 foreach ($map['ForbiddenVideoIds'] as $item1) {
-                    $model->forbiddenVideoIds[$n1++] = $item1;
+                    $model->forbiddenVideoIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +95,8 @@ class UpdateVideoInfosResponseBody extends Model
                 $model->nonExistVideoIds = [];
                 $n1 = 0;
                 foreach ($map['NonExistVideoIds'] as $item1) {
-                    $model->nonExistVideoIds[$n1++] = $item1;
+                    $model->nonExistVideoIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

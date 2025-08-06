@@ -47,7 +47,8 @@ class MoveAppResourceResponseBody extends Model
                 $res['FailedResourceIds'] = [];
                 $n1 = 0;
                 foreach ($this->failedResourceIds as $item1) {
-                    $res['FailedResourceIds'][$n1++] = $item1;
+                    $res['FailedResourceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -57,7 +58,8 @@ class MoveAppResourceResponseBody extends Model
                 $res['NonExistResourceIds'] = [];
                 $n1 = 0;
                 foreach ($this->nonExistResourceIds as $item1) {
-                    $res['NonExistResourceIds'][$n1++] = $item1;
+                    $res['NonExistResourceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +84,8 @@ class MoveAppResourceResponseBody extends Model
                 $model->failedResourceIds = [];
                 $n1 = 0;
                 foreach ($map['FailedResourceIds'] as $item1) {
-                    $model->failedResourceIds[$n1++] = $item1;
+                    $model->failedResourceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +95,8 @@ class MoveAppResourceResponseBody extends Model
                 $model->nonExistResourceIds = [];
                 $n1 = 0;
                 foreach ($map['NonExistResourceIds'] as $item1) {
-                    $model->nonExistResourceIds[$n1++] = $item1;
+                    $model->nonExistResourceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

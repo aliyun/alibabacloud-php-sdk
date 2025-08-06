@@ -73,7 +73,8 @@ class mediaAuditResultTimeline extends Model
                 $res['Ad'] = [];
                 $n1 = 0;
                 foreach ($this->ad as $item1) {
-                    $res['Ad'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Ad'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -83,7 +84,8 @@ class mediaAuditResultTimeline extends Model
                 $res['Live'] = [];
                 $n1 = 0;
                 foreach ($this->live as $item1) {
-                    $res['Live'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Live'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +95,8 @@ class mediaAuditResultTimeline extends Model
                 $res['Logo'] = [];
                 $n1 = 0;
                 foreach ($this->logo as $item1) {
-                    $res['Logo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Logo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +106,8 @@ class mediaAuditResultTimeline extends Model
                 $res['Porn'] = [];
                 $n1 = 0;
                 foreach ($this->porn as $item1) {
-                    $res['Porn'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Porn'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +117,8 @@ class mediaAuditResultTimeline extends Model
                 $res['Terrorism'] = [];
                 $n1 = 0;
                 foreach ($this->terrorism as $item1) {
-                    $res['Terrorism'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Terrorism'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -134,7 +139,8 @@ class mediaAuditResultTimeline extends Model
                 $model->ad = [];
                 $n1 = 0;
                 foreach ($map['Ad'] as $item1) {
-                    $model->ad[$n1++] = ad::fromMap($item1);
+                    $model->ad[$n1] = ad::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -144,7 +150,8 @@ class mediaAuditResultTimeline extends Model
                 $model->live = [];
                 $n1 = 0;
                 foreach ($map['Live'] as $item1) {
-                    $model->live[$n1++] = live::fromMap($item1);
+                    $model->live[$n1] = live::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -154,7 +161,8 @@ class mediaAuditResultTimeline extends Model
                 $model->logo = [];
                 $n1 = 0;
                 foreach ($map['Logo'] as $item1) {
-                    $model->logo[$n1++] = logo::fromMap($item1);
+                    $model->logo[$n1] = logo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -164,7 +172,8 @@ class mediaAuditResultTimeline extends Model
                 $model->porn = [];
                 $n1 = 0;
                 foreach ($map['Porn'] as $item1) {
-                    $model->porn[$n1++] = porn::fromMap($item1);
+                    $model->porn[$n1] = porn::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -174,7 +183,8 @@ class mediaAuditResultTimeline extends Model
                 $model->terrorism = [];
                 $n1 = 0;
                 foreach ($map['Terrorism'] as $item1) {
-                    $model->terrorism[$n1++] = terrorism::fromMap($item1);
+                    $model->terrorism[$n1] = terrorism::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

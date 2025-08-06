@@ -85,7 +85,8 @@ class mediaAuditResult extends Model
                 $res['AudioResult'] = [];
                 $n1 = 0;
                 foreach ($this->audioResult as $item1) {
-                    $res['AudioResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AudioResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class mediaAuditResult extends Model
                 $res['ImageResult'] = [];
                 $n1 = 0;
                 foreach ($this->imageResult as $item1) {
-                    $res['ImageResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ImageResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +115,8 @@ class mediaAuditResult extends Model
                 $res['TextResult'] = [];
                 $n1 = 0;
                 foreach ($this->textResult as $item1) {
-                    $res['TextResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TextResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -142,7 +145,8 @@ class mediaAuditResult extends Model
                 $model->audioResult = [];
                 $n1 = 0;
                 foreach ($map['AudioResult'] as $item1) {
-                    $model->audioResult[$n1++] = audioResult::fromMap($item1);
+                    $model->audioResult[$n1] = audioResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +156,8 @@ class mediaAuditResult extends Model
                 $model->imageResult = [];
                 $n1 = 0;
                 foreach ($map['ImageResult'] as $item1) {
-                    $model->imageResult[$n1++] = imageResult::fromMap($item1);
+                    $model->imageResult[$n1] = imageResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -170,7 +175,8 @@ class mediaAuditResult extends Model
                 $model->textResult = [];
                 $n1 = 0;
                 foreach ($map['TextResult'] as $item1) {
-                    $model->textResult[$n1++] = textResult::fromMap($item1);
+                    $model->textResult[$n1] = textResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

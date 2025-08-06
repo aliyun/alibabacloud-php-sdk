@@ -33,7 +33,8 @@ class preprocessJobs extends Model
                 $res['PreprocessJob'] = [];
                 $n1 = 0;
                 foreach ($this->preprocessJob as $item1) {
-                    $res['PreprocessJob'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PreprocessJob'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class preprocessJobs extends Model
                 $model->preprocessJob = [];
                 $n1 = 0;
                 foreach ($map['PreprocessJob'] as $item1) {
-                    $model->preprocessJob[$n1++] = preprocessJob::fromMap($item1);
+                    $model->preprocessJob[$n1] = preprocessJob::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

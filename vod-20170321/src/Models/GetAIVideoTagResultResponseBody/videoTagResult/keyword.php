@@ -42,7 +42,8 @@ class keyword extends Model
                 $res['Times'] = [];
                 $n1 = 0;
                 foreach ($this->times as $item1) {
-                    $res['Times'][$n1++] = $item1;
+                    $res['Times'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -67,7 +68,8 @@ class keyword extends Model
                 $model->times = [];
                 $n1 = 0;
                 foreach ($map['Times'] as $item1) {
-                    $model->times[$n1++] = $item1;
+                    $model->times[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

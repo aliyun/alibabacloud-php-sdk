@@ -66,7 +66,8 @@ class platforms extends Model
                 $res['LicenseItemIds'] = [];
                 $n1 = 0;
                 foreach ($this->licenseItemIds as $item1) {
-                    $res['LicenseItemIds'][$n1++] = $item1;
+                    $res['LicenseItemIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,7 +108,8 @@ class platforms extends Model
                 $model->licenseItemIds = [];
                 $n1 = 0;
                 foreach ($map['LicenseItemIds'] as $item1) {
-                    $model->licenseItemIds[$n1++] = $item1;
+                    $model->licenseItemIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -51,7 +51,8 @@ class DescribeVodEditingUsageDataResponseBody extends Model
                 $res['EditingData'] = [];
                 $n1 = 0;
                 foreach ($this->editingData as $item1) {
-                    $res['EditingData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['EditingData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class DescribeVodEditingUsageDataResponseBody extends Model
                 $model->editingData = [];
                 $n1 = 0;
                 foreach ($map['EditingData'] as $item1) {
-                    $model->editingData[$n1++] = editingData::fromMap($item1);
+                    $model->editingData[$n1] = editingData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

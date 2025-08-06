@@ -33,7 +33,8 @@ class value extends Model
                 $res['RealTimeCodeProportionData'] = [];
                 $n1 = 0;
                 foreach ($this->realTimeCodeProportionData as $item1) {
-                    $res['RealTimeCodeProportionData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['RealTimeCodeProportionData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class value extends Model
                 $model->realTimeCodeProportionData = [];
                 $n1 = 0;
                 foreach ($map['RealTimeCodeProportionData'] as $item1) {
-                    $model->realTimeCodeProportionData[$n1++] = realTimeCodeProportionData::fromMap($item1);
+                    $model->realTimeCodeProportionData[$n1] = realTimeCodeProportionData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

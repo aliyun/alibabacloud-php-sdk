@@ -43,7 +43,8 @@ class DescribeVodTieringStorageDataResponseBody extends Model
                 $res['StorageData'] = [];
                 $n1 = 0;
                 foreach ($this->storageData as $item1) {
-                    $res['StorageData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StorageData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class DescribeVodTieringStorageDataResponseBody extends Model
                 $model->storageData = [];
                 $n1 = 0;
                 foreach ($map['StorageData'] as $item1) {
-                    $model->storageData[$n1++] = storageData::fromMap($item1);
+                    $model->storageData[$n1] = storageData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

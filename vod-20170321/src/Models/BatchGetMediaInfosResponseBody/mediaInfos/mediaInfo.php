@@ -184,7 +184,8 @@ class mediaInfo extends Model
                 $res['Snapshots'] = [];
                 $n1 = 0;
                 foreach ($this->snapshots as $item1) {
-                    $res['Snapshots'][$n1++] = $item1;
+                    $res['Snapshots'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -277,7 +278,8 @@ class mediaInfo extends Model
                 $model->snapshots = [];
                 $n1 = 0;
                 foreach ($map['Snapshots'] as $item1) {
-                    $model->snapshots[$n1++] = $item1;
+                    $model->snapshots[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

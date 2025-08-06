@@ -47,7 +47,8 @@ class CancelUrlUploadJobsResponseBody extends Model
                 $res['CanceledJobs'] = [];
                 $n1 = 0;
                 foreach ($this->canceledJobs as $item1) {
-                    $res['CanceledJobs'][$n1++] = $item1;
+                    $res['CanceledJobs'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -57,7 +58,8 @@ class CancelUrlUploadJobsResponseBody extends Model
                 $res['NonExists'] = [];
                 $n1 = 0;
                 foreach ($this->nonExists as $item1) {
-                    $res['NonExists'][$n1++] = $item1;
+                    $res['NonExists'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -82,7 +84,8 @@ class CancelUrlUploadJobsResponseBody extends Model
                 $model->canceledJobs = [];
                 $n1 = 0;
                 foreach ($map['CanceledJobs'] as $item1) {
-                    $model->canceledJobs[$n1++] = $item1;
+                    $model->canceledJobs[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +95,8 @@ class CancelUrlUploadJobsResponseBody extends Model
                 $model->nonExists = [];
                 $n1 = 0;
                 foreach ($map['NonExists'] as $item1) {
-                    $model->nonExists[$n1++] = $item1;
+                    $model->nonExists[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

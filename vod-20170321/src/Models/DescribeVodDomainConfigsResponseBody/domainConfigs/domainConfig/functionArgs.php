@@ -33,7 +33,8 @@ class functionArgs extends Model
                 $res['FunctionArg'] = [];
                 $n1 = 0;
                 foreach ($this->functionArg as $item1) {
-                    $res['FunctionArg'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FunctionArg'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class functionArgs extends Model
                 $model->functionArg = [];
                 $n1 = 0;
                 foreach ($map['FunctionArg'] as $item1) {
-                    $model->functionArg[$n1++] = functionArg::fromMap($item1);
+                    $model->functionArg[$n1] = functionArg::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

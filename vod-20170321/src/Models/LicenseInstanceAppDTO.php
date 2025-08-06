@@ -121,7 +121,8 @@ class LicenseInstanceAppDTO extends Model
                 $res['LicenseConfigs'] = [];
                 $n1 = 0;
                 foreach ($this->licenseConfigs as $item1) {
-                    $res['LicenseConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LicenseConfigs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -182,7 +183,8 @@ class LicenseInstanceAppDTO extends Model
                 $model->licenseConfigs = [];
                 $n1 = 0;
                 foreach ($map['LicenseConfigs'] as $item1) {
-                    $model->licenseConfigs[$n1++] = licenseConfigs::fromMap($item1);
+                    $model->licenseConfigs[$n1] = licenseConfigs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

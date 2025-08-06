@@ -33,7 +33,8 @@ class videoPlayStatisDetails extends Model
                 $res['VideoPlayStatisDetail'] = [];
                 $n1 = 0;
                 foreach ($this->videoPlayStatisDetail as $item1) {
-                    $res['VideoPlayStatisDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['VideoPlayStatisDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class videoPlayStatisDetails extends Model
                 $model->videoPlayStatisDetail = [];
                 $n1 = 0;
                 foreach ($map['VideoPlayStatisDetail'] as $item1) {
-                    $model->videoPlayStatisDetail[$n1++] = videoPlayStatisDetail::fromMap($item1);
+                    $model->videoPlayStatisDetail[$n1] = videoPlayStatisDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

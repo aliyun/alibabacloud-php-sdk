@@ -175,7 +175,8 @@ class materialList extends Model
                 $res['Snapshots'] = [];
                 $n1 = 0;
                 foreach ($this->snapshots as $item1) {
-                    $res['Snapshots'][$n1++] = $item1;
+                    $res['Snapshots'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -189,7 +190,8 @@ class materialList extends Model
                 $res['Sprites'] = [];
                 $n1 = 0;
                 foreach ($this->sprites as $item1) {
-                    $res['Sprites'][$n1++] = $item1;
+                    $res['Sprites'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -266,7 +268,8 @@ class materialList extends Model
                 $model->snapshots = [];
                 $n1 = 0;
                 foreach ($map['Snapshots'] as $item1) {
-                    $model->snapshots[$n1++] = $item1;
+                    $model->snapshots[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -280,7 +283,8 @@ class materialList extends Model
                 $model->sprites = [];
                 $n1 = 0;
                 foreach ($map['Sprites'] as $item1) {
-                    $model->sprites[$n1++] = $item1;
+                    $model->sprites[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

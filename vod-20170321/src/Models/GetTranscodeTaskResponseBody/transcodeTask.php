@@ -87,7 +87,8 @@ class transcodeTask extends Model
                 $res['TranscodeJobInfoList'] = [];
                 $n1 = 0;
                 foreach ($this->transcodeJobInfoList as $item1) {
-                    $res['TranscodeJobInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TranscodeJobInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -136,7 +137,8 @@ class transcodeTask extends Model
                 $model->transcodeJobInfoList = [];
                 $n1 = 0;
                 foreach ($map['TranscodeJobInfoList'] as $item1) {
-                    $model->transcodeJobInfoList[$n1++] = transcodeJobInfoList::fromMap($item1);
+                    $model->transcodeJobInfoList[$n1] = transcodeJobInfoList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

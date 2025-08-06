@@ -33,7 +33,8 @@ class data extends Model
                 $res['QpsModel'] = [];
                 $n1 = 0;
                 foreach ($this->qpsModel as $item1) {
-                    $res['QpsModel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['QpsModel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class data extends Model
                 $model->qpsModel = [];
                 $n1 = 0;
                 foreach ($map['QpsModel'] as $item1) {
-                    $model->qpsModel[$n1++] = qpsModel::fromMap($item1);
+                    $model->qpsModel[$n1] = qpsModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

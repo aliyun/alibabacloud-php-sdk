@@ -22,12 +22,27 @@ class AppInfoDTO extends Model
     /**
      * @var string
      */
+    public $creationTime;
+
+    /**
+     * @var string
+     */
     public $gmtCreate;
 
     /**
      * @var string
      */
+    public $gmtModified;
+
+    /**
+     * @var string
+     */
     public $itemId;
+
+    /**
+     * @var string
+     */
+    public $modificationTime;
 
     /**
      * @var platforms[]
@@ -41,8 +56,11 @@ class AppInfoDTO extends Model
     protected $_name = [
         'appName' => 'AppName',
         'appType' => 'AppType',
+        'creationTime' => 'CreationTime',
         'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
         'itemId' => 'ItemId',
+        'modificationTime' => 'ModificationTime',
         'platforms' => 'Platforms',
         'userId' => 'UserId',
     ];
@@ -66,12 +84,24 @@ class AppInfoDTO extends Model
             $res['AppType'] = $this->appType;
         }
 
+        if (null !== $this->creationTime) {
+            $res['CreationTime'] = $this->creationTime;
+        }
+
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
 
+        if (null !== $this->gmtModified) {
+            $res['GmtModified'] = $this->gmtModified;
+        }
+
         if (null !== $this->itemId) {
             $res['ItemId'] = $this->itemId;
+        }
+
+        if (null !== $this->modificationTime) {
+            $res['ModificationTime'] = $this->modificationTime;
         }
 
         if (null !== $this->platforms) {
@@ -79,7 +109,8 @@ class AppInfoDTO extends Model
                 $res['Platforms'] = [];
                 $n1 = 0;
                 foreach ($this->platforms as $item1) {
-                    $res['Platforms'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Platforms'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -107,12 +138,24 @@ class AppInfoDTO extends Model
             $model->appType = $map['AppType'];
         }
 
+        if (isset($map['CreationTime'])) {
+            $model->creationTime = $map['CreationTime'];
+        }
+
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
 
+        if (isset($map['GmtModified'])) {
+            $model->gmtModified = $map['GmtModified'];
+        }
+
         if (isset($map['ItemId'])) {
             $model->itemId = $map['ItemId'];
+        }
+
+        if (isset($map['ModificationTime'])) {
+            $model->modificationTime = $map['ModificationTime'];
         }
 
         if (isset($map['Platforms'])) {
@@ -120,7 +163,8 @@ class AppInfoDTO extends Model
                 $model->platforms = [];
                 $n1 = 0;
                 foreach ($map['Platforms'] as $item1) {
-                    $model->platforms[$n1++] = platforms::fromMap($item1);
+                    $model->platforms[$n1] = platforms::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

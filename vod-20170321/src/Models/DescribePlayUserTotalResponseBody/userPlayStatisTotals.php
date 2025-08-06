@@ -33,7 +33,8 @@ class userPlayStatisTotals extends Model
                 $res['UserPlayStatisTotal'] = [];
                 $n1 = 0;
                 foreach ($this->userPlayStatisTotal as $item1) {
-                    $res['UserPlayStatisTotal'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['UserPlayStatisTotal'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -54,7 +55,8 @@ class userPlayStatisTotals extends Model
                 $model->userPlayStatisTotal = [];
                 $n1 = 0;
                 foreach ($map['UserPlayStatisTotal'] as $item1) {
-                    $model->userPlayStatisTotal[$n1++] = userPlayStatisTotal::fromMap($item1);
+                    $model->userPlayStatisTotal[$n1] = userPlayStatisTotal::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

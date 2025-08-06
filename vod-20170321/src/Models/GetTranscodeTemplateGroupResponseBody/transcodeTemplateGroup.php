@@ -103,7 +103,8 @@ class transcodeTemplateGroup extends Model
                 $res['TranscodeTemplateList'] = [];
                 $n1 = 0;
                 foreach ($this->transcodeTemplateList as $item1) {
-                    $res['TranscodeTemplateList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TranscodeTemplateList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +153,8 @@ class transcodeTemplateGroup extends Model
                 $model->transcodeTemplateList = [];
                 $n1 = 0;
                 foreach ($map['TranscodeTemplateList'] as $item1) {
-                    $model->transcodeTemplateList[$n1++] = transcodeTemplateList::fromMap($item1);
+                    $model->transcodeTemplateList[$n1] = transcodeTemplateList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

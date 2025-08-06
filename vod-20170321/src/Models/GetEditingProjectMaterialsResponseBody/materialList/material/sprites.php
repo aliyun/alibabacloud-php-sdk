@@ -32,7 +32,8 @@ class sprites extends Model
                 $res['Sprite'] = [];
                 $n1 = 0;
                 foreach ($this->sprite as $item1) {
-                    $res['Sprite'][$n1++] = $item1;
+                    $res['Sprite'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class sprites extends Model
                 $model->sprite = [];
                 $n1 = 0;
                 foreach ($map['Sprite'] as $item1) {
-                    $model->sprite[$n1++] = $item1;
+                    $model->sprite[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

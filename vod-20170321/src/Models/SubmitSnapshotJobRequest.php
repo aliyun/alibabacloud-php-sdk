@@ -106,7 +106,8 @@ class SubmitSnapshotJobRequest extends Model
                 $res['SpecifiedOffsetTimes'] = [];
                 $n1 = 0;
                 foreach ($this->specifiedOffsetTimes as $item1) {
-                    $res['SpecifiedOffsetTimes'][$n1++] = $item1;
+                    $res['SpecifiedOffsetTimes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -163,7 +164,8 @@ class SubmitSnapshotJobRequest extends Model
                 $model->specifiedOffsetTimes = [];
                 $n1 = 0;
                 foreach ($map['SpecifiedOffsetTimes'] as $item1) {
-                    $model->specifiedOffsetTimes[$n1++] = $item1;
+                    $model->specifiedOffsetTimes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

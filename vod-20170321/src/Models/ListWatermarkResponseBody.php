@@ -43,7 +43,8 @@ class ListWatermarkResponseBody extends Model
                 $res['WatermarkInfos'] = [];
                 $n1 = 0;
                 foreach ($this->watermarkInfos as $item1) {
-                    $res['WatermarkInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WatermarkInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -68,7 +69,8 @@ class ListWatermarkResponseBody extends Model
                 $model->watermarkInfos = [];
                 $n1 = 0;
                 foreach ($map['WatermarkInfos'] as $item1) {
-                    $model->watermarkInfos[$n1++] = watermarkInfos::fromMap($item1);
+                    $model->watermarkInfos[$n1] = watermarkInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
