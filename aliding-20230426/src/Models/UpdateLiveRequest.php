@@ -4,48 +4,32 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateLiveRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class UpdateLiveRequest extends Model
 {
     /**
-     * @example http://sss/sss
-     *
      * @var string
      */
     public $coverUrl;
 
     /**
-     * @example 这是一个直播
-     *
      * @var string
      */
     public $introduction;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 4d38xxxxx
-     *
      * @var string
      */
     public $liveId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1698596800000
-     *
      * @var int
      */
     public $preEndTime;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1691596800000
-     *
      * @var int
      */
     public $preStartTime;
@@ -56,10 +40,6 @@ class UpdateLiveRequest extends Model
     public $tenantContext;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 标题
-     *
      * @var string
      */
     public $title;
@@ -73,29 +53,41 @@ class UpdateLiveRequest extends Model
         'title' => 'Title',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->coverUrl) {
             $res['CoverUrl'] = $this->coverUrl;
         }
+
         if (null !== $this->introduction) {
             $res['Introduction'] = $this->introduction;
         }
+
         if (null !== $this->liveId) {
             $res['LiveId'] = $this->liveId;
         }
+
         if (null !== $this->preEndTime) {
             $res['PreEndTime'] = $this->preEndTime;
         }
+
         if (null !== $this->preStartTime) {
             $res['PreStartTime'] = $this->preStartTime;
         }
+
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -103,32 +95,38 @@ class UpdateLiveRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateLiveRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CoverUrl'])) {
             $model->coverUrl = $map['CoverUrl'];
         }
+
         if (isset($map['Introduction'])) {
             $model->introduction = $map['Introduction'];
         }
+
         if (isset($map['LiveId'])) {
             $model->liveId = $map['LiveId'];
         }
+
         if (isset($map['PreEndTime'])) {
             $model->preEndTime = $map['PreEndTime'];
         }
+
         if (isset($map['PreStartTime'])) {
             $model->preStartTime = $map['PreStartTime'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

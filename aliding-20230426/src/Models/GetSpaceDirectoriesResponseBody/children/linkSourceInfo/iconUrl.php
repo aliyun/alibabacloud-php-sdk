@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetSpaceDirectoriesResponseBody\children\linkSourceInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class iconUrl extends Model
 {
     /**
-     * @example gh
-     *
      * @var string
      */
     public $line;
 
     /**
-     * @example def
-     *
      * @var string
      */
     public $small;
@@ -26,14 +22,18 @@ class iconUrl extends Model
         'small' => 'Small',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->line) {
             $res['Line'] = $this->line;
         }
+
         if (null !== $this->small) {
             $res['Small'] = $this->small;
         }
@@ -41,17 +41,18 @@ class iconUrl extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return iconUrl
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Line'])) {
             $model->line = $map['Line'];
         }
+
         if (isset($map['Small'])) {
             $model->small = $map['Small'];
         }

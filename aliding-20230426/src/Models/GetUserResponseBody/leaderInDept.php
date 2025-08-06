@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class leaderInDept extends Model
 {
@@ -22,14 +22,18 @@ class leaderInDept extends Model
         'leader' => 'leader',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deptId) {
             $res['deptId'] = $this->deptId;
         }
+
         if (null !== $this->leader) {
             $res['leader'] = $this->leader;
         }
@@ -37,17 +41,18 @@ class leaderInDept extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return leaderInDept
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['deptId'])) {
             $model->deptId = $map['deptId'];
         }
+
         if (isset($map['leader'])) {
             $model->leader = $map['leader'];
         }

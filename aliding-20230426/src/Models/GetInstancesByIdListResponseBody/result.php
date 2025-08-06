@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetInstancesByIdListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetInstancesByIdListResponseBody\result\actionExecutor;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetInstancesByIdListResponseBody\result\originator;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
@@ -16,8 +16,6 @@ class result extends Model
     public $actionExecutor;
 
     /**
-     * @example agree
-     *
      * @var string
      */
     public $approvedResult;
@@ -28,15 +26,11 @@ class result extends Model
     public $data;
 
     /**
-     * @example FORM-EF6Y4G8WO2FN0SUB43TDQ3CGC3FMFQ1G9400RCJ3
-     *
      * @var string
      */
     public $formUuid;
 
     /**
-     * @example RUNNING
-     *
      * @var string
      */
     public $instanceStatus;
@@ -47,22 +41,16 @@ class result extends Model
     public $originator;
 
     /**
-     * @example TPROC--X1Gxxx
-     *
      * @var string
      */
     public $processCode;
 
     /**
-     * @example f30233fb-72e1-4xxx
-     *
      * @var string
      */
     public $processInstanceId;
 
     /**
-     * @example 李四发起的请购单
-     *
      * @var string
      */
     public $title;
@@ -78,41 +66,67 @@ class result extends Model
         'title' => 'Title',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->actionExecutor)) {
+            Model::validateArray($this->actionExecutor);
+        }
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        if (null !== $this->originator) {
+            $this->originator->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionExecutor) {
-            $res['ActionExecutor'] = [];
-            if (null !== $this->actionExecutor && \is_array($this->actionExecutor)) {
-                $n = 0;
-                foreach ($this->actionExecutor as $item) {
-                    $res['ActionExecutor'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->actionExecutor)) {
+                $res['ActionExecutor'] = [];
+                $n1 = 0;
+                foreach ($this->actionExecutor as $item1) {
+                    $res['ActionExecutor'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->approvedResult) {
             $res['ApprovedResult'] = $this->approvedResult;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            if (\is_array($this->data)) {
+                $res['Data'] = [];
+                foreach ($this->data as $key1 => $value1) {
+                    $res['Data'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->formUuid) {
             $res['FormUuid'] = $this->formUuid;
         }
+
         if (null !== $this->instanceStatus) {
             $res['InstanceStatus'] = $this->instanceStatus;
         }
+
         if (null !== $this->originator) {
-            $res['Originator'] = null !== $this->originator ? $this->originator->toMap() : null;
+            $res['Originator'] = null !== $this->originator ? $this->originator->toArray($noStream) : $this->originator;
         }
+
         if (null !== $this->processCode) {
             $res['ProcessCode'] = $this->processCode;
         }
+
         if (null !== $this->processInstanceId) {
             $res['ProcessInstanceId'] = $this->processInstanceId;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -120,44 +134,58 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActionExecutor'])) {
             if (!empty($map['ActionExecutor'])) {
                 $model->actionExecutor = [];
-                $n = 0;
-                foreach ($map['ActionExecutor'] as $item) {
-                    $model->actionExecutor[$n++] = null !== $item ? actionExecutor::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ActionExecutor'] as $item1) {
+                    $model->actionExecutor[$n1] = actionExecutor::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ApprovedResult'])) {
             $model->approvedResult = $map['ApprovedResult'];
         }
+
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                foreach ($map['Data'] as $key1 => $value1) {
+                    $model->data[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['FormUuid'])) {
             $model->formUuid = $map['FormUuid'];
         }
+
         if (isset($map['InstanceStatus'])) {
             $model->instanceStatus = $map['InstanceStatus'];
         }
+
         if (isset($map['Originator'])) {
             $model->originator = originator::fromMap($map['Originator']);
         }
+
         if (isset($map['ProcessCode'])) {
             $model->processCode = $map['ProcessCode'];
         }
+
         if (isset($map['ProcessInstanceId'])) {
             $model->processInstanceId = $map['ProcessInstanceId'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CloseVideoConferenceShrinkRequest extends Model
 {
@@ -14,10 +14,6 @@ class CloseVideoConferenceShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 607452e01401526ee39609e1
-     *
      * @var string
      */
     public $conferenceId;
@@ -26,14 +22,18 @@ class CloseVideoConferenceShrinkRequest extends Model
         'conferenceId' => 'conferenceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
+
         if (null !== $this->conferenceId) {
             $res['conferenceId'] = $this->conferenceId;
         }
@@ -41,17 +41,18 @@ class CloseVideoConferenceShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CloseVideoConferenceShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
+
         if (isset($map['conferenceId'])) {
             $model->conferenceId = $map['conferenceId'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SubscribeCalendarRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example MzM5Mxxx
-     *
      * @var string
      */
     public $calendarId;
@@ -20,9 +16,12 @@ class SubscribeCalendarRequest extends Model
         'calendarId' => 'CalendarId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->calendarId) {
@@ -32,11 +31,11 @@ class SubscribeCalendarRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubscribeCalendarRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InviteUsersShrinkRequest extends Model
 {
@@ -19,10 +19,6 @@ class InviteUsersShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 61289fxxx
-     *
      * @var string
      */
     public $conferenceId;
@@ -38,20 +34,26 @@ class InviteUsersShrinkRequest extends Model
         'phoneInviteeListShrink' => 'phoneInviteeList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inviteeListShrink) {
             $res['InviteeList'] = $this->inviteeListShrink;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
+
         if (null !== $this->conferenceId) {
             $res['conferenceId'] = $this->conferenceId;
         }
+
         if (null !== $this->phoneInviteeListShrink) {
             $res['phoneInviteeList'] = $this->phoneInviteeListShrink;
         }
@@ -59,23 +61,26 @@ class InviteUsersShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InviteUsersShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InviteeList'])) {
             $model->inviteeListShrink = $map['InviteeList'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
+
         if (isset($map['conferenceId'])) {
             $model->conferenceId = $map['conferenceId'];
         }
+
         if (isset($map['phoneInviteeList'])) {
             $model->phoneInviteeListShrink = $map['phoneInviteeList'];
         }

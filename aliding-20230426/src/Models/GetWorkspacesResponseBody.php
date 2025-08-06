@@ -4,16 +4,12 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetWorkspacesResponseBody\workspace;
-use AlibabaCloud\Tea\Model;
 
 class GetWorkspacesResponseBody extends Model
 {
     /**
-     * @description requestId
-     *
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $requestId;
@@ -27,20 +23,28 @@ class GetWorkspacesResponseBody extends Model
         'workspace' => 'workspace',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->workspace)) {
+            Model::validateArray($this->workspace);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->workspace) {
-            $res['workspace'] = [];
-            if (null !== $this->workspace && \is_array($this->workspace)) {
-                $n = 0;
-                foreach ($this->workspace as $item) {
-                    $res['workspace'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->workspace)) {
+                $res['workspace'] = [];
+                $n1 = 0;
+                foreach ($this->workspace as $item1) {
+                    $res['workspace'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -48,23 +52,25 @@ class GetWorkspacesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetWorkspacesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['workspace'])) {
             if (!empty($map['workspace'])) {
                 $model->workspace = [];
-                $n = 0;
-                foreach ($map['workspace'] as $item) {
-                    $model->workspace[$n++] = null !== $item ? workspace::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['workspace'] as $item1) {
+                    $model->workspace[$n1] = workspace::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

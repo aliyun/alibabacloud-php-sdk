@@ -4,41 +4,31 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsViewResponseBody\events;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class attendees extends Model
 {
     /**
-     * @example tony
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @example 012345
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $isOptional;
 
     /**
-     * @example accepted
-     *
      * @var string
      */
     public $responseStatus;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $self;
@@ -50,23 +40,30 @@ class attendees extends Model
         'self' => 'Self',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->isOptional) {
             $res['IsOptional'] = $this->isOptional;
         }
+
         if (null !== $this->responseStatus) {
             $res['ResponseStatus'] = $this->responseStatus;
         }
+
         if (null !== $this->self) {
             $res['Self'] = $this->self;
         }
@@ -74,26 +71,30 @@ class attendees extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return attendees
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['IsOptional'])) {
             $model->isOptional = $map['IsOptional'];
         }
+
         if (isset($map['ResponseStatus'])) {
             $model->responseStatus = $map['ResponseStatus'];
         }
+
         if (isset($map['Self'])) {
             $model->self = $map['Self'];
         }

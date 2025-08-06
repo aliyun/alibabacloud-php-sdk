@@ -4,16 +4,12 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ChangeDingTalkIdRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class ChangeDingTalkIdRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 4uf_iw54grufg9
-     *
      * @var string
      */
     public $dingTalkId;
@@ -27,32 +23,40 @@ class ChangeDingTalkIdRequest extends Model
         'tenantContext' => 'TenantContext',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dingTalkId) {
             $res['DingTalkId'] = $this->dingTalkId;
         }
+
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ChangeDingTalkIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DingTalkId'])) {
             $model->dingTalkId = $map['DingTalkId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

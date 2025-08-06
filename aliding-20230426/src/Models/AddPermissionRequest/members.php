@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\AddPermissionRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class members extends Model
 {
     /**
-     * @example 123456
-     *
      * @var string
      */
     public $corpId;
 
     /**
-     * @example 123456
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example ORG
-     *
      * @var string
      */
     public $type;
@@ -34,17 +28,22 @@ class members extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -52,20 +51,22 @@ class members extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return members
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

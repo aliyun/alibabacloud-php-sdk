@@ -4,17 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListMultiDimTableRecordsRequest\filter;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListMultiDimTableRecordsRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class ListMultiDimTableRecordsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 101114
-     *
      * @var string
      */
     public $baseId;
@@ -25,24 +21,16 @@ class ListMultiDimTableRecordsRequest extends Model
     public $filter;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example AAAAAUUg5QSTWwHyeElt8z5z4Qo=
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $sheetIdOrName;
@@ -60,56 +48,75 @@ class ListMultiDimTableRecordsRequest extends Model
         'tenantContext' => 'TenantContext',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->filter) {
+            $this->filter->validate();
+        }
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baseId) {
             $res['BaseId'] = $this->baseId;
         }
+
         if (null !== $this->filter) {
-            $res['Filter'] = null !== $this->filter ? $this->filter->toMap() : null;
+            $res['Filter'] = null !== $this->filter ? $this->filter->toArray($noStream) : $this->filter;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->sheetIdOrName) {
             $res['SheetIdOrName'] = $this->sheetIdOrName;
         }
+
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMultiDimTableRecordsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseId'])) {
             $model->baseId = $map['BaseId'];
         }
+
         if (isset($map['Filter'])) {
             $model->filter = filter::fromMap($map['Filter']);
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['SheetIdOrName'])) {
             $model->sheetIdOrName = $map['SheetIdOrName'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

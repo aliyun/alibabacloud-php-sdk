@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class uiConfigs extends Model
 {
     /**
-     * @example updateEventButton
-     *
      * @var string
      */
     public $uiName;
 
     /**
-     * @example hide
-     *
      * @var string
      */
     public $uiStatus;
@@ -26,14 +22,18 @@ class uiConfigs extends Model
         'uiStatus' => 'UiStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->uiName) {
             $res['UiName'] = $this->uiName;
         }
+
         if (null !== $this->uiStatus) {
             $res['UiStatus'] = $this->uiStatus;
         }
@@ -41,17 +41,18 @@ class uiConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return uiConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UiName'])) {
             $model->uiName = $map['UiName'];
         }
+
         if (isset($map['UiStatus'])) {
             $model->uiStatus = $map['UiStatus'];
         }

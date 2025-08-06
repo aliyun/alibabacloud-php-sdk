@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\messages\contentStruct\parts;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\messages\contentStruct\parts\recommendPart\recommends;
-use AlibabaCloud\Tea\Model;
 
 class recommendPart extends Model
 {
@@ -17,17 +17,24 @@ class recommendPart extends Model
         'recommends' => 'recommends',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->recommends)) {
+            Model::validateArray($this->recommends);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recommends) {
-            $res['recommends'] = [];
-            if (null !== $this->recommends && \is_array($this->recommends)) {
-                $n = 0;
-                foreach ($this->recommends as $item) {
-                    $res['recommends'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->recommends)) {
+                $res['recommends'] = [];
+                $n1 = 0;
+                foreach ($this->recommends as $item1) {
+                    $res['recommends'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class recommendPart extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recommendPart
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['recommends'])) {
             if (!empty($map['recommends'])) {
                 $model->recommends = [];
-                $n = 0;
-                foreach ($map['recommends'] as $item) {
-                    $model->recommends[$n++] = null !== $item ? recommends::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['recommends'] as $item1) {
+                    $model->recommends[$n1] = recommends::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

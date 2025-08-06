@@ -4,16 +4,12 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOrgOrWebOpenDocContentTaskIdRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class GetOrgOrWebOpenDocContentTaskIdRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 20eMKjyp810mMdK4Hz4B5BA6JxAZB1Gv
-     *
      * @var string
      */
     public $dentryUuid;
@@ -24,15 +20,11 @@ class GetOrgOrWebOpenDocContentTaskIdRequest extends Model
     public $generateCp;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $scopeType;
 
     /**
-     * @example markdown
-     *
      * @var string
      */
     public $targetFormat;
@@ -49,50 +41,64 @@ class GetOrgOrWebOpenDocContentTaskIdRequest extends Model
         'tenantContext' => 'TenantContext',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dentryUuid) {
             $res['DentryUuid'] = $this->dentryUuid;
         }
+
         if (null !== $this->generateCp) {
             $res['GenerateCp'] = $this->generateCp;
         }
+
         if (null !== $this->scopeType) {
             $res['ScopeType'] = $this->scopeType;
         }
+
         if (null !== $this->targetFormat) {
             $res['TargetFormat'] = $this->targetFormat;
         }
+
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOrgOrWebOpenDocContentTaskIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DentryUuid'])) {
             $model->dentryUuid = $map['DentryUuid'];
         }
+
         if (isset($map['GenerateCp'])) {
             $model->generateCp = $map['GenerateCp'];
         }
+
         if (isset($map['ScopeType'])) {
             $model->scopeType = $map['ScopeType'];
         }
+
         if (isset($map['TargetFormat'])) {
             $model->targetFormat = $map['TargetFormat'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

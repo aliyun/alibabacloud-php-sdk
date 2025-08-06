@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetWorkspacesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class option extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $withPermissionRole;
@@ -18,9 +16,12 @@ class option extends Model
         'withPermissionRole' => 'WithPermissionRole',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->withPermissionRole) {
@@ -30,11 +31,11 @@ class option extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return option
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

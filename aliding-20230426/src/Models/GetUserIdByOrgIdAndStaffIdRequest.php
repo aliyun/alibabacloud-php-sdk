@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserIdByOrgIdAndStaffIdRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class GetUserIdByOrgIdAndStaffIdRequest extends Model
 {
     /**
-     * @example 123456
-     *
      * @var int
      */
     public $orgId;
@@ -25,32 +23,40 @@ class GetUserIdByOrgIdAndStaffIdRequest extends Model
         'tenantContext' => 'TenantContext',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
         }
+
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserIdByOrgIdAndStaffIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

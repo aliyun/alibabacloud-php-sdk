@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListDentriesResponseBody\dentries;
-use AlibabaCloud\Tea\Model;
 
 class ListDentriesResponseBody extends Model
 {
@@ -15,29 +15,21 @@ class ListDentriesResponseBody extends Model
     public $dentries;
 
     /**
-     * @example next_token
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $vendorRequestId;
 
     /**
-     * @example dingtalk
-     *
      * @var string
      */
     public $vendorType;
@@ -49,29 +41,40 @@ class ListDentriesResponseBody extends Model
         'vendorType' => 'vendorType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dentries)) {
+            Model::validateArray($this->dentries);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dentries) {
-            $res['dentries'] = [];
-            if (null !== $this->dentries && \is_array($this->dentries)) {
-                $n = 0;
-                foreach ($this->dentries as $item) {
-                    $res['dentries'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dentries)) {
+                $res['dentries'] = [];
+                $n1 = 0;
+                foreach ($this->dentries as $item1) {
+                    $res['dentries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->vendorRequestId) {
             $res['vendorRequestId'] = $this->vendorRequestId;
         }
+
         if (null !== $this->vendorType) {
             $res['vendorType'] = $this->vendorType;
         }
@@ -79,32 +82,37 @@ class ListDentriesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDentriesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dentries'])) {
             if (!empty($map['dentries'])) {
                 $model->dentries = [];
-                $n = 0;
-                foreach ($map['dentries'] as $item) {
-                    $model->dentries[$n++] = null !== $item ? dentries::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['dentries'] as $item1) {
+                    $model->dentries[$n1] = dentries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['vendorRequestId'])) {
             $model->vendorRequestId = $map['vendorRequestId'];
         }
+
         if (isset($map['vendorType'])) {
             $model->vendorType = $map['vendorType'];
         }

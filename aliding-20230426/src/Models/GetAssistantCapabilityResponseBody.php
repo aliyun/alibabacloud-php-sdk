@@ -4,35 +4,27 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAssistantCapabilityResponseBody\capabilityAssessment;
-use AlibabaCloud\Tea\Model;
 
 class GetAssistantCapabilityResponseBody extends Model
 {
     /**
-     * @example 助理描述
-     *
      * @var string
      */
     public $assistantDescription;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $canHandle;
 
     /**
-     * @example {}
-     *
      * @var capabilityAssessment
      */
     public $capabilityAssessment;
 
     /**
-     * @example requestId
-     *
      * @var string
      */
     public $requestId;
@@ -43,20 +35,29 @@ class GetAssistantCapabilityResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->capabilityAssessment) {
+            $this->capabilityAssessment->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assistantDescription) {
             $res['assistantDescription'] = $this->assistantDescription;
         }
+
         if (null !== $this->canHandle) {
             $res['canHandle'] = $this->canHandle;
         }
+
         if (null !== $this->capabilityAssessment) {
-            $res['capabilityAssessment'] = null !== $this->capabilityAssessment ? $this->capabilityAssessment->toMap() : null;
+            $res['capabilityAssessment'] = null !== $this->capabilityAssessment ? $this->capabilityAssessment->toArray($noStream) : $this->capabilityAssessment;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -64,23 +65,26 @@ class GetAssistantCapabilityResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAssistantCapabilityResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['assistantDescription'])) {
             $model->assistantDescription = $map['assistantDescription'];
         }
+
         if (isset($map['canHandle'])) {
             $model->canHandle = $map['canHandle'];
         }
+
         if (isset($map['capabilityAssessment'])) {
             $model->capabilityAssessment = capabilityAssessment::fromMap($map['capabilityAssessment']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

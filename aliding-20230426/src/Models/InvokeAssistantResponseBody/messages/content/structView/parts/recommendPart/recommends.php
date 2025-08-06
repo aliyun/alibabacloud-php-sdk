@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantResponseBody\messages\content\structView\parts\recommendPart;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class recommends extends Model
 {
@@ -28,17 +28,22 @@ class recommends extends Model
         'url' => 'url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mobileUrl) {
             $res['mobileUrl'] = $this->mobileUrl;
         }
+
         if (null !== $this->text) {
             $res['text'] = $this->text;
         }
+
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -46,20 +51,22 @@ class recommends extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recommends
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['mobileUrl'])) {
             $model->mobileUrl = $map['mobileUrl'];
         }
+
         if (isset($map['text'])) {
             $model->text = $map['text'];
         }
+
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

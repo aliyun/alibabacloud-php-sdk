@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetInstanceByIdResponseBody\actionExecutor;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class name extends Model
 {
     /**
-     * @example 张三
-     *
      * @var string
      */
     public $nameInChinese;
 
     /**
-     * @example ZhangSan
-     *
      * @var string
      */
     public $nameInEnglish;
 
     /**
-     * @example i18n
-     *
      * @var string
      */
     public $type;
@@ -34,17 +28,22 @@ class name extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nameInChinese) {
             $res['NameInChinese'] = $this->nameInChinese;
         }
+
         if (null !== $this->nameInEnglish) {
             $res['NameInEnglish'] = $this->nameInEnglish;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -52,20 +51,22 @@ class name extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return name
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NameInChinese'])) {
             $model->nameInChinese = $map['NameInChinese'];
         }
+
         if (isset($map['NameInEnglish'])) {
             $model->nameInEnglish = $map['NameInEnglish'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

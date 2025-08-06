@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryConferenceInfoByRoomCodeShrinkRequest extends Model
 {
@@ -14,26 +14,16 @@ class QueryConferenceInfoByRoomCodeShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 0
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 583 480 813
-     *
      * @var string
      */
     public $roomCode;
@@ -44,20 +34,26 @@ class QueryConferenceInfoByRoomCodeShrinkRequest extends Model
         'roomCode' => 'roomCode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
+
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->roomCode) {
             $res['roomCode'] = $this->roomCode;
         }
@@ -65,23 +61,26 @@ class QueryConferenceInfoByRoomCodeShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryConferenceInfoByRoomCodeShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
+
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['roomCode'])) {
             $model->roomCode = $map['roomCode'];
         }

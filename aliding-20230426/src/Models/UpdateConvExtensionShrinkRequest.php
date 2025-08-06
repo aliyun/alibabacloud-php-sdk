@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateConvExtensionShrinkRequest extends Model
 {
     /**
-     * @example https://xxx
-     *
      * @var string
      */
     public $mobileUrl;
 
     /**
-     * @example https://xxx
-     *
      * @var string
      */
     public $pcUrl;
@@ -28,8 +24,6 @@ class UpdateConvExtensionShrinkRequest extends Model
     public $staffIdListShrink;
 
     /**
-     * @example 546374856
-     *
      * @var string
      */
     public $systemUid;
@@ -46,23 +40,30 @@ class UpdateConvExtensionShrinkRequest extends Model
         'tenantContextShrink' => 'TenantContext',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mobileUrl) {
             $res['MobileUrl'] = $this->mobileUrl;
         }
+
         if (null !== $this->pcUrl) {
             $res['PcUrl'] = $this->pcUrl;
         }
+
         if (null !== $this->staffIdListShrink) {
             $res['StaffIdList'] = $this->staffIdListShrink;
         }
+
         if (null !== $this->systemUid) {
             $res['SystemUid'] = $this->systemUid;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
@@ -70,26 +71,30 @@ class UpdateConvExtensionShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateConvExtensionShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MobileUrl'])) {
             $model->mobileUrl = $map['MobileUrl'];
         }
+
         if (isset($map['PcUrl'])) {
             $model->pcUrl = $map['PcUrl'];
         }
+
         if (isset($map['StaffIdList'])) {
             $model->staffIdListShrink = $map['StaffIdList'];
         }
+
         if (isset($map['SystemUid'])) {
             $model->systemUid = $map['SystemUid'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }

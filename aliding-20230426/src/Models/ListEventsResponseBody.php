@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListEventsResponseBody\events;
-use AlibabaCloud\Tea\Model;
 
 class ListEventsResponseBody extends Model
 {
@@ -15,24 +15,16 @@ class ListEventsResponseBody extends Model
     public $events;
 
     /**
-     * @example cnNTbW1YbxxxxdlQrQT09
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description requestId
-     *
-     * @example 4248DCC9-785F-5A14-8BE0-830FD52E1261
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example zxcasdfvc000009
-     *
      * @var string
      */
     public $syncToken;
@@ -55,32 +47,44 @@ class ListEventsResponseBody extends Model
         'vendorType' => 'vendorType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->events)) {
+            Model::validateArray($this->events);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->events) {
-            $res['events'] = [];
-            if (null !== $this->events && \is_array($this->events)) {
-                $n = 0;
-                foreach ($this->events as $item) {
-                    $res['events'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->events)) {
+                $res['events'] = [];
+                $n1 = 0;
+                foreach ($this->events as $item1) {
+                    $res['events'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->syncToken) {
             $res['syncToken'] = $this->syncToken;
         }
+
         if (null !== $this->vendorRequestId) {
             $res['vendorRequestId'] = $this->vendorRequestId;
         }
+
         if (null !== $this->vendorType) {
             $res['vendorType'] = $this->vendorType;
         }
@@ -88,35 +92,41 @@ class ListEventsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListEventsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['events'])) {
             if (!empty($map['events'])) {
                 $model->events = [];
-                $n = 0;
-                foreach ($map['events'] as $item) {
-                    $model->events[$n++] = null !== $item ? events::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['events'] as $item1) {
+                    $model->events[$n1] = events::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['syncToken'])) {
             $model->syncToken = $map['syncToken'];
         }
+
         if (isset($map['vendorRequestId'])) {
             $model->vendorRequestId = $map['vendorRequestId'];
         }
+
         if (isset($map['vendorType'])) {
             $model->vendorType = $map['vendorType'];
         }

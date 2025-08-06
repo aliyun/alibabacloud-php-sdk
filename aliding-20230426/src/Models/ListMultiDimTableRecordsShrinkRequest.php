@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListMultiDimTableRecordsShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 101114
-     *
      * @var string
      */
     public $baseId;
@@ -23,24 +19,16 @@ class ListMultiDimTableRecordsShrinkRequest extends Model
     public $filterShrink;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example AAAAAUUg5QSTWwHyeElt8z5z4Qo=
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $sheetIdOrName;
@@ -58,26 +46,34 @@ class ListMultiDimTableRecordsShrinkRequest extends Model
         'tenantContextShrink' => 'TenantContext',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baseId) {
             $res['BaseId'] = $this->baseId;
         }
+
         if (null !== $this->filterShrink) {
             $res['Filter'] = $this->filterShrink;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->sheetIdOrName) {
             $res['SheetIdOrName'] = $this->sheetIdOrName;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
@@ -85,29 +81,34 @@ class ListMultiDimTableRecordsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMultiDimTableRecordsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseId'])) {
             $model->baseId = $map['BaseId'];
         }
+
         if (isset($map['Filter'])) {
             $model->filterShrink = $map['Filter'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['SheetIdOrName'])) {
             $model->sheetIdOrName = $map['SheetIdOrName'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }

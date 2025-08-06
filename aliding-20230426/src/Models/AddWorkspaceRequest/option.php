@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\AddWorkspaceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class option extends Model
 {
@@ -14,8 +14,6 @@ class option extends Model
     public $description;
 
     /**
-     * @example lHiicjNFM2iSFYSdz2iPuI8ZwiEiE
-     *
      * @var string
      */
     public $teamId;
@@ -24,14 +22,18 @@ class option extends Model
         'teamId' => 'TeamId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->teamId) {
             $res['TeamId'] = $this->teamId;
         }
@@ -39,17 +41,18 @@ class option extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return option
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['TeamId'])) {
             $model->teamId = $map['TeamId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAllSheetsShrinkRequest extends Model
 {
@@ -14,10 +14,6 @@ class GetAllSheetsShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example stxxxx
-     *
      * @var string
      */
     public $workbookId;
@@ -26,14 +22,18 @@ class GetAllSheetsShrinkRequest extends Model
         'workbookId' => 'WorkbookId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
+
         if (null !== $this->workbookId) {
             $res['WorkbookId'] = $this->workbookId;
         }
@@ -41,17 +41,18 @@ class GetAllSheetsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAllSheetsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
+
         if (isset($map['WorkbookId'])) {
             $model->workbookId = $map['WorkbookId'];
         }

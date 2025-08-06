@@ -4,42 +4,71 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class notifyConfigs extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $dingNotify;
+
+    /**
+     * @var string
+     */
+    public $sendAssistantChat;
+
+    /**
+     * @var string
+     */
+    public $sendTodoApn;
     protected $_name = [
         'dingNotify' => 'dingNotify',
+        'sendAssistantChat' => 'sendAssistantChat',
+        'sendTodoApn' => 'sendTodoApn',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dingNotify) {
             $res['dingNotify'] = $this->dingNotify;
         }
 
+        if (null !== $this->sendAssistantChat) {
+            $res['sendAssistantChat'] = $this->sendAssistantChat;
+        }
+
+        if (null !== $this->sendTodoApn) {
+            $res['sendTodoApn'] = $this->sendTodoApn;
+        }
+
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return notifyConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dingNotify'])) {
             $model->dingNotify = $map['dingNotify'];
+        }
+
+        if (isset($map['sendAssistantChat'])) {
+            $model->sendAssistantChat = $map['sendAssistantChat'];
+        }
+
+        if (isset($map['sendTodoApn'])) {
+            $model->sendTodoApn = $map['sendTodoApn'];
         }
 
         return $model;

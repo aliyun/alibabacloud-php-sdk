@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryUserHonorsRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class QueryUserHonorsRequest extends Model
 {
@@ -15,35 +15,21 @@ class QueryUserHonorsRequest extends Model
     public $tenantContext;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 15
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 123456
-     *
      * @var int
      */
     public $orgId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 123123
-     *
      * @var string
      */
     public $userId;
@@ -55,23 +41,33 @@ class QueryUserHonorsRequest extends Model
         'userId' => 'userId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
+
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->orgId) {
             $res['orgId'] = $this->orgId;
         }
+
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
         }
@@ -79,26 +75,30 @@ class QueryUserHonorsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryUserHonorsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
+
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['orgId'])) {
             $model->orgId = $map['orgId'];
         }
+
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];
         }

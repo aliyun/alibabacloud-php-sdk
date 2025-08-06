@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\SaveContentRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class contents extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ### 序号1
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example markdown
-     *
      * @var string
      */
     public $contentType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 今日完成工作
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $sort;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $type;
@@ -60,23 +40,30 @@ class contents extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->contentType) {
             $res['ContentType'] = $this->contentType;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -84,26 +71,30 @@ class contents extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contents
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['ContentType'])) {
             $model->contentType = $map['ContentType'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

@@ -4,94 +4,66 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetNotifyMeRequest extends Model
 {
     /**
-     * @example APP_PBKTxxx
-     *
      * @var string
      */
     public $appTypes;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example corpIdxxx
-     *
      * @var string
      */
     public $corpId;
 
     /**
-     * @example 2021-05-01
-     *
      * @var int
      */
     public $createFromTimeGMT;
 
     /**
-     * @example 2021-05-01
-     *
      * @var int
      */
     public $createToTimeGMT;
 
     /**
-     * @example 2021-05-01
-     *
      * @var int
      */
     public $instanceCreateFromTimeGMT;
 
     /**
-     * @example 2021-05-01
-     *
      * @var int
      */
     public $instanceCreateToTimeGMT;
 
     /**
-     * @example keyword
-     *
      * @var string
      */
     public $keyword;
 
     /**
-     * @example zh-CN
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example ["xx","xxx"]
-     *
      * @var string
      */
     public $processCodes;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example hexxxx
-     *
      * @var string
      */
     public $token;
@@ -110,44 +82,58 @@ class GetNotifyMeRequest extends Model
         'token' => 'Token',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appTypes) {
             $res['AppTypes'] = $this->appTypes;
         }
+
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
         }
+
         if (null !== $this->createFromTimeGMT) {
             $res['CreateFromTimeGMT'] = $this->createFromTimeGMT;
         }
+
         if (null !== $this->createToTimeGMT) {
             $res['CreateToTimeGMT'] = $this->createToTimeGMT;
         }
+
         if (null !== $this->instanceCreateFromTimeGMT) {
             $res['InstanceCreateFromTimeGMT'] = $this->instanceCreateFromTimeGMT;
         }
+
         if (null !== $this->instanceCreateToTimeGMT) {
             $res['InstanceCreateToTimeGMT'] = $this->instanceCreateToTimeGMT;
         }
+
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->processCodes) {
             $res['ProcessCodes'] = $this->processCodes;
         }
+
         if (null !== $this->token) {
             $res['Token'] = $this->token;
         }
@@ -155,47 +141,58 @@ class GetNotifyMeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetNotifyMeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppTypes'])) {
             $model->appTypes = $map['AppTypes'];
         }
+
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
         }
+
         if (isset($map['CreateFromTimeGMT'])) {
             $model->createFromTimeGMT = $map['CreateFromTimeGMT'];
         }
+
         if (isset($map['CreateToTimeGMT'])) {
             $model->createToTimeGMT = $map['CreateToTimeGMT'];
         }
+
         if (isset($map['InstanceCreateFromTimeGMT'])) {
             $model->instanceCreateFromTimeGMT = $map['InstanceCreateFromTimeGMT'];
         }
+
         if (isset($map['InstanceCreateToTimeGMT'])) {
             $model->instanceCreateToTimeGMT = $map['InstanceCreateToTimeGMT'];
         }
+
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ProcessCodes'])) {
             $model->processCodes = $map['ProcessCodes'];
         }
+
         if (isset($map['Token'])) {
             $model->token = $map['Token'];
         }

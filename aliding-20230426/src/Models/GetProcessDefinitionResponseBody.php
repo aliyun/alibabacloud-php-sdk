@@ -4,16 +4,14 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetProcessDefinitionResponseBody\originator;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetProcessDefinitionResponseBody\owners;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetProcessDefinitionResponseBody\tasks;
-use AlibabaCloud\Tea\Model;
 
 class GetProcessDefinitionResponseBody extends Model
 {
     /**
-     * @example FORM-EF6Y4xxx
-     *
      * @var string
      */
     public $formUuid;
@@ -24,8 +22,6 @@ class GetProcessDefinitionResponseBody extends Model
     public $originator;
 
     /**
-     * @example agree
-     *
      * @var string
      */
     public $outResult;
@@ -36,29 +32,21 @@ class GetProcessDefinitionResponseBody extends Model
     public $owners;
 
     /**
-     * @example proc-123
-     *
      * @var string
      */
     public $processId;
 
     /**
-     * @example f30233fb-72e1-4xxx
-     *
      * @var string
      */
     public $processInstanceId;
 
     /**
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example running
-     *
      * @var string
      */
     public $status;
@@ -69,8 +57,6 @@ class GetProcessDefinitionResponseBody extends Model
     public $tasks;
 
     /**
-     * @example 李四发起的请购单
-     *
      * @var string
      */
     public $title;
@@ -81,15 +67,11 @@ class GetProcessDefinitionResponseBody extends Model
     public $variables;
 
     /**
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $vendorRequestId;
 
     /**
-     * @example dingtalk
-     *
      * @var string
      */
     public $vendorType;
@@ -109,59 +91,93 @@ class GetProcessDefinitionResponseBody extends Model
         'vendorType' => 'vendorType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->originator) {
+            $this->originator->validate();
+        }
+        if (\is_array($this->owners)) {
+            Model::validateArray($this->owners);
+        }
+        if (\is_array($this->tasks)) {
+            Model::validateArray($this->tasks);
+        }
+        if (\is_array($this->variables)) {
+            Model::validateArray($this->variables);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->formUuid) {
             $res['formUuid'] = $this->formUuid;
         }
+
         if (null !== $this->originator) {
-            $res['originator'] = null !== $this->originator ? $this->originator->toMap() : null;
+            $res['originator'] = null !== $this->originator ? $this->originator->toArray($noStream) : $this->originator;
         }
+
         if (null !== $this->outResult) {
             $res['outResult'] = $this->outResult;
         }
+
         if (null !== $this->owners) {
-            $res['owners'] = [];
-            if (null !== $this->owners && \is_array($this->owners)) {
-                $n = 0;
-                foreach ($this->owners as $item) {
-                    $res['owners'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->owners)) {
+                $res['owners'] = [];
+                $n1 = 0;
+                foreach ($this->owners as $item1) {
+                    $res['owners'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->processId) {
             $res['processId'] = $this->processId;
         }
+
         if (null !== $this->processInstanceId) {
             $res['processInstanceId'] = $this->processInstanceId;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->tasks) {
-            $res['tasks'] = [];
-            if (null !== $this->tasks && \is_array($this->tasks)) {
-                $n = 0;
-                foreach ($this->tasks as $item) {
-                    $res['tasks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tasks)) {
+                $res['tasks'] = [];
+                $n1 = 0;
+                foreach ($this->tasks as $item1) {
+                    $res['tasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
+
         if (null !== $this->variables) {
-            $res['variables'] = $this->variables;
+            if (\is_array($this->variables)) {
+                $res['variables'] = [];
+                foreach ($this->variables as $key1 => $value1) {
+                    $res['variables'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->vendorRequestId) {
             $res['vendorRequestId'] = $this->vendorRequestId;
         }
+
         if (null !== $this->vendorType) {
             $res['vendorType'] = $this->vendorType;
         }
@@ -169,62 +185,81 @@ class GetProcessDefinitionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetProcessDefinitionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['formUuid'])) {
             $model->formUuid = $map['formUuid'];
         }
+
         if (isset($map['originator'])) {
             $model->originator = originator::fromMap($map['originator']);
         }
+
         if (isset($map['outResult'])) {
             $model->outResult = $map['outResult'];
         }
+
         if (isset($map['owners'])) {
             if (!empty($map['owners'])) {
                 $model->owners = [];
-                $n = 0;
-                foreach ($map['owners'] as $item) {
-                    $model->owners[$n++] = null !== $item ? owners::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['owners'] as $item1) {
+                    $model->owners[$n1] = owners::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['processId'])) {
             $model->processId = $map['processId'];
         }
+
         if (isset($map['processInstanceId'])) {
             $model->processInstanceId = $map['processInstanceId'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['tasks'])) {
             if (!empty($map['tasks'])) {
                 $model->tasks = [];
-                $n = 0;
-                foreach ($map['tasks'] as $item) {
-                    $model->tasks[$n++] = null !== $item ? tasks::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['tasks'] as $item1) {
+                    $model->tasks[$n1] = tasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }
+
         if (isset($map['variables'])) {
-            $model->variables = $map['variables'];
+            if (!empty($map['variables'])) {
+                $model->variables = [];
+                foreach ($map['variables'] as $key1 => $value1) {
+                    $model->variables[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['vendorRequestId'])) {
             $model->vendorRequestId = $map['vendorRequestId'];
         }
+
         if (isset($map['vendorType'])) {
             $model->vendorType = $map['vendorType'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryRecordMinutesUrlResponseBody\recordMinutesUrls;
-use AlibabaCloud\Tea\Model;
 
 class QueryRecordMinutesUrlResponseBody extends Model
 {
@@ -15,22 +15,16 @@ class QueryRecordMinutesUrlResponseBody extends Model
     public $recordMinutesUrls;
 
     /**
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $vendorRequestId;
 
     /**
-     * @example dingtalk
-     *
      * @var string
      */
     public $vendorType;
@@ -41,26 +35,36 @@ class QueryRecordMinutesUrlResponseBody extends Model
         'vendorType' => 'vendorType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->recordMinutesUrls)) {
+            Model::validateArray($this->recordMinutesUrls);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recordMinutesUrls) {
-            $res['recordMinutesUrls'] = [];
-            if (null !== $this->recordMinutesUrls && \is_array($this->recordMinutesUrls)) {
-                $n = 0;
-                foreach ($this->recordMinutesUrls as $item) {
-                    $res['recordMinutesUrls'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->recordMinutesUrls)) {
+                $res['recordMinutesUrls'] = [];
+                $n1 = 0;
+                foreach ($this->recordMinutesUrls as $item1) {
+                    $res['recordMinutesUrls'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->vendorRequestId) {
             $res['vendorRequestId'] = $this->vendorRequestId;
         }
+
         if (null !== $this->vendorType) {
             $res['vendorType'] = $this->vendorType;
         }
@@ -68,29 +72,33 @@ class QueryRecordMinutesUrlResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryRecordMinutesUrlResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['recordMinutesUrls'])) {
             if (!empty($map['recordMinutesUrls'])) {
                 $model->recordMinutesUrls = [];
-                $n = 0;
-                foreach ($map['recordMinutesUrls'] as $item) {
-                    $model->recordMinutesUrls[$n++] = null !== $item ? recordMinutesUrls::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['recordMinutesUrls'] as $item1) {
+                    $model->recordMinutesUrls[$n1] = recordMinutesUrls::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['vendorRequestId'])) {
             $model->vendorRequestId = $map['vendorRequestId'];
         }
+
         if (isset($map['vendorType'])) {
             $model->vendorType = $map['vendorType'];
         }

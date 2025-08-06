@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetWorkspacesResponseBody\workspace;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class icon extends Model
 {
     /**
-     * @example URL
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @example https://example/file-manage-files/zh-CN/202***13/ldet/avatar3.jpg
-     *
      * @var string
      */
     public $value;
@@ -26,14 +22,18 @@ class icon extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,17 +41,18 @@ class icon extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return icon
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetTicketResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class creator extends Model
 {
     /**
-     * @example 贤文
-     *
      * @var string
      */
     public $nickName;
 
     /**
-     * @example 012345
-     *
      * @var string
      */
     public $unionId;
@@ -26,14 +22,18 @@ class creator extends Model
         'unionId' => 'UnionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
         }
+
         if (null !== $this->unionId) {
             $res['UnionId'] = $this->unionId;
         }
@@ -41,17 +41,18 @@ class creator extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return creator
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];
         }
+
         if (isset($map['UnionId'])) {
             $model->unionId = $map['UnionId'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UnsubscribeEventShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example SPACE
-     *
      * @var string
      */
     public $scope;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 23456
-     *
      * @var string
      */
     public $scopeId;
@@ -36,17 +28,22 @@ class UnsubscribeEventShrinkRequest extends Model
         'tenantContextShrink' => 'TenantContext',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
         }
+
         if (null !== $this->scopeId) {
             $res['ScopeId'] = $this->scopeId;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
@@ -54,20 +51,22 @@ class UnsubscribeEventShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UnsubscribeEventShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
         }
+
         if (isset($map['ScopeId'])) {
             $model->scopeId = $map['ScopeId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }

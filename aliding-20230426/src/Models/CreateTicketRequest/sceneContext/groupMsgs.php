@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTicketRequest\sceneContext;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class groupMsgs extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $anchor;
 
     /**
-     * @example 1234567
-     *
      * @var string
      */
     public $openMsgId;
@@ -26,14 +22,18 @@ class groupMsgs extends Model
         'openMsgId' => 'OpenMsgId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->anchor) {
             $res['Anchor'] = $this->anchor;
         }
+
         if (null !== $this->openMsgId) {
             $res['OpenMsgId'] = $this->openMsgId;
         }
@@ -41,17 +41,18 @@ class groupMsgs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return groupMsgs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Anchor'])) {
             $model->anchor = $map['Anchor'];
         }
+
         if (isset($map['OpenMsgId'])) {
             $model->openMsgId = $map['OpenMsgId'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetTicketResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class template extends Model
 {
     /**
-     * @description OpenTemplateBizId
-     *
-     * @example OpenTemplateBizId
-     *
      * @var string
      */
     public $openTemplateBizId;
 
     /**
-     * @description OpenTemplateBizId
-     *
-     * @example OpenTemplateBizId
-     *
      * @var string
      */
     public $openTemplateId;
@@ -36,17 +28,22 @@ class template extends Model
         'templateName' => 'TemplateName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->openTemplateBizId) {
             $res['OpenTemplateBizId'] = $this->openTemplateBizId;
         }
+
         if (null !== $this->openTemplateId) {
             $res['OpenTemplateId'] = $this->openTemplateId;
         }
+
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
@@ -54,20 +51,22 @@ class template extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return template
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpenTemplateBizId'])) {
             $model->openTemplateBizId = $map['OpenTemplateBizId'];
         }
+
         if (isset($map['OpenTemplateId'])) {
             $model->openTemplateId = $map['OpenTemplateId'];
         }
+
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }

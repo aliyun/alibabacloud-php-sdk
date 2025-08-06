@@ -4,65 +4,47 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAssistantCapabilityRequest\messages;
-use AlibabaCloud\Tea\Model;
 
 class GetAssistantCapabilityRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example assistantId1
-     *
      * @var string
      */
     public $assistantId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var messages[]
      */
     public $messages;
 
     /**
-     * @example originalAssistantId1
-     *
      * @var string
      */
     public $originalAssistantId;
 
     /**
-     * @example cfp
-     *
      * @var string
      */
     public $protocol;
 
     /**
-     * @example agentKey1
-     *
      * @var string
      */
     public $sourceIdOfOriginalAssistantId;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $sourceTypeOfOriginalAssistantId;
 
     /**
-     * @example threadId
-     *
      * @var string
      */
     public $threadId;
 
     /**
-     * @example 5000
-     *
      * @var int
      */
     public $timeout;
@@ -77,38 +59,52 @@ class GetAssistantCapabilityRequest extends Model
         'timeout' => 'timeout',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->messages)) {
+            Model::validateArray($this->messages);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assistantId) {
             $res['assistantId'] = $this->assistantId;
         }
+
         if (null !== $this->messages) {
-            $res['messages'] = [];
-            if (null !== $this->messages && \is_array($this->messages)) {
-                $n = 0;
-                foreach ($this->messages as $item) {
-                    $res['messages'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->messages)) {
+                $res['messages'] = [];
+                $n1 = 0;
+                foreach ($this->messages as $item1) {
+                    $res['messages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->originalAssistantId) {
             $res['originalAssistantId'] = $this->originalAssistantId;
         }
+
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
         }
+
         if (null !== $this->sourceIdOfOriginalAssistantId) {
             $res['sourceIdOfOriginalAssistantId'] = $this->sourceIdOfOriginalAssistantId;
         }
+
         if (null !== $this->sourceTypeOfOriginalAssistantId) {
             $res['sourceTypeOfOriginalAssistantId'] = $this->sourceTypeOfOriginalAssistantId;
         }
+
         if (null !== $this->threadId) {
             $res['threadId'] = $this->threadId;
         }
+
         if (null !== $this->timeout) {
             $res['timeout'] = $this->timeout;
         }
@@ -116,41 +112,49 @@ class GetAssistantCapabilityRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAssistantCapabilityRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['assistantId'])) {
             $model->assistantId = $map['assistantId'];
         }
+
         if (isset($map['messages'])) {
             if (!empty($map['messages'])) {
                 $model->messages = [];
-                $n = 0;
-                foreach ($map['messages'] as $item) {
-                    $model->messages[$n++] = null !== $item ? messages::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['messages'] as $item1) {
+                    $model->messages[$n1] = messages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['originalAssistantId'])) {
             $model->originalAssistantId = $map['originalAssistantId'];
         }
+
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
         }
+
         if (isset($map['sourceIdOfOriginalAssistantId'])) {
             $model->sourceIdOfOriginalAssistantId = $map['sourceIdOfOriginalAssistantId'];
         }
+
         if (isset($map['sourceTypeOfOriginalAssistantId'])) {
             $model->sourceTypeOfOriginalAssistantId = $map['sourceTypeOfOriginalAssistantId'];
         }
+
         if (isset($map['threadId'])) {
             $model->threadId = $map['threadId'];
         }
+
         if (isset($map['timeout'])) {
             $model->timeout = $map['timeout'];
         }

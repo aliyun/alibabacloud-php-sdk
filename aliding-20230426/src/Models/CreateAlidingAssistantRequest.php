@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateAlidingAssistantRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class CreateAlidingAssistantRequest extends Model
 {
     /**
-     * @example f5cb37a0fb44441ab7b74c6f4a679dd3
-     *
      * @var string
      */
     public $appCode;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $description;
@@ -29,24 +25,16 @@ class CreateAlidingAssistantRequest extends Model
     public $ext;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example @lADPDetfgMsFFUvNAkjNAkg
-     *
      * @var string
      */
     public $icon;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $instructions;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $name;
@@ -57,17 +45,11 @@ class CreateAlidingAssistantRequest extends Model
     public $recommendPrompts;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 11
-     *
      * @var int
      */
     public $source;
 
     /**
-     * @example chatBot-123
-     *
      * @var string
      */
     public $sourceIdentityId;
@@ -78,8 +60,6 @@ class CreateAlidingAssistantRequest extends Model
     public $tenantContext;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $welcomeContent;
@@ -97,41 +77,75 @@ class CreateAlidingAssistantRequest extends Model
         'welcomeContent' => 'WelcomeContent',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ext)) {
+            Model::validateArray($this->ext);
+        }
+        if (\is_array($this->recommendPrompts)) {
+            Model::validateArray($this->recommendPrompts);
+        }
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appCode) {
             $res['AppCode'] = $this->appCode;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->ext) {
-            $res['Ext'] = $this->ext;
+            if (\is_array($this->ext)) {
+                $res['Ext'] = [];
+                foreach ($this->ext as $key1 => $value1) {
+                    $res['Ext'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->icon) {
             $res['Icon'] = $this->icon;
         }
+
         if (null !== $this->instructions) {
             $res['Instructions'] = $this->instructions;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->recommendPrompts) {
-            $res['RecommendPrompts'] = $this->recommendPrompts;
+            if (\is_array($this->recommendPrompts)) {
+                $res['RecommendPrompts'] = [];
+                $n1 = 0;
+                foreach ($this->recommendPrompts as $item1) {
+                    $res['RecommendPrompts'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
+
         if (null !== $this->sourceIdentityId) {
             $res['SourceIdentityId'] = $this->sourceIdentityId;
         }
+
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
+
         if (null !== $this->welcomeContent) {
             $res['WelcomeContent'] = $this->welcomeContent;
         }
@@ -139,46 +153,66 @@ class CreateAlidingAssistantRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAlidingAssistantRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppCode'])) {
             $model->appCode = $map['AppCode'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Ext'])) {
-            $model->ext = $map['Ext'];
+            if (!empty($map['Ext'])) {
+                $model->ext = [];
+                foreach ($map['Ext'] as $key1 => $value1) {
+                    $model->ext[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Icon'])) {
             $model->icon = $map['Icon'];
         }
+
         if (isset($map['Instructions'])) {
             $model->instructions = $map['Instructions'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RecommendPrompts'])) {
             if (!empty($map['RecommendPrompts'])) {
-                $model->recommendPrompts = $map['RecommendPrompts'];
+                $model->recommendPrompts = [];
+                $n1 = 0;
+                foreach ($map['RecommendPrompts'] as $item1) {
+                    $model->recommendPrompts[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
+
         if (isset($map['SourceIdentityId'])) {
             $model->sourceIdentityId = $map['SourceIdentityId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
+
         if (isset($map['WelcomeContent'])) {
             $model->welcomeContent = $map['WelcomeContent'];
         }

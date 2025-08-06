@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\ListMultiDimTableRecordsResponseBody\records;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class lastModifiedBy extends Model
 {
     /**
-     * @example 012345
-     *
      * @var string
      */
     public $userId;
@@ -18,9 +16,12 @@ class lastModifiedBy extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userId) {
@@ -30,11 +31,11 @@ class lastModifiedBy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return lastModifiedBy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

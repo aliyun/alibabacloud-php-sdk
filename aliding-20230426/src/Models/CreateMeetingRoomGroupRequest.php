@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMeetingRoomGroupRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class CreateMeetingRoomGroupRequest extends Model
 {
     /**
-     * @example 测试分组
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 172L
-     *
      * @var int
      */
     public $parentGroupId;
@@ -35,38 +29,48 @@ class CreateMeetingRoomGroupRequest extends Model
         'tenantContext' => 'TenantContext',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->parentGroupId) {
             $res['ParentGroupId'] = $this->parentGroupId;
         }
+
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateMeetingRoomGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['ParentGroupId'])) {
             $model->parentGroupId = $map['ParentGroupId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

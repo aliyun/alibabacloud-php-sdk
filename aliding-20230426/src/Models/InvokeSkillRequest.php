@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InvokeSkillRequest extends Model
 {
     /**
-     * @example {}
-     *
      * @var mixed[]
      */
     public $params;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example a1d033dd-xxxx-49cf-b49b-2068081bb551
-     *
      * @var string
      */
     public $skillId;
@@ -34,17 +28,30 @@ class InvokeSkillRequest extends Model
         'stream' => 'Stream',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->params)) {
+            Model::validateArray($this->params);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->params) {
-            $res['Params'] = $this->params;
+            if (\is_array($this->params)) {
+                $res['Params'] = [];
+                foreach ($this->params as $key1 => $value1) {
+                    $res['Params'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->skillId) {
             $res['SkillId'] = $this->skillId;
         }
+
         if (null !== $this->stream) {
             $res['Stream'] = $this->stream;
         }
@@ -52,20 +59,27 @@ class InvokeSkillRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InvokeSkillRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Params'])) {
-            $model->params = $map['Params'];
+            if (!empty($map['Params'])) {
+                $model->params = [];
+                foreach ($map['Params'] as $key1 => $value1) {
+                    $model->params[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['SkillId'])) {
             $model->skillId = $map['SkillId'];
         }
+
         if (isset($map['Stream'])) {
             $model->stream = $map['Stream'];
         }

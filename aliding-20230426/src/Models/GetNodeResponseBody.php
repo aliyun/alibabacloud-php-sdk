@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetNodeResponseBody\node;
-use AlibabaCloud\Tea\Model;
 
 class GetNodeResponseBody extends Model
 {
@@ -15,10 +15,6 @@ class GetNodeResponseBody extends Model
     public $node;
 
     /**
-     * @description requestId
-     *
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $requestId;
@@ -27,14 +23,21 @@ class GetNodeResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->node) {
+            $this->node->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->node) {
-            $res['node'] = null !== $this->node ? $this->node->toMap() : null;
+            $res['node'] = null !== $this->node ? $this->node->toArray($noStream) : $this->node;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -42,17 +45,18 @@ class GetNodeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetNodeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['node'])) {
             $model->node = node::fromMap($map['node']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

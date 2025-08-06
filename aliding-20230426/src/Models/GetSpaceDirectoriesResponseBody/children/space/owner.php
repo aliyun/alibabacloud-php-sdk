@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetSpaceDirectoriesResponseBody\children\space;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class owner extends Model
 {
     /**
-     * @example 小钉
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example 012345
-     *
      * @var string
      */
     public $userId;
@@ -26,14 +22,18 @@ class owner extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -41,17 +41,18 @@ class owner extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return owner
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

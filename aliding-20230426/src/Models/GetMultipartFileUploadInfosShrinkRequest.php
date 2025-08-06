@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMultipartFileUploadInfosShrinkRequest extends Model
 {
@@ -24,8 +24,6 @@ class GetMultipartFileUploadInfosShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
-     * @example hwHPAAAAAipHxxxxx
-     *
      * @var string
      */
     public $uploadKey;
@@ -36,20 +34,26 @@ class GetMultipartFileUploadInfosShrinkRequest extends Model
         'uploadKey' => 'UploadKey',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->optionShrink) {
             $res['Option'] = $this->optionShrink;
         }
+
         if (null !== $this->partNumbersShrink) {
             $res['PartNumbers'] = $this->partNumbersShrink;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
+
         if (null !== $this->uploadKey) {
             $res['UploadKey'] = $this->uploadKey;
         }
@@ -57,23 +61,26 @@ class GetMultipartFileUploadInfosShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMultipartFileUploadInfosShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Option'])) {
             $model->optionShrink = $map['Option'];
         }
+
         if (isset($map['PartNumbers'])) {
             $model->partNumbersShrink = $map['PartNumbers'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
+
         if (isset($map['UploadKey'])) {
             $model->uploadKey = $map['UploadKey'];
         }

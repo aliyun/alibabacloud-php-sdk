@@ -4,25 +4,17 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ClearDataRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class ClearDataRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example A3:C3
-     *
      * @var string
      */
     public $rangeAddress;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example Sheet1
-     *
      * @var string
      */
     public $sheetId;
@@ -33,10 +25,6 @@ class ClearDataRequest extends Model
     public $tenantContext;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example stxxxx
-     *
      * @var string
      */
     public $workbookId;
@@ -47,20 +35,29 @@ class ClearDataRequest extends Model
         'workbookId' => 'WorkbookId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rangeAddress) {
             $res['RangeAddress'] = $this->rangeAddress;
         }
+
         if (null !== $this->sheetId) {
             $res['SheetId'] = $this->sheetId;
         }
+
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
+
         if (null !== $this->workbookId) {
             $res['WorkbookId'] = $this->workbookId;
         }
@@ -68,23 +65,26 @@ class ClearDataRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ClearDataRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RangeAddress'])) {
             $model->rangeAddress = $map['RangeAddress'];
         }
+
         if (isset($map['SheetId'])) {
             $model->sheetId = $map['SheetId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
+
         if (isset($map['WorkbookId'])) {
             $model->workbookId = $map['WorkbookId'];
         }

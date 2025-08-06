@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\InviteUsersRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class phoneInviteeList extends Model
 {
@@ -34,20 +34,26 @@ class phoneInviteeList extends Model
         'statusCode' => 'StatusCode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inviteClient) {
             $res['InviteClient'] = $this->inviteClient;
         }
+
         if (null !== $this->nick) {
             $res['Nick'] = $this->nick;
         }
+
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
+
         if (null !== $this->statusCode) {
             $res['StatusCode'] = $this->statusCode;
         }
@@ -55,23 +61,26 @@ class phoneInviteeList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return phoneInviteeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InviteClient'])) {
             $model->inviteClient = $map['InviteClient'];
         }
+
         if (isset($map['Nick'])) {
             $model->nick = $map['Nick'];
         }
+
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
         }
+
         if (isset($map['StatusCode'])) {
             $model->statusCode = $map['StatusCode'];
         }

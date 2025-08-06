@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryDentriesInfoShrinkRequest extends Model
 {
@@ -14,19 +14,11 @@ class QueryDentriesInfoShrinkRequest extends Model
     public $appIdsForAppPropertiesShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 140901622636
-     *
      * @var string
      */
     public $dentryId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 22443475065
-     *
      * @var string
      */
     public $spaceId;
@@ -37,17 +29,11 @@ class QueryDentriesInfoShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example urv3ZIAtcmmIgQzHq08YcAiEiE
-     *
      * @var string
      */
     public $unionId;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $withThumbnail;
@@ -60,26 +46,34 @@ class QueryDentriesInfoShrinkRequest extends Model
         'withThumbnail' => 'WithThumbnail',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appIdsForAppPropertiesShrink) {
             $res['AppIdsForAppProperties'] = $this->appIdsForAppPropertiesShrink;
         }
+
         if (null !== $this->dentryId) {
             $res['DentryId'] = $this->dentryId;
         }
+
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
+
         if (null !== $this->unionId) {
             $res['UnionId'] = $this->unionId;
         }
+
         if (null !== $this->withThumbnail) {
             $res['WithThumbnail'] = $this->withThumbnail;
         }
@@ -87,29 +81,34 @@ class QueryDentriesInfoShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryDentriesInfoShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppIdsForAppProperties'])) {
             $model->appIdsForAppPropertiesShrink = $map['AppIdsForAppProperties'];
         }
+
         if (isset($map['DentryId'])) {
             $model->dentryId = $map['DentryId'];
         }
+
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
+
         if (isset($map['UnionId'])) {
             $model->unionId = $map['UnionId'];
         }
+
         if (isset($map['WithThumbnail'])) {
             $model->withThumbnail = $map['WithThumbnail'];
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetGroupLiveListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetGroupLiveListResponseBody\result\groupLiveList;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @example 直播列表
-     *
      * @var groupLiveList[]
      */
     public $groupLiveList;
@@ -19,17 +17,24 @@ class result extends Model
         'groupLiveList' => 'GroupLiveList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->groupLiveList)) {
+            Model::validateArray($this->groupLiveList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupLiveList) {
-            $res['GroupLiveList'] = [];
-            if (null !== $this->groupLiveList && \is_array($this->groupLiveList)) {
-                $n = 0;
-                foreach ($this->groupLiveList as $item) {
-                    $res['GroupLiveList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->groupLiveList)) {
+                $res['GroupLiveList'] = [];
+                $n1 = 0;
+                foreach ($this->groupLiveList as $item1) {
+                    $res['GroupLiveList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupLiveList'])) {
             if (!empty($map['GroupLiveList'])) {
                 $model->groupLiveList = [];
-                $n = 0;
-                foreach ($map['GroupLiveList'] as $item) {
-                    $model->groupLiveList[$n++] = null !== $item ? groupLiveList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['GroupLiveList'] as $item1) {
+                    $model->groupLiveList[$n1] = groupLiveList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

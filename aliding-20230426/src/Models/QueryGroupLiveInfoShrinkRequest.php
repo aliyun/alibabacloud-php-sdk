@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryGroupLiveInfoShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 333d
-     *
      * @var string
      */
     public $anchorUnionId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 4d38xxxxx
-     *
      * @var string
      */
     public $liveUuid;
@@ -36,17 +28,22 @@ class QueryGroupLiveInfoShrinkRequest extends Model
         'tenantContextShrink' => 'TenantContext',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->anchorUnionId) {
             $res['AnchorUnionId'] = $this->anchorUnionId;
         }
+
         if (null !== $this->liveUuid) {
             $res['LiveUuid'] = $this->liveUuid;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
@@ -54,20 +51,22 @@ class QueryGroupLiveInfoShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryGroupLiveInfoShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnchorUnionId'])) {
             $model->anchorUnionId = $map['AnchorUnionId'];
         }
+
         if (isset($map['LiveUuid'])) {
             $model->liveUuid = $map['LiveUuid'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }

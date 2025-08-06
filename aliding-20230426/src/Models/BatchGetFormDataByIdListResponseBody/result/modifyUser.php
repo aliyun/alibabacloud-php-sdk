@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetFormDataByIdListResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\BatchGetFormDataByIdListResponseBody\result\modifyUser\name;
-use AlibabaCloud\Tea\Model;
 
 class modifyUser extends Model
 {
@@ -15,8 +15,6 @@ class modifyUser extends Model
     public $name;
 
     /**
-     * @example 012345
-     *
      * @var string
      */
     public $userId;
@@ -25,14 +23,21 @@ class modifyUser extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->name) {
+            $this->name->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
-            $res['Name'] = null !== $this->name ? $this->name->toMap() : null;
+            $res['Name'] = null !== $this->name ? $this->name->toArray($noStream) : $this->name;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -40,17 +45,18 @@ class modifyUser extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return modifyUser
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = name::fromMap($map['Name']);
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

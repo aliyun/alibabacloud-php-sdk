@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CloseVideoConferenceRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class CloseVideoConferenceRequest extends Model
 {
@@ -15,10 +15,6 @@ class CloseVideoConferenceRequest extends Model
     public $tenantContext;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 607452e01401526ee39609e1
-     *
      * @var string
      */
     public $conferenceId;
@@ -27,14 +23,21 @@ class CloseVideoConferenceRequest extends Model
         'conferenceId' => 'conferenceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
+
         if (null !== $this->conferenceId) {
             $res['conferenceId'] = $this->conferenceId;
         }
@@ -42,17 +45,18 @@ class CloseVideoConferenceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CloseVideoConferenceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
+
         if (isset($map['conferenceId'])) {
             $model->conferenceId = $map['conferenceId'];
         }

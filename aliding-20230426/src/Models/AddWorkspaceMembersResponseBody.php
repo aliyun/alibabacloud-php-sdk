@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddWorkspaceMembersResponseBody extends Model
 {
@@ -14,10 +14,6 @@ class AddWorkspaceMembersResponseBody extends Model
     public $notInOrgList;
 
     /**
-     * @description requestId
-     *
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $requestId;
@@ -26,14 +22,28 @@ class AddWorkspaceMembersResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->notInOrgList)) {
+            Model::validateArray($this->notInOrgList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->notInOrgList) {
-            $res['NotInOrgList'] = $this->notInOrgList;
+            if (\is_array($this->notInOrgList)) {
+                $res['NotInOrgList'] = [];
+                $n1 = 0;
+                foreach ($this->notInOrgList as $item1) {
+                    $res['NotInOrgList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -41,19 +51,25 @@ class AddWorkspaceMembersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddWorkspaceMembersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NotInOrgList'])) {
             if (!empty($map['NotInOrgList'])) {
-                $model->notInOrgList = $map['NotInOrgList'];
+                $model->notInOrgList = [];
+                $n1 = 0;
+                foreach ($map['NotInOrgList'] as $item1) {
+                    $model->notInOrgList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\InvokeAssistantRequest\messages\content;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class cardCallback extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example {}
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example aliding_messageId123
-     *
      * @var string
      */
     public $relatedMessageId;
@@ -30,14 +22,18 @@ class cardCallback extends Model
         'relatedMessageId' => 'relatedMessageId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->relatedMessageId) {
             $res['relatedMessageId'] = $this->relatedMessageId;
         }
@@ -45,17 +41,18 @@ class cardCallback extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cardCallback
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['relatedMessageId'])) {
             $model->relatedMessageId = $map['relatedMessageId'];
         }

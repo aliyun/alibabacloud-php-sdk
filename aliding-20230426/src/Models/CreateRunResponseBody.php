@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\messages;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateRunResponseBody\run;
-use AlibabaCloud\Tea\Model;
 
 class CreateRunResponseBody extends Model
 {
@@ -16,8 +16,6 @@ class CreateRunResponseBody extends Model
     public $messages;
 
     /**
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $requestId;
@@ -32,50 +30,65 @@ class CreateRunResponseBody extends Model
         'run' => 'run',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->messages)) {
+            Model::validateArray($this->messages);
+        }
+        if (null !== $this->run) {
+            $this->run->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->messages) {
-            $res['messages'] = [];
-            if (null !== $this->messages && \is_array($this->messages)) {
-                $n = 0;
-                foreach ($this->messages as $item) {
-                    $res['messages'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->messages)) {
+                $res['messages'] = [];
+                $n1 = 0;
+                foreach ($this->messages as $item1) {
+                    $res['messages'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->run) {
-            $res['run'] = null !== $this->run ? $this->run->toMap() : null;
+            $res['run'] = null !== $this->run ? $this->run->toArray($noStream) : $this->run;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateRunResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['messages'])) {
             if (!empty($map['messages'])) {
                 $model->messages = [];
-                $n = 0;
-                foreach ($map['messages'] as $item) {
-                    $model->messages[$n++] = null !== $item ? messages::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['messages'] as $item1) {
+                    $model->messages[$n1] = messages::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['run'])) {
             $model->run = run::fromMap($map['run']);
         }

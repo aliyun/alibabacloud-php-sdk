@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventResponseBody\extendedProperties\sharedProperties;
-use AlibabaCloud\Tea\Model;
 
 class extendedProperties extends Model
 {
@@ -17,23 +17,29 @@ class extendedProperties extends Model
         'sharedProperties' => 'SharedProperties',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->sharedProperties) {
+            $this->sharedProperties->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sharedProperties) {
-            $res['SharedProperties'] = null !== $this->sharedProperties ? $this->sharedProperties->toMap() : null;
+            $res['SharedProperties'] = null !== $this->sharedProperties ? $this->sharedProperties->toArray($noStream) : $this->sharedProperties;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return extendedProperties
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

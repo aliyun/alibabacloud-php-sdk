@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\QueryMeetingRoomResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class roomLabels extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $labelId;
 
     /**
-     * @example 电视
-     *
      * @var string
      */
     public $labelName;
@@ -26,14 +22,18 @@ class roomLabels extends Model
         'labelName' => 'LabelName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->labelId) {
             $res['LabelId'] = $this->labelId;
         }
+
         if (null !== $this->labelName) {
             $res['LabelName'] = $this->labelName;
         }
@@ -41,17 +41,18 @@ class roomLabels extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return roomLabels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LabelId'])) {
             $model->labelId = $map['LabelId'];
         }
+
         if (isset($map['LabelName'])) {
             $model->labelName = $map['LabelName'];
         }

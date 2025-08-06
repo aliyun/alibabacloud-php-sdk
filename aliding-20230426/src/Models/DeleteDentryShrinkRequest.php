@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDentryShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example b9XJlZ44W3NeDGyA
-     *
      * @var string
      */
     public $dentryId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example nb9XJx4EPx16QGyA
-     *
      * @var string
      */
     public $spaceId;
@@ -42,20 +34,26 @@ class DeleteDentryShrinkRequest extends Model
         'toRecycleBin' => 'ToRecycleBin',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dentryId) {
             $res['DentryId'] = $this->dentryId;
         }
+
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
+
         if (null !== $this->toRecycleBin) {
             $res['ToRecycleBin'] = $this->toRecycleBin;
         }
@@ -63,23 +61,26 @@ class DeleteDentryShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDentryShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DentryId'])) {
             $model->dentryId = $map['DentryId'];
         }
+
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
+
         if (isset($map['ToRecycleBin'])) {
             $model->toRecycleBin = $map['ToRecycleBin'];
         }

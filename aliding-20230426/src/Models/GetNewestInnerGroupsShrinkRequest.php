@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetNewestInnerGroupsShrinkRequest extends Model
 {
     /**
-     * @example {}
-     *
      * @var string
      */
     public $requestShrink;
@@ -18,9 +16,12 @@ class GetNewestInnerGroupsShrinkRequest extends Model
         'requestShrink' => 'Request',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestShrink) {
@@ -30,11 +31,11 @@ class GetNewestInnerGroupsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetNewestInnerGroupsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

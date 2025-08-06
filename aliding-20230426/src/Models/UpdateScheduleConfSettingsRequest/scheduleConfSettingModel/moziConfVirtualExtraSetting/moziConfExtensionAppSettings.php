@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateScheduleConfSettingsRequest\scheduleConfSettingModel\moziConfVirtualExtraSetting;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class moziConfExtensionAppSettings extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $autoOpenMode;
 
     /**
-     * @example xxxx
-     *
      * @var string
      */
     public $coolAppCode;
 
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $extensionAppBizData;
@@ -34,17 +28,22 @@ class moziConfExtensionAppSettings extends Model
         'extensionAppBizData' => 'ExtensionAppBizData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoOpenMode) {
             $res['AutoOpenMode'] = $this->autoOpenMode;
         }
+
         if (null !== $this->coolAppCode) {
             $res['CoolAppCode'] = $this->coolAppCode;
         }
+
         if (null !== $this->extensionAppBizData) {
             $res['ExtensionAppBizData'] = $this->extensionAppBizData;
         }
@@ -52,20 +51,22 @@ class moziConfExtensionAppSettings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return moziConfExtensionAppSettings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoOpenMode'])) {
             $model->autoOpenMode = $map['AutoOpenMode'];
         }
+
         if (isset($map['CoolAppCode'])) {
             $model->coolAppCode = $map['CoolAppCode'];
         }
+
         if (isset($map['ExtensionAppBizData'])) {
             $model->extensionAppBizData = $map['ExtensionAppBizData'];
         }

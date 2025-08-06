@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMeetingRoomsScheduleShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 2020-01-01T10:15:30+08:00
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ["4002xxxxx"]
-     *
      * @var string
      */
     public $roomIdsShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 2020-01-01T10:15:30+08:00
-     *
      * @var string
      */
     public $startTime;
@@ -40,17 +28,22 @@ class GetMeetingRoomsScheduleShrinkRequest extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->roomIdsShrink) {
             $res['RoomIds'] = $this->roomIdsShrink;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -58,20 +51,22 @@ class GetMeetingRoomsScheduleShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMeetingRoomsScheduleShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['RoomIds'])) {
             $model->roomIdsShrink = $map['RoomIds'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateTodoTaskExecutorStatusRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class executorStatusList extends Model
 {
     /**
-     * @example userId
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $isDone;
@@ -26,14 +22,18 @@ class executorStatusList extends Model
         'isDone' => 'isDone',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->isDone) {
             $res['isDone'] = $this->isDone;
         }
@@ -41,17 +41,18 @@ class executorStatusList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return executorStatusList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['isDone'])) {
             $model->isDone = $map['isDone'];
         }

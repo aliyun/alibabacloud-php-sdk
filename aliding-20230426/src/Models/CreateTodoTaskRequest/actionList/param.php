@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskRequest\actionList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class param extends Model
 {
@@ -22,34 +22,52 @@ class param extends Model
         'header' => 'header',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->header)) {
+            Model::validateArray($this->header);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
             $res['body'] = $this->body;
         }
+
         if (null !== $this->header) {
-            $res['header'] = $this->header;
+            if (\is_array($this->header)) {
+                $res['header'] = [];
+                foreach ($this->header as $key1 => $value1) {
+                    $res['header'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return param
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
             $model->body = $map['body'];
         }
+
         if (isset($map['header'])) {
-            $model->header = $map['header'];
+            if (!empty($map['header'])) {
+                $model->header = [];
+                foreach ($map['header'] as $key1 => $value1) {
+                    $model->header[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

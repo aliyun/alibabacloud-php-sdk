@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateReportShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example []
-     *
      * @var string
      */
     public $contentsShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example client
-     *
      * @var string
      */
     public $ddFrom;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example sdfafdsfsafdfsaf
-     *
      * @var string
      */
     public $templateId;
@@ -41,24 +29,16 @@ class CreateReportShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $toChat;
 
     /**
-     * @example []
-     *
      * @var string
      */
     public $toCidsShrink;
 
     /**
-     * @example [123,456]
-     *
      * @var string
      */
     public $toUseridsShrink;
@@ -72,29 +52,38 @@ class CreateReportShrinkRequest extends Model
         'toUseridsShrink' => 'ToUserids',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contentsShrink) {
             $res['Contents'] = $this->contentsShrink;
         }
+
         if (null !== $this->ddFrom) {
             $res['DdFrom'] = $this->ddFrom;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
+
         if (null !== $this->toChat) {
             $res['ToChat'] = $this->toChat;
         }
+
         if (null !== $this->toCidsShrink) {
             $res['ToCids'] = $this->toCidsShrink;
         }
+
         if (null !== $this->toUseridsShrink) {
             $res['ToUserids'] = $this->toUseridsShrink;
         }
@@ -102,32 +91,38 @@ class CreateReportShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateReportShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Contents'])) {
             $model->contentsShrink = $map['Contents'];
         }
+
         if (isset($map['DdFrom'])) {
             $model->ddFrom = $map['DdFrom'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
+
         if (isset($map['ToChat'])) {
             $model->toChat = $map['ToChat'];
         }
+
         if (isset($map['ToCids'])) {
             $model->toCidsShrink = $map['ToCids'];
         }
+
         if (isset($map['ToUserids'])) {
             $model->toUseridsShrink = $map['ToUserids'];
         }

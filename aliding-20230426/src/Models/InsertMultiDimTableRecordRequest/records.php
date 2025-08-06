@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\InsertMultiDimTableRecordRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class records extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var mixed[]
      */
     public $fields;
@@ -18,28 +16,44 @@ class records extends Model
         'fields' => 'Fields',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fields)) {
+            Model::validateArray($this->fields);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fields) {
-            $res['Fields'] = $this->fields;
+            if (\is_array($this->fields)) {
+                $res['Fields'] = [];
+                foreach ($this->fields as $key1 => $value1) {
+                    $res['Fields'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return records
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Fields'])) {
-            $model->fields = $map['Fields'];
+            if (!empty($map['Fields'])) {
+                $model->fields = [];
+                foreach ($map['Fields'] as $key1 => $value1) {
+                    $model->fields[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

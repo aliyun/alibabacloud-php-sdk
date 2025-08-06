@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgHonorsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class openHonors extends Model
 {
@@ -14,15 +14,11 @@ class openHonors extends Model
     public $honorDesc;
 
     /**
-     * @example 21658579
-     *
      * @var int
      */
     public $honorId;
 
     /**
-     * @example https://xxxx.ali-cdn.com/jfejfi.jpg
-     *
      * @var string
      */
     public $honorImgUrl;
@@ -33,8 +29,6 @@ class openHonors extends Model
     public $honorName;
 
     /**
-     * @example https://xxxx.ali-cdn.com/jfejfi.jpg
-     *
      * @var string
      */
     public $honorPendantImgUrl;
@@ -46,23 +40,30 @@ class openHonors extends Model
         'honorPendantImgUrl' => 'honorPendantImgUrl',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->honorDesc) {
             $res['honorDesc'] = $this->honorDesc;
         }
+
         if (null !== $this->honorId) {
             $res['honorId'] = $this->honorId;
         }
+
         if (null !== $this->honorImgUrl) {
             $res['honorImgUrl'] = $this->honorImgUrl;
         }
+
         if (null !== $this->honorName) {
             $res['honorName'] = $this->honorName;
         }
+
         if (null !== $this->honorPendantImgUrl) {
             $res['honorPendantImgUrl'] = $this->honorPendantImgUrl;
         }
@@ -70,26 +71,30 @@ class openHonors extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return openHonors
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['honorDesc'])) {
             $model->honorDesc = $map['honorDesc'];
         }
+
         if (isset($map['honorId'])) {
             $model->honorId = $map['honorId'];
         }
+
         if (isset($map['honorImgUrl'])) {
             $model->honorImgUrl = $map['honorImgUrl'];
         }
+
         if (isset($map['honorName'])) {
             $model->honorName = $map['honorName'];
         }
+
         if (isset($map['honorPendantImgUrl'])) {
             $model->honorPendantImgUrl = $map['honorPendantImgUrl'];
         }

@@ -4,36 +4,26 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryMeetingRoomGroupResponseBody extends Model
 {
     /**
-     * @example 172
-     *
      * @var int
      */
     public $groupId;
 
     /**
-     * @example 测试分组
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $parentId;
 
     /**
-     * @description requestId
-     *
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $requestId;
@@ -44,20 +34,26 @@ class QueryMeetingRoomGroupResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['groupId'] = $this->groupId;
         }
+
         if (null !== $this->groupName) {
             $res['groupName'] = $this->groupName;
         }
+
         if (null !== $this->parentId) {
             $res['parentId'] = $this->parentId;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -65,23 +61,26 @@ class QueryMeetingRoomGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryMeetingRoomGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['groupId'])) {
             $model->groupId = $map['groupId'];
         }
+
         if (isset($map['groupName'])) {
             $model->groupName = $map['groupName'];
         }
+
         if (isset($map['parentId'])) {
             $model->parentId = $map['parentId'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

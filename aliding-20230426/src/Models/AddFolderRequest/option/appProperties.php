@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\AddFolderRequest\option;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class appProperties extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example value
-     *
      * @var string
      */
     public $value;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example PUBLIC
-     *
      * @var string
      */
     public $visibility;
@@ -40,17 +28,22 @@ class appProperties extends Model
         'visibility' => 'Visibility',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
+
         if (null !== $this->visibility) {
             $res['Visibility'] = $this->visibility;
         }
@@ -58,20 +51,22 @@ class appProperties extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return appProperties
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
+
         if (isset($map['Visibility'])) {
             $model->visibility = $map['Visibility'];
         }

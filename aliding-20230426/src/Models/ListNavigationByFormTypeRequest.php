@@ -4,40 +4,26 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListNavigationByFormTypeRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example APP_PBKTxxx
-     *
      * @var string
      */
     public $appType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example receipt
-     *
      * @var string
      */
     public $formType;
 
     /**
-     * @example zh_CN
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example hexxxx
-     *
      * @var string
      */
     public $systemToken;
@@ -48,20 +34,26 @@ class ListNavigationByFormTypeRequest extends Model
         'systemToken' => 'SystemToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
         }
+
         if (null !== $this->formType) {
             $res['FormType'] = $this->formType;
         }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
+
         if (null !== $this->systemToken) {
             $res['SystemToken'] = $this->systemToken;
         }
@@ -69,23 +61,26 @@ class ListNavigationByFormTypeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListNavigationByFormTypeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
         }
+
         if (isset($map['FormType'])) {
             $model->formType = $map['FormType'];
         }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
+
         if (isset($map['SystemToken'])) {
             $model->systemToken = $map['SystemToken'];
         }

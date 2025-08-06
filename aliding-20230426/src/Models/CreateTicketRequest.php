@@ -4,16 +4,14 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTicketRequest\notify;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTicketRequest\sceneContext;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTicketRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class CreateTicketRequest extends Model
 {
     /**
-     * @example []
-     *
      * @var string
      */
     public $customFields;
@@ -24,35 +22,21 @@ class CreateTicketRequest extends Model
     public $notify;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example G3IOe205RLciE
-     *
      * @var string
      */
     public $openTeamId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example xxxx
-     *
      * @var string
      */
     public $openTemplateBizId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $processorUserIds;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example SG
-     *
      * @var string
      */
     public $scene;
@@ -68,10 +52,6 @@ class CreateTicketRequest extends Model
     public $tenantContext;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example Killer Ball Wo Mouichido
-     *
      * @var string
      */
     public $title;
@@ -87,35 +67,65 @@ class CreateTicketRequest extends Model
         'title' => 'Title',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->notify) {
+            $this->notify->validate();
+        }
+        if (\is_array($this->processorUserIds)) {
+            Model::validateArray($this->processorUserIds);
+        }
+        if (null !== $this->sceneContext) {
+            $this->sceneContext->validate();
+        }
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customFields) {
             $res['CustomFields'] = $this->customFields;
         }
+
         if (null !== $this->notify) {
-            $res['Notify'] = null !== $this->notify ? $this->notify->toMap() : null;
+            $res['Notify'] = null !== $this->notify ? $this->notify->toArray($noStream) : $this->notify;
         }
+
         if (null !== $this->openTeamId) {
             $res['OpenTeamId'] = $this->openTeamId;
         }
+
         if (null !== $this->openTemplateBizId) {
             $res['OpenTemplateBizId'] = $this->openTemplateBizId;
         }
+
         if (null !== $this->processorUserIds) {
-            $res['ProcessorUserIds'] = $this->processorUserIds;
+            if (\is_array($this->processorUserIds)) {
+                $res['ProcessorUserIds'] = [];
+                $n1 = 0;
+                foreach ($this->processorUserIds as $item1) {
+                    $res['ProcessorUserIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
         }
+
         if (null !== $this->sceneContext) {
-            $res['SceneContext'] = null !== $this->sceneContext ? $this->sceneContext->toMap() : null;
+            $res['SceneContext'] = null !== $this->sceneContext ? $this->sceneContext->toArray($noStream) : $this->sceneContext;
         }
+
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -123,40 +133,53 @@ class CreateTicketRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTicketRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomFields'])) {
             $model->customFields = $map['CustomFields'];
         }
+
         if (isset($map['Notify'])) {
             $model->notify = notify::fromMap($map['Notify']);
         }
+
         if (isset($map['OpenTeamId'])) {
             $model->openTeamId = $map['OpenTeamId'];
         }
+
         if (isset($map['OpenTemplateBizId'])) {
             $model->openTemplateBizId = $map['OpenTemplateBizId'];
         }
+
         if (isset($map['ProcessorUserIds'])) {
             if (!empty($map['ProcessorUserIds'])) {
-                $model->processorUserIds = $map['ProcessorUserIds'];
+                $model->processorUserIds = [];
+                $n1 = 0;
+                foreach ($map['ProcessorUserIds'] as $item1) {
+                    $model->processorUserIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
         }
+
         if (isset($map['SceneContext'])) {
             $model->sceneContext = sceneContext::fromMap($map['SceneContext']);
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

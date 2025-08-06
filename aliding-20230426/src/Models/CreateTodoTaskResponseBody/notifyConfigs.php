@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class notifyConfigs extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $dingNotify;
@@ -18,9 +16,12 @@ class notifyConfigs extends Model
         'dingNotify' => 'dingNotify',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dingNotify) {
@@ -30,11 +31,11 @@ class notifyConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return notifyConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

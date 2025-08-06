@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSubscribedCalendarShrinkRequest extends Model
 {
@@ -19,15 +19,11 @@ class CreateSubscribedCalendarShrinkRequest extends Model
     public $managersShrink;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $subscribeScopeShrink;
@@ -38,20 +34,26 @@ class CreateSubscribedCalendarShrinkRequest extends Model
         'subscribeScopeShrink' => 'SubscribeScope',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->managersShrink) {
             $res['Managers'] = $this->managersShrink;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->subscribeScopeShrink) {
             $res['SubscribeScope'] = $this->subscribeScopeShrink;
         }
@@ -59,23 +61,26 @@ class CreateSubscribedCalendarShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSubscribedCalendarShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Managers'])) {
             $model->managersShrink = $map['Managers'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['SubscribeScope'])) {
             $model->subscribeScopeShrink = $map['SubscribeScope'];
         }

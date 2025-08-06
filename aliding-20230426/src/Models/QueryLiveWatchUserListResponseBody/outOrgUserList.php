@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\QueryLiveWatchUserListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class outOrgUserList extends Model
 {
@@ -14,22 +14,16 @@ class outOrgUserList extends Model
     public $name;
 
     /**
-     * @example 12312312
-     *
      * @var int
      */
     public $watchLiveTime;
 
     /**
-     * @example 21313131
-     *
      * @var int
      */
     public $watchPlaybackTime;
 
     /**
-     * @example 123131
-     *
      * @var int
      */
     public $watchProgressMs;
@@ -40,20 +34,26 @@ class outOrgUserList extends Model
         'watchProgressMs' => 'WatchProgressMs',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->watchLiveTime) {
             $res['WatchLiveTime'] = $this->watchLiveTime;
         }
+
         if (null !== $this->watchPlaybackTime) {
             $res['WatchPlaybackTime'] = $this->watchPlaybackTime;
         }
+
         if (null !== $this->watchProgressMs) {
             $res['WatchProgressMs'] = $this->watchProgressMs;
         }
@@ -61,23 +61,26 @@ class outOrgUserList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return outOrgUserList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['WatchLiveTime'])) {
             $model->watchLiveTime = $map['WatchLiveTime'];
         }
+
         if (isset($map['WatchPlaybackTime'])) {
             $model->watchPlaybackTime = $map['WatchPlaybackTime'];
         }
+
         if (isset($map['WatchProgressMs'])) {
             $model->watchProgressMs = $map['WatchProgressMs'];
         }

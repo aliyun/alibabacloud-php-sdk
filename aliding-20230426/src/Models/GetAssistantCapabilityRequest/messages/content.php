@@ -4,13 +4,13 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetAssistantCapabilityRequest\messages;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAssistantCapabilityRequest\messages\content\cardCallback;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAssistantCapabilityRequest\messages\content\dingCard;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAssistantCapabilityRequest\messages\content\dingNormalCard;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAssistantCapabilityRequest\messages\content\markdown;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAssistantCapabilityRequest\messages\content\structView;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetAssistantCapabilityRequest\messages\content\text;
-use AlibabaCloud\Tea\Model;
 
 class content extends Model
 {
@@ -25,8 +25,6 @@ class content extends Model
     public $dingCard;
 
     /**
-     * @example {}
-     *
      * @var dingNormalCard
      */
     public $dingNormalCard;
@@ -47,10 +45,6 @@ class content extends Model
     public $text;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 枚举字段，可为：text,markdown,cardCallback,dingCard,agentArtifact,dingNormalCard
-     *
      * @var string
      */
     public $type;
@@ -64,29 +58,56 @@ class content extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->cardCallback) {
+            $this->cardCallback->validate();
+        }
+        if (null !== $this->dingCard) {
+            $this->dingCard->validate();
+        }
+        if (null !== $this->dingNormalCard) {
+            $this->dingNormalCard->validate();
+        }
+        if (null !== $this->markdown) {
+            $this->markdown->validate();
+        }
+        if (null !== $this->structView) {
+            $this->structView->validate();
+        }
+        if (null !== $this->text) {
+            $this->text->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cardCallback) {
-            $res['cardCallback'] = null !== $this->cardCallback ? $this->cardCallback->toMap() : null;
+            $res['cardCallback'] = null !== $this->cardCallback ? $this->cardCallback->toArray($noStream) : $this->cardCallback;
         }
+
         if (null !== $this->dingCard) {
-            $res['dingCard'] = null !== $this->dingCard ? $this->dingCard->toMap() : null;
+            $res['dingCard'] = null !== $this->dingCard ? $this->dingCard->toArray($noStream) : $this->dingCard;
         }
+
         if (null !== $this->dingNormalCard) {
-            $res['dingNormalCard'] = null !== $this->dingNormalCard ? $this->dingNormalCard->toMap() : null;
+            $res['dingNormalCard'] = null !== $this->dingNormalCard ? $this->dingNormalCard->toArray($noStream) : $this->dingNormalCard;
         }
+
         if (null !== $this->markdown) {
-            $res['markdown'] = null !== $this->markdown ? $this->markdown->toMap() : null;
+            $res['markdown'] = null !== $this->markdown ? $this->markdown->toArray($noStream) : $this->markdown;
         }
+
         if (null !== $this->structView) {
-            $res['structView'] = null !== $this->structView ? $this->structView->toMap() : null;
+            $res['structView'] = null !== $this->structView ? $this->structView->toArray($noStream) : $this->structView;
         }
+
         if (null !== $this->text) {
-            $res['text'] = null !== $this->text ? $this->text->toMap() : null;
+            $res['text'] = null !== $this->text ? $this->text->toArray($noStream) : $this->text;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -94,32 +115,38 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cardCallback'])) {
             $model->cardCallback = cardCallback::fromMap($map['cardCallback']);
         }
+
         if (isset($map['dingCard'])) {
             $model->dingCard = dingCard::fromMap($map['dingCard']);
         }
+
         if (isset($map['dingNormalCard'])) {
             $model->dingNormalCard = dingNormalCard::fromMap($map['dingNormalCard']);
         }
+
         if (isset($map['markdown'])) {
             $model->markdown = markdown::fromMap($map['markdown']);
         }
+
         if (isset($map['structView'])) {
             $model->structView = structView::fromMap($map['structView']);
         }
+
         if (isset($map['text'])) {
             $model->text = text::fromMap($map['text']);
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

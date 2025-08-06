@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateMultiDimTableFieldShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example r1R7q3QmWew5lo02fxB7noNyJxxxxxx
-     *
      * @var string
      */
     public $baseId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $name;
@@ -30,8 +24,6 @@ class CreateMultiDimTableFieldShrinkRequest extends Model
     public $propertyShrink;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $sheetIdOrName;
@@ -42,10 +34,6 @@ class CreateMultiDimTableFieldShrinkRequest extends Model
     public $tenantContextShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example text
-     *
      * @var string
      */
     public $type;
@@ -58,26 +46,34 @@ class CreateMultiDimTableFieldShrinkRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baseId) {
             $res['BaseId'] = $this->baseId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->propertyShrink) {
             $res['Property'] = $this->propertyShrink;
         }
+
         if (null !== $this->sheetIdOrName) {
             $res['SheetIdOrName'] = $this->sheetIdOrName;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -85,29 +81,34 @@ class CreateMultiDimTableFieldShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateMultiDimTableFieldShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseId'])) {
             $model->baseId = $map['BaseId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Property'])) {
             $model->propertyShrink = $map['Property'];
         }
+
         if (isset($map['SheetIdOrName'])) {
             $model->sheetIdOrName = $map['SheetIdOrName'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

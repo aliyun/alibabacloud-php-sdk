@@ -4,36 +4,26 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetAssistantCapabilityRequest\messages\content;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dingCard extends Model
 {
     /**
-     * @example {}
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example basic_card_schema
-     *
      * @var string
      */
     public $contentType;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $finished;
 
     /**
-     * @example templateId123
-     *
      * @var string
      */
     public $templateId;
@@ -44,20 +34,26 @@ class dingCard extends Model
         'templateId' => 'templateId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->contentType) {
             $res['contentType'] = $this->contentType;
         }
+
         if (null !== $this->finished) {
             $res['finished'] = $this->finished;
         }
+
         if (null !== $this->templateId) {
             $res['templateId'] = $this->templateId;
         }
@@ -65,23 +61,26 @@ class dingCard extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dingCard
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['contentType'])) {
             $model->contentType = $map['contentType'];
         }
+
         if (isset($map['finished'])) {
             $model->finished = $map['finished'];
         }
+
         if (isset($map['templateId'])) {
             $model->templateId = $map['templateId'];
         }

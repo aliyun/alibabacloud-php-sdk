@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InvokeSkillShrinkRequest extends Model
 {
     /**
-     * @example {}
-     *
      * @var string
      */
     public $paramsShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example a1d033dd-xxxx-49cf-b49b-2068081bb551
-     *
      * @var string
      */
     public $skillId;
@@ -34,17 +28,22 @@ class InvokeSkillShrinkRequest extends Model
         'stream' => 'Stream',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->paramsShrink) {
             $res['Params'] = $this->paramsShrink;
         }
+
         if (null !== $this->skillId) {
             $res['SkillId'] = $this->skillId;
         }
+
         if (null !== $this->stream) {
             $res['Stream'] = $this->stream;
         }
@@ -52,20 +51,22 @@ class InvokeSkillShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InvokeSkillShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Params'])) {
             $model->paramsShrink = $map['Params'];
         }
+
         if (isset($map['SkillId'])) {
             $model->skillId = $map['SkillId'];
         }
+
         if (isset($map['Stream'])) {
             $model->stream = $map['Stream'];
         }

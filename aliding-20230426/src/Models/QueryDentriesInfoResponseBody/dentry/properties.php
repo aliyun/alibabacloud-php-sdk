@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\QueryDentriesInfoResponseBody\dentry;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class properties extends Model
 {
     /**
-     * @example True
-     *
      * @var bool
      */
     public $readOnly;
@@ -18,9 +16,12 @@ class properties extends Model
         'readOnly' => 'ReadOnly',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->readOnly) {
@@ -30,11 +31,11 @@ class properties extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return properties
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

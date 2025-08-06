@@ -4,41 +4,31 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetTaskCopiesResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class currentActivityInstances extends Model
 {
     /**
-     * @example act-xxaanfaf
-     *
      * @var string
      */
     public $activityId;
 
     /**
-     * @example running
-     *
      * @var string
      */
     public $activityInstanceStatus;
 
     /**
-     * @example act-12345
-     *
      * @var string
      */
     public $activityName;
 
     /**
-     * @example redirect task
-     *
      * @var string
      */
     public $activityNameInEnglish;
 
     /**
-     * @example 12345
-     *
      * @var int
      */
     public $id;
@@ -50,23 +40,30 @@ class currentActivityInstances extends Model
         'id' => 'Id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->activityId) {
             $res['ActivityId'] = $this->activityId;
         }
+
         if (null !== $this->activityInstanceStatus) {
             $res['ActivityInstanceStatus'] = $this->activityInstanceStatus;
         }
+
         if (null !== $this->activityName) {
             $res['ActivityName'] = $this->activityName;
         }
+
         if (null !== $this->activityNameInEnglish) {
             $res['ActivityNameInEnglish'] = $this->activityNameInEnglish;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -74,26 +71,30 @@ class currentActivityInstances extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return currentActivityInstances
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActivityId'])) {
             $model->activityId = $map['ActivityId'];
         }
+
         if (isset($map['ActivityInstanceStatus'])) {
             $model->activityInstanceStatus = $map['ActivityInstanceStatus'];
         }
+
         if (isset($map['ActivityName'])) {
             $model->activityName = $map['ActivityName'];
         }
+
         if (isset($map['ActivityNameInEnglish'])) {
             $model->activityNameInEnglish = $map['ActivityNameInEnglish'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

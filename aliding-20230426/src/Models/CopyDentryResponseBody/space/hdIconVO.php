@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CopyDentryResponseBody\space;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hdIconVO extends Model
 {
     /**
-     * @example http://
-     *
      * @var string
      */
     public $icon;
 
     /**
-     * @example type
-     *
      * @var string
      */
     public $type;
@@ -26,14 +22,18 @@ class hdIconVO extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->icon) {
             $res['Icon'] = $this->icon;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -41,17 +41,18 @@ class hdIconVO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hdIconVO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Icon'])) {
             $model->icon = $map['Icon'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

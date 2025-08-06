@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetActivityListRequest extends Model
 {
     /**
-     * @example APP_PBxxx
-     *
      * @var string
      */
     public $appType;
 
     /**
-     * @example zh_CN
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @example TPROC--X1Gxx
-     *
      * @var string
      */
     public $processCode;
 
     /**
-     * @example hexxxx
-     *
      * @var string
      */
     public $systemToken;
@@ -42,20 +34,26 @@ class GetActivityListRequest extends Model
         'systemToken' => 'SystemToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
         }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
+
         if (null !== $this->processCode) {
             $res['ProcessCode'] = $this->processCode;
         }
+
         if (null !== $this->systemToken) {
             $res['SystemToken'] = $this->systemToken;
         }
@@ -63,23 +61,26 @@ class GetActivityListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetActivityListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
         }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
+
         if (isset($map['ProcessCode'])) {
             $model->processCode = $map['ProcessCode'];
         }
+
         if (isset($map['SystemToken'])) {
             $model->systemToken = $map['SystemToken'];
         }

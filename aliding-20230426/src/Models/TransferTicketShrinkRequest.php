@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TransferTicketShrinkRequest extends Model
 {
@@ -14,19 +14,11 @@ class TransferTicketShrinkRequest extends Model
     public $notifyShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example eKWh3xxxxiE
-     *
      * @var string
      */
     public $openTeamId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example Dq9hP8Sk2v6vQxxxxiE
-     *
      * @var string
      */
     public $openTicketId;
@@ -54,26 +46,34 @@ class TransferTicketShrinkRequest extends Model
         'ticketMemoShrink' => 'TicketMemo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->notifyShrink) {
             $res['Notify'] = $this->notifyShrink;
         }
+
         if (null !== $this->openTeamId) {
             $res['OpenTeamId'] = $this->openTeamId;
         }
+
         if (null !== $this->openTicketId) {
             $res['OpenTicketId'] = $this->openTicketId;
         }
+
         if (null !== $this->processorUserIdsShrink) {
             $res['ProcessorUserIds'] = $this->processorUserIdsShrink;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
+
         if (null !== $this->ticketMemoShrink) {
             $res['TicketMemo'] = $this->ticketMemoShrink;
         }
@@ -81,29 +81,34 @@ class TransferTicketShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TransferTicketShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Notify'])) {
             $model->notifyShrink = $map['Notify'];
         }
+
         if (isset($map['OpenTeamId'])) {
             $model->openTeamId = $map['OpenTeamId'];
         }
+
         if (isset($map['OpenTicketId'])) {
             $model->openTicketId = $map['OpenTicketId'];
         }
+
         if (isset($map['ProcessorUserIds'])) {
             $model->processorUserIdsShrink = $map['ProcessorUserIds'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
+
         if (isset($map['TicketMemo'])) {
             $model->ticketMemoShrink = $map['TicketMemo'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetFileDownloadInfoShrinkRequest extends Model
 {
     /**
-     * @example 798xxxxx
-     *
      * @var string
      */
     public $dentryId;
@@ -21,8 +19,6 @@ class GetFileDownloadInfoShrinkRequest extends Model
     public $optionShrink;
 
     /**
-     * @example 854xxxx
-     *
      * @var string
      */
     public $spaceId;
@@ -38,20 +34,26 @@ class GetFileDownloadInfoShrinkRequest extends Model
         'tenantContextShrink' => 'TenantContext',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dentryId) {
             $res['DentryId'] = $this->dentryId;
         }
+
         if (null !== $this->optionShrink) {
             $res['Option'] = $this->optionShrink;
         }
+
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
@@ -59,23 +61,26 @@ class GetFileDownloadInfoShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetFileDownloadInfoShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DentryId'])) {
             $model->dentryId = $map['DentryId'];
         }
+
         if (isset($map['Option'])) {
             $model->optionShrink = $map['Option'];
         }
+
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }

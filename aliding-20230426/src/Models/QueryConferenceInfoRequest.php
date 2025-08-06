@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryConferenceInfoRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 607452e01401526ee39609e1
-     *
      * @var string
      */
     public $conferenceId;
@@ -20,9 +16,12 @@ class QueryConferenceInfoRequest extends Model
         'conferenceId' => 'conferenceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conferenceId) {
@@ -32,11 +31,11 @@ class QueryConferenceInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryConferenceInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

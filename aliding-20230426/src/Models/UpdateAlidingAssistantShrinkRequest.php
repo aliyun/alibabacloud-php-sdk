@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateAlidingAssistantShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1234
-     *
      * @var string
      */
     public $assistantId;
@@ -28,8 +24,6 @@ class UpdateAlidingAssistantShrinkRequest extends Model
     public $extShrink;
 
     /**
-     * @example fallbackContent
-     *
      * @var string
      */
     public $fallbackContent;
@@ -40,8 +34,6 @@ class UpdateAlidingAssistantShrinkRequest extends Model
     public $featureShrink;
 
     /**
-     * @example @lADPDetfgMsFFUvNAkjNAkg
-     *
      * @var string
      */
     public $icon;
@@ -84,41 +76,54 @@ class UpdateAlidingAssistantShrinkRequest extends Model
         'welcomeContent' => 'WelcomeContent',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assistantId) {
             $res['AssistantId'] = $this->assistantId;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->extShrink) {
             $res['Ext'] = $this->extShrink;
         }
+
         if (null !== $this->fallbackContent) {
             $res['FallbackContent'] = $this->fallbackContent;
         }
+
         if (null !== $this->featureShrink) {
             $res['Feature'] = $this->featureShrink;
         }
+
         if (null !== $this->icon) {
             $res['Icon'] = $this->icon;
         }
+
         if (null !== $this->instructions) {
             $res['Instructions'] = $this->instructions;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->recommendPromptsShrink) {
             $res['RecommendPrompts'] = $this->recommendPromptsShrink;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
+
         if (null !== $this->welcomeContent) {
             $res['WelcomeContent'] = $this->welcomeContent;
         }
@@ -126,44 +131,54 @@ class UpdateAlidingAssistantShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateAlidingAssistantShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssistantId'])) {
             $model->assistantId = $map['AssistantId'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Ext'])) {
             $model->extShrink = $map['Ext'];
         }
+
         if (isset($map['FallbackContent'])) {
             $model->fallbackContent = $map['FallbackContent'];
         }
+
         if (isset($map['Feature'])) {
             $model->featureShrink = $map['Feature'];
         }
+
         if (isset($map['Icon'])) {
             $model->icon = $map['Icon'];
         }
+
         if (isset($map['Instructions'])) {
             $model->instructions = $map['Instructions'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RecommendPrompts'])) {
             $model->recommendPromptsShrink = $map['RecommendPrompts'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
+
         if (isset($map['WelcomeContent'])) {
             $model->welcomeContent = $map['WelcomeContent'];
         }

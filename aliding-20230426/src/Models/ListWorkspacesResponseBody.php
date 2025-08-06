@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListWorkspacesResponseBody\workspaces;
-use AlibabaCloud\Tea\Model;
 
 class ListWorkspacesResponseBody extends Model
 {
     /**
-     * @example next_token
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description requestId
-     *
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $requestId;
@@ -35,23 +29,32 @@ class ListWorkspacesResponseBody extends Model
         'workspaces' => 'workspaces',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->workspaces)) {
+            Model::validateArray($this->workspaces);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->workspaces) {
-            $res['workspaces'] = [];
-            if (null !== $this->workspaces && \is_array($this->workspaces)) {
-                $n = 0;
-                foreach ($this->workspaces as $item) {
-                    $res['workspaces'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->workspaces)) {
+                $res['workspaces'] = [];
+                $n1 = 0;
+                foreach ($this->workspaces as $item1) {
+                    $res['workspaces'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -59,26 +62,29 @@ class ListWorkspacesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListWorkspacesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['workspaces'])) {
             if (!empty($map['workspaces'])) {
                 $model->workspaces = [];
-                $n = 0;
-                foreach ($map['workspaces'] as $item) {
-                    $model->workspaces[$n++] = null !== $item ? workspaces::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['workspaces'] as $item1) {
+                    $model->workspaces[$n1] = workspaces::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

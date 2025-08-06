@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryDentryRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class QueryDentryRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $dentryId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $includeSpace;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example space-fxhb96vuddz8htqt
-     *
      * @var string
      */
     public $spaceId;
@@ -45,44 +35,56 @@ class QueryDentryRequest extends Model
         'tenantContext' => 'TenantContext',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dentryId) {
             $res['DentryId'] = $this->dentryId;
         }
+
         if (null !== $this->includeSpace) {
             $res['IncludeSpace'] = $this->includeSpace;
         }
+
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
         }
+
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryDentryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DentryId'])) {
             $model->dentryId = $map['DentryId'];
         }
+
         if (isset($map['IncludeSpace'])) {
             $model->includeSpace = $map['IncludeSpace'];
         }
+
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

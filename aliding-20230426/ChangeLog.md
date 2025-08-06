@@ -1,3 +1,11 @@
+2025-08-06 Version: 2.36.0
+- Support API GetCardTemplate.
+- Update API CreateTodoTask: add request parameters remindNotifyConfigs.
+- Update API CreateTodoTask: add request parameters reminderTimeStamp.
+- Update API CreateTodoTask: add request parameters notifyConfigs.sendAssistantChat.
+- Update API CreateTodoTask: add request parameters notifyConfigs.sendTodoApn.
+
+
 2025-07-16 Version: 2.35.0
 - Support API ChangeDingTalkId.
 

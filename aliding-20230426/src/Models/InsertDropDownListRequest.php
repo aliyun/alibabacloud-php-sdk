@@ -4,33 +4,23 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertDropDownListRequest\options;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertDropDownListRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class InsertDropDownListRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var options[]
      */
     public $options;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example A3:C3
-     *
      * @var string
      */
     public $rangeAddress;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example Sheet1
-     *
      * @var string
      */
     public $sheetId;
@@ -41,10 +31,6 @@ class InsertDropDownListRequest extends Model
     public $tenantContext;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example stxxxx
-     *
      * @var string
      */
     public $workbookId;
@@ -56,29 +42,43 @@ class InsertDropDownListRequest extends Model
         'workbookId' => 'WorkbookId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->options)) {
+            Model::validateArray($this->options);
+        }
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->options) {
-            $res['Options'] = [];
-            if (null !== $this->options && \is_array($this->options)) {
-                $n = 0;
-                foreach ($this->options as $item) {
-                    $res['Options'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->options)) {
+                $res['Options'] = [];
+                $n1 = 0;
+                foreach ($this->options as $item1) {
+                    $res['Options'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->rangeAddress) {
             $res['RangeAddress'] = $this->rangeAddress;
         }
+
         if (null !== $this->sheetId) {
             $res['SheetId'] = $this->sheetId;
         }
+
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
+
         if (null !== $this->workbookId) {
             $res['WorkbookId'] = $this->workbookId;
         }
@@ -86,32 +86,37 @@ class InsertDropDownListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InsertDropDownListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Options'])) {
             if (!empty($map['Options'])) {
                 $model->options = [];
-                $n = 0;
-                foreach ($map['Options'] as $item) {
-                    $model->options[$n++] = null !== $item ? options::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Options'] as $item1) {
+                    $model->options[$n1] = options::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RangeAddress'])) {
             $model->rangeAddress = $map['RangeAddress'];
         }
+
         if (isset($map['SheetId'])) {
             $model->sheetId = $map['SheetId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
+
         if (isset($map['WorkbookId'])) {
             $model->workbookId = $map['WorkbookId'];
         }

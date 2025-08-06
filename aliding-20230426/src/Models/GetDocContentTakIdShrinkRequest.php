@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDocContentTakIdShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example qnYMoO1rWxrkmoj2I5L2PYkoJ47Z3je9
-     *
      * @var string
      */
     public $dentryUuid;
@@ -23,8 +19,6 @@ class GetDocContentTakIdShrinkRequest extends Model
     public $generateCp;
 
     /**
-     * @example markdown
-     *
      * @var string
      */
     public $targetFormat;
@@ -40,20 +34,26 @@ class GetDocContentTakIdShrinkRequest extends Model
         'tenantContextShrink' => 'TenantContext',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dentryUuid) {
             $res['DentryUuid'] = $this->dentryUuid;
         }
+
         if (null !== $this->generateCp) {
             $res['GenerateCp'] = $this->generateCp;
         }
+
         if (null !== $this->targetFormat) {
             $res['TargetFormat'] = $this->targetFormat;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
@@ -61,23 +61,26 @@ class GetDocContentTakIdShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDocContentTakIdShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DentryUuid'])) {
             $model->dentryUuid = $map['DentryUuid'];
         }
+
         if (isset($map['GenerateCp'])) {
             $model->generateCp = $map['GenerateCp'];
         }
+
         if (isset($map['TargetFormat'])) {
             $model->targetFormat = $map['TargetFormat'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }

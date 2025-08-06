@@ -4,35 +4,27 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListWorkspacesRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class ListWorkspacesRequest extends Model
 {
     /**
-     * @example 30
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example 123123
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example VIEW_TIME_DESC
-     *
      * @var string
      */
     public $orderBy;
 
     /**
-     * @example qweqwe
-     *
      * @var string
      */
     public $teamId;
@@ -43,8 +35,6 @@ class ListWorkspacesRequest extends Model
     public $tenantContext;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $withPermissionRole;
@@ -57,26 +47,37 @@ class ListWorkspacesRequest extends Model
         'withPermissionRole' => 'WithPermissionRole',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->orderBy) {
             $res['OrderBy'] = $this->orderBy;
         }
+
         if (null !== $this->teamId) {
             $res['TeamId'] = $this->teamId;
         }
+
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
+
         if (null !== $this->withPermissionRole) {
             $res['WithPermissionRole'] = $this->withPermissionRole;
         }
@@ -84,29 +85,34 @@ class ListWorkspacesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListWorkspacesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['OrderBy'])) {
             $model->orderBy = $map['OrderBy'];
         }
+
         if (isset($map['TeamId'])) {
             $model->teamId = $map['TeamId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
+
         if (isset($map['WithPermissionRole'])) {
             $model->withPermissionRole = $map['WithPermissionRole'];
         }
