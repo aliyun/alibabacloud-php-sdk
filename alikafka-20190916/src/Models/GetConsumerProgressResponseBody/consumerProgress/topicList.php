@@ -4,29 +4,37 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponseBody\consumerProgress;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponseBody\consumerProgress\topicList\topicList;
 
 class topicList extends Model
 {
     /**
-     * @var topicList\topicList[]
+     * @var topicList[]
      */
     public $topicList;
     protected $_name = [
         'topicList' => 'TopicList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->topicList)) {
+            Model::validateArray($this->topicList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->topicList) {
-            $res['TopicList'] = [];
-            if (null !== $this->topicList && \is_array($this->topicList)) {
-                $n = 0;
-                foreach ($this->topicList as $item) {
-                    $res['TopicList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->topicList)) {
+                $res['TopicList'] = [];
+                $n1 = 0;
+                foreach ($this->topicList as $item1) {
+                    $res['TopicList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +42,21 @@ class topicList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return topicList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TopicList'])) {
             if (!empty($map['TopicList'])) {
                 $model->topicList = [];
-                $n = 0;
-                foreach ($map['TopicList'] as $item) {
-                    $model->topicList[$n++] = null !== $item ? topicList\topicList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TopicList'] as $item1) {
+                    $model->topicList[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

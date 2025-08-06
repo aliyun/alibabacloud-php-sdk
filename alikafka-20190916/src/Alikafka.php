@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\ConvertPostPayOrderRequest;
@@ -122,11 +121,10 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePostPayOrderShrinkRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePrePayOrderRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePrePayOrderResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePrePayOrderShrinkRequest;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Alikafka extends OpenApiClient
 {
@@ -151,39 +149,48 @@ class Alikafka extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Changes the resource group of an ApsaraMQ for Kafka instance.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Changes the resource group of an ApsaraMQ for Kafka instance.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->newResourceGroupId)) {
-            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (null !== $request->newResourceGroupId) {
+            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ChangeResourceGroup',
@@ -201,11 +208,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Changes the resource group of an ApsaraMQ for Kafka instance.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * Changes the resource group of an ApsaraMQ for Kafka instance.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -215,31 +226,40 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Changes the billing method of a Message Queue for Apache Kafka instance from pay-as-you-go to subscription.
-     *  *
-     * @param ConvertPostPayOrderRequest $request ConvertPostPayOrderRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Changes the billing method of a Message Queue for Apache Kafka instance from pay-as-you-go to subscription.
      *
-     * @return ConvertPostPayOrderResponse ConvertPostPayOrderResponse
+     * @param request - ConvertPostPayOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConvertPostPayOrderResponse
+     *
+     * @param ConvertPostPayOrderRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ConvertPostPayOrderResponse
      */
     public function convertPostPayOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->duration)) {
-            $query['Duration'] = $request->duration;
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->paidType)) {
-            $query['PaidType'] = $request->paidType;
+
+        if (null !== $request->paidType) {
+            @$query['PaidType'] = $request->paidType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ConvertPostPayOrder',
@@ -257,11 +277,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Changes the billing method of a Message Queue for Apache Kafka instance from pay-as-you-go to subscription.
-     *  *
-     * @param ConvertPostPayOrderRequest $request ConvertPostPayOrderRequest
+     * Changes the billing method of a Message Queue for Apache Kafka instance from pay-as-you-go to subscription.
      *
-     * @return ConvertPostPayOrderResponse ConvertPostPayOrderResponse
+     * @param request - ConvertPostPayOrderRequest
+     *
+     * @returns ConvertPostPayOrderResponse
+     *
+     * @param ConvertPostPayOrderRequest $request
+     *
+     * @return ConvertPostPayOrderResponse
      */
     public function convertPostPayOrder($request)
     {
@@ -271,49 +295,64 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Creates an access control list (ACL).
-     *  *
-     * @param CreateAclRequest $request CreateAclRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Creates an access control list (ACL).
      *
-     * @return CreateAclResponse CreateAclResponse
+     * @param request - CreateAclRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAclResponse
+     *
+     * @param CreateAclRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateAclResponse
      */
     public function createAclWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aclOperationType)) {
-            $query['AclOperationType'] = $request->aclOperationType;
+        if (null !== $request->aclOperationType) {
+            @$query['AclOperationType'] = $request->aclOperationType;
         }
-        if (!Utils::isUnset($request->aclOperationTypes)) {
-            $query['AclOperationTypes'] = $request->aclOperationTypes;
+
+        if (null !== $request->aclOperationTypes) {
+            @$query['AclOperationTypes'] = $request->aclOperationTypes;
         }
-        if (!Utils::isUnset($request->aclPermissionType)) {
-            $query['AclPermissionType'] = $request->aclPermissionType;
+
+        if (null !== $request->aclPermissionType) {
+            @$query['AclPermissionType'] = $request->aclPermissionType;
         }
-        if (!Utils::isUnset($request->aclResourceName)) {
-            $query['AclResourceName'] = $request->aclResourceName;
+
+        if (null !== $request->aclResourceName) {
+            @$query['AclResourceName'] = $request->aclResourceName;
         }
-        if (!Utils::isUnset($request->aclResourcePatternType)) {
-            $query['AclResourcePatternType'] = $request->aclResourcePatternType;
+
+        if (null !== $request->aclResourcePatternType) {
+            @$query['AclResourcePatternType'] = $request->aclResourcePatternType;
         }
-        if (!Utils::isUnset($request->aclResourceType)) {
-            $query['AclResourceType'] = $request->aclResourceType;
+
+        if (null !== $request->aclResourceType) {
+            @$query['AclResourceType'] = $request->aclResourceType;
         }
-        if (!Utils::isUnset($request->host)) {
-            $query['Host'] = $request->host;
+
+        if (null !== $request->host) {
+            @$query['Host'] = $request->host;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->username)) {
-            $query['Username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateAcl',
@@ -331,11 +370,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Creates an access control list (ACL).
-     *  *
-     * @param CreateAclRequest $request CreateAclRequest
+     * Creates an access control list (ACL).
      *
-     * @return CreateAclResponse CreateAclResponse
+     * @param request - CreateAclRequest
+     *
+     * @returns CreateAclResponse
+     *
+     * @param CreateAclRequest $request
+     *
+     * @return CreateAclResponse
      */
     public function createAcl($request)
     {
@@ -345,34 +388,44 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Creates a consumer group.
-     *  *
-     * @param CreateConsumerGroupRequest $request CreateConsumerGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates a consumer group.
      *
-     * @return CreateConsumerGroupResponse CreateConsumerGroupResponse
+     * @param request - CreateConsumerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateConsumerGroupResponse
+     *
+     * @param CreateConsumerGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateConsumerGroupResponse
      */
     public function createConsumerGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->consumerId)) {
-            $query['ConsumerId'] = $request->consumerId;
+        if (null !== $request->consumerId) {
+            @$query['ConsumerId'] = $request->consumerId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateConsumerGroup',
@@ -390,11 +443,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Creates a consumer group.
-     *  *
-     * @param CreateConsumerGroupRequest $request CreateConsumerGroupRequest
+     * Creates a consumer group.
      *
-     * @return CreateConsumerGroupResponse CreateConsumerGroupResponse
+     * @param request - CreateConsumerGroupRequest
+     *
+     * @returns CreateConsumerGroupResponse
+     *
+     * @param CreateConsumerGroupRequest $request
+     *
+     * @return CreateConsumerGroupResponse
      */
     public function createConsumerGroup($request)
     {
@@ -404,60 +461,78 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary 创建后付费实例。
-     *  *
-     * @param CreatePostPayInstanceRequest $tmpReq  CreatePostPayInstanceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 创建后付费实例。
      *
-     * @return CreatePostPayInstanceResponse CreatePostPayInstanceResponse
+     * @param tmpReq - CreatePostPayInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePostPayInstanceResponse
+     *
+     * @param CreatePostPayInstanceRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreatePostPayInstanceResponse
      */
     public function createPostPayInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreatePostPayInstanceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->serverlessConfig)) {
-            $request->serverlessConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serverlessConfig, 'ServerlessConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->serverlessConfig) {
+            $request->serverlessConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->serverlessConfig, 'ServerlessConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deployType)) {
-            $query['DeployType'] = $request->deployType;
+        if (null !== $request->deployType) {
+            @$query['DeployType'] = $request->deployType;
         }
-        if (!Utils::isUnset($request->diskSize)) {
-            $query['DiskSize'] = $request->diskSize;
+
+        if (null !== $request->diskSize) {
+            @$query['DiskSize'] = $request->diskSize;
         }
-        if (!Utils::isUnset($request->diskType)) {
-            $query['DiskType'] = $request->diskType;
+
+        if (null !== $request->diskType) {
+            @$query['DiskType'] = $request->diskType;
         }
-        if (!Utils::isUnset($request->eipMax)) {
-            $query['EipMax'] = $request->eipMax;
+
+        if (null !== $request->eipMax) {
+            @$query['EipMax'] = $request->eipMax;
         }
-        if (!Utils::isUnset($request->ioMaxSpec)) {
-            $query['IoMaxSpec'] = $request->ioMaxSpec;
+
+        if (null !== $request->ioMaxSpec) {
+            @$query['IoMaxSpec'] = $request->ioMaxSpec;
         }
-        if (!Utils::isUnset($request->paidType)) {
-            $query['PaidType'] = $request->paidType;
+
+        if (null !== $request->paidType) {
+            @$query['PaidType'] = $request->paidType;
         }
-        if (!Utils::isUnset($request->partitionNum)) {
-            $query['PartitionNum'] = $request->partitionNum;
+
+        if (null !== $request->partitionNum) {
+            @$query['PartitionNum'] = $request->partitionNum;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->serverlessConfigShrink)) {
-            $query['ServerlessConfig'] = $request->serverlessConfigShrink;
+
+        if (null !== $request->serverlessConfigShrink) {
+            @$query['ServerlessConfig'] = $request->serverlessConfigShrink;
         }
-        if (!Utils::isUnset($request->specType)) {
-            $query['SpecType'] = $request->specType;
+
+        if (null !== $request->specType) {
+            @$query['SpecType'] = $request->specType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreatePostPayInstance',
@@ -475,11 +550,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary 创建后付费实例。
-     *  *
-     * @param CreatePostPayInstanceRequest $request CreatePostPayInstanceRequest
+     * 创建后付费实例。
      *
-     * @return CreatePostPayInstanceResponse CreatePostPayInstanceResponse
+     * @param request - CreatePostPayInstanceRequest
+     *
+     * @returns CreatePostPayInstanceResponse
+     *
+     * @param CreatePostPayInstanceRequest $request
+     *
+     * @return CreatePostPayInstanceResponse
      */
     public function createPostPayInstance($request)
     {
@@ -489,68 +568,89 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Creates a pay-as-you-go ApsaraMQ for Kafka instance. Pay-as-you-go instances allow you to pay after you use the resources. You are charged for pay-as-you-go instances based on the actual resource usage. You can use pay-as-you-go instances in test scenarios or scenarios in which the peak traffic is uncertain.
-     *  *
-     * @description Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-     *  *
-     * @param CreatePostPayOrderRequest $tmpReq  CreatePostPayOrderRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Creates a pay-as-you-go ApsaraMQ for Kafka instance. Pay-as-you-go instances allow you to pay after you use the resources. You are charged for pay-as-you-go instances based on the actual resource usage. You can use pay-as-you-go instances in test scenarios or scenarios in which the peak traffic is uncertain.
      *
-     * @return CreatePostPayOrderResponse CreatePostPayOrderResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+     *
+     * @param tmpReq - CreatePostPayOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePostPayOrderResponse
+     *
+     * @param CreatePostPayOrderRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreatePostPayOrderResponse
      */
     public function createPostPayOrderWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreatePostPayOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->serverlessConfig)) {
-            $request->serverlessConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serverlessConfig, 'ServerlessConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->serverlessConfig) {
+            $request->serverlessConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->serverlessConfig, 'ServerlessConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->deployType)) {
-            $query['DeployType'] = $request->deployType;
+        if (null !== $request->deployType) {
+            @$query['DeployType'] = $request->deployType;
         }
-        if (!Utils::isUnset($request->diskSize)) {
-            $query['DiskSize'] = $request->diskSize;
+
+        if (null !== $request->diskSize) {
+            @$query['DiskSize'] = $request->diskSize;
         }
-        if (!Utils::isUnset($request->diskType)) {
-            $query['DiskType'] = $request->diskType;
+
+        if (null !== $request->diskType) {
+            @$query['DiskType'] = $request->diskType;
         }
-        if (!Utils::isUnset($request->eipMax)) {
-            $query['EipMax'] = $request->eipMax;
+
+        if (null !== $request->eipMax) {
+            @$query['EipMax'] = $request->eipMax;
         }
-        if (!Utils::isUnset($request->ioMax)) {
-            $query['IoMax'] = $request->ioMax;
+
+        if (null !== $request->ioMax) {
+            @$query['IoMax'] = $request->ioMax;
         }
-        if (!Utils::isUnset($request->ioMaxSpec)) {
-            $query['IoMaxSpec'] = $request->ioMaxSpec;
+
+        if (null !== $request->ioMaxSpec) {
+            @$query['IoMaxSpec'] = $request->ioMaxSpec;
         }
-        if (!Utils::isUnset($request->paidType)) {
-            $query['PaidType'] = $request->paidType;
+
+        if (null !== $request->paidType) {
+            @$query['PaidType'] = $request->paidType;
         }
-        if (!Utils::isUnset($request->partitionNum)) {
-            $query['PartitionNum'] = $request->partitionNum;
+
+        if (null !== $request->partitionNum) {
+            @$query['PartitionNum'] = $request->partitionNum;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->serverlessConfigShrink)) {
-            $query['ServerlessConfig'] = $request->serverlessConfigShrink;
+
+        if (null !== $request->serverlessConfigShrink) {
+            @$query['ServerlessConfig'] = $request->serverlessConfigShrink;
         }
-        if (!Utils::isUnset($request->specType)) {
-            $query['SpecType'] = $request->specType;
+
+        if (null !== $request->specType) {
+            @$query['SpecType'] = $request->specType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->topicQuota)) {
-            $query['TopicQuota'] = $request->topicQuota;
+
+        if (null !== $request->topicQuota) {
+            @$query['TopicQuota'] = $request->topicQuota;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreatePostPayOrder',
@@ -568,13 +668,18 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Creates a pay-as-you-go ApsaraMQ for Kafka instance. Pay-as-you-go instances allow you to pay after you use the resources. You are charged for pay-as-you-go instances based on the actual resource usage. You can use pay-as-you-go instances in test scenarios or scenarios in which the peak traffic is uncertain.
-     *  *
-     * @description Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-     *  *
-     * @param CreatePostPayOrderRequest $request CreatePostPayOrderRequest
+     * Creates a pay-as-you-go ApsaraMQ for Kafka instance. Pay-as-you-go instances allow you to pay after you use the resources. You are charged for pay-as-you-go instances based on the actual resource usage. You can use pay-as-you-go instances in test scenarios or scenarios in which the peak traffic is uncertain.
      *
-     * @return CreatePostPayOrderResponse CreatePostPayOrderResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+     *
+     * @param request - CreatePostPayOrderRequest
+     *
+     * @returns CreatePostPayOrderResponse
+     *
+     * @param CreatePostPayOrderRequest $request
+     *
+     * @return CreatePostPayOrderResponse
      */
     public function createPostPayOrder($request)
     {
@@ -584,63 +689,82 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary 创建预付费实例
-     *  *
-     * @param CreatePrePayInstanceRequest $tmpReq  CreatePrePayInstanceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 创建预付费实例.
      *
-     * @return CreatePrePayInstanceResponse CreatePrePayInstanceResponse
+     * @param tmpReq - CreatePrePayInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePrePayInstanceResponse
+     *
+     * @param CreatePrePayInstanceRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreatePrePayInstanceResponse
      */
     public function createPrePayInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreatePrePayInstanceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->confluentConfig)) {
-            $request->confluentConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->confluentConfig, 'ConfluentConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->confluentConfig) {
+            $request->confluentConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->confluentConfig, 'ConfluentConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->confluentConfigShrink)) {
-            $query['ConfluentConfig'] = $request->confluentConfigShrink;
+        if (null !== $request->confluentConfigShrink) {
+            @$query['ConfluentConfig'] = $request->confluentConfigShrink;
         }
-        if (!Utils::isUnset($request->deployType)) {
-            $query['DeployType'] = $request->deployType;
+
+        if (null !== $request->deployType) {
+            @$query['DeployType'] = $request->deployType;
         }
-        if (!Utils::isUnset($request->diskSize)) {
-            $query['DiskSize'] = $request->diskSize;
+
+        if (null !== $request->diskSize) {
+            @$query['DiskSize'] = $request->diskSize;
         }
-        if (!Utils::isUnset($request->diskType)) {
-            $query['DiskType'] = $request->diskType;
+
+        if (null !== $request->diskType) {
+            @$query['DiskType'] = $request->diskType;
         }
-        if (!Utils::isUnset($request->duration)) {
-            $query['Duration'] = $request->duration;
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->eipMax)) {
-            $query['EipMax'] = $request->eipMax;
+
+        if (null !== $request->eipMax) {
+            @$query['EipMax'] = $request->eipMax;
         }
-        if (!Utils::isUnset($request->ioMaxSpec)) {
-            $query['IoMaxSpec'] = $request->ioMaxSpec;
+
+        if (null !== $request->ioMaxSpec) {
+            @$query['IoMaxSpec'] = $request->ioMaxSpec;
         }
-        if (!Utils::isUnset($request->paidType)) {
-            $query['PaidType'] = $request->paidType;
+
+        if (null !== $request->paidType) {
+            @$query['PaidType'] = $request->paidType;
         }
-        if (!Utils::isUnset($request->partitionNum)) {
-            $query['PartitionNum'] = $request->partitionNum;
+
+        if (null !== $request->partitionNum) {
+            @$query['PartitionNum'] = $request->partitionNum;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->specType)) {
-            $query['SpecType'] = $request->specType;
+
+        if (null !== $request->specType) {
+            @$query['SpecType'] = $request->specType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreatePrePayInstance',
@@ -658,11 +782,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary 创建预付费实例
-     *  *
-     * @param CreatePrePayInstanceRequest $request CreatePrePayInstanceRequest
+     * 创建预付费实例.
      *
-     * @return CreatePrePayInstanceResponse CreatePrePayInstanceResponse
+     * @param request - CreatePrePayInstanceRequest
+     *
+     * @returns CreatePrePayInstanceResponse
+     *
+     * @param CreatePrePayInstanceRequest $request
+     *
+     * @return CreatePrePayInstanceResponse
      */
     public function createPrePayInstance($request)
     {
@@ -672,72 +800,94 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Creates a subscription ApsaraMQ for Kafka instance. You can use subscription instances only after you pay for them. Subscription instances are suitable for long-term and stable business scenarios.
-     *  *
-     * @description *   Before you call this operation, make sure that you understand the billing methods and pricing of subscription ApsaraMQ for Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-     * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
-     *  *
-     * @param CreatePrePayOrderRequest $tmpReq  CreatePrePayOrderRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates a subscription ApsaraMQ for Kafka instance. You can use subscription instances only after you pay for them. Subscription instances are suitable for long-term and stable business scenarios.
      *
-     * @return CreatePrePayOrderResponse CreatePrePayOrderResponse
+     * @remarks
+     *   Before you call this operation, make sure that you understand the billing methods and pricing of subscription ApsaraMQ for Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+     * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
+     *
+     * @param tmpReq - CreatePrePayOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePrePayOrderResponse
+     *
+     * @param CreatePrePayOrderRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreatePrePayOrderResponse
      */
     public function createPrePayOrderWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreatePrePayOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->confluentConfig)) {
-            $request->confluentConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->confluentConfig, 'ConfluentConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->confluentConfig) {
+            $request->confluentConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->confluentConfig, 'ConfluentConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->confluentConfigShrink)) {
-            $query['ConfluentConfig'] = $request->confluentConfigShrink;
+        if (null !== $request->confluentConfigShrink) {
+            @$query['ConfluentConfig'] = $request->confluentConfigShrink;
         }
-        if (!Utils::isUnset($request->deployType)) {
-            $query['DeployType'] = $request->deployType;
+
+        if (null !== $request->deployType) {
+            @$query['DeployType'] = $request->deployType;
         }
-        if (!Utils::isUnset($request->diskSize)) {
-            $query['DiskSize'] = $request->diskSize;
+
+        if (null !== $request->diskSize) {
+            @$query['DiskSize'] = $request->diskSize;
         }
-        if (!Utils::isUnset($request->diskType)) {
-            $query['DiskType'] = $request->diskType;
+
+        if (null !== $request->diskType) {
+            @$query['DiskType'] = $request->diskType;
         }
-        if (!Utils::isUnset($request->duration)) {
-            $query['Duration'] = $request->duration;
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->eipMax)) {
-            $query['EipMax'] = $request->eipMax;
+
+        if (null !== $request->eipMax) {
+            @$query['EipMax'] = $request->eipMax;
         }
-        if (!Utils::isUnset($request->ioMax)) {
-            $query['IoMax'] = $request->ioMax;
+
+        if (null !== $request->ioMax) {
+            @$query['IoMax'] = $request->ioMax;
         }
-        if (!Utils::isUnset($request->ioMaxSpec)) {
-            $query['IoMaxSpec'] = $request->ioMaxSpec;
+
+        if (null !== $request->ioMaxSpec) {
+            @$query['IoMaxSpec'] = $request->ioMaxSpec;
         }
-        if (!Utils::isUnset($request->paidType)) {
-            $query['PaidType'] = $request->paidType;
+
+        if (null !== $request->paidType) {
+            @$query['PaidType'] = $request->paidType;
         }
-        if (!Utils::isUnset($request->partitionNum)) {
-            $query['PartitionNum'] = $request->partitionNum;
+
+        if (null !== $request->partitionNum) {
+            @$query['PartitionNum'] = $request->partitionNum;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->specType)) {
-            $query['SpecType'] = $request->specType;
+
+        if (null !== $request->specType) {
+            @$query['SpecType'] = $request->specType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->topicQuota)) {
-            $query['TopicQuota'] = $request->topicQuota;
+
+        if (null !== $request->topicQuota) {
+            @$query['TopicQuota'] = $request->topicQuota;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreatePrePayOrder',
@@ -755,14 +905,19 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Creates a subscription ApsaraMQ for Kafka instance. You can use subscription instances only after you pay for them. Subscription instances are suitable for long-term and stable business scenarios.
-     *  *
-     * @description *   Before you call this operation, make sure that you understand the billing methods and pricing of subscription ApsaraMQ for Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-     * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
-     *  *
-     * @param CreatePrePayOrderRequest $request CreatePrePayOrderRequest
+     * Creates a subscription ApsaraMQ for Kafka instance. You can use subscription instances only after you pay for them. Subscription instances are suitable for long-term and stable business scenarios.
      *
-     * @return CreatePrePayOrderResponse CreatePrePayOrderResponse
+     * @remarks
+     *   Before you call this operation, make sure that you understand the billing methods and pricing of subscription ApsaraMQ for Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+     * *   If you create an ApsaraMQ for Kafka instance by calling this operation, the subscription duration is one month and the auto-renewal feature is enabled by default. The auto-renewal cycle is also one month. If you want to change the auto-renewal cycle or disable the auto-renewal feature, you can go to the [Renewal](https://renew.console.aliyun.com/#/ecs) page in the Alibaba Cloud Management Console.
+     *
+     * @param request - CreatePrePayOrderRequest
+     *
+     * @returns CreatePrePayOrderResponse
+     *
+     * @param CreatePrePayOrderRequest $request
+     *
+     * @return CreatePrePayOrderResponse
      */
     public function createPrePayOrder($request)
     {
@@ -772,37 +927,48 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Simple Authentication and Security Layer (SASL) user.
-     *  *
-     * @param CreateSaslUserRequest $request CreateSaslUserRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Creates a Simple Authentication and Security Layer (SASL) user.
      *
-     * @return CreateSaslUserResponse CreateSaslUserResponse
+     * @param request - CreateSaslUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSaslUserResponse
+     *
+     * @param CreateSaslUserRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateSaslUserResponse
      */
     public function createSaslUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mechanism)) {
-            $query['Mechanism'] = $request->mechanism;
+
+        if (null !== $request->mechanism) {
+            @$query['Mechanism'] = $request->mechanism;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->username)) {
-            $query['Username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateSaslUser',
@@ -820,11 +986,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Simple Authentication and Security Layer (SASL) user.
-     *  *
-     * @param CreateSaslUserRequest $request CreateSaslUserRequest
+     * Creates a Simple Authentication and Security Layer (SASL) user.
      *
-     * @return CreateSaslUserResponse CreateSaslUserResponse
+     * @param request - CreateSaslUserRequest
+     *
+     * @returns CreateSaslUserResponse
+     *
+     * @param CreateSaslUserRequest $request
+     *
+     * @return CreateSaslUserResponse
      */
     public function createSaslUser($request)
     {
@@ -834,62 +1004,81 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Creates a scheduled scaling rule for a serverless ApsaraMQ for Kafka V3 instance.
-     *  *
-     * @description ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
-     *  *
-     * @param CreateScheduledScalingRuleRequest $tmpReq  CreateScheduledScalingRuleRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Creates a scheduled scaling rule for a serverless ApsaraMQ for Kafka V3 instance.
      *
-     * @return CreateScheduledScalingRuleResponse CreateScheduledScalingRuleResponse
+     * @remarks
+     * ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
+     *
+     * @param tmpReq - CreateScheduledScalingRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateScheduledScalingRuleResponse
+     *
+     * @param CreateScheduledScalingRuleRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateScheduledScalingRuleResponse
      */
     public function createScheduledScalingRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateScheduledScalingRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->weeklyTypes)) {
-            $request->weeklyTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->weeklyTypes, 'WeeklyTypes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->weeklyTypes) {
+            $request->weeklyTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->weeklyTypes, 'WeeklyTypes', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->durationMinutes)) {
-            $query['DurationMinutes'] = $request->durationMinutes;
+        if (null !== $request->durationMinutes) {
+            @$query['DurationMinutes'] = $request->durationMinutes;
         }
-        if (!Utils::isUnset($request->enable)) {
-            $query['Enable'] = $request->enable;
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
         }
-        if (!Utils::isUnset($request->firstScheduledTime)) {
-            $query['FirstScheduledTime'] = $request->firstScheduledTime;
+
+        if (null !== $request->firstScheduledTime) {
+            @$query['FirstScheduledTime'] = $request->firstScheduledTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->repeatType)) {
-            $query['RepeatType'] = $request->repeatType;
+
+        if (null !== $request->repeatType) {
+            @$query['RepeatType'] = $request->repeatType;
         }
-        if (!Utils::isUnset($request->reservedPubFlow)) {
-            $query['ReservedPubFlow'] = $request->reservedPubFlow;
+
+        if (null !== $request->reservedPubFlow) {
+            @$query['ReservedPubFlow'] = $request->reservedPubFlow;
         }
-        if (!Utils::isUnset($request->reservedSubFlow)) {
-            $query['ReservedSubFlow'] = $request->reservedSubFlow;
+
+        if (null !== $request->reservedSubFlow) {
+            @$query['ReservedSubFlow'] = $request->reservedSubFlow;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->scheduleType)) {
-            $query['ScheduleType'] = $request->scheduleType;
+
+        if (null !== $request->scheduleType) {
+            @$query['ScheduleType'] = $request->scheduleType;
         }
-        if (!Utils::isUnset($request->timeZone)) {
-            $query['TimeZone'] = $request->timeZone;
+
+        if (null !== $request->timeZone) {
+            @$query['TimeZone'] = $request->timeZone;
         }
-        if (!Utils::isUnset($request->weeklyTypesShrink)) {
-            $query['WeeklyTypes'] = $request->weeklyTypesShrink;
+
+        if (null !== $request->weeklyTypesShrink) {
+            @$query['WeeklyTypes'] = $request->weeklyTypesShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateScheduledScalingRule',
@@ -907,13 +1096,18 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Creates a scheduled scaling rule for a serverless ApsaraMQ for Kafka V3 instance.
-     *  *
-     * @description ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
-     *  *
-     * @param CreateScheduledScalingRuleRequest $request CreateScheduledScalingRuleRequest
+     * Creates a scheduled scaling rule for a serverless ApsaraMQ for Kafka V3 instance.
      *
-     * @return CreateScheduledScalingRuleResponse CreateScheduledScalingRuleResponse
+     * @remarks
+     * ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
+     *
+     * @param request - CreateScheduledScalingRuleRequest
+     *
+     * @returns CreateScheduledScalingRuleResponse
+     *
+     * @param CreateScheduledScalingRuleRequest $request
+     *
+     * @return CreateScheduledScalingRuleResponse
      */
     public function createScheduledScalingRule($request)
     {
@@ -923,55 +1117,72 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Creates a topic.
-     *  *
-     * @description *   Each Alibaba Cloud account can call this operation up to once per second.
-     * *   The maximum number of topics that you can create in an instance is determined by the specification of the instance.
-     *  *
-     * @param CreateTopicRequest $request CreateTopicRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Creates a topic.
      *
-     * @return CreateTopicResponse CreateTopicResponse
+     * @remarks
+     *   Each Alibaba Cloud account can call this operation up to once per second.
+     * *   The maximum number of topics that you can create in an instance is determined by the specification of the instance.
+     *
+     * @param request - CreateTopicRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTopicResponse
+     *
+     * @param CreateTopicRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateTopicResponse
      */
     public function createTopicWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->compactTopic)) {
-            $query['CompactTopic'] = $request->compactTopic;
+        if (null !== $request->compactTopic) {
+            @$query['CompactTopic'] = $request->compactTopic;
         }
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->localTopic)) {
-            $query['LocalTopic'] = $request->localTopic;
+
+        if (null !== $request->localTopic) {
+            @$query['LocalTopic'] = $request->localTopic;
         }
-        if (!Utils::isUnset($request->minInsyncReplicas)) {
-            $query['MinInsyncReplicas'] = $request->minInsyncReplicas;
+
+        if (null !== $request->minInsyncReplicas) {
+            @$query['MinInsyncReplicas'] = $request->minInsyncReplicas;
         }
-        if (!Utils::isUnset($request->partitionNum)) {
-            $query['PartitionNum'] = $request->partitionNum;
+
+        if (null !== $request->partitionNum) {
+            @$query['PartitionNum'] = $request->partitionNum;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->replicationFactor)) {
-            $query['ReplicationFactor'] = $request->replicationFactor;
+
+        if (null !== $request->replicationFactor) {
+            @$query['ReplicationFactor'] = $request->replicationFactor;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $query['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$query['Topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateTopic',
@@ -989,14 +1200,19 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Creates a topic.
-     *  *
-     * @description *   Each Alibaba Cloud account can call this operation up to once per second.
-     * *   The maximum number of topics that you can create in an instance is determined by the specification of the instance.
-     *  *
-     * @param CreateTopicRequest $request CreateTopicRequest
+     * Creates a topic.
      *
-     * @return CreateTopicResponse CreateTopicResponse
+     * @remarks
+     *   Each Alibaba Cloud account can call this operation up to once per second.
+     * *   The maximum number of topics that you can create in an instance is determined by the specification of the instance.
+     *
+     * @param request - CreateTopicRequest
+     *
+     * @returns CreateTopicResponse
+     *
+     * @param CreateTopicRequest $request
+     *
+     * @return CreateTopicResponse
      */
     public function createTopic($request)
     {
@@ -1006,49 +1222,64 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an access control list (ACL).
-     *  *
-     * @param DeleteAclRequest $request DeleteAclRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Deletes an access control list (ACL).
      *
-     * @return DeleteAclResponse DeleteAclResponse
+     * @param request - DeleteAclRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAclResponse
+     *
+     * @param DeleteAclRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteAclResponse
      */
     public function deleteAclWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aclOperationType)) {
-            $query['AclOperationType'] = $request->aclOperationType;
+        if (null !== $request->aclOperationType) {
+            @$query['AclOperationType'] = $request->aclOperationType;
         }
-        if (!Utils::isUnset($request->aclOperationTypes)) {
-            $query['AclOperationTypes'] = $request->aclOperationTypes;
+
+        if (null !== $request->aclOperationTypes) {
+            @$query['AclOperationTypes'] = $request->aclOperationTypes;
         }
-        if (!Utils::isUnset($request->aclPermissionType)) {
-            $query['AclPermissionType'] = $request->aclPermissionType;
+
+        if (null !== $request->aclPermissionType) {
+            @$query['AclPermissionType'] = $request->aclPermissionType;
         }
-        if (!Utils::isUnset($request->aclResourceName)) {
-            $query['AclResourceName'] = $request->aclResourceName;
+
+        if (null !== $request->aclResourceName) {
+            @$query['AclResourceName'] = $request->aclResourceName;
         }
-        if (!Utils::isUnset($request->aclResourcePatternType)) {
-            $query['AclResourcePatternType'] = $request->aclResourcePatternType;
+
+        if (null !== $request->aclResourcePatternType) {
+            @$query['AclResourcePatternType'] = $request->aclResourcePatternType;
         }
-        if (!Utils::isUnset($request->aclResourceType)) {
-            $query['AclResourceType'] = $request->aclResourceType;
+
+        if (null !== $request->aclResourceType) {
+            @$query['AclResourceType'] = $request->aclResourceType;
         }
-        if (!Utils::isUnset($request->host)) {
-            $query['Host'] = $request->host;
+
+        if (null !== $request->host) {
+            @$query['Host'] = $request->host;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->username)) {
-            $query['Username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteAcl',
@@ -1066,11 +1297,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an access control list (ACL).
-     *  *
-     * @param DeleteAclRequest $request DeleteAclRequest
+     * Deletes an access control list (ACL).
      *
-     * @return DeleteAclResponse DeleteAclResponse
+     * @param request - DeleteAclRequest
+     *
+     * @returns DeleteAclResponse
+     *
+     * @param DeleteAclRequest $request
+     *
+     * @return DeleteAclResponse
      */
     public function deleteAcl($request)
     {
@@ -1080,28 +1315,36 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a consumer group from a specified Message Queue for Apache Kafka instance.
-     *  *
-     * @param DeleteConsumerGroupRequest $request DeleteConsumerGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Deletes a consumer group from a specified Message Queue for Apache Kafka instance.
      *
-     * @return DeleteConsumerGroupResponse DeleteConsumerGroupResponse
+     * @param request - DeleteConsumerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteConsumerGroupResponse
+     *
+     * @param DeleteConsumerGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteConsumerGroupResponse
      */
     public function deleteConsumerGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->consumerId)) {
-            $query['ConsumerId'] = $request->consumerId;
+        if (null !== $request->consumerId) {
+            @$query['ConsumerId'] = $request->consumerId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteConsumerGroup',
@@ -1119,11 +1362,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a consumer group from a specified Message Queue for Apache Kafka instance.
-     *  *
-     * @param DeleteConsumerGroupRequest $request DeleteConsumerGroupRequest
+     * Deletes a consumer group from a specified Message Queue for Apache Kafka instance.
      *
-     * @return DeleteConsumerGroupResponse DeleteConsumerGroupResponse
+     * @param request - DeleteConsumerGroupRequest
+     *
+     * @returns DeleteConsumerGroupResponse
+     *
+     * @param DeleteConsumerGroupRequest $request
+     *
+     * @return DeleteConsumerGroupResponse
      */
     public function deleteConsumerGroup($request)
     {
@@ -1133,25 +1380,32 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an instance. You can delete subscription and pay-as-you-go instances after you release them.
-     *  *
-     * @param DeleteInstanceRequest $request DeleteInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes an instance. You can delete subscription and pay-as-you-go instances after you release them.
      *
-     * @return DeleteInstanceResponse DeleteInstanceResponse
+     * @param request - DeleteInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInstanceResponse
+     *
+     * @param DeleteInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteInstance',
@@ -1169,11 +1423,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an instance. You can delete subscription and pay-as-you-go instances after you release them.
-     *  *
-     * @param DeleteInstanceRequest $request DeleteInstanceRequest
+     * Deletes an instance. You can delete subscription and pay-as-you-go instances after you release them.
      *
-     * @return DeleteInstanceResponse DeleteInstanceResponse
+     * @param request - DeleteInstanceRequest
+     *
+     * @returns DeleteInstanceResponse
+     *
+     * @param DeleteInstanceRequest $request
+     *
+     * @return DeleteInstanceResponse
      */
     public function deleteInstance($request)
     {
@@ -1183,34 +1441,44 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a Simple Authentication and Security Layer (SASL) user.
-     *  *
-     * @param DeleteSaslUserRequest $request DeleteSaslUserRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes a Simple Authentication and Security Layer (SASL) user.
      *
-     * @return DeleteSaslUserResponse DeleteSaslUserResponse
+     * @param request - DeleteSaslUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSaslUserResponse
+     *
+     * @param DeleteSaslUserRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteSaslUserResponse
      */
     public function deleteSaslUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mechanism)) {
-            $query['Mechanism'] = $request->mechanism;
+
+        if (null !== $request->mechanism) {
+            @$query['Mechanism'] = $request->mechanism;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->username)) {
-            $query['Username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteSaslUser',
@@ -1228,11 +1496,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a Simple Authentication and Security Layer (SASL) user.
-     *  *
-     * @param DeleteSaslUserRequest $request DeleteSaslUserRequest
+     * Deletes a Simple Authentication and Security Layer (SASL) user.
      *
-     * @return DeleteSaslUserResponse DeleteSaslUserResponse
+     * @param request - DeleteSaslUserRequest
+     *
+     * @returns DeleteSaslUserResponse
+     *
+     * @param DeleteSaslUserRequest $request
+     *
+     * @return DeleteSaslUserResponse
      */
     public function deleteSaslUser($request)
     {
@@ -1242,30 +1514,39 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
-     *  *
-     * @description ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
-     *  *
-     * @param DeleteScheduledScalingRuleRequest $request DeleteScheduledScalingRuleRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Deletes the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
      *
-     * @return DeleteScheduledScalingRuleResponse DeleteScheduledScalingRuleResponse
+     * @remarks
+     * ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
+     *
+     * @param request - DeleteScheduledScalingRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteScheduledScalingRuleResponse
+     *
+     * @param DeleteScheduledScalingRuleRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteScheduledScalingRuleResponse
      */
     public function deleteScheduledScalingRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteScheduledScalingRule',
@@ -1283,13 +1564,18 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
-     *  *
-     * @description ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
-     *  *
-     * @param DeleteScheduledScalingRuleRequest $request DeleteScheduledScalingRuleRequest
+     * Deletes the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
      *
-     * @return DeleteScheduledScalingRuleResponse DeleteScheduledScalingRuleResponse
+     * @remarks
+     * ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
+     *
+     * @param request - DeleteScheduledScalingRuleRequest
+     *
+     * @returns DeleteScheduledScalingRuleResponse
+     *
+     * @param DeleteScheduledScalingRuleRequest $request
+     *
+     * @return DeleteScheduledScalingRuleResponse
      */
     public function deleteScheduledScalingRule($request)
     {
@@ -1299,28 +1585,36 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a topic.
-     *  *
-     * @param DeleteTopicRequest $request DeleteTopicRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Deletes a topic.
      *
-     * @return DeleteTopicResponse DeleteTopicResponse
+     * @param request - DeleteTopicRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTopicResponse
+     *
+     * @param DeleteTopicRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteTopicResponse
      */
     public function deleteTopicWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $query['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$query['Topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteTopic',
@@ -1338,11 +1632,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a topic.
-     *  *
-     * @param DeleteTopicRequest $request DeleteTopicRequest
+     * Deletes a topic.
      *
-     * @return DeleteTopicResponse DeleteTopicResponse
+     * @param request - DeleteTopicRequest
+     *
+     * @returns DeleteTopicResponse
+     *
+     * @param DeleteTopicRequest $request
+     *
+     * @return DeleteTopicResponse
      */
     public function deleteTopic($request)
     {
@@ -1352,31 +1650,40 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary 查询acl资源名
-     *  *
-     * @param DescribeAclResourceNameRequest $request DescribeAclResourceNameRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 查询acl资源名.
      *
-     * @return DescribeAclResourceNameResponse DescribeAclResourceNameResponse
+     * @param request - DescribeAclResourceNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAclResourceNameResponse
+     *
+     * @param DescribeAclResourceNameRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeAclResourceNameResponse
      */
     public function describeAclResourceNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aclResourcePatternType)) {
-            $query['AclResourcePatternType'] = $request->aclResourcePatternType;
+        if (null !== $request->aclResourcePatternType) {
+            @$query['AclResourcePatternType'] = $request->aclResourcePatternType;
         }
-        if (!Utils::isUnset($request->aclResourceType)) {
-            $query['AclResourceType'] = $request->aclResourceType;
+
+        if (null !== $request->aclResourceType) {
+            @$query['AclResourceType'] = $request->aclResourceType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAclResourceName',
@@ -1394,11 +1701,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary 查询acl资源名
-     *  *
-     * @param DescribeAclResourceNameRequest $request DescribeAclResourceNameRequest
+     * 查询acl资源名.
      *
-     * @return DescribeAclResourceNameResponse DescribeAclResourceNameResponse
+     * @param request - DescribeAclResourceNameRequest
+     *
+     * @returns DescribeAclResourceNameResponse
+     *
+     * @param DescribeAclResourceNameRequest $request
+     *
+     * @return DescribeAclResourceNameResponse
      */
     public function describeAclResourceName($request)
     {
@@ -1408,46 +1719,60 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries access control lists (ACLs).
-     *  *
-     * @param DescribeAclsRequest $request DescribeAclsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries access control lists (ACLs).
      *
-     * @return DescribeAclsResponse DescribeAclsResponse
+     * @param request - DescribeAclsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAclsResponse
+     *
+     * @param DescribeAclsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeAclsResponse
      */
     public function describeAclsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aclOperationType)) {
-            $query['AclOperationType'] = $request->aclOperationType;
+        if (null !== $request->aclOperationType) {
+            @$query['AclOperationType'] = $request->aclOperationType;
         }
-        if (!Utils::isUnset($request->aclPermissionType)) {
-            $query['AclPermissionType'] = $request->aclPermissionType;
+
+        if (null !== $request->aclPermissionType) {
+            @$query['AclPermissionType'] = $request->aclPermissionType;
         }
-        if (!Utils::isUnset($request->aclResourceName)) {
-            $query['AclResourceName'] = $request->aclResourceName;
+
+        if (null !== $request->aclResourceName) {
+            @$query['AclResourceName'] = $request->aclResourceName;
         }
-        if (!Utils::isUnset($request->aclResourcePatternType)) {
-            $query['AclResourcePatternType'] = $request->aclResourcePatternType;
+
+        if (null !== $request->aclResourcePatternType) {
+            @$query['AclResourcePatternType'] = $request->aclResourcePatternType;
         }
-        if (!Utils::isUnset($request->aclResourceType)) {
-            $query['AclResourceType'] = $request->aclResourceType;
+
+        if (null !== $request->aclResourceType) {
+            @$query['AclResourceType'] = $request->aclResourceType;
         }
-        if (!Utils::isUnset($request->host)) {
-            $query['Host'] = $request->host;
+
+        if (null !== $request->host) {
+            @$query['Host'] = $request->host;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->username)) {
-            $query['Username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAcls',
@@ -1465,11 +1790,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries access control lists (ACLs).
-     *  *
-     * @param DescribeAclsRequest $request DescribeAclsRequest
+     * Queries access control lists (ACLs).
      *
-     * @return DescribeAclsResponse DescribeAclsResponse
+     * @param request - DescribeAclsRequest
+     *
+     * @returns DescribeAclsResponse
+     *
+     * @param DescribeAclsRequest $request
+     *
+     * @return DescribeAclsResponse
      */
     public function describeAcls($request)
     {
@@ -1479,25 +1808,32 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries Simple Authentication and Security Layer (SASL) users.
-     *  *
-     * @param DescribeSaslUsersRequest $request DescribeSaslUsersRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries Simple Authentication and Security Layer (SASL) users.
      *
-     * @return DescribeSaslUsersResponse DescribeSaslUsersResponse
+     * @param request - DescribeSaslUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSaslUsersResponse
+     *
+     * @param DescribeSaslUsersRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeSaslUsersResponse
      */
     public function describeSaslUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSaslUsers',
@@ -1515,11 +1851,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries Simple Authentication and Security Layer (SASL) users.
-     *  *
-     * @param DescribeSaslUsersRequest $request DescribeSaslUsersRequest
+     * Queries Simple Authentication and Security Layer (SASL) users.
      *
-     * @return DescribeSaslUsersResponse DescribeSaslUsersResponse
+     * @param request - DescribeSaslUsersRequest
+     *
+     * @returns DescribeSaslUsersResponse
+     *
+     * @param DescribeSaslUsersRequest $request
+     *
+     * @return DescribeSaslUsersResponse
      */
     public function describeSaslUsers($request)
     {
@@ -1529,28 +1869,36 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Enables and disables the flexible group creation feature.
-     *  *
-     * @param EnableAutoGroupCreationRequest $request EnableAutoGroupCreationRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Enables and disables the flexible group creation feature.
      *
-     * @return EnableAutoGroupCreationResponse EnableAutoGroupCreationResponse
+     * @param request - EnableAutoGroupCreationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableAutoGroupCreationResponse
+     *
+     * @param EnableAutoGroupCreationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return EnableAutoGroupCreationResponse
      */
     public function enableAutoGroupCreationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->enable)) {
-            $query['Enable'] = $request->enable;
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'EnableAutoGroupCreation',
@@ -1568,11 +1916,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Enables and disables the flexible group creation feature.
-     *  *
-     * @param EnableAutoGroupCreationRequest $request EnableAutoGroupCreationRequest
+     * Enables and disables the flexible group creation feature.
      *
-     * @return EnableAutoGroupCreationResponse EnableAutoGroupCreationResponse
+     * @param request - EnableAutoGroupCreationRequest
+     *
+     * @returns EnableAutoGroupCreationResponse
+     *
+     * @param EnableAutoGroupCreationRequest $request
+     *
+     * @return EnableAutoGroupCreationResponse
      */
     public function enableAutoGroupCreation($request)
     {
@@ -1582,34 +1934,44 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the automatic topic creation feature, or changes the number of partitions in topics that are automatically created.
-     *  *
-     * @param EnableAutoTopicCreationRequest $request EnableAutoTopicCreationRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Enables or disables the automatic topic creation feature, or changes the number of partitions in topics that are automatically created.
      *
-     * @return EnableAutoTopicCreationResponse EnableAutoTopicCreationResponse
+     * @param request - EnableAutoTopicCreationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableAutoTopicCreationResponse
+     *
+     * @param EnableAutoTopicCreationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return EnableAutoTopicCreationResponse
      */
     public function enableAutoTopicCreationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->operate)) {
-            $query['Operate'] = $request->operate;
+
+        if (null !== $request->operate) {
+            @$query['Operate'] = $request->operate;
         }
-        if (!Utils::isUnset($request->partitionNum)) {
-            $query['PartitionNum'] = $request->partitionNum;
+
+        if (null !== $request->partitionNum) {
+            @$query['PartitionNum'] = $request->partitionNum;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->updatePartition)) {
-            $query['UpdatePartition'] = $request->updatePartition;
+
+        if (null !== $request->updatePartition) {
+            @$query['UpdatePartition'] = $request->updatePartition;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'EnableAutoTopicCreation',
@@ -1627,11 +1989,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the automatic topic creation feature, or changes the number of partitions in topics that are automatically created.
-     *  *
-     * @param EnableAutoTopicCreationRequest $request EnableAutoTopicCreationRequest
+     * Enables or disables the automatic topic creation feature, or changes the number of partitions in topics that are automatically created.
      *
-     * @return EnableAutoTopicCreationResponse EnableAutoTopicCreationResponse
+     * @param request - EnableAutoTopicCreationRequest
+     *
+     * @returns EnableAutoTopicCreationResponse
+     *
+     * @param EnableAutoTopicCreationRequest $request
+     *
+     * @return EnableAutoTopicCreationResponse
      */
     public function enableAutoTopicCreation($request)
     {
@@ -1641,22 +2007,28 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the IDs of all instances in the current account.
-     *  *
-     * @param GetAllInstanceIdListRequest $request GetAllInstanceIdListRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the IDs of all instances in the current account.
      *
-     * @return GetAllInstanceIdListResponse GetAllInstanceIdListResponse
+     * @param request - GetAllInstanceIdListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAllInstanceIdListResponse
+     *
+     * @param GetAllInstanceIdListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAllInstanceIdListResponse
      */
     public function getAllInstanceIdListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAllInstanceIdList',
@@ -1674,11 +2046,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the IDs of all instances in the current account.
-     *  *
-     * @param GetAllInstanceIdListRequest $request GetAllInstanceIdListRequest
+     * Queries the IDs of all instances in the current account.
      *
-     * @return GetAllInstanceIdListResponse GetAllInstanceIdListResponse
+     * @param request - GetAllInstanceIdListRequest
+     *
+     * @returns GetAllInstanceIdListResponse
+     *
+     * @param GetAllInstanceIdListRequest $request
+     *
+     * @return GetAllInstanceIdListResponse
      */
     public function getAllInstanceIdList($request)
     {
@@ -1688,25 +2064,32 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the IP address whitelist.
-     *  *
-     * @param GetAllowedIpListRequest $request GetAllowedIpListRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the IP address whitelist.
      *
-     * @return GetAllowedIpListResponse GetAllowedIpListResponse
+     * @param request - GetAllowedIpListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAllowedIpListResponse
+     *
+     * @param GetAllowedIpListRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetAllowedIpListResponse
      */
     public function getAllowedIpListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAllowedIpList',
@@ -1724,11 +2107,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the IP address whitelist.
-     *  *
-     * @param GetAllowedIpListRequest $request GetAllowedIpListRequest
+     * Queries the IP address whitelist.
      *
-     * @return GetAllowedIpListResponse GetAllowedIpListResponse
+     * @param request - GetAllowedIpListRequest
+     *
+     * @returns GetAllowedIpListResponse
+     *
+     * @param GetAllowedIpListRequest $request
+     *
+     * @return GetAllowedIpListResponse
      */
     public function getAllowedIpList($request)
     {
@@ -1738,27 +2125,35 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
-     *  *
-     * @description ###### [](#-serverless-)**This operation is available only for serverless ApsaraMQ for Kafka instances.
-     *  *
-     * @param GetAutoScalingConfigurationRequest $request GetAutoScalingConfigurationRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
      *
-     * @return GetAutoScalingConfigurationResponse GetAutoScalingConfigurationResponse
+     * @remarks
+     * ###### [](#-serverless-)**This operation is available only for serverless ApsaraMQ for Kafka instances.
+     *
+     * @param request - GetAutoScalingConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAutoScalingConfigurationResponse
+     *
+     * @param GetAutoScalingConfigurationRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetAutoScalingConfigurationResponse
      */
     public function getAutoScalingConfigurationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAutoScalingConfiguration',
@@ -1776,13 +2171,18 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
-     *  *
-     * @description ###### [](#-serverless-)**This operation is available only for serverless ApsaraMQ for Kafka instances.
-     *  *
-     * @param GetAutoScalingConfigurationRequest $request GetAutoScalingConfigurationRequest
+     * Queries the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
      *
-     * @return GetAutoScalingConfigurationResponse GetAutoScalingConfigurationResponse
+     * @remarks
+     * ###### [](#-serverless-)**This operation is available only for serverless ApsaraMQ for Kafka instances.
+     *
+     * @param request - GetAutoScalingConfigurationRequest
+     *
+     * @returns GetAutoScalingConfigurationResponse
+     *
+     * @param GetAutoScalingConfigurationRequest $request
+     *
+     * @return GetAutoScalingConfigurationResponse
      */
     public function getAutoScalingConfiguration($request)
     {
@@ -1792,34 +2192,44 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries one or more consumer groups in a specified Message Queue for Apache Kafka instance.
-     *  *
-     * @param GetConsumerListRequest $request GetConsumerListRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries one or more consumer groups in a specified Message Queue for Apache Kafka instance.
      *
-     * @return GetConsumerListResponse GetConsumerListResponse
+     * @param request - GetConsumerListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetConsumerListResponse
+     *
+     * @param GetConsumerListRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetConsumerListResponse
      */
     public function getConsumerListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->consumerId)) {
-            $query['ConsumerId'] = $request->consumerId;
+        if (null !== $request->consumerId) {
+            @$query['ConsumerId'] = $request->consumerId;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetConsumerList',
@@ -1837,11 +2247,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries one or more consumer groups in a specified Message Queue for Apache Kafka instance.
-     *  *
-     * @param GetConsumerListRequest $request GetConsumerListRequest
+     * Queries one or more consumer groups in a specified Message Queue for Apache Kafka instance.
      *
-     * @return GetConsumerListResponse GetConsumerListResponse
+     * @param request - GetConsumerListRequest
+     *
+     * @returns GetConsumerListResponse
+     *
+     * @param GetConsumerListRequest $request
+     *
+     * @return GetConsumerListResponse
      */
     public function getConsumerList($request)
     {
@@ -1851,31 +2265,40 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the consumer progress of a consumer group.
-     *  *
-     * @param GetConsumerProgressRequest $request GetConsumerProgressRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the consumer progress of a consumer group.
      *
-     * @return GetConsumerProgressResponse GetConsumerProgressResponse
+     * @param request - GetConsumerProgressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetConsumerProgressResponse
+     *
+     * @param GetConsumerProgressRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetConsumerProgressResponse
      */
     public function getConsumerProgressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->consumerId)) {
-            $query['ConsumerId'] = $request->consumerId;
+        if (null !== $request->consumerId) {
+            @$query['ConsumerId'] = $request->consumerId;
         }
-        if (!Utils::isUnset($request->hideLastTimestamp)) {
-            $query['HideLastTimestamp'] = $request->hideLastTimestamp;
+
+        if (null !== $request->hideLastTimestamp) {
+            @$query['HideLastTimestamp'] = $request->hideLastTimestamp;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetConsumerProgress',
@@ -1893,11 +2316,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the consumer progress of a consumer group.
-     *  *
-     * @param GetConsumerProgressRequest $request GetConsumerProgressRequest
+     * Queries the consumer progress of a consumer group.
      *
-     * @return GetConsumerProgressResponse GetConsumerProgressResponse
+     * @param request - GetConsumerProgressRequest
+     *
+     * @returns GetConsumerProgressResponse
+     *
+     * @param GetConsumerProgressRequest $request
+     *
+     * @return GetConsumerProgressResponse
      */
     public function getConsumerProgress($request)
     {
@@ -1907,37 +2334,48 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about instances in a specified region.
-     *  *
-     * @param GetInstanceListRequest $request GetInstanceListRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the information about instances in a specified region.
      *
-     * @return GetInstanceListResponse GetInstanceListResponse
+     * @param request - GetInstanceListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceListResponse
+     *
+     * @param GetInstanceListRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetInstanceListResponse
      */
     public function getInstanceListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->series)) {
-            $query['Series'] = $request->series;
+
+        if (null !== $request->series) {
+            @$query['Series'] = $request->series;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetInstanceList',
@@ -1955,11 +2393,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about instances in a specified region.
-     *  *
-     * @param GetInstanceListRequest $request GetInstanceListRequest
+     * Queries the information about instances in a specified region.
      *
-     * @return GetInstanceListResponse GetInstanceListResponse
+     * @param request - GetInstanceListRequest
+     *
+     * @returns GetInstanceListResponse
+     *
+     * @param GetInstanceListRequest $request
+     *
+     * @return GetInstanceListResponse
      */
     public function getInstanceList($request)
     {
@@ -1969,44 +2411,57 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the IP addresses of the clients that are connected to an ApsaraMQ for Kafka instance.
-     *  *
-     * @description *   The IP information is obtained from the sampled logs generated for the requests that the client sends to the broker by calling the API operations of ApsaraMQ for Kafka.
+     * Queries the IP addresses of the clients that are connected to an ApsaraMQ for Kafka instance.
+     *
+     * @remarks
+     *   The IP information is obtained from the sampled logs generated for the requests that the client sends to the broker by calling the API operations of ApsaraMQ for Kafka.
      * *   Statistics refers to the number of connections on different ports of an IP address within a specific period of time.
      * *   If the broker is not of the latest minor version, the sampled logs may not be accurate. This may cause inaccurate IP information. Therefore, we recommend that you update your broker to the latest version at the earliest opportunity.
-     *  *
-     * @param GetKafkaClientIpRequest $request GetKafkaClientIpRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetKafkaClientIpResponse GetKafkaClientIpResponse
+     * @param request - GetKafkaClientIpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetKafkaClientIpResponse
+     *
+     * @param GetKafkaClientIpRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetKafkaClientIpResponse
      */
     public function getKafkaClientIpWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->group)) {
-            $query['Group'] = $request->group;
+
+        if (null !== $request->group) {
+            @$query['Group'] = $request->group;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $query['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$query['Topic'] = $request->topic;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetKafkaClientIp',
@@ -2024,15 +2479,20 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the IP addresses of the clients that are connected to an ApsaraMQ for Kafka instance.
-     *  *
-     * @description *   The IP information is obtained from the sampled logs generated for the requests that the client sends to the broker by calling the API operations of ApsaraMQ for Kafka.
+     * Queries the IP addresses of the clients that are connected to an ApsaraMQ for Kafka instance.
+     *
+     * @remarks
+     *   The IP information is obtained from the sampled logs generated for the requests that the client sends to the broker by calling the API operations of ApsaraMQ for Kafka.
      * *   Statistics refers to the number of connections on different ports of an IP address within a specific period of time.
      * *   If the broker is not of the latest minor version, the sampled logs may not be accurate. This may cause inaccurate IP information. Therefore, we recommend that you update your broker to the latest version at the earliest opportunity.
-     *  *
-     * @param GetKafkaClientIpRequest $request GetKafkaClientIpRequest
      *
-     * @return GetKafkaClientIpResponse GetKafkaClientIpResponse
+     * @param request - GetKafkaClientIpRequest
+     *
+     * @returns GetKafkaClientIpResponse
+     *
+     * @param GetKafkaClientIpRequest $request
+     *
+     * @return GetKafkaClientIpResponse
      */
     public function getKafkaClientIp($request)
     {
@@ -2042,25 +2502,32 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the used quota of topics and partitions.
-     *  *
-     * @param GetQuotaTipRequest $request GetQuotaTipRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the used quota of topics and partitions.
      *
-     * @return GetQuotaTipResponse GetQuotaTipResponse
+     * @param request - GetQuotaTipRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQuotaTipResponse
+     *
+     * @param GetQuotaTipRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetQuotaTipResponse
      */
     public function getQuotaTipWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetQuotaTip',
@@ -2078,11 +2545,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the used quota of topics and partitions.
-     *  *
-     * @param GetQuotaTipRequest $request GetQuotaTipRequest
+     * Queries the used quota of topics and partitions.
      *
-     * @return GetQuotaTipResponse GetQuotaTipResponse
+     * @param request - GetQuotaTipRequest
+     *
+     * @returns GetQuotaTipResponse
+     *
+     * @param GetQuotaTipRequest $request
+     *
+     * @return GetQuotaTipResponse
      */
     public function getQuotaTip($request)
     {
@@ -2092,31 +2563,40 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例风险列表
-     *  *
-     * @param GetRiskListRequest $request GetRiskListRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 查询实例风险列表.
      *
-     * @return GetRiskListResponse GetRiskListResponse
+     * @param request - GetRiskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRiskListResponse
+     *
+     * @param GetRiskListRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetRiskListResponse
      */
     public function getRiskListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startIndex)) {
-            $query['StartIndex'] = $request->startIndex;
+
+        if (null !== $request->startIndex) {
+            @$query['StartIndex'] = $request->startIndex;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetRiskList',
@@ -2134,11 +2614,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例风险列表
-     *  *
-     * @param GetRiskListRequest $request GetRiskListRequest
+     * 查询实例风险列表.
      *
-     * @return GetRiskListResponse GetRiskListResponse
+     * @param request - GetRiskListRequest
+     *
+     * @returns GetRiskListResponse
+     *
+     * @param GetRiskListRequest $request
+     *
+     * @return GetRiskListResponse
      */
     public function getRiskList($request)
     {
@@ -2148,34 +2632,44 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a topic.
-     *  *
-     * @param GetTopicListRequest $request GetTopicListRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a topic.
      *
-     * @return GetTopicListResponse GetTopicListResponse
+     * @param request - GetTopicListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTopicListResponse
+     *
+     * @param GetTopicListRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetTopicListResponse
      */
     public function getTopicListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $query['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$query['Topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetTopicList',
@@ -2193,11 +2687,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a topic.
-     *  *
-     * @param GetTopicListRequest $request GetTopicListRequest
+     * Queries the information about a topic.
      *
-     * @return GetTopicListResponse GetTopicListResponse
+     * @param request - GetTopicListRequest
+     *
+     * @returns GetTopicListResponse
+     *
+     * @param GetTopicListRequest $request
+     *
+     * @return GetTopicListResponse
      */
     public function getTopicList($request)
     {
@@ -2207,28 +2705,36 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the messaging status of a topic.
-     *  *
-     * @param GetTopicStatusRequest $request GetTopicStatusRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the messaging status of a topic.
      *
-     * @return GetTopicStatusResponse GetTopicStatusResponse
+     * @param request - GetTopicStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTopicStatusResponse
+     *
+     * @param GetTopicStatusRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetTopicStatusResponse
      */
     public function getTopicStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $query['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$query['Topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetTopicStatus',
@@ -2246,11 +2752,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the messaging status of a topic.
-     *  *
-     * @param GetTopicStatusRequest $request GetTopicStatusRequest
+     * Queries the messaging status of a topic.
      *
-     * @return GetTopicStatusResponse GetTopicStatusResponse
+     * @param request - GetTopicStatusRequest
+     *
+     * @returns GetTopicStatusResponse
+     *
+     * @param GetTopicStatusRequest $request
+     *
+     * @return GetTopicStatusResponse
      */
     public function getTopicStatus($request)
     {
@@ -2260,28 +2770,36 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the groups that subscribe to a topic.
-     *  *
-     * @param GetTopicSubscribeStatusRequest $request GetTopicSubscribeStatusRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the information about the groups that subscribe to a topic.
      *
-     * @return GetTopicSubscribeStatusResponse GetTopicSubscribeStatusResponse
+     * @param request - GetTopicSubscribeStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTopicSubscribeStatusResponse
+     *
+     * @param GetTopicSubscribeStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetTopicSubscribeStatusResponse
      */
     public function getTopicSubscribeStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $query['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$query['Topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetTopicSubscribeStatus',
@@ -2299,11 +2817,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the groups that subscribe to a topic.
-     *  *
-     * @param GetTopicSubscribeStatusRequest $request GetTopicSubscribeStatusRequest
+     * Queries the information about the groups that subscribe to a topic.
      *
-     * @return GetTopicSubscribeStatusResponse GetTopicSubscribeStatusResponse
+     * @param request - GetTopicSubscribeStatusRequest
+     *
+     * @returns GetTopicSubscribeStatusResponse
+     *
+     * @param GetTopicSubscribeStatusRequest $request
+     *
+     * @return GetTopicSubscribeStatusResponse
      */
     public function getTopicSubscribeStatus($request)
     {
@@ -2313,28 +2835,36 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary 获取Rebalance详情
-     *  *
-     * @param ListRebalanceInfoRequest $request ListRebalanceInfoRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 获取Rebalance详情.
      *
-     * @return ListRebalanceInfoResponse ListRebalanceInfoResponse
+     * @param request - ListRebalanceInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRebalanceInfoResponse
+     *
+     * @param ListRebalanceInfoRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListRebalanceInfoResponse
      */
     public function listRebalanceInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->consumerId)) {
-            $query['ConsumerId'] = $request->consumerId;
+        if (null !== $request->consumerId) {
+            @$query['ConsumerId'] = $request->consumerId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListRebalanceInfo',
@@ -2352,11 +2882,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary 获取Rebalance详情
-     *  *
-     * @param ListRebalanceInfoRequest $request ListRebalanceInfoRequest
+     * 获取Rebalance详情.
      *
-     * @return ListRebalanceInfoResponse ListRebalanceInfoResponse
+     * @param request - ListRebalanceInfoRequest
+     *
+     * @returns ListRebalanceInfoResponse
+     *
+     * @param ListRebalanceInfoRequest $request
+     *
+     * @return ListRebalanceInfoResponse
      */
     public function listRebalanceInfo($request)
     {
@@ -2366,34 +2900,44 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tags that are attached to a specified resource.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the tags that are attached to a specified resource.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTagResources',
@@ -2411,11 +2955,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tags that are attached to a specified resource.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * Queries the tags that are attached to a specified resource.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -2425,28 +2973,36 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Changes the name of an ApsaraMQ for Kafka instance. After you deploy an instance, you can call this operation to change the name of the instance.
-     *  *
-     * @param ModifyInstanceNameRequest $request ModifyInstanceNameRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Changes the name of an ApsaraMQ for Kafka instance. After you deploy an instance, you can call this operation to change the name of the instance.
      *
-     * @return ModifyInstanceNameResponse ModifyInstanceNameResponse
+     * @param request - ModifyInstanceNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyInstanceNameResponse
+     *
+     * @param ModifyInstanceNameRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyInstanceNameResponse
      */
     public function modifyInstanceNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $query['InstanceName'] = $request->instanceName;
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyInstanceName',
@@ -2464,11 +3020,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Changes the name of an ApsaraMQ for Kafka instance. After you deploy an instance, you can call this operation to change the name of the instance.
-     *  *
-     * @param ModifyInstanceNameRequest $request ModifyInstanceNameRequest
+     * Changes the name of an ApsaraMQ for Kafka instance. After you deploy an instance, you can call this operation to change the name of the instance.
      *
-     * @return ModifyInstanceNameResponse ModifyInstanceNameResponse
+     * @param request - ModifyInstanceNameRequest
+     *
+     * @returns ModifyInstanceNameResponse
+     *
+     * @param ModifyInstanceNameRequest $request
+     *
+     * @return ModifyInstanceNameResponse
      */
     public function modifyInstanceName($request)
     {
@@ -2478,31 +3038,40 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Changes the number of partitions in a topic.
-     *  *
-     * @param ModifyPartitionNumRequest $request ModifyPartitionNumRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Changes the number of partitions in a topic.
      *
-     * @return ModifyPartitionNumResponse ModifyPartitionNumResponse
+     * @param request - ModifyPartitionNumRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPartitionNumResponse
+     *
+     * @param ModifyPartitionNumRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyPartitionNumResponse
      */
     public function modifyPartitionNumWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addPartitionNum)) {
-            $query['AddPartitionNum'] = $request->addPartitionNum;
+        if (null !== $request->addPartitionNum) {
+            @$query['AddPartitionNum'] = $request->addPartitionNum;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $query['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$query['Topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyPartitionNum',
@@ -2520,11 +3089,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Changes the number of partitions in a topic.
-     *  *
-     * @param ModifyPartitionNumRequest $request ModifyPartitionNumRequest
+     * Changes the number of partitions in a topic.
      *
-     * @return ModifyPartitionNumResponse ModifyPartitionNumResponse
+     * @param request - ModifyPartitionNumRequest
+     *
+     * @returns ModifyPartitionNumResponse
+     *
+     * @param ModifyPartitionNumRequest $request
+     *
+     * @return ModifyPartitionNumResponse
      */
     public function modifyPartitionNum($request)
     {
@@ -2534,33 +3107,43 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
-     *  *
-     * @description ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
-     *  *
-     * @param ModifyScheduledScalingRuleRequest $request ModifyScheduledScalingRuleRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Modifies the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
      *
-     * @return ModifyScheduledScalingRuleResponse ModifyScheduledScalingRuleResponse
+     * @remarks
+     * ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
+     *
+     * @param request - ModifyScheduledScalingRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyScheduledScalingRuleResponse
+     *
+     * @param ModifyScheduledScalingRuleRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyScheduledScalingRuleResponse
      */
     public function modifyScheduledScalingRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->enable)) {
-            $query['Enable'] = $request->enable;
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyScheduledScalingRule',
@@ -2578,13 +3161,18 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
-     *  *
-     * @description ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
-     *  *
-     * @param ModifyScheduledScalingRuleRequest $request ModifyScheduledScalingRuleRequest
+     * Modifies the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
      *
-     * @return ModifyScheduledScalingRuleResponse ModifyScheduledScalingRuleResponse
+     * @remarks
+     * ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
+     *
+     * @param request - ModifyScheduledScalingRuleRequest
+     *
+     * @returns ModifyScheduledScalingRuleResponse
+     *
+     * @param ModifyScheduledScalingRuleRequest $request
+     *
+     * @return ModifyScheduledScalingRuleResponse
      */
     public function modifyScheduledScalingRule($request)
     {
@@ -2594,31 +3182,40 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of a topic.
-     *  *
-     * @param ModifyTopicRemarkRequest $request ModifyTopicRemarkRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Modifies the description of a topic.
      *
-     * @return ModifyTopicRemarkResponse ModifyTopicRemarkResponse
+     * @param request - ModifyTopicRemarkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyTopicRemarkResponse
+     *
+     * @param ModifyTopicRemarkRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyTopicRemarkResponse
      */
     public function modifyTopicRemarkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $query['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$query['Topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyTopicRemark',
@@ -2636,11 +3233,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of a topic.
-     *  *
-     * @param ModifyTopicRemarkRequest $request ModifyTopicRemarkRequest
+     * Modifies the description of a topic.
      *
-     * @return ModifyTopicRemarkResponse ModifyTopicRemarkResponse
+     * @param request - ModifyTopicRemarkRequest
+     *
+     * @returns ModifyTopicRemarkResponse
+     *
+     * @param ModifyTopicRemarkRequest $request
+     *
+     * @return ModifyTopicRemarkResponse
      */
     public function modifyTopicRemark($request)
     {
@@ -2650,19 +3251,24 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries messages stored in a topic. You can query messages by creation time or offset.
-     *  *
-     * @param QueryMessageRequest $request QueryMessageRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries messages stored in a topic. You can query messages by creation time or offset.
      *
-     * @return QueryMessageResponse QueryMessageResponse
+     * @param request - QueryMessageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryMessageResponse
+     *
+     * @param QueryMessageRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return QueryMessageResponse
      */
     public function queryMessageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryMessage',
@@ -2680,11 +3286,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries messages stored in a topic. You can query messages by creation time or offset.
-     *  *
-     * @param QueryMessageRequest $request QueryMessageRequest
+     * Queries messages stored in a topic. You can query messages by creation time or offset.
      *
-     * @return QueryMessageResponse QueryMessageResponse
+     * @param request - QueryMessageRequest
+     *
+     * @returns QueryMessageResponse
+     *
+     * @param QueryMessageRequest $request
+     *
+     * @return QueryMessageResponse
      */
     public function queryMessage($request)
     {
@@ -2694,30 +3304,39 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Releases a pay-as-you-go instance.
-     *  *
-     * @description You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
-     *  *
-     * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Releases a pay-as-you-go instance.
      *
-     * @return ReleaseInstanceResponse ReleaseInstanceResponse
+     * @remarks
+     * You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
+     *
+     * @param request - ReleaseInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReleaseInstanceResponse
+     *
+     * @param ReleaseInstanceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ReleaseInstanceResponse
      */
     public function releaseInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->forceDeleteInstance)) {
-            $query['ForceDeleteInstance'] = $request->forceDeleteInstance;
+        if (null !== $request->forceDeleteInstance) {
+            @$query['ForceDeleteInstance'] = $request->forceDeleteInstance;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ReleaseInstance',
@@ -2735,13 +3354,18 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Releases a pay-as-you-go instance.
-     *  *
-     * @description You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
-     *  *
-     * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
+     * Releases a pay-as-you-go instance.
      *
-     * @return ReleaseInstanceResponse ReleaseInstanceResponse
+     * @remarks
+     * You cannot call this operation to release a subscription Message Queue for Apache Kafka instance.
+     *
+     * @param request - ReleaseInstanceRequest
+     *
+     * @returns ReleaseInstanceResponse
+     *
+     * @param ReleaseInstanceRequest $request
+     *
+     * @return ReleaseInstanceResponse
      */
     public function releaseInstance($request)
     {
@@ -2751,27 +3375,35 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Enables an ApsaraMQ for Kafka instance.
-     *  *
-     * @description You can call this operation only if your instance is in the Stopped state.
-     *  *
-     * @param ReopenInstanceRequest $request ReopenInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Enables an ApsaraMQ for Kafka instance.
      *
-     * @return ReopenInstanceResponse ReopenInstanceResponse
+     * @remarks
+     * You can call this operation only if your instance is in the Stopped state.
+     *
+     * @param request - ReopenInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ReopenInstanceResponse
+     *
+     * @param ReopenInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ReopenInstanceResponse
      */
     public function reopenInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ReopenInstance',
@@ -2789,13 +3421,18 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Enables an ApsaraMQ for Kafka instance.
-     *  *
-     * @description You can call this operation only if your instance is in the Stopped state.
-     *  *
-     * @param ReopenInstanceRequest $request ReopenInstanceRequest
+     * Enables an ApsaraMQ for Kafka instance.
      *
-     * @return ReopenInstanceResponse ReopenInstanceResponse
+     * @remarks
+     * You can call this operation only if your instance is in the Stopped state.
+     *
+     * @param request - ReopenInstanceRequest
+     *
+     * @returns ReopenInstanceResponse
+     *
+     * @param ReopenInstanceRequest $request
+     *
+     * @return ReopenInstanceResponse
      */
     public function reopenInstance($request)
     {
@@ -2805,84 +3442,111 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Deploys an ApsaraMQ for Kafka instance. You must purchase and deploy an ApsaraMQ for Kafka instance before you can use the instance to send and receive messages.
-     *  *
-     * @description >  You can call this operation up to twice per second.
-     *  *
-     * @param StartInstanceRequest $request StartInstanceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deploys an ApsaraMQ for Kafka instance. You must purchase and deploy an ApsaraMQ for Kafka instance before you can use the instance to send and receive messages.
      *
-     * @return StartInstanceResponse StartInstanceResponse
+     * @remarks
+     * >  You can call this operation up to twice per second.
+     *
+     * @param request - StartInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartInstanceResponse
+     *
+     * @param StartInstanceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StartInstanceResponse
      */
     public function startInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->crossZone)) {
-            $query['CrossZone'] = $request->crossZone;
+
+        if (null !== $request->crossZone) {
+            @$query['CrossZone'] = $request->crossZone;
         }
-        if (!Utils::isUnset($request->deployModule)) {
-            $query['DeployModule'] = $request->deployModule;
+
+        if (null !== $request->deployModule) {
+            @$query['DeployModule'] = $request->deployModule;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->isEipInner)) {
-            $query['IsEipInner'] = $request->isEipInner;
+
+        if (null !== $request->isEipInner) {
+            @$query['IsEipInner'] = $request->isEipInner;
         }
-        if (!Utils::isUnset($request->isForceSelectedZones)) {
-            $query['IsForceSelectedZones'] = $request->isForceSelectedZones;
+
+        if (null !== $request->isForceSelectedZones) {
+            @$query['IsForceSelectedZones'] = $request->isForceSelectedZones;
         }
-        if (!Utils::isUnset($request->isSetUserAndPassword)) {
-            $query['IsSetUserAndPassword'] = $request->isSetUserAndPassword;
+
+        if (null !== $request->isSetUserAndPassword) {
+            @$query['IsSetUserAndPassword'] = $request->isSetUserAndPassword;
         }
-        if (!Utils::isUnset($request->KMSKeyId)) {
-            $query['KMSKeyId'] = $request->KMSKeyId;
+
+        if (null !== $request->KMSKeyId) {
+            @$query['KMSKeyId'] = $request->KMSKeyId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->notifier)) {
-            $query['Notifier'] = $request->notifier;
+
+        if (null !== $request->notifier) {
+            @$query['Notifier'] = $request->notifier;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->securityGroup)) {
-            $query['SecurityGroup'] = $request->securityGroup;
+
+        if (null !== $request->securityGroup) {
+            @$query['SecurityGroup'] = $request->securityGroup;
         }
-        if (!Utils::isUnset($request->selectedZones)) {
-            $query['SelectedZones'] = $request->selectedZones;
+
+        if (null !== $request->selectedZones) {
+            @$query['SelectedZones'] = $request->selectedZones;
         }
-        if (!Utils::isUnset($request->serviceVersion)) {
-            $query['ServiceVersion'] = $request->serviceVersion;
+
+        if (null !== $request->serviceVersion) {
+            @$query['ServiceVersion'] = $request->serviceVersion;
         }
-        if (!Utils::isUnset($request->userPhoneNum)) {
-            $query['UserPhoneNum'] = $request->userPhoneNum;
+
+        if (null !== $request->userPhoneNum) {
+            @$query['UserPhoneNum'] = $request->userPhoneNum;
         }
-        if (!Utils::isUnset($request->username)) {
-            $query['Username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vSwitchIds)) {
-            $query['VSwitchIds'] = $request->vSwitchIds;
+
+        if (null !== $request->vSwitchIds) {
+            @$query['VSwitchIds'] = $request->vSwitchIds;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'StartInstance',
@@ -2900,13 +3564,18 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Deploys an ApsaraMQ for Kafka instance. You must purchase and deploy an ApsaraMQ for Kafka instance before you can use the instance to send and receive messages.
-     *  *
-     * @description >  You can call this operation up to twice per second.
-     *  *
-     * @param StartInstanceRequest $request StartInstanceRequest
+     * Deploys an ApsaraMQ for Kafka instance. You must purchase and deploy an ApsaraMQ for Kafka instance before you can use the instance to send and receive messages.
      *
-     * @return StartInstanceResponse StartInstanceResponse
+     * @remarks
+     * >  You can call this operation up to twice per second.
+     *
+     * @param request - StartInstanceRequest
+     *
+     * @returns StartInstanceResponse
+     *
+     * @param StartInstanceRequest $request
+     *
+     * @return StartInstanceResponse
      */
     public function startInstance($request)
     {
@@ -2916,27 +3585,35 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Stops an ApsaraMQ for Kafka instance.
-     *  *
-     * @description You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
-     *  *
-     * @param StopInstanceRequest $request StopInstanceRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Stops an ApsaraMQ for Kafka instance.
      *
-     * @return StopInstanceResponse StopInstanceResponse
+     * @remarks
+     * You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
+     *
+     * @param request - StopInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopInstanceResponse
+     *
+     * @param StopInstanceRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return StopInstanceResponse
      */
     public function stopInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'StopInstance',
@@ -2954,13 +3631,18 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Stops an ApsaraMQ for Kafka instance.
-     *  *
-     * @description You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
-     *  *
-     * @param StopInstanceRequest $request StopInstanceRequest
+     * Stops an ApsaraMQ for Kafka instance.
      *
-     * @return StopInstanceResponse StopInstanceResponse
+     * @remarks
+     * You cannot stop a subscription ApsaraMQ for Kafka instance. If you want to stop a subscription ApsaraMQ for Kafka instance, submit a ticket.
+     *
+     * @param request - StopInstanceRequest
+     *
+     * @returns StopInstanceResponse
+     *
+     * @param StopInstanceRequest $request
+     *
+     * @return StopInstanceResponse
      */
     public function stopInstance($request)
     {
@@ -2970,34 +3652,44 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Attaches a tag to a resource.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Attaches a tag to a resource.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'TagResources',
@@ -3015,11 +3707,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Attaches a tag to a resource.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * Attaches a tag to a resource.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -3029,34 +3725,44 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Detaches tags from a specified resource.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Detaches tags from a specified resource.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UntagResources',
@@ -3074,11 +3780,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Detaches tags from a specified resource.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Detaches tags from a specified resource.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -3088,40 +3798,52 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Updates the IP address whitelist of an ApsaraMQ for Kafka instance. Only IP addresses and ports that are configured in the IP address whitelist of an instance can access the instance.
-     *  *
-     * @param UpdateAllowedIpRequest $request UpdateAllowedIpRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Updates the IP address whitelist of an ApsaraMQ for Kafka instance. Only IP addresses and ports that are configured in the IP address whitelist of an instance can access the instance.
      *
-     * @return UpdateAllowedIpResponse UpdateAllowedIpResponse
+     * @param request - UpdateAllowedIpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateAllowedIpResponse
+     *
+     * @param UpdateAllowedIpRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateAllowedIpResponse
      */
     public function updateAllowedIpWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allowedListIp)) {
-            $query['AllowedListIp'] = $request->allowedListIp;
+        if (null !== $request->allowedListIp) {
+            @$query['AllowedListIp'] = $request->allowedListIp;
         }
-        if (!Utils::isUnset($request->allowedListType)) {
-            $query['AllowedListType'] = $request->allowedListType;
+
+        if (null !== $request->allowedListType) {
+            @$query['AllowedListType'] = $request->allowedListType;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->portRange)) {
-            $query['PortRange'] = $request->portRange;
+
+        if (null !== $request->portRange) {
+            @$query['PortRange'] = $request->portRange;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->updateType)) {
-            $query['UpdateType'] = $request->updateType;
+
+        if (null !== $request->updateType) {
+            @$query['UpdateType'] = $request->updateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateAllowedIp',
@@ -3139,11 +3861,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Updates the IP address whitelist of an ApsaraMQ for Kafka instance. Only IP addresses and ports that are configured in the IP address whitelist of an instance can access the instance.
-     *  *
-     * @param UpdateAllowedIpRequest $request UpdateAllowedIpRequest
+     * Updates the IP address whitelist of an ApsaraMQ for Kafka instance. Only IP addresses and ports that are configured in the IP address whitelist of an instance can access the instance.
      *
-     * @return UpdateAllowedIpResponse UpdateAllowedIpResponse
+     * @param request - UpdateAllowedIpRequest
+     *
+     * @returns UpdateAllowedIpResponse
+     *
+     * @param UpdateAllowedIpRequest $request
+     *
+     * @return UpdateAllowedIpResponse
      */
     public function updateAllowedIp($request)
     {
@@ -3153,50 +3879,64 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Resets the consumer offsets of the subscribed topics of a consumer group.
-     *  *
-     * @description You can call this operation to reset the consumer offset of a specific consumer group. You can use the timestamp or offset parameter to reset the consumer offset of a consumer group. You can implement the following features by configuring a combination of different parameters:
+     * Resets the consumer offsets of the subscribed topics of a consumer group.
+     *
+     * @remarks
+     * You can call this operation to reset the consumer offset of a specific consumer group. You can use the timestamp or offset parameter to reset the consumer offset of a consumer group. You can implement the following features by configuring a combination of different parameters:
      * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to the latest offset. This way, you can consume messages in the topics from the latest offset.
      * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to a specific point in time. This way, you can consume messages in the topics from the specified point in time.
      * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.
-     *  *
-     * @param UpdateConsumerOffsetRequest $tmpReq  UpdateConsumerOffsetRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateConsumerOffsetResponse UpdateConsumerOffsetResponse
+     * @param tmpReq - UpdateConsumerOffsetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateConsumerOffsetResponse
+     *
+     * @param UpdateConsumerOffsetRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateConsumerOffsetResponse
      */
     public function updateConsumerOffsetWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateConsumerOffsetShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->offsets)) {
-            $request->offsetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->offsets, 'Offsets', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->offsets) {
+            $request->offsetsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->offsets, 'Offsets', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->consumerId)) {
-            $query['ConsumerId'] = $request->consumerId;
+        if (null !== $request->consumerId) {
+            @$query['ConsumerId'] = $request->consumerId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->offsetsShrink)) {
-            $query['Offsets'] = $request->offsetsShrink;
+
+        if (null !== $request->offsetsShrink) {
+            @$query['Offsets'] = $request->offsetsShrink;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resetType)) {
-            $query['ResetType'] = $request->resetType;
+
+        if (null !== $request->resetType) {
+            @$query['ResetType'] = $request->resetType;
         }
-        if (!Utils::isUnset($request->time)) {
-            $query['Time'] = $request->time;
+
+        if (null !== $request->time) {
+            @$query['Time'] = $request->time;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $query['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$query['Topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateConsumerOffset',
@@ -3214,16 +3954,21 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Resets the consumer offsets of the subscribed topics of a consumer group.
-     *  *
-     * @description You can call this operation to reset the consumer offset of a specific consumer group. You can use the timestamp or offset parameter to reset the consumer offset of a consumer group. You can implement the following features by configuring a combination of different parameters:
+     * Resets the consumer offsets of the subscribed topics of a consumer group.
+     *
+     * @remarks
+     * You can call this operation to reset the consumer offset of a specific consumer group. You can use the timestamp or offset parameter to reset the consumer offset of a consumer group. You can implement the following features by configuring a combination of different parameters:
      * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to the latest offset. This way, you can consume messages in the topics from the latest offset.
      * *   Reset the consumer offsets of one or all subscribed topics of a consumer group to a specific point in time. This way, you can consume messages in the topics from the specified point in time.
      * *   Reset the consumer offset of one subscribed topic of a consumer group to a specific offset in a specific partition. This way, you can consume messages from the specified offset in the specified partition.
-     *  *
-     * @param UpdateConsumerOffsetRequest $request UpdateConsumerOffsetRequest
      *
-     * @return UpdateConsumerOffsetResponse UpdateConsumerOffsetResponse
+     * @param request - UpdateConsumerOffsetRequest
+     *
+     * @returns UpdateConsumerOffsetResponse
+     *
+     * @param UpdateConsumerOffsetRequest $request
+     *
+     * @return UpdateConsumerOffsetResponse
      */
     public function updateConsumerOffset($request)
     {
@@ -3233,34 +3978,43 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of an ApsaraMQ for Kafka instance. ApsaraMQ for Kafka allows you to modify the configurations of an instance, including the access control list (ACL) feature, the Secure Sockets Layer (SSL) feature, the message retention period, and the maximum message size.
-     *  *
-     * @description ## **Permissions**
+     * Modifies the configurations of an ApsaraMQ for Kafka instance. ApsaraMQ for Kafka allows you to modify the configurations of an instance, including the access control list (ACL) feature, the Secure Sockets Layer (SSL) feature, the message retention period, and the maximum message size.
+     *
+     * @remarks
+     * ## **Permissions**
      * If a RAM user wants to call the **UpdateInstanceConfig** operation, the RAM user must be granted the required permissions. For more information about how to grant permissions, see [RAM policies](https://help.aliyun.com/document_detail/185815.html).
      * |API|Action|Resource|
      * |---|---|---|
      * |UpdateInstanceConfig|alikafka: UpdateInstance|acs:alikafka:*:*:{instanceId}|
-     *  *
-     * @param UpdateInstanceConfigRequest $request UpdateInstanceConfigRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateInstanceConfigResponse UpdateInstanceConfigResponse
+     * @param request - UpdateInstanceConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInstanceConfigResponse
+     *
+     * @param UpdateInstanceConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateInstanceConfigResponse
      */
     public function updateInstanceConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateInstanceConfig',
@@ -3278,17 +4032,22 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of an ApsaraMQ for Kafka instance. ApsaraMQ for Kafka allows you to modify the configurations of an instance, including the access control list (ACL) feature, the Secure Sockets Layer (SSL) feature, the message retention period, and the maximum message size.
-     *  *
-     * @description ## **Permissions**
+     * Modifies the configurations of an ApsaraMQ for Kafka instance. ApsaraMQ for Kafka allows you to modify the configurations of an instance, including the access control list (ACL) feature, the Secure Sockets Layer (SSL) feature, the message retention period, and the maximum message size.
+     *
+     * @remarks
+     * ## **Permissions**
      * If a RAM user wants to call the **UpdateInstanceConfig** operation, the RAM user must be granted the required permissions. For more information about how to grant permissions, see [RAM policies](https://help.aliyun.com/document_detail/185815.html).
      * |API|Action|Resource|
      * |---|---|---|
      * |UpdateInstanceConfig|alikafka: UpdateInstance|acs:alikafka:*:*:{instanceId}|
-     *  *
-     * @param UpdateInstanceConfigRequest $request UpdateInstanceConfigRequest
      *
-     * @return UpdateInstanceConfigResponse UpdateInstanceConfigResponse
+     * @param request - UpdateInstanceConfigRequest
+     *
+     * @returns UpdateInstanceConfigResponse
+     *
+     * @param UpdateInstanceConfigRequest $request
+     *
+     * @return UpdateInstanceConfigResponse
      */
     public function updateInstanceConfig($request)
     {
@@ -3298,34 +4057,44 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a topic. After you create a topic, you can modify the message retention period and maximum message size of the topic.
-     *  *
-     * @param UpdateTopicConfigRequest $request UpdateTopicConfigRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Modifies the configurations of a topic. After you create a topic, you can modify the message retention period and maximum message size of the topic.
      *
-     * @return UpdateTopicConfigResponse UpdateTopicConfigResponse
+     * @param request - UpdateTopicConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateTopicConfigResponse
+     *
+     * @param UpdateTopicConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateTopicConfigResponse
      */
     public function updateTopicConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $query['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$query['Topic'] = $request->topic;
         }
-        if (!Utils::isUnset($request->value)) {
-            $query['Value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$query['Value'] = $request->value;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateTopicConfig',
@@ -3343,11 +4112,15 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a topic. After you create a topic, you can modify the message retention period and maximum message size of the topic.
-     *  *
-     * @param UpdateTopicConfigRequest $request UpdateTopicConfigRequest
+     * Modifies the configurations of a topic. After you create a topic, you can modify the message retention period and maximum message size of the topic.
      *
-     * @return UpdateTopicConfigResponse UpdateTopicConfigResponse
+     * @param request - UpdateTopicConfigRequest
+     *
+     * @returns UpdateTopicConfigResponse
+     *
+     * @param UpdateTopicConfigRequest $request
+     *
+     * @return UpdateTopicConfigResponse
      */
     public function updateTopicConfig($request)
     {
@@ -3357,36 +4130,45 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Updates the version of an instance.
-     *  *
-     * @description ## **Permissions**
+     * Updates the version of an instance.
+     *
+     * @remarks
+     * ## **Permissions**
      * A RAM user must be granted the required permissions before the RAM user calls the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](https://help.aliyun.com/document_detail/185815.html).
      * |API|Action|Resource|
      * |---|---|---|
      * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
      * ## **QPS limits**
      * You can send a maximum of two queries per second (QPS).
-     *  *
-     * @param UpgradeInstanceVersionRequest $request UpgradeInstanceVersionRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeInstanceVersionResponse UpgradeInstanceVersionResponse
+     * @param request - UpgradeInstanceVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeInstanceVersionResponse
+     *
+     * @param UpgradeInstanceVersionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpgradeInstanceVersionResponse
      */
     public function upgradeInstanceVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->targetVersion)) {
-            $query['TargetVersion'] = $request->targetVersion;
+
+        if (null !== $request->targetVersion) {
+            @$query['TargetVersion'] = $request->targetVersion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpgradeInstanceVersion',
@@ -3404,19 +4186,24 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Updates the version of an instance.
-     *  *
-     * @description ## **Permissions**
+     * Updates the version of an instance.
+     *
+     * @remarks
+     * ## **Permissions**
      * A RAM user must be granted the required permissions before the RAM user calls the **UpgradeInstanceVersion** operation. For information about how to grant permissions, see [RAM policies](https://help.aliyun.com/document_detail/185815.html).
      * |API|Action|Resource|
      * |---|---|---|
      * |UpgradeInstanceVersion|UpdateInstance|acs:alikafka:*:*:{instanceId}|
      * ## **QPS limits**
      * You can send a maximum of two queries per second (QPS).
-     *  *
-     * @param UpgradeInstanceVersionRequest $request UpgradeInstanceVersionRequest
      *
-     * @return UpgradeInstanceVersionResponse UpgradeInstanceVersionResponse
+     * @param request - UpgradeInstanceVersionRequest
+     *
+     * @returns UpgradeInstanceVersionResponse
+     *
+     * @param UpgradeInstanceVersionRequest $request
+     *
+     * @return UpgradeInstanceVersionResponse
      */
     public function upgradeInstanceVersion($request)
     {
@@ -3426,59 +4213,77 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Upgrades a pay-as-you-go ApsaraMQ for Kafka instance.
-     *  *
-     * @description Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-     *  *
-     * @param UpgradePostPayOrderRequest $tmpReq  UpgradePostPayOrderRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Upgrades a pay-as-you-go ApsaraMQ for Kafka instance.
      *
-     * @return UpgradePostPayOrderResponse UpgradePostPayOrderResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+     *
+     * @param tmpReq - UpgradePostPayOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradePostPayOrderResponse
+     *
+     * @param UpgradePostPayOrderRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpgradePostPayOrderResponse
      */
     public function upgradePostPayOrderWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpgradePostPayOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->serverlessConfig)) {
-            $request->serverlessConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serverlessConfig, 'ServerlessConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->serverlessConfig) {
+            $request->serverlessConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->serverlessConfig, 'ServerlessConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->diskSize)) {
-            $query['DiskSize'] = $request->diskSize;
+        if (null !== $request->diskSize) {
+            @$query['DiskSize'] = $request->diskSize;
         }
-        if (!Utils::isUnset($request->eipMax)) {
-            $query['EipMax'] = $request->eipMax;
+
+        if (null !== $request->eipMax) {
+            @$query['EipMax'] = $request->eipMax;
         }
-        if (!Utils::isUnset($request->eipModel)) {
-            $query['EipModel'] = $request->eipModel;
+
+        if (null !== $request->eipModel) {
+            @$query['EipModel'] = $request->eipModel;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ioMax)) {
-            $query['IoMax'] = $request->ioMax;
+
+        if (null !== $request->ioMax) {
+            @$query['IoMax'] = $request->ioMax;
         }
-        if (!Utils::isUnset($request->ioMaxSpec)) {
-            $query['IoMaxSpec'] = $request->ioMaxSpec;
+
+        if (null !== $request->ioMaxSpec) {
+            @$query['IoMaxSpec'] = $request->ioMaxSpec;
         }
-        if (!Utils::isUnset($request->partitionNum)) {
-            $query['PartitionNum'] = $request->partitionNum;
+
+        if (null !== $request->partitionNum) {
+            @$query['PartitionNum'] = $request->partitionNum;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->serverlessConfigShrink)) {
-            $query['ServerlessConfig'] = $request->serverlessConfigShrink;
+
+        if (null !== $request->serverlessConfigShrink) {
+            @$query['ServerlessConfig'] = $request->serverlessConfigShrink;
         }
-        if (!Utils::isUnset($request->specType)) {
-            $query['SpecType'] = $request->specType;
+
+        if (null !== $request->specType) {
+            @$query['SpecType'] = $request->specType;
         }
-        if (!Utils::isUnset($request->topicQuota)) {
-            $query['TopicQuota'] = $request->topicQuota;
+
+        if (null !== $request->topicQuota) {
+            @$query['TopicQuota'] = $request->topicQuota;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpgradePostPayOrder',
@@ -3496,13 +4301,18 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Upgrades a pay-as-you-go ApsaraMQ for Kafka instance.
-     *  *
-     * @description Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
-     *  *
-     * @param UpgradePostPayOrderRequest $request UpgradePostPayOrderRequest
+     * Upgrades a pay-as-you-go ApsaraMQ for Kafka instance.
      *
-     * @return UpgradePostPayOrderResponse UpgradePostPayOrderResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
+     *
+     * @param request - UpgradePostPayOrderRequest
+     *
+     * @returns UpgradePostPayOrderResponse
+     *
+     * @param UpgradePostPayOrderRequest $request
+     *
+     * @return UpgradePostPayOrderResponse
      */
     public function upgradePostPayOrder($request)
     {
@@ -3512,62 +4322,81 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Upgrades a Message Queue for Apache Kafka instance that uses the subscription billing method.
-     *  *
-     * @description Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
-     *  *
-     * @param UpgradePrePayOrderRequest $tmpReq  UpgradePrePayOrderRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Upgrades a Message Queue for Apache Kafka instance that uses the subscription billing method.
      *
-     * @return UpgradePrePayOrderResponse UpgradePrePayOrderResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+     *
+     * @param tmpReq - UpgradePrePayOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradePrePayOrderResponse
+     *
+     * @param UpgradePrePayOrderRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpgradePrePayOrderResponse
      */
     public function upgradePrePayOrderWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpgradePrePayOrderShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->confluentConfig)) {
-            $request->confluentConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->confluentConfig, 'ConfluentConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->confluentConfig) {
+            $request->confluentConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->confluentConfig, 'ConfluentConfig', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->confluentConfigShrink)) {
-            $query['ConfluentConfig'] = $request->confluentConfigShrink;
+        if (null !== $request->confluentConfigShrink) {
+            @$query['ConfluentConfig'] = $request->confluentConfigShrink;
         }
-        if (!Utils::isUnset($request->diskSize)) {
-            $query['DiskSize'] = $request->diskSize;
+
+        if (null !== $request->diskSize) {
+            @$query['DiskSize'] = $request->diskSize;
         }
-        if (!Utils::isUnset($request->eipMax)) {
-            $query['EipMax'] = $request->eipMax;
+
+        if (null !== $request->eipMax) {
+            @$query['EipMax'] = $request->eipMax;
         }
-        if (!Utils::isUnset($request->eipModel)) {
-            $query['EipModel'] = $request->eipModel;
+
+        if (null !== $request->eipModel) {
+            @$query['EipModel'] = $request->eipModel;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ioMax)) {
-            $query['IoMax'] = $request->ioMax;
+
+        if (null !== $request->ioMax) {
+            @$query['IoMax'] = $request->ioMax;
         }
-        if (!Utils::isUnset($request->ioMaxSpec)) {
-            $query['IoMaxSpec'] = $request->ioMaxSpec;
+
+        if (null !== $request->ioMaxSpec) {
+            @$query['IoMaxSpec'] = $request->ioMaxSpec;
         }
-        if (!Utils::isUnset($request->paidType)) {
-            $query['PaidType'] = $request->paidType;
+
+        if (null !== $request->paidType) {
+            @$query['PaidType'] = $request->paidType;
         }
-        if (!Utils::isUnset($request->partitionNum)) {
-            $query['PartitionNum'] = $request->partitionNum;
+
+        if (null !== $request->partitionNum) {
+            @$query['PartitionNum'] = $request->partitionNum;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->specType)) {
-            $query['SpecType'] = $request->specType;
+
+        if (null !== $request->specType) {
+            @$query['SpecType'] = $request->specType;
         }
-        if (!Utils::isUnset($request->topicQuota)) {
-            $query['TopicQuota'] = $request->topicQuota;
+
+        if (null !== $request->topicQuota) {
+            @$query['TopicQuota'] = $request->topicQuota;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpgradePrePayOrder',
@@ -3585,13 +4414,18 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Upgrades a Message Queue for Apache Kafka instance that uses the subscription billing method.
-     *  *
-     * @description Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
-     *  *
-     * @param UpgradePrePayOrderRequest $request UpgradePrePayOrderRequest
+     * Upgrades a Message Queue for Apache Kafka instance that uses the subscription billing method.
      *
-     * @return UpgradePrePayOrderResponse UpgradePrePayOrderResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
+     *
+     * @param request - UpgradePrePayOrderRequest
+     *
+     * @returns UpgradePrePayOrderResponse
+     *
+     * @param UpgradePrePayOrderRequest $request
+     *
+     * @return UpgradePrePayOrderResponse
      */
     public function upgradePrePayOrder($request)
     {

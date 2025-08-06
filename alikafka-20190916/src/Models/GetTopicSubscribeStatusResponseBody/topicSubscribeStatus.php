@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicSubscribeStatusResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class topicSubscribeStatus extends Model
 {
     /**
-     * @description The groups that subscribe to the topic.
-     *
      * @var string[]
      */
     public $consumerGroups;
 
     /**
-     * @description The topic name.
-     *
-     * @example topic_api_1681624879908
-     *
      * @var string
      */
     public $topic;
@@ -28,14 +22,28 @@ class topicSubscribeStatus extends Model
         'topic' => 'Topic',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->consumerGroups)) {
+            Model::validateArray($this->consumerGroups);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->consumerGroups) {
-            $res['ConsumerGroups'] = $this->consumerGroups;
+            if (\is_array($this->consumerGroups)) {
+                $res['ConsumerGroups'] = [];
+                $n1 = 0;
+                foreach ($this->consumerGroups as $item1) {
+                    $res['ConsumerGroups'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
         }
@@ -43,19 +51,25 @@ class topicSubscribeStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return topicSubscribeStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConsumerGroups'])) {
             if (!empty($map['ConsumerGroups'])) {
-                $model->consumerGroups = $map['ConsumerGroups'];
+                $model->consumerGroups = [];
+                $n1 = 0;
+                foreach ($map['ConsumerGroups'] as $item1) {
+                    $model->consumerGroups[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
         }

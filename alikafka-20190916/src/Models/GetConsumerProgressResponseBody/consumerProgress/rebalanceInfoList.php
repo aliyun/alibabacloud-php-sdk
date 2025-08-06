@@ -4,29 +4,37 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponseBody\consumerProgress;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponseBody\consumerProgress\rebalanceInfoList\rebalanceInfoList;
 
 class rebalanceInfoList extends Model
 {
     /**
-     * @var rebalanceInfoList\rebalanceInfoList[]
+     * @var rebalanceInfoList[]
      */
     public $rebalanceInfoList;
     protected $_name = [
         'rebalanceInfoList' => 'RebalanceInfoList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->rebalanceInfoList)) {
+            Model::validateArray($this->rebalanceInfoList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rebalanceInfoList) {
-            $res['RebalanceInfoList'] = [];
-            if (null !== $this->rebalanceInfoList && \is_array($this->rebalanceInfoList)) {
-                $n = 0;
-                foreach ($this->rebalanceInfoList as $item) {
-                    $res['RebalanceInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->rebalanceInfoList)) {
+                $res['RebalanceInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->rebalanceInfoList as $item1) {
+                    $res['RebalanceInfoList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +42,21 @@ class rebalanceInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rebalanceInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RebalanceInfoList'])) {
             if (!empty($map['RebalanceInfoList'])) {
                 $model->rebalanceInfoList = [];
-                $n = 0;
-                foreach ($map['RebalanceInfoList'] as $item) {
-                    $model->rebalanceInfoList[$n++] = null !== $item ? rebalanceInfoList\rebalanceInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RebalanceInfoList'] as $item1) {
+                    $model->rebalanceInfoList[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

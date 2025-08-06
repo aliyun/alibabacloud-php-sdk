@@ -4,50 +4,26 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeSaslUsersResponseBody\saslUserList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class saslUserVO extends Model
 {
     /**
-     * @description The encryption method.
-     *
-     * >  This parameter is available only for serverless ApsaraMQ for Kafka instances.
-     *
-     * @example SCRAM-SHA-256
-     *
      * @var string
      */
     public $mechanism;
 
     /**
-     * @description The password.
-     *
-     * @example ******
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @description The type of the SASL user. Valid values:
-     *
-     *   **plain**: a simple mechanism that uses usernames and passwords to verify user identities. ApsaraMQ for Kafka provides an improved PLAIN mechanism that allows you to dynamically add SASL users without the need to restart an instance.
-     *   **SCRAM**: a mechanism that uses usernames and passwords to verify user identities. Compared with the PLAIN mechanism, this mechanism provides better security protection. ApsaraMQ for Kafka uses the SCRAM-SHA-256 algorithm.
-     *   **LDAP**: This value is available only for the SASL users of ApsaraMQ for Confluent instances.
-     *
-     * Default value: **plain**.
-     *
-     * @example scram
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The username.
-     *
-     * @example test12***
-     *
      * @var string
      */
     public $username;
@@ -58,20 +34,26 @@ class saslUserVO extends Model
         'username' => 'Username',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mechanism) {
             $res['Mechanism'] = $this->mechanism;
         }
+
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
@@ -79,23 +61,26 @@ class saslUserVO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return saslUserVO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Mechanism'])) {
             $model->mechanism = $map['Mechanism'];
         }
+
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }

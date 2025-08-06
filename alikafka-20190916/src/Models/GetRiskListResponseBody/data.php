@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetRiskListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetRiskListResponseBody\data\riskList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -15,8 +15,6 @@ class data extends Model
     public $riskList;
 
     /**
-     * @example 11
-     *
      * @var int
      */
     public $total;
@@ -25,20 +23,28 @@ class data extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->riskList)) {
+            Model::validateArray($this->riskList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->riskList) {
-            $res['RiskList'] = [];
-            if (null !== $this->riskList && \is_array($this->riskList)) {
-                $n = 0;
-                foreach ($this->riskList as $item) {
-                    $res['RiskList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->riskList)) {
+                $res['RiskList'] = [];
+                $n1 = 0;
+                foreach ($this->riskList as $item1) {
+                    $res['RiskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -46,23 +52,25 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RiskList'])) {
             if (!empty($map['RiskList'])) {
                 $model->riskList = [];
-                $n = 0;
-                foreach ($map['RiskList'] as $item) {
-                    $model->riskList[$n++] = null !== $item ? riskList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RiskList'] as $item1) {
+                    $model->riskList[$n1] = riskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

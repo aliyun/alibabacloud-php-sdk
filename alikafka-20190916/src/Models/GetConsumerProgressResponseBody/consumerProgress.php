@@ -4,40 +4,28 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponseBody\consumerProgress\rebalanceInfoList;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerProgressResponseBody\consumerProgress\topicList;
-use AlibabaCloud\Tea\Model;
 
 class consumerProgress extends Model
 {
     /**
-     * @description The time when the last message consumed by the consumer group was generated.
-     *
-     * @example 1566874931671
-     *
      * @var int
      */
     public $lastTimestamp;
 
     /**
-     * @description The details of rebalances in the consumer group.
-     *
      * @var rebalanceInfoList
      */
     public $rebalanceInfoList;
 
     /**
-     * @description The consumer progress of each topic to which the consumer group subscribes.
-     *
      * @var topicList
      */
     public $topicList;
 
     /**
-     * @description The total number of unconsumed messages in all topics to which the consumer group subscribes.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $totalDiff;
@@ -54,23 +42,36 @@ class consumerProgress extends Model
         'state' => 'state',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->rebalanceInfoList) {
+            $this->rebalanceInfoList->validate();
+        }
+        if (null !== $this->topicList) {
+            $this->topicList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lastTimestamp) {
             $res['LastTimestamp'] = $this->lastTimestamp;
         }
+
         if (null !== $this->rebalanceInfoList) {
-            $res['RebalanceInfoList'] = null !== $this->rebalanceInfoList ? $this->rebalanceInfoList->toMap() : null;
+            $res['RebalanceInfoList'] = null !== $this->rebalanceInfoList ? $this->rebalanceInfoList->toArray($noStream) : $this->rebalanceInfoList;
         }
+
         if (null !== $this->topicList) {
-            $res['TopicList'] = null !== $this->topicList ? $this->topicList->toMap() : null;
+            $res['TopicList'] = null !== $this->topicList ? $this->topicList->toArray($noStream) : $this->topicList;
         }
+
         if (null !== $this->totalDiff) {
             $res['TotalDiff'] = $this->totalDiff;
         }
+
         if (null !== $this->state) {
             $res['state'] = $this->state;
         }
@@ -78,26 +79,30 @@ class consumerProgress extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return consumerProgress
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LastTimestamp'])) {
             $model->lastTimestamp = $map['LastTimestamp'];
         }
+
         if (isset($map['RebalanceInfoList'])) {
             $model->rebalanceInfoList = rebalanceInfoList::fromMap($map['RebalanceInfoList']);
         }
+
         if (isset($map['TopicList'])) {
             $model->topicList = topicList::fromMap($map['TopicList']);
         }
+
         if (isset($map['TotalDiff'])) {
             $model->totalDiff = $map['TotalDiff'];
         }
+
         if (isset($map['state'])) {
             $model->state = $map['state'];
         }

@@ -4,64 +4,36 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetKafkaClientIpResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The value true indicates that the broker is not of the latest minor version.
-     *
-     * >  If the broker is not of the latest minor version, the sampled logs may not be accurate. This may cause inaccurate IP information. Therefore, we recommend that you update your broker to the latest version at the earliest opportunity.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $alert;
 
     /**
-     * @description The data returned.
-     *
      * @var data\data
      */
     public $data;
 
     /**
-     * @description The end of the date range within which data is queried.
-     *
-     * @example 1716343502000
-     *
      * @var int
      */
     public $endDate;
 
     /**
-     * @description The time range within which the client IP addresses are queried.
-     *
-     * >  The valid value is 1 hour. If the beginning of the time range to query and the end of the time range to query exceeds 1 hour, only data within 1 hour is returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $searchTimeRange;
 
     /**
-     * @description The beginning of the date range within which data is queried.
-     *
-     * @example 1716343501000
-     *
      * @var int
      */
     public $startDate;
 
     /**
-     * @description The date range within which the client IP addresses are queried.
-     *
-     * >  The valid value is 7 days. If the beginning of the date range to query and the end of the date range to query exceeds 7 days, only data within 7 days is returned.
-     *
-     * @example 7
-     *
      * @var int
      */
     public $timeLimitDay;
@@ -74,26 +46,37 @@ class data extends Model
         'timeLimitDay' => 'TimeLimitDay',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alert) {
             $res['Alert'] = $this->alert;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
+
         if (null !== $this->searchTimeRange) {
             $res['SearchTimeRange'] = $this->searchTimeRange;
         }
+
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
+
         if (null !== $this->timeLimitDay) {
             $res['TimeLimitDay'] = $this->timeLimitDay;
         }
@@ -101,29 +84,34 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Alert'])) {
             $model->alert = $map['Alert'];
         }
+
         if (isset($map['Data'])) {
             $model->data = data\data::fromMap($map['Data']);
         }
+
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
+
         if (isset($map['SearchTimeRange'])) {
             $model->searchTimeRange = $map['SearchTimeRange'];
         }
+
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }
+
         if (isset($map['TimeLimitDay'])) {
             $model->timeLimitDay = $map['TimeLimitDay'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponseBody\instanceList\instanceVO;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponseBody\instanceList\instanceVO\tags\tagVO;
-use AlibabaCloud\Tea\Model;
 
 class tags extends Model
 {
@@ -17,17 +17,24 @@ class tags extends Model
         'tagVO' => 'TagVO',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tagVO)) {
+            Model::validateArray($this->tagVO);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagVO) {
-            $res['TagVO'] = [];
-            if (null !== $this->tagVO && \is_array($this->tagVO)) {
-                $n = 0;
-                foreach ($this->tagVO as $item) {
-                    $res['TagVO'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tagVO)) {
+                $res['TagVO'] = [];
+                $n1 = 0;
+                foreach ($this->tagVO as $item1) {
+                    $res['TagVO'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class tags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagVO'])) {
             if (!empty($map['TagVO'])) {
                 $model->tagVO = [];
-                $n = 0;
-                foreach ($map['TagVO'] as $item) {
-                    $model->tagVO[$n++] = null !== $item ? tagVO::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TagVO'] as $item1) {
+                    $model->tagVO[$n1] = tagVO::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

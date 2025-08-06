@@ -4,89 +4,41 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeAclsResponseBody\kafkaAclList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class kafkaAclVO extends Model
 {
     /**
-     * @description The types of operations allowed by the ACL. Separate multiple operation types with commas (,).
-     * - Valid values:
-     * - Write
-     * - Read
-     * - Describe: reads of transactional IDs.
-     * - IdempotentWrite: idempotent data writes to clusters.
-     * - IDEMPOTENT_WRITE: idempotent data writes to clusters. This value is available only for ApsaraMQ for Kafka V3 instances.
-     * - DESCRIBE_CONFIGS: queries of configurations. This value is available only for ApsaraMQ for Kafka V3 instances.
-     * > This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
-     *
-     * @example Write
-     *
      * @var string
      */
     public $aclOperationType;
 
     /**
-     * @description The authorization method. Valid values:
-     * - DENY
-     * - ALLOW
-     * > This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
-     *
-     * @example DENY
-     *
      * @var string
      */
     public $aclPermissionType;
 
     /**
-     * @description The resource name.
-     *
-     *   The value can be the name of a topic or consumer group.
-     *   You can use the asterisk (\\*) wildcard character to specify the names of all topics or consumer groups.
-     *
-     * @example demo
-     *
      * @var string
      */
     public $aclResourceName;
 
     /**
-     * @description The matching mode. Valid values:
-     *
-     *   **LITERAL:** full-name match
-     *   **PREFIXED**: prefix match
-     *
-     * @example LITERAL
-     *
      * @var string
      */
     public $aclResourcePatternType;
 
     /**
-     * @description The resource type. Valid values:
-     *
-     *   **Topic**
-     *   **Group**
-     *
-     * @example Topic
-     *
      * @var string
      */
     public $aclResourceType;
 
     /**
-     * @description The host.
-     *
-     * @example ****
-     *
      * @var string
      */
     public $host;
 
     /**
-     * @description The username.
-     *
-     * @example test12***
-     *
      * @var string
      */
     public $username;
@@ -100,29 +52,38 @@ class kafkaAclVO extends Model
         'username' => 'Username',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclOperationType) {
             $res['AclOperationType'] = $this->aclOperationType;
         }
+
         if (null !== $this->aclPermissionType) {
             $res['AclPermissionType'] = $this->aclPermissionType;
         }
+
         if (null !== $this->aclResourceName) {
             $res['AclResourceName'] = $this->aclResourceName;
         }
+
         if (null !== $this->aclResourcePatternType) {
             $res['AclResourcePatternType'] = $this->aclResourcePatternType;
         }
+
         if (null !== $this->aclResourceType) {
             $res['AclResourceType'] = $this->aclResourceType;
         }
+
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
+
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
@@ -130,32 +91,38 @@ class kafkaAclVO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return kafkaAclVO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclOperationType'])) {
             $model->aclOperationType = $map['AclOperationType'];
         }
+
         if (isset($map['AclPermissionType'])) {
             $model->aclPermissionType = $map['AclPermissionType'];
         }
+
         if (isset($map['AclResourceName'])) {
             $model->aclResourceName = $map['AclResourceName'];
         }
+
         if (isset($map['AclResourcePatternType'])) {
             $model->aclResourcePatternType = $map['AclResourcePatternType'];
         }
+
         if (isset($map['AclResourceType'])) {
             $model->aclResourceType = $map['AclResourceType'];
         }
+
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
+
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }
