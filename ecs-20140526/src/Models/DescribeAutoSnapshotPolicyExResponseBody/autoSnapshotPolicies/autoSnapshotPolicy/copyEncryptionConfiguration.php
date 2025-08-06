@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoSnapshotPolicyExResponseBody\autoSnapshotPolicies\autoSnapshotPolicy;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class copyEncryptionConfiguration extends Model
 {
     /**
-     * @description Whether to enable encryption for cross-region snapshot replication. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * Default value: false.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $encrypted;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key used to encrypt snapshots in cross-region snapshot replication.
-     *
-     * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
-     *
      * @var string
      */
     public $KMSKeyId;
@@ -35,14 +22,18 @@ class copyEncryptionConfiguration extends Model
         'KMSKeyId' => 'KMSKeyId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->encrypted) {
             $res['Encrypted'] = $this->encrypted;
         }
+
         if (null !== $this->KMSKeyId) {
             $res['KMSKeyId'] = $this->KMSKeyId;
         }
@@ -50,17 +41,18 @@ class copyEncryptionConfiguration extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return copyEncryptionConfiguration
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Encrypted'])) {
             $model->encrypted = $map['Encrypted'];
         }
+
         if (isset($map['KMSKeyId'])) {
             $model->KMSKeyId = $map['KMSKeyId'];
         }

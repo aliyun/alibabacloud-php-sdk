@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\importImageOptions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class features extends Model
 {
     /**
-     * @description Indicates whether the image supports the NVMe protocol. Valid values:
-     *
-     *   supported: The image supports the NVMe protocol. Instances created from the image also support the NVMe protocol.
-     *   unsupported: The image does not support the NVMe protocol. Instances created from the image do not support the NVMe protocol.
-     *
-     * @example supported
-     *
      * @var string
      */
     public $nvmeSupport;
@@ -23,9 +16,12 @@ class features extends Model
         'nvmeSupport' => 'NvmeSupport',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nvmeSupport) {
@@ -35,11 +31,11 @@ class features extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return features
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

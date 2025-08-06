@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePortRangeListEntriesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class entries extends Model
 {
     /**
-     * @description The description of the port range.
-     *
-     * @example Description information of PortRangeList
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The port range.
-     *
-     * @example 80/80
-     *
      * @var string
      */
     public $portRange;
@@ -30,14 +22,18 @@ class entries extends Model
         'portRange' => 'PortRange',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->portRange) {
             $res['PortRange'] = $this->portRange;
         }
@@ -45,17 +41,18 @@ class entries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return entries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['PortRange'])) {
             $model->portRange = $map['PortRange'];
         }

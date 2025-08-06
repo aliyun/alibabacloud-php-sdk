@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyCloudAssistantSettingsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sessionManagerConfig extends Model
 {
@@ -16,9 +16,12 @@ class sessionManagerConfig extends Model
         'sessionManagerEnabled' => 'SessionManagerEnabled',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sessionManagerEnabled) {
@@ -28,11 +31,11 @@ class sessionManagerConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sessionManagerConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

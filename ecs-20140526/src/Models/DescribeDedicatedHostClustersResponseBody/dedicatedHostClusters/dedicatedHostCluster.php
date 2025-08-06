@@ -4,84 +4,54 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostClustersResponseBody\dedicatedHostClusters;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostClustersResponseBody\dedicatedHostClusters\dedicatedHostCluster\dedicatedHostClusterCapacity;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostClustersResponseBody\dedicatedHostClusters\dedicatedHostCluster\dedicatedHostIds;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostClustersResponseBody\dedicatedHostClusters\dedicatedHostCluster\tags;
-use AlibabaCloud\Tea\Model;
 
 class dedicatedHostCluster extends Model
 {
     /**
-     * @description The capacity of the host group.
-     *
      * @var dedicatedHostClusterCapacity
      */
     public $dedicatedHostClusterCapacity;
 
     /**
-     * @description The ID of the host group.
-     *
-     * @example dc-bp12wlf6am0vz9v2****
-     *
      * @var string
      */
     public $dedicatedHostClusterId;
 
     /**
-     * @description The name of the host group.
-     *
-     * @example myDDHCluster
-     *
      * @var string
      */
     public $dedicatedHostClusterName;
 
     /**
-     * @description The IDs of dedicated hosts in the host group.
-     *
      * @var dedicatedHostIds
      */
     public $dedicatedHostIds;
 
     /**
-     * @description The description of the host group.
-     *
-     * @example This-is-my-DDHCluster
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The region ID of the host group.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The resource group ID of the host group.
-     *
-     * @example rg-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The tags of the host group.
-     *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The zone ID of the host group.
-     *
-     * @example cn-hangzhou-f
-     *
      * @var string
      */
     public $zoneId;
@@ -97,35 +67,55 @@ class dedicatedHostCluster extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->dedicatedHostClusterCapacity) {
+            $this->dedicatedHostClusterCapacity->validate();
+        }
+        if (null !== $this->dedicatedHostIds) {
+            $this->dedicatedHostIds->validate();
+        }
+        if (null !== $this->tags) {
+            $this->tags->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dedicatedHostClusterCapacity) {
-            $res['DedicatedHostClusterCapacity'] = null !== $this->dedicatedHostClusterCapacity ? $this->dedicatedHostClusterCapacity->toMap() : null;
+            $res['DedicatedHostClusterCapacity'] = null !== $this->dedicatedHostClusterCapacity ? $this->dedicatedHostClusterCapacity->toArray($noStream) : $this->dedicatedHostClusterCapacity;
         }
+
         if (null !== $this->dedicatedHostClusterId) {
             $res['DedicatedHostClusterId'] = $this->dedicatedHostClusterId;
         }
+
         if (null !== $this->dedicatedHostClusterName) {
             $res['DedicatedHostClusterName'] = $this->dedicatedHostClusterName;
         }
+
         if (null !== $this->dedicatedHostIds) {
-            $res['DedicatedHostIds'] = null !== $this->dedicatedHostIds ? $this->dedicatedHostIds->toMap() : null;
+            $res['DedicatedHostIds'] = null !== $this->dedicatedHostIds ? $this->dedicatedHostIds->toArray($noStream) : $this->dedicatedHostIds;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+            $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -133,38 +123,46 @@ class dedicatedHostCluster extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dedicatedHostCluster
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DedicatedHostClusterCapacity'])) {
             $model->dedicatedHostClusterCapacity = dedicatedHostClusterCapacity::fromMap($map['DedicatedHostClusterCapacity']);
         }
+
         if (isset($map['DedicatedHostClusterId'])) {
             $model->dedicatedHostClusterId = $map['DedicatedHostClusterId'];
         }
+
         if (isset($map['DedicatedHostClusterName'])) {
             $model->dedicatedHostClusterName = $map['DedicatedHostClusterName'];
         }
+
         if (isset($map['DedicatedHostIds'])) {
             $model->dedicatedHostIds = dedicatedHostIds::fromMap($map['DedicatedHostIds']);
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

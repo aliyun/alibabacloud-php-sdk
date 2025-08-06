@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeHaVipsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeHaVipsResponseBody\haVips\haVip;
-use AlibabaCloud\Tea\Model;
 
 class haVips extends Model
 {
@@ -17,17 +17,24 @@ class haVips extends Model
         'haVip' => 'HaVip',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->haVip)) {
+            Model::validateArray($this->haVip);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->haVip) {
-            $res['HaVip'] = [];
-            if (null !== $this->haVip && \is_array($this->haVip)) {
-                $n = 0;
-                foreach ($this->haVip as $item) {
-                    $res['HaVip'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->haVip)) {
+                $res['HaVip'] = [];
+                $n1 = 0;
+                foreach ($this->haVip as $item1) {
+                    $res['HaVip'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class haVips extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return haVips
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HaVip'])) {
             if (!empty($map['HaVip'])) {
                 $model->haVip = [];
-                $n = 0;
-                foreach ($map['HaVip'] as $item) {
-                    $model->haVip[$n++] = null !== $item ? haVip::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['HaVip'] as $item1) {
+                    $model->haVip[$n1] = haVip::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

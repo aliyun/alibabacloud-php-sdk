@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssuranceInstancesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssuranceInstancesResponseBody\elasticityAssuranceItem\instanceIdSet;
-use AlibabaCloud\Tea\Model;
 
 class elasticityAssuranceItem extends Model
 {
@@ -17,17 +17,24 @@ class elasticityAssuranceItem extends Model
         'instanceIdSet' => 'InstanceIdSet',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceIdSet)) {
+            Model::validateArray($this->instanceIdSet);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceIdSet) {
-            $res['InstanceIdSet'] = [];
-            if (null !== $this->instanceIdSet && \is_array($this->instanceIdSet)) {
-                $n = 0;
-                foreach ($this->instanceIdSet as $item) {
-                    $res['InstanceIdSet'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceIdSet)) {
+                $res['InstanceIdSet'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIdSet as $item1) {
+                    $res['InstanceIdSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class elasticityAssuranceItem extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return elasticityAssuranceItem
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceIdSet'])) {
             if (!empty($map['InstanceIdSet'])) {
                 $model->instanceIdSet = [];
-                $n = 0;
-                foreach ($map['InstanceIdSet'] as $item) {
-                    $model->instanceIdSet[$n++] = null !== $item ? instanceIdSet::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceIdSet'] as $item1) {
+                    $model->instanceIdSet[$n1] = instanceIdSet::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

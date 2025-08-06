@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\operationLocks\lockReason;
-use AlibabaCloud\Tea\Model;
 
 class operationLocks extends Model
 {
@@ -17,17 +17,24 @@ class operationLocks extends Model
         'lockReason' => 'LockReason',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->lockReason)) {
+            Model::validateArray($this->lockReason);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lockReason) {
-            $res['LockReason'] = [];
-            if (null !== $this->lockReason && \is_array($this->lockReason)) {
-                $n = 0;
-                foreach ($this->lockReason as $item) {
-                    $res['LockReason'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->lockReason)) {
+                $res['LockReason'] = [];
+                $n1 = 0;
+                foreach ($this->lockReason as $item1) {
+                    $res['LockReason'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class operationLocks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return operationLocks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LockReason'])) {
             if (!empty($map['LockReason'])) {
                 $model->lockReason = [];
-                $n = 0;
-                foreach ($map['LockReason'] as $item) {
-                    $model->lockReason[$n++] = null !== $item ? lockReason::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LockReason'] as $item1) {
+                    $model->lockReason[$n1] = lockReason::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

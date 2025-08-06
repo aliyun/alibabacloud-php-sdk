@@ -4,20 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrinkRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataDiskConfig extends Model
 {
     /**
-     * @description The category of data disk N. You can use this parameter to specify multiple disk categories, and the disk categories are prioritized in the order in which they are specified. If a specified disk category is unavailable, the system uses the next available disk category. Valid values:
-     *
-     * - cloud_efficiency: ultra disk
-     * - cloud_ssd: standard SSD
-     * - cloud_essd: ESSD
-     * - cloud: basic disk
-     *
-     * @example cloud_efficiency
-     *
      * @var string
      */
     public $diskCategory;
@@ -25,9 +16,12 @@ class dataDiskConfig extends Model
         'diskCategory' => 'DiskCategory',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->diskCategory) {
@@ -37,11 +31,11 @@ class dataDiskConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataDiskConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

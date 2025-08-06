@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class addAccounts extends Model
 {
@@ -16,29 +16,47 @@ class addAccounts extends Model
         'addAccount' => 'AddAccount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->addAccount)) {
+            Model::validateArray($this->addAccount);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addAccount) {
-            $res['AddAccount'] = $this->addAccount;
+            if (\is_array($this->addAccount)) {
+                $res['AddAccount'] = [];
+                $n1 = 0;
+                foreach ($this->addAccount as $item1) {
+                    $res['AddAccount'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return addAccounts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddAccount'])) {
             if (!empty($map['AddAccount'])) {
-                $model->addAccount = $map['AddAccount'];
+                $model->addAccount = [];
+                $n1 = 0;
+                foreach ($map['AddAccount'] as $item1) {
+                    $model->addAccount[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

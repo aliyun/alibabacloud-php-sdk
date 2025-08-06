@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeBandwidthPackagesResponseBody\bandwidthPackages\bandwidthPackage;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeBandwidthPackagesResponseBody\bandwidthPackages\bandwidthPackage\publicIpAddresses\publicIpAddresse;
-use AlibabaCloud\Tea\Model;
 
 class publicIpAddresses extends Model
 {
@@ -17,17 +17,24 @@ class publicIpAddresses extends Model
         'publicIpAddresse' => 'PublicIpAddresse',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->publicIpAddresse)) {
+            Model::validateArray($this->publicIpAddresse);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->publicIpAddresse) {
-            $res['PublicIpAddresse'] = [];
-            if (null !== $this->publicIpAddresse && \is_array($this->publicIpAddresse)) {
-                $n = 0;
-                foreach ($this->publicIpAddresse as $item) {
-                    $res['PublicIpAddresse'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->publicIpAddresse)) {
+                $res['PublicIpAddresse'] = [];
+                $n1 = 0;
+                foreach ($this->publicIpAddresse as $item1) {
+                    $res['PublicIpAddresse'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class publicIpAddresses extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return publicIpAddresses
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PublicIpAddresse'])) {
             if (!empty($map['PublicIpAddresse'])) {
                 $model->publicIpAddresse = [];
-                $n = 0;
-                foreach ($map['PublicIpAddresse'] as $item) {
-                    $model->publicIpAddresse[$n++] = null !== $item ? publicIpAddresse::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PublicIpAddresse'] as $item1) {
+                    $model->publicIpAddresse[$n1] = publicIpAddresse::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

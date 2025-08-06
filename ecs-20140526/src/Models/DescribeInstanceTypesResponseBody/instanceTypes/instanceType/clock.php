@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class clock extends Model
 {
     /**
-     * @description Whether PTP is supported. Possible values:
-     *
-     *   supported
-     *   unsupported
-     *
-     * @example unsupported
-     *
      * @var string
      */
     public $ptpSupport;
@@ -23,9 +16,12 @@ class clock extends Model
         'ptpSupport' => 'PtpSupport',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ptpSupport) {
@@ -35,11 +31,11 @@ class clock extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clock
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

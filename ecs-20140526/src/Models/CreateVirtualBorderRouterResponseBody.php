@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateVirtualBorderRouterResponseBody extends Model
 {
@@ -22,14 +22,18 @@ class CreateVirtualBorderRouterResponseBody extends Model
         'vbrId' => 'VbrId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->vbrId) {
             $res['VbrId'] = $this->vbrId;
         }
@@ -37,17 +41,18 @@ class CreateVirtualBorderRouterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateVirtualBorderRouterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['VbrId'])) {
             $model->vbrId = $map['VbrId'];
         }

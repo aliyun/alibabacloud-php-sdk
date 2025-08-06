@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRecommendInstanceTypeResponseBody\data\recommendInstanceType\zones\zone;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class networkTypes extends Model
 {
@@ -16,29 +16,47 @@ class networkTypes extends Model
         'networkType' => 'NetworkType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->networkType)) {
+            Model::validateArray($this->networkType);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkType) {
-            $res['NetworkType'] = $this->networkType;
+            if (\is_array($this->networkType)) {
+                $res['NetworkType'] = [];
+                $n1 = 0;
+                foreach ($this->networkType as $item1) {
+                    $res['NetworkType'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkTypes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkType'])) {
             if (!empty($map['NetworkType'])) {
-                $model->networkType = $map['NetworkType'];
+                $model->networkType = [];
+                $n1 = 0;
+                foreach ($map['NetworkType'] as $item1) {
+                    $model->networkType[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,60 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRecommendInstanceTypeResponseBody\data\recommendInstanceType;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceType extends Model
 {
     /**
-     * @description The number of vCPUs of the instance type.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $cores;
 
     /**
-     * @description The generation of the instance family.
-     *
-     * @example ecs-4
-     *
      * @var string
      */
     public $generation;
 
     /**
-     * @description The name of the instance type.
-     *
-     * @example ecs.hfg6.large
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description The instance family.
-     *
-     * @example ecs.hfg6
-     *
      * @var string
      */
     public $instanceTypeFamily;
 
     /**
-     * @description The memory size of the instance type. Unit: MB.
-     *
-     * @example 8192
-     *
      * @var int
      */
     public $memory;
 
     /**
-     * @description Indicates whether the instance type supports I/O optimization.
-     *
-     * @example optimized
-     *
      * @var string
      */
     public $supportIoOptimized;
@@ -70,26 +46,34 @@ class instanceType extends Model
         'supportIoOptimized' => 'SupportIoOptimized',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cores) {
             $res['Cores'] = $this->cores;
         }
+
         if (null !== $this->generation) {
             $res['Generation'] = $this->generation;
         }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->instanceTypeFamily) {
             $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
         }
+
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
+
         if (null !== $this->supportIoOptimized) {
             $res['SupportIoOptimized'] = $this->supportIoOptimized;
         }
@@ -97,29 +81,34 @@ class instanceType extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cores'])) {
             $model->cores = $map['Cores'];
         }
+
         if (isset($map['Generation'])) {
             $model->generation = $map['Generation'];
         }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['InstanceTypeFamily'])) {
             $model->instanceTypeFamily = $map['InstanceTypeFamily'];
         }
+
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }
+
         if (isset($map['SupportIoOptimized'])) {
             $model->supportIoOptimized = $map['SupportIoOptimized'];
         }

@@ -4,77 +4,31 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class privateDnsNameOptions extends Model
 {
     /**
-     * @description Indicates whether DNS Resolution from the Instance ID-based Hostname to the Instance Primary Private IPv6 Address (AAAA Record) is enabled. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * Default value: false.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $enableInstanceIdDnsAAAARecord;
 
     /**
-     * @description Indicates whether DNS Resolution from the Instance ID-based Hostname to the Instance Primary Private IPv4 Address (A Record) is enabled. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * Default value: false.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $enableInstanceIdDnsARecord;
 
     /**
-     * @description Indicates whether DNS Resolution from the IP Address-based Hostname to the Instance Primary Private IPv4 Address (A Record) is enabled. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * Default value: false.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableIpDnsARecord;
 
     /**
-     * @description Indicates whether Reverse DNS Resolution from the Instance Primary Private IPv4 Address to the IP Address-based Hostname (PTR Record) is enabled. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * Default value: false.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableIpDnsPtrRecord;
 
     /**
-     * @description The type of hostname. Valid values:
-     *
-     *   Custom: custom hostname
-     *   IpBased: IP address-based hostname
-     *   InstanceIdBased: instance ID-based hostname
-     *
-     * Default value: Custom.
-     *
-     * @example Custom
-     *
      * @var string
      */
     public $hostnameType;
@@ -86,23 +40,30 @@ class privateDnsNameOptions extends Model
         'hostnameType' => 'HostnameType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableInstanceIdDnsAAAARecord) {
             $res['EnableInstanceIdDnsAAAARecord'] = $this->enableInstanceIdDnsAAAARecord;
         }
+
         if (null !== $this->enableInstanceIdDnsARecord) {
             $res['EnableInstanceIdDnsARecord'] = $this->enableInstanceIdDnsARecord;
         }
+
         if (null !== $this->enableIpDnsARecord) {
             $res['EnableIpDnsARecord'] = $this->enableIpDnsARecord;
         }
+
         if (null !== $this->enableIpDnsPtrRecord) {
             $res['EnableIpDnsPtrRecord'] = $this->enableIpDnsPtrRecord;
         }
+
         if (null !== $this->hostnameType) {
             $res['HostnameType'] = $this->hostnameType;
         }
@@ -110,26 +71,30 @@ class privateDnsNameOptions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return privateDnsNameOptions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableInstanceIdDnsAAAARecord'])) {
             $model->enableInstanceIdDnsAAAARecord = $map['EnableInstanceIdDnsAAAARecord'];
         }
+
         if (isset($map['EnableInstanceIdDnsARecord'])) {
             $model->enableInstanceIdDnsARecord = $map['EnableInstanceIdDnsARecord'];
         }
+
         if (isset($map['EnableIpDnsARecord'])) {
             $model->enableIpDnsARecord = $map['EnableIpDnsARecord'];
         }
+
         if (isset($map['EnableIpDnsPtrRecord'])) {
             $model->enableIpDnsPtrRecord = $map['EnableIpDnsPtrRecord'];
         }
+
         if (isset($map['HostnameType'])) {
             $model->hostnameType = $map['HostnameType'];
         }

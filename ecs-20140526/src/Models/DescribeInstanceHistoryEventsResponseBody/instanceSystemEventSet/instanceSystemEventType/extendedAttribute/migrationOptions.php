@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceHistoryEventsResponseBody\instanceSystemEventSet\instanceSystemEventType\extendedAttribute;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class migrationOptions extends Model
 {
@@ -16,29 +16,47 @@ class migrationOptions extends Model
         'migrationOption' => 'MigrationOption',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->migrationOption)) {
+            Model::validateArray($this->migrationOption);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->migrationOption) {
-            $res['MigrationOption'] = $this->migrationOption;
+            if (\is_array($this->migrationOption)) {
+                $res['MigrationOption'] = [];
+                $n1 = 0;
+                foreach ($this->migrationOption as $item1) {
+                    $res['MigrationOption'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return migrationOptions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MigrationOption'])) {
             if (!empty($map['MigrationOption'])) {
-                $model->migrationOption = $map['MigrationOption'];
+                $model->migrationOption = [];
+                $n1 = 0;
+                foreach ($map['MigrationOption'] as $item1) {
+                    $model->migrationOption[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoSnapshotPolicyExResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoSnapshotPolicyExResponseBody\autoSnapshotPolicies\autoSnapshotPolicy;
-use AlibabaCloud\Tea\Model;
 
 class autoSnapshotPolicies extends Model
 {
@@ -17,17 +17,24 @@ class autoSnapshotPolicies extends Model
         'autoSnapshotPolicy' => 'AutoSnapshotPolicy',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->autoSnapshotPolicy)) {
+            Model::validateArray($this->autoSnapshotPolicy);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoSnapshotPolicy) {
-            $res['AutoSnapshotPolicy'] = [];
-            if (null !== $this->autoSnapshotPolicy && \is_array($this->autoSnapshotPolicy)) {
-                $n = 0;
-                foreach ($this->autoSnapshotPolicy as $item) {
-                    $res['AutoSnapshotPolicy'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->autoSnapshotPolicy)) {
+                $res['AutoSnapshotPolicy'] = [];
+                $n1 = 0;
+                foreach ($this->autoSnapshotPolicy as $item1) {
+                    $res['AutoSnapshotPolicy'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class autoSnapshotPolicies extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return autoSnapshotPolicies
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoSnapshotPolicy'])) {
             if (!empty($map['AutoSnapshotPolicy'])) {
                 $model->autoSnapshotPolicy = [];
-                $n = 0;
-                foreach ($map['AutoSnapshotPolicy'] as $item) {
-                    $model->autoSnapshotPolicy[$n++] = null !== $item ? autoSnapshotPolicy::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AutoSnapshotPolicy'] as $item1) {
+                    $model->autoSnapshotPolicy[$n1] = autoSnapshotPolicy::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,56 +4,32 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceResponseBody\priceInfo\price\detailInfos;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceResponseBody\priceInfo\price\detailInfos\detailInfo\subRules;
-use AlibabaCloud\Tea\Model;
 
 class detailInfo extends Model
 {
     /**
-     * @description The discount.
-     *
-     * @example 655.2
-     *
      * @var float
      */
     public $discountPrice;
 
     /**
-     * @description The original price.
-     *
-     * @example 4368
-     *
      * @var float
      */
     public $originalPrice;
 
     /**
-     * @description The resource name. Valid values:
-     *
-     *   InstanceType
-     *   bandwidth
-     *   image
-     *   SystemDisk
-     *   DataDisk
-     *
-     * @example instance
-     *
      * @var string
      */
     public $resource;
 
     /**
-     * @description Details about the pricing rules.
-     *
      * @var subRules
      */
     public $subRules;
 
     /**
-     * @description The transaction price.
-     *
-     * @example 3712.8
-     *
      * @var float
      */
     public $tradePrice;
@@ -65,23 +41,33 @@ class detailInfo extends Model
         'tradePrice' => 'TradePrice',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->subRules) {
+            $this->subRules->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->discountPrice) {
             $res['DiscountPrice'] = $this->discountPrice;
         }
+
         if (null !== $this->originalPrice) {
             $res['OriginalPrice'] = $this->originalPrice;
         }
+
         if (null !== $this->resource) {
             $res['Resource'] = $this->resource;
         }
+
         if (null !== $this->subRules) {
-            $res['SubRules'] = null !== $this->subRules ? $this->subRules->toMap() : null;
+            $res['SubRules'] = null !== $this->subRules ? $this->subRules->toArray($noStream) : $this->subRules;
         }
+
         if (null !== $this->tradePrice) {
             $res['TradePrice'] = $this->tradePrice;
         }
@@ -89,26 +75,30 @@ class detailInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return detailInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiscountPrice'])) {
             $model->discountPrice = $map['DiscountPrice'];
         }
+
         if (isset($map['OriginalPrice'])) {
             $model->originalPrice = $map['OriginalPrice'];
         }
+
         if (isset($map['Resource'])) {
             $model->resource = $map['Resource'];
         }
+
         if (isset($map['SubRules'])) {
             $model->subRules = subRules::fromMap($map['SubRules']);
         }
+
         if (isset($map['TradePrice'])) {
             $model->tradePrice = $map['TradePrice'];
         }

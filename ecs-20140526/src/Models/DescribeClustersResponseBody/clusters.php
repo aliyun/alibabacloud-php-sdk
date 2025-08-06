@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeClustersResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeClustersResponseBody\clusters\cluster;
-use AlibabaCloud\Tea\Model;
 
 class clusters extends Model
 {
@@ -17,17 +17,24 @@ class clusters extends Model
         'cluster' => 'Cluster',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->cluster)) {
+            Model::validateArray($this->cluster);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cluster) {
-            $res['Cluster'] = [];
-            if (null !== $this->cluster && \is_array($this->cluster)) {
-                $n = 0;
-                foreach ($this->cluster as $item) {
-                    $res['Cluster'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->cluster)) {
+                $res['Cluster'] = [];
+                $n1 = 0;
+                foreach ($this->cluster as $item1) {
+                    $res['Cluster'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class clusters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clusters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cluster'])) {
             if (!empty($map['Cluster'])) {
                 $model->cluster = [];
-                $n = 0;
-                foreach ($map['Cluster'] as $item) {
-                    $model->cluster[$n++] = null !== $item ? cluster::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Cluster'] as $item1) {
+                    $model->cluster[$n1] = cluster::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

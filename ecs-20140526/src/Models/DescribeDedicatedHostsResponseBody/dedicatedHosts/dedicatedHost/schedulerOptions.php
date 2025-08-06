@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts\dedicatedHost;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class schedulerOptions extends Model
 {
@@ -16,9 +16,12 @@ class schedulerOptions extends Model
         'managedPrivateSpaceId' => 'ManagedPrivateSpaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->managedPrivateSpaceId) {
@@ -28,11 +31,11 @@ class schedulerOptions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return schedulerOptions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

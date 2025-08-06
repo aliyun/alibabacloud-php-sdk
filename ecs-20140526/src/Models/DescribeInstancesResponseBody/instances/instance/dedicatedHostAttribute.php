@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dedicatedHostAttribute extends Model
 {
     /**
-     * @description The ID of the dedicated host cluster.
-     *
-     * @example dc-bp67acfmxazb4h****
-     *
      * @var string
      */
     public $dedicatedHostClusterId;
 
     /**
-     * @description The ID of the dedicated host.
-     *
-     * @example dh-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $dedicatedHostId;
 
     /**
-     * @description The name of the dedicated host.
-     *
-     * @example testDedicatedHostName
-     *
      * @var string
      */
     public $dedicatedHostName;
@@ -40,17 +28,22 @@ class dedicatedHostAttribute extends Model
         'dedicatedHostName' => 'DedicatedHostName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dedicatedHostClusterId) {
             $res['DedicatedHostClusterId'] = $this->dedicatedHostClusterId;
         }
+
         if (null !== $this->dedicatedHostId) {
             $res['DedicatedHostId'] = $this->dedicatedHostId;
         }
+
         if (null !== $this->dedicatedHostName) {
             $res['DedicatedHostName'] = $this->dedicatedHostName;
         }
@@ -58,20 +51,22 @@ class dedicatedHostAttribute extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dedicatedHostAttribute
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DedicatedHostClusterId'])) {
             $model->dedicatedHostClusterId = $map['DedicatedHostClusterId'];
         }
+
         if (isset($map['DedicatedHostId'])) {
             $model->dedicatedHostId = $map['DedicatedHostId'];
         }
+
         if (isset($map['DedicatedHostName'])) {
             $model->dedicatedHostName = $map['DedicatedHostName'];
         }

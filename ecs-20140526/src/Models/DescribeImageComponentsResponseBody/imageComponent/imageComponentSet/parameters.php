@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageComponentsResponseBody\imageComponent\imageComponentSet;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageComponentsResponseBody\imageComponent\imageComponentSet\parameters\parameter;
-use AlibabaCloud\Tea\Model;
 
 class parameters extends Model
 {
@@ -17,17 +17,24 @@ class parameters extends Model
         'parameter' => 'Parameter',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->parameter)) {
+            Model::validateArray($this->parameter);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parameter) {
-            $res['Parameter'] = [];
-            if (null !== $this->parameter && \is_array($this->parameter)) {
-                $n = 0;
-                foreach ($this->parameter as $item) {
-                    $res['Parameter'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->parameter)) {
+                $res['Parameter'] = [];
+                $n1 = 0;
+                foreach ($this->parameter as $item1) {
+                    $res['Parameter'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class parameters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return parameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Parameter'])) {
             if (!empty($map['Parameter'])) {
                 $model->parameter = [];
-                $n = 0;
-                foreach ($map['Parameter'] as $item) {
-                    $model->parameter[$n++] = null !== $item ? parameter::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Parameter'] as $item1) {
+                    $model->parameter[$n1] = parameter::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

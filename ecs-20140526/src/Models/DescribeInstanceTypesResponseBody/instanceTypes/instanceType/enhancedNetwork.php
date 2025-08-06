@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTypesResponseBody\instanceTypes\instanceType;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class enhancedNetwork extends Model
 {
     /**
-     * @description >  This parameter is not publicly available.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $rssSupport;
 
     /**
-     * @description >  This parameter is not publicly available.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $sriovSupport;
 
     /**
-     * @description >  This parameter is not publicly available.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $vfQueueNumberPerEni;
@@ -40,17 +28,22 @@ class enhancedNetwork extends Model
         'vfQueueNumberPerEni' => 'VfQueueNumberPerEni',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rssSupport) {
             $res['RssSupport'] = $this->rssSupport;
         }
+
         if (null !== $this->sriovSupport) {
             $res['SriovSupport'] = $this->sriovSupport;
         }
+
         if (null !== $this->vfQueueNumberPerEni) {
             $res['VfQueueNumberPerEni'] = $this->vfQueueNumberPerEni;
         }
@@ -58,20 +51,22 @@ class enhancedNetwork extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return enhancedNetwork
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RssSupport'])) {
             $model->rssSupport = $map['RssSupport'];
         }
+
         if (isset($map['SriovSupport'])) {
             $model->sriovSupport = $map['SriovSupport'];
         }
+
         if (isset($map['VfQueueNumberPerEni'])) {
             $model->vfQueueNumberPerEni = $map['VfQueueNumberPerEni'];
         }

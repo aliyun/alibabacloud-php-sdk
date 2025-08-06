@@ -4,33 +4,25 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCloudAssistantSettingsResponseBody\agentUpgradeConfig;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCloudAssistantSettingsResponseBody\ossDeliveryConfigs;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCloudAssistantSettingsResponseBody\sessionManagerConfig;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCloudAssistantSettingsResponseBody\slsDeliveryConfigs;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCloudAssistantSettingsResponseBody extends Model
 {
     /**
-     * @description The configurations for upgrading Cloud Assistant Agent.
-     *
      * @var agentUpgradeConfig
      */
     public $agentUpgradeConfig;
 
     /**
-     * @description The configurations for delivering items to Object Storage Service (OSS).
-     *
      * @var ossDeliveryConfigs
      */
     public $ossDeliveryConfigs;
 
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-     *
      * @var string
      */
     public $requestId;
@@ -41,8 +33,6 @@ class DescribeCloudAssistantSettingsResponseBody extends Model
     public $sessionManagerConfig;
 
     /**
-     * @description The configurations for delivering items to Simple Log Service.
-     *
      * @var slsDeliveryConfigs
      */
     public $slsDeliveryConfigs;
@@ -54,50 +44,73 @@ class DescribeCloudAssistantSettingsResponseBody extends Model
         'slsDeliveryConfigs' => 'SlsDeliveryConfigs',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->agentUpgradeConfig) {
+            $this->agentUpgradeConfig->validate();
+        }
+        if (null !== $this->ossDeliveryConfigs) {
+            $this->ossDeliveryConfigs->validate();
+        }
+        if (null !== $this->sessionManagerConfig) {
+            $this->sessionManagerConfig->validate();
+        }
+        if (null !== $this->slsDeliveryConfigs) {
+            $this->slsDeliveryConfigs->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentUpgradeConfig) {
-            $res['AgentUpgradeConfig'] = null !== $this->agentUpgradeConfig ? $this->agentUpgradeConfig->toMap() : null;
+            $res['AgentUpgradeConfig'] = null !== $this->agentUpgradeConfig ? $this->agentUpgradeConfig->toArray($noStream) : $this->agentUpgradeConfig;
         }
+
         if (null !== $this->ossDeliveryConfigs) {
-            $res['OssDeliveryConfigs'] = null !== $this->ossDeliveryConfigs ? $this->ossDeliveryConfigs->toMap() : null;
+            $res['OssDeliveryConfigs'] = null !== $this->ossDeliveryConfigs ? $this->ossDeliveryConfigs->toArray($noStream) : $this->ossDeliveryConfigs;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->sessionManagerConfig) {
-            $res['SessionManagerConfig'] = null !== $this->sessionManagerConfig ? $this->sessionManagerConfig->toMap() : null;
+            $res['SessionManagerConfig'] = null !== $this->sessionManagerConfig ? $this->sessionManagerConfig->toArray($noStream) : $this->sessionManagerConfig;
         }
+
         if (null !== $this->slsDeliveryConfigs) {
-            $res['SlsDeliveryConfigs'] = null !== $this->slsDeliveryConfigs ? $this->slsDeliveryConfigs->toMap() : null;
+            $res['SlsDeliveryConfigs'] = null !== $this->slsDeliveryConfigs ? $this->slsDeliveryConfigs->toArray($noStream) : $this->slsDeliveryConfigs;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCloudAssistantSettingsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentUpgradeConfig'])) {
             $model->agentUpgradeConfig = agentUpgradeConfig::fromMap($map['AgentUpgradeConfig']);
         }
+
         if (isset($map['OssDeliveryConfigs'])) {
             $model->ossDeliveryConfigs = ossDeliveryConfigs::fromMap($map['OssDeliveryConfigs']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SessionManagerConfig'])) {
             $model->sessionManagerConfig = sessionManagerConfig::fromMap($map['SessionManagerConfig']);
         }
+
         if (isset($map['SlsDeliveryConfigs'])) {
             $model->slsDeliveryConfigs = slsDeliveryConfigs::fromMap($map['SlsDeliveryConfigs']);
         }

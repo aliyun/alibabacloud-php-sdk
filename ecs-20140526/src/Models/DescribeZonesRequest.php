@@ -4,39 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeZonesRequest extends Model
 {
     /**
-     * @description The natural language that is used to filter responses. For more information, see [RFC 7231](https://tools.ietf.org/html/rfc7231). Valid values:
-     *
-     *   zh-CN: Simplified Chinese
-     *   zh_TW: Traditional Chinese
-     *   en-US: English
-     *   ja: Japanese
-     *   fr: French
-     *   de: German
-     *   ko: Korean
-     *
-     * Default value: zh-CN.
-     *
-     * @example zh-CN
-     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
-     * @description The billing method of resources. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
-     *
-     *   Prepaid: subscription
-     *   PostPaid: pay-as-you-go
-     *
-     * Default value: PostPaid.
-     *
-     * @example PostPaid
-     *
      * @var string
      */
     public $instanceChargeType;
@@ -52,12 +29,6 @@ class DescribeZonesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -73,30 +44,11 @@ class DescribeZonesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The bidding policy for the pay-as-you-go instance. You can specify this parameter when you set `InstanceChargeType` to PostPaid. For more information, see [Spot instances](https://help.aliyun.com/document_detail/52088.html). Valid values:
-     *
-     *   NoSpot: The instances are regular pay-as-you-go instances.
-     *   SpotWithPriceLimit: The instance is a spot instance that has a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is a spot instance for which the market price is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
-     *
-     * Default value: NoSpot.
-     *
-     * @example NoSpot
-     *
      * @var string
      */
     public $spotStrategy;
 
     /**
-     * @description Specifies whether to display detailed information.
-     *
-     *   true: displays detailed information.
-     *   false: does not display detailed information.
-     *
-     * Default value: true.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $verbose;
@@ -112,35 +64,46 @@ class DescribeZonesRequest extends Model
         'verbose' => 'Verbose',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->spotStrategy) {
             $res['SpotStrategy'] = $this->spotStrategy;
         }
+
         if (null !== $this->verbose) {
             $res['Verbose'] = $this->verbose;
         }
@@ -148,38 +111,46 @@ class DescribeZonesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeZonesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['SpotStrategy'])) {
             $model->spotStrategy = $map['SpotStrategy'];
         }
+
         if (isset($map['Verbose'])) {
             $model->verbose = $map['Verbose'];
         }

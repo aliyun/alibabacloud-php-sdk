@@ -4,118 +4,51 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeRecommendInstanceTypeRequest extends Model
 {
     /**
-     * @description The number of vCPU cores of the instance type.
-     *
-     * >  If you specify both `Cores` and `Memory`, the system returns all instance types that match the values of the parameters.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $cores;
 
     /**
-     * @description The billing method of ECS instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/25398.html). Valid values:
-     *
-     *   PrePaid: subscription
-     *   PostPaid: pay-as-you-go
-     *
-     * Default value: PostPaid.
-     *
-     * @example PostPaid
-     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
-     * @description The level of the instance family. Valid values:
-     *
-     *   EntryLevel: entry level.
-     *   EnterpriseLevel: enterprise level.
-     *   CreditEntryLevel: credit-based entry level. For more information, see [Burstable instance families](https://help.aliyun.com/document_detail/59977.html).
-     *
-     * @example EnterpriseLevel
-     *
      * @var string
      */
     public $instanceFamilyLevel;
 
     /**
-     * @description The instance type. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the most recent instance type list.
-     *
-     * >  If you specify `InstanceType`, you cannot specify `Cores` or `Memory`.
-     *
-     * @example ecs.hfg6.large
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description The instance families from which the alternative instance types are selected. You can specify up to 10 instance families.
-     *
-     * @example ecs.hfg6
-     *
      * @var string[]
      */
     public $instanceTypeFamily;
 
     /**
-     * @description Specifies whether instances of the instance type are I/O optimized. You cannot specify IoOptimized if the instance type supports only non-I/O optimized instances. Valid values:
-     *
-     *   optimized: The instances are I/O optimized.
-     *   none: The instances are non-I/O optimized.
-     *
-     * Default value: optimized.
-     *
-     * If you query alternative instance types for retired instance types, this parameter is set to none by default.
-     *
-     * @example optimized
-     *
      * @var string
      */
     public $ioOptimized;
 
     /**
-     * @description The maximum hourly price for pay-as-you-go instances or spot instances.
-     *
-     * >  This parameter takes effect only when `SpotStrategy` is set to `SpotWithPriceLimit`.
-     *
-     * @example 10.0
-     *
      * @var float
      */
     public $maxPrice;
 
     /**
-     * @description The memory size of the instance type. Unit: GiB.
-     *
-     * >  If you specify both `Cores` and `Memory`, the system returns all instance types that match the values of the parameters.
-     *
-     * @example 8.0
-     *
      * @var float
      */
     public $memory;
 
     /**
-     * @description The network type of ECS instances. Valid values:
-     *
-     *   classic
-     *   vpc
-     *
-     * Default value: vpc.
-     *
-     * This parameter is required.
-     *
-     * @example vpc
-     *
      * @var string
      */
     public $networkType;
@@ -131,27 +64,11 @@ class DescribeRecommendInstanceTypeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The policy that is used to recommend instance types. Valid values:
-     *
-     *   InventoryFirst: recommends instance types in descending order of resource availability.
-     *   PriceFirst: recommends the most cost-effective instance types. Recommended instance types appear based on the hourly prices of vCPUs in ascending order.
-     *   NewProductFirst: recommends the latest instance types.
-     *
-     * Default value: InventoryFirst.
-     *
-     * @example PriceFirst
-     *
      * @var string
      */
     public $priorityStrategy;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -167,75 +84,26 @@ class DescribeRecommendInstanceTypeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The scenario in which instance types are recommended. Valid values:
-     *
-     *   UPGRADE: instance type upgrade or downgrade
-     *   CREATE: instance creation
-     *
-     * Default value: CREATE.
-     *
-     * @example CREATE
-     *
      * @var string
      */
     public $scene;
 
     /**
-     * @description The bidding policy of spot instances. Valid values:
-     *
-     *   NoSpot: The instances are regular pay-as-you-go instances.
-     *   SpotWithPriceLimit: The instances are created as spot instances for which you can specify the maximum hourly price.
-     *   SpotAsPriceGo: The instances are spot instances for which the market price at the time of purchase is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
-     *
-     * >  If you specify `SpotStrategy`, you must set `InstanceChargeType` to `PostPaid`.
-     *
-     * Default value: NoSpot.
-     *
-     * @example NoSpot
-     *
      * @var string
      */
     public $spotStrategy;
 
     /**
-     * @description The category of the system disk. Valid values:
-     *
-     *   cloud_efficiency: ultra disk
-     *   cloud_ssd: standard SSD
-     *   cloud_essd: Enterprise SSD (ESSD)
-     *   cloud: basic disk
-     *
-     * For non-I/O optimized instances, the default value is cloud.
-     *
-     * For I/O optimized instances, the default value is cloud_efficiency.
-     *
-     * @example cloud_ssd
-     *
      * @var string
      */
     public $systemDiskCategory;
 
     /**
-     * @description The zone ID. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
-     *
-     * We recommend that you set ZoneMatchMode to Include, which is the default value. This way, the system recommends instance types that are available in the zone specified by ZoneId based on the priority policy. The system also recommends instance types that are available in other zones within the same region.
-     *
-     * @example cn-hangzhou-f
-     *
      * @var string
      */
     public $zoneId;
 
     /**
-     * @description Specifies whether to recommend only instance types in the zone specified by ZoneId. Valid values:
-     *
-     *   Strict: recommends only instance types that are available in the zone specified by ZoneId.
-     *   Include: recommends instance types that are available in the zone specified by ZoneId and instance types that are available in other zones within the same region.
-     *
-     * If `ZoneId` is specified, the default value of this parameter is Strict, which indicates that only instance types in the zone specified by ZoneId are recommended.
-     *
-     * @example Strict
-     *
      * @var string
      */
     public $zoneMatchMode;
@@ -262,68 +130,100 @@ class DescribeRecommendInstanceTypeRequest extends Model
         'zoneMatchMode' => 'ZoneMatchMode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceTypeFamily)) {
+            Model::validateArray($this->instanceTypeFamily);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cores) {
             $res['Cores'] = $this->cores;
         }
+
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
         }
+
         if (null !== $this->instanceFamilyLevel) {
             $res['InstanceFamilyLevel'] = $this->instanceFamilyLevel;
         }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->instanceTypeFamily) {
-            $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
+            if (\is_array($this->instanceTypeFamily)) {
+                $res['InstanceTypeFamily'] = [];
+                $n1 = 0;
+                foreach ($this->instanceTypeFamily as $item1) {
+                    $res['InstanceTypeFamily'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->ioOptimized) {
             $res['IoOptimized'] = $this->ioOptimized;
         }
+
         if (null !== $this->maxPrice) {
             $res['MaxPrice'] = $this->maxPrice;
         }
+
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
+
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->priorityStrategy) {
             $res['PriorityStrategy'] = $this->priorityStrategy;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
         }
+
         if (null !== $this->spotStrategy) {
             $res['SpotStrategy'] = $this->spotStrategy;
         }
+
         if (null !== $this->systemDiskCategory) {
             $res['SystemDiskCategory'] = $this->systemDiskCategory;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
+
         if (null !== $this->zoneMatchMode) {
             $res['ZoneMatchMode'] = $this->zoneMatchMode;
         }
@@ -331,73 +231,97 @@ class DescribeRecommendInstanceTypeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRecommendInstanceTypeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cores'])) {
             $model->cores = $map['Cores'];
         }
+
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
         }
+
         if (isset($map['InstanceFamilyLevel'])) {
             $model->instanceFamilyLevel = $map['InstanceFamilyLevel'];
         }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['InstanceTypeFamily'])) {
             if (!empty($map['InstanceTypeFamily'])) {
-                $model->instanceTypeFamily = $map['InstanceTypeFamily'];
+                $model->instanceTypeFamily = [];
+                $n1 = 0;
+                foreach ($map['InstanceTypeFamily'] as $item1) {
+                    $model->instanceTypeFamily[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['IoOptimized'])) {
             $model->ioOptimized = $map['IoOptimized'];
         }
+
         if (isset($map['MaxPrice'])) {
             $model->maxPrice = $map['MaxPrice'];
         }
+
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }
+
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PriorityStrategy'])) {
             $model->priorityStrategy = $map['PriorityStrategy'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
         }
+
         if (isset($map['SpotStrategy'])) {
             $model->spotStrategy = $map['SpotStrategy'];
         }
+
         if (isset($map['SystemDiskCategory'])) {
             $model->systemDiskCategory = $map['SystemDiskCategory'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
+
         if (isset($map['ZoneMatchMode'])) {
             $model->zoneMatchMode = $map['ZoneMatchMode'];
         }

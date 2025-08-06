@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksResponseBody\disks\disk;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class placement extends Model
 {
     /**
-     * @description The IDs of the zones in which data is stored.
-     *
-     * @example cn-hangzhou-b
-     * cn-hangzhou-j
-     *
      * @var string
      */
     public $zoneIds;
@@ -21,9 +16,12 @@ class placement extends Model
         'zoneIds' => 'ZoneIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->zoneIds) {
@@ -33,11 +31,11 @@ class placement extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return placement
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

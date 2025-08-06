@@ -4,20 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImageRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class features extends Model
 {
     /**
-     * @description The image metadata access mode. Valid values:
-     *
-     *   v1: You cannot set the image metadata access mode to security hardening when you create instances from the image.
-     *   v2: You can set the image metadata access mode to security hardening when you create instances from the image.
-     *
-     * When you use a snapshot to create instances, the default value is set to 1. If you use an instance to create an image, the value of the ImdsSupport parameter is used by default.
-     *
-     * @example v2
-     *
      * @var string
      */
     public $imdsSupport;
@@ -25,9 +16,12 @@ class features extends Model
         'imdsSupport' => 'ImdsSupport',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imdsSupport) {
@@ -37,11 +31,11 @@ class features extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return features
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

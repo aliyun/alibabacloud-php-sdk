@@ -4,50 +4,32 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DetachInstanceRamRoleResponseBody\detachInstanceRamRoleResults;
-use AlibabaCloud\Tea\Model;
 
 class DetachInstanceRamRoleResponseBody extends Model
 {
     /**
-     * @description The results of the instance RAM role detachment, which include the names of the instance RAM roles and the IDs of the ECS instances from which you attempted to detach the instance RAM roles.
-     *
      * @var detachInstanceRamRoleResults
      */
     public $detachInstanceRamRoleResults;
 
     /**
-     * @description The number of ECS instances from which instance RAM roles failed to be detached.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $failCount;
 
     /**
-     * @description The name of the instance RAM role.
-     *
-     * @example RamRoleTest
-     *
      * @var string
      */
     public $ramRoleName;
 
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of ECS instances from which you attempted to detach instance RAM roles.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -59,23 +41,33 @@ class DetachInstanceRamRoleResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->detachInstanceRamRoleResults) {
+            $this->detachInstanceRamRoleResults->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->detachInstanceRamRoleResults) {
-            $res['DetachInstanceRamRoleResults'] = null !== $this->detachInstanceRamRoleResults ? $this->detachInstanceRamRoleResults->toMap() : null;
+            $res['DetachInstanceRamRoleResults'] = null !== $this->detachInstanceRamRoleResults ? $this->detachInstanceRamRoleResults->toArray($noStream) : $this->detachInstanceRamRoleResults;
         }
+
         if (null !== $this->failCount) {
             $res['FailCount'] = $this->failCount;
         }
+
         if (null !== $this->ramRoleName) {
             $res['RamRoleName'] = $this->ramRoleName;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -83,26 +75,30 @@ class DetachInstanceRamRoleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetachInstanceRamRoleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DetachInstanceRamRoleResults'])) {
             $model->detachInstanceRamRoleResults = detachInstanceRamRoleResults::fromMap($map['DetachInstanceRamRoleResults']);
         }
+
         if (isset($map['FailCount'])) {
             $model->failCount = $map['FailCount'];
         }
+
         if (isset($map['RamRoleName'])) {
             $model->ramRoleName = $map['RamRoleName'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

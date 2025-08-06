@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDiagnosticMetricSetsRequest extends Model
 {
     /**
-     * @description The IDs of diagnostic metric sets. You can specify up to 10 set IDs.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $metricSetIds;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -32,14 +22,28 @@ class DeleteDiagnosticMetricSetsRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->metricSetIds)) {
+            Model::validateArray($this->metricSetIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metricSetIds) {
-            $res['MetricSetIds'] = $this->metricSetIds;
+            if (\is_array($this->metricSetIds)) {
+                $res['MetricSetIds'] = [];
+                $n1 = 0;
+                foreach ($this->metricSetIds as $item1) {
+                    $res['MetricSetIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -47,19 +51,25 @@ class DeleteDiagnosticMetricSetsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDiagnosticMetricSetsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MetricSetIds'])) {
             if (!empty($map['MetricSetIds'])) {
-                $model->metricSetIds = $map['MetricSetIds'];
+                $model->metricSetIds = [];
+                $n1 = 0;
+                foreach ($map['MetricSetIds'] as $item1) {
+                    $model->metricSetIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

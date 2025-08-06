@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeEipAddressesResponseBody\eipAddresses\eipAddress\operationLocks;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class lockReason extends Model
 {
@@ -16,9 +16,12 @@ class lockReason extends Model
         'lockReason' => 'LockReason',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lockReason) {
@@ -28,11 +31,11 @@ class lockReason extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return lockReason
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

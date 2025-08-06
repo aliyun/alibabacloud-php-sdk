@@ -4,59 +4,37 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeKeyPairsResponseBody\keyPairs;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeKeyPairsResponseBody\keyPairs\keyPair\tags;
-use AlibabaCloud\Tea\Model;
 
 class keyPair extends Model
 {
     /**
-     * @description The time when the key pair was created.
-     *
-     * @example 2023-09-04T08:33Z
-     *
      * @var string
      */
     public $creationTime;
 
     /**
-     * @description The fingerprint of the key pair.
-     *
-     * @example ABC1234567
-     *
      * @var string
      */
     public $keyPairFingerPrint;
 
     /**
-     * @description The name of the key pair.
-     *
-     * @example testKeyPairName
-     *
      * @var string
      */
     public $keyPairName;
 
     /**
-     * @description The content of the public key.
-     *
-     * @example ssh-rsa****
-     *
      * @var string
      */
     public $publicKey;
 
     /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-amnhr7u7c7hj****
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The tags of the key pair.
-     *
      * @var tags
      */
     public $tags;
@@ -69,56 +47,72 @@ class keyPair extends Model
         'tags' => 'Tags',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->tags) {
+            $this->tags->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->keyPairFingerPrint) {
             $res['KeyPairFingerPrint'] = $this->keyPairFingerPrint;
         }
+
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
         }
+
         if (null !== $this->publicKey) {
             $res['PublicKey'] = $this->publicKey;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+            $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return keyPair
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['KeyPairFingerPrint'])) {
             $model->keyPairFingerPrint = $map['KeyPairFingerPrint'];
         }
+
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
         }
+
         if (isset($map['PublicKey'])) {
             $model->publicKey = $map['PublicKey'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
         }

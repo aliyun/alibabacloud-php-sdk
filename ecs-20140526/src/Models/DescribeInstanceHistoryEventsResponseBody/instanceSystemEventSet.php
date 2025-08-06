@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceHistoryEventsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceHistoryEventsResponseBody\instanceSystemEventSet\instanceSystemEventType;
-use AlibabaCloud\Tea\Model;
 
 class instanceSystemEventSet extends Model
 {
@@ -17,17 +17,24 @@ class instanceSystemEventSet extends Model
         'instanceSystemEventType' => 'InstanceSystemEventType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceSystemEventType)) {
+            Model::validateArray($this->instanceSystemEventType);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceSystemEventType) {
-            $res['InstanceSystemEventType'] = [];
-            if (null !== $this->instanceSystemEventType && \is_array($this->instanceSystemEventType)) {
-                $n = 0;
-                foreach ($this->instanceSystemEventType as $item) {
-                    $res['InstanceSystemEventType'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceSystemEventType)) {
+                $res['InstanceSystemEventType'] = [];
+                $n1 = 0;
+                foreach ($this->instanceSystemEventType as $item1) {
+                    $res['InstanceSystemEventType'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class instanceSystemEventSet extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceSystemEventSet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceSystemEventType'])) {
             if (!empty($map['InstanceSystemEventType'])) {
                 $model->instanceSystemEventType = [];
-                $n = 0;
-                foreach ($map['InstanceSystemEventType'] as $item) {
-                    $model->instanceSystemEventType[$n++] = null !== $item ? instanceSystemEventType::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceSystemEventType'] as $item1) {
+                    $model->instanceSystemEventType[$n1] = instanceSystemEventType::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCapacityReservationsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCapacityReservationsResponseBody\capacityReservationSet\capacityReservationItem;
-use AlibabaCloud\Tea\Model;
 
 class capacityReservationSet extends Model
 {
@@ -17,17 +17,24 @@ class capacityReservationSet extends Model
         'capacityReservationItem' => 'CapacityReservationItem',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->capacityReservationItem)) {
+            Model::validateArray($this->capacityReservationItem);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->capacityReservationItem) {
-            $res['CapacityReservationItem'] = [];
-            if (null !== $this->capacityReservationItem && \is_array($this->capacityReservationItem)) {
-                $n = 0;
-                foreach ($this->capacityReservationItem as $item) {
-                    $res['CapacityReservationItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->capacityReservationItem)) {
+                $res['CapacityReservationItem'] = [];
+                $n1 = 0;
+                foreach ($this->capacityReservationItem as $item1) {
+                    $res['CapacityReservationItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class capacityReservationSet extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return capacityReservationSet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CapacityReservationItem'])) {
             if (!empty($map['CapacityReservationItem'])) {
                 $model->capacityReservationItem = [];
-                $n = 0;
-                foreach ($map['CapacityReservationItem'] as $item) {
-                    $model->capacityReservationItem[$n++] = null !== $item ? capacityReservationItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CapacityReservationItem'] as $item1) {
+                    $model->capacityReservationItem[$n1] = capacityReservationItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

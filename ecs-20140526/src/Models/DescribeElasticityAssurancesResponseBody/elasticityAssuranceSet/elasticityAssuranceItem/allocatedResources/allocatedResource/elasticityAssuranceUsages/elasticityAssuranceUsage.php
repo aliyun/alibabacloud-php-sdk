@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssurancesResponseBody\elasticityAssuranceSet\elasticityAssuranceItem\allocatedResources\allocatedResource\elasticityAssuranceUsages;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class elasticityAssuranceUsage extends Model
 {
     /**
-     * @description >  This parameter is not publicly available.
-     *
-     * @example 1144775968548340
-     *
      * @var string
      */
     public $accountId;
 
     /**
-     * @description >  This parameter is not publicly available.
-     *
-     * @example name
-     *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description >  This parameter is not publicly available.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $usedAmount;
@@ -40,17 +28,22 @@ class elasticityAssuranceUsage extends Model
         'usedAmount' => 'UsedAmount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
+
         if (null !== $this->usedAmount) {
             $res['UsedAmount'] = $this->usedAmount;
         }
@@ -58,20 +51,22 @@ class elasticityAssuranceUsage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return elasticityAssuranceUsage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
+
         if (isset($map['UsedAmount'])) {
             $model->usedAmount = $map['UsedAmount'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class enhancedNetwork extends Model
 {
     /**
-     * @description >  This parameter is not publicly available.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableRss;
 
     /**
-     * @description >  This parameter is not publicly available.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableSriov;
@@ -42,20 +34,26 @@ class enhancedNetwork extends Model
         'virtualFunctionTotalQueueNumber' => 'VirtualFunctionTotalQueueNumber',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableRss) {
             $res['EnableRss'] = $this->enableRss;
         }
+
         if (null !== $this->enableSriov) {
             $res['EnableSriov'] = $this->enableSriov;
         }
+
         if (null !== $this->virtualFunctionQuantity) {
             $res['VirtualFunctionQuantity'] = $this->virtualFunctionQuantity;
         }
+
         if (null !== $this->virtualFunctionTotalQueueNumber) {
             $res['VirtualFunctionTotalQueueNumber'] = $this->virtualFunctionTotalQueueNumber;
         }
@@ -63,23 +61,26 @@ class enhancedNetwork extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return enhancedNetwork
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableRss'])) {
             $model->enableRss = $map['EnableRss'];
         }
+
         if (isset($map['EnableSriov'])) {
             $model->enableSriov = $map['EnableSriov'];
         }
+
         if (isset($map['VirtualFunctionQuantity'])) {
             $model->virtualFunctionQuantity = $map['VirtualFunctionQuantity'];
         }
+
         if (isset($map['VirtualFunctionTotalQueueNumber'])) {
             $model->virtualFunctionTotalQueueNumber = $map['VirtualFunctionTotalQueueNumber'];
         }

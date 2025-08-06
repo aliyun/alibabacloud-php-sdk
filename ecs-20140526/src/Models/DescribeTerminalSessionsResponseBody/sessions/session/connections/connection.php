@@ -4,74 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeTerminalSessionsResponseBody\sessions\session\connections;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class connection extends Model
 {
     /**
-     * @description The reason why the connection was closed. This parameter is returned only when the `Status` value is `Disconnected`, `Terminated`, or `Failed`. Valid values:
-     *
-     *   InstanceNotExists: The specified instance did not exist or was released.
-     *   InstanceNotRunning: The specified instance was not running.
-     *   DeliveryTimeout: The connection timed out.
-     *   AgentNeedUpgrade: Cloud Assistant Agent required an upgrade.
-     *   AgentNotOnline: Cloud Assistant Agent was not connected to the Cloud Assistant server.
-     *   MessageFormatInvalid: The message format was invalid.
-     *   AgentSocketClosed: The connection was closed as expected.
-     *   ClientClosed: Session Manager Client closed the connection.
-     *
-     * @example AgentNeedUpgrade
-     *
      * @var string
      */
     public $closedReason;
 
     /**
-     * @description The time when the connection was closed.
-     *
-     * @example 2024-01-19T09:16:46Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description Cause of the connection failure. This parameter is returned only when the Status parameter is Failed.
-     *
-     * @example The Session Manager is closed normally.
-     *
      * @var string
      */
     public $failedDetail;
 
     /**
-     * @description The instance ID.
-     *
-     * @example i-bp1i7gg30r52z2em****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The time when the connection started to be established.
-     *
-     * @example 2024-01-19T09:16:40Z
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description The state of the session. Valid values:
-     *
-     *   Connecting: The connection is being established.
-     *   Connected: The connection is established.
-     *   Terminated: The session is terminated.
-     *   Failed: The connection failed.
-     *
-     * @example Connecting
-     *
      * @var string
      */
     public $status;
@@ -84,26 +46,34 @@ class connection extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->closedReason) {
             $res['ClosedReason'] = $this->closedReason;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->failedDetail) {
             $res['FailedDetail'] = $this->failedDetail;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -111,29 +81,34 @@ class connection extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return connection
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClosedReason'])) {
             $model->closedReason = $map['ClosedReason'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['FailedDetail'])) {
             $model->failedDetail = $map['FailedDetail'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

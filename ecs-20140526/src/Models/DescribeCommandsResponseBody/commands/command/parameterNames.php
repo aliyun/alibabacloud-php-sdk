@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCommandsResponseBody\commands\command;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class parameterNames extends Model
 {
@@ -16,29 +16,47 @@ class parameterNames extends Model
         'parameterName' => 'ParameterName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->parameterName)) {
+            Model::validateArray($this->parameterName);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parameterName) {
-            $res['ParameterName'] = $this->parameterName;
+            if (\is_array($this->parameterName)) {
+                $res['ParameterName'] = [];
+                $n1 = 0;
+                foreach ($this->parameterName as $item1) {
+                    $res['ParameterName'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return parameterNames
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParameterName'])) {
             if (!empty($map['ParameterName'])) {
-                $model->parameterName = $map['ParameterName'];
+                $model->parameterName = [];
+                $n1 = 0;
+                foreach ($map['ParameterName'] as $item1) {
+                    $model->parameterName[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

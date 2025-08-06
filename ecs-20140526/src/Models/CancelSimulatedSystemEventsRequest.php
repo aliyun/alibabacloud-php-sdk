@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CancelSimulatedSystemEventsRequest extends Model
 {
     /**
-     * @description The IDs of simulated system events. You can specify up to 100 event IDs in a single request.
-     *
-     * This parameter is required.
-     *
-     * @example e-xhskHun1256****
-     *
      * @var string[]
      */
     public $eventId;
@@ -30,12 +24,6 @@ class CancelSimulatedSystemEventsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -58,26 +46,44 @@ class CancelSimulatedSystemEventsRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->eventId)) {
+            Model::validateArray($this->eventId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventId) {
-            $res['EventId'] = $this->eventId;
+            if (\is_array($this->eventId)) {
+                $res['EventId'] = [];
+                $n1 = 0;
+                foreach ($this->eventId as $item1) {
+                    $res['EventId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -85,31 +91,41 @@ class CancelSimulatedSystemEventsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CancelSimulatedSystemEventsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventId'])) {
             if (!empty($map['EventId'])) {
-                $model->eventId = $map['EventId'];
+                $model->eventId = [];
+                $n1 = 0;
+                foreach ($map['EventId'] as $item1) {
+                    $model->eventId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

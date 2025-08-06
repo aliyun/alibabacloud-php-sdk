@@ -4,50 +4,32 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DetachInstanceRamRoleResponseBody\detachInstanceRamRoleResults;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DetachInstanceRamRoleResponseBody\detachInstanceRamRoleResults\detachInstanceRamRoleResult\instanceRamRoleSets;
-use AlibabaCloud\Tea\Model;
 
 class detachInstanceRamRoleResult extends Model
 {
     /**
-     * @description Indicates whether the instance RAM role was detached. If 200 is returned, the instance RAM role was detached. If any other value is returned, the instance RAM role failed to be detached. For more information, see the "Error codes" section.
-     *
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The ID of the ECS instance from which you attempted to detach the instance RAM role.
-     *
-     * @example i-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The name of the instance RAM role and the ID of the ECS instance.
-     *
      * @var instanceRamRoleSets
      */
     public $instanceRamRoleSets;
 
     /**
-     * @description Indicates whether the instance RAM role was detached. If success is returned, the instance RAM role was detached. If any other value is returned, the instance RAM role failed to be detached. For more information, see the "Error codes" section.
-     *
-     * @example Success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Indicates whether the instance RAM role was detached.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -59,23 +41,33 @@ class detachInstanceRamRoleResult extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->instanceRamRoleSets) {
+            $this->instanceRamRoleSets->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceRamRoleSets) {
-            $res['InstanceRamRoleSets'] = null !== $this->instanceRamRoleSets ? $this->instanceRamRoleSets->toMap() : null;
+            $res['InstanceRamRoleSets'] = null !== $this->instanceRamRoleSets ? $this->instanceRamRoleSets->toArray($noStream) : $this->instanceRamRoleSets;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -83,26 +75,30 @@ class detachInstanceRamRoleResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return detachInstanceRamRoleResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceRamRoleSets'])) {
             $model->instanceRamRoleSets = instanceRamRoleSets::fromMap($map['InstanceRamRoleSets']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

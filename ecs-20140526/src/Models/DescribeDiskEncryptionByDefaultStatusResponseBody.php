@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDiskEncryptionByDefaultStatusResponseBody extends Model
 {
     /**
-     * @description Indicates whether account-level default encryption of EBS resources is enabled in the region. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * Default value: false.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $encrypted;
 
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
@@ -35,14 +22,18 @@ class DescribeDiskEncryptionByDefaultStatusResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->encrypted) {
             $res['Encrypted'] = $this->encrypted;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,17 +41,18 @@ class DescribeDiskEncryptionByDefaultStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDiskEncryptionByDefaultStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Encrypted'])) {
             $model->encrypted = $map['Encrypted'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

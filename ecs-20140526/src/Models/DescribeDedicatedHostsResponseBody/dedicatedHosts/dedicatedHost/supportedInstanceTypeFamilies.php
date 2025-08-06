@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts\dedicatedHost;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class supportedInstanceTypeFamilies extends Model
 {
@@ -16,29 +16,47 @@ class supportedInstanceTypeFamilies extends Model
         'supportedInstanceTypeFamily' => 'SupportedInstanceTypeFamily',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->supportedInstanceTypeFamily)) {
+            Model::validateArray($this->supportedInstanceTypeFamily);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->supportedInstanceTypeFamily) {
-            $res['SupportedInstanceTypeFamily'] = $this->supportedInstanceTypeFamily;
+            if (\is_array($this->supportedInstanceTypeFamily)) {
+                $res['SupportedInstanceTypeFamily'] = [];
+                $n1 = 0;
+                foreach ($this->supportedInstanceTypeFamily as $item1) {
+                    $res['SupportedInstanceTypeFamily'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedInstanceTypeFamilies
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupportedInstanceTypeFamily'])) {
             if (!empty($map['SupportedInstanceTypeFamily'])) {
-                $model->supportedInstanceTypeFamily = $map['SupportedInstanceTypeFamily'];
+                $model->supportedInstanceTypeFamily = [];
+                $n1 = 0;
+                foreach ($map['SupportedInstanceTypeFamily'] as $item1) {
+                    $model->supportedInstanceTypeFamily[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

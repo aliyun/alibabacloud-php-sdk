@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeReservedInstanceAutoRenewAttributeRequest extends Model
 {
@@ -19,21 +19,11 @@ class DescribeReservedInstanceAutoRenewAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the reserved instance.
-     *
-     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The IDs of reserved instances.
-     *
      * @var string[]
      */
     public $reservedInstanceId;
@@ -56,26 +46,44 @@ class DescribeReservedInstanceAutoRenewAttributeRequest extends Model
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->reservedInstanceId)) {
+            Model::validateArray($this->reservedInstanceId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->reservedInstanceId) {
-            $res['ReservedInstanceId'] = $this->reservedInstanceId;
+            if (\is_array($this->reservedInstanceId)) {
+                $res['ReservedInstanceId'] = [];
+                $n1 = 0;
+                foreach ($this->reservedInstanceId as $item1) {
+                    $res['ReservedInstanceId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -83,31 +91,41 @@ class DescribeReservedInstanceAutoRenewAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeReservedInstanceAutoRenewAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ReservedInstanceId'])) {
             if (!empty($map['ReservedInstanceId'])) {
-                $model->reservedInstanceId = $map['ReservedInstanceId'];
+                $model->reservedInstanceId = [];
+                $n1 = 0;
+                foreach ($map['ReservedInstanceId'] as $item1) {
+                    $model->reservedInstanceId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

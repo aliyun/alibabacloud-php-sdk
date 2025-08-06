@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupsResponseBody\autoProvisioningGroups\autoProvisioningGroup;
-use AlibabaCloud\Tea\Model;
 
 class autoProvisioningGroups extends Model
 {
@@ -17,17 +17,24 @@ class autoProvisioningGroups extends Model
         'autoProvisioningGroup' => 'AutoProvisioningGroup',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->autoProvisioningGroup)) {
+            Model::validateArray($this->autoProvisioningGroup);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoProvisioningGroup) {
-            $res['AutoProvisioningGroup'] = [];
-            if (null !== $this->autoProvisioningGroup && \is_array($this->autoProvisioningGroup)) {
-                $n = 0;
-                foreach ($this->autoProvisioningGroup as $item) {
-                    $res['AutoProvisioningGroup'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->autoProvisioningGroup)) {
+                $res['AutoProvisioningGroup'] = [];
+                $n1 = 0;
+                foreach ($this->autoProvisioningGroup as $item1) {
+                    $res['AutoProvisioningGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class autoProvisioningGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return autoProvisioningGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoProvisioningGroup'])) {
             if (!empty($map['AutoProvisioningGroup'])) {
                 $model->autoProvisioningGroup = [];
-                $n = 0;
-                foreach ($map['AutoProvisioningGroup'] as $item) {
-                    $model->autoProvisioningGroup[$n++] = null !== $item ? autoProvisioningGroup::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AutoProvisioningGroup'] as $item1) {
+                    $model->autoProvisioningGroup[$n1] = autoProvisioningGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

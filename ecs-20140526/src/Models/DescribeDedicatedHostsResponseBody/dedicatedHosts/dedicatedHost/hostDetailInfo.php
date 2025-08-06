@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts\dedicatedHost;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hostDetailInfo extends Model
 {
     /**
-     * @description This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
-     *
-     * @example null
-     *
      * @var string
      */
     public $serialNumber;
@@ -20,9 +16,12 @@ class hostDetailInfo extends Model
         'serialNumber' => 'SerialNumber',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serialNumber) {
@@ -32,11 +31,11 @@ class hostDetailInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hostDetailInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

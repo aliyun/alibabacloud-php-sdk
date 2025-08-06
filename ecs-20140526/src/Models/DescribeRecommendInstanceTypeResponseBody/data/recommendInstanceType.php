@@ -4,94 +4,58 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRecommendInstanceTypeResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRecommendInstanceTypeResponseBody\data\recommendInstanceType\instanceType;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRecommendInstanceTypeResponseBody\data\recommendInstanceType\zones;
-use AlibabaCloud\Tea\Model;
 
 class recommendInstanceType extends Model
 {
     /**
-     * @description The commodity code of the instance type.
-     *
-     * @example ecs
-     *
      * @var string
      */
     public $commodityCode;
 
     /**
-     * @description The billing method of the instances.
-     *
-     * @example PostPaid
-     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
-     * @description The details of the instance type.
-     *
      * @var instanceType
      */
     public $instanceType;
 
     /**
-     * @description The network type of the ECS instances.
-     *
-     * @example vpc
-     *
      * @var string
      */
     public $networkType;
 
     /**
-     * @description The priority based on which the system sorts the instance types.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $priority;
 
     /**
-     * @description The ID of the region in which the instance type is available.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The scenario in which the instance type is recommended.
-     *
-     * @example CREATE
-     *
      * @var string
      */
     public $scene;
 
     /**
-     * @description The bidding policy for the spot instances.
-     *
-     * @example NoSpot
-     *
      * @var string
      */
     public $spotStrategy;
 
     /**
-     * @description The ID of the zone in which the instance type is available.
-     *
-     * @example cn-hangzhou-h
-     *
      * @var string
      */
     public $zoneId;
 
     /**
-     * @description The details of the zones in which the instance type is available.
-     *
      * @var zones
      */
     public $zones;
@@ -108,80 +72,107 @@ class recommendInstanceType extends Model
         'zones' => 'Zones',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->instanceType) {
+            $this->instanceType->validate();
+        }
+        if (null !== $this->zones) {
+            $this->zones->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
+
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
         }
+
         if (null !== $this->instanceType) {
-            $res['InstanceType'] = null !== $this->instanceType ? $this->instanceType->toMap() : null;
+            $res['InstanceType'] = null !== $this->instanceType ? $this->instanceType->toArray($noStream) : $this->instanceType;
         }
+
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
+
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->scene) {
             $res['Scene'] = $this->scene;
         }
+
         if (null !== $this->spotStrategy) {
             $res['SpotStrategy'] = $this->spotStrategy;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
+
         if (null !== $this->zones) {
-            $res['Zones'] = null !== $this->zones ? $this->zones->toMap() : null;
+            $res['Zones'] = null !== $this->zones ? $this->zones->toArray($noStream) : $this->zones;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recommendInstanceType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
+
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
         }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = instanceType::fromMap($map['InstanceType']);
         }
+
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
+
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Scene'])) {
             $model->scene = $map['Scene'];
         }
+
         if (isset($map['SpotStrategy'])) {
             $model->spotStrategy = $map['SpotStrategy'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }
+
         if (isset($map['Zones'])) {
             $model->zones = zones::fromMap($map['Zones']);
         }

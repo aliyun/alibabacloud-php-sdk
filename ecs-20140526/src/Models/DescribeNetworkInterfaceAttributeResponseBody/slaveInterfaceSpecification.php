@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNetworkInterfaceAttributeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class slaveInterfaceSpecification extends Model
 {
     /**
-     * @description >  This parameter is in invitational preview and unavailable for general users.
-     *
-     * @example null
-     *
      * @var string
      */
     public $bondNetworkInterfaceId;
 
     /**
-     * @description >  This parameter is in invitational preview and unavailable for general users.
-     *
-     * @example null
-     *
      * @var string
      */
     public $slaveNetworkInterfaceId;
 
     /**
-     * @description >  This parameter is in invitational preview and unavailable for general users.
-     *
-     * @example null
-     *
      * @var string
      */
     public $workState;
@@ -40,17 +28,22 @@ class slaveInterfaceSpecification extends Model
         'workState' => 'WorkState',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bondNetworkInterfaceId) {
             $res['BondNetworkInterfaceId'] = $this->bondNetworkInterfaceId;
         }
+
         if (null !== $this->slaveNetworkInterfaceId) {
             $res['SlaveNetworkInterfaceId'] = $this->slaveNetworkInterfaceId;
         }
+
         if (null !== $this->workState) {
             $res['WorkState'] = $this->workState;
         }
@@ -58,20 +51,22 @@ class slaveInterfaceSpecification extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return slaveInterfaceSpecification
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BondNetworkInterfaceId'])) {
             $model->bondNetworkInterfaceId = $map['BondNetworkInterfaceId'];
         }
+
         if (isset($map['SlaveNetworkInterfaceId'])) {
             $model->slaveNetworkInterfaceId = $map['SlaveNetworkInterfaceId'];
         }
+
         if (isset($map['WorkState'])) {
             $model->workState = $map['WorkState'];
         }

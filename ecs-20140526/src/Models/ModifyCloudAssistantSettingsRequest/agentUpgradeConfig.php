@@ -4,42 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyCloudAssistantSettingsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class agentUpgradeConfig extends Model
 {
     /**
-     * @description The time windows during which Cloud Assistant Agent can be upgraded. The time windows can be accurate to minutes. The Coordinated Universal Time (UTC) time zone is used by default.
-     *
-     * Make sure that the upgrade windows specified by this parameter are not shorter than 1 hour.
-     *
-     * Specify each upgrade window in the following format: \\<Start time in the HH:mm format>-\\<End time in the HH:mm format>.
-     *
-     * For example, [ "02:00-03:00", "05:00-06:00" ] specifies that Cloud Assistant Agent can be upgraded from 2:00:00 to 3:00:00 and from 5:00:00 to 6:00:00 every day in the UTC time zone.
-     *
      * @var string[]
      */
     public $allowedUpgradeWindow;
 
     /**
-     * @description Specifies whether to enable custom upgrade for Cloud Assistant Agent. If you set this parameter to false, an upgrade attempt is performed for Cloud Assistant Agent every 30 minutes.
-     *
-     * Default value: false.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enabled;
 
     /**
-     * @description The time zone of the time windows. Default value: UTC. You can specify a time zone in the following forms:
-     *
-     *   The time zone name. Examples: Asia/Shanghai and America/Los_Angeles.
-     *   The time offset from GMT. Examples: GMT+8:00 (UTC+8) and GMT-7:00 (UTC-7). You cannot add leading zeros to the hour value.
-     *
-     * @example Asia/Shanghai
-     *
      * @var string
      */
     public $timeZone;
@@ -49,17 +28,32 @@ class agentUpgradeConfig extends Model
         'timeZone' => 'TimeZone',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->allowedUpgradeWindow)) {
+            Model::validateArray($this->allowedUpgradeWindow);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allowedUpgradeWindow) {
-            $res['AllowedUpgradeWindow'] = $this->allowedUpgradeWindow;
+            if (\is_array($this->allowedUpgradeWindow)) {
+                $res['AllowedUpgradeWindow'] = [];
+                $n1 = 0;
+                foreach ($this->allowedUpgradeWindow as $item1) {
+                    $res['AllowedUpgradeWindow'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->timeZone) {
             $res['TimeZone'] = $this->timeZone;
         }
@@ -67,22 +61,29 @@ class agentUpgradeConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return agentUpgradeConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllowedUpgradeWindow'])) {
             if (!empty($map['AllowedUpgradeWindow'])) {
-                $model->allowedUpgradeWindow = $map['AllowedUpgradeWindow'];
+                $model->allowedUpgradeWindow = [];
+                $n1 = 0;
+                foreach ($map['AllowedUpgradeWindow'] as $item1) {
+                    $model->allowedUpgradeWindow[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['TimeZone'])) {
             $model->timeZone = $map['TimeZone'];
         }

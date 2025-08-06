@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceResponseBody\ipv6Sets;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ipv6Set extends Model
 {
     /**
-     * @description The IPv6 address assigned to the ENI.
-     *
-     * @example 2001:db8:1234:1a00::****
-     *
      * @var string
      */
     public $ipv6Address;
@@ -20,9 +16,12 @@ class ipv6Set extends Model
         'ipv6Address' => 'Ipv6Address',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipv6Address) {
@@ -32,11 +31,11 @@ class ipv6Set extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipv6Set
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

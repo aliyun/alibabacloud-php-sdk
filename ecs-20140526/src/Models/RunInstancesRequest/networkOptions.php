@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\RunInstancesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class networkOptions extends Model
 {
@@ -14,17 +14,6 @@ class networkOptions extends Model
     public $bandwidthWeighting;
 
     /**
-     * @description Specifies whether to enable the Jumbo Frames feature for the instance. Valid values:
-     *
-     *   false: does not enable the Jumbo Frames feature for the instance. The maximum transmission unit (MTU) value of all ENIs on the instance is set to 1500.
-     *   true: enables the Jumbo Frames feature for the instance. The MTU value of all ENIs on the instance is set to 8500.
-     *
-     * Default value: true.
-     *
-     * >  The Jumbo Frames feature is supported by only 8th-generation or later instance types. For more information, see [Jumbo Frames](https://help.aliyun.com/document_detail/200512.html).
-     *
-     * @example false
-     *
      * @var bool
      */
     public $enableJumboFrame;
@@ -39,17 +28,22 @@ class networkOptions extends Model
         'enableNetworkEncryption' => 'EnableNetworkEncryption',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bandwidthWeighting) {
             $res['BandwidthWeighting'] = $this->bandwidthWeighting;
         }
+
         if (null !== $this->enableJumboFrame) {
             $res['EnableJumboFrame'] = $this->enableJumboFrame;
         }
+
         if (null !== $this->enableNetworkEncryption) {
             $res['EnableNetworkEncryption'] = $this->enableNetworkEncryption;
         }
@@ -57,20 +51,22 @@ class networkOptions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkOptions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BandwidthWeighting'])) {
             $model->bandwidthWeighting = $map['BandwidthWeighting'];
         }
+
         if (isset($map['EnableJumboFrame'])) {
             $model->enableJumboFrame = $map['EnableJumboFrame'];
         }
+
         if (isset($map['EnableNetworkEncryption'])) {
             $model->enableNetworkEncryption = $map['EnableNetworkEncryption'];
         }

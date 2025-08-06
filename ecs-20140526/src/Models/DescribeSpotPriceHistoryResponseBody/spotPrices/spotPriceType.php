@@ -4,73 +4,41 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSpotPriceHistoryResponseBody\spotPrices;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class spotPriceType extends Model
 {
     /**
-     * @description The instance type of the spot instance.
-     *
-     * @example ecs.g5.large
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description Details about the price history of the spot instance.
-     *
-     * @example optimized
-     *
      * @var string
      */
     public $ioOptimized;
 
     /**
-     * @description Queries the price history of a spot instance within the last 30 days.
-     *
-     * @example vpc
-     *
      * @var string
      */
     public $networkType;
 
     /**
-     * @description The price for a pay-as-you-go instance that has the same configuration as the specified spot instance.
-     *
-     * @example 0.354
-     *
      * @var float
      */
     public $originPrice;
 
     /**
-     * @description The price for a pay-as-you-go instance that has the same configurations as the spot instance.
-     *
-     * @example 0.036
-     *
      * @var float
      */
     public $spotPrice;
 
     /**
-     * @description The currency unit of the price.
-     *
-     * Alibaba Cloud China site (aliyun.com): CNY.
-     *
-     * Alibaba Cloud International site (alibabacloud.com): USD.
-     *
-     * @example 2019-11-19T06:00:00Z
-     *
      * @var string
      */
     public $timestamp;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example cn-hangzhou-c
-     *
      * @var string
      */
     public $zoneId;
@@ -84,29 +52,38 @@ class spotPriceType extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->ioOptimized) {
             $res['IoOptimized'] = $this->ioOptimized;
         }
+
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
+
         if (null !== $this->originPrice) {
             $res['OriginPrice'] = $this->originPrice;
         }
+
         if (null !== $this->spotPrice) {
             $res['SpotPrice'] = $this->spotPrice;
         }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -114,32 +91,38 @@ class spotPriceType extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return spotPriceType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['IoOptimized'])) {
             $model->ioOptimized = $map['IoOptimized'];
         }
+
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
+
         if (isset($map['OriginPrice'])) {
             $model->originPrice = $map['OriginPrice'];
         }
+
         if (isset($map['SpotPrice'])) {
             $model->spotPrice = $map['SpotPrice'];
         }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

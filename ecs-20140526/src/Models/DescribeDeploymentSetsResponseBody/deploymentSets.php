@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDeploymentSetsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDeploymentSetsResponseBody\deploymentSets\deploymentSet;
-use AlibabaCloud\Tea\Model;
 
 class deploymentSets extends Model
 {
@@ -17,17 +17,24 @@ class deploymentSets extends Model
         'deploymentSet' => 'DeploymentSet',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->deploymentSet)) {
+            Model::validateArray($this->deploymentSet);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deploymentSet) {
-            $res['DeploymentSet'] = [];
-            if (null !== $this->deploymentSet && \is_array($this->deploymentSet)) {
-                $n = 0;
-                foreach ($this->deploymentSet as $item) {
-                    $res['DeploymentSet'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->deploymentSet)) {
+                $res['DeploymentSet'] = [];
+                $n1 = 0;
+                foreach ($this->deploymentSet as $item1) {
+                    $res['DeploymentSet'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class deploymentSets extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deploymentSets
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeploymentSet'])) {
             if (!empty($map['DeploymentSet'])) {
                 $model->deploymentSet = [];
-                $n = 0;
-                foreach ($map['DeploymentSet'] as $item) {
-                    $model->deploymentSet[$n++] = null !== $item ? deploymentSet::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DeploymentSet'] as $item1) {
+                    $model->deploymentSet[$n1] = deploymentSet::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

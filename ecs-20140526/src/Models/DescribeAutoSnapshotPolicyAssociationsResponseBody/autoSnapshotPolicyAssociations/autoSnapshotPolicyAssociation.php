@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoSnapshotPolicyAssociationsResponseBody\autoSnapshotPolicyAssociations;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class autoSnapshotPolicyAssociation extends Model
 {
@@ -22,14 +22,18 @@ class autoSnapshotPolicyAssociation extends Model
         'diskId' => 'DiskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoSnapshotPolicyId) {
             $res['AutoSnapshotPolicyId'] = $this->autoSnapshotPolicyId;
         }
+
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
         }
@@ -37,17 +41,18 @@ class autoSnapshotPolicyAssociation extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return autoSnapshotPolicyAssociation
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoSnapshotPolicyId'])) {
             $model->autoSnapshotPolicyId = $map['AutoSnapshotPolicyId'];
         }
+
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
         }

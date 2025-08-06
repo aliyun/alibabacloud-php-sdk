@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class networkOptions extends Model
 {
@@ -28,17 +28,22 @@ class networkOptions extends Model
         'enableNetworkEncryption' => 'EnableNetworkEncryption',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bandwidthWeighting) {
             $res['BandwidthWeighting'] = $this->bandwidthWeighting;
         }
+
         if (null !== $this->enableJumboFrame) {
             $res['EnableJumboFrame'] = $this->enableJumboFrame;
         }
+
         if (null !== $this->enableNetworkEncryption) {
             $res['EnableNetworkEncryption'] = $this->enableNetworkEncryption;
         }
@@ -46,20 +51,22 @@ class networkOptions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkOptions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BandwidthWeighting'])) {
             $model->bandwidthWeighting = $map['BandwidthWeighting'];
         }
+
         if (isset($map['EnableJumboFrame'])) {
             $model->enableJumboFrame = $map['EnableJumboFrame'];
         }
+
         if (isset($map['EnableNetworkEncryption'])) {
             $model->enableNetworkEncryption = $map['EnableNetworkEncryption'];
         }

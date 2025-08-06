@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRouteTablesResponseBody\routeTables\routeTable\routeEntrys\routeEntry\nextHops;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nextHop extends Model
 {
@@ -34,20 +34,26 @@ class nextHop extends Model
         'weight' => 'Weight',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->nextHopId) {
             $res['NextHopId'] = $this->nextHopId;
         }
+
         if (null !== $this->nextHopType) {
             $res['NextHopType'] = $this->nextHopType;
         }
+
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
@@ -55,23 +61,26 @@ class nextHop extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nextHop
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['NextHopId'])) {
             $model->nextHopId = $map['NextHopId'];
         }
+
         if (isset($map['NextHopType'])) {
             $model->nextHopType = $map['NextHopType'];
         }
+
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }

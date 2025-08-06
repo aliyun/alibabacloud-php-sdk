@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceResponseBody\priceInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceResponseBody\priceInfo\relatedPrice\marketplaceImagePrice;
-use AlibabaCloud\Tea\Model;
 
 class relatedPrice extends Model
 {
     /**
-     * @description The Alibaba Cloud Marketplace image price.
-     *
      * @var marketplaceImagePrice
      */
     public $marketplaceImagePrice;
@@ -19,23 +17,29 @@ class relatedPrice extends Model
         'marketplaceImagePrice' => 'MarketplaceImagePrice',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->marketplaceImagePrice) {
+            $this->marketplaceImagePrice->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->marketplaceImagePrice) {
-            $res['MarketplaceImagePrice'] = null !== $this->marketplaceImagePrice ? $this->marketplaceImagePrice->toMap() : null;
+            $res['MarketplaceImagePrice'] = null !== $this->marketplaceImagePrice ? $this->marketplaceImagePrice->toArray($noStream) : $this->marketplaceImagePrice;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return relatedPrice
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

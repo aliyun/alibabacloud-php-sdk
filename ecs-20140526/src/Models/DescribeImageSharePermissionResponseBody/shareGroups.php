@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageSharePermissionResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageSharePermissionResponseBody\shareGroups\shareGroup;
-use AlibabaCloud\Tea\Model;
 
 class shareGroups extends Model
 {
@@ -17,17 +17,24 @@ class shareGroups extends Model
         'shareGroup' => 'ShareGroup',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->shareGroup)) {
+            Model::validateArray($this->shareGroup);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->shareGroup) {
-            $res['ShareGroup'] = [];
-            if (null !== $this->shareGroup && \is_array($this->shareGroup)) {
-                $n = 0;
-                foreach ($this->shareGroup as $item) {
-                    $res['ShareGroup'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->shareGroup)) {
+                $res['ShareGroup'] = [];
+                $n1 = 0;
+                foreach ($this->shareGroup as $item1) {
+                    $res['ShareGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class shareGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return shareGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ShareGroup'])) {
             if (!empty($map['ShareGroup'])) {
                 $model->shareGroup = [];
-                $n = 0;
-                foreach ($map['ShareGroup'] as $item) {
-                    $model->shareGroup[$n++] = null !== $item ? shareGroup::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ShareGroup'] as $item1) {
+                    $model->shareGroup[$n1] = shareGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

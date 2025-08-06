@@ -4,80 +4,47 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePrefixListAttributesResponseBody\entries;
-use AlibabaCloud\Tea\Model;
 
 class DescribePrefixListAttributesResponseBody extends Model
 {
     /**
-     * @description The IP address family of the prefix list. Valid values:
-     *
-     *   IPv4
-     *   IPv6
-     *
-     * @example IPv4
-     *
      * @var string
      */
     public $addressFamily;
 
     /**
-     * @description The time when the prefix list was created.
-     *
-     * @example 2021-02-20T07:11Z
-     *
      * @var string
      */
     public $creationTime;
 
     /**
-     * @description The description of the prefix list.
-     *
-     * @example This is description.
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description Details about the entries in the prefix list.
-     *
      * @var entries
      */
     public $entries;
 
     /**
-     * @description The maximum number of entries in the prefix list.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $maxEntries;
 
     /**
-     * @description The ID of the prefix list.
-     *
-     * @example pl-x1j1k5ykzqlixdcy****
-     *
      * @var string
      */
     public $prefixListId;
 
     /**
-     * @description The name of the prefix list.
-     *
-     * @example PrefixListNameSample
-     *
      * @var string
      */
     public $prefixListName;
 
     /**
-     * @description The request ID.
-     *
-     * @example 38793DB8-A4B2-4AEC-BFD3-111234E9188D
-     *
      * @var string
      */
     public $requestId;
@@ -92,32 +59,45 @@ class DescribePrefixListAttributesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->entries) {
+            $this->entries->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addressFamily) {
             $res['AddressFamily'] = $this->addressFamily;
         }
+
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->entries) {
-            $res['Entries'] = null !== $this->entries ? $this->entries->toMap() : null;
+            $res['Entries'] = null !== $this->entries ? $this->entries->toArray($noStream) : $this->entries;
         }
+
         if (null !== $this->maxEntries) {
             $res['MaxEntries'] = $this->maxEntries;
         }
+
         if (null !== $this->prefixListId) {
             $res['PrefixListId'] = $this->prefixListId;
         }
+
         if (null !== $this->prefixListName) {
             $res['PrefixListName'] = $this->prefixListName;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -125,35 +105,42 @@ class DescribePrefixListAttributesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePrefixListAttributesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddressFamily'])) {
             $model->addressFamily = $map['AddressFamily'];
         }
+
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Entries'])) {
             $model->entries = entries::fromMap($map['Entries']);
         }
+
         if (isset($map['MaxEntries'])) {
             $model->maxEntries = $map['MaxEntries'];
         }
+
         if (isset($map['PrefixListId'])) {
             $model->prefixListId = $map['PrefixListId'];
         }
+
         if (isset($map['PrefixListName'])) {
             $model->prefixListName = $map['PrefixListName'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

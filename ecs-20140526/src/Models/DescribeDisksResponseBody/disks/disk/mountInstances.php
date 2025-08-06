@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksResponseBody\disks\disk;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksResponseBody\disks\disk\mountInstances\mountInstance;
-use AlibabaCloud\Tea\Model;
 
 class mountInstances extends Model
 {
@@ -17,17 +17,24 @@ class mountInstances extends Model
         'mountInstance' => 'MountInstance',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->mountInstance)) {
+            Model::validateArray($this->mountInstance);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mountInstance) {
-            $res['MountInstance'] = [];
-            if (null !== $this->mountInstance && \is_array($this->mountInstance)) {
-                $n = 0;
-                foreach ($this->mountInstance as $item) {
-                    $res['MountInstance'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->mountInstance)) {
+                $res['MountInstance'] = [];
+                $n1 = 0;
+                foreach ($this->mountInstance as $item1) {
+                    $res['MountInstance'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class mountInstances extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mountInstances
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MountInstance'])) {
             if (!empty($map['MountInstance'])) {
                 $model->mountInstance = [];
-                $n = 0;
-                foreach ($map['MountInstance'] as $item) {
-                    $model->mountInstance[$n++] = null !== $item ? mountInstance::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MountInstance'] as $item1) {
+                    $model->mountInstance[$n1] = mountInstance::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

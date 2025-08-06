@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNewProjectEipMonitorDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNewProjectEipMonitorDataResponseBody\eipMonitorDatas\eipMonitorData;
-use AlibabaCloud\Tea\Model;
 
 class eipMonitorDatas extends Model
 {
@@ -17,17 +17,24 @@ class eipMonitorDatas extends Model
         'eipMonitorData' => 'EipMonitorData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->eipMonitorData)) {
+            Model::validateArray($this->eipMonitorData);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eipMonitorData) {
-            $res['EipMonitorData'] = [];
-            if (null !== $this->eipMonitorData && \is_array($this->eipMonitorData)) {
-                $n = 0;
-                foreach ($this->eipMonitorData as $item) {
-                    $res['EipMonitorData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->eipMonitorData)) {
+                $res['EipMonitorData'] = [];
+                $n1 = 0;
+                foreach ($this->eipMonitorData as $item1) {
+                    $res['EipMonitorData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class eipMonitorDatas extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return eipMonitorDatas
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EipMonitorData'])) {
             if (!empty($map['EipMonitorData'])) {
                 $model->eipMonitorData = [];
-                $n = 0;
-                foreach ($map['EipMonitorData'] as $item) {
-                    $model->eipMonitorData[$n++] = null !== $item ? eipMonitorData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EipMonitorData'] as $item1) {
+                    $model->eipMonitorData[$n1] = eipMonitorData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

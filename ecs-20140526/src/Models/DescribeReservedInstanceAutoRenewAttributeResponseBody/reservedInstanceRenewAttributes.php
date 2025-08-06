@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeReservedInstanceAutoRenewAttributeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeReservedInstanceAutoRenewAttributeResponseBody\reservedInstanceRenewAttributes\reservedInstanceRenewAttribute;
-use AlibabaCloud\Tea\Model;
 
 class reservedInstanceRenewAttributes extends Model
 {
@@ -17,17 +17,24 @@ class reservedInstanceRenewAttributes extends Model
         'reservedInstanceRenewAttribute' => 'ReservedInstanceRenewAttribute',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->reservedInstanceRenewAttribute)) {
+            Model::validateArray($this->reservedInstanceRenewAttribute);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reservedInstanceRenewAttribute) {
-            $res['ReservedInstanceRenewAttribute'] = [];
-            if (null !== $this->reservedInstanceRenewAttribute && \is_array($this->reservedInstanceRenewAttribute)) {
-                $n = 0;
-                foreach ($this->reservedInstanceRenewAttribute as $item) {
-                    $res['ReservedInstanceRenewAttribute'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->reservedInstanceRenewAttribute)) {
+                $res['ReservedInstanceRenewAttribute'] = [];
+                $n1 = 0;
+                foreach ($this->reservedInstanceRenewAttribute as $item1) {
+                    $res['ReservedInstanceRenewAttribute'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class reservedInstanceRenewAttributes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return reservedInstanceRenewAttributes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReservedInstanceRenewAttribute'])) {
             if (!empty($map['ReservedInstanceRenewAttribute'])) {
                 $model->reservedInstanceRenewAttribute = [];
-                $n = 0;
-                foreach ($map['ReservedInstanceRenewAttribute'] as $item) {
-                    $model->reservedInstanceRenewAttribute[$n++] = null !== $item ? reservedInstanceRenewAttribute::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ReservedInstanceRenewAttribute'] as $item1) {
+                    $model->reservedInstanceRenewAttribute[$n1] = reservedInstanceRenewAttribute::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

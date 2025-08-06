@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CopySnapshotResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example C8B26B44-0189-443E-9816-D951F596****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the new snapshot.
-     *
-     * @example s-bp17441ohwka0yui****
-     *
      * @var string
      */
     public $snapshotId;
@@ -30,14 +22,18 @@ class CopySnapshotResponseBody extends Model
         'snapshotId' => 'SnapshotId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
         }
@@ -45,17 +41,18 @@ class CopySnapshotResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CopySnapshotResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
         }

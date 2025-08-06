@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNatGatewaysResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeNatGatewaysResponseBody\natGateways\natGateway;
-use AlibabaCloud\Tea\Model;
 
 class natGateways extends Model
 {
@@ -17,17 +17,24 @@ class natGateways extends Model
         'natGateway' => 'NatGateway',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->natGateway)) {
+            Model::validateArray($this->natGateway);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->natGateway) {
-            $res['NatGateway'] = [];
-            if (null !== $this->natGateway && \is_array($this->natGateway)) {
-                $n = 0;
-                foreach ($this->natGateway as $item) {
-                    $res['NatGateway'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->natGateway)) {
+                $res['NatGateway'] = [];
+                $n1 = 0;
+                foreach ($this->natGateway as $item1) {
+                    $res['NatGateway'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class natGateways extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return natGateways
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NatGateway'])) {
             if (!empty($map['NatGateway'])) {
                 $model->natGateway = [];
-                $n = 0;
-                foreach ($map['NatGateway'] as $item) {
-                    $model->natGateway[$n++] = null !== $item ? natGateway::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NatGateway'] as $item1) {
+                    $model->natGateway[$n1] = natGateway::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

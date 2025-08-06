@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupShrinkRequest\prePaidOptions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class specifyCapacityDistribution extends Model
 {
     /**
-     * @description Details about the instance types. Duplicate instance types are not allowed and the instance types are within the LaunchTemplateConfig.InstanceType range.
-     *
      * @var string[]
      */
     public $instanceTypes;
 
     /**
-     * @description The minimum number of instances to be delivered within the `InstanceTypes` range.
-     *
-     * >  `sum(MinTargetCapacity)<= TotalTargetCapacity` indicates that the sum of MinTargetCapacity values of all instance types cannot exceed the TotalTargetCapacity value. If any instance type set cannot meet the MinTargetCapacity requirement due to insufficient inventory or other reasons, the entire request fails.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $minTargetCapacity;
@@ -30,14 +22,28 @@ class specifyCapacityDistribution extends Model
         'minTargetCapacity' => 'MinTargetCapacity',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceTypes)) {
+            Model::validateArray($this->instanceTypes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceTypes) {
-            $res['InstanceTypes'] = $this->instanceTypes;
+            if (\is_array($this->instanceTypes)) {
+                $res['InstanceTypes'] = [];
+                $n1 = 0;
+                foreach ($this->instanceTypes as $item1) {
+                    $res['InstanceTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->minTargetCapacity) {
             $res['MinTargetCapacity'] = $this->minTargetCapacity;
         }
@@ -45,19 +51,25 @@ class specifyCapacityDistribution extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return specifyCapacityDistribution
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceTypes'])) {
             if (!empty($map['InstanceTypes'])) {
-                $model->instanceTypes = $map['InstanceTypes'];
+                $model->instanceTypes = [];
+                $n1 = 0;
+                foreach ($map['InstanceTypes'] as $item1) {
+                    $model->instanceTypes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['MinTargetCapacity'])) {
             $model->minTargetCapacity = $map['MinTargetCapacity'];
         }

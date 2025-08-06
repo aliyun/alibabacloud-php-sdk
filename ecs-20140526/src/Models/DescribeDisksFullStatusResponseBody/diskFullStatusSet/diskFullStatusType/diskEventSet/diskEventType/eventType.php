@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksFullStatusResponseBody\diskFullStatusSet\diskFullStatusType\diskEventSet\diskEventType;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class eventType extends Model
 {
     /**
-     * @description The code of the event type.
-     *
-     * @example 7
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The name of the event type. Valid values:
-     *
-     *   Degraded: The performance of the EBS device is degraded.
-     *   SeverelyDegraded: The performance of the EBS device is severely degraded.
-     *   Stalled: The performance of the EBS device is severely affected.
-     *   ErrorDetected: The local disk is damaged.
-     *
-     * @example Stalled
-     *
      * @var string
      */
     public $name;
@@ -35,14 +22,18 @@ class eventType extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -50,17 +41,18 @@ class eventType extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return eventType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

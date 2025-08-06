@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\AssignPrivateIpAddressesResponseBody\assignedPrivateIpAddressesSet;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class privateIpSet extends Model
 {
@@ -16,29 +16,47 @@ class privateIpSet extends Model
         'privateIpAddress' => 'PrivateIpAddress',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->privateIpAddress)) {
+            Model::validateArray($this->privateIpAddress);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->privateIpAddress) {
-            $res['PrivateIpAddress'] = $this->privateIpAddress;
+            if (\is_array($this->privateIpAddress)) {
+                $res['PrivateIpAddress'] = [];
+                $n1 = 0;
+                foreach ($this->privateIpAddress as $item1) {
+                    $res['PrivateIpAddress'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return privateIpSet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PrivateIpAddress'])) {
             if (!empty($map['PrivateIpAddress'])) {
-                $model->privateIpAddress = $map['PrivateIpAddress'];
+                $model->privateIpAddress = [];
+                $n1 = 0;
+                foreach ($map['PrivateIpAddress'] as $item1) {
+                    $model->privateIpAddress[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

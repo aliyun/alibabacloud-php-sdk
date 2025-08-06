@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSavingsPlanPriceRequest extends Model
 {
@@ -64,77 +64,111 @@ class DescribeSavingsPlanPriceRequest extends Model
         'resourceId' => 'ResourceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->resourceId)) {
+            Model::validateArray($this->resourceId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->committedAmount) {
             $res['CommittedAmount'] = $this->committedAmount;
         }
+
         if (null !== $this->instanceTypeFamily) {
             $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
         }
+
         if (null !== $this->instanceTypeFamilyGroup) {
             $res['InstanceTypeFamilyGroup'] = $this->instanceTypeFamilyGroup;
         }
+
         if (null !== $this->offeringType) {
             $res['OfferingType'] = $this->offeringType;
         }
+
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
         }
+
         if (null !== $this->planType) {
             $res['PlanType'] = $this->planType;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
+            if (\is_array($this->resourceId)) {
+                $res['ResourceId'] = [];
+                $n1 = 0;
+                foreach ($this->resourceId as $item1) {
+                    $res['ResourceId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSavingsPlanPriceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommittedAmount'])) {
             $model->committedAmount = $map['CommittedAmount'];
         }
+
         if (isset($map['InstanceTypeFamily'])) {
             $model->instanceTypeFamily = $map['InstanceTypeFamily'];
         }
+
         if (isset($map['InstanceTypeFamilyGroup'])) {
             $model->instanceTypeFamilyGroup = $map['InstanceTypeFamilyGroup'];
         }
+
         if (isset($map['OfferingType'])) {
             $model->offeringType = $map['OfferingType'];
         }
+
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
         }
+
         if (isset($map['PlanType'])) {
             $model->planType = $map['PlanType'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
-                $model->resourceId = $map['ResourceId'];
+                $model->resourceId = [];
+                $n1 = 0;
+                foreach ($map['ResourceId'] as $item1) {
+                    $model->resourceId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePrefixListAttributesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePrefixListAttributesResponseBody\entries\entry;
-use AlibabaCloud\Tea\Model;
 
 class entries extends Model
 {
@@ -17,17 +17,24 @@ class entries extends Model
         'entry' => 'Entry',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->entry)) {
+            Model::validateArray($this->entry);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entry) {
-            $res['Entry'] = [];
-            if (null !== $this->entry && \is_array($this->entry)) {
-                $n = 0;
-                foreach ($this->entry as $item) {
-                    $res['Entry'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->entry)) {
+                $res['Entry'] = [];
+                $n1 = 0;
+                foreach ($this->entry as $item1) {
+                    $res['Entry'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class entries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return entries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Entry'])) {
             if (!empty($map['Entry'])) {
                 $model->entry = [];
-                $n = 0;
-                foreach ($map['Entry'] as $item) {
-                    $model->entry[$n++] = null !== $item ? entry::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Entry'] as $item1) {
+                    $model->entry[$n1] = entry::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

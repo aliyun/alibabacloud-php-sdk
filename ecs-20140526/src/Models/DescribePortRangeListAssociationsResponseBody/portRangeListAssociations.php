@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePortRangeListAssociationsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class portRangeListAssociations extends Model
 {
     /**
-     * @description The ID of the resource.
-     *
-     * @example sg-2zefu72****
-     *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description The type of the resource. Valid value: SecurityGroup.
-     *
-     * @example SecurityGroup
-     *
      * @var string
      */
     public $resourceType;
@@ -30,14 +22,18 @@ class portRangeListAssociations extends Model
         'resourceType' => 'ResourceType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -45,17 +41,18 @@ class portRangeListAssociations extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return portRangeListAssociations
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

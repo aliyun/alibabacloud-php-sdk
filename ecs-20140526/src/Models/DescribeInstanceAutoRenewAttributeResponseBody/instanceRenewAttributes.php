@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAutoRenewAttributeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAutoRenewAttributeResponseBody\instanceRenewAttributes\instanceRenewAttribute;
-use AlibabaCloud\Tea\Model;
 
 class instanceRenewAttributes extends Model
 {
@@ -17,17 +17,24 @@ class instanceRenewAttributes extends Model
         'instanceRenewAttribute' => 'InstanceRenewAttribute',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceRenewAttribute)) {
+            Model::validateArray($this->instanceRenewAttribute);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceRenewAttribute) {
-            $res['InstanceRenewAttribute'] = [];
-            if (null !== $this->instanceRenewAttribute && \is_array($this->instanceRenewAttribute)) {
-                $n = 0;
-                foreach ($this->instanceRenewAttribute as $item) {
-                    $res['InstanceRenewAttribute'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceRenewAttribute)) {
+                $res['InstanceRenewAttribute'] = [];
+                $n1 = 0;
+                foreach ($this->instanceRenewAttribute as $item1) {
+                    $res['InstanceRenewAttribute'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class instanceRenewAttributes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceRenewAttributes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceRenewAttribute'])) {
             if (!empty($map['InstanceRenewAttribute'])) {
                 $model->instanceRenewAttribute = [];
-                $n = 0;
-                foreach ($map['InstanceRenewAttribute'] as $item) {
-                    $model->instanceRenewAttribute[$n++] = null !== $item ? instanceRenewAttribute::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceRenewAttribute'] as $item1) {
+                    $model->instanceRenewAttribute[$n1] = instanceRenewAttribute::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

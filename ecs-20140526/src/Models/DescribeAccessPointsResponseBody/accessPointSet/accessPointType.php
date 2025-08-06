@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAccessPointsResponseBody\accessPointSet;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class accessPointType extends Model
 {
@@ -58,32 +58,42 @@ class accessPointType extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessPointId) {
             $res['AccessPointId'] = $this->accessPointId;
         }
+
         if (null !== $this->attachedRegionNo) {
             $res['AttachedRegionNo'] = $this->attachedRegionNo;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->hostOperator) {
             $res['HostOperator'] = $this->hostOperator;
         }
+
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -91,35 +101,42 @@ class accessPointType extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accessPointType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessPointId'])) {
             $model->accessPointId = $map['AccessPointId'];
         }
+
         if (isset($map['AttachedRegionNo'])) {
             $model->attachedRegionNo = $map['AttachedRegionNo'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['HostOperator'])) {
             $model->hostOperator = $map['HostOperator'];
         }
+
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

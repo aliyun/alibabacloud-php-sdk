@@ -4,179 +4,90 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceRequest\connectionTrackingConfiguration;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceRequest\enhancedNetwork;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceRequest\networkInterfaceTrafficConfig;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateNetworkInterfaceRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class CreateNetworkInterfaceRequest extends Model
 {
     /**
-     * @description > This parameter is no longer used.
-     *
-     * @example null
-     *
      * @var string
      */
     public $businessType;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-     *
-     * @example 123e4567-e89b-12d3-a456-426655440000
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description The connection tracking configurations of the ENI.
-     *
-     * Before you use this parameter, learn about how to manage connection timeout periods. For more information, see [Manage connection timeout periods](https://help.aliyun.com/document_detail/2865958.html).
-     *
      * @var connectionTrackingConfiguration
      */
     public $connectionTrackingConfiguration;
 
     /**
-     * @description Specifies whether to release the ENI when the associated instance is released. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $deleteOnRelease;
 
     /**
-     * @description The description of the ENI. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
-     *
-     * This parameter is empty by default.
-     *
-     * @example testDescription
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description >  This parameter is not publicly available.
-     *
      * @var enhancedNetwork
      */
     public $enhancedNetwork;
 
     /**
-     * @description The type of the ENI. Valid values:
-     *
-     *   Secondary: secondary ENI.
-     *   Trunk: trunk ENI. This value is in invitational preview.
-     *
-     * Default value: Secondary.
-     *
-     * @example null
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description IPv4 prefixes to assign to the ENI. Valid values of N: 1 to 10.
-     *
-     * >  To assign IPv4 prefixes to the ENI, you must specify the Ipv4Prefix.N or Ipv4PrefixCount parameter, but not both.
-     *
      * @var string[]
      */
     public $ipv4Prefix;
 
     /**
-     * @description The number of IPv4 prefixes to assign to the ENI. Valid values: 1 to 10.
-     *
-     * >  To assign IPv4 prefixes to the ENI, you must specify the Ipv4Prefix.N or Ipv4PrefixCount parameter, but not both.
-     *
-     * @example hide
-     *
      * @var int
      */
     public $ipv4PrefixCount;
 
     /**
-     * @description IPv6 addresses to assign to the ENI. Valid values of N: 1 to 10.
-     *
-     * Example: Ipv6Address.1=2001:db8:1234:1a00::\\*\\*\\*\\*
-     *
-     * >  To assign IPv6 addresses to the ENI, you must specify the `Ipv6Addresses.N` or `Ipv6AddressCount` parameter, but not both.
-     *
-     * @example 2001:db8:1234:1a00::****
-     *
      * @var string[]
      */
     public $ipv6Address;
 
     /**
-     * @description The number of IPv6 addresses to randomly generate for the ENI. Valid values: 1 to 10.
-     *
-     * >  To assign IPv6 addresses to the ENI, you must specify the `Ipv6Addresses.N` or `Ipv6AddressCount` parameter, but not both.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $ipv6AddressCount;
 
     /**
-     * @description IPv6 prefixes to assign to the ENI. Valid values of N: 1 to 10.
-     *
-     * >  To assign IPv6 prefixes to the ENI, you must specify the Ipv6Prefix.N or Ipv6PrefixCount parameter, but not both.
-     *
      * @var string[]
      */
     public $ipv6Prefix;
 
     /**
-     * @description The number of IPv6 prefixes to assign to the ENI. Valid values: 1 to 10.
-     *
-     * >  To assign IPv6 prefixes to the ENI, you must specify the Ipv6Prefix.N or Ipv6PrefixCount parameter, but not both.
-     *
-     * @example hide
-     *
      * @var int
      */
     public $ipv6PrefixCount;
 
     /**
-     * @description The name of the ENI. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
-     *
-     * This parameter is left empty by default.
-     *
-     * @example testNetworkInterfaceName
-     *
      * @var string
      */
     public $networkInterfaceName;
 
     /**
-     * @description The communication settings of the ENI.
-     *
      * @var networkInterfaceTrafficConfig
      */
     public $networkInterfaceTrafficConfig;
 
     /**
-     * @description The communication mode of the ENI. Valid values:
-     *
-     *   Standard: uses the TCP communication mode.
-     *   HighPerformance: uses the remote direct memory access (RDMA) communication mode with Elastic RDMA Interface (ERI) enabled.
-     *
-     * >  ENIs in RDMA mode can be attached only to instances of the instance types that support ERIs. The number of ENIs in RDMA mode that are attached to an instance cannot exceed the maximum number of ENIs that the instance type supports. For more information, see [Overview of ECS instance families](https://help.aliyun.com/document_detail/25378.html) and [Configure eRDMA on an enterprise-level instance](https://help.aliyun.com/document_detail/336853.html).
-     *
-     * Default value: Standard.
-     *
-     * @example Standard
-     *
      * @var string
      */
     public $networkInterfaceTrafficMode;
@@ -192,69 +103,31 @@ class CreateNetworkInterfaceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The primary private IP address of the ENI.
-     *
-     * The specified IP address must be an idle IP address within the CIDR block of the vSwitch. If you do not specify this parameter, a random idle IP address within the vSwitch CIDR block is assigned to the ENI.
-     *
-     * @example ``172.17.**.**``
-     *
      * @var string
      */
     public $primaryIpAddress;
 
     /**
-     * @description Secondary private IP addresses to assign to the ENI. The IP addresses must be idle IP addresses in the CIDR block of the vSwitch with which to associate the ENI. Valid values of N: 0 to 10.
-     *
-     * >  To assign secondary private IP addresses to the ENI, you can specify the `PrivateIpAddress.N` or `SecondaryPrivateIpAddressCount` parameter, but not both.
-     *
-     * @example ``172.17.**.**``
-     *
      * @var string[]
      */
     public $privateIpAddress;
 
     /**
-     * @description The number of queues supported by the ENI. Valid values: 1 to 2048.
-     *
-     * When you attach the ENI to an instance, make sure that the value of this parameter is less than the maximum number of queues per ENI that is allowed for the instance type. To view the maximum number of queues per ENI allowed for an instance type, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and then check the return value of `MaximumQueueNumberPerEni`.
-     *
-     * This parameter is left empty by default. If you do not specify this parameter, the default number of queues per ENI for the instance type of an instance is used when you attach the ENI to the instance. To view the default number of queues per ENI for an instance type, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and then check the return value of `SecondaryEniQueueNumber`.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $queueNumber;
 
     /**
-     * @description The number of queue pairs (QPs) supported by the elastic RDMA interface (ERI).
-     *
-     * If you want to attach multiple ERIs to an instance, we recommend that you specify QueuePairNumber for each ERI based on the value of `QueuePairNumber` supported by the instance type and the number of ERIs that you want to use. Make sure that the total number of QPs of all ERIs does not exceed the maximum number of QPs supported by the instance type. For information about the maximum number of QPs supported by an instance type, see [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html).
-     *
-     * >  If you do not specify QueuePairNumber for an ERI, the maximum number of QPs supported by the instance type may be used as the number of QPs supported by the ERI. In this case, you cannot attach an additional ERI to the instance. However, you can attach other types of ENIs to the instance.
-     *
-     * @example 22
-     *
      * @var int
      */
     public $queuePairNumber;
 
     /**
-     * @description The region in which to create the ENI. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which you want to assign the ENI. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to query the most recent resource group list.
-     *
-     * @example rg-bp67acfmxazb4ph****
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -270,109 +143,46 @@ class CreateNetworkInterfaceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The receive (Rx) queue depth of the ENI.
-     *
-     * When you specify this parameter, take note of the following items:
-     *
-     *   The Rx queue depth of an ENI must be the same as the Tx queue depth of the ENI. Valid values: powers of 2 in the range of 8192 to 16384.
-     *   A larger Rx queue depth yields higher inbound throughput but consumes more memory.
-     *
-     * >  This parameter is not publicly available.
-     *
-     * @example 8192
-     *
      * @var int
      */
     public $rxQueueSize;
 
     /**
-     * @description The number of private IP addresses to be assigned by ECS. Valid values: 1 to 49.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $secondaryPrivateIpAddressCount;
 
     /**
-     * @description The ID of the security group to which to assign the ENI. The security group and the ENI must belong to the same VPC.
-     *
-     * > You must specify `SecurityGroupId` or `SecurityGroupIds.N` but not both.
-     *
-     * @example sg-bp1fg655nh68xyz9i****
-     *
      * @var string
      */
     public $securityGroupId;
 
     /**
-     * @description The IDs of security groups to which to assign the ENI. The security groups and the ENI must belong to the same VPC. The valid values of N are determined based on the maximum number of security groups to which an ENI can be assigned. For more information, see [Limits](https://help.aliyun.com/document_detail/25412.html).
-     *
-     * >  You must specify `SecurityGroupId` or `SecurityGroupIds.N` but not both.
-     *
-     * @example sg-bp1fg655nh68xyz9i****
-     *
      * @var string[]
      */
     public $securityGroupIds;
 
     /**
-     * @description Specifies whether to enable the source and destination IP address check feature. We recommend that you enable the feature to improve network security. Valid value:
-     *
-     *   true
-     *   false
-     *
-     * Default value: false.
-     *
-     * >  This feature is available only in some regions. Before you use this method, read [Source and destination IP address check](https://help.aliyun.com/document_detail/2863210.html).
-     *
-     * @example false
-     *
      * @var bool
      */
     public $sourceDestCheck;
 
     /**
-     * @description The tags to add to the ENI.
-     *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The transmit (Tx) queue depth of the ENI.
-     *
-     * When you specify this parameter, take note of the following items:
-     *
-     *   The Tx queue depth of an ENI must be the same as the Rx queue depth of the ENI. Valid values: powers of 2 in the range of 8192 to 16384.
-     *   A larger Tx queue depth yields higher outbound throughput but consumes more memory.
-     *
-     * >  This parameter is not publicly available.
-     *
-     * @example 8192
-     *
      * @var int
      */
     public $txQueueSize;
 
     /**
-     * @description The ID of the vSwitch to which to connect the ENI. Private IP addresses are assigned to the ENI from within the CIDR block of the vSwitch.
-     *
-     * >  A secondary ENI can be attached to only an instance that is in the same zone as the ENI. The instance and the ENI can be connected to different vSwitches.
-     *
-     * This parameter is required.
-     *
-     * @example vsw-bp1s5fnvk4gn2tws03****
-     *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @description > This parameter is no longer used.
-     *
-     * @example null
-     *
      * @var bool
      */
     public $visible;
@@ -414,119 +224,219 @@ class CreateNetworkInterfaceRequest extends Model
         'visible' => 'Visible',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->connectionTrackingConfiguration) {
+            $this->connectionTrackingConfiguration->validate();
+        }
+        if (null !== $this->enhancedNetwork) {
+            $this->enhancedNetwork->validate();
+        }
+        if (\is_array($this->ipv4Prefix)) {
+            Model::validateArray($this->ipv4Prefix);
+        }
+        if (\is_array($this->ipv6Address)) {
+            Model::validateArray($this->ipv6Address);
+        }
+        if (\is_array($this->ipv6Prefix)) {
+            Model::validateArray($this->ipv6Prefix);
+        }
+        if (null !== $this->networkInterfaceTrafficConfig) {
+            $this->networkInterfaceTrafficConfig->validate();
+        }
+        if (\is_array($this->privateIpAddress)) {
+            Model::validateArray($this->privateIpAddress);
+        }
+        if (\is_array($this->securityGroupIds)) {
+            Model::validateArray($this->securityGroupIds);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->connectionTrackingConfiguration) {
-            $res['ConnectionTrackingConfiguration'] = null !== $this->connectionTrackingConfiguration ? $this->connectionTrackingConfiguration->toMap() : null;
+            $res['ConnectionTrackingConfiguration'] = null !== $this->connectionTrackingConfiguration ? $this->connectionTrackingConfiguration->toArray($noStream) : $this->connectionTrackingConfiguration;
         }
+
         if (null !== $this->deleteOnRelease) {
             $res['DeleteOnRelease'] = $this->deleteOnRelease;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->enhancedNetwork) {
-            $res['EnhancedNetwork'] = null !== $this->enhancedNetwork ? $this->enhancedNetwork->toMap() : null;
+            $res['EnhancedNetwork'] = null !== $this->enhancedNetwork ? $this->enhancedNetwork->toArray($noStream) : $this->enhancedNetwork;
         }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->ipv4Prefix) {
-            $res['Ipv4Prefix'] = $this->ipv4Prefix;
-        }
-        if (null !== $this->ipv4PrefixCount) {
-            $res['Ipv4PrefixCount'] = $this->ipv4PrefixCount;
-        }
-        if (null !== $this->ipv6Address) {
-            $res['Ipv6Address'] = $this->ipv6Address;
-        }
-        if (null !== $this->ipv6AddressCount) {
-            $res['Ipv6AddressCount'] = $this->ipv6AddressCount;
-        }
-        if (null !== $this->ipv6Prefix) {
-            $res['Ipv6Prefix'] = $this->ipv6Prefix;
-        }
-        if (null !== $this->ipv6PrefixCount) {
-            $res['Ipv6PrefixCount'] = $this->ipv6PrefixCount;
-        }
-        if (null !== $this->networkInterfaceName) {
-            $res['NetworkInterfaceName'] = $this->networkInterfaceName;
-        }
-        if (null !== $this->networkInterfaceTrafficConfig) {
-            $res['NetworkInterfaceTrafficConfig'] = null !== $this->networkInterfaceTrafficConfig ? $this->networkInterfaceTrafficConfig->toMap() : null;
-        }
-        if (null !== $this->networkInterfaceTrafficMode) {
-            $res['NetworkInterfaceTrafficMode'] = $this->networkInterfaceTrafficMode;
-        }
-        if (null !== $this->ownerAccount) {
-            $res['OwnerAccount'] = $this->ownerAccount;
-        }
-        if (null !== $this->ownerId) {
-            $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->primaryIpAddress) {
-            $res['PrimaryIpAddress'] = $this->primaryIpAddress;
-        }
-        if (null !== $this->privateIpAddress) {
-            $res['PrivateIpAddress'] = $this->privateIpAddress;
-        }
-        if (null !== $this->queueNumber) {
-            $res['QueueNumber'] = $this->queueNumber;
-        }
-        if (null !== $this->queuePairNumber) {
-            $res['QueuePairNumber'] = $this->queuePairNumber;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->rxQueueSize) {
-            $res['RxQueueSize'] = $this->rxQueueSize;
-        }
-        if (null !== $this->secondaryPrivateIpAddressCount) {
-            $res['SecondaryPrivateIpAddressCount'] = $this->secondaryPrivateIpAddressCount;
-        }
-        if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = $this->securityGroupId;
-        }
-        if (null !== $this->securityGroupIds) {
-            $res['SecurityGroupIds'] = $this->securityGroupIds;
-        }
-        if (null !== $this->sourceDestCheck) {
-            $res['SourceDestCheck'] = $this->sourceDestCheck;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipv4Prefix)) {
+                $res['Ipv4Prefix'] = [];
+                $n1 = 0;
+                foreach ($this->ipv4Prefix as $item1) {
+                    $res['Ipv4Prefix'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->ipv4PrefixCount) {
+            $res['Ipv4PrefixCount'] = $this->ipv4PrefixCount;
+        }
+
+        if (null !== $this->ipv6Address) {
+            if (\is_array($this->ipv6Address)) {
+                $res['Ipv6Address'] = [];
+                $n1 = 0;
+                foreach ($this->ipv6Address as $item1) {
+                    $res['Ipv6Address'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->ipv6AddressCount) {
+            $res['Ipv6AddressCount'] = $this->ipv6AddressCount;
+        }
+
+        if (null !== $this->ipv6Prefix) {
+            if (\is_array($this->ipv6Prefix)) {
+                $res['Ipv6Prefix'] = [];
+                $n1 = 0;
+                foreach ($this->ipv6Prefix as $item1) {
+                    $res['Ipv6Prefix'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->ipv6PrefixCount) {
+            $res['Ipv6PrefixCount'] = $this->ipv6PrefixCount;
+        }
+
+        if (null !== $this->networkInterfaceName) {
+            $res['NetworkInterfaceName'] = $this->networkInterfaceName;
+        }
+
+        if (null !== $this->networkInterfaceTrafficConfig) {
+            $res['NetworkInterfaceTrafficConfig'] = null !== $this->networkInterfaceTrafficConfig ? $this->networkInterfaceTrafficConfig->toArray($noStream) : $this->networkInterfaceTrafficConfig;
+        }
+
+        if (null !== $this->networkInterfaceTrafficMode) {
+            $res['NetworkInterfaceTrafficMode'] = $this->networkInterfaceTrafficMode;
+        }
+
+        if (null !== $this->ownerAccount) {
+            $res['OwnerAccount'] = $this->ownerAccount;
+        }
+
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->primaryIpAddress) {
+            $res['PrimaryIpAddress'] = $this->primaryIpAddress;
+        }
+
+        if (null !== $this->privateIpAddress) {
+            if (\is_array($this->privateIpAddress)) {
+                $res['PrivateIpAddress'] = [];
+                $n1 = 0;
+                foreach ($this->privateIpAddress as $item1) {
+                    $res['PrivateIpAddress'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->queueNumber) {
+            $res['QueueNumber'] = $this->queueNumber;
+        }
+
+        if (null !== $this->queuePairNumber) {
+            $res['QueuePairNumber'] = $this->queuePairNumber;
+        }
+
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+
+        if (null !== $this->rxQueueSize) {
+            $res['RxQueueSize'] = $this->rxQueueSize;
+        }
+
+        if (null !== $this->secondaryPrivateIpAddressCount) {
+            $res['SecondaryPrivateIpAddressCount'] = $this->secondaryPrivateIpAddressCount;
+        }
+
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+
+        if (null !== $this->securityGroupIds) {
+            if (\is_array($this->securityGroupIds)) {
+                $res['SecurityGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->securityGroupIds as $item1) {
+                    $res['SecurityGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->sourceDestCheck) {
+            $res['SourceDestCheck'] = $this->sourceDestCheck;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->txQueueSize) {
             $res['TxQueueSize'] = $this->txQueueSize;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->visible) {
             $res['Visible'] = $this->visible;
         }
@@ -534,132 +444,192 @@ class CreateNetworkInterfaceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateNetworkInterfaceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['ConnectionTrackingConfiguration'])) {
             $model->connectionTrackingConfiguration = connectionTrackingConfiguration::fromMap($map['ConnectionTrackingConfiguration']);
         }
+
         if (isset($map['DeleteOnRelease'])) {
             $model->deleteOnRelease = $map['DeleteOnRelease'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EnhancedNetwork'])) {
             $model->enhancedNetwork = enhancedNetwork::fromMap($map['EnhancedNetwork']);
         }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['Ipv4Prefix'])) {
             if (!empty($map['Ipv4Prefix'])) {
-                $model->ipv4Prefix = $map['Ipv4Prefix'];
-            }
-        }
-        if (isset($map['Ipv4PrefixCount'])) {
-            $model->ipv4PrefixCount = $map['Ipv4PrefixCount'];
-        }
-        if (isset($map['Ipv6Address'])) {
-            if (!empty($map['Ipv6Address'])) {
-                $model->ipv6Address = $map['Ipv6Address'];
-            }
-        }
-        if (isset($map['Ipv6AddressCount'])) {
-            $model->ipv6AddressCount = $map['Ipv6AddressCount'];
-        }
-        if (isset($map['Ipv6Prefix'])) {
-            if (!empty($map['Ipv6Prefix'])) {
-                $model->ipv6Prefix = $map['Ipv6Prefix'];
-            }
-        }
-        if (isset($map['Ipv6PrefixCount'])) {
-            $model->ipv6PrefixCount = $map['Ipv6PrefixCount'];
-        }
-        if (isset($map['NetworkInterfaceName'])) {
-            $model->networkInterfaceName = $map['NetworkInterfaceName'];
-        }
-        if (isset($map['NetworkInterfaceTrafficConfig'])) {
-            $model->networkInterfaceTrafficConfig = networkInterfaceTrafficConfig::fromMap($map['NetworkInterfaceTrafficConfig']);
-        }
-        if (isset($map['NetworkInterfaceTrafficMode'])) {
-            $model->networkInterfaceTrafficMode = $map['NetworkInterfaceTrafficMode'];
-        }
-        if (isset($map['OwnerAccount'])) {
-            $model->ownerAccount = $map['OwnerAccount'];
-        }
-        if (isset($map['OwnerId'])) {
-            $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['PrimaryIpAddress'])) {
-            $model->primaryIpAddress = $map['PrimaryIpAddress'];
-        }
-        if (isset($map['PrivateIpAddress'])) {
-            if (!empty($map['PrivateIpAddress'])) {
-                $model->privateIpAddress = $map['PrivateIpAddress'];
-            }
-        }
-        if (isset($map['QueueNumber'])) {
-            $model->queueNumber = $map['QueueNumber'];
-        }
-        if (isset($map['QueuePairNumber'])) {
-            $model->queuePairNumber = $map['QueuePairNumber'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['RxQueueSize'])) {
-            $model->rxQueueSize = $map['RxQueueSize'];
-        }
-        if (isset($map['SecondaryPrivateIpAddressCount'])) {
-            $model->secondaryPrivateIpAddressCount = $map['SecondaryPrivateIpAddressCount'];
-        }
-        if (isset($map['SecurityGroupId'])) {
-            $model->securityGroupId = $map['SecurityGroupId'];
-        }
-        if (isset($map['SecurityGroupIds'])) {
-            if (!empty($map['SecurityGroupIds'])) {
-                $model->securityGroupIds = $map['SecurityGroupIds'];
-            }
-        }
-        if (isset($map['SourceDestCheck'])) {
-            $model->sourceDestCheck = $map['SourceDestCheck'];
-        }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $model->ipv4Prefix = [];
+                $n1 = 0;
+                foreach ($map['Ipv4Prefix'] as $item1) {
+                    $model->ipv4Prefix[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['Ipv4PrefixCount'])) {
+            $model->ipv4PrefixCount = $map['Ipv4PrefixCount'];
+        }
+
+        if (isset($map['Ipv6Address'])) {
+            if (!empty($map['Ipv6Address'])) {
+                $model->ipv6Address = [];
+                $n1 = 0;
+                foreach ($map['Ipv6Address'] as $item1) {
+                    $model->ipv6Address[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['Ipv6AddressCount'])) {
+            $model->ipv6AddressCount = $map['Ipv6AddressCount'];
+        }
+
+        if (isset($map['Ipv6Prefix'])) {
+            if (!empty($map['Ipv6Prefix'])) {
+                $model->ipv6Prefix = [];
+                $n1 = 0;
+                foreach ($map['Ipv6Prefix'] as $item1) {
+                    $model->ipv6Prefix[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['Ipv6PrefixCount'])) {
+            $model->ipv6PrefixCount = $map['Ipv6PrefixCount'];
+        }
+
+        if (isset($map['NetworkInterfaceName'])) {
+            $model->networkInterfaceName = $map['NetworkInterfaceName'];
+        }
+
+        if (isset($map['NetworkInterfaceTrafficConfig'])) {
+            $model->networkInterfaceTrafficConfig = networkInterfaceTrafficConfig::fromMap($map['NetworkInterfaceTrafficConfig']);
+        }
+
+        if (isset($map['NetworkInterfaceTrafficMode'])) {
+            $model->networkInterfaceTrafficMode = $map['NetworkInterfaceTrafficMode'];
+        }
+
+        if (isset($map['OwnerAccount'])) {
+            $model->ownerAccount = $map['OwnerAccount'];
+        }
+
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['PrimaryIpAddress'])) {
+            $model->primaryIpAddress = $map['PrimaryIpAddress'];
+        }
+
+        if (isset($map['PrivateIpAddress'])) {
+            if (!empty($map['PrivateIpAddress'])) {
+                $model->privateIpAddress = [];
+                $n1 = 0;
+                foreach ($map['PrivateIpAddress'] as $item1) {
+                    $model->privateIpAddress[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['QueueNumber'])) {
+            $model->queueNumber = $map['QueueNumber'];
+        }
+
+        if (isset($map['QueuePairNumber'])) {
+            $model->queuePairNumber = $map['QueuePairNumber'];
+        }
+
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+
+        if (isset($map['RxQueueSize'])) {
+            $model->rxQueueSize = $map['RxQueueSize'];
+        }
+
+        if (isset($map['SecondaryPrivateIpAddressCount'])) {
+            $model->secondaryPrivateIpAddressCount = $map['SecondaryPrivateIpAddressCount'];
+        }
+
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
+        }
+
+        if (isset($map['SecurityGroupIds'])) {
+            if (!empty($map['SecurityGroupIds'])) {
+                $model->securityGroupIds = [];
+                $n1 = 0;
+                foreach ($map['SecurityGroupIds'] as $item1) {
+                    $model->securityGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['SourceDestCheck'])) {
+            $model->sourceDestCheck = $map['SourceDestCheck'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['TxQueueSize'])) {
             $model->txQueueSize = $map['TxQueueSize'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['Visible'])) {
             $model->visible = $map['Visible'];
         }

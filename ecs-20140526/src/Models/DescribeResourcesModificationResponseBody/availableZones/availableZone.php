@@ -4,57 +4,32 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeResourcesModificationResponseBody\availableZones;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeResourcesModificationResponseBody\availableZones\availableZone\availableResources;
-use AlibabaCloud\Tea\Model;
 
 class availableZone extends Model
 {
     /**
-     * @description The resources that are available in the zone.
-     *
      * @var availableResources
      */
     public $availableResources;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The state of the resource. Valid values:
-     *
-     *   Available
-     *   SoldOut
-     *
-     * @example Available
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The category of the resource based on stock status. Valid values:
-     *
-     *   WithStock: resources that are in sufficient stock
-     *   ClosedWithStock: resources that are in insufficient stock
-     *   WithoutStock: resources that are out of stock
-     *
-     * @example WithStock
-     *
      * @var string
      */
     public $statusCategory;
 
     /**
-     * @description The zone ID.
-     *
-     * @example cn-hangzhou-e
-     *
      * @var string
      */
     public $zoneId;
@@ -66,23 +41,33 @@ class availableZone extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->availableResources) {
+            $this->availableResources->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableResources) {
-            $res['AvailableResources'] = null !== $this->availableResources ? $this->availableResources->toMap() : null;
+            $res['AvailableResources'] = null !== $this->availableResources ? $this->availableResources->toArray($noStream) : $this->availableResources;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->statusCategory) {
             $res['StatusCategory'] = $this->statusCategory;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -90,26 +75,30 @@ class availableZone extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return availableZone
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableResources'])) {
             $model->availableResources = availableResources::fromMap($map['AvailableResources']);
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['StatusCategory'])) {
             $model->statusCategory = $map['StatusCategory'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

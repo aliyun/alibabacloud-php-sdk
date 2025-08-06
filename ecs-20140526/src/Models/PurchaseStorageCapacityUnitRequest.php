@@ -4,65 +4,37 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\PurchaseStorageCapacityUnitRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class PurchaseStorageCapacityUnitRequest extends Model
 {
     /**
-     * @description The number of SCUs that you want to purchase. Valid values: 1 to 20.
-     *
-     * Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $amount;
 
     /**
-     * @description The capacity of the SCU. Unit: GiB. Valid values: 20, 40, 100, 200, 500, 1024, 2048, 5210, 10240, 20480, and 52100.
-     *
-     * This parameter is required.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $capacity;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique across requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-     *
-     * @example 123e4567-e89b-12d3-a456-426655440000
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description The description of the SCU. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
-     *
-     * @example ScuPurchaseDemo
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The source of the request. The value is automatically set to OpenAPI and does not need to be changed. Default value: OpenAPI.
-     *
-     * @example OpenAPI
-     *
      * @var string
      */
     public $fromApp;
 
     /**
-     * @description The name of the SCU. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
-     *
-     * @example ScuPurchaseDemo
-     *
      * @var string
      */
     public $name;
@@ -78,49 +50,21 @@ class PurchaseStorageCapacityUnitRequest extends Model
     public $ownerId;
 
     /**
-     * @description The validity period of the SCU. Valid values:
-     *
-     *   Valid values when PeriodUnit is set to Month: 1, 2, 3, and 6.
-     *   Valid values when PeriodUnit is set to Year: 1, 3, and 5.
-     *
-     * Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $period;
 
     /**
-     * @description The unit of the validity period of the SCU. Valid values:
-     *
-     *   Month
-     *   Year
-     *
-     * Default value: Month.
-     *
-     * @example Month
-     *
      * @var string
      */
     public $periodUnit;
 
     /**
-     * @description The ID of the region in which to purchase the SCU. The purchased SCU can offset the bills of pay-as-you-go disks that reside in the specified region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which to add the SCU. You can specify only the IDs of the resource groups that you have permissions to access.
-     *
-     * @example rg-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -136,19 +80,11 @@ class PurchaseStorageCapacityUnitRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The time at which the SCU takes effect. The time can be up to 180 days from the creation time of the SCU. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHHZ format. The time must be in UTC.
-     *
-     * This parameter is left empty by default, which indicates that the SCU takes effect immediately after it is created.
-     *
-     * @example 2020-09-09T02:00:00Z
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description The tags to add to the SCU. You can specify up to 20 tags.
-     *
      * @var tag[]
      */
     public $tag;
@@ -171,62 +107,84 @@ class PurchaseStorageCapacityUnitRequest extends Model
         'tag' => 'Tag',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
         }
+
         if (null !== $this->capacity) {
             $res['Capacity'] = $this->capacity;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->fromApp) {
             $res['FromApp'] = $this->fromApp;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -234,65 +192,81 @@ class PurchaseStorageCapacityUnitRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PurchaseStorageCapacityUnitRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
         }
+
         if (isset($map['Capacity'])) {
             $model->capacity = $map['Capacity'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['FromApp'])) {
             $model->fromApp = $map['FromApp'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

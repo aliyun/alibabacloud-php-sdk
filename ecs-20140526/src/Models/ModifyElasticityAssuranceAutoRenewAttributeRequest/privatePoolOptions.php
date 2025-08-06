@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyElasticityAssuranceAutoRenewAttributeRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class privatePoolOptions extends Model
 {
     /**
-     * @description The IDs of elasticity assurances.
-     *
-     * >  You can renew up to 50 elasticity assurances at a time.
-     *
      * @var string[]
      */
     public $id;
@@ -20,29 +16,47 @@ class privatePoolOptions extends Model
         'id' => 'Id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->id)) {
+            Model::validateArray($this->id);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
-            $res['Id'] = $this->id;
+            if (\is_array($this->id)) {
+                $res['Id'] = [];
+                $n1 = 0;
+                foreach ($this->id as $item1) {
+                    $res['Id'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return privatePoolOptions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             if (!empty($map['Id'])) {
-                $model->id = $map['Id'];
+                $model->id = [];
+                $n1 = 0;
+                foreach ($map['Id'] as $item1) {
+                    $model->id[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

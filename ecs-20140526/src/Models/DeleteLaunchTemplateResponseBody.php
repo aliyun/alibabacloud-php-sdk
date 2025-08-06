@@ -4,34 +4,22 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteLaunchTemplateResponseBody\launchTemplateVersionNumbers;
-use AlibabaCloud\Tea\Model;
 
 class DeleteLaunchTemplateResponseBody extends Model
 {
     /**
-     * @description The ID of the launch template. For more information, see [DescribeLaunchTemplates](https://help.aliyun.com/document_detail/73759.html).
-     *
-     * You must specify `LaunchTemplateId` or `LaunchTemplateName` to specify a launch template.
-     *
-     * @example lt-bp1apo0bbbkuy0rj****
-     *
      * @var string
      */
     public $launchTemplateId;
 
     /**
-     * @description The versions of the deleted launch template.
-     *
      * @var launchTemplateVersionNumbers
      */
     public $launchTemplateVersionNumbers;
 
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
@@ -41,17 +29,25 @@ class DeleteLaunchTemplateResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->launchTemplateVersionNumbers) {
+            $this->launchTemplateVersionNumbers->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->launchTemplateId) {
             $res['LaunchTemplateId'] = $this->launchTemplateId;
         }
+
         if (null !== $this->launchTemplateVersionNumbers) {
-            $res['LaunchTemplateVersionNumbers'] = null !== $this->launchTemplateVersionNumbers ? $this->launchTemplateVersionNumbers->toMap() : null;
+            $res['LaunchTemplateVersionNumbers'] = null !== $this->launchTemplateVersionNumbers ? $this->launchTemplateVersionNumbers->toArray($noStream) : $this->launchTemplateVersionNumbers;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,20 +55,22 @@ class DeleteLaunchTemplateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteLaunchTemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LaunchTemplateId'])) {
             $model->launchTemplateId = $map['LaunchTemplateId'];
         }
+
         if (isset($map['LaunchTemplateVersionNumbers'])) {
             $model->launchTemplateVersionNumbers = launchTemplateVersionNumbers::fromMap($map['LaunchTemplateVersionNumbers']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

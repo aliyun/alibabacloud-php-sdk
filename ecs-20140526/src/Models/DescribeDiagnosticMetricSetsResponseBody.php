@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiagnosticMetricSetsResponseBody\metricSets;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDiagnosticMetricSetsResponseBody extends Model
 {
     /**
-     * @description The diagnostic metric sets.
-     *
      * @var metricSets[]
      */
     public $metricSets;
 
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a4883
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE*****
-     *
      * @var string
      */
     public $requestId;
@@ -39,23 +29,32 @@ class DescribeDiagnosticMetricSetsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->metricSets)) {
+            Model::validateArray($this->metricSets);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metricSets) {
-            $res['MetricSets'] = [];
-            if (null !== $this->metricSets && \is_array($this->metricSets)) {
-                $n = 0;
-                foreach ($this->metricSets as $item) {
-                    $res['MetricSets'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->metricSets)) {
+                $res['MetricSets'] = [];
+                $n1 = 0;
+                foreach ($this->metricSets as $item1) {
+                    $res['MetricSets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,26 +62,29 @@ class DescribeDiagnosticMetricSetsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDiagnosticMetricSetsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MetricSets'])) {
             if (!empty($map['MetricSets'])) {
                 $model->metricSets = [];
-                $n = 0;
-                foreach ($map['MetricSets'] as $item) {
-                    $model->metricSets[$n++] = null !== $item ? metricSets::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MetricSets'] as $item1) {
+                    $model->metricSets[$n1] = metricSets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

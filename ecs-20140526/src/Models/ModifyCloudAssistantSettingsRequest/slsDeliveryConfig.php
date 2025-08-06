@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyCloudAssistantSettingsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class slsDeliveryConfig extends Model
 {
     /**
-     * @description Specifies whether to deliver records to Simple Log Service. Default value: false.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $enabled;
 
     /**
-     * @description The name of the Logstore.
-     *
-     * @example example-logstore
-     *
      * @var string
      */
     public $logstoreName;
 
     /**
-     * @description The name of the Simple Log Service project.
-     *
-     * @example example-project
-     *
      * @var string
      */
     public $projectName;
@@ -40,17 +28,22 @@ class slsDeliveryConfig extends Model
         'projectName' => 'ProjectName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->logstoreName) {
             $res['LogstoreName'] = $this->logstoreName;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -58,20 +51,22 @@ class slsDeliveryConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return slsDeliveryConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['LogstoreName'])) {
             $model->logstoreName = $map['LogstoreName'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
