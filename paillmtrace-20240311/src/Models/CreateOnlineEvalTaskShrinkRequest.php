@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateOnlineEvalTaskShrinkRequest extends Model
 {
     /**
-     * @description The request data.
-     *
      * @var string
      */
     public $bodyShrink;
@@ -18,9 +16,12 @@ class CreateOnlineEvalTaskShrinkRequest extends Model
         'bodyShrink' => 'body',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bodyShrink) {
@@ -30,11 +31,11 @@ class CreateOnlineEvalTaskShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateOnlineEvalTaskShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

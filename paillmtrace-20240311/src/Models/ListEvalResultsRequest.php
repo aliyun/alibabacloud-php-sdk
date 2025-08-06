@@ -4,49 +4,31 @@
 
 namespace AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListEvalResultsRequest extends Model
 {
     /**
-     * @description The task ID of the evaluation task to which the trace belongs.
-     *
-     * @example 0bb05ae2a2dc11ef9757faaa2a1ec0c6
-     *
      * @var string
      */
     public $evaluationId;
 
     /**
-     * @description The keyword to query from the evaluation inputs.
-     *
-     * @example foo
-     *
      * @var string
      */
     public $keyword;
 
     /**
-     * @description The page number. Page starts from page 1. Default value: 1
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 50. Default value: 10.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The trace data IDs.
-     *
      * @var string[]
      */
     public $recordIds;
@@ -58,53 +40,79 @@ class ListEvalResultsRequest extends Model
         'recordIds' => 'RecordIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->recordIds)) {
+            Model::validateArray($this->recordIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->evaluationId) {
             $res['EvaluationId'] = $this->evaluationId;
         }
+
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->recordIds) {
-            $res['RecordIds'] = $this->recordIds;
+            if (\is_array($this->recordIds)) {
+                $res['RecordIds'] = [];
+                $n1 = 0;
+                foreach ($this->recordIds as $item1) {
+                    $res['RecordIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListEvalResultsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EvaluationId'])) {
             $model->evaluationId = $map['EvaluationId'];
         }
+
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RecordIds'])) {
             if (!empty($map['RecordIds'])) {
-                $model->recordIds = $map['RecordIds'];
+                $model->recordIds = [];
+                $n1 = 0;
+                foreach ($map['RecordIds'] as $item1) {
+                    $model->recordIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

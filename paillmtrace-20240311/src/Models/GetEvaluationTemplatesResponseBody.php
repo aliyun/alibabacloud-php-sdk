@@ -4,40 +4,26 @@
 
 namespace AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetEvaluationTemplatesResponseBody extends Model
 {
     /**
-     * @description Internal error code. Set only when the response has an error.
-     *
-     * @example ExecutionFailure
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description A series of templates used internally by the evaluation system to construct LLM interaction information.
-     *
      * @var mixed[]
      */
     public $evaluationTemplates;
 
     /**
-     * @description Response error message. Set only when the response has an error.
-     *
-     * @example cannot get data back.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description ID of the request
-     *
-     * @example 6A87228C-969A-1381-98CF-AE07AE630FA5
-     *
      * @var string
      */
     public $requestId;
@@ -48,20 +34,36 @@ class GetEvaluationTemplatesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->evaluationTemplates)) {
+            Model::validateArray($this->evaluationTemplates);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->evaluationTemplates) {
-            $res['EvaluationTemplates'] = $this->evaluationTemplates;
+            if (\is_array($this->evaluationTemplates)) {
+                $res['EvaluationTemplates'] = [];
+                $n1 = 0;
+                foreach ($this->evaluationTemplates as $item1) {
+                    $res['EvaluationTemplates'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -69,25 +71,33 @@ class GetEvaluationTemplatesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetEvaluationTemplatesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['EvaluationTemplates'])) {
             if (!empty($map['EvaluationTemplates'])) {
-                $model->evaluationTemplates = $map['EvaluationTemplates'];
+                $model->evaluationTemplates = [];
+                $n1 = 0;
+                foreach ($map['EvaluationTemplates'] as $item1) {
+                    $model->evaluationTemplates[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

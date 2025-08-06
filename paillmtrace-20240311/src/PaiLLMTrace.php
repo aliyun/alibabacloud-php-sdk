@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiLLMTrace\V20240311;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\CreateOnlineEvalTaskRequest;
 use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\CreateOnlineEvalTaskResponse;
 use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\CreateOnlineEvalTaskShrinkRequest;
@@ -31,11 +31,10 @@ use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\ListTracesDatasShrinkRequest;
 use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\StopOnlineEvalTaskResponse;
 use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\UpdateOnlineEvalTaskRequest;
 use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\UpdateOnlineEvalTaskResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class PaiLLMTrace extends OpenApiClient
 {
@@ -60,40 +59,49 @@ class PaiLLMTrace extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Creates a trace evaluation task. The system will sample some data from the user\\"s trace data based on the task\\"s configuration. Then, an LLM is used to evaluate the performance of these traces, and the evaluation results are recorded.
-     *  *
-     * @param CreateOnlineEvalTaskRequest $tmpReq  CreateOnlineEvalTaskRequest
-     * @param string[]                    $headers map
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Creates a trace evaluation task. The system will sample some data from the user\\"s trace data based on the task\\"s configuration. Then, an LLM is used to evaluate the performance of these traces, and the evaluation results are recorded.
      *
-     * @return CreateOnlineEvalTaskResponse CreateOnlineEvalTaskResponse
+     * @param tmpReq - CreateOnlineEvalTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateOnlineEvalTaskResponse
+     *
+     * @param CreateOnlineEvalTaskRequest $tmpReq
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateOnlineEvalTaskResponse
      */
     public function createOnlineEvalTaskWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateOnlineEvalTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->body)) {
-            $request->bodyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'body', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->bodyShrink)) {
-            $query['body'] = $request->bodyShrink;
+        if (null !== $request->bodyShrink) {
+            @$query['body'] = $request->bodyShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateOnlineEvalTask',
@@ -111,11 +119,15 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Creates a trace evaluation task. The system will sample some data from the user\\"s trace data based on the task\\"s configuration. Then, an LLM is used to evaluate the performance of these traces, and the evaluation results are recorded.
-     *  *
-     * @param CreateOnlineEvalTaskRequest $request CreateOnlineEvalTaskRequest
+     * Creates a trace evaluation task. The system will sample some data from the user\\"s trace data based on the task\\"s configuration. Then, an LLM is used to evaluate the performance of these traces, and the evaluation results are recorded.
      *
-     * @return CreateOnlineEvalTaskResponse CreateOnlineEvalTaskResponse
+     * @param request - CreateOnlineEvalTaskRequest
+     *
+     * @returns CreateOnlineEvalTaskResponse
+     *
+     * @param CreateOnlineEvalTaskRequest $request
+     *
+     * @return CreateOnlineEvalTaskResponse
      */
     public function createOnlineEvalTask($request)
     {
@@ -126,12 +138,17 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Creates a service-linked role required for the PaiLLMTrace service.
-     *  *
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Creates a service-linked role required for the PaiLLMTrace service.
      *
-     * @return CreateServiceIdentityRoleResponse CreateServiceIdentityRoleResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateServiceIdentityRoleResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return CreateServiceIdentityRoleResponse
      */
     public function createServiceIdentityRoleWithOptions($headers, $runtime)
     {
@@ -154,9 +171,11 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Creates a service-linked role required for the PaiLLMTrace service.
-     *  *
-     * @return CreateServiceIdentityRoleResponse CreateServiceIdentityRoleResponse
+     * Creates a service-linked role required for the PaiLLMTrace service.
+     *
+     * @returns CreateServiceIdentityRoleResponse
+     *
+     * @return CreateServiceIdentityRoleResponse
      */
     public function createServiceIdentityRole()
     {
@@ -167,13 +186,18 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Delete an online evaluation task
-     *  *
-     * @param string         $TaskId
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Delete an online evaluation task.
      *
-     * @return DeleteOnlineEvalTaskResponse DeleteOnlineEvalTaskResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteOnlineEvalTaskResponse
+     *
+     * @param string         $TaskId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteOnlineEvalTaskResponse
      */
     public function deleteOnlineEvalTaskWithOptions($TaskId, $headers, $runtime)
     {
@@ -184,7 +208,7 @@ class PaiLLMTrace extends OpenApiClient
             'action' => 'DeleteOnlineEvalTask',
             'version' => '2024-03-11',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/PAILLMTrace/onlineevaltasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '',
+            'pathname' => '/api/v1/PAILLMTrace/onlineevaltasks/' . Url::percentEncode($TaskId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -196,11 +220,13 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Delete an online evaluation task
-     *  *
+     * Delete an online evaluation task.
+     *
+     * @returns DeleteOnlineEvalTaskResponse
+     *
      * @param string $TaskId
      *
-     * @return DeleteOnlineEvalTaskResponse DeleteOnlineEvalTaskResponse
+     * @return DeleteOnlineEvalTaskResponse
      */
     public function deleteOnlineEvalTask($TaskId)
     {
@@ -211,46 +237,58 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Evaluates a specified piece of trace data.
-     *  *
-     * @param string               $TraceId
-     * @param EvaluateTraceRequest $request EvaluateTraceRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Evaluates a specified piece of trace data.
      *
-     * @return EvaluateTraceResponse EvaluateTraceResponse
+     * @param request - EvaluateTraceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EvaluateTraceResponse
+     *
+     * @param string               $TraceId
+     * @param EvaluateTraceRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return EvaluateTraceResponse
      */
     public function evaluateTraceWithOptions($TraceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appName)) {
-            $body['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->evaluationConfig)) {
-            $body['EvaluationConfig'] = $request->evaluationConfig;
+
+        if (null !== $request->evaluationConfig) {
+            @$body['EvaluationConfig'] = $request->evaluationConfig;
         }
-        if (!Utils::isUnset($request->evaluationId)) {
-            $body['EvaluationId'] = $request->evaluationId;
+
+        if (null !== $request->evaluationId) {
+            @$body['EvaluationId'] = $request->evaluationId;
         }
-        if (!Utils::isUnset($request->maxTime)) {
-            $body['MaxTime'] = $request->maxTime;
+
+        if (null !== $request->maxTime) {
+            @$body['MaxTime'] = $request->maxTime;
         }
-        if (!Utils::isUnset($request->minTime)) {
-            $body['MinTime'] = $request->minTime;
+
+        if (null !== $request->minTime) {
+            @$body['MinTime'] = $request->minTime;
         }
-        if (!Utils::isUnset($request->modelConfig)) {
-            $body['ModelConfig'] = $request->modelConfig;
+
+        if (null !== $request->modelConfig) {
+            @$body['ModelConfig'] = $request->modelConfig;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'EvaluateTrace',
             'version' => '2024-03-11',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/PAILLMTrace/eval/trace/' . OpenApiUtilClient::getEncodeParam($TraceId) . '',
+            'pathname' => '/api/v1/PAILLMTrace/eval/trace/' . Url::percentEncode($TraceId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -262,12 +300,16 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Evaluates a specified piece of trace data.
-     *  *
-     * @param string               $TraceId
-     * @param EvaluateTraceRequest $request EvaluateTraceRequest
+     * Evaluates a specified piece of trace data.
      *
-     * @return EvaluateTraceResponse EvaluateTraceResponse
+     * @param request - EvaluateTraceRequest
+     *
+     * @returns EvaluateTraceResponse
+     *
+     * @param string               $TraceId
+     * @param EvaluateTraceRequest $request
+     *
+     * @return EvaluateTraceResponse
      */
     public function evaluateTrace($TraceId, $request)
     {
@@ -278,12 +320,17 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Get the content of prompt templates used for evaluation
-     *  *
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Get the content of prompt templates used for evaluation.
      *
-     * @return GetEvaluationTemplatesResponse GetEvaluationTemplatesResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEvaluationTemplatesResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetEvaluationTemplatesResponse
      */
     public function getEvaluationTemplatesWithOptions($headers, $runtime)
     {
@@ -306,9 +353,11 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Get the content of prompt templates used for evaluation
-     *  *
-     * @return GetEvaluationTemplatesResponse GetEvaluationTemplatesResponse
+     * Get the content of prompt templates used for evaluation.
+     *
+     * @returns GetEvaluationTemplatesResponse
+     *
+     * @return GetEvaluationTemplatesResponse
      */
     public function getEvaluationTemplates()
     {
@@ -319,13 +368,18 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Get the details of an online evaluation task
-     *  *
-     * @param string         $TaskId
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Get the details of an online evaluation task.
      *
-     * @return GetOnlineEvalTaskResponse GetOnlineEvalTaskResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOnlineEvalTaskResponse
+     *
+     * @param string         $TaskId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetOnlineEvalTaskResponse
      */
     public function getOnlineEvalTaskWithOptions($TaskId, $headers, $runtime)
     {
@@ -336,7 +390,7 @@ class PaiLLMTrace extends OpenApiClient
             'action' => 'GetOnlineEvalTask',
             'version' => '2024-03-11',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/PAILLMTrace/onlineevaltasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '',
+            'pathname' => '/api/v1/PAILLMTrace/onlineevaltasks/' . Url::percentEncode($TaskId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -348,11 +402,13 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Get the details of an online evaluation task
-     *  *
+     * Get the details of an online evaluation task.
+     *
+     * @returns GetOnlineEvalTaskResponse
+     *
      * @param string $TaskId
      *
-     * @return GetOnlineEvalTaskResponse GetOnlineEvalTaskResponse
+     * @return GetOnlineEvalTaskResponse
      */
     public function getOnlineEvalTask($TaskId)
     {
@@ -363,12 +419,17 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the information related to the service-linked role.
-     *  *
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Obtains the information related to the service-linked role.
      *
-     * @return GetServiceIdentityRoleResponse GetServiceIdentityRoleResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetServiceIdentityRoleResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetServiceIdentityRoleResponse
      */
     public function getServiceIdentityRoleWithOptions($headers, $runtime)
     {
@@ -391,9 +452,11 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the information related to the service-linked role.
-     *  *
-     * @return GetServiceIdentityRoleResponse GetServiceIdentityRoleResponse
+     * Obtains the information related to the service-linked role.
+     *
+     * @returns GetServiceIdentityRoleResponse
+     *
+     * @return GetServiceIdentityRoleResponse
      */
     public function getServiceIdentityRole()
     {
@@ -404,12 +467,17 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the token used in the Xtrace service and the endpoint required for uploading trace data.
-     *  *
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Obtains the token used in the Xtrace service and the endpoint required for uploading trace data.
      *
-     * @return GetXtraceTokenResponse GetXtraceTokenResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetXtraceTokenResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetXtraceTokenResponse
      */
     public function getXtraceTokenWithOptions($headers, $runtime)
     {
@@ -432,9 +500,11 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the token used in the Xtrace service and the endpoint required for uploading trace data.
-     *  *
-     * @return GetXtraceTokenResponse GetXtraceTokenResponse
+     * Obtains the token used in the Xtrace service and the endpoint required for uploading trace data.
+     *
+     * @returns GetXtraceTokenResponse
+     *
+     * @return GetXtraceTokenResponse
      */
     public function getXtraceToken()
     {
@@ -445,41 +515,53 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the list of results for trace evaluation. This API is used together with EvaluateTrace. EvaluateTrace starts the evaluation. ListEvalResults obtains the results.
-     *  *
-     * @param ListEvalResultsRequest $tmpReq  ListEvalResultsRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Obtains the list of results for trace evaluation. This API is used together with EvaluateTrace. EvaluateTrace starts the evaluation. ListEvalResults obtains the results.
      *
-     * @return ListEvalResultsResponse ListEvalResultsResponse
+     * @param tmpReq - ListEvalResultsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEvalResultsResponse
+     *
+     * @param ListEvalResultsRequest $tmpReq
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListEvalResultsResponse
      */
     public function listEvalResultsWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListEvalResultsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->recordIds)) {
-            $request->recordIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->recordIds, 'RecordIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->recordIds) {
+            $request->recordIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recordIds, 'RecordIds', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->evaluationId)) {
-            $query['EvaluationId'] = $request->evaluationId;
+        if (null !== $request->evaluationId) {
+            @$query['EvaluationId'] = $request->evaluationId;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->recordIdsShrink)) {
-            $query['RecordIds'] = $request->recordIdsShrink;
+
+        if (null !== $request->recordIdsShrink) {
+            @$query['RecordIds'] = $request->recordIdsShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListEvalResults',
@@ -497,11 +579,15 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the list of results for trace evaluation. This API is used together with EvaluateTrace. EvaluateTrace starts the evaluation. ListEvalResults obtains the results.
-     *  *
-     * @param ListEvalResultsRequest $request ListEvalResultsRequest
+     * Obtains the list of results for trace evaluation. This API is used together with EvaluateTrace. EvaluateTrace starts the evaluation. ListEvalResults obtains the results.
      *
-     * @return ListEvalResultsResponse ListEvalResultsResponse
+     * @param request - ListEvalResultsRequest
+     *
+     * @returns ListEvalResultsResponse
+     *
+     * @param ListEvalResultsRequest $request
+     *
+     * @return ListEvalResultsResponse
      */
     public function listEvalResults($request)
     {
@@ -512,41 +598,53 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary List the results of online evaluation tasks that meet the criteria
-     *  *
-     * @param ListOnlineEvalTaskResultsRequest $tmpReq  ListOnlineEvalTaskResultsRequest
-     * @param string[]                         $headers map
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * List the results of online evaluation tasks that meet the criteria.
      *
-     * @return ListOnlineEvalTaskResultsResponse ListOnlineEvalTaskResultsResponse
+     * @param tmpReq - ListOnlineEvalTaskResultsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOnlineEvalTaskResultsResponse
+     *
+     * @param ListOnlineEvalTaskResultsRequest $tmpReq
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListOnlineEvalTaskResultsResponse
      */
     public function listOnlineEvalTaskResultsWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListOnlineEvalTaskResultsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->traceIds)) {
-            $request->traceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->traceIds, 'TraceIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->traceIds) {
+            $request->traceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->traceIds, 'TraceIds', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->evaluationId)) {
-            $query['EvaluationId'] = $request->evaluationId;
+        if (null !== $request->evaluationId) {
+            @$query['EvaluationId'] = $request->evaluationId;
         }
-        if (!Utils::isUnset($request->mostRecentResultsOnly)) {
-            $query['MostRecentResultsOnly'] = $request->mostRecentResultsOnly;
+
+        if (null !== $request->mostRecentResultsOnly) {
+            @$query['MostRecentResultsOnly'] = $request->mostRecentResultsOnly;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->traceIdsShrink)) {
-            $query['TraceIds'] = $request->traceIdsShrink;
+
+        if (null !== $request->traceIdsShrink) {
+            @$query['TraceIds'] = $request->traceIdsShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListOnlineEvalTaskResults',
@@ -564,11 +662,15 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary List the results of online evaluation tasks that meet the criteria
-     *  *
-     * @param ListOnlineEvalTaskResultsRequest $request ListOnlineEvalTaskResultsRequest
+     * List the results of online evaluation tasks that meet the criteria.
      *
-     * @return ListOnlineEvalTaskResultsResponse ListOnlineEvalTaskResultsResponse
+     * @param request - ListOnlineEvalTaskResultsRequest
+     *
+     * @returns ListOnlineEvalTaskResultsResponse
+     *
+     * @param ListOnlineEvalTaskResultsRequest $request
+     *
+     * @return ListOnlineEvalTaskResultsResponse
      */
     public function listOnlineEvalTaskResults($request)
     {
@@ -579,48 +681,67 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary View online evaluation tasks that meet the criteria
-     *  *
-     * @param ListOnlineEvalTasksRequest $request ListOnlineEvalTasksRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * View online evaluation tasks that meet the criteria.
      *
-     * @return ListOnlineEvalTasksResponse ListOnlineEvalTasksResponse
+     * @param request - ListOnlineEvalTasksRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListOnlineEvalTasksResponse
+     *
+     * @param ListOnlineEvalTasksRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListOnlineEvalTasksResponse
      */
     public function listOnlineEvalTasksWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->maxTime)) {
-            $query['MaxTime'] = $request->maxTime;
+
+        if (null !== $request->maxTime) {
+            @$query['MaxTime'] = $request->maxTime;
         }
-        if (!Utils::isUnset($request->minTime)) {
-            $query['MinTime'] = $request->minTime;
+
+        if (null !== $request->minTime) {
+            @$query['MinTime'] = $request->minTime;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->samplingMethod) {
+            @$query['SamplingMethod'] = $request->samplingMethod;
         }
-        if (!Utils::isUnset($request->sortOrder)) {
-            $query['SortOrder'] = $request->sortOrder;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
         }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListOnlineEvalTasks',
@@ -638,11 +759,15 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary View online evaluation tasks that meet the criteria
-     *  *
-     * @param ListOnlineEvalTasksRequest $request ListOnlineEvalTasksRequest
+     * View online evaluation tasks that meet the criteria.
      *
-     * @return ListOnlineEvalTasksResponse ListOnlineEvalTasksResponse
+     * @param request - ListOnlineEvalTasksRequest
+     *
+     * @returns ListOnlineEvalTasksResponse
+     *
+     * @param ListOnlineEvalTasksRequest $request
+     *
+     * @return ListOnlineEvalTasksResponse
      */
     public function listOnlineEvalTasks($request)
     {
@@ -653,92 +778,121 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a list of trace data based on specified criteria.
-     *  *
-     * @param ListTracesDatasRequest $tmpReq  ListTracesDatasRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Obtains a list of trace data based on specified criteria.
      *
-     * @return ListTracesDatasResponse ListTracesDatasResponse
+     * @param tmpReq - ListTracesDatasRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTracesDatasResponse
+     *
+     * @param ListTracesDatasRequest $tmpReq
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListTracesDatasResponse
      */
     public function listTracesDatasWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListTracesDatasShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->filters)) {
-            $request->filtersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filters, 'Filters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filters) {
+            $request->filtersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filters, 'Filters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->spanIds)) {
-            $request->spanIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->spanIds, 'SpanIds', 'simple');
+
+        if (null !== $tmpReq->spanIds) {
+            $request->spanIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->spanIds, 'SpanIds', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->traceIds)) {
-            $request->traceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->traceIds, 'TraceIds', 'simple');
+
+        if (null !== $tmpReq->traceIds) {
+            $request->traceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->traceIds, 'TraceIds', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->endUserId)) {
-            $query['EndUserId'] = $request->endUserId;
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->filtersShrink)) {
-            $query['Filters'] = $request->filtersShrink;
+
+        if (null !== $request->filtersShrink) {
+            @$query['Filters'] = $request->filtersShrink;
         }
-        if (!Utils::isUnset($request->hasEvents)) {
-            $query['HasEvents'] = $request->hasEvents;
+
+        if (null !== $request->hasEvents) {
+            @$query['HasEvents'] = $request->hasEvents;
         }
-        if (!Utils::isUnset($request->hasStatusMessage)) {
-            $query['HasStatusMessage'] = $request->hasStatusMessage;
+
+        if (null !== $request->hasStatusMessage) {
+            @$query['HasStatusMessage'] = $request->hasStatusMessage;
         }
-        if (!Utils::isUnset($request->llmAppName)) {
-            $query['LlmAppName'] = $request->llmAppName;
+
+        if (null !== $request->llmAppName) {
+            @$query['LlmAppName'] = $request->llmAppName;
         }
-        if (!Utils::isUnset($request->maxDuration)) {
-            $query['MaxDuration'] = $request->maxDuration;
+
+        if (null !== $request->maxDuration) {
+            @$query['MaxDuration'] = $request->maxDuration;
         }
-        if (!Utils::isUnset($request->maxTime)) {
-            $query['MaxTime'] = $request->maxTime;
+
+        if (null !== $request->maxTime) {
+            @$query['MaxTime'] = $request->maxTime;
         }
-        if (!Utils::isUnset($request->minDuration)) {
-            $query['MinDuration'] = $request->minDuration;
+
+        if (null !== $request->minDuration) {
+            @$query['MinDuration'] = $request->minDuration;
         }
-        if (!Utils::isUnset($request->minTime)) {
-            $query['MinTime'] = $request->minTime;
+
+        if (null !== $request->minTime) {
+            @$query['MinTime'] = $request->minTime;
         }
-        if (!Utils::isUnset($request->opentelemetryCompatible)) {
-            $query['OpentelemetryCompatible'] = $request->opentelemetryCompatible;
+
+        if (null !== $request->opentelemetryCompatible) {
+            @$query['OpentelemetryCompatible'] = $request->opentelemetryCompatible;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->ownerSubId)) {
-            $query['OwnerSubId'] = $request->ownerSubId;
+
+        if (null !== $request->ownerSubId) {
+            @$query['OwnerSubId'] = $request->ownerSubId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->sortOrder)) {
-            $query['SortOrder'] = $request->sortOrder;
+
+        if (null !== $request->sortOrder) {
+            @$query['SortOrder'] = $request->sortOrder;
         }
-        if (!Utils::isUnset($request->spanIdsShrink)) {
-            $query['SpanIds'] = $request->spanIdsShrink;
+
+        if (null !== $request->spanIdsShrink) {
+            @$query['SpanIds'] = $request->spanIdsShrink;
         }
-        if (!Utils::isUnset($request->spanName)) {
-            $query['SpanName'] = $request->spanName;
+
+        if (null !== $request->spanName) {
+            @$query['SpanName'] = $request->spanName;
         }
-        if (!Utils::isUnset($request->traceIdsShrink)) {
-            $query['TraceIds'] = $request->traceIdsShrink;
+
+        if (null !== $request->traceIdsShrink) {
+            @$query['TraceIds'] = $request->traceIdsShrink;
         }
-        if (!Utils::isUnset($request->traceReduceMethod)) {
-            $query['TraceReduceMethod'] = $request->traceReduceMethod;
+
+        if (null !== $request->traceReduceMethod) {
+            @$query['TraceReduceMethod'] = $request->traceReduceMethod;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTracesDatas',
@@ -756,11 +910,15 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Obtains a list of trace data based on specified criteria.
-     *  *
-     * @param ListTracesDatasRequest $request ListTracesDatasRequest
+     * Obtains a list of trace data based on specified criteria.
      *
-     * @return ListTracesDatasResponse ListTracesDatasResponse
+     * @param request - ListTracesDatasRequest
+     *
+     * @returns ListTracesDatasResponse
+     *
+     * @param ListTracesDatasRequest $request
+     *
+     * @return ListTracesDatasResponse
      */
     public function listTracesDatas($request)
     {
@@ -771,13 +929,18 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Stop the execution of an online evaluation task
-     *  *
-     * @param string         $TaskId
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Stop the execution of an online evaluation task.
      *
-     * @return StopOnlineEvalTaskResponse StopOnlineEvalTaskResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopOnlineEvalTaskResponse
+     *
+     * @param string         $TaskId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopOnlineEvalTaskResponse
      */
     public function stopOnlineEvalTaskWithOptions($TaskId, $headers, $runtime)
     {
@@ -788,7 +951,7 @@ class PaiLLMTrace extends OpenApiClient
             'action' => 'StopOnlineEvalTask',
             'version' => '2024-03-11',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/PAILLMTrace/onlineevaltasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '/stop',
+            'pathname' => '/api/v1/PAILLMTrace/onlineevaltasks/' . Url::percentEncode($TaskId) . '/stop',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -800,11 +963,13 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Stop the execution of an online evaluation task
-     *  *
+     * Stop the execution of an online evaluation task.
+     *
+     * @returns StopOnlineEvalTaskResponse
+     *
      * @param string $TaskId
      *
-     * @return StopOnlineEvalTaskResponse StopOnlineEvalTaskResponse
+     * @return StopOnlineEvalTaskResponse
      */
     public function stopOnlineEvalTask($TaskId)
     {
@@ -815,58 +980,74 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Changes the configuration of a trace evaluation task.
-     *  *
-     * @param string                      $TaskId
-     * @param UpdateOnlineEvalTaskRequest $request UpdateOnlineEvalTaskRequest
-     * @param string[]                    $headers map
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Changes the configuration of a trace evaluation task.
      *
-     * @return UpdateOnlineEvalTaskResponse UpdateOnlineEvalTaskResponse
+     * @param request - UpdateOnlineEvalTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateOnlineEvalTaskResponse
+     *
+     * @param string                      $TaskId
+     * @param UpdateOnlineEvalTaskRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateOnlineEvalTaskResponse
      */
     public function updateOnlineEvalTaskWithOptions($TaskId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appName)) {
-            $body['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->evaluationConfig)) {
-            $body['EvaluationConfig'] = $request->evaluationConfig;
+
+        if (null !== $request->evaluationConfig) {
+            @$body['EvaluationConfig'] = $request->evaluationConfig;
         }
-        if (!Utils::isUnset($request->filters)) {
-            $body['Filters'] = $request->filters;
+
+        if (null !== $request->filters) {
+            @$body['Filters'] = $request->filters;
         }
-        if (!Utils::isUnset($request->modelConfig)) {
-            $body['ModelConfig'] = $request->modelConfig;
+
+        if (null !== $request->modelConfig) {
+            @$body['ModelConfig'] = $request->modelConfig;
         }
-        if (!Utils::isUnset($request->samplingFrequencyMinutes)) {
-            $body['SamplingFrequencyMinutes'] = $request->samplingFrequencyMinutes;
+
+        if (null !== $request->samplingFrequencyMinutes) {
+            @$body['SamplingFrequencyMinutes'] = $request->samplingFrequencyMinutes;
         }
-        if (!Utils::isUnset($request->samplingRatio)) {
-            $body['SamplingRatio'] = $request->samplingRatio;
+
+        if (null !== $request->samplingRatio) {
+            @$body['SamplingRatio'] = $request->samplingRatio;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $body['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateOnlineEvalTask',
             'version' => '2024-03-11',
             'protocol' => 'HTTPS',
-            'pathname' => '/api/v1/PAILLMTrace/onlineevaltasks/' . OpenApiUtilClient::getEncodeParam($TaskId) . '',
+            'pathname' => '/api/v1/PAILLMTrace/onlineevaltasks/' . Url::percentEncode($TaskId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
@@ -878,12 +1059,16 @@ class PaiLLMTrace extends OpenApiClient
     }
 
     /**
-     * @summary Changes the configuration of a trace evaluation task.
-     *  *
-     * @param string                      $TaskId
-     * @param UpdateOnlineEvalTaskRequest $request UpdateOnlineEvalTaskRequest
+     * Changes the configuration of a trace evaluation task.
      *
-     * @return UpdateOnlineEvalTaskResponse UpdateOnlineEvalTaskResponse
+     * @param request - UpdateOnlineEvalTaskRequest
+     *
+     * @returns UpdateOnlineEvalTaskResponse
+     *
+     * @param string                      $TaskId
+     * @param UpdateOnlineEvalTaskRequest $request
+     *
+     * @return UpdateOnlineEvalTaskResponse
      */
     public function updateOnlineEvalTask($TaskId, $request)
     {

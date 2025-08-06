@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\QuestionAnswer\answer;
 use AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\QuestionAnswer\groundTruth;
-use AlibabaCloud\Tea\Model;
 
 class QuestionAnswer extends Model
 {
@@ -30,17 +30,28 @@ class QuestionAnswer extends Model
         'question' => 'Question',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->answer) {
+            $this->answer->validate();
+        }
+        if (null !== $this->groundTruth) {
+            $this->groundTruth->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->answer) {
-            $res['Answer'] = null !== $this->answer ? $this->answer->toMap() : null;
+            $res['Answer'] = null !== $this->answer ? $this->answer->toArray($noStream) : $this->answer;
         }
+
         if (null !== $this->groundTruth) {
-            $res['GroundTruth'] = null !== $this->groundTruth ? $this->groundTruth->toMap() : null;
+            $res['GroundTruth'] = null !== $this->groundTruth ? $this->groundTruth->toArray($noStream) : $this->groundTruth;
         }
+
         if (null !== $this->question) {
             $res['Question'] = $this->question;
         }
@@ -48,20 +59,22 @@ class QuestionAnswer extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QuestionAnswer
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Answer'])) {
             $model->answer = answer::fromMap($map['Answer']);
         }
+
         if (isset($map['GroundTruth'])) {
             $model->groundTruth = groundTruth::fromMap($map['GroundTruth']);
         }
+
         if (isset($map['Question'])) {
             $model->question = $map['Question'];
         }

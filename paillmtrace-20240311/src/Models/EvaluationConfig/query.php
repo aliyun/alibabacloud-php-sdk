@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiLLMTrace\V20240311\Models\EvaluationConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class query extends Model
 {
@@ -28,17 +28,22 @@ class query extends Model
         'spanName' => 'SpanName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jsonPathInSpan) {
             $res['JsonPathInSpan'] = $this->jsonPathInSpan;
         }
+
         if (null !== $this->jsonPathInSpanValue) {
             $res['JsonPathInSpanValue'] = $this->jsonPathInSpanValue;
         }
+
         if (null !== $this->spanName) {
             $res['SpanName'] = $this->spanName;
         }
@@ -46,20 +51,22 @@ class query extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return query
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JsonPathInSpan'])) {
             $model->jsonPathInSpan = $map['JsonPathInSpan'];
         }
+
         if (isset($map['JsonPathInSpanValue'])) {
             $model->jsonPathInSpanValue = $map['JsonPathInSpanValue'];
         }
+
         if (isset($map['SpanName'])) {
             $model->spanName = $map['SpanName'];
         }
