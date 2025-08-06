@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\ChangeCloudPhoneNodeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ChangeCloudPhoneNodeResponseBody\nodeInfos\instanceInfos;
-use AlibabaCloud\Tea\Model;
 
 class nodeInfos extends Model
 {
@@ -15,8 +15,6 @@ class nodeInfos extends Model
     public $instanceInfos;
 
     /**
-     * @example cpn-e5kxgjyt8s1mb****
-     *
      * @var string
      */
     public $nodeId;
@@ -25,20 +23,28 @@ class nodeInfos extends Model
         'nodeId' => 'NodeId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceInfos)) {
+            Model::validateArray($this->instanceInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceInfos) {
-            $res['InstanceInfos'] = [];
-            if (null !== $this->instanceInfos && \is_array($this->instanceInfos)) {
-                $n = 0;
-                foreach ($this->instanceInfos as $item) {
-                    $res['InstanceInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceInfos)) {
+                $res['InstanceInfos'] = [];
+                $n1 = 0;
+                foreach ($this->instanceInfos as $item1) {
+                    $res['InstanceInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -46,23 +52,25 @@ class nodeInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodeInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceInfos'])) {
             if (!empty($map['InstanceInfos'])) {
                 $model->instanceInfos = [];
-                $n = 0;
-                foreach ($map['InstanceInfos'] as $item) {
-                    $model->instanceInfos[$n++] = null !== $item ? instanceInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InstanceInfos'] as $item1) {
+                    $model->instanceInfos[$n1] = instanceInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }

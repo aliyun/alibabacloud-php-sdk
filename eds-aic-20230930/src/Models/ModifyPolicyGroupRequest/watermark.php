@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class watermark extends Model
 {
@@ -46,59 +46,87 @@ class watermark extends Model
         'watermarkTypes' => 'WatermarkTypes',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->watermarkTypes)) {
+            Model::validateArray($this->watermarkTypes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->watermarkColor) {
             $res['WatermarkColor'] = $this->watermarkColor;
         }
+
         if (null !== $this->watermarkCustomText) {
             $res['WatermarkCustomText'] = $this->watermarkCustomText;
         }
+
         if (null !== $this->watermarkFontSize) {
             $res['WatermarkFontSize'] = $this->watermarkFontSize;
         }
+
         if (null !== $this->watermarkSwitch) {
             $res['WatermarkSwitch'] = $this->watermarkSwitch;
         }
+
         if (null !== $this->watermarkTransparencyValue) {
             $res['WatermarkTransparencyValue'] = $this->watermarkTransparencyValue;
         }
+
         if (null !== $this->watermarkTypes) {
-            $res['WatermarkTypes'] = $this->watermarkTypes;
+            if (\is_array($this->watermarkTypes)) {
+                $res['WatermarkTypes'] = [];
+                $n1 = 0;
+                foreach ($this->watermarkTypes as $item1) {
+                    $res['WatermarkTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return watermark
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WatermarkColor'])) {
             $model->watermarkColor = $map['WatermarkColor'];
         }
+
         if (isset($map['WatermarkCustomText'])) {
             $model->watermarkCustomText = $map['WatermarkCustomText'];
         }
+
         if (isset($map['WatermarkFontSize'])) {
             $model->watermarkFontSize = $map['WatermarkFontSize'];
         }
+
         if (isset($map['WatermarkSwitch'])) {
             $model->watermarkSwitch = $map['WatermarkSwitch'];
         }
+
         if (isset($map['WatermarkTransparencyValue'])) {
             $model->watermarkTransparencyValue = $map['WatermarkTransparencyValue'];
         }
+
         if (isset($map['WatermarkTypes'])) {
             if (!empty($map['WatermarkTypes'])) {
-                $model->watermarkTypes = $map['WatermarkTypes'];
+                $model->watermarkTypes = [];
+                $n1 = 0;
+                foreach ($map['WatermarkTypes'] as $item1) {
+                    $model->watermarkTypes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

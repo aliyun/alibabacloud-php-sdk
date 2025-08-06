@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeInvocationsRequest extends Model
 {
     /**
-     * @description The IDs of the cloud phone instances. You can specify a maximum of 50 cloud phone instances.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
-     * @description The ID of the execution. You can retrieve the output of a command once by using either the execution ID or the cloud phone instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example t-4e98eeb5****
-     *
      * @var string
      */
     public $invocationId;
@@ -32,14 +22,28 @@ class DescribeInvocationsRequest extends Model
         'invocationId' => 'InvocationId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->invocationId) {
             $res['InvocationId'] = $this->invocationId;
         }
@@ -47,19 +51,25 @@ class DescribeInvocationsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInvocationsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
+                $model->instanceIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['InvocationId'])) {
             $model->invocationId = $map['InvocationId'];
         }

@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyAppRequest extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $appId;
 
     /**
-     * @description The name of the application.
-     *
-     * @example defaultAppName
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description The description of the application.
-     *
-     * @example default description.
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The URL of the icon.
-     *
-     * @example https://defaultIcon.png
-     *
      * @var string
      */
     public $iconUrl;
@@ -50,20 +34,26 @@ class ModifyAppRequest extends Model
         'iconUrl' => 'IconUrl',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->iconUrl) {
             $res['IconUrl'] = $this->iconUrl;
         }
@@ -71,23 +61,26 @@ class ModifyAppRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyAppRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['IconUrl'])) {
             $model->iconUrl = $map['IconUrl'];
         }

@@ -4,28 +4,22 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSystemPropertyTemplatesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSystemPropertyTemplatesResponseBody\systemPropertyTemplateModel\systemPropertyInfo;
-use AlibabaCloud\Tea\Model;
 
 class systemPropertyTemplateModel extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enableAuto;
 
     /**
-     * @example https://filepath****.com
-     *
      * @var string
      */
     public $filePath;
 
     /**
-     * @example init
-     *
      * @var string
      */
     public $status;
@@ -36,8 +30,6 @@ class systemPropertyTemplateModel extends Model
     public $systemPropertyInfo;
 
     /**
-     * @example ap-0caoenwutkkx****
-     *
      * @var string
      */
     public $templateId;
@@ -55,26 +47,37 @@ class systemPropertyTemplateModel extends Model
         'templateName' => 'TemplateName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->systemPropertyInfo) {
+            $this->systemPropertyInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableAuto) {
             $res['EnableAuto'] = $this->enableAuto;
         }
+
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->systemPropertyInfo) {
-            $res['SystemPropertyInfo'] = null !== $this->systemPropertyInfo ? $this->systemPropertyInfo->toMap() : null;
+            $res['SystemPropertyInfo'] = null !== $this->systemPropertyInfo ? $this->systemPropertyInfo->toArray($noStream) : $this->systemPropertyInfo;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
@@ -82,29 +85,34 @@ class systemPropertyTemplateModel extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return systemPropertyTemplateModel
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableAuto'])) {
             $model->enableAuto = $map['EnableAuto'];
         }
+
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['SystemPropertyInfo'])) {
             $model->systemPropertyInfo = systemPropertyInfo::fromMap($map['SystemPropertyInfo']);
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
+
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }

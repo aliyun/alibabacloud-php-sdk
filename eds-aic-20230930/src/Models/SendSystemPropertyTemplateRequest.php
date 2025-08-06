@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SendSystemPropertyTemplateRequest extends Model
 {
@@ -14,8 +14,6 @@ class SendSystemPropertyTemplateRequest extends Model
     public $androidInstanceIds;
 
     /**
-     * @example ap-angyvganxlf****
-     *
      * @var string
      */
     public $templateId;
@@ -30,43 +28,80 @@ class SendSystemPropertyTemplateRequest extends Model
         'templateIds' => 'TemplateIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->androidInstanceIds)) {
+            Model::validateArray($this->androidInstanceIds);
+        }
+        if (\is_array($this->templateIds)) {
+            Model::validateArray($this->templateIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->androidInstanceIds) {
-            $res['AndroidInstanceIds'] = $this->androidInstanceIds;
+            if (\is_array($this->androidInstanceIds)) {
+                $res['AndroidInstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->androidInstanceIds as $item1) {
+                    $res['AndroidInstanceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+
         if (null !== $this->templateIds) {
-            $res['TemplateIds'] = $this->templateIds;
+            if (\is_array($this->templateIds)) {
+                $res['TemplateIds'] = [];
+                $n1 = 0;
+                foreach ($this->templateIds as $item1) {
+                    $res['TemplateIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SendSystemPropertyTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AndroidInstanceIds'])) {
             if (!empty($map['AndroidInstanceIds'])) {
-                $model->androidInstanceIds = $map['AndroidInstanceIds'];
+                $model->androidInstanceIds = [];
+                $n1 = 0;
+                foreach ($map['AndroidInstanceIds'] as $item1) {
+                    $model->androidInstanceIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
+
         if (isset($map['TemplateIds'])) {
             if (!empty($map['TemplateIds'])) {
-                $model->templateIds = $map['TemplateIds'];
+                $model->templateIds = [];
+                $n1 = 0;
+                foreach ($map['TemplateIds'] as $item1) {
+                    $model->templateIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCloudPhoneNodeRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class displayConfig extends Model
 {
@@ -28,17 +28,22 @@ class displayConfig extends Model
         'lockResolution' => 'LockResolution',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dpi) {
             $res['Dpi'] = $this->dpi;
         }
+
         if (null !== $this->fps) {
             $res['Fps'] = $this->fps;
         }
+
         if (null !== $this->lockResolution) {
             $res['LockResolution'] = $this->lockResolution;
         }
@@ -46,20 +51,22 @@ class displayConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return displayConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Dpi'])) {
             $model->dpi = $map['Dpi'];
         }
+
         if (isset($map['Fps'])) {
             $model->fps = $map['Fps'];
         }
+
         if (isset($map['LockResolution'])) {
             $model->lockResolution = $map['LockResolution'];
         }

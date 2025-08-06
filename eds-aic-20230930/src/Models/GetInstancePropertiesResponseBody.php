@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\GetInstancePropertiesResponseBody\propertyTemplateModel;
-use AlibabaCloud\Tea\Model;
 
 class GetInstancePropertiesResponseBody extends Model
 {
@@ -15,10 +15,6 @@ class GetInstancePropertiesResponseBody extends Model
     public $propertyTemplateModel;
 
     /**
-     * @description Id of the request
-     *
-     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC******
-     *
      * @var string
      */
     public $requestId;
@@ -27,14 +23,21 @@ class GetInstancePropertiesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->propertyTemplateModel) {
+            $this->propertyTemplateModel->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->propertyTemplateModel) {
-            $res['PropertyTemplateModel'] = null !== $this->propertyTemplateModel ? $this->propertyTemplateModel->toMap() : null;
+            $res['PropertyTemplateModel'] = null !== $this->propertyTemplateModel ? $this->propertyTemplateModel->toArray($noStream) : $this->propertyTemplateModel;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +45,18 @@ class GetInstancePropertiesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstancePropertiesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PropertyTemplateModel'])) {
             $model->propertyTemplateModel = propertyTemplateModel::fromMap($map['PropertyTemplateModel']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

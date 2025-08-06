@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteBackupFileRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $backupFileIdList;
@@ -18,29 +16,47 @@ class DeleteBackupFileRequest extends Model
         'backupFileIdList' => 'BackupFileIdList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->backupFileIdList)) {
+            Model::validateArray($this->backupFileIdList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupFileIdList) {
-            $res['BackupFileIdList'] = $this->backupFileIdList;
+            if (\is_array($this->backupFileIdList)) {
+                $res['BackupFileIdList'] = [];
+                $n1 = 0;
+                foreach ($this->backupFileIdList as $item1) {
+                    $res['BackupFileIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteBackupFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupFileIdList'])) {
             if (!empty($map['BackupFileIdList'])) {
-                $model->backupFileIdList = $map['BackupFileIdList'];
+                $model->backupFileIdList = [];
+                $n1 = 0;
+                foreach ($map['BackupFileIdList'] as $item1) {
+                    $model->backupFileIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

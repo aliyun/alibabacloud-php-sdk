@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\ChangeCloudPhoneNodeResponseBody\nodeInfos;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceInfos extends Model
 {
     /**
-     * @example cpn-jewjt8xryuitu****
-     *
      * @var string
      */
     public $instanceId;
@@ -18,9 +16,12 @@ class instanceInfos extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -30,11 +31,11 @@ class instanceInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

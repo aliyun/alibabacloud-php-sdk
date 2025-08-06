@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeMetricLastRequest extends Model
 {
@@ -14,43 +14,31 @@ class DescribeMetricLastRequest extends Model
     public $androidInstanceIds;
 
     /**
-     * @example 2019-01-31 11:00:00
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @example 1000
-     *
      * @var string
      */
     public $length;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $metricNames;
 
     /**
-     * @example AAAAAV3MpHK1AP0pfERHZN5pu6l5V9uONHqPtDLM2U8s****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example 60
-     *
      * @var int
      */
     public $period;
 
     /**
-     * @example 2019-01-31 10:00:00
-     *
      * @var string
      */
     public $startTime;
@@ -64,29 +52,58 @@ class DescribeMetricLastRequest extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->androidInstanceIds)) {
+            Model::validateArray($this->androidInstanceIds);
+        }
+        if (\is_array($this->metricNames)) {
+            Model::validateArray($this->metricNames);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->androidInstanceIds) {
-            $res['AndroidInstanceIds'] = $this->androidInstanceIds;
+            if (\is_array($this->androidInstanceIds)) {
+                $res['AndroidInstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->androidInstanceIds as $item1) {
+                    $res['AndroidInstanceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->length) {
             $res['Length'] = $this->length;
         }
+
         if (null !== $this->metricNames) {
-            $res['MetricNames'] = $this->metricNames;
+            if (\is_array($this->metricNames)) {
+                $res['MetricNames'] = [];
+                $n1 = 0;
+                foreach ($this->metricNames as $item1) {
+                    $res['MetricNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -94,36 +111,52 @@ class DescribeMetricLastRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeMetricLastRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AndroidInstanceIds'])) {
             if (!empty($map['AndroidInstanceIds'])) {
-                $model->androidInstanceIds = $map['AndroidInstanceIds'];
+                $model->androidInstanceIds = [];
+                $n1 = 0;
+                foreach ($map['AndroidInstanceIds'] as $item1) {
+                    $model->androidInstanceIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Length'])) {
             $model->length = $map['Length'];
         }
+
         if (isset($map['MetricNames'])) {
             if (!empty($map['MetricNames'])) {
-                $model->metricNames = $map['MetricNames'];
+                $model->metricNames = [];
+                $n1 = 0;
+                foreach ($map['MetricNames'] as $item1) {
+                    $model->metricNames[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

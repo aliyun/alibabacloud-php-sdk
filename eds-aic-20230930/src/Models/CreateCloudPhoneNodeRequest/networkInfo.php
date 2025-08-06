@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCloudPhoneNodeRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class networkInfo extends Model
 {
@@ -46,26 +46,34 @@ class networkInfo extends Model
         'limitedBandwidth' => 'LimitedBandwidth',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bandwidthPackageName) {
             $res['BandwidthPackageName'] = $this->bandwidthPackageName;
         }
+
         if (null !== $this->cidrBlock) {
             $res['CidrBlock'] = $this->cidrBlock;
         }
+
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
         }
+
         if (null !== $this->ipRatio) {
             $res['IpRatio'] = $this->ipRatio;
         }
+
         if (null !== $this->isp) {
             $res['Isp'] = $this->isp;
         }
+
         if (null !== $this->limitedBandwidth) {
             $res['LimitedBandwidth'] = $this->limitedBandwidth;
         }
@@ -73,29 +81,34 @@ class networkInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BandwidthPackageName'])) {
             $model->bandwidthPackageName = $map['BandwidthPackageName'];
         }
+
         if (isset($map['CidrBlock'])) {
             $model->cidrBlock = $map['CidrBlock'];
         }
+
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];
         }
+
         if (isset($map['IpRatio'])) {
             $model->ipRatio = $map['IpRatio'];
         }
+
         if (isset($map['Isp'])) {
             $model->isp = $map['Isp'];
         }
+
         if (isset($map['LimitedBandwidth'])) {
             $model->limitedBandwidth = $map['LimitedBandwidth'];
         }

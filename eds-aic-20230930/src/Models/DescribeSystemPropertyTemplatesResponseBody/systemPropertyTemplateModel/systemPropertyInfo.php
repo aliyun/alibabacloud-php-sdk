@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSystemPropertyTemplatesResponseBody\systemPropertyTemplateModel;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeSystemPropertyTemplatesResponseBody\systemPropertyTemplateModel\systemPropertyInfo\customPropertyInfos;
-use AlibabaCloud\Tea\Model;
 
 class systemPropertyInfo extends Model
 {
@@ -15,8 +15,6 @@ class systemPropertyInfo extends Model
     public $customPropertyInfos;
 
     /**
-     * @example null
-     *
      * @var string
      */
     public $roProductDevice;
@@ -25,20 +23,28 @@ class systemPropertyInfo extends Model
         'roProductDevice' => 'RoProductDevice',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->customPropertyInfos)) {
+            Model::validateArray($this->customPropertyInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customPropertyInfos) {
-            $res['CustomPropertyInfos'] = [];
-            if (null !== $this->customPropertyInfos && \is_array($this->customPropertyInfos)) {
-                $n = 0;
-                foreach ($this->customPropertyInfos as $item) {
-                    $res['CustomPropertyInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->customPropertyInfos)) {
+                $res['CustomPropertyInfos'] = [];
+                $n1 = 0;
+                foreach ($this->customPropertyInfos as $item1) {
+                    $res['CustomPropertyInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->roProductDevice) {
             $res['RoProductDevice'] = $this->roProductDevice;
         }
@@ -46,23 +52,25 @@ class systemPropertyInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return systemPropertyInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomPropertyInfos'])) {
             if (!empty($map['CustomPropertyInfos'])) {
                 $model->customPropertyInfos = [];
-                $n = 0;
-                foreach ($map['CustomPropertyInfos'] as $item) {
-                    $model->customPropertyInfos[$n++] = null !== $item ? customPropertyInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CustomPropertyInfos'] as $item1) {
+                    $model->customPropertyInfos[$n1] = customPropertyInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RoProductDevice'])) {
             $model->roProductDevice = $map['RoProductDevice'];
         }

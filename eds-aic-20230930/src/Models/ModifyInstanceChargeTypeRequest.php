@@ -4,67 +4,36 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyInstanceChargeTypeRequest extends Model
 {
     /**
-     * @description Specifies whether to enable the auto-payment feature. Default value: false.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $autoPay;
 
     /**
-     * @description Specifies whether to enable the auto-renewal feature. Default value: false.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $autoRenew;
 
     /**
-     * @description The billing method. Valid values:
-     *
-     * >  Currently, this operation only allows you to change the billing method from **pay-as-you-go to subscription**.
-     *
-     * This parameter is required.
-     *
-     * @example PrePaid
-     *
      * @var string
      */
     public $chargeType;
 
     /**
-     * @description The IDs of the instance groups.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $instanceGroupIds;
 
     /**
-     * @description The subscription duration. The unit is specified by PeriodUnit. Valid values: 1 Month, 2 Months, 3 Months, 6 Months, and 1 Year.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $period;
 
     /**
-     * @description The unit of the subscription duration. Valid values:
-     *
-     *   **Month**
-     *   **Year**
-     *
-     * @example Month
-     *
      * @var string
      */
     public $periodUnit;
@@ -77,26 +46,44 @@ class ModifyInstanceChargeTypeRequest extends Model
         'periodUnit' => 'PeriodUnit',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceGroupIds)) {
+            Model::validateArray($this->instanceGroupIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
+
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
+
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
+
         if (null !== $this->instanceGroupIds) {
-            $res['InstanceGroupIds'] = $this->instanceGroupIds;
+            if (\is_array($this->instanceGroupIds)) {
+                $res['InstanceGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceGroupIds as $item1) {
+                    $res['InstanceGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
         }
@@ -104,31 +91,41 @@ class ModifyInstanceChargeTypeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyInstanceChargeTypeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
+
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
+
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
+
         if (isset($map['InstanceGroupIds'])) {
             if (!empty($map['InstanceGroupIds'])) {
-                $model->instanceGroupIds = $map['InstanceGroupIds'];
+                $model->instanceGroupIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceGroupIds'] as $item1) {
+                    $model->instanceGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
         }

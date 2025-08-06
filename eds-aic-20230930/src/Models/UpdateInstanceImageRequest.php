@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateInstanceImageRequest extends Model
 {
     /**
-     * @example imgc-075cllfeuazh0****
-     *
      * @var string
      */
     public $imageId;
@@ -24,35 +22,55 @@ class UpdateInstanceImageRequest extends Model
         'instanceIdList' => 'InstanceIdList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceIdList)) {
+            Model::validateArray($this->instanceIdList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->instanceIdList) {
-            $res['InstanceIdList'] = $this->instanceIdList;
+            if (\is_array($this->instanceIdList)) {
+                $res['InstanceIdList'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIdList as $item1) {
+                    $res['InstanceIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateInstanceImageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['InstanceIdList'])) {
             if (!empty($map['InstanceIdList'])) {
-                $model->instanceIdList = $map['InstanceIdList'];
+                $model->instanceIdList = [];
+                $n1 = 0;
+                foreach ($map['InstanceIdList'] as $item1) {
+                    $model->instanceIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

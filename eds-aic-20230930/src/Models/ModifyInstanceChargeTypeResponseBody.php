@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyInstanceChargeTypeResponseBody extends Model
 {
     /**
-     * @description The IDs of the instance groups.
-     *
      * @var string[]
      */
     public $instanceGroupIds;
 
     /**
-     * @description The ID of the order.
-     *
-     * @example 22326560487****
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 1A923337-44D9-5CAD-9A53-95084BD4****
-     *
      * @var string
      */
     public $requestId;
@@ -38,17 +28,32 @@ class ModifyInstanceChargeTypeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceGroupIds)) {
+            Model::validateArray($this->instanceGroupIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceGroupIds) {
-            $res['InstanceGroupIds'] = $this->instanceGroupIds;
+            if (\is_array($this->instanceGroupIds)) {
+                $res['InstanceGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceGroupIds as $item1) {
+                    $res['InstanceGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -56,22 +61,29 @@ class ModifyInstanceChargeTypeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyInstanceChargeTypeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceGroupIds'])) {
             if (!empty($map['InstanceGroupIds'])) {
-                $model->instanceGroupIds = $map['InstanceGroupIds'];
+                $model->instanceGroupIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceGroupIds'] as $item1) {
+                    $model->instanceGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

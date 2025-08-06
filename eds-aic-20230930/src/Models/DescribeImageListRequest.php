@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeImageListRequest\imageBizTags;
-use AlibabaCloud\Tea\Model;
 
 class DescribeImageListRequest extends Model
 {
@@ -15,44 +15,21 @@ class DescribeImageListRequest extends Model
     public $imageBizTags;
 
     /**
-     * @description The ID of the image.
-     *
-     * @example imgc-075cllfeuazh0****
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description The name of the image.
-     *
-     * @example Android 12 image
-     *
      * @var string
      */
     public $imageName;
 
     /**
-     * @description Image package type.
-     *
-     * @example VM
-     *
      * @var string
      */
     public $imagePackageType;
 
     /**
-     * @description The type of the image.
-     *
-     * Valid values:
-     *
-     *   User: custom images.
-     *   System: system images.
-     *
-     * This parameter is required.
-     *
-     * @example System
-     *
      * @var string
      */
     public $imageType;
@@ -63,36 +40,16 @@ class DescribeImageListRequest extends Model
     public $instanceType;
 
     /**
-     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. If the parameter is left empty, the data is queried from the first entry.
-     *
-     * @example AAAAAV3MpHK1AP0pfERHZN5pu6kw9dGL5jves2FS9RLq****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The state of the image.
-     *
-     * Valid values:
-     *
-     *   AVAILABLE: The image is available.
-     *   DELETE: The image is deleted.
-     *   INIT: The image is being initialized.
-     *   CREATE_FAILED: The image failed to be created.
-     *   CREATING: The image is being created.
-     *
-     * @example AVAILABLE
-     *
      * @var string
      */
     public $status;
@@ -108,41 +65,56 @@ class DescribeImageListRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->imageBizTags)) {
+            Model::validateArray($this->imageBizTags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageBizTags) {
-            $res['ImageBizTags'] = [];
-            if (null !== $this->imageBizTags && \is_array($this->imageBizTags)) {
-                $n = 0;
-                foreach ($this->imageBizTags as $item) {
-                    $res['ImageBizTags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->imageBizTags)) {
+                $res['ImageBizTags'] = [];
+                $n1 = 0;
+                foreach ($this->imageBizTags as $item1) {
+                    $res['ImageBizTags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
         }
+
         if (null !== $this->imagePackageType) {
             $res['ImagePackageType'] = $this->imagePackageType;
         }
+
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
         }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -150,44 +122,53 @@ class DescribeImageListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeImageListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageBizTags'])) {
             if (!empty($map['ImageBizTags'])) {
                 $model->imageBizTags = [];
-                $n = 0;
-                foreach ($map['ImageBizTags'] as $item) {
-                    $model->imageBizTags[$n++] = null !== $item ? imageBizTags::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ImageBizTags'] as $item1) {
+                    $model->imageBizTags[$n1] = imageBizTags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
         }
+
         if (isset($map['ImagePackageType'])) {
             $model->imagePackageType = $map['ImagePackageType'];
         }
+
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];
         }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

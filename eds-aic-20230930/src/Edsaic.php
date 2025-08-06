@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\AttachKeyPairRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\AttachKeyPairResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\AuthorizeAndroidInstanceRequest;
@@ -166,11 +165,10 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateInstanceImageRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateInstanceImageResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpgradeAndroidInstanceGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpgradeAndroidInstanceGroupResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Edsaic extends OpenApiClient
 {
@@ -196,39 +194,48 @@ class Edsaic extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Attaches an Android Debug Bridge (ADB) key pair to one or more cloud phone instances.
-     *  *
-     * @description *   You can attach to an ADB key pair only to cloud phone instances in the Running state.
-     * *   After you attach an ADB key pair, make sure the private key of the ADB key pair is copied to the ~/.android directory (macOS or Linux operating systems) or the C:\\Users\\Username.android directory (Windows operating systems). In addition, you must run the adb kill-server command to restart the ADB process to ensure correct ADB connection. Otherwise, ADB connection may fail due to authentication exceptions.
-     *  *
-     * @param AttachKeyPairRequest $request AttachKeyPairRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Attaches an Android Debug Bridge (ADB) key pair to one or more cloud phone instances.
      *
-     * @return AttachKeyPairResponse AttachKeyPairResponse
+     * @remarks
+     *   You can attach to an ADB key pair only to cloud phone instances in the Running state.
+     * *   After you attach an ADB key pair, make sure the private key of the ADB key pair is copied to the ~/.android directory (macOS or Linux operating systems) or the C:\\Users\\Username.android directory (Windows operating systems). In addition, you must run the adb kill-server command to restart the ADB process to ensure correct ADB connection. Otherwise, ADB connection may fail due to authentication exceptions.
+     *
+     * @param request - AttachKeyPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AttachKeyPairResponse
+     *
+     * @param AttachKeyPairRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AttachKeyPairResponse
      */
     public function attachKeyPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->keyPairId)) {
-            $query['KeyPairId'] = $request->keyPairId;
+
+        if (null !== $request->keyPairId) {
+            @$query['KeyPairId'] = $request->keyPairId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AttachKeyPair',
@@ -246,14 +253,19 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Attaches an Android Debug Bridge (ADB) key pair to one or more cloud phone instances.
-     *  *
-     * @description *   You can attach to an ADB key pair only to cloud phone instances in the Running state.
-     * *   After you attach an ADB key pair, make sure the private key of the ADB key pair is copied to the ~/.android directory (macOS or Linux operating systems) or the C:\\Users\\Username.android directory (Windows operating systems). In addition, you must run the adb kill-server command to restart the ADB process to ensure correct ADB connection. Otherwise, ADB connection may fail due to authentication exceptions.
-     *  *
-     * @param AttachKeyPairRequest $request AttachKeyPairRequest
+     * Attaches an Android Debug Bridge (ADB) key pair to one or more cloud phone instances.
      *
-     * @return AttachKeyPairResponse AttachKeyPairResponse
+     * @remarks
+     *   You can attach to an ADB key pair only to cloud phone instances in the Running state.
+     * *   After you attach an ADB key pair, make sure the private key of the ADB key pair is copied to the ~/.android directory (macOS or Linux operating systems) or the C:\\Users\\Username.android directory (Windows operating systems). In addition, you must run the adb kill-server command to restart the ADB process to ensure correct ADB connection. Otherwise, ADB connection may fail due to authentication exceptions.
+     *
+     * @param request - AttachKeyPairRequest
+     *
+     * @returns AttachKeyPairResponse
+     *
+     * @param AttachKeyPairRequest $request
+     *
+     * @return AttachKeyPairResponse
      */
     public function attachKeyPair($request)
     {
@@ -263,31 +275,40 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Authorize/unauthorize Android instances for users.
-     *  *
-     * @description Instance states that support user assignment: Available, Shutting Down, Stopped, Starting, Backing Up, Restoring, Backup Failed, Restore Failed.
-     * Instance states that support unassignment: Available, Shutting Down, Stopped, Starting, Backing Up, Restoring, Backup Failed, Restore Failed, Expired, Overdue, Deleted.
-     *  *
-     * @param AuthorizeAndroidInstanceRequest $request AuthorizeAndroidInstanceRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Authorize/unauthorize Android instances for users.
      *
-     * @return AuthorizeAndroidInstanceResponse AuthorizeAndroidInstanceResponse
+     * @remarks
+     * Instance states that support user assignment: Available, Shutting Down, Stopped, Starting, Backing Up, Restoring, Backup Failed, Restore Failed.
+     * Instance states that support unassignment: Available, Shutting Down, Stopped, Starting, Backing Up, Restoring, Backup Failed, Restore Failed, Expired, Overdue, Deleted.
+     *
+     * @param request - AuthorizeAndroidInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AuthorizeAndroidInstanceResponse
+     *
+     * @param AuthorizeAndroidInstanceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AuthorizeAndroidInstanceResponse
      */
     public function authorizeAndroidInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIds)) {
-            $query['AndroidInstanceIds'] = $request->androidInstanceIds;
+        if (null !== $request->androidInstanceIds) {
+            @$query['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
-        if (!Utils::isUnset($request->authorizeUserId)) {
-            $query['AuthorizeUserId'] = $request->authorizeUserId;
+
+        if (null !== $request->authorizeUserId) {
+            @$query['AuthorizeUserId'] = $request->authorizeUserId;
         }
-        if (!Utils::isUnset($request->unAuthorizeUserId)) {
-            $query['UnAuthorizeUserId'] = $request->unAuthorizeUserId;
+
+        if (null !== $request->unAuthorizeUserId) {
+            @$query['UnAuthorizeUserId'] = $request->unAuthorizeUserId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AuthorizeAndroidInstance',
@@ -305,14 +326,19 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Authorize/unauthorize Android instances for users.
-     *  *
-     * @description Instance states that support user assignment: Available, Shutting Down, Stopped, Starting, Backing Up, Restoring, Backup Failed, Restore Failed.
-     * Instance states that support unassignment: Available, Shutting Down, Stopped, Starting, Backing Up, Restoring, Backup Failed, Restore Failed, Expired, Overdue, Deleted.
-     *  *
-     * @param AuthorizeAndroidInstanceRequest $request AuthorizeAndroidInstanceRequest
+     * Authorize/unauthorize Android instances for users.
      *
-     * @return AuthorizeAndroidInstanceResponse AuthorizeAndroidInstanceResponse
+     * @remarks
+     * Instance states that support user assignment: Available, Shutting Down, Stopped, Starting, Backing Up, Restoring, Backup Failed, Restore Failed.
+     * Instance states that support unassignment: Available, Shutting Down, Stopped, Starting, Backing Up, Restoring, Backup Failed, Restore Failed, Expired, Overdue, Deleted.
+     *
+     * @param request - AuthorizeAndroidInstanceRequest
+     *
+     * @returns AuthorizeAndroidInstanceResponse
+     *
+     * @param AuthorizeAndroidInstanceRequest $request
+     *
+     * @return AuthorizeAndroidInstanceResponse
      */
     public function authorizeAndroidInstance($request)
     {
@@ -322,48 +348,63 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Generates and uploads backup files.
-     *  *
-     * @description Currently, this operation allows you to upload only backup files generated by cloud phones to Object Storage Service (OSS) buckets.
-     *  *
-     * @param BackupFileRequest $request BackupFileRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Generates and uploads backup files.
      *
-     * @return BackupFileResponse BackupFileResponse
+     * @remarks
+     * Currently, this operation allows you to upload only backup files generated by cloud phones to Object Storage Service (OSS) buckets.
+     *
+     * @param request - BackupFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BackupFileResponse
+     *
+     * @param BackupFileRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return BackupFileResponse
      */
     public function backupFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIdList)) {
-            $query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
+        if (null !== $request->androidInstanceIdList) {
+            @$query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
         }
-        if (!Utils::isUnset($request->backupAll)) {
-            $query['BackupAll'] = $request->backupAll;
+
+        if (null !== $request->backupAll) {
+            @$query['BackupAll'] = $request->backupAll;
         }
-        if (!Utils::isUnset($request->backupFileName)) {
-            $query['BackupFileName'] = $request->backupFileName;
+
+        if (null !== $request->backupFileName) {
+            @$query['BackupFileName'] = $request->backupFileName;
         }
-        if (!Utils::isUnset($request->backupFilePath)) {
-            $query['BackupFilePath'] = $request->backupFilePath;
+
+        if (null !== $request->backupFilePath) {
+            @$query['BackupFilePath'] = $request->backupFilePath;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->sourceAppList)) {
-            $query['SourceAppList'] = $request->sourceAppList;
+
+        if (null !== $request->sourceAppList) {
+            @$query['SourceAppList'] = $request->sourceAppList;
         }
-        if (!Utils::isUnset($request->sourceFilePathList)) {
-            $query['SourceFilePathList'] = $request->sourceFilePathList;
+
+        if (null !== $request->sourceFilePathList) {
+            @$query['SourceFilePathList'] = $request->sourceFilePathList;
         }
-        if (!Utils::isUnset($request->uploadEndpoint)) {
-            $query['UploadEndpoint'] = $request->uploadEndpoint;
+
+        if (null !== $request->uploadEndpoint) {
+            @$query['UploadEndpoint'] = $request->uploadEndpoint;
         }
-        if (!Utils::isUnset($request->uploadType)) {
-            $query['UploadType'] = $request->uploadType;
+
+        if (null !== $request->uploadType) {
+            @$query['UploadType'] = $request->uploadType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'BackupFile',
@@ -381,13 +422,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Generates and uploads backup files.
-     *  *
-     * @description Currently, this operation allows you to upload only backup files generated by cloud phones to Object Storage Service (OSS) buckets.
-     *  *
-     * @param BackupFileRequest $request BackupFileRequest
+     * Generates and uploads backup files.
      *
-     * @return BackupFileResponse BackupFileResponse
+     * @remarks
+     * Currently, this operation allows you to upload only backup files generated by cloud phones to Object Storage Service (OSS) buckets.
+     *
+     * @param request - BackupFileRequest
+     *
+     * @returns BackupFileResponse
+     *
+     * @param BackupFileRequest $request
+     *
+     * @return BackupFileResponse
      */
     public function backupFile($request)
     {
@@ -397,31 +443,40 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Retrieves connection tickets in batch.
-     *  *
-     * @param BatchGetAcpConnectionTicketRequest $request BatchGetAcpConnectionTicketRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Retrieves connection tickets in batch.
      *
-     * @return BatchGetAcpConnectionTicketResponse BatchGetAcpConnectionTicketResponse
+     * @param request - BatchGetAcpConnectionTicketRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchGetAcpConnectionTicketResponse
+     *
+     * @param BatchGetAcpConnectionTicketRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return BatchGetAcpConnectionTicketResponse
      */
     public function batchGetAcpConnectionTicketWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endUserId)) {
-            $query['EndUserId'] = $request->endUserId;
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->instanceGroupId)) {
-            $query['InstanceGroupId'] = $request->instanceGroupId;
+
+        if (null !== $request->instanceGroupId) {
+            @$query['InstanceGroupId'] = $request->instanceGroupId;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->instanceTasks)) {
-            $query['InstanceTasks'] = $request->instanceTasks;
+
+        if (null !== $request->instanceTasks) {
+            @$query['InstanceTasks'] = $request->instanceTasks;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'BatchGetAcpConnectionTicket',
@@ -439,11 +494,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Retrieves connection tickets in batch.
-     *  *
-     * @param BatchGetAcpConnectionTicketRequest $request BatchGetAcpConnectionTicketRequest
+     * Retrieves connection tickets in batch.
      *
-     * @return BatchGetAcpConnectionTicketResponse BatchGetAcpConnectionTicketResponse
+     * @param request - BatchGetAcpConnectionTicketRequest
+     *
+     * @returns BatchGetAcpConnectionTicketResponse
+     *
+     * @param BatchGetAcpConnectionTicketRequest $request
+     *
+     * @return BatchGetAcpConnectionTicketResponse
      */
     public function batchGetAcpConnectionTicket($request)
     {
@@ -453,28 +512,36 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 修改云手机矩阵的配置
-     *  *
-     * @param ChangeCloudPhoneNodeRequest $request ChangeCloudPhoneNodeRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 修改云手机矩阵的配置.
      *
-     * @return ChangeCloudPhoneNodeResponse ChangeCloudPhoneNodeResponse
+     * @param request - ChangeCloudPhoneNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeCloudPhoneNodeResponse
+     *
+     * @param ChangeCloudPhoneNodeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ChangeCloudPhoneNodeResponse
      */
     public function changeCloudPhoneNodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceType)) {
-            $query['InstanceType'] = $request->instanceType;
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->phoneCount)) {
-            $query['PhoneCount'] = $request->phoneCount;
+
+        if (null !== $request->phoneCount) {
+            @$query['PhoneCount'] = $request->phoneCount;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ChangeCloudPhoneNode',
@@ -492,11 +559,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 修改云手机矩阵的配置
-     *  *
-     * @param ChangeCloudPhoneNodeRequest $request ChangeCloudPhoneNodeRequest
+     * 修改云手机矩阵的配置.
      *
-     * @return ChangeCloudPhoneNodeResponse ChangeCloudPhoneNodeResponse
+     * @param request - ChangeCloudPhoneNodeRequest
+     *
+     * @returns ChangeCloudPhoneNodeResponse
+     *
+     * @param ChangeCloudPhoneNodeRequest $request
+     *
+     * @return ChangeCloudPhoneNodeResponse
      */
     public function changeCloudPhoneNode($request)
     {
@@ -506,34 +577,44 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Check the resource inventory.
-     *  *
-     * @param CheckResourceStockRequest $request CheckResourceStockRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Check the resource inventory.
      *
-     * @return CheckResourceStockResponse CheckResourceStockResponse
+     * @param request - CheckResourceStockRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckResourceStockResponse
+     *
+     * @param CheckResourceStockRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CheckResourceStockResponse
      */
     public function checkResourceStockWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acpSpecId)) {
-            $query['AcpSpecId'] = $request->acpSpecId;
+        if (null !== $request->acpSpecId) {
+            @$query['AcpSpecId'] = $request->acpSpecId;
         }
-        if (!Utils::isUnset($request->amount)) {
-            $query['Amount'] = $request->amount;
+
+        if (null !== $request->amount) {
+            @$query['Amount'] = $request->amount;
         }
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $query['BizRegionId'] = $request->bizRegionId;
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->gpuAcceleration)) {
-            $query['GpuAcceleration'] = $request->gpuAcceleration;
+
+        if (null !== $request->gpuAcceleration) {
+            @$query['GpuAcceleration'] = $request->gpuAcceleration;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckResourceStock',
@@ -551,11 +632,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Check the resource inventory.
-     *  *
-     * @param CheckResourceStockRequest $request CheckResourceStockRequest
+     * Check the resource inventory.
      *
-     * @return CheckResourceStockResponse CheckResourceStockResponse
+     * @param request - CheckResourceStockRequest
+     *
+     * @returns CheckResourceStockResponse
+     *
+     * @param CheckResourceStockRequest $request
+     *
+     * @return CheckResourceStockResponse
      */
     public function checkResourceStock($request)
     {
@@ -565,83 +650,109 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Creates pay-as-you-go or subscription instance groups.
-     *  *
-     * @description Before creating an instance group, ensure you understand the [billing methods](https://help.aliyun.com/document_detail/2807121.html) supported by Cloud Phone.
+     * Creates pay-as-you-go or subscription instance groups.
+     *
+     * @remarks
+     * Before creating an instance group, ensure you understand the [billing methods](https://help.aliyun.com/document_detail/2807121.html) supported by Cloud Phone.
      * *   If the billing method of an instance group is PrePaid, AutoPay is set to false by default. In this case, you need to go to [Expenses and Costs](https://usercenter2-intl.aliyun.com/order/list) to manually complete the payment.
      * *   You can also set AutoPay to true based on your business requirements.
-     *  *
-     * @param CreateAndroidInstanceGroupRequest $request CreateAndroidInstanceGroupRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAndroidInstanceGroupResponse CreateAndroidInstanceGroupResponse
+     * @param request - CreateAndroidInstanceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAndroidInstanceGroupResponse
+     *
+     * @param CreateAndroidInstanceGroupRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateAndroidInstanceGroupResponse
      */
     public function createAndroidInstanceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->amount)) {
-            $query['Amount'] = $request->amount;
+        if (null !== $request->amount) {
+            @$query['Amount'] = $request->amount;
         }
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
+
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
         }
-        if (!Utils::isUnset($request->autoRenew)) {
-            $query['AutoRenew'] = $request->autoRenew;
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
         }
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $query['BizRegionId'] = $request->bizRegionId;
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->enableIpv6)) {
-            $query['EnableIpv6'] = $request->enableIpv6;
+
+        if (null !== $request->enableIpv6) {
+            @$query['EnableIpv6'] = $request->enableIpv6;
         }
-        if (!Utils::isUnset($request->gpuAcceleration)) {
-            $query['GpuAcceleration'] = $request->gpuAcceleration;
+
+        if (null !== $request->gpuAcceleration) {
+            @$query['GpuAcceleration'] = $request->gpuAcceleration;
         }
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->instanceGroupName)) {
-            $query['InstanceGroupName'] = $request->instanceGroupName;
+
+        if (null !== $request->instanceGroupName) {
+            @$query['InstanceGroupName'] = $request->instanceGroupName;
         }
-        if (!Utils::isUnset($request->instanceGroupSpec)) {
-            $query['InstanceGroupSpec'] = $request->instanceGroupSpec;
+
+        if (null !== $request->instanceGroupSpec) {
+            @$query['InstanceGroupSpec'] = $request->instanceGroupSpec;
         }
-        if (!Utils::isUnset($request->ipv6Bandwidth)) {
-            $query['Ipv6Bandwidth'] = $request->ipv6Bandwidth;
+
+        if (null !== $request->ipv6Bandwidth) {
+            @$query['Ipv6Bandwidth'] = $request->ipv6Bandwidth;
         }
-        if (!Utils::isUnset($request->keyPairId)) {
-            $query['KeyPairId'] = $request->keyPairId;
+
+        if (null !== $request->keyPairId) {
+            @$query['KeyPairId'] = $request->keyPairId;
         }
-        if (!Utils::isUnset($request->numberOfInstances)) {
-            $query['NumberOfInstances'] = $request->numberOfInstances;
+
+        if (null !== $request->numberOfInstances) {
+            @$query['NumberOfInstances'] = $request->numberOfInstances;
         }
-        if (!Utils::isUnset($request->officeSiteId)) {
-            $query['OfficeSiteId'] = $request->officeSiteId;
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $query['PeriodUnit'] = $request->periodUnit;
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
         }
-        if (!Utils::isUnset($request->policyGroupId)) {
-            $query['PolicyGroupId'] = $request->policyGroupId;
+
+        if (null !== $request->policyGroupId) {
+            @$query['PolicyGroupId'] = $request->policyGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateAndroidInstanceGroup',
@@ -659,15 +770,20 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Creates pay-as-you-go or subscription instance groups.
-     *  *
-     * @description Before creating an instance group, ensure you understand the [billing methods](https://help.aliyun.com/document_detail/2807121.html) supported by Cloud Phone.
+     * Creates pay-as-you-go or subscription instance groups.
+     *
+     * @remarks
+     * Before creating an instance group, ensure you understand the [billing methods](https://help.aliyun.com/document_detail/2807121.html) supported by Cloud Phone.
      * *   If the billing method of an instance group is PrePaid, AutoPay is set to false by default. In this case, you need to go to [Expenses and Costs](https://usercenter2-intl.aliyun.com/order/list) to manually complete the payment.
      * *   You can also set AutoPay to true based on your business requirements.
-     *  *
-     * @param CreateAndroidInstanceGroupRequest $request CreateAndroidInstanceGroupRequest
      *
-     * @return CreateAndroidInstanceGroupResponse CreateAndroidInstanceGroupResponse
+     * @param request - CreateAndroidInstanceGroupRequest
+     *
+     * @returns CreateAndroidInstanceGroupResponse
+     *
+     * @param CreateAndroidInstanceGroupRequest $request
+     *
+     * @return CreateAndroidInstanceGroupResponse
      */
     public function createAndroidInstanceGroup($request)
     {
@@ -677,9 +793,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Creates an Android application.
-     *  *
-     * @description When creating an app, you can provide app information to the system in one of the following ways:
+     * Creates an Android application.
+     *
+     * @remarks
+     * When creating an app, you can provide app information to the system in one of the following ways:
      * *   Way 1: Apps from the Application Center
      *     *   You can use one of the following methods:
      *         *   Method 1: Pass in the `FileName` and `FilePath` parameters at the same time.
@@ -690,53 +807,69 @@ class Edsaic extends OpenApiClient
      *     *   Pass in the `CustomAppInfo` parameter.
      *     *   Rule: If you pass in the `CustomAppInfo` parameter, all six fields within it are required.
      * >  If Way 1 and Way 2 are adopted simultaneously, the information from Way 2 takes priority.
-     *  *
-     * @param CreateAppRequest $tmpReq  CreateAppRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAppResponse CreateAppResponse
+     * @param tmpReq - CreateAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAppResponse
+     *
+     * @param CreateAppRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateAppResponse
      */
     public function createAppWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateAppShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->customAppInfo)) {
-            $request->customAppInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customAppInfo, 'CustomAppInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->customAppInfo) {
+            $request->customAppInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customAppInfo, 'CustomAppInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $query['BizRegionId'] = $request->bizRegionId;
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->customAppInfoShrink)) {
-            $query['CustomAppInfo'] = $request->customAppInfoShrink;
+
+        if (null !== $request->customAppInfoShrink) {
+            @$query['CustomAppInfo'] = $request->customAppInfoShrink;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->filePath)) {
-            $query['FilePath'] = $request->filePath;
+
+        if (null !== $request->filePath) {
+            @$query['FilePath'] = $request->filePath;
         }
-        if (!Utils::isUnset($request->iconUrl)) {
-            $query['IconUrl'] = $request->iconUrl;
+
+        if (null !== $request->iconUrl) {
+            @$query['IconUrl'] = $request->iconUrl;
         }
-        if (!Utils::isUnset($request->installParam)) {
-            $query['InstallParam'] = $request->installParam;
+
+        if (null !== $request->installParam) {
+            @$query['InstallParam'] = $request->installParam;
         }
-        if (!Utils::isUnset($request->ossAppUrl)) {
-            $query['OssAppUrl'] = $request->ossAppUrl;
+
+        if (null !== $request->ossAppUrl) {
+            @$query['OssAppUrl'] = $request->ossAppUrl;
         }
-        if (!Utils::isUnset($request->signApk)) {
-            $query['SignApk'] = $request->signApk;
+
+        if (null !== $request->signApk) {
+            @$query['SignApk'] = $request->signApk;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateApp',
@@ -754,9 +887,10 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Creates an Android application.
-     *  *
-     * @description When creating an app, you can provide app information to the system in one of the following ways:
+     * Creates an Android application.
+     *
+     * @remarks
+     * When creating an app, you can provide app information to the system in one of the following ways:
      * *   Way 1: Apps from the Application Center
      *     *   You can use one of the following methods:
      *         *   Method 1: Pass in the `FileName` and `FilePath` parameters at the same time.
@@ -767,10 +901,14 @@ class Edsaic extends OpenApiClient
      *     *   Pass in the `CustomAppInfo` parameter.
      *     *   Rule: If you pass in the `CustomAppInfo` parameter, all six fields within it are required.
      * >  If Way 1 and Way 2 are adopted simultaneously, the information from Way 2 takes priority.
-     *  *
-     * @param CreateAppRequest $request CreateAppRequest
      *
-     * @return CreateAppResponse CreateAppResponse
+     * @param request - CreateAppRequest
+     *
+     * @returns CreateAppResponse
+     *
+     * @param CreateAppRequest $request
+     *
+     * @return CreateAppResponse
      */
     public function createApp($request)
     {
@@ -780,113 +918,148 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a cloud phone matrix.
-     *  *
-     * @param CreateCloudPhoneNodeRequest $tmpReq  CreateCloudPhoneNodeRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Creates a cloud phone matrix.
      *
-     * @return CreateCloudPhoneNodeResponse CreateCloudPhoneNodeResponse
+     * @param tmpReq - CreateCloudPhoneNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCloudPhoneNodeResponse
+     *
+     * @param CreateCloudPhoneNodeRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateCloudPhoneNodeResponse
      */
     public function createCloudPhoneNodeWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateCloudPhoneNodeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->displayConfig)) {
-            $request->displayConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->displayConfig, 'DisplayConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->displayConfig) {
+            $request->displayConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->displayConfig, 'DisplayConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->networkInfo)) {
-            $request->networkInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->networkInfo, 'NetworkInfo', 'json');
+
+        if (null !== $tmpReq->networkInfo) {
+            $request->networkInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->networkInfo, 'NetworkInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
         }
-        if (!Utils::isUnset($request->autoRenew)) {
-            $query['AutoRenew'] = $request->autoRenew;
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
         }
-        if (!Utils::isUnset($request->bandwidthPackageId)) {
-            $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+
+        if (null !== $request->bandwidthPackageId) {
+            @$query['BandwidthPackageId'] = $request->bandwidthPackageId;
         }
-        if (!Utils::isUnset($request->bandwidthPackageType)) {
-            $query['BandwidthPackageType'] = $request->bandwidthPackageType;
+
+        if (null !== $request->bandwidthPackageType) {
+            @$query['BandwidthPackageType'] = $request->bandwidthPackageType;
         }
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $query['BizRegionId'] = $request->bizRegionId;
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->count)) {
-            $query['Count'] = $request->count;
+
+        if (null !== $request->count) {
+            @$query['Count'] = $request->count;
         }
-        if (!Utils::isUnset($request->downBandwidthLimit)) {
-            $query['DownBandwidthLimit'] = $request->downBandwidthLimit;
+
+        if (null !== $request->downBandwidthLimit) {
+            @$query['DownBandwidthLimit'] = $request->downBandwidthLimit;
         }
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $query['InstanceType'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->networkId)) {
-            $query['NetworkId'] = $request->networkId;
+
+        if (null !== $request->networkId) {
+            @$query['NetworkId'] = $request->networkId;
         }
-        if (!Utils::isUnset($request->networkInfoShrink)) {
-            $query['NetworkInfo'] = $request->networkInfoShrink;
+
+        if (null !== $request->networkInfoShrink) {
+            @$query['NetworkInfo'] = $request->networkInfoShrink;
         }
-        if (!Utils::isUnset($request->networkType)) {
-            $query['NetworkType'] = $request->networkType;
+
+        if (null !== $request->networkType) {
+            @$query['NetworkType'] = $request->networkType;
         }
-        if (!Utils::isUnset($request->nodeName)) {
-            $query['NodeName'] = $request->nodeName;
+
+        if (null !== $request->nodeName) {
+            @$query['NodeName'] = $request->nodeName;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $query['PeriodUnit'] = $request->periodUnit;
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
         }
-        if (!Utils::isUnset($request->phoneCount)) {
-            $query['PhoneCount'] = $request->phoneCount;
+
+        if (null !== $request->phoneCount) {
+            @$query['PhoneCount'] = $request->phoneCount;
         }
-        if (!Utils::isUnset($request->phoneDataVolume)) {
-            $query['PhoneDataVolume'] = $request->phoneDataVolume;
+
+        if (null !== $request->phoneDataVolume) {
+            @$query['PhoneDataVolume'] = $request->phoneDataVolume;
         }
-        if (!Utils::isUnset($request->resolutionHeight)) {
-            $query['ResolutionHeight'] = $request->resolutionHeight;
+
+        if (null !== $request->resolutionHeight) {
+            @$query['ResolutionHeight'] = $request->resolutionHeight;
         }
-        if (!Utils::isUnset($request->resolutionWidth)) {
-            $query['ResolutionWidth'] = $request->resolutionWidth;
+
+        if (null !== $request->resolutionWidth) {
+            @$query['ResolutionWidth'] = $request->resolutionWidth;
         }
-        if (!Utils::isUnset($request->serverShareDataVolume)) {
-            $query['ServerShareDataVolume'] = $request->serverShareDataVolume;
+
+        if (null !== $request->serverShareDataVolume) {
+            @$query['ServerShareDataVolume'] = $request->serverShareDataVolume;
         }
-        if (!Utils::isUnset($request->serverType)) {
-            $query['ServerType'] = $request->serverType;
+
+        if (null !== $request->serverType) {
+            @$query['ServerType'] = $request->serverType;
         }
-        if (!Utils::isUnset($request->streamMode)) {
-            $query['StreamMode'] = $request->streamMode;
+
+        if (null !== $request->streamMode) {
+            @$query['StreamMode'] = $request->streamMode;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->upBandwidthLimit)) {
-            $query['UpBandwidthLimit'] = $request->upBandwidthLimit;
+
+        if (null !== $request->upBandwidthLimit) {
+            @$query['UpBandwidthLimit'] = $request->upBandwidthLimit;
         }
-        if (!Utils::isUnset($request->useTemplate)) {
-            $query['UseTemplate'] = $request->useTemplate;
+
+        if (null !== $request->useTemplate) {
+            @$query['UseTemplate'] = $request->useTemplate;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->displayConfigShrink)) {
-            $body['DisplayConfig'] = $request->displayConfigShrink;
+        if (null !== $request->displayConfigShrink) {
+            @$body['DisplayConfig'] = $request->displayConfigShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateCloudPhoneNode',
@@ -904,11 +1077,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a cloud phone matrix.
-     *  *
-     * @param CreateCloudPhoneNodeRequest $request CreateCloudPhoneNodeRequest
+     * Creates a cloud phone matrix.
      *
-     * @return CreateCloudPhoneNodeResponse CreateCloudPhoneNodeResponse
+     * @param request - CreateCloudPhoneNodeRequest
+     *
+     * @returns CreateCloudPhoneNodeResponse
+     *
+     * @param CreateCloudPhoneNodeRequest $request
+     *
+     * @return CreateCloudPhoneNodeResponse
      */
     public function createCloudPhoneNode($request)
     {
@@ -918,31 +1095,40 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a custom image from a cloud phone instance.
-     *  *
-     * @param CreateCustomImageRequest $request CreateCustomImageRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates a custom image from a cloud phone instance.
      *
-     * @return CreateCustomImageResponse CreateCustomImageResponse
+     * @param request - CreateCustomImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCustomImageResponse
+     *
+     * @param CreateCustomImageRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateCustomImageResponse
      */
     public function createCustomImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->imageName)) {
-            $body['ImageName'] = $request->imageName;
+
+        if (null !== $request->imageName) {
+            @$body['ImageName'] = $request->imageName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateCustomImage',
@@ -960,11 +1146,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a custom image from a cloud phone instance.
-     *  *
-     * @param CreateCustomImageRequest $request CreateCustomImageRequest
+     * Creates a custom image from a cloud phone instance.
      *
-     * @return CreateCustomImageResponse CreateCustomImageResponse
+     * @param request - CreateCustomImageRequest
+     *
+     * @returns CreateCustomImageResponse
+     *
+     * @param CreateCustomImageRequest $request
+     *
+     * @return CreateCustomImageResponse
      */
     public function createCustomImage($request)
     {
@@ -974,25 +1164,32 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Creates an Android Debug Bridge (ADB) key pair. The system retains the public key and provides a PEM-encoded private key in PKCS#8 format, adhering to the ADB connection specification. You must securely store the private key.
-     *  *
-     * @description In addition to using the CreateKeyPair operation to generate a key pair, you can also create one by using the ADB tool and upload it to the Cloud Phone console. The usage of this key pair is identical to that of a system-generated key pair.
-     * Each tenant can create up to 500 key pairs.
-     *  *
-     * @param CreateKeyPairRequest $request CreateKeyPairRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Creates an Android Debug Bridge (ADB) key pair. The system retains the public key and provides a PEM-encoded private key in PKCS#8 format, adhering to the ADB connection specification. You must securely store the private key.
      *
-     * @return CreateKeyPairResponse CreateKeyPairResponse
+     * @remarks
+     * In addition to using the CreateKeyPair operation to generate a key pair, you can also create one by using the ADB tool and upload it to the Cloud Phone console. The usage of this key pair is identical to that of a system-generated key pair.
+     * Each tenant can create up to 500 key pairs.
+     *
+     * @param request - CreateKeyPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateKeyPairResponse
+     *
+     * @param CreateKeyPairRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateKeyPairResponse
      */
     public function createKeyPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyPairName)) {
-            $query['KeyPairName'] = $request->keyPairName;
+        if (null !== $request->keyPairName) {
+            @$query['KeyPairName'] = $request->keyPairName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateKeyPair',
@@ -1010,14 +1207,19 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Creates an Android Debug Bridge (ADB) key pair. The system retains the public key and provides a PEM-encoded private key in PKCS#8 format, adhering to the ADB connection specification. You must securely store the private key.
-     *  *
-     * @description In addition to using the CreateKeyPair operation to generate a key pair, you can also create one by using the ADB tool and upload it to the Cloud Phone console. The usage of this key pair is identical to that of a system-generated key pair.
-     * Each tenant can create up to 500 key pairs.
-     *  *
-     * @param CreateKeyPairRequest $request CreateKeyPairRequest
+     * Creates an Android Debug Bridge (ADB) key pair. The system retains the public key and provides a PEM-encoded private key in PKCS#8 format, adhering to the ADB connection specification. You must securely store the private key.
      *
-     * @return CreateKeyPairResponse CreateKeyPairResponse
+     * @remarks
+     * In addition to using the CreateKeyPair operation to generate a key pair, you can also create one by using the ADB tool and upload it to the Cloud Phone console. The usage of this key pair is identical to that of a system-generated key pair.
+     * Each tenant can create up to 500 key pairs.
+     *
+     * @param request - CreateKeyPairRequest
+     *
+     * @returns CreateKeyPairResponse
+     *
+     * @param CreateKeyPairRequest $request
+     *
+     * @return CreateKeyPairResponse
      */
     public function createKeyPair($request)
     {
@@ -1027,60 +1229,78 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a policy.
-     *  *
-     * @param CreatePolicyGroupRequest $tmpReq  CreatePolicyGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates a policy.
      *
-     * @return CreatePolicyGroupResponse CreatePolicyGroupResponse
+     * @param tmpReq - CreatePolicyGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePolicyGroupResponse
+     *
+     * @param CreatePolicyGroupRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreatePolicyGroupResponse
      */
     public function createPolicyGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreatePolicyGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->netRedirectPolicy)) {
-            $request->netRedirectPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->netRedirectPolicy, 'NetRedirectPolicy', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->netRedirectPolicy) {
+            $request->netRedirectPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->netRedirectPolicy, 'NetRedirectPolicy', 'json');
         }
-        if (!Utils::isUnset($tmpReq->watermark)) {
-            $request->watermarkShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->watermark, 'Watermark', 'json');
+
+        if (null !== $tmpReq->watermark) {
+            $request->watermarkShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->watermark, 'Watermark', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->cameraRedirect)) {
-            $body['CameraRedirect'] = $request->cameraRedirect;
+        if (null !== $request->cameraRedirect) {
+            @$body['CameraRedirect'] = $request->cameraRedirect;
         }
-        if (!Utils::isUnset($request->clipboard)) {
-            $body['Clipboard'] = $request->clipboard;
+
+        if (null !== $request->clipboard) {
+            @$body['Clipboard'] = $request->clipboard;
         }
-        if (!Utils::isUnset($request->html5FileTransfer)) {
-            $body['Html5FileTransfer'] = $request->html5FileTransfer;
+
+        if (null !== $request->html5FileTransfer) {
+            @$body['Html5FileTransfer'] = $request->html5FileTransfer;
         }
-        if (!Utils::isUnset($request->localDrive)) {
-            $body['LocalDrive'] = $request->localDrive;
+
+        if (null !== $request->localDrive) {
+            @$body['LocalDrive'] = $request->localDrive;
         }
-        if (!Utils::isUnset($request->lockResolution)) {
-            $body['LockResolution'] = $request->lockResolution;
+
+        if (null !== $request->lockResolution) {
+            @$body['LockResolution'] = $request->lockResolution;
         }
-        if (!Utils::isUnset($request->netRedirectPolicyShrink)) {
-            $body['NetRedirectPolicy'] = $request->netRedirectPolicyShrink;
+
+        if (null !== $request->netRedirectPolicyShrink) {
+            @$body['NetRedirectPolicy'] = $request->netRedirectPolicyShrink;
         }
-        if (!Utils::isUnset($request->policyGroupName)) {
-            $body['PolicyGroupName'] = $request->policyGroupName;
+
+        if (null !== $request->policyGroupName) {
+            @$body['PolicyGroupName'] = $request->policyGroupName;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $body['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$body['PolicyType'] = $request->policyType;
         }
-        if (!Utils::isUnset($request->resolutionHeight)) {
-            $body['ResolutionHeight'] = $request->resolutionHeight;
+
+        if (null !== $request->resolutionHeight) {
+            @$body['ResolutionHeight'] = $request->resolutionHeight;
         }
-        if (!Utils::isUnset($request->resolutionWidth)) {
-            $body['ResolutionWidth'] = $request->resolutionWidth;
+
+        if (null !== $request->resolutionWidth) {
+            @$body['ResolutionWidth'] = $request->resolutionWidth;
         }
-        if (!Utils::isUnset($request->watermarkShrink)) {
-            $body['Watermark'] = $request->watermarkShrink;
+
+        if (null !== $request->watermarkShrink) {
+            @$body['Watermark'] = $request->watermarkShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreatePolicyGroup',
@@ -1098,11 +1318,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a policy.
-     *  *
-     * @param CreatePolicyGroupRequest $request CreatePolicyGroupRequest
+     * Creates a policy.
      *
-     * @return CreatePolicyGroupResponse CreatePolicyGroupResponse
+     * @param request - CreatePolicyGroupRequest
+     *
+     * @returns CreatePolicyGroupResponse
+     *
+     * @param CreatePolicyGroupRequest $request
+     *
+     * @return CreatePolicyGroupResponse
      */
     public function createPolicyGroup($request)
     {
@@ -1112,30 +1336,39 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a screenshot of a cloud phone instance.
-     *  *
-     * @description You can call this operation to create a screenshot of a cloud phone instance and upload it to the default Object Storage Service (OSS) bucket. The operation returns a task ID, which you can use with the DescribeTasks operation to get the download link for the screenshot.
-     *  *
-     * @param CreateScreenshotRequest $request CreateScreenshotRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Creates a screenshot of a cloud phone instance.
      *
-     * @return CreateScreenshotResponse CreateScreenshotResponse
+     * @remarks
+     * You can call this operation to create a screenshot of a cloud phone instance and upload it to the default Object Storage Service (OSS) bucket. The operation returns a task ID, which you can use with the DescribeTasks operation to get the download link for the screenshot.
+     *
+     * @param request - CreateScreenshotRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateScreenshotResponse
+     *
+     * @param CreateScreenshotRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateScreenshotResponse
      */
     public function createScreenshotWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIdList)) {
-            $query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
+        if (null !== $request->androidInstanceIdList) {
+            @$query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
         }
-        if (!Utils::isUnset($request->ossBucketName)) {
-            $query['OssBucketName'] = $request->ossBucketName;
+
+        if (null !== $request->ossBucketName) {
+            @$query['OssBucketName'] = $request->ossBucketName;
         }
-        if (!Utils::isUnset($request->skipCheckPolicyConfig)) {
-            $query['SkipCheckPolicyConfig'] = $request->skipCheckPolicyConfig;
+
+        if (null !== $request->skipCheckPolicyConfig) {
+            @$query['SkipCheckPolicyConfig'] = $request->skipCheckPolicyConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateScreenshot',
@@ -1153,13 +1386,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Creates a screenshot of a cloud phone instance.
-     *  *
-     * @description You can call this operation to create a screenshot of a cloud phone instance and upload it to the default Object Storage Service (OSS) bucket. The operation returns a task ID, which you can use with the DescribeTasks operation to get the download link for the screenshot.
-     *  *
-     * @param CreateScreenshotRequest $request CreateScreenshotRequest
+     * Creates a screenshot of a cloud phone instance.
      *
-     * @return CreateScreenshotResponse CreateScreenshotResponse
+     * @remarks
+     * You can call this operation to create a screenshot of a cloud phone instance and upload it to the default Object Storage Service (OSS) bucket. The operation returns a task ID, which you can use with the DescribeTasks operation to get the download link for the screenshot.
+     *
+     * @param request - CreateScreenshotRequest
+     *
+     * @returns CreateScreenshotResponse
+     *
+     * @param CreateScreenshotRequest $request
+     *
+     * @return CreateScreenshotResponse
      */
     public function createScreenshot($request)
     {
@@ -1169,36 +1407,46 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 创建系统属性模板
-     *  *
-     * @param CreateSystemPropertyTemplateRequest $tmpReq  CreateSystemPropertyTemplateRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 创建系统属性模板
      *
-     * @return CreateSystemPropertyTemplateResponse CreateSystemPropertyTemplateResponse
+     * @param tmpReq - CreateSystemPropertyTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSystemPropertyTemplateResponse
+     *
+     * @param CreateSystemPropertyTemplateRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateSystemPropertyTemplateResponse
      */
     public function createSystemPropertyTemplateWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateSystemPropertyTemplateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->systemPropertyInfo)) {
-            $request->systemPropertyInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->systemPropertyInfo, 'SystemPropertyInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->systemPropertyInfo) {
+            $request->systemPropertyInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->systemPropertyInfo, 'SystemPropertyInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->enableAuto)) {
-            $query['EnableAuto'] = $request->enableAuto;
+        if (null !== $request->enableAuto) {
+            @$query['EnableAuto'] = $request->enableAuto;
         }
-        if (!Utils::isUnset($request->filePath)) {
-            $query['FilePath'] = $request->filePath;
+
+        if (null !== $request->filePath) {
+            @$query['FilePath'] = $request->filePath;
         }
-        if (!Utils::isUnset($request->systemPropertyInfoShrink)) {
-            $query['SystemPropertyInfo'] = $request->systemPropertyInfoShrink;
+
+        if (null !== $request->systemPropertyInfoShrink) {
+            @$query['SystemPropertyInfo'] = $request->systemPropertyInfoShrink;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateSystemPropertyTemplate',
@@ -1216,11 +1464,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 创建系统属性模板
-     *  *
-     * @param CreateSystemPropertyTemplateRequest $request CreateSystemPropertyTemplateRequest
+     * 创建系统属性模板
      *
-     * @return CreateSystemPropertyTemplateResponse CreateSystemPropertyTemplateResponse
+     * @param request - CreateSystemPropertyTemplateRequest
+     *
+     * @returns CreateSystemPropertyTemplateResponse
+     *
+     * @param CreateSystemPropertyTemplateRequest $request
+     *
+     * @return CreateSystemPropertyTemplateResponse
      */
     public function createSystemPropertyTemplate($request)
     {
@@ -1230,25 +1482,32 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Delete an instance group.
-     *  *
-     * @description You can delete only pay-as-you-go instance groups.
-     * You can delete subscription instance groups only after they expire.
-     *  *
-     * @param DeleteAndroidInstanceGroupRequest $request DeleteAndroidInstanceGroupRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Delete an instance group.
      *
-     * @return DeleteAndroidInstanceGroupResponse DeleteAndroidInstanceGroupResponse
+     * @remarks
+     * You can delete only pay-as-you-go instance groups.
+     * You can delete subscription instance groups only after they expire.
+     *
+     * @param request - DeleteAndroidInstanceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAndroidInstanceGroupResponse
+     *
+     * @param DeleteAndroidInstanceGroupRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteAndroidInstanceGroupResponse
      */
     public function deleteAndroidInstanceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceGroupIds)) {
-            $query['InstanceGroupIds'] = $request->instanceGroupIds;
+        if (null !== $request->instanceGroupIds) {
+            @$query['InstanceGroupIds'] = $request->instanceGroupIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteAndroidInstanceGroup',
@@ -1266,14 +1525,19 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Delete an instance group.
-     *  *
-     * @description You can delete only pay-as-you-go instance groups.
-     * You can delete subscription instance groups only after they expire.
-     *  *
-     * @param DeleteAndroidInstanceGroupRequest $request DeleteAndroidInstanceGroupRequest
+     * Delete an instance group.
      *
-     * @return DeleteAndroidInstanceGroupResponse DeleteAndroidInstanceGroupResponse
+     * @remarks
+     * You can delete only pay-as-you-go instance groups.
+     * You can delete subscription instance groups only after they expire.
+     *
+     * @param request - DeleteAndroidInstanceGroupRequest
+     *
+     * @returns DeleteAndroidInstanceGroupResponse
+     *
+     * @param DeleteAndroidInstanceGroupRequest $request
+     *
+     * @return DeleteAndroidInstanceGroupResponse
      */
     public function deleteAndroidInstanceGroup($request)
     {
@@ -1283,22 +1547,28 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an application. Before you delete an application, make sure that the application is not installed on any instances.
-     *  *
-     * @param DeleteAppsRequest $request DeleteAppsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Deletes an application. Before you delete an application, make sure that the application is not installed on any instances.
      *
-     * @return DeleteAppsResponse DeleteAppsResponse
+     * @param request - DeleteAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteAppsResponse
+     *
+     * @param DeleteAppsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteAppsResponse
      */
     public function deleteAppsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appIdList)) {
-            $query['AppIdList'] = $request->appIdList;
+        if (null !== $request->appIdList) {
+            @$query['AppIdList'] = $request->appIdList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteApps',
@@ -1316,11 +1586,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an application. Before you delete an application, make sure that the application is not installed on any instances.
-     *  *
-     * @param DeleteAppsRequest $request DeleteAppsRequest
+     * Deletes an application. Before you delete an application, make sure that the application is not installed on any instances.
      *
-     * @return DeleteAppsResponse DeleteAppsResponse
+     * @param request - DeleteAppsRequest
+     *
+     * @returns DeleteAppsResponse
+     *
+     * @param DeleteAppsRequest $request
+     *
+     * @return DeleteAppsResponse
      */
     public function deleteApps($request)
     {
@@ -1330,22 +1604,28 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 删除备份文件
-     *  *
-     * @param DeleteBackupFileRequest $request DeleteBackupFileRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 删除备份文件.
      *
-     * @return DeleteBackupFileResponse DeleteBackupFileResponse
+     * @param request - DeleteBackupFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteBackupFileResponse
+     *
+     * @param DeleteBackupFileRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteBackupFileResponse
      */
     public function deleteBackupFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupFileIdList)) {
-            $query['BackupFileIdList'] = $request->backupFileIdList;
+        if (null !== $request->backupFileIdList) {
+            @$query['BackupFileIdList'] = $request->backupFileIdList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteBackupFile',
@@ -1363,11 +1643,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 删除备份文件
-     *  *
-     * @param DeleteBackupFileRequest $request DeleteBackupFileRequest
+     * 删除备份文件.
      *
-     * @return DeleteBackupFileResponse DeleteBackupFileResponse
+     * @param request - DeleteBackupFileRequest
+     *
+     * @returns DeleteBackupFileResponse
+     *
+     * @param DeleteBackupFileRequest $request
+     *
+     * @return DeleteBackupFileResponse
      */
     public function deleteBackupFile($request)
     {
@@ -1377,24 +1661,31 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a cloud phone matrix.
-     *  *
-     * @description Before you proceed, make sure that the cloud phone matrix that you want to delete expired.
-     *  *
-     * @param DeleteCloudPhoneNodesRequest $request DeleteCloudPhoneNodesRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Deletes a cloud phone matrix.
      *
-     * @return DeleteCloudPhoneNodesResponse DeleteCloudPhoneNodesResponse
+     * @remarks
+     * Before you proceed, make sure that the cloud phone matrix that you want to delete expired.
+     *
+     * @param request - DeleteCloudPhoneNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCloudPhoneNodesResponse
+     *
+     * @param DeleteCloudPhoneNodesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteCloudPhoneNodesResponse
      */
     public function deleteCloudPhoneNodesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->nodeIds)) {
-            $body['NodeIds'] = $request->nodeIds;
+        if (null !== $request->nodeIds) {
+            @$body['NodeIds'] = $request->nodeIds;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteCloudPhoneNodes',
@@ -1412,13 +1703,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a cloud phone matrix.
-     *  *
-     * @description Before you proceed, make sure that the cloud phone matrix that you want to delete expired.
-     *  *
-     * @param DeleteCloudPhoneNodesRequest $request DeleteCloudPhoneNodesRequest
+     * Deletes a cloud phone matrix.
      *
-     * @return DeleteCloudPhoneNodesResponse DeleteCloudPhoneNodesResponse
+     * @remarks
+     * Before you proceed, make sure that the cloud phone matrix that you want to delete expired.
+     *
+     * @param request - DeleteCloudPhoneNodesRequest
+     *
+     * @returns DeleteCloudPhoneNodesResponse
+     *
+     * @param DeleteCloudPhoneNodesRequest $request
+     *
+     * @return DeleteCloudPhoneNodesResponse
      */
     public function deleteCloudPhoneNodes($request)
     {
@@ -1428,29 +1724,37 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a custom image.
-     *  *
-     * @description You cannot delete an image that is currently in use by an instance group.
-     *  *
-     * @param DeleteImagesRequest $tmpReq  DeleteImagesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Deletes a custom image.
      *
-     * @return DeleteImagesResponse DeleteImagesResponse
+     * @remarks
+     * You cannot delete an image that is currently in use by an instance group.
+     *
+     * @param tmpReq - DeleteImagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteImagesResponse
+     *
+     * @param DeleteImagesRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteImagesResponse
      */
     public function deleteImagesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteImagesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->imageIds)) {
-            $request->imageIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageIds, 'ImageIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->imageIds) {
+            $request->imageIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->imageIds, 'ImageIds', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->imageIdsShrink)) {
-            $body['ImageIds'] = $request->imageIdsShrink;
+        if (null !== $request->imageIdsShrink) {
+            @$body['ImageIds'] = $request->imageIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteImages',
@@ -1468,13 +1772,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a custom image.
-     *  *
-     * @description You cannot delete an image that is currently in use by an instance group.
-     *  *
-     * @param DeleteImagesRequest $request DeleteImagesRequest
+     * Deletes a custom image.
      *
-     * @return DeleteImagesResponse DeleteImagesResponse
+     * @remarks
+     * You cannot delete an image that is currently in use by an instance group.
+     *
+     * @param request - DeleteImagesRequest
+     *
+     * @returns DeleteImagesResponse
+     *
+     * @param DeleteImagesRequest $request
+     *
+     * @return DeleteImagesResponse
      */
     public function deleteImages($request)
     {
@@ -1484,25 +1793,32 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes Android Debug Bridge (ADB) key pairs.
-     *  *
-     * @description *   If a cloud phone instance is currently associated with the ADB key pair you intend to delete, the ADB key pair cannot be deleted.
-     * *   Once an ADB key pair is deleted, it cannot be retrieved or queried by using the DescribeKeyPairs operation.
-     *  *
-     * @param DeleteKeyPairsRequest $request DeleteKeyPairsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes Android Debug Bridge (ADB) key pairs.
      *
-     * @return DeleteKeyPairsResponse DeleteKeyPairsResponse
+     * @remarks
+     *   If a cloud phone instance is currently associated with the ADB key pair you intend to delete, the ADB key pair cannot be deleted.
+     * *   Once an ADB key pair is deleted, it cannot be retrieved or queried by using the DescribeKeyPairs operation.
+     *
+     * @param request - DeleteKeyPairsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteKeyPairsResponse
+     *
+     * @param DeleteKeyPairsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteKeyPairsResponse
      */
     public function deleteKeyPairsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyPairIds)) {
-            $query['KeyPairIds'] = $request->keyPairIds;
+        if (null !== $request->keyPairIds) {
+            @$query['KeyPairIds'] = $request->keyPairIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteKeyPairs',
@@ -1520,14 +1836,19 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes Android Debug Bridge (ADB) key pairs.
-     *  *
-     * @description *   If a cloud phone instance is currently associated with the ADB key pair you intend to delete, the ADB key pair cannot be deleted.
-     * *   Once an ADB key pair is deleted, it cannot be retrieved or queried by using the DescribeKeyPairs operation.
-     *  *
-     * @param DeleteKeyPairsRequest $request DeleteKeyPairsRequest
+     * Deletes Android Debug Bridge (ADB) key pairs.
      *
-     * @return DeleteKeyPairsResponse DeleteKeyPairsResponse
+     * @remarks
+     *   If a cloud phone instance is currently associated with the ADB key pair you intend to delete, the ADB key pair cannot be deleted.
+     * *   Once an ADB key pair is deleted, it cannot be retrieved or queried by using the DescribeKeyPairs operation.
+     *
+     * @param request - DeleteKeyPairsRequest
+     *
+     * @returns DeleteKeyPairsResponse
+     *
+     * @param DeleteKeyPairsRequest $request
+     *
+     * @return DeleteKeyPairsResponse
      */
     public function deleteKeyPairs($request)
     {
@@ -1537,22 +1858,28 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a policy.
-     *  *
-     * @param DeletePolicyGroupRequest $request DeletePolicyGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes a policy.
      *
-     * @return DeletePolicyGroupResponse DeletePolicyGroupResponse
+     * @param request - DeletePolicyGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePolicyGroupResponse
+     *
+     * @param DeletePolicyGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeletePolicyGroupResponse
      */
     public function deletePolicyGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyGroupIds)) {
-            $query['PolicyGroupIds'] = $request->policyGroupIds;
+        if (null !== $request->policyGroupIds) {
+            @$query['PolicyGroupIds'] = $request->policyGroupIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeletePolicyGroup',
@@ -1570,11 +1897,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a policy.
-     *  *
-     * @param DeletePolicyGroupRequest $request DeletePolicyGroupRequest
+     * Deletes a policy.
      *
-     * @return DeletePolicyGroupResponse DeletePolicyGroupResponse
+     * @param request - DeletePolicyGroupRequest
+     *
+     * @returns DeletePolicyGroupResponse
+     *
+     * @param DeletePolicyGroupRequest $request
+     *
+     * @return DeletePolicyGroupResponse
      */
     public function deletePolicyGroup($request)
     {
@@ -1584,22 +1915,28 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 删除系统属性模板
-     *  *
-     * @param DeleteSystemPropertyTemplatesRequest $request DeleteSystemPropertyTemplatesRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 删除系统属性模板
      *
-     * @return DeleteSystemPropertyTemplatesResponse DeleteSystemPropertyTemplatesResponse
+     * @param request - DeleteSystemPropertyTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSystemPropertyTemplatesResponse
+     *
+     * @param DeleteSystemPropertyTemplatesRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteSystemPropertyTemplatesResponse
      */
     public function deleteSystemPropertyTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateIds)) {
-            $query['TemplateIds'] = $request->templateIds;
+        if (null !== $request->templateIds) {
+            @$query['TemplateIds'] = $request->templateIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteSystemPropertyTemplates',
@@ -1617,11 +1954,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 删除系统属性模板
-     *  *
-     * @param DeleteSystemPropertyTemplatesRequest $request DeleteSystemPropertyTemplatesRequest
+     * 删除系统属性模板
      *
-     * @return DeleteSystemPropertyTemplatesResponse DeleteSystemPropertyTemplatesResponse
+     * @param request - DeleteSystemPropertyTemplatesRequest
+     *
+     * @returns DeleteSystemPropertyTemplatesResponse
+     *
+     * @param DeleteSystemPropertyTemplatesRequest $request
+     *
+     * @return DeleteSystemPropertyTemplatesResponse
      */
     public function deleteSystemPropertyTemplates($request)
     {
@@ -1631,49 +1972,64 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an instance group.
-     *  *
-     * @param DescribeAndroidInstanceGroupsRequest $request DescribeAndroidInstanceGroupsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an instance group.
      *
-     * @return DescribeAndroidInstanceGroupsResponse DescribeAndroidInstanceGroupsResponse
+     * @param request - DescribeAndroidInstanceGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAndroidInstanceGroupsResponse
+     *
+     * @param DescribeAndroidInstanceGroupsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeAndroidInstanceGroupsResponse
      */
     public function describeAndroidInstanceGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $query['BizRegionId'] = $request->bizRegionId;
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->instanceGroupIds)) {
-            $query['InstanceGroupIds'] = $request->instanceGroupIds;
+
+        if (null !== $request->instanceGroupIds) {
+            @$query['InstanceGroupIds'] = $request->instanceGroupIds;
         }
-        if (!Utils::isUnset($request->instanceGroupName)) {
-            $query['InstanceGroupName'] = $request->instanceGroupName;
+
+        if (null !== $request->instanceGroupName) {
+            @$query['InstanceGroupName'] = $request->instanceGroupName;
         }
-        if (!Utils::isUnset($request->keyPairId)) {
-            $query['KeyPairId'] = $request->keyPairId;
+
+        if (null !== $request->keyPairId) {
+            @$query['KeyPairId'] = $request->keyPairId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->policyGroupId)) {
-            $query['PolicyGroupId'] = $request->policyGroupId;
+
+        if (null !== $request->policyGroupId) {
+            @$query['PolicyGroupId'] = $request->policyGroupId;
         }
-        if (!Utils::isUnset($request->saleMode)) {
-            $query['SaleMode'] = $request->saleMode;
+
+        if (null !== $request->saleMode) {
+            @$query['SaleMode'] = $request->saleMode;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAndroidInstanceGroups',
@@ -1691,11 +2047,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an instance group.
-     *  *
-     * @param DescribeAndroidInstanceGroupsRequest $request DescribeAndroidInstanceGroupsRequest
+     * Queries the details of an instance group.
      *
-     * @return DescribeAndroidInstanceGroupsResponse DescribeAndroidInstanceGroupsResponse
+     * @param request - DescribeAndroidInstanceGroupsRequest
+     *
+     * @returns DescribeAndroidInstanceGroupsResponse
+     *
+     * @param DescribeAndroidInstanceGroupsRequest $request
+     *
+     * @return DescribeAndroidInstanceGroupsResponse
      */
     public function describeAndroidInstanceGroups($request)
     {
@@ -1705,79 +2065,104 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Queries cloud phone instances.
-     *  *
-     * @param DescribeAndroidInstancesRequest $request DescribeAndroidInstancesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries cloud phone instances.
      *
-     * @return DescribeAndroidInstancesResponse DescribeAndroidInstancesResponse
+     * @param request - DescribeAndroidInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAndroidInstancesResponse
+     *
+     * @param DescribeAndroidInstancesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeAndroidInstancesResponse
      */
     public function describeAndroidInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIds)) {
-            $query['AndroidInstanceIds'] = $request->androidInstanceIds;
+        if (null !== $request->androidInstanceIds) {
+            @$query['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
-        if (!Utils::isUnset($request->androidInstanceName)) {
-            $query['AndroidInstanceName'] = $request->androidInstanceName;
+
+        if (null !== $request->androidInstanceName) {
+            @$query['AndroidInstanceName'] = $request->androidInstanceName;
         }
-        if (!Utils::isUnset($request->appManagePolicyId)) {
-            $query['AppManagePolicyId'] = $request->appManagePolicyId;
+
+        if (null !== $request->appManagePolicyId) {
+            @$query['AppManagePolicyId'] = $request->appManagePolicyId;
         }
-        if (!Utils::isUnset($request->authorizedUserId)) {
-            $query['AuthorizedUserId'] = $request->authorizedUserId;
+
+        if (null !== $request->authorizedUserId) {
+            @$query['AuthorizedUserId'] = $request->authorizedUserId;
         }
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $query['BizRegionId'] = $request->bizRegionId;
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->instanceGroupId)) {
-            $query['InstanceGroupId'] = $request->instanceGroupId;
+
+        if (null !== $request->instanceGroupId) {
+            @$query['InstanceGroupId'] = $request->instanceGroupId;
         }
-        if (!Utils::isUnset($request->instanceGroupIds)) {
-            $query['InstanceGroupIds'] = $request->instanceGroupIds;
+
+        if (null !== $request->instanceGroupIds) {
+            @$query['InstanceGroupIds'] = $request->instanceGroupIds;
         }
-        if (!Utils::isUnset($request->instanceGroupName)) {
-            $query['InstanceGroupName'] = $request->instanceGroupName;
+
+        if (null !== $request->instanceGroupName) {
+            @$query['InstanceGroupName'] = $request->instanceGroupName;
         }
-        if (!Utils::isUnset($request->keyPairId)) {
-            $query['KeyPairId'] = $request->keyPairId;
+
+        if (null !== $request->keyPairId) {
+            @$query['KeyPairId'] = $request->keyPairId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->nodeName)) {
-            $query['NodeName'] = $request->nodeName;
+
+        if (null !== $request->nodeName) {
+            @$query['NodeName'] = $request->nodeName;
         }
-        if (!Utils::isUnset($request->officeSiteIds)) {
-            $query['OfficeSiteIds'] = $request->officeSiteIds;
+
+        if (null !== $request->officeSiteIds) {
+            @$query['OfficeSiteIds'] = $request->officeSiteIds;
         }
-        if (!Utils::isUnset($request->privateIpAddress)) {
-            $query['PrivateIpAddress'] = $request->privateIpAddress;
+
+        if (null !== $request->privateIpAddress) {
+            @$query['PrivateIpAddress'] = $request->privateIpAddress;
         }
-        if (!Utils::isUnset($request->qosRuleIds)) {
-            $query['QosRuleIds'] = $request->qosRuleIds;
+
+        if (null !== $request->qosRuleIds) {
+            @$query['QosRuleIds'] = $request->qosRuleIds;
         }
-        if (!Utils::isUnset($request->saleMode)) {
-            $query['SaleMode'] = $request->saleMode;
+
+        if (null !== $request->saleMode) {
+            @$query['SaleMode'] = $request->saleMode;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeAndroidInstances',
@@ -1795,11 +2180,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Queries cloud phone instances.
-     *  *
-     * @param DescribeAndroidInstancesRequest $request DescribeAndroidInstancesRequest
+     * Queries cloud phone instances.
      *
-     * @return DescribeAndroidInstancesResponse DescribeAndroidInstancesResponse
+     * @param request - DescribeAndroidInstancesRequest
+     *
+     * @returns DescribeAndroidInstancesResponse
+     *
+     * @param DescribeAndroidInstancesRequest $request
+     *
+     * @return DescribeAndroidInstancesResponse
      */
     public function describeAndroidInstances($request)
     {
@@ -1809,46 +2198,60 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Queries applications.
-     *  *
-     * @param DescribeAppsRequest $request DescribeAppsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries applications.
      *
-     * @return DescribeAppsResponse DescribeAppsResponse
+     * @param request - DescribeAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAppsResponse
+     *
+     * @param DescribeAppsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeAppsResponse
      */
     public function describeAppsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appIdList)) {
-            $query['AppIdList'] = $request->appIdList;
+        if (null !== $request->appIdList) {
+            @$query['AppIdList'] = $request->appIdList;
         }
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->appType)) {
-            $query['AppType'] = $request->appType;
+
+        if (null !== $request->appType) {
+            @$query['AppType'] = $request->appType;
         }
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $query['BizRegionId'] = $request->bizRegionId;
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->installationStatus)) {
-            $query['InstallationStatus'] = $request->installationStatus;
+
+        if (null !== $request->installationStatus) {
+            @$query['InstallationStatus'] = $request->installationStatus;
         }
-        if (!Utils::isUnset($request->MD5)) {
-            $query['MD5'] = $request->MD5;
+
+        if (null !== $request->MD5) {
+            @$query['MD5'] = $request->MD5;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeApps',
@@ -1866,11 +2269,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Queries applications.
-     *  *
-     * @param DescribeAppsRequest $request DescribeAppsRequest
+     * Queries applications.
      *
-     * @return DescribeAppsResponse DescribeAppsResponse
+     * @param request - DescribeAppsRequest
+     *
+     * @returns DescribeAppsResponse
+     *
+     * @param DescribeAppsRequest $request
+     *
+     * @return DescribeAppsResponse
      */
     public function describeApps($request)
     {
@@ -1880,60 +2287,79 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Queries backup files.
-     *  *
-     * @description Currently, this operation allows you to query only backup files generated by cloud phones that are stored in Object Storage Service (OSS) buckets.
-     *  *
-     * @param DescribeBackupFilesRequest $request DescribeBackupFilesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries backup files.
      *
-     * @return DescribeBackupFilesResponse DescribeBackupFilesResponse
+     * @remarks
+     * Currently, this operation allows you to query only backup files generated by cloud phones that are stored in Object Storage Service (OSS) buckets.
+     *
+     * @param request - DescribeBackupFilesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeBackupFilesResponse
+     *
+     * @param DescribeBackupFilesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeBackupFilesResponse
      */
     public function describeBackupFilesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceId)) {
-            $query['AndroidInstanceId'] = $request->androidInstanceId;
+        if (null !== $request->androidInstanceId) {
+            @$query['AndroidInstanceId'] = $request->androidInstanceId;
         }
-        if (!Utils::isUnset($request->androidInstanceName)) {
-            $query['AndroidInstanceName'] = $request->androidInstanceName;
+
+        if (null !== $request->androidInstanceName) {
+            @$query['AndroidInstanceName'] = $request->androidInstanceName;
         }
-        if (!Utils::isUnset($request->backupAll)) {
-            $query['BackupAll'] = $request->backupAll;
+
+        if (null !== $request->backupAll) {
+            @$query['BackupAll'] = $request->backupAll;
         }
-        if (!Utils::isUnset($request->backupFileId)) {
-            $query['BackupFileId'] = $request->backupFileId;
+
+        if (null !== $request->backupFileId) {
+            @$query['BackupFileId'] = $request->backupFileId;
         }
-        if (!Utils::isUnset($request->backupFileName)) {
-            $query['BackupFileName'] = $request->backupFileName;
+
+        if (null !== $request->backupFileName) {
+            @$query['BackupFileName'] = $request->backupFileName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->endUserId)) {
-            $query['EndUserId'] = $request->endUserId;
+
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->instanceGroupId)) {
-            $query['InstanceGroupId'] = $request->instanceGroupId;
+
+        if (null !== $request->instanceGroupId) {
+            @$query['InstanceGroupId'] = $request->instanceGroupId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->statusList)) {
-            $query['StatusList'] = $request->statusList;
+
+        if (null !== $request->statusList) {
+            @$query['StatusList'] = $request->statusList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeBackupFiles',
@@ -1951,13 +2377,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Queries backup files.
-     *  *
-     * @description Currently, this operation allows you to query only backup files generated by cloud phones that are stored in Object Storage Service (OSS) buckets.
-     *  *
-     * @param DescribeBackupFilesRequest $request DescribeBackupFilesRequest
+     * Queries backup files.
      *
-     * @return DescribeBackupFilesResponse DescribeBackupFilesResponse
+     * @remarks
+     * Currently, this operation allows you to query only backup files generated by cloud phones that are stored in Object Storage Service (OSS) buckets.
+     *
+     * @param request - DescribeBackupFilesRequest
+     *
+     * @returns DescribeBackupFilesResponse
+     *
+     * @param DescribeBackupFilesRequest $request
+     *
+     * @return DescribeBackupFilesResponse
      */
     public function describeBackupFiles($request)
     {
@@ -1967,46 +2398,60 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a cloud phone matrix.
-     *  *
-     * @param DescribeCloudPhoneNodesRequest $request DescribeCloudPhoneNodesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a cloud phone matrix.
      *
-     * @return DescribeCloudPhoneNodesResponse DescribeCloudPhoneNodesResponse
+     * @param request - DescribeCloudPhoneNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCloudPhoneNodesResponse
+     *
+     * @param DescribeCloudPhoneNodesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeCloudPhoneNodesResponse
      */
     public function describeCloudPhoneNodesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bandwidthPackageId)) {
-            $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        if (null !== $request->bandwidthPackageId) {
+            @$query['BandwidthPackageId'] = $request->bandwidthPackageId;
         }
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $query['BizRegionId'] = $request->bizRegionId;
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->nodeIds)) {
-            $query['NodeIds'] = $request->nodeIds;
+
+        if (null !== $request->nodeIds) {
+            @$query['NodeIds'] = $request->nodeIds;
         }
-        if (!Utils::isUnset($request->nodeName)) {
-            $query['NodeName'] = $request->nodeName;
+
+        if (null !== $request->nodeName) {
+            @$query['NodeName'] = $request->nodeName;
         }
-        if (!Utils::isUnset($request->serverType)) {
-            $query['ServerType'] = $request->serverType;
+
+        if (null !== $request->serverType) {
+            @$query['ServerType'] = $request->serverType;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeCloudPhoneNodes',
@@ -2024,11 +2469,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a cloud phone matrix.
-     *  *
-     * @param DescribeCloudPhoneNodesRequest $request DescribeCloudPhoneNodesRequest
+     * Queries the details of a cloud phone matrix.
      *
-     * @return DescribeCloudPhoneNodesResponse DescribeCloudPhoneNodesResponse
+     * @param request - DescribeCloudPhoneNodesRequest
+     *
+     * @returns DescribeCloudPhoneNodesResponse
+     *
+     * @param DescribeCloudPhoneNodesRequest $request
+     *
+     * @return DescribeCloudPhoneNodesResponse
      */
     public function describeCloudPhoneNodes($request)
     {
@@ -2038,22 +2487,28 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 查询显示设置
-     *  *
-     * @param DescribeDisplayConfigRequest $request DescribeDisplayConfigRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查询显示设置.
      *
-     * @return DescribeDisplayConfigResponse DescribeDisplayConfigResponse
+     * @param request - DescribeDisplayConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDisplayConfigResponse
+     *
+     * @param DescribeDisplayConfigRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDisplayConfigResponse
      */
     public function describeDisplayConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->androidInstanceIds)) {
-            $body['AndroidInstanceIds'] = $request->androidInstanceIds;
+        if (null !== $request->androidInstanceIds) {
+            @$body['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeDisplayConfig',
@@ -2071,11 +2526,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 查询显示设置
-     *  *
-     * @param DescribeDisplayConfigRequest $request DescribeDisplayConfigRequest
+     * 查询显示设置.
      *
-     * @return DescribeDisplayConfigResponse DescribeDisplayConfigResponse
+     * @param request - DescribeDisplayConfigRequest
+     *
+     * @returns DescribeDisplayConfigResponse
+     *
+     * @param DescribeDisplayConfigRequest $request
+     *
+     * @return DescribeDisplayConfigResponse
      */
     public function describeDisplayConfig($request)
     {
@@ -2085,48 +2544,62 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Queries images.
-     *  *
-     * @param DescribeImageListRequest $request DescribeImageListRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries images.
      *
-     * @return DescribeImageListResponse DescribeImageListResponse
+     * @param request - DescribeImageListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeImageListResponse
+     *
+     * @param DescribeImageListRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeImageListResponse
      */
     public function describeImageListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->imageBizTags)) {
-            $query['ImageBizTags'] = $request->imageBizTags;
+        if (null !== $request->imageBizTags) {
+            @$query['ImageBizTags'] = $request->imageBizTags;
         }
-        if (!Utils::isUnset($request->imagePackageType)) {
-            $query['ImagePackageType'] = $request->imagePackageType;
+
+        if (null !== $request->imagePackageType) {
+            @$query['ImagePackageType'] = $request->imagePackageType;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $query['InstanceType'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$query['InstanceType'] = $request->instanceType;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->imageId)) {
-            $body['ImageId'] = $request->imageId;
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->imageName)) {
-            $body['ImageName'] = $request->imageName;
+
+        if (null !== $request->imageName) {
+            @$body['ImageName'] = $request->imageName;
         }
-        if (!Utils::isUnset($request->imageType)) {
-            $body['ImageType'] = $request->imageType;
+
+        if (null !== $request->imageType) {
+            @$body['ImageType'] = $request->imageType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeImageList',
@@ -2144,11 +2617,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Queries images.
-     *  *
-     * @param DescribeImageListRequest $request DescribeImageListRequest
+     * Queries images.
      *
-     * @return DescribeImageListResponse DescribeImageListResponse
+     * @param request - DescribeImageListRequest
+     *
+     * @returns DescribeImageListResponse
+     *
+     * @param DescribeImageListRequest $request
+     *
+     * @return DescribeImageListResponse
      */
     public function describeImageList($request)
     {
@@ -2158,25 +2635,32 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the execution results of commands.
-     *  *
-     * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the execution results of commands.
      *
-     * @return DescribeInvocationsResponse DescribeInvocationsResponse
+     * @param request - DescribeInvocationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInvocationsResponse
+     *
+     * @param DescribeInvocationsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeInvocationsResponse
      */
     public function describeInvocationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->invocationId)) {
-            $query['InvocationId'] = $request->invocationId;
+
+        if (null !== $request->invocationId) {
+            @$query['InvocationId'] = $request->invocationId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeInvocations',
@@ -2194,11 +2678,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Queries the execution results of commands.
-     *  *
-     * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
+     * Queries the execution results of commands.
      *
-     * @return DescribeInvocationsResponse DescribeInvocationsResponse
+     * @param request - DescribeInvocationsRequest
+     *
+     * @returns DescribeInvocationsResponse
+     *
+     * @param DescribeInvocationsRequest $request
+     *
+     * @return DescribeInvocationsResponse
      */
     public function describeInvocations($request)
     {
@@ -2208,31 +2696,40 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Queries one or more key pairs.
-     *  *
-     * @param DescribeKeyPairsRequest $request DescribeKeyPairsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries one or more key pairs.
      *
-     * @return DescribeKeyPairsResponse DescribeKeyPairsResponse
+     * @param request - DescribeKeyPairsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeKeyPairsResponse
+     *
+     * @param DescribeKeyPairsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeKeyPairsResponse
      */
     public function describeKeyPairsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyPairIds)) {
-            $query['KeyPairIds'] = $request->keyPairIds;
+        if (null !== $request->keyPairIds) {
+            @$query['KeyPairIds'] = $request->keyPairIds;
         }
-        if (!Utils::isUnset($request->keyPairName)) {
-            $query['KeyPairName'] = $request->keyPairName;
+
+        if (null !== $request->keyPairName) {
+            @$query['KeyPairName'] = $request->keyPairName;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeKeyPairs',
@@ -2250,11 +2747,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Queries one or more key pairs.
-     *  *
-     * @param DescribeKeyPairsRequest $request DescribeKeyPairsRequest
+     * Queries one or more key pairs.
      *
-     * @return DescribeKeyPairsResponse DescribeKeyPairsResponse
+     * @param request - DescribeKeyPairsRequest
+     *
+     * @returns DescribeKeyPairsResponse
+     *
+     * @param DescribeKeyPairsRequest $request
+     *
+     * @return DescribeKeyPairsResponse
      */
     public function describeKeyPairs($request)
     {
@@ -2264,40 +2765,52 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 查询指定监控项的最新监控数据
-     *  *
-     * @param DescribeMetricLastRequest $request DescribeMetricLastRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 查询指定监控项的最新监控数据.
      *
-     * @return DescribeMetricLastResponse DescribeMetricLastResponse
+     * @param request - DescribeMetricLastRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMetricLastResponse
+     *
+     * @param DescribeMetricLastRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeMetricLastResponse
      */
     public function describeMetricLastWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->androidInstanceIds)) {
-            $body['AndroidInstanceIds'] = $request->androidInstanceIds;
+        if (null !== $request->androidInstanceIds) {
+            @$body['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->length)) {
-            $body['Length'] = $request->length;
+
+        if (null !== $request->length) {
+            @$body['Length'] = $request->length;
         }
-        if (!Utils::isUnset($request->metricNames)) {
-            $body['MetricNames'] = $request->metricNames;
+
+        if (null !== $request->metricNames) {
+            @$body['MetricNames'] = $request->metricNames;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->period)) {
-            $body['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$body['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DescribeMetricLast',
@@ -2315,11 +2828,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 查询指定监控项的最新监控数据
-     *  *
-     * @param DescribeMetricLastRequest $request DescribeMetricLastRequest
+     * 查询指定监控项的最新监控数据.
      *
-     * @return DescribeMetricLastResponse DescribeMetricLastResponse
+     * @param request - DescribeMetricLastRequest
+     *
+     * @returns DescribeMetricLastResponse
+     *
+     * @param DescribeMetricLastRequest $request
+     *
+     * @return DescribeMetricLastResponse
      */
     public function describeMetricLast($request)
     {
@@ -2329,25 +2846,32 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Query available regions.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Query available regions.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
-        if (!Utils::isUnset($request->saleMode)) {
-            $query['SaleMode'] = $request->saleMode;
+
+        if (null !== $request->saleMode) {
+            @$query['SaleMode'] = $request->saleMode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeRegions',
@@ -2365,11 +2889,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Query available regions.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * Query available regions.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -2379,43 +2907,56 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Query available specifications.
-     *  *
-     * @param DescribeSpecRequest $request DescribeSpecRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Query available specifications.
      *
-     * @return DescribeSpecResponse DescribeSpecResponse
+     * @param request - DescribeSpecRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSpecResponse
+     *
+     * @param DescribeSpecRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeSpecResponse
      */
     public function describeSpecWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $query['BizRegionId'] = $request->bizRegionId;
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->matrixSpec)) {
-            $query['MatrixSpec'] = $request->matrixSpec;
+
+        if (null !== $request->matrixSpec) {
+            @$query['MatrixSpec'] = $request->matrixSpec;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->saleMode)) {
-            $query['SaleMode'] = $request->saleMode;
+
+        if (null !== $request->saleMode) {
+            @$query['SaleMode'] = $request->saleMode;
         }
-        if (!Utils::isUnset($request->specIds)) {
-            $query['SpecIds'] = $request->specIds;
+
+        if (null !== $request->specIds) {
+            @$query['SpecIds'] = $request->specIds;
         }
-        if (!Utils::isUnset($request->specStatus)) {
-            $query['SpecStatus'] = $request->specStatus;
+
+        if (null !== $request->specStatus) {
+            @$query['SpecStatus'] = $request->specStatus;
         }
-        if (!Utils::isUnset($request->specType)) {
-            $query['SpecType'] = $request->specType;
+
+        if (null !== $request->specType) {
+            @$query['SpecType'] = $request->specType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSpec',
@@ -2433,11 +2974,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Query available specifications.
-     *  *
-     * @param DescribeSpecRequest $request DescribeSpecRequest
+     * Query available specifications.
      *
-     * @return DescribeSpecResponse DescribeSpecResponse
+     * @param request - DescribeSpecRequest
+     *
+     * @returns DescribeSpecResponse
+     *
+     * @param DescribeSpecRequest $request
+     *
+     * @return DescribeSpecResponse
      */
     public function describeSpec($request)
     {
@@ -2447,31 +2992,40 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 查询系统属性模板
-     *  *
-     * @param DescribeSystemPropertyTemplatesRequest $request DescribeSystemPropertyTemplatesRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 查询系统属性模板
      *
-     * @return DescribeSystemPropertyTemplatesResponse DescribeSystemPropertyTemplatesResponse
+     * @param request - DescribeSystemPropertyTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSystemPropertyTemplatesResponse
+     *
+     * @param DescribeSystemPropertyTemplatesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeSystemPropertyTemplatesResponse
      */
     public function describeSystemPropertyTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->templateIds)) {
-            $query['TemplateIds'] = $request->templateIds;
+
+        if (null !== $request->templateIds) {
+            @$query['TemplateIds'] = $request->templateIds;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeSystemPropertyTemplates',
@@ -2489,11 +3043,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 查询系统属性模板
-     *  *
-     * @param DescribeSystemPropertyTemplatesRequest $request DescribeSystemPropertyTemplatesRequest
+     * 查询系统属性模板
      *
-     * @return DescribeSystemPropertyTemplatesResponse DescribeSystemPropertyTemplatesResponse
+     * @param request - DescribeSystemPropertyTemplatesRequest
+     *
+     * @returns DescribeSystemPropertyTemplatesResponse
+     *
+     * @param DescribeSystemPropertyTemplatesRequest $request
+     *
+     * @return DescribeSystemPropertyTemplatesResponse
      */
     public function describeSystemPropertyTemplates($request)
     {
@@ -2503,67 +3061,87 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Queries tasks created for a cloud phone instance.
-     *  *
-     * @description *   You can call the DescribeTasks operation to query the tasks created for one or more cloud phone instances.
+     * Queries tasks created for a cloud phone instance.
+     *
+     * @remarks
+     *   You can call the DescribeTasks operation to query the tasks created for one or more cloud phone instances.
      * *   The system currently supports various tasks, including starting, stopping, restarting, and resetting cloud phone instances; backing up and restoring data; installing apps; and executing remote commands.
      * *   You can use the Level field to specify the type of task. If Level is set to 1, it represents a batch task. If Level is set to 2, it represents an instance-level task.
      * **Example**
      * Assume you restart two cloud phone instances with the instance IDs acp-25nt4kk9whhok\\*\\*\\*\\* and acp-j2taq887orj8l\\*\\*\\*\\*, and the returned request ID is B8ED2BA9-0C6A-5643-818F-B5D60A64\\*\\*\\*\\*. If you want to check the operation outcomes of the two cloud phone instances, you can call the DescribeTasks operation. You need to set the InvokeId request parameter to B8ED2BA9-0C6A-5643-818F-B5D60A64\\*\\*\\*\\*. If you only want to check the cloud phone instance with the ID acp-25nt4kk9whhok\\*\\*\\*\\*, you must set the ParentTaskId request parameter to the ID of the batch task and the AndroidInstanceId request parameter to acp-25nt4kk9whhok\\*\\*\\*\\* when calling the DescribeTasks operation.
-     *  *
-     * @param DescribeTasksRequest $request DescribeTasksRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTasksResponse DescribeTasksResponse
+     * @param request - DescribeTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTasksResponse
+     *
+     * @param DescribeTasksRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeTasksResponse
      */
     public function describeTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $query['InstanceName'] = $request->instanceName;
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->invokeId)) {
-            $query['InvokeId'] = $request->invokeId;
+
+        if (null !== $request->invokeId) {
+            @$query['InvokeId'] = $request->invokeId;
         }
-        if (!Utils::isUnset($request->level)) {
-            $query['Level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->param)) {
-            $query['Param'] = $request->param;
+
+        if (null !== $request->param) {
+            @$query['Param'] = $request->param;
         }
-        if (!Utils::isUnset($request->parentTaskId)) {
-            $query['ParentTaskId'] = $request->parentTaskId;
+
+        if (null !== $request->parentTaskId) {
+            @$query['ParentTaskId'] = $request->parentTaskId;
         }
-        if (!Utils::isUnset($request->resourceIds)) {
-            $query['ResourceIds'] = $request->resourceIds;
+
+        if (null !== $request->resourceIds) {
+            @$query['ResourceIds'] = $request->resourceIds;
         }
-        if (!Utils::isUnset($request->taskIds)) {
-            $query['TaskIds'] = $request->taskIds;
+
+        if (null !== $request->taskIds) {
+            @$query['TaskIds'] = $request->taskIds;
         }
-        if (!Utils::isUnset($request->taskStatus)) {
-            $query['TaskStatus'] = $request->taskStatus;
+
+        if (null !== $request->taskStatus) {
+            @$query['TaskStatus'] = $request->taskStatus;
         }
-        if (!Utils::isUnset($request->taskStatuses)) {
-            $query['TaskStatuses'] = $request->taskStatuses;
+
+        if (null !== $request->taskStatuses) {
+            @$query['TaskStatuses'] = $request->taskStatuses;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
-        if (!Utils::isUnset($request->taskTypes)) {
-            $query['TaskTypes'] = $request->taskTypes;
+
+        if (null !== $request->taskTypes) {
+            @$query['TaskTypes'] = $request->taskTypes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DescribeTasks',
@@ -2581,17 +3159,22 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Queries tasks created for a cloud phone instance.
-     *  *
-     * @description *   You can call the DescribeTasks operation to query the tasks created for one or more cloud phone instances.
+     * Queries tasks created for a cloud phone instance.
+     *
+     * @remarks
+     *   You can call the DescribeTasks operation to query the tasks created for one or more cloud phone instances.
      * *   The system currently supports various tasks, including starting, stopping, restarting, and resetting cloud phone instances; backing up and restoring data; installing apps; and executing remote commands.
      * *   You can use the Level field to specify the type of task. If Level is set to 1, it represents a batch task. If Level is set to 2, it represents an instance-level task.
      * **Example**
      * Assume you restart two cloud phone instances with the instance IDs acp-25nt4kk9whhok\\*\\*\\*\\* and acp-j2taq887orj8l\\*\\*\\*\\*, and the returned request ID is B8ED2BA9-0C6A-5643-818F-B5D60A64\\*\\*\\*\\*. If you want to check the operation outcomes of the two cloud phone instances, you can call the DescribeTasks operation. You need to set the InvokeId request parameter to B8ED2BA9-0C6A-5643-818F-B5D60A64\\*\\*\\*\\*. If you only want to check the cloud phone instance with the ID acp-25nt4kk9whhok\\*\\*\\*\\*, you must set the ParentTaskId request parameter to the ID of the batch task and the AndroidInstanceId request parameter to acp-25nt4kk9whhok\\*\\*\\*\\* when calling the DescribeTasks operation.
-     *  *
-     * @param DescribeTasksRequest $request DescribeTasksRequest
      *
-     * @return DescribeTasksResponse DescribeTasksResponse
+     * @param request - DescribeTasksRequest
+     *
+     * @returns DescribeTasksResponse
+     *
+     * @param DescribeTasksRequest $request
+     *
+     * @return DescribeTasksResponse
      */
     public function describeTasks($request)
     {
@@ -2601,27 +3184,35 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Detaches an Android Debug Bridge (ADB) key pair from one or more cloud phone instances.
-     *  *
-     * @description *   After you detach an ADB key pair from a cloud phone instance, the ADB connection will fail. This occurs because the system can no longer authenticate using a valid ADB public key, leading to authentication errors.
-     *  *
-     * @param DetachKeyPairRequest $request DetachKeyPairRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Detaches an Android Debug Bridge (ADB) key pair from one or more cloud phone instances.
      *
-     * @return DetachKeyPairResponse DetachKeyPairResponse
+     * @remarks
+     *   After you detach an ADB key pair from a cloud phone instance, the ADB connection will fail. This occurs because the system can no longer authenticate using a valid ADB public key, leading to authentication errors.
+     *
+     * @param request - DetachKeyPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachKeyPairResponse
+     *
+     * @param DetachKeyPairRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DetachKeyPairResponse
      */
     public function detachKeyPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->keyPairId)) {
-            $query['KeyPairId'] = $request->keyPairId;
+
+        if (null !== $request->keyPairId) {
+            @$query['KeyPairId'] = $request->keyPairId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DetachKeyPair',
@@ -2639,13 +3230,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Detaches an Android Debug Bridge (ADB) key pair from one or more cloud phone instances.
-     *  *
-     * @description *   After you detach an ADB key pair from a cloud phone instance, the ADB connection will fail. This occurs because the system can no longer authenticate using a valid ADB public key, leading to authentication errors.
-     *  *
-     * @param DetachKeyPairRequest $request DetachKeyPairRequest
+     * Detaches an Android Debug Bridge (ADB) key pair from one or more cloud phone instances.
      *
-     * @return DetachKeyPairResponse DetachKeyPairResponse
+     * @remarks
+     *   After you detach an ADB key pair from a cloud phone instance, the ADB connection will fail. This occurs because the system can no longer authenticate using a valid ADB public key, leading to authentication errors.
+     *
+     * @param request - DetachKeyPairRequest
+     *
+     * @returns DetachKeyPairResponse
+     *
+     * @param DetachKeyPairRequest $request
+     *
+     * @return DetachKeyPairResponse
      */
     public function detachKeyPair($request)
     {
@@ -2655,25 +3251,32 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 实例断开连接
-     *  *
-     * @param DisconnectAndroidInstanceRequest $request DisconnectAndroidInstanceRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 实例断开连接.
      *
-     * @return DisconnectAndroidInstanceResponse DisconnectAndroidInstanceResponse
+     * @param request - DisconnectAndroidInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisconnectAndroidInstanceResponse
+     *
+     * @param DisconnectAndroidInstanceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DisconnectAndroidInstanceResponse
      */
     public function disconnectAndroidInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endUserId)) {
-            $query['EndUserId'] = $request->endUserId;
+        if (null !== $request->endUserId) {
+            @$query['EndUserId'] = $request->endUserId;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DisconnectAndroidInstance',
@@ -2691,11 +3294,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 实例断开连接
-     *  *
-     * @param DisconnectAndroidInstanceRequest $request DisconnectAndroidInstanceRequest
+     * 实例断开连接.
      *
-     * @return DisconnectAndroidInstanceResponse DisconnectAndroidInstanceResponse
+     * @param request - DisconnectAndroidInstanceRequest
+     *
+     * @returns DisconnectAndroidInstanceResponse
+     *
+     * @param DisconnectAndroidInstanceRequest $request
+     *
+     * @return DisconnectAndroidInstanceResponse
      */
     public function disconnectAndroidInstance($request)
     {
@@ -2705,27 +3312,35 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Distributes an image.
-     *  *
-     * @description After you distribute an image in supported regions, the distribution cannot be canceled.
-     *  *
-     * @param DistributeImageRequest $request DistributeImageRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Distributes an image.
      *
-     * @return DistributeImageResponse DistributeImageResponse
+     * @remarks
+     * After you distribute an image in supported regions, the distribution cannot be canceled.
+     *
+     * @param request - DistributeImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DistributeImageResponse
+     *
+     * @param DistributeImageRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DistributeImageResponse
      */
     public function distributeImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->distributeRegionList)) {
-            $body['DistributeRegionList'] = $request->distributeRegionList;
+        if (null !== $request->distributeRegionList) {
+            @$body['DistributeRegionList'] = $request->distributeRegionList;
         }
-        if (!Utils::isUnset($request->imageId)) {
-            $body['ImageId'] = $request->imageId;
+
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DistributeImage',
@@ -2743,13 +3358,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Distributes an image.
-     *  *
-     * @description After you distribute an image in supported regions, the distribution cannot be canceled.
-     *  *
-     * @param DistributeImageRequest $request DistributeImageRequest
+     * Distributes an image.
      *
-     * @return DistributeImageResponse DistributeImageResponse
+     * @remarks
+     * After you distribute an image in supported regions, the distribution cannot be canceled.
+     *
+     * @param request - DistributeImageRequest
+     *
+     * @returns DistributeImageResponse
+     *
+     * @param DistributeImageRequest $request
+     *
+     * @return DistributeImageResponse
      */
     public function distributeImage($request)
     {
@@ -2759,30 +3379,39 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Downgrades an instance group. Currently, this operation allows you to only delete specific cloud phone instances from an instance group.
-     *  *
-     * @description This operation only allows you to scale down an instance group.
-     *  *
-     * @param DowngradeAndroidInstanceGroupRequest $request DowngradeAndroidInstanceGroupRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Downgrades an instance group. Currently, this operation allows you to only delete specific cloud phone instances from an instance group.
      *
-     * @return DowngradeAndroidInstanceGroupResponse DowngradeAndroidInstanceGroupResponse
+     * @remarks
+     * This operation only allows you to scale down an instance group.
+     *
+     * @param request - DowngradeAndroidInstanceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DowngradeAndroidInstanceGroupResponse
+     *
+     * @param DowngradeAndroidInstanceGroupRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DowngradeAndroidInstanceGroupResponse
      */
     public function downgradeAndroidInstanceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIds)) {
-            $query['AndroidInstanceIds'] = $request->androidInstanceIds;
+        if (null !== $request->androidInstanceIds) {
+            @$query['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
+
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
         }
-        if (!Utils::isUnset($request->instanceGroupId)) {
-            $query['InstanceGroupId'] = $request->instanceGroupId;
+
+        if (null !== $request->instanceGroupId) {
+            @$query['InstanceGroupId'] = $request->instanceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DowngradeAndroidInstanceGroup',
@@ -2800,13 +3429,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Downgrades an instance group. Currently, this operation allows you to only delete specific cloud phone instances from an instance group.
-     *  *
-     * @description This operation only allows you to scale down an instance group.
-     *  *
-     * @param DowngradeAndroidInstanceGroupRequest $request DowngradeAndroidInstanceGroupRequest
+     * Downgrades an instance group. Currently, this operation allows you to only delete specific cloud phone instances from an instance group.
      *
-     * @return DowngradeAndroidInstanceGroupResponse DowngradeAndroidInstanceGroupResponse
+     * @remarks
+     * This operation only allows you to scale down an instance group.
+     *
+     * @param request - DowngradeAndroidInstanceGroupRequest
+     *
+     * @returns DowngradeAndroidInstanceGroupResponse
+     *
+     * @param DowngradeAndroidInstanceGroupRequest $request
+     *
+     * @return DowngradeAndroidInstanceGroupResponse
      */
     public function downgradeAndroidInstanceGroup($request)
     {
@@ -2816,28 +3450,36 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 结束协同
-     *  *
-     * @param EndCoordinationRequest $request EndCoordinationRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 结束协同.
      *
-     * @return EndCoordinationResponse EndCoordinationResponse
+     * @param request - EndCoordinationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EndCoordinationResponse
+     *
+     * @param EndCoordinationRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return EndCoordinationResponse
      */
     public function endCoordinationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->coordinatorUserId)) {
-            $query['CoordinatorUserId'] = $request->coordinatorUserId;
+        if (null !== $request->coordinatorUserId) {
+            @$query['CoordinatorUserId'] = $request->coordinatorUserId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ownerUserId)) {
-            $query['OwnerUserId'] = $request->ownerUserId;
+
+        if (null !== $request->ownerUserId) {
+            @$query['OwnerUserId'] = $request->ownerUserId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'EndCoordination',
@@ -2855,11 +3497,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 结束协同
-     *  *
-     * @param EndCoordinationRequest $request EndCoordinationRequest
+     * 结束协同.
      *
-     * @return EndCoordinationResponse EndCoordinationResponse
+     * @param request - EndCoordinationRequest
+     *
+     * @returns EndCoordinationResponse
+     *
+     * @param EndCoordinationRequest $request
+     *
+     * @return EndCoordinationResponse
      */
     public function endCoordination($request)
     {
@@ -2869,31 +3515,40 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 存储扩容
-     *  *
-     * @param ExpandDataVolumeRequest $request ExpandDataVolumeRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 存储扩容.
      *
-     * @return ExpandDataVolumeResponse ExpandDataVolumeResponse
+     * @param request - ExpandDataVolumeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExpandDataVolumeResponse
+     *
+     * @param ExpandDataVolumeRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ExpandDataVolumeResponse
      */
     public function expandDataVolumeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
         }
-        if (!Utils::isUnset($request->bizRegionId)) {
-            $query['BizRegionId'] = $request->bizRegionId;
+
+        if (null !== $request->bizRegionId) {
+            @$query['BizRegionId'] = $request->bizRegionId;
         }
-        if (!Utils::isUnset($request->nodeIds)) {
-            $query['NodeIds'] = $request->nodeIds;
+
+        if (null !== $request->nodeIds) {
+            @$query['NodeIds'] = $request->nodeIds;
         }
-        if (!Utils::isUnset($request->shareDataVolume)) {
-            $query['ShareDataVolume'] = $request->shareDataVolume;
+
+        if (null !== $request->shareDataVolume) {
+            @$query['ShareDataVolume'] = $request->shareDataVolume;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ExpandDataVolume',
@@ -2911,11 +3566,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 存储扩容
-     *  *
-     * @param ExpandDataVolumeRequest $request ExpandDataVolumeRequest
+     * 存储扩容.
      *
-     * @return ExpandDataVolumeResponse ExpandDataVolumeResponse
+     * @param request - ExpandDataVolumeRequest
+     *
+     * @returns ExpandDataVolumeResponse
+     *
+     * @param ExpandDataVolumeRequest $request
+     *
+     * @return ExpandDataVolumeResponse
      */
     public function expandDataVolume($request)
     {
@@ -2925,36 +3584,47 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Pulls a file from a cloud phone instance and stores it in Object Storage Service (OSS).
-     *  *
-     * @description Currently, this operation allows you to retrieve files or folders from cloud phone instances and save them directly to OSS.
-     *  *
-     * @param FetchFileRequest $request FetchFileRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Pulls a file from a cloud phone instance and stores it in Object Storage Service (OSS).
      *
-     * @return FetchFileResponse FetchFileResponse
+     * @remarks
+     * Currently, this operation allows you to retrieve files or folders from cloud phone instances and save them directly to OSS.
+     *
+     * @param request - FetchFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FetchFileResponse
+     *
+     * @param FetchFileRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return FetchFileResponse
      */
     public function fetchFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIdList)) {
-            $query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
+        if (null !== $request->androidInstanceIdList) {
+            @$query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
         }
-        if (!Utils::isUnset($request->sourceFilePath)) {
-            $query['SourceFilePath'] = $request->sourceFilePath;
+
+        if (null !== $request->sourceFilePath) {
+            @$query['SourceFilePath'] = $request->sourceFilePath;
         }
-        if (!Utils::isUnset($request->uploadEndpoint)) {
-            $query['UploadEndpoint'] = $request->uploadEndpoint;
+
+        if (null !== $request->uploadEndpoint) {
+            @$query['UploadEndpoint'] = $request->uploadEndpoint;
         }
-        if (!Utils::isUnset($request->uploadType)) {
-            $query['UploadType'] = $request->uploadType;
+
+        if (null !== $request->uploadType) {
+            @$query['UploadType'] = $request->uploadType;
         }
-        if (!Utils::isUnset($request->uploadUrl)) {
-            $query['UploadUrl'] = $request->uploadUrl;
+
+        if (null !== $request->uploadUrl) {
+            @$query['UploadUrl'] = $request->uploadUrl;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'FetchFile',
@@ -2972,13 +3642,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Pulls a file from a cloud phone instance and stores it in Object Storage Service (OSS).
-     *  *
-     * @description Currently, this operation allows you to retrieve files or folders from cloud phone instances and save them directly to OSS.
-     *  *
-     * @param FetchFileRequest $request FetchFileRequest
+     * Pulls a file from a cloud phone instance and stores it in Object Storage Service (OSS).
      *
-     * @return FetchFileResponse FetchFileResponse
+     * @remarks
+     * Currently, this operation allows you to retrieve files or folders from cloud phone instances and save them directly to OSS.
+     *
+     * @param request - FetchFileRequest
+     *
+     * @returns FetchFileResponse
+     *
+     * @param FetchFileRequest $request
+     *
+     * @return FetchFileResponse
      */
     public function fetchFile($request)
     {
@@ -2988,27 +3663,35 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Generates a collaboration code for the cloud phone being accessed by using the current convenience account, and shares this code with other convenience accounts to allow them to access the same cloud phone.
-     *  *
-     * @description You can call this operation to generate a collaboration code for a cloud phone accessed by your current account and share this code with other convenience users to allow them to access the same cloud phone over the desktop, mobile, or web client.
-     *  *
-     * @param GenerateCoordinationCodeRequest $request GenerateCoordinationCodeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Generates a collaboration code for the cloud phone being accessed by using the current convenience account, and shares this code with other convenience accounts to allow them to access the same cloud phone.
      *
-     * @return GenerateCoordinationCodeResponse GenerateCoordinationCodeResponse
+     * @remarks
+     * You can call this operation to generate a collaboration code for a cloud phone accessed by your current account and share this code with other convenience users to allow them to access the same cloud phone over the desktop, mobile, or web client.
+     *
+     * @param request - GenerateCoordinationCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GenerateCoordinationCodeResponse
+     *
+     * @param GenerateCoordinationCodeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GenerateCoordinationCodeResponse
      */
     public function generateCoordinationCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ownerUserId)) {
-            $query['OwnerUserId'] = $request->ownerUserId;
+
+        if (null !== $request->ownerUserId) {
+            @$query['OwnerUserId'] = $request->ownerUserId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GenerateCoordinationCode',
@@ -3026,13 +3709,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Generates a collaboration code for the cloud phone being accessed by using the current convenience account, and shares this code with other convenience accounts to allow them to access the same cloud phone.
-     *  *
-     * @description You can call this operation to generate a collaboration code for a cloud phone accessed by your current account and share this code with other convenience users to allow them to access the same cloud phone over the desktop, mobile, or web client.
-     *  *
-     * @param GenerateCoordinationCodeRequest $request GenerateCoordinationCodeRequest
+     * Generates a collaboration code for the cloud phone being accessed by using the current convenience account, and shares this code with other convenience accounts to allow them to access the same cloud phone.
      *
-     * @return GenerateCoordinationCodeResponse GenerateCoordinationCodeResponse
+     * @remarks
+     * You can call this operation to generate a collaboration code for a cloud phone accessed by your current account and share this code with other convenience users to allow them to access the same cloud phone over the desktop, mobile, or web client.
+     *
+     * @param request - GenerateCoordinationCodeRequest
+     *
+     * @returns GenerateCoordinationCodeResponse
+     *
+     * @param GenerateCoordinationCodeRequest $request
+     *
+     * @return GenerateCoordinationCodeResponse
      */
     public function generateCoordinationCode($request)
     {
@@ -3042,22 +3730,28 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 获取属性模板信息
-     *  *
-     * @param GetInstancePropertiesRequest $request GetInstancePropertiesRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 获取属性模板信息.
      *
-     * @return GetInstancePropertiesResponse GetInstancePropertiesResponse
+     * @param request - GetInstancePropertiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstancePropertiesResponse
+     *
+     * @param GetInstancePropertiesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetInstancePropertiesResponse
      */
     public function getInstancePropertiesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetInstanceProperties',
@@ -3075,11 +3769,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 获取属性模板信息
-     *  *
-     * @param GetInstancePropertiesRequest $request GetInstancePropertiesRequest
+     * 获取属性模板信息.
      *
-     * @return GetInstancePropertiesResponse GetInstancePropertiesResponse
+     * @param request - GetInstancePropertiesRequest
+     *
+     * @returns GetInstancePropertiesResponse
+     *
+     * @param GetInstancePropertiesRequest $request
+     *
+     * @return GetInstancePropertiesResponse
      */
     public function getInstanceProperties($request)
     {
@@ -3089,27 +3787,35 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Imports the public key of an Android Debug Bridge (ADB) key pair.
-     *  *
-     * @description To avoid authorization errors that could cause ADB connection failures, you must import the public key of an ADB key pair.
-     *  *
-     * @param ImportKeyPairRequest $request ImportKeyPairRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Imports the public key of an Android Debug Bridge (ADB) key pair.
      *
-     * @return ImportKeyPairResponse ImportKeyPairResponse
+     * @remarks
+     * To avoid authorization errors that could cause ADB connection failures, you must import the public key of an ADB key pair.
+     *
+     * @param request - ImportKeyPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportKeyPairResponse
+     *
+     * @param ImportKeyPairRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ImportKeyPairResponse
      */
     public function importKeyPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyPairName)) {
-            $query['KeyPairName'] = $request->keyPairName;
+        if (null !== $request->keyPairName) {
+            @$query['KeyPairName'] = $request->keyPairName;
         }
-        if (!Utils::isUnset($request->publicKeyBody)) {
-            $query['PublicKeyBody'] = $request->publicKeyBody;
+
+        if (null !== $request->publicKeyBody) {
+            @$query['PublicKeyBody'] = $request->publicKeyBody;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ImportKeyPair',
@@ -3127,13 +3833,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Imports the public key of an Android Debug Bridge (ADB) key pair.
-     *  *
-     * @description To avoid authorization errors that could cause ADB connection failures, you must import the public key of an ADB key pair.
-     *  *
-     * @param ImportKeyPairRequest $request ImportKeyPairRequest
+     * Imports the public key of an Android Debug Bridge (ADB) key pair.
      *
-     * @return ImportKeyPairResponse ImportKeyPairResponse
+     * @remarks
+     * To avoid authorization errors that could cause ADB connection failures, you must import the public key of an ADB key pair.
+     *
+     * @param request - ImportKeyPairRequest
+     *
+     * @returns ImportKeyPairResponse
+     *
+     * @param ImportKeyPairRequest $request
+     *
+     * @return ImportKeyPairResponse
      */
     public function importKeyPair($request)
     {
@@ -3143,30 +3854,39 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Installs an app on multiple cloud phone instances at the same time.
-     *  *
-     * @description This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
-     *  *
-     * @param InstallAppRequest $request InstallAppRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Installs an app on multiple cloud phone instances at the same time.
      *
-     * @return InstallAppResponse InstallAppResponse
+     * @remarks
+     * This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
+     *
+     * @param request - InstallAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InstallAppResponse
+     *
+     * @param InstallAppRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return InstallAppResponse
      */
     public function installAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appIdList)) {
-            $query['AppIdList'] = $request->appIdList;
+        if (null !== $request->appIdList) {
+            @$query['AppIdList'] = $request->appIdList;
         }
-        if (!Utils::isUnset($request->instanceGroupIdList)) {
-            $query['InstanceGroupIdList'] = $request->instanceGroupIdList;
+
+        if (null !== $request->instanceGroupIdList) {
+            @$query['InstanceGroupIdList'] = $request->instanceGroupIdList;
         }
-        if (!Utils::isUnset($request->instanceIdList)) {
-            $query['InstanceIdList'] = $request->instanceIdList;
+
+        if (null !== $request->instanceIdList) {
+            @$query['InstanceIdList'] = $request->instanceIdList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'InstallApp',
@@ -3184,13 +3904,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Installs an app on multiple cloud phone instances at the same time.
-     *  *
-     * @description This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
-     *  *
-     * @param InstallAppRequest $request InstallAppRequest
+     * Installs an app on multiple cloud phone instances at the same time.
      *
-     * @return InstallAppResponse InstallAppResponse
+     * @remarks
+     * This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
+     *
+     * @param request - InstallAppRequest
+     *
+     * @returns InstallAppResponse
+     *
+     * @param InstallAppRequest $request
+     *
+     * @return InstallAppResponse
      */
     public function installApp($request)
     {
@@ -3200,25 +3925,32 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 安装监控插件
-     *  *
-     * @param InstallMonitorAgentRequest $request InstallMonitorAgentRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 安装监控插件.
      *
-     * @return InstallMonitorAgentResponse InstallMonitorAgentResponse
+     * @param request - InstallMonitorAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InstallMonitorAgentResponse
+     *
+     * @param InstallMonitorAgentRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return InstallMonitorAgentResponse
      */
     public function installMonitorAgentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->androidInstanceIds)) {
-            $body['AndroidInstanceIds'] = $request->androidInstanceIds;
+        if (null !== $request->androidInstanceIds) {
+            @$body['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
-        if (!Utils::isUnset($request->saleMode)) {
-            $body['SaleMode'] = $request->saleMode;
+
+        if (null !== $request->saleMode) {
+            @$body['SaleMode'] = $request->saleMode;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'InstallMonitorAgent',
@@ -3236,11 +3968,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 安装监控插件
-     *  *
-     * @param InstallMonitorAgentRequest $request InstallMonitorAgentRequest
+     * 安装监控插件.
      *
-     * @return InstallMonitorAgentResponse InstallMonitorAgentResponse
+     * @param request - InstallMonitorAgentRequest
+     *
+     * @returns InstallMonitorAgentResponse
+     *
+     * @param InstallMonitorAgentRequest $request
+     *
+     * @return InstallMonitorAgentResponse
      */
     public function installMonitorAgent($request)
     {
@@ -3250,34 +3986,44 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Queries policies.
-     *  *
-     * @param ListPolicyGroupsRequest $request ListPolicyGroupsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries policies.
      *
-     * @return ListPolicyGroupsResponse ListPolicyGroupsResponse
+     * @param request - ListPolicyGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPolicyGroupsResponse
+     *
+     * @param ListPolicyGroupsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListPolicyGroupsResponse
      */
     public function listPolicyGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->policyGroupIds)) {
-            $body['PolicyGroupIds'] = $request->policyGroupIds;
+
+        if (null !== $request->policyGroupIds) {
+            @$body['PolicyGroupIds'] = $request->policyGroupIds;
         }
-        if (!Utils::isUnset($request->policyGroupName)) {
-            $body['PolicyGroupName'] = $request->policyGroupName;
+
+        if (null !== $request->policyGroupName) {
+            @$body['PolicyGroupName'] = $request->policyGroupName;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $body['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$body['PolicyType'] = $request->policyType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListPolicyGroups',
@@ -3295,11 +4041,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Queries policies.
-     *  *
-     * @param ListPolicyGroupsRequest $request ListPolicyGroupsRequest
+     * Queries policies.
      *
-     * @return ListPolicyGroupsResponse ListPolicyGroupsResponse
+     * @param request - ListPolicyGroupsRequest
+     *
+     * @returns ListPolicyGroupsResponse
+     *
+     * @param ListPolicyGroupsRequest $request
+     *
+     * @return ListPolicyGroupsResponse
      */
     public function listPolicyGroups($request)
     {
@@ -3309,34 +4059,44 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Modifies attributes of a cloud phone instance. Currently, this operation allows you to modify only the name of a cloud phone instance.
-     *  *
-     * @param ModifyAndroidInstanceRequest $request ModifyAndroidInstanceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Modifies attributes of a cloud phone instance. Currently, this operation allows you to modify only the name of a cloud phone instance.
      *
-     * @return ModifyAndroidInstanceResponse ModifyAndroidInstanceResponse
+     * @param request - ModifyAndroidInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAndroidInstanceResponse
+     *
+     * @param ModifyAndroidInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyAndroidInstanceResponse
      */
     public function modifyAndroidInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceId)) {
-            $query['AndroidInstanceId'] = $request->androidInstanceId;
+        if (null !== $request->androidInstanceId) {
+            @$query['AndroidInstanceId'] = $request->androidInstanceId;
         }
-        if (!Utils::isUnset($request->downBandwidthLimit)) {
-            $query['DownBandwidthLimit'] = $request->downBandwidthLimit;
+
+        if (null !== $request->downBandwidthLimit) {
+            @$query['DownBandwidthLimit'] = $request->downBandwidthLimit;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->newAndroidInstanceName)) {
-            $query['NewAndroidInstanceName'] = $request->newAndroidInstanceName;
+
+        if (null !== $request->newAndroidInstanceName) {
+            @$query['NewAndroidInstanceName'] = $request->newAndroidInstanceName;
         }
-        if (!Utils::isUnset($request->upBandwidthLimit)) {
-            $query['UpBandwidthLimit'] = $request->upBandwidthLimit;
+
+        if (null !== $request->upBandwidthLimit) {
+            @$query['UpBandwidthLimit'] = $request->upBandwidthLimit;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyAndroidInstance',
@@ -3354,11 +4114,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Modifies attributes of a cloud phone instance. Currently, this operation allows you to modify only the name of a cloud phone instance.
-     *  *
-     * @param ModifyAndroidInstanceRequest $request ModifyAndroidInstanceRequest
+     * Modifies attributes of a cloud phone instance. Currently, this operation allows you to modify only the name of a cloud phone instance.
      *
-     * @return ModifyAndroidInstanceResponse ModifyAndroidInstanceResponse
+     * @param request - ModifyAndroidInstanceRequest
+     *
+     * @returns ModifyAndroidInstanceResponse
+     *
+     * @param ModifyAndroidInstanceRequest $request
+     *
+     * @return ModifyAndroidInstanceResponse
      */
     public function modifyAndroidInstance($request)
     {
@@ -3368,28 +4132,36 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Modifies attributes of an instance group.
-     *  *
-     * @param ModifyAndroidInstanceGroupRequest $request ModifyAndroidInstanceGroupRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Modifies attributes of an instance group.
      *
-     * @return ModifyAndroidInstanceGroupResponse ModifyAndroidInstanceGroupResponse
+     * @param request - ModifyAndroidInstanceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAndroidInstanceGroupResponse
+     *
+     * @param ModifyAndroidInstanceGroupRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyAndroidInstanceGroupResponse
      */
     public function modifyAndroidInstanceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceGroupId)) {
-            $query['InstanceGroupId'] = $request->instanceGroupId;
+        if (null !== $request->instanceGroupId) {
+            @$query['InstanceGroupId'] = $request->instanceGroupId;
         }
-        if (!Utils::isUnset($request->newInstanceGroupName)) {
-            $query['NewInstanceGroupName'] = $request->newInstanceGroupName;
+
+        if (null !== $request->newInstanceGroupName) {
+            @$query['NewInstanceGroupName'] = $request->newInstanceGroupName;
         }
-        if (!Utils::isUnset($request->policyGroupId)) {
-            $query['PolicyGroupId'] = $request->policyGroupId;
+
+        if (null !== $request->policyGroupId) {
+            @$query['PolicyGroupId'] = $request->policyGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyAndroidInstanceGroup',
@@ -3407,11 +4179,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Modifies attributes of an instance group.
-     *  *
-     * @param ModifyAndroidInstanceGroupRequest $request ModifyAndroidInstanceGroupRequest
+     * Modifies attributes of an instance group.
      *
-     * @return ModifyAndroidInstanceGroupResponse ModifyAndroidInstanceGroupResponse
+     * @param request - ModifyAndroidInstanceGroupRequest
+     *
+     * @returns ModifyAndroidInstanceGroupResponse
+     *
+     * @param ModifyAndroidInstanceGroupRequest $request
+     *
+     * @return ModifyAndroidInstanceGroupResponse
      */
     public function modifyAndroidInstanceGroup($request)
     {
@@ -3421,31 +4197,40 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Modify attributes of an application.
-     *  *
-     * @param ModifyAppRequest $request ModifyAppRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Modify attributes of an application.
      *
-     * @return ModifyAppResponse ModifyAppResponse
+     * @param request - ModifyAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyAppResponse
+     *
+     * @param ModifyAppRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ModifyAppResponse
      */
     public function modifyAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->iconUrl)) {
-            $query['IconUrl'] = $request->iconUrl;
+
+        if (null !== $request->iconUrl) {
+            @$query['IconUrl'] = $request->iconUrl;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyApp',
@@ -3463,11 +4248,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Modify attributes of an application.
-     *  *
-     * @param ModifyAppRequest $request ModifyAppRequest
+     * Modify attributes of an application.
      *
-     * @return ModifyAppResponse ModifyAppResponse
+     * @param request - ModifyAppRequest
+     *
+     * @returns ModifyAppResponse
+     *
+     * @param ModifyAppRequest $request
+     *
+     * @return ModifyAppResponse
      */
     public function modifyApp($request)
     {
@@ -3477,28 +4266,36 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a cloud phone matrix. Currently, you can only modify the name of a cloud phone matrix.
-     *  *
-     * @param ModifyCloudPhoneNodeRequest $request ModifyCloudPhoneNodeRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Modifies a cloud phone matrix. Currently, you can only modify the name of a cloud phone matrix.
      *
-     * @return ModifyCloudPhoneNodeResponse ModifyCloudPhoneNodeResponse
+     * @param request - ModifyCloudPhoneNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyCloudPhoneNodeResponse
+     *
+     * @param ModifyCloudPhoneNodeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyCloudPhoneNodeResponse
      */
     public function modifyCloudPhoneNodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->newNodeName)) {
-            $query['NewNodeName'] = $request->newNodeName;
+        if (null !== $request->newNodeName) {
+            @$query['NewNodeName'] = $request->newNodeName;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->streamMode)) {
-            $query['StreamMode'] = $request->streamMode;
+
+        if (null !== $request->streamMode) {
+            @$query['StreamMode'] = $request->streamMode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyCloudPhoneNode',
@@ -3516,11 +4313,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a cloud phone matrix. Currently, you can only modify the name of a cloud phone matrix.
-     *  *
-     * @param ModifyCloudPhoneNodeRequest $request ModifyCloudPhoneNodeRequest
+     * Modifies a cloud phone matrix. Currently, you can only modify the name of a cloud phone matrix.
      *
-     * @return ModifyCloudPhoneNodeResponse ModifyCloudPhoneNodeResponse
+     * @param request - ModifyCloudPhoneNodeRequest
+     *
+     * @returns ModifyCloudPhoneNodeResponse
+     *
+     * @param ModifyCloudPhoneNodeRequest $request
+     *
+     * @return ModifyCloudPhoneNodeResponse
      */
     public function modifyCloudPhoneNode($request)
     {
@@ -3530,30 +4331,38 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 修改显示设置
-     *  *
-     * @param ModifyDisplayConfigRequest $tmpReq  ModifyDisplayConfigRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 修改显示设置.
      *
-     * @return ModifyDisplayConfigResponse ModifyDisplayConfigResponse
+     * @param tmpReq - ModifyDisplayConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyDisplayConfigResponse
+     *
+     * @param ModifyDisplayConfigRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyDisplayConfigResponse
      */
     public function modifyDisplayConfigWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ModifyDisplayConfigShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->displayConfig)) {
-            $request->displayConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->displayConfig, 'DisplayConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->displayConfig) {
+            $request->displayConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->displayConfig, 'DisplayConfig', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->androidInstanceIds)) {
-            $body['AndroidInstanceIds'] = $request->androidInstanceIds;
+        if (null !== $request->androidInstanceIds) {
+            @$body['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
-        if (!Utils::isUnset($request->displayConfigShrink)) {
-            $body['DisplayConfig'] = $request->displayConfigShrink;
+
+        if (null !== $request->displayConfigShrink) {
+            @$body['DisplayConfig'] = $request->displayConfigShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyDisplayConfig',
@@ -3571,11 +4380,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 修改显示设置
-     *  *
-     * @param ModifyDisplayConfigRequest $request ModifyDisplayConfigRequest
+     * 修改显示设置.
      *
-     * @return ModifyDisplayConfigResponse ModifyDisplayConfigResponse
+     * @param request - ModifyDisplayConfigRequest
+     *
+     * @returns ModifyDisplayConfigResponse
+     *
+     * @param ModifyDisplayConfigRequest $request
+     *
+     * @return ModifyDisplayConfigResponse
      */
     public function modifyDisplayConfig($request)
     {
@@ -3585,37 +4398,48 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the billing method. Currently, this operation only allows you to change the billing method from pay-as-you-go to subscription.
-     *  *
-     * @param ModifyInstanceChargeTypeRequest $request ModifyInstanceChargeTypeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Modifies the billing method. Currently, this operation only allows you to change the billing method from pay-as-you-go to subscription.
      *
-     * @return ModifyInstanceChargeTypeResponse ModifyInstanceChargeTypeResponse
+     * @param request - ModifyInstanceChargeTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyInstanceChargeTypeResponse
+     *
+     * @param ModifyInstanceChargeTypeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyInstanceChargeTypeResponse
      */
     public function modifyInstanceChargeTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
         }
-        if (!Utils::isUnset($request->autoRenew)) {
-            $query['AutoRenew'] = $request->autoRenew;
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
         }
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->instanceGroupIds)) {
-            $query['InstanceGroupIds'] = $request->instanceGroupIds;
+
+        if (null !== $request->instanceGroupIds) {
+            @$query['InstanceGroupIds'] = $request->instanceGroupIds;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $query['PeriodUnit'] = $request->periodUnit;
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyInstanceChargeType',
@@ -3633,11 +4457,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the billing method. Currently, this operation only allows you to change the billing method from pay-as-you-go to subscription.
-     *  *
-     * @param ModifyInstanceChargeTypeRequest $request ModifyInstanceChargeTypeRequest
+     * Modifies the billing method. Currently, this operation only allows you to change the billing method from pay-as-you-go to subscription.
      *
-     * @return ModifyInstanceChargeTypeResponse ModifyInstanceChargeTypeResponse
+     * @param request - ModifyInstanceChargeTypeRequest
+     *
+     * @returns ModifyInstanceChargeTypeResponse
+     *
+     * @param ModifyInstanceChargeTypeRequest $request
+     *
+     * @return ModifyInstanceChargeTypeResponse
      */
     public function modifyInstanceChargeType($request)
     {
@@ -3647,25 +4475,32 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Modifies Android Debug Bridge (ADB) key pairs.
-     *  *
-     * @param ModifyKeyPairNameRequest $request ModifyKeyPairNameRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Modifies Android Debug Bridge (ADB) key pairs.
      *
-     * @return ModifyKeyPairNameResponse ModifyKeyPairNameResponse
+     * @param request - ModifyKeyPairNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyKeyPairNameResponse
+     *
+     * @param ModifyKeyPairNameRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyKeyPairNameResponse
      */
     public function modifyKeyPairNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyPairId)) {
-            $query['KeyPairId'] = $request->keyPairId;
+        if (null !== $request->keyPairId) {
+            @$query['KeyPairId'] = $request->keyPairId;
         }
-        if (!Utils::isUnset($request->newKeyPairName)) {
-            $query['NewKeyPairName'] = $request->newKeyPairName;
+
+        if (null !== $request->newKeyPairName) {
+            @$query['NewKeyPairName'] = $request->newKeyPairName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifyKeyPairName',
@@ -3683,11 +4518,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Modifies Android Debug Bridge (ADB) key pairs.
-     *  *
-     * @param ModifyKeyPairNameRequest $request ModifyKeyPairNameRequest
+     * Modifies Android Debug Bridge (ADB) key pairs.
      *
-     * @return ModifyKeyPairNameResponse ModifyKeyPairNameResponse
+     * @param request - ModifyKeyPairNameRequest
+     *
+     * @returns ModifyKeyPairNameResponse
+     *
+     * @param ModifyKeyPairNameRequest $request
+     *
+     * @return ModifyKeyPairNameResponse
      */
     public function modifyKeyPairName($request)
     {
@@ -3697,60 +4536,78 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a policy.
-     *  *
-     * @param ModifyPolicyGroupRequest $tmpReq  ModifyPolicyGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Modifies a policy.
      *
-     * @return ModifyPolicyGroupResponse ModifyPolicyGroupResponse
+     * @param tmpReq - ModifyPolicyGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyPolicyGroupResponse
+     *
+     * @param ModifyPolicyGroupRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyPolicyGroupResponse
      */
     public function modifyPolicyGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ModifyPolicyGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->netRedirectPolicy)) {
-            $request->netRedirectPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->netRedirectPolicy, 'NetRedirectPolicy', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->netRedirectPolicy) {
+            $request->netRedirectPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->netRedirectPolicy, 'NetRedirectPolicy', 'json');
         }
-        if (!Utils::isUnset($tmpReq->watermark)) {
-            $request->watermarkShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->watermark, 'Watermark', 'json');
+
+        if (null !== $tmpReq->watermark) {
+            $request->watermarkShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->watermark, 'Watermark', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->cameraRedirect)) {
-            $body['CameraRedirect'] = $request->cameraRedirect;
+        if (null !== $request->cameraRedirect) {
+            @$body['CameraRedirect'] = $request->cameraRedirect;
         }
-        if (!Utils::isUnset($request->clipboard)) {
-            $body['Clipboard'] = $request->clipboard;
+
+        if (null !== $request->clipboard) {
+            @$body['Clipboard'] = $request->clipboard;
         }
-        if (!Utils::isUnset($request->html5FileTransfer)) {
-            $body['Html5FileTransfer'] = $request->html5FileTransfer;
+
+        if (null !== $request->html5FileTransfer) {
+            @$body['Html5FileTransfer'] = $request->html5FileTransfer;
         }
-        if (!Utils::isUnset($request->localDrive)) {
-            $body['LocalDrive'] = $request->localDrive;
+
+        if (null !== $request->localDrive) {
+            @$body['LocalDrive'] = $request->localDrive;
         }
-        if (!Utils::isUnset($request->lockResolution)) {
-            $body['LockResolution'] = $request->lockResolution;
+
+        if (null !== $request->lockResolution) {
+            @$body['LockResolution'] = $request->lockResolution;
         }
-        if (!Utils::isUnset($request->netRedirectPolicyShrink)) {
-            $body['NetRedirectPolicy'] = $request->netRedirectPolicyShrink;
+
+        if (null !== $request->netRedirectPolicyShrink) {
+            @$body['NetRedirectPolicy'] = $request->netRedirectPolicyShrink;
         }
-        if (!Utils::isUnset($request->policyGroupId)) {
-            $body['PolicyGroupId'] = $request->policyGroupId;
+
+        if (null !== $request->policyGroupId) {
+            @$body['PolicyGroupId'] = $request->policyGroupId;
         }
-        if (!Utils::isUnset($request->policyGroupName)) {
-            $body['PolicyGroupName'] = $request->policyGroupName;
+
+        if (null !== $request->policyGroupName) {
+            @$body['PolicyGroupName'] = $request->policyGroupName;
         }
-        if (!Utils::isUnset($request->resolutionHeight)) {
-            $body['ResolutionHeight'] = $request->resolutionHeight;
+
+        if (null !== $request->resolutionHeight) {
+            @$body['ResolutionHeight'] = $request->resolutionHeight;
         }
-        if (!Utils::isUnset($request->resolutionWidth)) {
-            $body['ResolutionWidth'] = $request->resolutionWidth;
+
+        if (null !== $request->resolutionWidth) {
+            @$body['ResolutionWidth'] = $request->resolutionWidth;
         }
-        if (!Utils::isUnset($request->watermarkShrink)) {
-            $body['Watermark'] = $request->watermarkShrink;
+
+        if (null !== $request->watermarkShrink) {
+            @$body['Watermark'] = $request->watermarkShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ModifyPolicyGroup',
@@ -3768,11 +4625,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a policy.
-     *  *
-     * @param ModifyPolicyGroupRequest $request ModifyPolicyGroupRequest
+     * Modifies a policy.
      *
-     * @return ModifyPolicyGroupResponse ModifyPolicyGroupResponse
+     * @param request - ModifyPolicyGroupRequest
+     *
+     * @returns ModifyPolicyGroupResponse
+     *
+     * @param ModifyPolicyGroupRequest $request
+     *
+     * @return ModifyPolicyGroupResponse
      */
     public function modifyPolicyGroup($request)
     {
@@ -3782,39 +4643,50 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 修改属性模板
-     *  *
-     * @param ModifySystemPropertyTemplateRequest $tmpReq  ModifySystemPropertyTemplateRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 修改属性模板
      *
-     * @return ModifySystemPropertyTemplateResponse ModifySystemPropertyTemplateResponse
+     * @param tmpReq - ModifySystemPropertyTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySystemPropertyTemplateResponse
+     *
+     * @param ModifySystemPropertyTemplateRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifySystemPropertyTemplateResponse
      */
     public function modifySystemPropertyTemplateWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ModifySystemPropertyTemplateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->systemPropertyInfo)) {
-            $request->systemPropertyInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->systemPropertyInfo, 'SystemPropertyInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->systemPropertyInfo) {
+            $request->systemPropertyInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->systemPropertyInfo, 'SystemPropertyInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->enableAuto)) {
-            $query['EnableAuto'] = $request->enableAuto;
+        if (null !== $request->enableAuto) {
+            @$query['EnableAuto'] = $request->enableAuto;
         }
-        if (!Utils::isUnset($request->filePath)) {
-            $query['FilePath'] = $request->filePath;
+
+        if (null !== $request->filePath) {
+            @$query['FilePath'] = $request->filePath;
         }
-        if (!Utils::isUnset($request->systemPropertyInfoShrink)) {
-            $query['SystemPropertyInfo'] = $request->systemPropertyInfoShrink;
+
+        if (null !== $request->systemPropertyInfoShrink) {
+            @$query['SystemPropertyInfo'] = $request->systemPropertyInfoShrink;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ModifySystemPropertyTemplate',
@@ -3832,11 +4704,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 修改属性模板
-     *  *
-     * @param ModifySystemPropertyTemplateRequest $request ModifySystemPropertyTemplateRequest
+     * 修改属性模板
      *
-     * @return ModifySystemPropertyTemplateResponse ModifySystemPropertyTemplateResponse
+     * @param request - ModifySystemPropertyTemplateRequest
+     *
+     * @returns ModifySystemPropertyTemplateResponse
+     *
+     * @param ModifySystemPropertyTemplateRequest $request
+     *
+     * @return ModifySystemPropertyTemplateResponse
      */
     public function modifySystemPropertyTemplate($request)
     {
@@ -3846,30 +4722,39 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Operates apps in a cloud phone, such as opening, closing, and reopening apps.
-     *  *
-     * @description This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
-     *  *
-     * @param OperateAppRequest $request OperateAppRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Operates apps in a cloud phone, such as opening, closing, and reopening apps.
      *
-     * @return OperateAppResponse OperateAppResponse
+     * @remarks
+     * This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
+     *
+     * @param request - OperateAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateAppResponse
+     *
+     * @param OperateAppRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return OperateAppResponse
      */
     public function operateAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->instanceIdList)) {
-            $query['InstanceIdList'] = $request->instanceIdList;
+
+        if (null !== $request->instanceIdList) {
+            @$query['InstanceIdList'] = $request->instanceIdList;
         }
-        if (!Utils::isUnset($request->operateType)) {
-            $query['OperateType'] = $request->operateType;
+
+        if (null !== $request->operateType) {
+            @$query['OperateType'] = $request->operateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'OperateApp',
@@ -3887,13 +4772,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Operates apps in a cloud phone, such as opening, closing, and reopening apps.
-     *  *
-     * @description This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
-     *  *
-     * @param OperateAppRequest $request OperateAppRequest
+     * Operates apps in a cloud phone, such as opening, closing, and reopening apps.
      *
-     * @return OperateAppResponse OperateAppResponse
+     * @remarks
+     * This operation runs asynchronously. To check the operation result, visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
+     *
+     * @param request - OperateAppRequest
+     *
+     * @returns OperateAppResponse
+     *
+     * @param OperateAppRequest $request
+     *
+     * @return OperateAppResponse
      */
     public function operateApp($request)
     {
@@ -3903,30 +4793,39 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Restarts one or more cloud phone instances.
-     *  *
-     * @description Before you restart a cloud phone instance, make sure it is in one of the following states: **Available, Abnormal, Backup failure, and Restoration failure**.
-     *  *
-     * @param RebootAndroidInstancesInGroupRequest $request RebootAndroidInstancesInGroupRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Restarts one or more cloud phone instances.
      *
-     * @return RebootAndroidInstancesInGroupResponse RebootAndroidInstancesInGroupResponse
+     * @remarks
+     * Before you restart a cloud phone instance, make sure it is in one of the following states: **Available, Abnormal, Backup failure, and Restoration failure**.
+     *
+     * @param request - RebootAndroidInstancesInGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RebootAndroidInstancesInGroupResponse
+     *
+     * @param RebootAndroidInstancesInGroupRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return RebootAndroidInstancesInGroupResponse
      */
     public function rebootAndroidInstancesInGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIds)) {
-            $query['AndroidInstanceIds'] = $request->androidInstanceIds;
+        if (null !== $request->androidInstanceIds) {
+            @$query['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
-        if (!Utils::isUnset($request->forceStop)) {
-            $query['ForceStop'] = $request->forceStop;
+
+        if (null !== $request->forceStop) {
+            @$query['ForceStop'] = $request->forceStop;
         }
-        if (!Utils::isUnset($request->saleMode)) {
-            $query['SaleMode'] = $request->saleMode;
+
+        if (null !== $request->saleMode) {
+            @$query['SaleMode'] = $request->saleMode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RebootAndroidInstancesInGroup',
@@ -3944,13 +4843,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Restarts one or more cloud phone instances.
-     *  *
-     * @description Before you restart a cloud phone instance, make sure it is in one of the following states: **Available, Abnormal, Backup failure, and Restoration failure**.
-     *  *
-     * @param RebootAndroidInstancesInGroupRequest $request RebootAndroidInstancesInGroupRequest
+     * Restarts one or more cloud phone instances.
      *
-     * @return RebootAndroidInstancesInGroupResponse RebootAndroidInstancesInGroupResponse
+     * @remarks
+     * Before you restart a cloud phone instance, make sure it is in one of the following states: **Available, Abnormal, Backup failure, and Restoration failure**.
+     *
+     * @param request - RebootAndroidInstancesInGroupRequest
+     *
+     * @returns RebootAndroidInstancesInGroupResponse
+     *
+     * @param RebootAndroidInstancesInGroupRequest $request
+     *
+     * @return RebootAndroidInstancesInGroupResponse
      */
     public function rebootAndroidInstancesInGroup($request)
     {
@@ -3960,39 +4864,51 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Restores backup files.
-     *  *
-     * @description Currently, this operation allows you to restore only backup files generated by cloud phones that are stored in Object Storage Service (OSS) buckets.
-     *  *
-     * @param RecoveryFileRequest $request RecoveryFileRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Restores backup files.
      *
-     * @return RecoveryFileResponse RecoveryFileResponse
+     * @remarks
+     * Currently, this operation allows you to restore only backup files generated by cloud phones that are stored in Object Storage Service (OSS) buckets.
+     *
+     * @param request - RecoveryFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RecoveryFileResponse
+     *
+     * @param RecoveryFileRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return RecoveryFileResponse
      */
     public function recoveryFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIdList)) {
-            $query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
+        if (null !== $request->androidInstanceIdList) {
+            @$query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
         }
-        if (!Utils::isUnset($request->backupAll)) {
-            $query['BackupAll'] = $request->backupAll;
+
+        if (null !== $request->backupAll) {
+            @$query['BackupAll'] = $request->backupAll;
         }
-        if (!Utils::isUnset($request->backupFileId)) {
-            $query['BackupFileId'] = $request->backupFileId;
+
+        if (null !== $request->backupFileId) {
+            @$query['BackupFileId'] = $request->backupFileId;
         }
-        if (!Utils::isUnset($request->backupFilePath)) {
-            $query['BackupFilePath'] = $request->backupFilePath;
+
+        if (null !== $request->backupFilePath) {
+            @$query['BackupFilePath'] = $request->backupFilePath;
         }
-        if (!Utils::isUnset($request->uploadEndpoint)) {
-            $query['UploadEndpoint'] = $request->uploadEndpoint;
+
+        if (null !== $request->uploadEndpoint) {
+            @$query['UploadEndpoint'] = $request->uploadEndpoint;
         }
-        if (!Utils::isUnset($request->uploadType)) {
-            $query['UploadType'] = $request->uploadType;
+
+        if (null !== $request->uploadType) {
+            @$query['UploadType'] = $request->uploadType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RecoveryFile',
@@ -4010,13 +4926,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Restores backup files.
-     *  *
-     * @description Currently, this operation allows you to restore only backup files generated by cloud phones that are stored in Object Storage Service (OSS) buckets.
-     *  *
-     * @param RecoveryFileRequest $request RecoveryFileRequest
+     * Restores backup files.
      *
-     * @return RecoveryFileResponse RecoveryFileResponse
+     * @remarks
+     * Currently, this operation allows you to restore only backup files generated by cloud phones that are stored in Object Storage Service (OSS) buckets.
+     *
+     * @param request - RecoveryFileRequest
+     *
+     * @returns RecoveryFileResponse
+     *
+     * @param RecoveryFileRequest $request
+     *
+     * @return RecoveryFileResponse
      */
     public function recoveryFile($request)
     {
@@ -4026,31 +4947,40 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Renews instance groups.
-     *  *
-     * @param RenewAndroidInstanceGroupsRequest $request RenewAndroidInstanceGroupsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Renews instance groups.
      *
-     * @return RenewAndroidInstanceGroupsResponse RenewAndroidInstanceGroupsResponse
+     * @param request - RenewAndroidInstanceGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenewAndroidInstanceGroupsResponse
+     *
+     * @param RenewAndroidInstanceGroupsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RenewAndroidInstanceGroupsResponse
      */
     public function renewAndroidInstanceGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
         }
-        if (!Utils::isUnset($request->instanceGroupIds)) {
-            $query['InstanceGroupIds'] = $request->instanceGroupIds;
+
+        if (null !== $request->instanceGroupIds) {
+            @$query['InstanceGroupIds'] = $request->instanceGroupIds;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $query['PeriodUnit'] = $request->periodUnit;
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RenewAndroidInstanceGroups',
@@ -4068,11 +4998,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Renews instance groups.
-     *  *
-     * @param RenewAndroidInstanceGroupsRequest $request RenewAndroidInstanceGroupsRequest
+     * Renews instance groups.
      *
-     * @return RenewAndroidInstanceGroupsResponse RenewAndroidInstanceGroupsResponse
+     * @param request - RenewAndroidInstanceGroupsRequest
+     *
+     * @returns RenewAndroidInstanceGroupsResponse
+     *
+     * @param RenewAndroidInstanceGroupsRequest $request
+     *
+     * @return RenewAndroidInstanceGroupsResponse
      */
     public function renewAndroidInstanceGroups($request)
     {
@@ -4082,36 +5016,46 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Renews a cloud mobile matrix.
-     *  *
-     * @param RenewCloudPhoneNodesRequest $request RenewCloudPhoneNodesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Renews a cloud mobile matrix.
      *
-     * @return RenewCloudPhoneNodesResponse RenewCloudPhoneNodesResponse
+     * @param request - RenewCloudPhoneNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenewCloudPhoneNodesResponse
+     *
+     * @param RenewCloudPhoneNodesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RenewCloudPhoneNodesResponse
      */
     public function renewCloudPhoneNodesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->autoRenew)) {
-            $body['AutoRenew'] = $request->autoRenew;
+        if (null !== $request->autoRenew) {
+            @$body['AutoRenew'] = $request->autoRenew;
         }
-        if (!Utils::isUnset($request->nodeIds)) {
-            $body['NodeIds'] = $request->nodeIds;
+
+        if (null !== $request->nodeIds) {
+            @$body['NodeIds'] = $request->nodeIds;
         }
-        if (!Utils::isUnset($request->period)) {
-            $body['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$body['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $body['PeriodUnit'] = $request->periodUnit;
+
+        if (null !== $request->periodUnit) {
+            @$body['PeriodUnit'] = $request->periodUnit;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'RenewCloudPhoneNodes',
@@ -4129,11 +5073,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Renews a cloud mobile matrix.
-     *  *
-     * @param RenewCloudPhoneNodesRequest $request RenewCloudPhoneNodesRequest
+     * Renews a cloud mobile matrix.
      *
-     * @return RenewCloudPhoneNodesResponse RenewCloudPhoneNodesResponse
+     * @param request - RenewCloudPhoneNodesRequest
+     *
+     * @returns RenewCloudPhoneNodesResponse
+     *
+     * @param RenewCloudPhoneNodesRequest $request
+     *
+     * @return RenewCloudPhoneNodesResponse
      */
     public function renewCloudPhoneNodes($request)
     {
@@ -4143,30 +5091,39 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Resets one or more cloud phone instances.
-     *  *
-     * @description Before you reset a cloud phone instance, make sure it is in one of the following states: **Available, Stopped, Abnormal, Backup failure, and Restoration failure**.
-     *  *
-     * @param ResetAndroidInstancesInGroupRequest $request ResetAndroidInstancesInGroupRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Resets one or more cloud phone instances.
      *
-     * @return ResetAndroidInstancesInGroupResponse ResetAndroidInstancesInGroupResponse
+     * @remarks
+     * Before you reset a cloud phone instance, make sure it is in one of the following states: **Available, Stopped, Abnormal, Backup failure, and Restoration failure**.
+     *
+     * @param request - ResetAndroidInstancesInGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetAndroidInstancesInGroupResponse
+     *
+     * @param ResetAndroidInstancesInGroupRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ResetAndroidInstancesInGroupResponse
      */
     public function resetAndroidInstancesInGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIds)) {
-            $query['AndroidInstanceIds'] = $request->androidInstanceIds;
+        if (null !== $request->androidInstanceIds) {
+            @$query['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
-        if (!Utils::isUnset($request->saleMode)) {
-            $query['SaleMode'] = $request->saleMode;
+
+        if (null !== $request->saleMode) {
+            @$query['SaleMode'] = $request->saleMode;
         }
-        if (!Utils::isUnset($request->settingResetType)) {
-            $query['SettingResetType'] = $request->settingResetType;
+
+        if (null !== $request->settingResetType) {
+            @$query['SettingResetType'] = $request->settingResetType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ResetAndroidInstancesInGroup',
@@ -4184,13 +5141,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Resets one or more cloud phone instances.
-     *  *
-     * @description Before you reset a cloud phone instance, make sure it is in one of the following states: **Available, Stopped, Abnormal, Backup failure, and Restoration failure**.
-     *  *
-     * @param ResetAndroidInstancesInGroupRequest $request ResetAndroidInstancesInGroupRequest
+     * Resets one or more cloud phone instances.
      *
-     * @return ResetAndroidInstancesInGroupResponse ResetAndroidInstancesInGroupResponse
+     * @remarks
+     * Before you reset a cloud phone instance, make sure it is in one of the following states: **Available, Stopped, Abnormal, Backup failure, and Restoration failure**.
+     *
+     * @param request - ResetAndroidInstancesInGroupRequest
+     *
+     * @returns ResetAndroidInstancesInGroupResponse
+     *
+     * @param ResetAndroidInstancesInGroupRequest $request
+     *
+     * @return ResetAndroidInstancesInGroupResponse
      */
     public function resetAndroidInstancesInGroup($request)
     {
@@ -4200,31 +5162,40 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Executes a command on a cloud phone instance.
-     *  *
-     * @param RunCommandRequest $request RunCommandRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Executes a command on a cloud phone instance.
      *
-     * @return RunCommandResponse RunCommandResponse
+     * @param request - RunCommandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RunCommandResponse
+     *
+     * @param RunCommandRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return RunCommandResponse
      */
     public function runCommandWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->commandContent)) {
-            $query['CommandContent'] = $request->commandContent;
+        if (null !== $request->commandContent) {
+            @$query['CommandContent'] = $request->commandContent;
         }
-        if (!Utils::isUnset($request->contentEncoding)) {
-            $query['ContentEncoding'] = $request->contentEncoding;
+
+        if (null !== $request->contentEncoding) {
+            @$query['ContentEncoding'] = $request->contentEncoding;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->timeout)) {
-            $query['Timeout'] = $request->timeout;
+
+        if (null !== $request->timeout) {
+            @$query['Timeout'] = $request->timeout;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RunCommand',
@@ -4242,11 +5213,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Executes a command on a cloud phone instance.
-     *  *
-     * @param RunCommandRequest $request RunCommandRequest
+     * Executes a command on a cloud phone instance.
      *
-     * @return RunCommandResponse RunCommandResponse
+     * @param request - RunCommandRequest
+     *
+     * @returns RunCommandResponse
+     *
+     * @param RunCommandRequest $request
+     *
+     * @return RunCommandResponse
      */
     public function runCommand($request)
     {
@@ -4256,42 +5231,55 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Pushes files from Object Storage Service (OSS) buckets to cloud phone instances.
-     *  *
-     * @description Currently, this operation allows you to only push files or folders from OSS buckets to cloud phone instances.
-     *  *
-     * @param SendFileRequest $request SendFileRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Pushes files from Object Storage Service (OSS) buckets to cloud phone instances.
      *
-     * @return SendFileResponse SendFileResponse
+     * @remarks
+     * Currently, this operation allows you to only push files or folders from OSS buckets to cloud phone instances.
+     *
+     * @param request - SendFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendFileResponse
+     *
+     * @param SendFileRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return SendFileResponse
      */
     public function sendFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIdList)) {
-            $query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
+        if (null !== $request->androidInstanceIdList) {
+            @$query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
         }
-        if (!Utils::isUnset($request->autoInstall)) {
-            $query['AutoInstall'] = $request->autoInstall;
+
+        if (null !== $request->autoInstall) {
+            @$query['AutoInstall'] = $request->autoInstall;
         }
-        if (!Utils::isUnset($request->sourceFilePath)) {
-            $query['SourceFilePath'] = $request->sourceFilePath;
+
+        if (null !== $request->sourceFilePath) {
+            @$query['SourceFilePath'] = $request->sourceFilePath;
         }
-        if (!Utils::isUnset($request->targetFileName)) {
-            $query['TargetFileName'] = $request->targetFileName;
+
+        if (null !== $request->targetFileName) {
+            @$query['TargetFileName'] = $request->targetFileName;
         }
-        if (!Utils::isUnset($request->uploadEndpoint)) {
-            $query['UploadEndpoint'] = $request->uploadEndpoint;
+
+        if (null !== $request->uploadEndpoint) {
+            @$query['UploadEndpoint'] = $request->uploadEndpoint;
         }
-        if (!Utils::isUnset($request->uploadType)) {
-            $query['UploadType'] = $request->uploadType;
+
+        if (null !== $request->uploadType) {
+            @$query['UploadType'] = $request->uploadType;
         }
-        if (!Utils::isUnset($request->uploadUrl)) {
-            $query['UploadUrl'] = $request->uploadUrl;
+
+        if (null !== $request->uploadUrl) {
+            @$query['UploadUrl'] = $request->uploadUrl;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SendFile',
@@ -4309,13 +5297,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Pushes files from Object Storage Service (OSS) buckets to cloud phone instances.
-     *  *
-     * @description Currently, this operation allows you to only push files or folders from OSS buckets to cloud phone instances.
-     *  *
-     * @param SendFileRequest $request SendFileRequest
+     * Pushes files from Object Storage Service (OSS) buckets to cloud phone instances.
      *
-     * @return SendFileResponse SendFileResponse
+     * @remarks
+     * Currently, this operation allows you to only push files or folders from OSS buckets to cloud phone instances.
+     *
+     * @param request - SendFileRequest
+     *
+     * @returns SendFileResponse
+     *
+     * @param SendFileRequest $request
+     *
+     * @return SendFileResponse
      */
     public function sendFile($request)
     {
@@ -4325,30 +5318,38 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 发送属性模板
-     *  *
-     * @param SendSystemPropertyTemplateRequest $request SendSystemPropertyTemplateRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 发送属性模板
      *
-     * @return SendSystemPropertyTemplateResponse SendSystemPropertyTemplateResponse
+     * @param request - SendSystemPropertyTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendSystemPropertyTemplateResponse
+     *
+     * @param SendSystemPropertyTemplateRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SendSystemPropertyTemplateResponse
      */
     public function sendSystemPropertyTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateIds)) {
-            $query['TemplateIds'] = $request->templateIds;
+
+        if (null !== $request->templateIds) {
+            @$query['TemplateIds'] = $request->templateIds;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->androidInstanceIds)) {
-            $body['AndroidInstanceIds'] = $request->androidInstanceIds;
+        if (null !== $request->androidInstanceIds) {
+            @$body['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'SendSystemPropertyTemplate',
@@ -4366,11 +5367,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 发送属性模板
-     *  *
-     * @param SendSystemPropertyTemplateRequest $request SendSystemPropertyTemplateRequest
+     * 发送属性模板
      *
-     * @return SendSystemPropertyTemplateResponse SendSystemPropertyTemplateResponse
+     * @param request - SendSystemPropertyTemplateRequest
+     *
+     * @returns SendSystemPropertyTemplateResponse
+     *
+     * @param SendSystemPropertyTemplateRequest $request
+     *
+     * @return SendSystemPropertyTemplateResponse
      */
     public function sendSystemPropertyTemplate($request)
     {
@@ -4380,27 +5385,35 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Sets the authentication status for cloud phone instances. If you enable Android Debug Bridge (ADB) authentication for cloud phone instances, the system will verify the validity of the ADB key pairs provided by end users when they connect to the instances over ADB. To ensure successful authentication and a proper connection, we recommend that you attach ADB key pairs to cloud phone instances. If you disable ADB authentication for cloud phone instances, the system will no longer verify the validity of any ADB key pairs. As a result, end users can connect to the cloud phone instances over ADB without authentication, provided the network connection is functioning properly.
-     *  *
-     * @description Before you call this operation, make sure that the desired cloud phone instance is in the Running state.
-     *  *
-     * @param SetAdbSecureRequest $request SetAdbSecureRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Sets the authentication status for cloud phone instances. If you enable Android Debug Bridge (ADB) authentication for cloud phone instances, the system will verify the validity of the ADB key pairs provided by end users when they connect to the instances over ADB. To ensure successful authentication and a proper connection, we recommend that you attach ADB key pairs to cloud phone instances. If you disable ADB authentication for cloud phone instances, the system will no longer verify the validity of any ADB key pairs. As a result, end users can connect to the cloud phone instances over ADB without authentication, provided the network connection is functioning properly.
      *
-     * @return SetAdbSecureResponse SetAdbSecureResponse
+     * @remarks
+     * Before you call this operation, make sure that the desired cloud phone instance is in the Running state.
+     *
+     * @param request - SetAdbSecureRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SetAdbSecureResponse
+     *
+     * @param SetAdbSecureRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SetAdbSecureResponse
      */
     public function setAdbSecureWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SetAdbSecure',
@@ -4418,13 +5431,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Sets the authentication status for cloud phone instances. If you enable Android Debug Bridge (ADB) authentication for cloud phone instances, the system will verify the validity of the ADB key pairs provided by end users when they connect to the instances over ADB. To ensure successful authentication and a proper connection, we recommend that you attach ADB key pairs to cloud phone instances. If you disable ADB authentication for cloud phone instances, the system will no longer verify the validity of any ADB key pairs. As a result, end users can connect to the cloud phone instances over ADB without authentication, provided the network connection is functioning properly.
-     *  *
-     * @description Before you call this operation, make sure that the desired cloud phone instance is in the Running state.
-     *  *
-     * @param SetAdbSecureRequest $request SetAdbSecureRequest
+     * Sets the authentication status for cloud phone instances. If you enable Android Debug Bridge (ADB) authentication for cloud phone instances, the system will verify the validity of the ADB key pairs provided by end users when they connect to the instances over ADB. To ensure successful authentication and a proper connection, we recommend that you attach ADB key pairs to cloud phone instances. If you disable ADB authentication for cloud phone instances, the system will no longer verify the validity of any ADB key pairs. As a result, end users can connect to the cloud phone instances over ADB without authentication, provided the network connection is functioning properly.
      *
-     * @return SetAdbSecureResponse SetAdbSecureResponse
+     * @remarks
+     * Before you call this operation, make sure that the desired cloud phone instance is in the Running state.
+     *
+     * @param request - SetAdbSecureRequest
+     *
+     * @returns SetAdbSecureResponse
+     *
+     * @param SetAdbSecureRequest $request
+     *
+     * @return SetAdbSecureResponse
      */
     public function setAdbSecure($request)
     {
@@ -4434,27 +5452,35 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Start instances.
-     *  *
-     * @description Only supports starting when the instance is in the **Stopped, Backup Failed, or Recovery Failed** state.
-     *  *
-     * @param StartAndroidInstanceRequest $request StartAndroidInstanceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Start instances.
      *
-     * @return StartAndroidInstanceResponse StartAndroidInstanceResponse
+     * @remarks
+     * Only supports starting when the instance is in the **Stopped, Backup Failed, or Recovery Failed** state.
+     *
+     * @param request - StartAndroidInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartAndroidInstanceResponse
+     *
+     * @param StartAndroidInstanceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return StartAndroidInstanceResponse
      */
     public function startAndroidInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIds)) {
-            $query['AndroidInstanceIds'] = $request->androidInstanceIds;
+        if (null !== $request->androidInstanceIds) {
+            @$query['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
-        if (!Utils::isUnset($request->saleMode)) {
-            $query['SaleMode'] = $request->saleMode;
+
+        if (null !== $request->saleMode) {
+            @$query['SaleMode'] = $request->saleMode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'StartAndroidInstance',
@@ -4472,13 +5498,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Start instances.
-     *  *
-     * @description Only supports starting when the instance is in the **Stopped, Backup Failed, or Recovery Failed** state.
-     *  *
-     * @param StartAndroidInstanceRequest $request StartAndroidInstanceRequest
+     * Start instances.
      *
-     * @return StartAndroidInstanceResponse StartAndroidInstanceResponse
+     * @remarks
+     * Only supports starting when the instance is in the **Stopped, Backup Failed, or Recovery Failed** state.
+     *
+     * @param request - StartAndroidInstanceRequest
+     *
+     * @returns StartAndroidInstanceResponse
+     *
+     * @param StartAndroidInstanceRequest $request
+     *
+     * @return StartAndroidInstanceResponse
      */
     public function startAndroidInstance($request)
     {
@@ -4488,30 +5519,39 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Stops a cloud phone instance.
-     *  *
-     * @description Before you stop a cloud phone instance, make sure it is in one of the following states: **Available, Backup failure, and Restoration failure**.
-     *  *
-     * @param StopAndroidInstanceRequest $request StopAndroidInstanceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Stops a cloud phone instance.
      *
-     * @return StopAndroidInstanceResponse StopAndroidInstanceResponse
+     * @remarks
+     * Before you stop a cloud phone instance, make sure it is in one of the following states: **Available, Backup failure, and Restoration failure**.
+     *
+     * @param request - StopAndroidInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopAndroidInstanceResponse
+     *
+     * @param StopAndroidInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return StopAndroidInstanceResponse
      */
     public function stopAndroidInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->androidInstanceIds)) {
-            $query['AndroidInstanceIds'] = $request->androidInstanceIds;
+        if (null !== $request->androidInstanceIds) {
+            @$query['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
-        if (!Utils::isUnset($request->forceStop)) {
-            $query['ForceStop'] = $request->forceStop;
+
+        if (null !== $request->forceStop) {
+            @$query['ForceStop'] = $request->forceStop;
         }
-        if (!Utils::isUnset($request->saleMode)) {
-            $query['SaleMode'] = $request->saleMode;
+
+        if (null !== $request->saleMode) {
+            @$query['SaleMode'] = $request->saleMode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'StopAndroidInstance',
@@ -4529,13 +5569,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Stops a cloud phone instance.
-     *  *
-     * @description Before you stop a cloud phone instance, make sure it is in one of the following states: **Available, Backup failure, and Restoration failure**.
-     *  *
-     * @param StopAndroidInstanceRequest $request StopAndroidInstanceRequest
+     * Stops a cloud phone instance.
      *
-     * @return StopAndroidInstanceResponse StopAndroidInstanceResponse
+     * @remarks
+     * Before you stop a cloud phone instance, make sure it is in one of the following states: **Available, Backup failure, and Restoration failure**.
+     *
+     * @param request - StopAndroidInstanceRequest
+     *
+     * @returns StopAndroidInstanceResponse
+     *
+     * @param StopAndroidInstanceRequest $request
+     *
+     * @return StopAndroidInstanceResponse
      */
     public function stopAndroidInstance($request)
     {
@@ -4545,30 +5590,39 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Uninstalls an app from multiple cloud phone instances.
-     *  *
-     * @description This operation runs asynchronously. To check the operation result, you can visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
-     *  *
-     * @param UninstallAppRequest $request UninstallAppRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Uninstalls an app from multiple cloud phone instances.
      *
-     * @return UninstallAppResponse UninstallAppResponse
+     * @remarks
+     * This operation runs asynchronously. To check the operation result, you can visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
+     *
+     * @param request - UninstallAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UninstallAppResponse
+     *
+     * @param UninstallAppRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UninstallAppResponse
      */
     public function uninstallAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appIdList)) {
-            $query['AppIdList'] = $request->appIdList;
+        if (null !== $request->appIdList) {
+            @$query['AppIdList'] = $request->appIdList;
         }
-        if (!Utils::isUnset($request->instanceGroupIdList)) {
-            $query['InstanceGroupIdList'] = $request->instanceGroupIdList;
+
+        if (null !== $request->instanceGroupIdList) {
+            @$query['InstanceGroupIdList'] = $request->instanceGroupIdList;
         }
-        if (!Utils::isUnset($request->instanceIdList)) {
-            $query['InstanceIdList'] = $request->instanceIdList;
+
+        if (null !== $request->instanceIdList) {
+            @$query['InstanceIdList'] = $request->instanceIdList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UninstallApp',
@@ -4586,13 +5640,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Uninstalls an app from multiple cloud phone instances.
-     *  *
-     * @description This operation runs asynchronously. To check the operation result, you can visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
-     *  *
-     * @param UninstallAppRequest $request UninstallAppRequest
+     * Uninstalls an app from multiple cloud phone instances.
      *
-     * @return UninstallAppResponse UninstallAppResponse
+     * @remarks
+     * This operation runs asynchronously. To check the operation result, you can visit the Task Center. To retrieve task details, call the [DescribeTasks](~~DescribeTasks~~) operation.
+     *
+     * @param request - UninstallAppRequest
+     *
+     * @returns UninstallAppResponse
+     *
+     * @param UninstallAppRequest $request
+     *
+     * @return UninstallAppResponse
      */
     public function uninstallApp($request)
     {
@@ -4602,25 +5661,32 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 卸载监控插件
-     *  *
-     * @param UninstallMonitorAgentRequest $request UninstallMonitorAgentRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 卸载监控插件.
      *
-     * @return UninstallMonitorAgentResponse UninstallMonitorAgentResponse
+     * @param request - UninstallMonitorAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UninstallMonitorAgentResponse
+     *
+     * @param UninstallMonitorAgentRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UninstallMonitorAgentResponse
      */
     public function uninstallMonitorAgentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->androidInstanceIds)) {
-            $body['AndroidInstanceIds'] = $request->androidInstanceIds;
+        if (null !== $request->androidInstanceIds) {
+            @$body['AndroidInstanceIds'] = $request->androidInstanceIds;
         }
-        if (!Utils::isUnset($request->saleMode)) {
-            $body['SaleMode'] = $request->saleMode;
+
+        if (null !== $request->saleMode) {
+            @$body['SaleMode'] = $request->saleMode;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UninstallMonitorAgent',
@@ -4638,11 +5704,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 卸载监控插件
-     *  *
-     * @param UninstallMonitorAgentRequest $request UninstallMonitorAgentRequest
+     * 卸载监控插件.
      *
-     * @return UninstallMonitorAgentResponse UninstallMonitorAgentResponse
+     * @param request - UninstallMonitorAgentRequest
+     *
+     * @returns UninstallMonitorAgentResponse
+     *
+     * @param UninstallMonitorAgentRequest $request
+     *
+     * @return UninstallMonitorAgentResponse
      */
     public function uninstallMonitorAgent($request)
     {
@@ -4652,25 +5722,32 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Updates the name of a custom image.
-     *  *
-     * @param UpdateCustomImageNameRequest $request UpdateCustomImageNameRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Updates the name of a custom image.
      *
-     * @return UpdateCustomImageNameResponse UpdateCustomImageNameResponse
+     * @param request - UpdateCustomImageNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCustomImageNameResponse
+     *
+     * @param UpdateCustomImageNameRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateCustomImageNameResponse
      */
     public function updateCustomImageNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->imageId)) {
-            $body['ImageId'] = $request->imageId;
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->imageName)) {
-            $body['ImageName'] = $request->imageName;
+
+        if (null !== $request->imageName) {
+            @$body['ImageName'] = $request->imageName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateCustomImageName',
@@ -4688,11 +5765,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Updates the name of a custom image.
-     *  *
-     * @param UpdateCustomImageNameRequest $request UpdateCustomImageNameRequest
+     * Updates the name of a custom image.
      *
-     * @return UpdateCustomImageNameResponse UpdateCustomImageNameResponse
+     * @param request - UpdateCustomImageNameRequest
+     *
+     * @returns UpdateCustomImageNameResponse
+     *
+     * @param UpdateCustomImageNameRequest $request
+     *
+     * @return UpdateCustomImageNameResponse
      */
     public function updateCustomImageName($request)
     {
@@ -4702,27 +5783,35 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Changes the image of an instance group.
-     *  *
-     * @description Before you call this operation, make sure the image is in the Available state and the region of the image is included in the region list of the desired instance group. In addition, the instance group itself is available.
-     *  *
-     * @param UpdateInstanceGroupImageRequest $request UpdateInstanceGroupImageRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Changes the image of an instance group.
      *
-     * @return UpdateInstanceGroupImageResponse UpdateInstanceGroupImageResponse
+     * @remarks
+     * Before you call this operation, make sure the image is in the Available state and the region of the image is included in the region list of the desired instance group. In addition, the instance group itself is available.
+     *
+     * @param request - UpdateInstanceGroupImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInstanceGroupImageResponse
+     *
+     * @param UpdateInstanceGroupImageRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateInstanceGroupImageResponse
      */
     public function updateInstanceGroupImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->imageId)) {
-            $body['ImageId'] = $request->imageId;
+        if (null !== $request->imageId) {
+            @$body['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->instanceGroupIds)) {
-            $body['InstanceGroupIds'] = $request->instanceGroupIds;
+
+        if (null !== $request->instanceGroupIds) {
+            @$body['InstanceGroupIds'] = $request->instanceGroupIds;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateInstanceGroupImage',
@@ -4740,13 +5829,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Changes the image of an instance group.
-     *  *
-     * @description Before you call this operation, make sure the image is in the Available state and the region of the image is included in the region list of the desired instance group. In addition, the instance group itself is available.
-     *  *
-     * @param UpdateInstanceGroupImageRequest $request UpdateInstanceGroupImageRequest
+     * Changes the image of an instance group.
      *
-     * @return UpdateInstanceGroupImageResponse UpdateInstanceGroupImageResponse
+     * @remarks
+     * Before you call this operation, make sure the image is in the Available state and the region of the image is included in the region list of the desired instance group. In addition, the instance group itself is available.
+     *
+     * @param request - UpdateInstanceGroupImageRequest
+     *
+     * @returns UpdateInstanceGroupImageResponse
+     *
+     * @param UpdateInstanceGroupImageRequest $request
+     *
+     * @return UpdateInstanceGroupImageResponse
      */
     public function updateInstanceGroupImage($request)
     {
@@ -4756,25 +5850,32 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 更新实例镜像
-     *  *
-     * @param UpdateInstanceImageRequest $request UpdateInstanceImageRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 更新实例镜像.
      *
-     * @return UpdateInstanceImageResponse UpdateInstanceImageResponse
+     * @param request - UpdateInstanceImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInstanceImageResponse
+     *
+     * @param UpdateInstanceImageRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateInstanceImageResponse
      */
     public function updateInstanceImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->instanceIdList)) {
-            $query['InstanceIdList'] = $request->instanceIdList;
+
+        if (null !== $request->instanceIdList) {
+            @$query['InstanceIdList'] = $request->instanceIdList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateInstanceImage',
@@ -4792,11 +5893,15 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary 更新实例镜像
-     *  *
-     * @param UpdateInstanceImageRequest $request UpdateInstanceImageRequest
+     * 更新实例镜像.
      *
-     * @return UpdateInstanceImageResponse UpdateInstanceImageResponse
+     * @param request - UpdateInstanceImageRequest
+     *
+     * @returns UpdateInstanceImageResponse
+     *
+     * @param UpdateInstanceImageRequest $request
+     *
+     * @return UpdateInstanceImageResponse
      */
     public function updateInstanceImage($request)
     {
@@ -4806,30 +5911,39 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Upgrades an instance group. Currently, this operation allows you to only increase the number of instances in an instance group.
-     *  *
-     * @description Currently, this operation allows you to only increase the size of an instance group.
-     *  *
-     * @param UpgradeAndroidInstanceGroupRequest $request UpgradeAndroidInstanceGroupRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Upgrades an instance group. Currently, this operation allows you to only increase the number of instances in an instance group.
      *
-     * @return UpgradeAndroidInstanceGroupResponse UpgradeAndroidInstanceGroupResponse
+     * @remarks
+     * Currently, this operation allows you to only increase the size of an instance group.
+     *
+     * @param request - UpgradeAndroidInstanceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeAndroidInstanceGroupResponse
+     *
+     * @param UpgradeAndroidInstanceGroupRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpgradeAndroidInstanceGroupResponse
      */
     public function upgradeAndroidInstanceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
         }
-        if (!Utils::isUnset($request->increaseNumberOfInstance)) {
-            $query['IncreaseNumberOfInstance'] = $request->increaseNumberOfInstance;
+
+        if (null !== $request->increaseNumberOfInstance) {
+            @$query['IncreaseNumberOfInstance'] = $request->increaseNumberOfInstance;
         }
-        if (!Utils::isUnset($request->instanceGroupId)) {
-            $query['InstanceGroupId'] = $request->instanceGroupId;
+
+        if (null !== $request->instanceGroupId) {
+            @$query['InstanceGroupId'] = $request->instanceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpgradeAndroidInstanceGroup',
@@ -4847,13 +5961,18 @@ class Edsaic extends OpenApiClient
     }
 
     /**
-     * @summary Upgrades an instance group. Currently, this operation allows you to only increase the number of instances in an instance group.
-     *  *
-     * @description Currently, this operation allows you to only increase the size of an instance group.
-     *  *
-     * @param UpgradeAndroidInstanceGroupRequest $request UpgradeAndroidInstanceGroupRequest
+     * Upgrades an instance group. Currently, this operation allows you to only increase the number of instances in an instance group.
      *
-     * @return UpgradeAndroidInstanceGroupResponse UpgradeAndroidInstanceGroupResponse
+     * @remarks
+     * Currently, this operation allows you to only increase the size of an instance group.
+     *
+     * @param request - UpgradeAndroidInstanceGroupRequest
+     *
+     * @returns UpgradeAndroidInstanceGroupResponse
+     *
+     * @param UpgradeAndroidInstanceGroupRequest $request
+     *
+     * @return UpgradeAndroidInstanceGroupResponse
      */
     public function upgradeAndroidInstanceGroup($request)
     {

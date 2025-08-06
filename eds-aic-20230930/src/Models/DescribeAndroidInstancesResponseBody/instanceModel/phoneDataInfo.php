@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class phoneDataInfo extends Model
 {
@@ -22,14 +22,18 @@ class phoneDataInfo extends Model
         'phoneDataVolume' => 'PhoneDataVolume',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->phoneDataId) {
             $res['PhoneDataId'] = $this->phoneDataId;
         }
+
         if (null !== $this->phoneDataVolume) {
             $res['PhoneDataVolume'] = $this->phoneDataVolume;
         }
@@ -37,17 +41,18 @@ class phoneDataInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return phoneDataInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PhoneDataId'])) {
             $model->phoneDataId = $map['PhoneDataId'];
         }
+
         if (isset($map['PhoneDataVolume'])) {
             $model->phoneDataVolume = $map['PhoneDataVolume'];
         }

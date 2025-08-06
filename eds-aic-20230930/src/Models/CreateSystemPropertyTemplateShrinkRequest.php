@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSystemPropertyTemplateShrinkRequest extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enableAuto;
 
     /**
-     * @example https://filepath****.com
-     *
      * @var string
      */
     public $filePath;
@@ -38,20 +34,26 @@ class CreateSystemPropertyTemplateShrinkRequest extends Model
         'templateName' => 'TemplateName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableAuto) {
             $res['EnableAuto'] = $this->enableAuto;
         }
+
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
         }
+
         if (null !== $this->systemPropertyInfoShrink) {
             $res['SystemPropertyInfo'] = $this->systemPropertyInfoShrink;
         }
+
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
@@ -59,23 +61,26 @@ class CreateSystemPropertyTemplateShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSystemPropertyTemplateShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableAuto'])) {
             $model->enableAuto = $map['EnableAuto'];
         }
+
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];
         }
+
         if (isset($map['SystemPropertyInfo'])) {
             $model->systemPropertyInfoShrink = $map['SystemPropertyInfo'];
         }
+
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }

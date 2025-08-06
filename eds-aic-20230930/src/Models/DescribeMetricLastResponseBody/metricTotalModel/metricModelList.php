@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMetricLastResponseBody\metricTotalModel;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMetricLastResponseBody\metricTotalModel\metricModelList\dataPoints;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeMetricLastResponseBody\metricTotalModel\metricModelList\processLastInfos;
-use AlibabaCloud\Tea\Model;
 
 class metricModelList extends Model
 {
@@ -16,8 +16,6 @@ class metricModelList extends Model
     public $dataPoints;
 
     /**
-     * @example cpu_utilization
-     *
      * @var string
      */
     public $metricName;
@@ -32,29 +30,42 @@ class metricModelList extends Model
         'processLastInfos' => 'ProcessLastInfos',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dataPoints)) {
+            Model::validateArray($this->dataPoints);
+        }
+        if (\is_array($this->processLastInfos)) {
+            Model::validateArray($this->processLastInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataPoints) {
-            $res['DataPoints'] = [];
-            if (null !== $this->dataPoints && \is_array($this->dataPoints)) {
-                $n = 0;
-                foreach ($this->dataPoints as $item) {
-                    $res['DataPoints'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataPoints)) {
+                $res['DataPoints'] = [];
+                $n1 = 0;
+                foreach ($this->dataPoints as $item1) {
+                    $res['DataPoints'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
+
         if (null !== $this->processLastInfos) {
-            $res['ProcessLastInfos'] = [];
-            if (null !== $this->processLastInfos && \is_array($this->processLastInfos)) {
-                $n = 0;
-                foreach ($this->processLastInfos as $item) {
-                    $res['ProcessLastInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->processLastInfos)) {
+                $res['ProcessLastInfos'] = [];
+                $n1 = 0;
+                foreach ($this->processLastInfos as $item1) {
+                    $res['ProcessLastInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -62,32 +73,36 @@ class metricModelList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metricModelList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataPoints'])) {
             if (!empty($map['DataPoints'])) {
                 $model->dataPoints = [];
-                $n = 0;
-                foreach ($map['DataPoints'] as $item) {
-                    $model->dataPoints[$n++] = null !== $item ? dataPoints::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DataPoints'] as $item1) {
+                    $model->dataPoints[$n1] = dataPoints::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
+
         if (isset($map['ProcessLastInfos'])) {
             if (!empty($map['ProcessLastInfos'])) {
                 $model->processLastInfos = [];
-                $n = 0;
-                foreach ($map['ProcessLastInfos'] as $item) {
-                    $model->processLastInfos[$n++] = null !== $item ? processLastInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ProcessLastInfos'] as $item1) {
+                    $model->processLastInfos[$n1] = processLastInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

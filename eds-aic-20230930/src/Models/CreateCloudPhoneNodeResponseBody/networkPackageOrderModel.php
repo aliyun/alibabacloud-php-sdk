@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateCloudPhoneNodeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class networkPackageOrderModel extends Model
 {
@@ -22,14 +22,18 @@ class networkPackageOrderModel extends Model
         'bandwidthPackageOrderId' => 'BandwidthPackageOrderId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bandwidthPackageId) {
             $res['BandwidthPackageId'] = $this->bandwidthPackageId;
         }
+
         if (null !== $this->bandwidthPackageOrderId) {
             $res['BandwidthPackageOrderId'] = $this->bandwidthPackageOrderId;
         }
@@ -37,17 +41,18 @@ class networkPackageOrderModel extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkPackageOrderModel
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BandwidthPackageId'])) {
             $model->bandwidthPackageId = $map['BandwidthPackageId'];
         }
+
         if (isset($map['BandwidthPackageOrderId'])) {
             $model->bandwidthPackageOrderId = $map['BandwidthPackageOrderId'];
         }

@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifySystemPropertyTemplateRequest\systemPropertyInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class customPropertyInfos extends Model
 {
     /**
-     * @example propKey
-     *
      * @var string
      */
     public $propertyName;
 
     /**
-     * @example propValue
-     *
      * @var string
      */
     public $propertyValue;
@@ -26,14 +22,18 @@ class customPropertyInfos extends Model
         'propertyValue' => 'PropertyValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->propertyName) {
             $res['PropertyName'] = $this->propertyName;
         }
+
         if (null !== $this->propertyValue) {
             $res['PropertyValue'] = $this->propertyValue;
         }
@@ -41,17 +41,18 @@ class customPropertyInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customPropertyInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PropertyName'])) {
             $model->propertyName = $map['PropertyName'];
         }
+
         if (isset($map['PropertyValue'])) {
             $model->propertyValue = $map['PropertyValue'];
         }

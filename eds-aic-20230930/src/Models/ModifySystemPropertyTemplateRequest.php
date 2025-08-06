@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifySystemPropertyTemplateRequest\systemPropertyInfo;
-use AlibabaCloud\Tea\Model;
 
 class ModifySystemPropertyTemplateRequest extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enableAuto;
 
     /**
-     * @example https://filepath****.com
-     *
      * @var string
      */
     public $filePath;
@@ -29,8 +25,6 @@ class ModifySystemPropertyTemplateRequest extends Model
     public $systemPropertyInfo;
 
     /**
-     * @example ap-angyvganxlf****
-     *
      * @var string
      */
     public $templateId;
@@ -47,23 +41,33 @@ class ModifySystemPropertyTemplateRequest extends Model
         'templateName' => 'TemplateName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->systemPropertyInfo) {
+            $this->systemPropertyInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableAuto) {
             $res['EnableAuto'] = $this->enableAuto;
         }
+
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
         }
+
         if (null !== $this->systemPropertyInfo) {
-            $res['SystemPropertyInfo'] = null !== $this->systemPropertyInfo ? $this->systemPropertyInfo->toMap() : null;
+            $res['SystemPropertyInfo'] = null !== $this->systemPropertyInfo ? $this->systemPropertyInfo->toArray($noStream) : $this->systemPropertyInfo;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
@@ -71,26 +75,30 @@ class ModifySystemPropertyTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifySystemPropertyTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableAuto'])) {
             $model->enableAuto = $map['EnableAuto'];
         }
+
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];
         }
+
         if (isset($map['SystemPropertyInfo'])) {
             $model->systemPropertyInfo = systemPropertyInfo::fromMap($map['SystemPropertyInfo']);
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
+
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }
