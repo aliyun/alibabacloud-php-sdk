@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitParentsResponseBody\parents;
-use AlibabaCloud\Tea\Model;
 
 class ListOrganizationalUnitParentsResponseBody extends Model
 {
     /**
-     * @description The parent organizations.
-     *
      * @var parents[]
      */
     public $parents;
 
     /**
-     * @description The request ID.
-     *
-     * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class ListOrganizationalUnitParentsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->parents)) {
+            Model::validateArray($this->parents);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parents) {
-            $res['Parents'] = [];
-            if (null !== $this->parents && \is_array($this->parents)) {
-                $n = 0;
-                foreach ($this->parents as $item) {
-                    $res['Parents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->parents)) {
+                $res['Parents'] = [];
+                $n1 = 0;
+                foreach ($this->parents as $item1) {
+                    $res['Parents'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class ListOrganizationalUnitParentsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListOrganizationalUnitParentsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Parents'])) {
             if (!empty($map['Parents'])) {
                 $model->parents = [];
-                $n = 0;
-                foreach ($map['Parents'] as $item) {
-                    $model->parents[$n++] = null !== $item ? parents::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Parents'] as $item1) {
+                    $model->parents[$n1] = parents::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

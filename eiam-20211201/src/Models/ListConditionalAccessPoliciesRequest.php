@@ -4,44 +4,26 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListConditionalAccessPoliciesRequest extends Model
 {
     /**
-     * @description Instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description Number of items per page in a paginated query.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description Token for the next page query.
-     *
-     * @example NTxxxxxexample
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description Token for the previous page query.
-     *
-     * @example PTxxxxxexample
-     *
      * @var string
      */
     public $previousToken;
@@ -52,20 +34,26 @@ class ListConditionalAccessPoliciesRequest extends Model
         'previousToken' => 'PreviousToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->previousToken) {
             $res['PreviousToken'] = $this->previousToken;
         }
@@ -73,23 +61,26 @@ class ListConditionalAccessPoliciesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListConditionalAccessPoliciesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['PreviousToken'])) {
             $model->previousToken = $map['PreviousToken'];
         }

@@ -4,39 +4,21 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetUserPrimaryOrganizationalUnitRequest extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the new primary organizational unit.
-     *
-     * This parameter is required.
-     *
-     * @example ou_wovwffm62xifdziem7an7xxxxx
-     *
      * @var string
      */
     public $organizationalUnitId;
 
     /**
-     * @description The ID of the account.
-     *
-     * This parameter is required.
-     *
-     * @example user_d6sbsuumeta4h66ec3il7yxxxx
-     *
      * @var string
      */
     public $userId;
@@ -46,17 +28,22 @@ class SetUserPrimaryOrganizationalUnitRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->organizationalUnitId) {
             $res['OrganizationalUnitId'] = $this->organizationalUnitId;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -64,20 +51,22 @@ class SetUserPrimaryOrganizationalUnitRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetUserPrimaryOrganizationalUnitRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['OrganizationalUnitId'])) {
             $model->organizationalUnitId = $map['OrganizationalUnitId'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

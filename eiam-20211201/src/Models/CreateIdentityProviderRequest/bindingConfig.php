@@ -4,39 +4,22 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\bindingConfig\autoMatchUserProfileExpressions;
-use AlibabaCloud\Tea\Model;
 
 class bindingConfig extends Model
 {
     /**
-     * @description List of rules for automatically matching accounts.
-     *
      * @var autoMatchUserProfileExpressions[]
      */
     public $autoMatchUserProfileExpressions;
 
     /**
-     * @description Whether automatic account matching is enabled. Value range:
-     *
-     * - Disabled: disabled
-     *
-     * - Enabled: enabled
-     *
-     * @example disabled
-     *
      * @var string
      */
     public $autoMatchUserStatus;
 
     /**
-     * @description Whether the user manual account binding function is enabled. Value range:
-     * - Disabled: disabled
-     *
-     * - Enabled: enabled
-     *
-     * @example enabled
-     *
      * @var string
      */
     public $mappingBindingStatus;
@@ -46,23 +29,32 @@ class bindingConfig extends Model
         'mappingBindingStatus' => 'MappingBindingStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->autoMatchUserProfileExpressions)) {
+            Model::validateArray($this->autoMatchUserProfileExpressions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoMatchUserProfileExpressions) {
-            $res['AutoMatchUserProfileExpressions'] = [];
-            if (null !== $this->autoMatchUserProfileExpressions && \is_array($this->autoMatchUserProfileExpressions)) {
-                $n = 0;
-                foreach ($this->autoMatchUserProfileExpressions as $item) {
-                    $res['AutoMatchUserProfileExpressions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->autoMatchUserProfileExpressions)) {
+                $res['AutoMatchUserProfileExpressions'] = [];
+                $n1 = 0;
+                foreach ($this->autoMatchUserProfileExpressions as $item1) {
+                    $res['AutoMatchUserProfileExpressions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->autoMatchUserStatus) {
             $res['AutoMatchUserStatus'] = $this->autoMatchUserStatus;
         }
+
         if (null !== $this->mappingBindingStatus) {
             $res['MappingBindingStatus'] = $this->mappingBindingStatus;
         }
@@ -70,26 +62,29 @@ class bindingConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bindingConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoMatchUserProfileExpressions'])) {
             if (!empty($map['AutoMatchUserProfileExpressions'])) {
                 $model->autoMatchUserProfileExpressions = [];
-                $n = 0;
-                foreach ($map['AutoMatchUserProfileExpressions'] as $item) {
-                    $model->autoMatchUserProfileExpressions[$n++] = null !== $item ? autoMatchUserProfileExpressions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AutoMatchUserProfileExpressions'] as $item1) {
+                    $model->autoMatchUserProfileExpressions[$n1] = autoMatchUserProfileExpressions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['AutoMatchUserStatus'])) {
             $model->autoMatchUserStatus = $map['AutoMatchUserStatus'];
         }
+
         if (isset($map['MappingBindingStatus'])) {
             $model->mappingBindingStatus = $map['MappingBindingStatus'];
         }

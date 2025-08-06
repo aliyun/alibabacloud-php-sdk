@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitParentsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class parents extends Model
 {
     /**
-     * @description The organization ID.
-     *
-     * @example ou_4lag76zc2km5ssg5vsmm2xxxx
-     *
      * @var string
      */
     public $organizationalUnitId;
 
     /**
-     * @description The parent organization ID.
-     *
-     * @example ou_x3beoyepv2ls5iwuge3xhjxxxx
-     *
      * @var string
      */
     public $parentId;
@@ -30,14 +22,18 @@ class parents extends Model
         'parentId' => 'ParentId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->organizationalUnitId) {
             $res['OrganizationalUnitId'] = $this->organizationalUnitId;
         }
+
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
         }
@@ -45,17 +41,18 @@ class parents extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return parents
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrganizationalUnitId'])) {
             $model->organizationalUnitId = $map['OrganizationalUnitId'];
         }
+
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
         }

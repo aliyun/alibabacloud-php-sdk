@@ -4,53 +4,31 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetForgetPasswordConfigurationResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class openForgetPasswordConfiguration extends Model
 {
     /**
-     * @description The authentication channels. Valid values:
-     * email
-     * sms
-     * totp
-     * web_authn
-     *
      * @var string[]
      */
     public $authenticationChannels;
 
     /**
-     * @description Indicates whether the forgot password feature is enabled.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @description Indicates whether email authentication is enabled for the forgot password feature.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableEmail;
 
     /**
-     * @description Indicates whether Short Message Service (SMS) authentication is enabled for the forgot password feature.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableSms;
 
     /**
-     * @description The status of the forgot password feature. Valid values: enabled and disabled.
-     *
-     * @example enabled
-     *
      * @var string
      */
     public $forgetPasswordStatus;
@@ -62,23 +40,40 @@ class openForgetPasswordConfiguration extends Model
         'forgetPasswordStatus' => 'ForgetPasswordStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->authenticationChannels)) {
+            Model::validateArray($this->authenticationChannels);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authenticationChannels) {
-            $res['AuthenticationChannels'] = $this->authenticationChannels;
+            if (\is_array($this->authenticationChannels)) {
+                $res['AuthenticationChannels'] = [];
+                $n1 = 0;
+                foreach ($this->authenticationChannels as $item1) {
+                    $res['AuthenticationChannels'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
+
         if (null !== $this->enableEmail) {
             $res['EnableEmail'] = $this->enableEmail;
         }
+
         if (null !== $this->enableSms) {
             $res['EnableSms'] = $this->enableSms;
         }
+
         if (null !== $this->forgetPasswordStatus) {
             $res['ForgetPasswordStatus'] = $this->forgetPasswordStatus;
         }
@@ -86,28 +81,37 @@ class openForgetPasswordConfiguration extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return openForgetPasswordConfiguration
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthenticationChannels'])) {
             if (!empty($map['AuthenticationChannels'])) {
-                $model->authenticationChannels = $map['AuthenticationChannels'];
+                $model->authenticationChannels = [];
+                $n1 = 0;
+                foreach ($map['AuthenticationChannels'] as $item1) {
+                    $model->authenticationChannels[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
+
         if (isset($map['EnableEmail'])) {
             $model->enableEmail = $map['EnableEmail'];
         }
+
         if (isset($map['EnableSms'])) {
             $model->enableSms = $map['EnableSms'];
         }
+
         if (isset($map['ForgetPasswordStatus'])) {
             $model->forgetPasswordStatus = $map['ForgetPasswordStatus'];
         }

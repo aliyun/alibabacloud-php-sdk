@@ -4,36 +4,21 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceResponseBody\instance;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domainConfig extends Model
 {
     /**
-     * @description The default domain of the instance.
-     *
-     * @example example-xxx.example.com
-     *
      * @var string
      */
     public $defaultDomain;
 
     /**
-     * @description The init domain of the instance.
-     *
-     * @example example-xxx.aliyunidaas.com
-     *
      * @var string
      */
     public $initDomain;
 
     /**
-     * @description Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var string
      */
     public $initDomainAutoRedirectStatus;
@@ -43,17 +28,22 @@ class domainConfig extends Model
         'initDomainAutoRedirectStatus' => 'InitDomainAutoRedirectStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defaultDomain) {
             $res['DefaultDomain'] = $this->defaultDomain;
         }
+
         if (null !== $this->initDomain) {
             $res['InitDomain'] = $this->initDomain;
         }
+
         if (null !== $this->initDomainAutoRedirectStatus) {
             $res['InitDomainAutoRedirectStatus'] = $this->initDomainAutoRedirectStatus;
         }
@@ -61,20 +51,22 @@ class domainConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefaultDomain'])) {
             $model->defaultDomain = $map['DefaultDomain'];
         }
+
         if (isset($map['InitDomain'])) {
             $model->initDomain = $map['InitDomain'];
         }
+
         if (isset($map['InitDomainAutoRedirectStatus'])) {
             $model->initDomainAutoRedirectStatus = $map['InitDomainAutoRedirectStatus'];
         }

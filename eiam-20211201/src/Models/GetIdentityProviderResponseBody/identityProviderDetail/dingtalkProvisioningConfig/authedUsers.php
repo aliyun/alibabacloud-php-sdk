@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponseBody\identityProviderDetail\dingtalkProvisioningConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class authedUsers extends Model
 {
     /**
-     * @description DingTalk user name.
-     *
-     * @example zhangsan
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description DingTalk user id.
-     *
-     * @example 13030833392920xxx
-     *
      * @var string
      */
     public $userId;
@@ -30,14 +22,18 @@ class authedUsers extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -45,17 +41,18 @@ class authedUsers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return authedUsers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

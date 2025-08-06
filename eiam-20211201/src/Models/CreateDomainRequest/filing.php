@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\CreateDomainRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filing extends Model
 {
     /**
-     * @description Record number associated with the domain name.
-     *
-     * @example 浙xx-xxxxxx
-     *
      * @var string
      */
     public $icpNumber;
@@ -20,9 +16,12 @@ class filing extends Model
         'icpNumber' => 'IcpNumber',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->icpNumber) {
@@ -32,11 +31,11 @@ class filing extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filing
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

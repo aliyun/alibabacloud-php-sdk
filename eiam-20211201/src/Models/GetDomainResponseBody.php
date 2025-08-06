@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetDomainResponseBody\domain;
-use AlibabaCloud\Tea\Model;
 
 class GetDomainResponseBody extends Model
 {
     /**
-     * @description The domain name.
-     *
      * @var domain
      */
     public $domain;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetDomainResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->domain) {
+            $this->domain->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
-            $res['Domain'] = null !== $this->domain ? $this->domain->toMap() : null;
+            $res['Domain'] = null !== $this->domain ? $this->domain->toArray($noStream) : $this->domain;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetDomainResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDomainResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = domain::fromMap($map['Domain']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

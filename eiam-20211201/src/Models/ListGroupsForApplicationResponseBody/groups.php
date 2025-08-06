@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForApplicationResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class groups extends Model
 {
     /**
-     * @description The group ID.
-     *
-     * @example group_miu8e4t4d7i4u7uwezgr54xxxx
-     *
      * @var string
      */
     public $groupId;
@@ -20,9 +16,12 @@ class groups extends Model
         'groupId' => 'GroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
@@ -32,11 +31,11 @@ class groups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return groups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

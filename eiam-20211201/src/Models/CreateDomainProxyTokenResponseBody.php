@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDomainProxyTokenResponseBody extends Model
 {
     /**
-     * @description The ID of the proxy token of the domain name.
-     *
-     * @example pt_mtohn73423stghoivjmi4jwxxx
-     *
      * @var string
      */
     public $domainProxyTokenId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class CreateDomainProxyTokenResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainProxyTokenId) {
             $res['DomainProxyTokenId'] = $this->domainProxyTokenId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class CreateDomainProxyTokenResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDomainProxyTokenResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainProxyTokenId'])) {
             $model->domainProxyTokenId = $map['DomainProxyTokenId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

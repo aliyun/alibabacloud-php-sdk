@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponseBody\identityProviderDetail\oidcConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class endpointConfig extends Model
 {
     /**
-     * @description OAuth2 authorization endpoint.
-     *
-     * @example https://example.com/oauth/authorize
-     *
      * @var string
      */
     public $authorizationEndpoint;
 
     /**
-     * @description The CA that issued the certificate.
-     *
-     * @example https://example.com/oauth
-     *
      * @var string
      */
     public $issuer;
 
     /**
-     * @description Jwks uri.
-     *
-     * @example https://example.com/oauth/jwks
-     *
      * @var string
      */
     public $jwksUri;
 
     /**
-     * @description Token endpoint.
-     *
-     * @example https://example.com/oauth/token
-     *
      * @var string
      */
     public $tokenEndpoint;
 
     /**
-     * @description OIDC user info endpoint.
-     *
-     * @example https://example.com/oauth/userinfo
-     *
      * @var string
      */
     public $userinfoEndpoint;
@@ -60,23 +40,30 @@ class endpointConfig extends Model
         'userinfoEndpoint' => 'UserinfoEndpoint',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authorizationEndpoint) {
             $res['AuthorizationEndpoint'] = $this->authorizationEndpoint;
         }
+
         if (null !== $this->issuer) {
             $res['Issuer'] = $this->issuer;
         }
+
         if (null !== $this->jwksUri) {
             $res['JwksUri'] = $this->jwksUri;
         }
+
         if (null !== $this->tokenEndpoint) {
             $res['TokenEndpoint'] = $this->tokenEndpoint;
         }
+
         if (null !== $this->userinfoEndpoint) {
             $res['UserinfoEndpoint'] = $this->userinfoEndpoint;
         }
@@ -84,26 +71,30 @@ class endpointConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return endpointConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthorizationEndpoint'])) {
             $model->authorizationEndpoint = $map['AuthorizationEndpoint'];
         }
+
         if (isset($map['Issuer'])) {
             $model->issuer = $map['Issuer'];
         }
+
         if (isset($map['JwksUri'])) {
             $model->jwksUri = $map['JwksUri'];
         }
+
         if (isset($map['TokenEndpoint'])) {
             $model->tokenEndpoint = $map['TokenEndpoint'];
         }
+
         if (isset($map['UserinfoEndpoint'])) {
             $model->userinfoEndpoint = $map['UserinfoEndpoint'];
         }

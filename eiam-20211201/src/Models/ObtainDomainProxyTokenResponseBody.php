@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainDomainProxyTokenResponseBody\domainProxyToken;
-use AlibabaCloud\Tea\Model;
 
 class ObtainDomainProxyTokenResponseBody extends Model
 {
     /**
-     * @description The information about the proxy token.
-     *
      * @var domainProxyToken
      */
     public $domainProxyToken;
 
     /**
-     * @description The request ID.
-     *
-     * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class ObtainDomainProxyTokenResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->domainProxyToken) {
+            $this->domainProxyToken->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainProxyToken) {
-            $res['DomainProxyToken'] = null !== $this->domainProxyToken ? $this->domainProxyToken->toMap() : null;
+            $res['DomainProxyToken'] = null !== $this->domainProxyToken ? $this->domainProxyToken->toArray($noStream) : $this->domainProxyToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class ObtainDomainProxyTokenResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ObtainDomainProxyTokenResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainProxyToken'])) {
             $model->domainProxyToken = domainProxyToken::fromMap($map['DomainProxyToken']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

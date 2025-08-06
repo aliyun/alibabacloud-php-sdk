@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetSynchronizationJobResponseBody\synchronizationJob\result\userStatistics;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deleted extends Model
 {
     /**
-     * @description The number of failed items.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $failed;
 
     /**
-     * @description The number of skipped items.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $skipped;
 
     /**
-     * @description The number of successful items.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $success;
 
     /**
-     * @description The total number of items.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $total;
@@ -50,20 +34,26 @@ class deleted extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failed) {
             $res['Failed'] = $this->failed;
         }
+
         if (null !== $this->skipped) {
             $res['Skipped'] = $this->skipped;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -71,23 +61,26 @@ class deleted extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deleted
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Failed'])) {
             $model->failed = $map['Failed'];
         }
+
         if (isset($map['Skipped'])) {
             $model->skipped = $map['Skipped'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

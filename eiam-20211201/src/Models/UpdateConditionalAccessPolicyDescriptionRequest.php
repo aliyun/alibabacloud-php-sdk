@@ -4,48 +4,26 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateConditionalAccessPolicyDescriptionRequest extends Model
 {
     /**
-     * @description Idp client token.
-     *
-     * @example client-examplexxx
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description Conditional Access Policy ID
-     *
-     * This parameter is required.
-     *
-     * @example cap_11111
-     *
      * @var string
      */
     public $conditionalAccessPolicyId;
 
     /**
-     * @description Description of the conditional access policy
-     *
-     * This parameter is required.
-     *
-     * @example Test Description
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description Instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
-     *
      * @var string
      */
     public $instanceId;
@@ -56,20 +34,26 @@ class UpdateConditionalAccessPolicyDescriptionRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->conditionalAccessPolicyId) {
             $res['ConditionalAccessPolicyId'] = $this->conditionalAccessPolicyId;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -77,23 +61,26 @@ class UpdateConditionalAccessPolicyDescriptionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateConditionalAccessPolicyDescriptionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['ConditionalAccessPolicyId'])) {
             $model->conditionalAccessPolicyId = $map['ConditionalAccessPolicyId'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

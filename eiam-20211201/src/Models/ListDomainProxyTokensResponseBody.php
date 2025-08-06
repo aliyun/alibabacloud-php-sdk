@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListDomainProxyTokensResponseBody\domainProxyTokens;
-use AlibabaCloud\Tea\Model;
 
 class ListDomainProxyTokensResponseBody extends Model
 {
     /**
-     * @description The proxy tokens of the domain name.
-     *
      * @var domainProxyTokens[]
      */
     public $domainProxyTokens;
 
     /**
-     * @description The request ID.
-     *
-     * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class ListDomainProxyTokensResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->domainProxyTokens)) {
+            Model::validateArray($this->domainProxyTokens);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainProxyTokens) {
-            $res['DomainProxyTokens'] = [];
-            if (null !== $this->domainProxyTokens && \is_array($this->domainProxyTokens)) {
-                $n = 0;
-                foreach ($this->domainProxyTokens as $item) {
-                    $res['DomainProxyTokens'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domainProxyTokens)) {
+                $res['DomainProxyTokens'] = [];
+                $n1 = 0;
+                foreach ($this->domainProxyTokens as $item1) {
+                    $res['DomainProxyTokens'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class ListDomainProxyTokensResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDomainProxyTokensResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainProxyTokens'])) {
             if (!empty($map['DomainProxyTokens'])) {
                 $model->domainProxyTokens = [];
-                $n = 0;
-                foreach ($map['DomainProxyTokens'] as $item) {
-                    $model->domainProxyTokens[$n++] = null !== $item ? domainProxyTokens::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DomainProxyTokens'] as $item1) {
+                    $model->domainProxyTokens[$n1] = domainProxyTokens::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

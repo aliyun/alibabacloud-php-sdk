@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetSynchronizationJobResponseBody\synchronizationJob;
-use AlibabaCloud\Tea\Model;
 
 class GetSynchronizationJobResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information about the synchronization job.
-     *
      * @var synchronizationJob
      */
     public $synchronizationJob;
@@ -29,32 +23,40 @@ class GetSynchronizationJobResponseBody extends Model
         'synchronizationJob' => 'SynchronizationJob',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->synchronizationJob) {
+            $this->synchronizationJob->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->synchronizationJob) {
-            $res['SynchronizationJob'] = null !== $this->synchronizationJob ? $this->synchronizationJob->toMap() : null;
+            $res['SynchronizationJob'] = null !== $this->synchronizationJob ? $this->synchronizationJob->toArray($noStream) : $this->synchronizationJob;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSynchronizationJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SynchronizationJob'])) {
             $model->synchronizationJob = synchronizationJob::fromMap($map['SynchronizationJob']);
         }

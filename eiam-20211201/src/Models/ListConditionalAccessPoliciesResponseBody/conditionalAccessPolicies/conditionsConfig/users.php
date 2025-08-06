@@ -4,48 +4,36 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesResponseBody\conditionalAccessPolicies\conditionsConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class users extends Model
 {
     /**
-     * @description Excluded user groups
-     *
      * @var string[]
      */
     public $excludeGroups;
 
     /**
-     * @description Excluded organizations
-     *
      * @var string[]
      */
     public $excludeOrganizationalUnits;
 
     /**
-     * @description Excluded users
-     *
      * @var string[]
      */
     public $excludeUsers;
 
     /**
-     * @description Included user groups
-     *
      * @var string[]
      */
     public $includeGroups;
 
     /**
-     * @description Included organizations
-     *
      * @var string[]
      */
     public $includeOrganizationalUnits;
 
     /**
-     * @description Selected users
-     *
      * @var string[]
      */
     public $includeUsers;
@@ -58,69 +46,172 @@ class users extends Model
         'includeUsers' => 'IncludeUsers',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->excludeGroups)) {
+            Model::validateArray($this->excludeGroups);
+        }
+        if (\is_array($this->excludeOrganizationalUnits)) {
+            Model::validateArray($this->excludeOrganizationalUnits);
+        }
+        if (\is_array($this->excludeUsers)) {
+            Model::validateArray($this->excludeUsers);
+        }
+        if (\is_array($this->includeGroups)) {
+            Model::validateArray($this->includeGroups);
+        }
+        if (\is_array($this->includeOrganizationalUnits)) {
+            Model::validateArray($this->includeOrganizationalUnits);
+        }
+        if (\is_array($this->includeUsers)) {
+            Model::validateArray($this->includeUsers);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->excludeGroups) {
-            $res['ExcludeGroups'] = $this->excludeGroups;
+            if (\is_array($this->excludeGroups)) {
+                $res['ExcludeGroups'] = [];
+                $n1 = 0;
+                foreach ($this->excludeGroups as $item1) {
+                    $res['ExcludeGroups'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->excludeOrganizationalUnits) {
-            $res['ExcludeOrganizationalUnits'] = $this->excludeOrganizationalUnits;
+            if (\is_array($this->excludeOrganizationalUnits)) {
+                $res['ExcludeOrganizationalUnits'] = [];
+                $n1 = 0;
+                foreach ($this->excludeOrganizationalUnits as $item1) {
+                    $res['ExcludeOrganizationalUnits'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->excludeUsers) {
-            $res['ExcludeUsers'] = $this->excludeUsers;
+            if (\is_array($this->excludeUsers)) {
+                $res['ExcludeUsers'] = [];
+                $n1 = 0;
+                foreach ($this->excludeUsers as $item1) {
+                    $res['ExcludeUsers'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->includeGroups) {
-            $res['IncludeGroups'] = $this->includeGroups;
+            if (\is_array($this->includeGroups)) {
+                $res['IncludeGroups'] = [];
+                $n1 = 0;
+                foreach ($this->includeGroups as $item1) {
+                    $res['IncludeGroups'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->includeOrganizationalUnits) {
-            $res['IncludeOrganizationalUnits'] = $this->includeOrganizationalUnits;
+            if (\is_array($this->includeOrganizationalUnits)) {
+                $res['IncludeOrganizationalUnits'] = [];
+                $n1 = 0;
+                foreach ($this->includeOrganizationalUnits as $item1) {
+                    $res['IncludeOrganizationalUnits'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->includeUsers) {
-            $res['IncludeUsers'] = $this->includeUsers;
+            if (\is_array($this->includeUsers)) {
+                $res['IncludeUsers'] = [];
+                $n1 = 0;
+                foreach ($this->includeUsers as $item1) {
+                    $res['IncludeUsers'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return users
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExcludeGroups'])) {
             if (!empty($map['ExcludeGroups'])) {
-                $model->excludeGroups = $map['ExcludeGroups'];
+                $model->excludeGroups = [];
+                $n1 = 0;
+                foreach ($map['ExcludeGroups'] as $item1) {
+                    $model->excludeGroups[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ExcludeOrganizationalUnits'])) {
             if (!empty($map['ExcludeOrganizationalUnits'])) {
-                $model->excludeOrganizationalUnits = $map['ExcludeOrganizationalUnits'];
+                $model->excludeOrganizationalUnits = [];
+                $n1 = 0;
+                foreach ($map['ExcludeOrganizationalUnits'] as $item1) {
+                    $model->excludeOrganizationalUnits[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ExcludeUsers'])) {
             if (!empty($map['ExcludeUsers'])) {
-                $model->excludeUsers = $map['ExcludeUsers'];
+                $model->excludeUsers = [];
+                $n1 = 0;
+                foreach ($map['ExcludeUsers'] as $item1) {
+                    $model->excludeUsers[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['IncludeGroups'])) {
             if (!empty($map['IncludeGroups'])) {
-                $model->includeGroups = $map['IncludeGroups'];
+                $model->includeGroups = [];
+                $n1 = 0;
+                foreach ($map['IncludeGroups'] as $item1) {
+                    $model->includeGroups[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['IncludeOrganizationalUnits'])) {
             if (!empty($map['IncludeOrganizationalUnits'])) {
-                $model->includeOrganizationalUnits = $map['IncludeOrganizationalUnits'];
+                $model->includeOrganizationalUnits = [];
+                $n1 = 0;
+                foreach ($map['IncludeOrganizationalUnits'] as $item1) {
+                    $model->includeOrganizationalUnits[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['IncludeUsers'])) {
             if (!empty($map['IncludeUsers'])) {
-                $model->includeUsers = $map['IncludeUsers'];
+                $model->includeUsers = [];
+                $n1 = 0;
+                foreach ($map['IncludeUsers'] as $item1) {
+                    $model->includeUsers[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

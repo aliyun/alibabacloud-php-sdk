@@ -4,55 +4,31 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListUsersForGroupRequest extends Model
 {
     /**
-     * @description The group ID.
-     *
-     * This parameter is required.
-     *
-     * @example group_d6sbsuumeta4h66ec3il7yxxxx
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The number of the page to return. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 20. Maximum value: 100.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The account IDs. A maximum of 100 accounts can be queried.
-     *
-     * @example [ou_001]
-     *
      * @var string[]
      */
     public $userIds;
@@ -64,53 +40,79 @@ class ListUsersForGroupRequest extends Model
         'userIds' => 'UserIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->userIds)) {
+            Model::validateArray($this->userIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->userIds) {
-            $res['UserIds'] = $this->userIds;
+            if (\is_array($this->userIds)) {
+                $res['UserIds'] = [];
+                $n1 = 0;
+                foreach ($this->userIds as $item1) {
+                    $res['UserIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListUsersForGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['UserIds'])) {
             if (!empty($map['UserIds'])) {
-                $model->userIds = $map['UserIds'];
+                $model->userIds = [];
+                $n1 = 0;
+                foreach ($map['UserIds'] as $item1) {
+                    $model->userIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

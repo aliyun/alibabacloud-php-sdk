@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\ListConditionalAccessPoliciesResponseBody\conditionalAccessPolicies;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class decisionConfig extends Model
 {
     /**
-     * @description Whether to enable session reuse for secondary authentication
-     *
-     * @example disabled
-     *
      * @var string
      */
     public $activeSessionReuseStatus;
 
     /**
-     * @description Decision action of the conditional access policy:
-     * deny  Deny
-     * allow Allow
-     *
-     * @example deny
-     *
      * @var string
      */
     public $effect;
 
     /**
-     * @description Re-authentication interval for the conditional access policy (in seconds) 300-86400
-     *
-     * @example 300
-     *
      * @var int
      */
     public $mfaAuthenticationIntervalSeconds;
 
     /**
-     * @description MFA types allowed by the conditional access policy
-     *
      * @var string[]
      */
     public $mfaAuthenticationMethods;
 
     /**
-     * @description Conditional Access Policy Mfa Type
-     *
-     * @example directly_access
-     *
      * @var string
      */
     public $mfaType;
@@ -60,23 +40,40 @@ class decisionConfig extends Model
         'mfaType' => 'MfaType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->mfaAuthenticationMethods)) {
+            Model::validateArray($this->mfaAuthenticationMethods);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->activeSessionReuseStatus) {
             $res['ActiveSessionReuseStatus'] = $this->activeSessionReuseStatus;
         }
+
         if (null !== $this->effect) {
             $res['Effect'] = $this->effect;
         }
+
         if (null !== $this->mfaAuthenticationIntervalSeconds) {
             $res['MfaAuthenticationIntervalSeconds'] = $this->mfaAuthenticationIntervalSeconds;
         }
+
         if (null !== $this->mfaAuthenticationMethods) {
-            $res['MfaAuthenticationMethods'] = $this->mfaAuthenticationMethods;
+            if (\is_array($this->mfaAuthenticationMethods)) {
+                $res['MfaAuthenticationMethods'] = [];
+                $n1 = 0;
+                foreach ($this->mfaAuthenticationMethods as $item1) {
+                    $res['MfaAuthenticationMethods'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->mfaType) {
             $res['MfaType'] = $this->mfaType;
         }
@@ -84,28 +81,37 @@ class decisionConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return decisionConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActiveSessionReuseStatus'])) {
             $model->activeSessionReuseStatus = $map['ActiveSessionReuseStatus'];
         }
+
         if (isset($map['Effect'])) {
             $model->effect = $map['Effect'];
         }
+
         if (isset($map['MfaAuthenticationIntervalSeconds'])) {
             $model->mfaAuthenticationIntervalSeconds = $map['MfaAuthenticationIntervalSeconds'];
         }
+
         if (isset($map['MfaAuthenticationMethods'])) {
             if (!empty($map['MfaAuthenticationMethods'])) {
-                $model->mfaAuthenticationMethods = $map['MfaAuthenticationMethods'];
+                $model->mfaAuthenticationMethods = [];
+                $n1 = 0;
+                foreach ($map['MfaAuthenticationMethods'] as $item1) {
+                    $model->mfaAuthenticationMethods[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['MfaType'])) {
             $model->mfaType = $map['MfaType'];
         }

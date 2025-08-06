@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\SetIdentityProviderUdPullConfigurationRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class periodicSyncConfig extends Model
 {
     /**
-     * @description Periodic synchronize cron
-     *
-     * @example 0 45 1 * * ?
-     *
      * @var string
      */
     public $periodicSyncCron;
 
     /**
-     * @description Periodic synchronize times
-     *
      * @var int[]
      */
     public $periodicSyncTimes;
 
     /**
-     * @description Periodic synchronize type
-     *
-     * @example cron
-     *
      * @var string
      */
     public $periodicSyncType;
@@ -38,17 +28,32 @@ class periodicSyncConfig extends Model
         'periodicSyncType' => 'PeriodicSyncType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->periodicSyncTimes)) {
+            Model::validateArray($this->periodicSyncTimes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->periodicSyncCron) {
             $res['PeriodicSyncCron'] = $this->periodicSyncCron;
         }
+
         if (null !== $this->periodicSyncTimes) {
-            $res['PeriodicSyncTimes'] = $this->periodicSyncTimes;
+            if (\is_array($this->periodicSyncTimes)) {
+                $res['PeriodicSyncTimes'] = [];
+                $n1 = 0;
+                foreach ($this->periodicSyncTimes as $item1) {
+                    $res['PeriodicSyncTimes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->periodicSyncType) {
             $res['PeriodicSyncType'] = $this->periodicSyncType;
         }
@@ -56,22 +61,29 @@ class periodicSyncConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return periodicSyncConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PeriodicSyncCron'])) {
             $model->periodicSyncCron = $map['PeriodicSyncCron'];
         }
+
         if (isset($map['PeriodicSyncTimes'])) {
             if (!empty($map['PeriodicSyncTimes'])) {
-                $model->periodicSyncTimes = $map['PeriodicSyncTimes'];
+                $model->periodicSyncTimes = [];
+                $n1 = 0;
+                foreach ($map['PeriodicSyncTimes'] as $item1) {
+                    $model->periodicSyncTimes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['PeriodicSyncType'])) {
             $model->periodicSyncType = $map['PeriodicSyncType'];
         }

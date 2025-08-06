@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForOrganizationalUnitResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class applications extends Model
 {
     /**
-     * @description The ID of the application that the EIAM organization can access.
-     *
-     * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
-     *
      * @var string
      */
     public $applicationId;
@@ -20,9 +16,12 @@ class applications extends Model
         'applicationId' => 'ApplicationId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationId) {
@@ -32,11 +31,11 @@ class applications extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return applications
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

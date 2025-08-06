@@ -4,51 +4,31 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class larkConfig extends Model
 {
     /**
-     * @description Lark (Feishu) app appId.
-     *
-     * @example cli_xxxx
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description Lark (Feishu) app secret.
-     *
-     * @example KiiLzh5Dueh4wbLxxxx
-     *
      * @var string
      */
     public $appSecret;
 
     /**
-     * @description Lark (Feishu) encrypt key.
-     *
-     * @example 29003eb11d0a28b4802a6f02fb8aa25dff730e2ac26ffd200dxxxx
-     *
      * @var string
      */
     public $encryptKey;
 
     /**
-     * @description Lark (Feishu) enterprise number.
-     *
-     * @example FSX123111xxx
-     *
      * @var string
      */
     public $enterpriseNumber;
 
     /**
-     * @description Lark (Feishu)  verification token.
-     *
-     * @example 5ba9c127a7abe029003eb11d0a28b4802a6f02fb8aa25dff730e2ac26ffd200dxxxx
-     *
      * @var string
      */
     public $verificationToken;
@@ -60,23 +40,30 @@ class larkConfig extends Model
         'verificationToken' => 'VerificationToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appSecret) {
             $res['AppSecret'] = $this->appSecret;
         }
+
         if (null !== $this->encryptKey) {
             $res['EncryptKey'] = $this->encryptKey;
         }
+
         if (null !== $this->enterpriseNumber) {
             $res['EnterpriseNumber'] = $this->enterpriseNumber;
         }
+
         if (null !== $this->verificationToken) {
             $res['VerificationToken'] = $this->verificationToken;
         }
@@ -84,26 +71,30 @@ class larkConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return larkConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppSecret'])) {
             $model->appSecret = $map['AppSecret'];
         }
+
         if (isset($map['EncryptKey'])) {
             $model->encryptKey = $map['EncryptKey'];
         }
+
         if (isset($map['EnterpriseNumber'])) {
             $model->enterpriseNumber = $map['EnterpriseNumber'];
         }
+
         if (isset($map['VerificationToken'])) {
             $model->verificationToken = $map['VerificationToken'];
         }

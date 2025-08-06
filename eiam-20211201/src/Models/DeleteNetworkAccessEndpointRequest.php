@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteNetworkAccessEndpointRequest extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description Network Access Endpoint ID.
-     *
-     * This parameter is required.
-     *
-     * @example nae_examplexxxx
-     *
      * @var string
      */
     public $networkAccessEndpointId;
@@ -34,14 +22,18 @@ class DeleteNetworkAccessEndpointRequest extends Model
         'networkAccessEndpointId' => 'NetworkAccessEndpointId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->networkAccessEndpointId) {
             $res['NetworkAccessEndpointId'] = $this->networkAccessEndpointId;
         }
@@ -49,17 +41,18 @@ class DeleteNetworkAccessEndpointRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteNetworkAccessEndpointRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['NetworkAccessEndpointId'])) {
             $model->networkAccessEndpointId = $map['NetworkAccessEndpointId'];
         }

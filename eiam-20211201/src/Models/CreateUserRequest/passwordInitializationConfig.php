@@ -4,47 +4,26 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\CreateUserRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class passwordInitializationConfig extends Model
 {
     /**
-     * @description Specifies whether to forcibly change the password status. Default value: disabled. Valid values:
-     *   enabled:forcibly changes the password status.
-     * disabled: does not forcibly change the password status.
-     *
-     * @example enabled
-     *
      * @var string
      */
     public $passwordForcedUpdateStatus;
 
     /**
-     * @description The priority of the password initialization policy. By default, this parameter does not take effect. Valid values:
-     *   global:The password initialization policy globally takes effect.
-     *   custom: The password initialization policy takes effect based on custom settings.
-     *
-     * @example global
-     *
      * @var string
      */
     public $passwordInitializationPolicyPriority;
 
     /**
-     * @description The password initialization method. Set the value to random,
-     *   whichindicates that the password is randomly generated.
-     *
-     * @example random
-     *
      * @var string
      */
     public $passwordInitializationType;
 
     /**
-     * @description The value of the extended field. The value follows the limits on the properties of the extended field.
-     *
-     * @example sms
-     *
      * @var string[]
      */
     public $userNotificationChannels;
@@ -55,47 +34,71 @@ class passwordInitializationConfig extends Model
         'userNotificationChannels' => 'UserNotificationChannels',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->userNotificationChannels)) {
+            Model::validateArray($this->userNotificationChannels);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->passwordForcedUpdateStatus) {
             $res['PasswordForcedUpdateStatus'] = $this->passwordForcedUpdateStatus;
         }
+
         if (null !== $this->passwordInitializationPolicyPriority) {
             $res['PasswordInitializationPolicyPriority'] = $this->passwordInitializationPolicyPriority;
         }
+
         if (null !== $this->passwordInitializationType) {
             $res['PasswordInitializationType'] = $this->passwordInitializationType;
         }
+
         if (null !== $this->userNotificationChannels) {
-            $res['UserNotificationChannels'] = $this->userNotificationChannels;
+            if (\is_array($this->userNotificationChannels)) {
+                $res['UserNotificationChannels'] = [];
+                $n1 = 0;
+                foreach ($this->userNotificationChannels as $item1) {
+                    $res['UserNotificationChannels'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return passwordInitializationConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PasswordForcedUpdateStatus'])) {
             $model->passwordForcedUpdateStatus = $map['PasswordForcedUpdateStatus'];
         }
+
         if (isset($map['PasswordInitializationPolicyPriority'])) {
             $model->passwordInitializationPolicyPriority = $map['PasswordInitializationPolicyPriority'];
         }
+
         if (isset($map['PasswordInitializationType'])) {
             $model->passwordInitializationType = $map['PasswordInitializationType'];
         }
+
         if (isset($map['UserNotificationChannels'])) {
             if (!empty($map['UserNotificationChannels'])) {
-                $model->userNotificationChannels = $map['UserNotificationChannels'];
+                $model->userNotificationChannels = [];
+                $n1 = 0;
+                foreach ($map['UserNotificationChannels'] as $item1) {
+                    $model->userNotificationChannels[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

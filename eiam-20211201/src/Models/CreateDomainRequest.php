@@ -4,36 +4,22 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateDomainRequest\filing;
-use AlibabaCloud\Tea\Model;
 
 class CreateDomainRequest extends Model
 {
     /**
-     * @description The domain name of the website.
-     *
-     * This parameter is required.
-     *
-     * @example www.example.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description Registration information parameters.
-     *
      * @var filing
      */
     public $filing;
 
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
-     *
      * @var string
      */
     public $instanceId;
@@ -43,17 +29,25 @@ class CreateDomainRequest extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->filing) {
+            $this->filing->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->filing) {
-            $res['Filing'] = null !== $this->filing ? $this->filing->toMap() : null;
+            $res['Filing'] = null !== $this->filing ? $this->filing->toArray($noStream) : $this->filing;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -61,20 +55,22 @@ class CreateDomainRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDomainRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['Filing'])) {
             $model->filing = filing::fromMap($map['Filing']);
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

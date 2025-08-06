@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationGrantScopeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class applicationGrantScope extends Model
 {
     /**
-     * @description The permissions of the Developer API feature.
-     *
      * @var string[]
      */
     public $grantScopes;
@@ -18,29 +16,47 @@ class applicationGrantScope extends Model
         'grantScopes' => 'GrantScopes',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->grantScopes)) {
+            Model::validateArray($this->grantScopes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->grantScopes) {
-            $res['GrantScopes'] = $this->grantScopes;
+            if (\is_array($this->grantScopes)) {
+                $res['GrantScopes'] = [];
+                $n1 = 0;
+                foreach ($this->grantScopes as $item1) {
+                    $res['GrantScopes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return applicationGrantScope
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GrantScopes'])) {
             if (!empty($map['GrantScopes'])) {
-                $model->grantScopes = $map['GrantScopes'];
+                $model->grantScopes = [];
+                $n1 = 0;
+                foreach ($map['GrantScopes'] as $item1) {
+                    $model->grantScopes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationSsoConfigRequest\samlSsoConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class optionalRelayStates extends Model
 {
     /**
-     * @description RelayState displayName
-     *
-     * @example Ram
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @description RelayState value
-     *
-     * @example https://example .aliyun.com
-     *
      * @var string
      */
     public $relayState;
@@ -30,14 +22,18 @@ class optionalRelayStates extends Model
         'relayState' => 'RelayState',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+
         if (null !== $this->relayState) {
             $res['RelayState'] = $this->relayState;
         }
@@ -45,17 +41,18 @@ class optionalRelayStates extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return optionalRelayStates
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+
         if (isset($map['RelayState'])) {
             $model->relayState = $map['RelayState'];
         }

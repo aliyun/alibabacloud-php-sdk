@@ -4,43 +4,26 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationProvisioningConfigResponseBody\applicationProvisioningConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class callbackProvisioningConfig extends Model
 {
     /**
-     * @description The URL that the application uses to receive IDaaS event callbacks.
-     *
-     * @example https://example.com/event/callback
-     *
      * @var string
      */
     public $callbackUrl;
 
     /**
-     * @description The symmetric key for IDaaS event callbacks. The key is an AES-256 encryption key in the HEX format.
-     *
-     * @example 1adfdfdfd******111
-     *
      * @var string
      */
     public $encryptKey;
 
     /**
-     * @description Indicates whether IDaaS event callback messages are encrypted. Valid values:
-     *
-     *   true: The messages are encrypted.
-     *   false: The messages are transmitted in plaintext.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $encryptRequired;
 
     /**
-     * @description The list of types of IDaaS event callback messages that are supported by the listener.
-     *
      * @var string[]
      */
     public $listenEventScopes;
@@ -51,47 +34,71 @@ class callbackProvisioningConfig extends Model
         'listenEventScopes' => 'ListenEventScopes',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->listenEventScopes)) {
+            Model::validateArray($this->listenEventScopes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callbackUrl) {
             $res['CallbackUrl'] = $this->callbackUrl;
         }
+
         if (null !== $this->encryptKey) {
             $res['EncryptKey'] = $this->encryptKey;
         }
+
         if (null !== $this->encryptRequired) {
             $res['EncryptRequired'] = $this->encryptRequired;
         }
+
         if (null !== $this->listenEventScopes) {
-            $res['ListenEventScopes'] = $this->listenEventScopes;
+            if (\is_array($this->listenEventScopes)) {
+                $res['ListenEventScopes'] = [];
+                $n1 = 0;
+                foreach ($this->listenEventScopes as $item1) {
+                    $res['ListenEventScopes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return callbackProvisioningConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallbackUrl'])) {
             $model->callbackUrl = $map['CallbackUrl'];
         }
+
         if (isset($map['EncryptKey'])) {
             $model->encryptKey = $map['EncryptKey'];
         }
+
         if (isset($map['EncryptRequired'])) {
             $model->encryptRequired = $map['EncryptRequired'];
         }
+
         if (isset($map['ListenEventScopes'])) {
             if (!empty($map['ListenEventScopes'])) {
-                $model->listenEventScopes = $map['ListenEventScopes'];
+                $model->listenEventScopes = [];
+                $n1 = 0;
+                foreach ($map['ListenEventScopes'] as $item1) {
+                    $model->listenEventScopes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

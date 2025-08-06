@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\authnConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\autoCreateUserConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\autoUpdateUserConfig;
@@ -15,159 +16,90 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\oidcCon
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\udPullConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\udPushConfig;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\weComConfig;
-use AlibabaCloud\Tea\Model;
 
 class CreateIdentityProviderRequest extends Model
 {
     /**
-     * @description Authentication configuration information.
-     *
      * @var authnConfig
      */
     public $authnConfig;
 
     /**
-     * @description Auto-create account rule configuration.
-     *
      * @var autoCreateUserConfig
      */
     public $autoCreateUserConfig;
 
     /**
-     * @description Auto-update account rule configuration.
-     *
      * @var autoUpdateUserConfig
      */
     public $autoUpdateUserConfig;
 
     /**
-     * @description OIDC identity provider account binding rule configuration.
-     *
      * @var bindingConfig
      */
     public $bindingConfig;
 
     /**
-     * @description Idp client token.
-     *
-     * @example client-token-example
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description DingTalk configuration information.
-     *
      * @var dingtalkAppConfig
      */
     public $dingtalkAppConfig;
 
     /**
-     * @description Identity provider name.
-     *
-     * This parameter is required.
-     *
-     * @example test
-     *
      * @var string
      */
     public $identityProviderName;
 
     /**
-     * @description Identity provider synchronization type.
-     *
-     * - Inbound to DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk:pull
-     *
-     * - Outbound to DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk:push
-     *
-     * - Inbound to WeCom: urn:alibaba:idaas:idp:tencent:wecom:pull
-     *
-     * - Inbound to Lark: urn:alibaba:idaas:idp:bytedance:lark:pull
-     *
-     * - Inbound to AD: urn:alibaba:idaas:idp:microsoft:ad:pull
-     *
-     * - Inbound to LDAP: urn:alibaba:idaas:idp:unknown:ldap:pull
-     *
-     * - Standard OIDC: urn:alibaba:idaas:idp:standard:oidc
-     *
-     * - SASE Custom OIDC: urn:alibaba:idaas:idp:alibaba:sase
-     *
-     * This parameter is required.
-     *
-     * @example urn:alibaba:idaas:idp:alibaba:dingtalk:push
-     *
      * @var string
      */
     public $identityProviderType;
 
     /**
-     * @description Instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description Lark (Feishu) configuration information.
-     *
      * @var larkConfig
      */
     public $larkConfig;
 
     /**
-     * @description AD/LDAP configuration information.
-     *
      * @var ldapConfig
      */
     public $ldapConfig;
 
     /**
-     * @description IdP logo url.
-     *
-     * @example xxxx-image://idaas_23aqr2ye554csg33dqpch5eu3q/tmp/d17d9adc-a943-45e7-ba0c-2838dddexxxxx
-     *
      * @var string
      */
     public $logoUrl;
 
     /**
-     * @description The unique identifier of the network access endpoint.
-     *
-     * @example nae_examplexxxx
-     *
      * @var string
      */
     public $networkAccessEndpointId;
 
     /**
-     * @description OIDC IdP configuration.
-     *
      * @var oidcConfig
      */
     public $oidcConfig;
 
     /**
-     * @description Inbound synchronization configuration information.
-     *
      * @var udPullConfig
      */
     public $udPullConfig;
 
     /**
-     * @description Outbound synchronization configuration information.
-     *
      * @var udPushConfig
      */
     public $udPushConfig;
 
     /**
-     * @description WeCom configuration information.
-     *
      * @var weComConfig
      */
     public $weComConfig;
@@ -191,122 +123,190 @@ class CreateIdentityProviderRequest extends Model
         'weComConfig' => 'WeComConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->authnConfig) {
+            $this->authnConfig->validate();
+        }
+        if (null !== $this->autoCreateUserConfig) {
+            $this->autoCreateUserConfig->validate();
+        }
+        if (null !== $this->autoUpdateUserConfig) {
+            $this->autoUpdateUserConfig->validate();
+        }
+        if (null !== $this->bindingConfig) {
+            $this->bindingConfig->validate();
+        }
+        if (null !== $this->dingtalkAppConfig) {
+            $this->dingtalkAppConfig->validate();
+        }
+        if (null !== $this->larkConfig) {
+            $this->larkConfig->validate();
+        }
+        if (null !== $this->ldapConfig) {
+            $this->ldapConfig->validate();
+        }
+        if (null !== $this->oidcConfig) {
+            $this->oidcConfig->validate();
+        }
+        if (null !== $this->udPullConfig) {
+            $this->udPullConfig->validate();
+        }
+        if (null !== $this->udPushConfig) {
+            $this->udPushConfig->validate();
+        }
+        if (null !== $this->weComConfig) {
+            $this->weComConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authnConfig) {
-            $res['AuthnConfig'] = null !== $this->authnConfig ? $this->authnConfig->toMap() : null;
+            $res['AuthnConfig'] = null !== $this->authnConfig ? $this->authnConfig->toArray($noStream) : $this->authnConfig;
         }
+
         if (null !== $this->autoCreateUserConfig) {
-            $res['AutoCreateUserConfig'] = null !== $this->autoCreateUserConfig ? $this->autoCreateUserConfig->toMap() : null;
+            $res['AutoCreateUserConfig'] = null !== $this->autoCreateUserConfig ? $this->autoCreateUserConfig->toArray($noStream) : $this->autoCreateUserConfig;
         }
+
         if (null !== $this->autoUpdateUserConfig) {
-            $res['AutoUpdateUserConfig'] = null !== $this->autoUpdateUserConfig ? $this->autoUpdateUserConfig->toMap() : null;
+            $res['AutoUpdateUserConfig'] = null !== $this->autoUpdateUserConfig ? $this->autoUpdateUserConfig->toArray($noStream) : $this->autoUpdateUserConfig;
         }
+
         if (null !== $this->bindingConfig) {
-            $res['BindingConfig'] = null !== $this->bindingConfig ? $this->bindingConfig->toMap() : null;
+            $res['BindingConfig'] = null !== $this->bindingConfig ? $this->bindingConfig->toArray($noStream) : $this->bindingConfig;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->dingtalkAppConfig) {
-            $res['DingtalkAppConfig'] = null !== $this->dingtalkAppConfig ? $this->dingtalkAppConfig->toMap() : null;
+            $res['DingtalkAppConfig'] = null !== $this->dingtalkAppConfig ? $this->dingtalkAppConfig->toArray($noStream) : $this->dingtalkAppConfig;
         }
+
         if (null !== $this->identityProviderName) {
             $res['IdentityProviderName'] = $this->identityProviderName;
         }
+
         if (null !== $this->identityProviderType) {
             $res['IdentityProviderType'] = $this->identityProviderType;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->larkConfig) {
-            $res['LarkConfig'] = null !== $this->larkConfig ? $this->larkConfig->toMap() : null;
+            $res['LarkConfig'] = null !== $this->larkConfig ? $this->larkConfig->toArray($noStream) : $this->larkConfig;
         }
+
         if (null !== $this->ldapConfig) {
-            $res['LdapConfig'] = null !== $this->ldapConfig ? $this->ldapConfig->toMap() : null;
+            $res['LdapConfig'] = null !== $this->ldapConfig ? $this->ldapConfig->toArray($noStream) : $this->ldapConfig;
         }
+
         if (null !== $this->logoUrl) {
             $res['LogoUrl'] = $this->logoUrl;
         }
+
         if (null !== $this->networkAccessEndpointId) {
             $res['NetworkAccessEndpointId'] = $this->networkAccessEndpointId;
         }
+
         if (null !== $this->oidcConfig) {
-            $res['OidcConfig'] = null !== $this->oidcConfig ? $this->oidcConfig->toMap() : null;
+            $res['OidcConfig'] = null !== $this->oidcConfig ? $this->oidcConfig->toArray($noStream) : $this->oidcConfig;
         }
+
         if (null !== $this->udPullConfig) {
-            $res['UdPullConfig'] = null !== $this->udPullConfig ? $this->udPullConfig->toMap() : null;
+            $res['UdPullConfig'] = null !== $this->udPullConfig ? $this->udPullConfig->toArray($noStream) : $this->udPullConfig;
         }
+
         if (null !== $this->udPushConfig) {
-            $res['UdPushConfig'] = null !== $this->udPushConfig ? $this->udPushConfig->toMap() : null;
+            $res['UdPushConfig'] = null !== $this->udPushConfig ? $this->udPushConfig->toArray($noStream) : $this->udPushConfig;
         }
+
         if (null !== $this->weComConfig) {
-            $res['WeComConfig'] = null !== $this->weComConfig ? $this->weComConfig->toMap() : null;
+            $res['WeComConfig'] = null !== $this->weComConfig ? $this->weComConfig->toArray($noStream) : $this->weComConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateIdentityProviderRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthnConfig'])) {
             $model->authnConfig = authnConfig::fromMap($map['AuthnConfig']);
         }
+
         if (isset($map['AutoCreateUserConfig'])) {
             $model->autoCreateUserConfig = autoCreateUserConfig::fromMap($map['AutoCreateUserConfig']);
         }
+
         if (isset($map['AutoUpdateUserConfig'])) {
             $model->autoUpdateUserConfig = autoUpdateUserConfig::fromMap($map['AutoUpdateUserConfig']);
         }
+
         if (isset($map['BindingConfig'])) {
             $model->bindingConfig = bindingConfig::fromMap($map['BindingConfig']);
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['DingtalkAppConfig'])) {
             $model->dingtalkAppConfig = dingtalkAppConfig::fromMap($map['DingtalkAppConfig']);
         }
+
         if (isset($map['IdentityProviderName'])) {
             $model->identityProviderName = $map['IdentityProviderName'];
         }
+
         if (isset($map['IdentityProviderType'])) {
             $model->identityProviderType = $map['IdentityProviderType'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['LarkConfig'])) {
             $model->larkConfig = larkConfig::fromMap($map['LarkConfig']);
         }
+
         if (isset($map['LdapConfig'])) {
             $model->ldapConfig = ldapConfig::fromMap($map['LdapConfig']);
         }
+
         if (isset($map['LogoUrl'])) {
             $model->logoUrl = $map['LogoUrl'];
         }
+
         if (isset($map['NetworkAccessEndpointId'])) {
             $model->networkAccessEndpointId = $map['NetworkAccessEndpointId'];
         }
+
         if (isset($map['OidcConfig'])) {
             $model->oidcConfig = oidcConfig::fromMap($map['OidcConfig']);
         }
+
         if (isset($map['UdPullConfig'])) {
             $model->udPullConfig = udPullConfig::fromMap($map['UdPullConfig']);
         }
+
         if (isset($map['UdPushConfig'])) {
             $model->udPushConfig = udPushConfig::fromMap($map['UdPushConfig']);
         }
+
         if (isset($map['WeComConfig'])) {
             $model->weComConfig = weComConfig::fromMap($map['WeComConfig']);
         }

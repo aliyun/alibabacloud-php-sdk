@@ -4,14 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetDomainResponseBody\domain;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filing extends Model
 {
     /**
-     * @description <notice>The ICP filing number is only applicable for services in the China region.  For non-China regions, no validation or display of this record number will be performed.</notice>
-     * The ICP filing number associated with the domain name, with a maximum length of 64 characters.
-     *
      * @var string
      */
     public $icpNumber;
@@ -19,9 +16,12 @@ class filing extends Model
         'icpNumber' => 'IcpNumber',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->icpNumber) {
@@ -31,11 +31,11 @@ class filing extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filing
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

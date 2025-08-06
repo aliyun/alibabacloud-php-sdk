@@ -4,36 +4,22 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponseBody\identityProviderDetail;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponseBody\identityProviderDetail\udPullConfig\udSyncScopeConfig;
-use AlibabaCloud\Tea\Model;
 
 class udPullConfig extends Model
 {
     /**
-     * @description Whether to enable group synchronization. Possible values:
-     *
-     * Disabled: disabled
-     *
-     * Enabled: enabled
-     *
-     * @example disabled
-     *
      * @var string
      */
     public $groupSyncStatus;
 
     /**
-     * @description Incremental callback status: Whether to process incremental callback data from the IdP.
-     *
-     * @example disabled
-     *
      * @var string
      */
     public $incrementalCallbackStatus;
 
     /**
-     * @description Inbound synchronization configuration Information.
-     *
      * @var udSyncScopeConfig
      */
     public $udSyncScopeConfig;
@@ -43,38 +29,48 @@ class udPullConfig extends Model
         'udSyncScopeConfig' => 'UdSyncScopeConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->udSyncScopeConfig) {
+            $this->udSyncScopeConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupSyncStatus) {
             $res['GroupSyncStatus'] = $this->groupSyncStatus;
         }
+
         if (null !== $this->incrementalCallbackStatus) {
             $res['IncrementalCallbackStatus'] = $this->incrementalCallbackStatus;
         }
+
         if (null !== $this->udSyncScopeConfig) {
-            $res['UdSyncScopeConfig'] = null !== $this->udSyncScopeConfig ? $this->udSyncScopeConfig->toMap() : null;
+            $res['UdSyncScopeConfig'] = null !== $this->udSyncScopeConfig ? $this->udSyncScopeConfig->toArray($noStream) : $this->udSyncScopeConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return udPullConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupSyncStatus'])) {
             $model->groupSyncStatus = $map['GroupSyncStatus'];
         }
+
         if (isset($map['IncrementalCallbackStatus'])) {
             $model->incrementalCallbackStatus = $map['IncrementalCallbackStatus'];
         }
+
         if (isset($map['UdSyncScopeConfig'])) {
             $model->udSyncScopeConfig = udSyncScopeConfig::fromMap($map['UdSyncScopeConfig']);
         }

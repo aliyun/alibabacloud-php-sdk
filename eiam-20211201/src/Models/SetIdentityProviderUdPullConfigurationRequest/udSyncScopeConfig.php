@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\SetIdentityProviderUdPullConfigurationRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class udSyncScopeConfig extends Model
 {
     /**
-     * @description Synchronize source scopes
-     *
      * @var string[]
      */
     public $sourceScopes;
 
     /**
-     * @description Synchronize target scope
-     *
-     * @example ou_asdaq1addsxzdq1XXX
-     *
      * @var string
      */
     public $targetScope;
@@ -28,14 +22,28 @@ class udSyncScopeConfig extends Model
         'targetScope' => 'TargetScope',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->sourceScopes)) {
+            Model::validateArray($this->sourceScopes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sourceScopes) {
-            $res['SourceScopes'] = $this->sourceScopes;
+            if (\is_array($this->sourceScopes)) {
+                $res['SourceScopes'] = [];
+                $n1 = 0;
+                foreach ($this->sourceScopes as $item1) {
+                    $res['SourceScopes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->targetScope) {
             $res['TargetScope'] = $this->targetScope;
         }
@@ -43,19 +51,25 @@ class udSyncScopeConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return udSyncScopeConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SourceScopes'])) {
             if (!empty($map['SourceScopes'])) {
-                $model->sourceScopes = $map['SourceScopes'];
+                $model->sourceScopes = [];
+                $n1 = 0;
+                foreach ($map['SourceScopes'] as $item1) {
+                    $model->sourceScopes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['TargetScope'])) {
             $model->targetScope = $map['TargetScope'];
         }

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListDomainsResponseBody\domains;
-use AlibabaCloud\Tea\Model;
 
 class ListDomainsResponseBody extends Model
 {
     /**
-     * @description The information about the domain names.
-     *
      * @var domains[]
      */
     public $domains;
 
     /**
-     * @description The request ID.
-     *
-     * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class ListDomainsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->domains)) {
+            Model::validateArray($this->domains);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domains) {
-            $res['Domains'] = [];
-            if (null !== $this->domains && \is_array($this->domains)) {
-                $n = 0;
-                foreach ($this->domains as $item) {
-                    $res['Domains'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domains)) {
+                $res['Domains'] = [];
+                $n1 = 0;
+                foreach ($this->domains as $item1) {
+                    $res['Domains'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class ListDomainsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDomainsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domains'])) {
             if (!empty($map['Domains'])) {
                 $model->domains = [];
-                $n = 0;
-                foreach ($map['Domains'] as $item) {
-                    $model->domains[$n++] = null !== $item ? domains::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Domains'] as $item1) {
+                    $model->domains[$n1] = domains::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

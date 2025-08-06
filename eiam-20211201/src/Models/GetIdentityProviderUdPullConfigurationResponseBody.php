@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderUdPullConfigurationResponseBody\udPullConfiguration;
-use AlibabaCloud\Tea\Model;
 
 class GetIdentityProviderUdPullConfigurationResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Inbound Synchronization Configuration Information
-     *
      * @var udPullConfiguration
      */
     public $udPullConfiguration;
@@ -29,32 +23,40 @@ class GetIdentityProviderUdPullConfigurationResponseBody extends Model
         'udPullConfiguration' => 'UdPullConfiguration',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->udPullConfiguration) {
+            $this->udPullConfiguration->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->udPullConfiguration) {
-            $res['UdPullConfiguration'] = null !== $this->udPullConfiguration ? $this->udPullConfiguration->toMap() : null;
+            $res['UdPullConfiguration'] = null !== $this->udPullConfiguration ? $this->udPullConfiguration->toArray($noStream) : $this->udPullConfiguration;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetIdentityProviderUdPullConfigurationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UdPullConfiguration'])) {
             $model->udPullConfiguration = udPullConfiguration::fromMap($map['UdPullConfiguration']);
         }

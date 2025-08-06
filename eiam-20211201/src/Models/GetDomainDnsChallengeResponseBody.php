@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetDomainDnsChallengeResponseBody\domainDnsChallenge;
-use AlibabaCloud\Tea\Model;
 
 class GetDomainDnsChallengeResponseBody extends Model
 {
     /**
-     * @description The DNS challenge records.
-     *
      * @var domainDnsChallenge
      */
     public $domainDnsChallenge;
 
     /**
-     * @description The request ID.
-     *
-     * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class GetDomainDnsChallengeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->domainDnsChallenge) {
+            $this->domainDnsChallenge->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainDnsChallenge) {
-            $res['DomainDnsChallenge'] = null !== $this->domainDnsChallenge ? $this->domainDnsChallenge->toMap() : null;
+            $res['DomainDnsChallenge'] = null !== $this->domainDnsChallenge ? $this->domainDnsChallenge->toArray($noStream) : $this->domainDnsChallenge;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class GetDomainDnsChallengeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDomainDnsChallengeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainDnsChallenge'])) {
             $model->domainDnsChallenge = domainDnsChallenge::fromMap($map['DomainDnsChallenge']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

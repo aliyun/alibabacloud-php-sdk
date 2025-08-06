@@ -4,99 +4,51 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetPasswordExpirationConfigurationRequest extends Model
 {
     /**
-     * @description Effective authentication sourceIds
-     *
      * @var string[]
      */
     public $effectiveAuthenticationSourceIds;
 
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The action to take upon password expiration. This parameter must be specified when PasswordExpirationStatus is set to enabled. Valid values:
-     *
-     *   forbid_login: Users cannot log on to IDaaS.
-     *   force_update_password: Users must change the password.
-     *   remind_update_password: IDaaS reminds users to change the password upon each logon.
-     *
-     * @example force_update_password
-     *
      * @var string
      */
     public $passwordExpirationAction;
 
     /**
-     * @description The methods for receiving password expiration notifications. This parameter must be specified when PasswordExpirationNotificationStatus is set to enabled.
-     *
-     * @example login
-     *
      * @var string[]
      */
     public $passwordExpirationNotificationChannels;
 
     /**
-     * @description The number of days before the expiration date during which password expiration notifications are sent. Unit: day. This parameter must be specified when PasswordExpirationNotificationStatus is set to enabled.
-     *
-     * @example 7
-     *
      * @var int
      */
     public $passwordExpirationNotificationDuration;
 
     /**
-     * @description Specifies whether to enable the password expiration notification feature. Valid values:
-     *
-     *   enabled
-     *   disabled
-     *
-     * @example enabled
-     *
      * @var string
      */
     public $passwordExpirationNotificationStatus;
 
     /**
-     * @description Specifies whether to enable the password expiration feature. Valid values:
-     *
-     *   enabled
-     *   disabled
-     *
-     * This parameter is required.
-     *
-     * @example enabled
-     *
      * @var string
      */
     public $passwordExpirationStatus;
 
     /**
-     * @description The number of days before which users must change the password to prevent password expiration. Unit: day. You must set this parameter to a value greater than the value of PasswordExpirationNotificationDuration.
-     *
-     * @example 7
-     *
      * @var int
      */
     public $passwordForcedUpdateDuration;
 
     /**
-     * @description The validity period of a password. Unit: day. This parameter must be specified when PasswordExpirationStatus is set to enabled.
-     *
-     * @example 180
-     *
      * @var int
      */
     public $passwordValidMaxDay;
@@ -112,35 +64,66 @@ class SetPasswordExpirationConfigurationRequest extends Model
         'passwordValidMaxDay' => 'PasswordValidMaxDay',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->effectiveAuthenticationSourceIds)) {
+            Model::validateArray($this->effectiveAuthenticationSourceIds);
+        }
+        if (\is_array($this->passwordExpirationNotificationChannels)) {
+            Model::validateArray($this->passwordExpirationNotificationChannels);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->effectiveAuthenticationSourceIds) {
-            $res['EffectiveAuthenticationSourceIds'] = $this->effectiveAuthenticationSourceIds;
+            if (\is_array($this->effectiveAuthenticationSourceIds)) {
+                $res['EffectiveAuthenticationSourceIds'] = [];
+                $n1 = 0;
+                foreach ($this->effectiveAuthenticationSourceIds as $item1) {
+                    $res['EffectiveAuthenticationSourceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->passwordExpirationAction) {
             $res['PasswordExpirationAction'] = $this->passwordExpirationAction;
         }
+
         if (null !== $this->passwordExpirationNotificationChannels) {
-            $res['PasswordExpirationNotificationChannels'] = $this->passwordExpirationNotificationChannels;
+            if (\is_array($this->passwordExpirationNotificationChannels)) {
+                $res['PasswordExpirationNotificationChannels'] = [];
+                $n1 = 0;
+                foreach ($this->passwordExpirationNotificationChannels as $item1) {
+                    $res['PasswordExpirationNotificationChannels'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->passwordExpirationNotificationDuration) {
             $res['PasswordExpirationNotificationDuration'] = $this->passwordExpirationNotificationDuration;
         }
+
         if (null !== $this->passwordExpirationNotificationStatus) {
             $res['PasswordExpirationNotificationStatus'] = $this->passwordExpirationNotificationStatus;
         }
+
         if (null !== $this->passwordExpirationStatus) {
             $res['PasswordExpirationStatus'] = $this->passwordExpirationStatus;
         }
+
         if (null !== $this->passwordForcedUpdateDuration) {
             $res['PasswordForcedUpdateDuration'] = $this->passwordForcedUpdateDuration;
         }
+
         if (null !== $this->passwordValidMaxDay) {
             $res['PasswordValidMaxDay'] = $this->passwordValidMaxDay;
         }
@@ -148,42 +131,60 @@ class SetPasswordExpirationConfigurationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetPasswordExpirationConfigurationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EffectiveAuthenticationSourceIds'])) {
             if (!empty($map['EffectiveAuthenticationSourceIds'])) {
-                $model->effectiveAuthenticationSourceIds = $map['EffectiveAuthenticationSourceIds'];
+                $model->effectiveAuthenticationSourceIds = [];
+                $n1 = 0;
+                foreach ($map['EffectiveAuthenticationSourceIds'] as $item1) {
+                    $model->effectiveAuthenticationSourceIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['PasswordExpirationAction'])) {
             $model->passwordExpirationAction = $map['PasswordExpirationAction'];
         }
+
         if (isset($map['PasswordExpirationNotificationChannels'])) {
             if (!empty($map['PasswordExpirationNotificationChannels'])) {
-                $model->passwordExpirationNotificationChannels = $map['PasswordExpirationNotificationChannels'];
+                $model->passwordExpirationNotificationChannels = [];
+                $n1 = 0;
+                foreach ($map['PasswordExpirationNotificationChannels'] as $item1) {
+                    $model->passwordExpirationNotificationChannels[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['PasswordExpirationNotificationDuration'])) {
             $model->passwordExpirationNotificationDuration = $map['PasswordExpirationNotificationDuration'];
         }
+
         if (isset($map['PasswordExpirationNotificationStatus'])) {
             $model->passwordExpirationNotificationStatus = $map['PasswordExpirationNotificationStatus'];
         }
+
         if (isset($map['PasswordExpirationStatus'])) {
             $model->passwordExpirationStatus = $map['PasswordExpirationStatus'];
         }
+
         if (isset($map['PasswordForcedUpdateDuration'])) {
             $model->passwordForcedUpdateDuration = $map['PasswordForcedUpdateDuration'];
         }
+
         if (isset($map['PasswordValidMaxDay'])) {
             $model->passwordValidMaxDay = $map['PasswordValidMaxDay'];
         }
