@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\EventCenterQueryEventsRequest\body\parameters;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class calculations extends Model
 {
     /**
-     * @description The column name.
-     *
-     * @example source
-     *
      * @var string
      */
     public $column;
 
     /**
-     * @description The operator.
-     *
-     * @example COUNT_DISTINCT
-     *
      * @var string
      */
     public $op;
@@ -30,14 +22,18 @@ class calculations extends Model
         'op' => 'Op',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->column) {
             $res['Column'] = $this->column;
         }
+
         if (null !== $this->op) {
             $res['Op'] = $this->op;
         }
@@ -45,17 +41,18 @@ class calculations extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return calculations
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Column'])) {
             $model->column = $map['Column'];
         }
+
         if (isset($map['Op'])) {
             $model->op = $map['Op'];
         }

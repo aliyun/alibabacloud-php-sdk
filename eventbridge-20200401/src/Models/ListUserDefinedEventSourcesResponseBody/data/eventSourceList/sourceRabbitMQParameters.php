@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListUserDefinedEventSourcesResponseBody\data\eventSourceList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sourceRabbitMQParameters extends Model
 {
     /**
-     * @description The ID of the Message Queue for RabbitMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
-     *
-     * @example bastionhost-cn-0ju2x28fj07
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The name of the queue on the Message Queue for RabbitMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
-     *
-     * @example file-upload-queue
-     *
      * @var string
      */
     public $queueName;
 
     /**
-     * @description The ID of the region where the Message Queue for RabbitMQ instance resides.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The name of the vhost of the Message Queue for RabbitMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
-     *
-     * @example eb-connect
-     *
      * @var string
      */
     public $virtualHostName;
@@ -50,20 +34,26 @@ class sourceRabbitMQParameters extends Model
         'virtualHostName' => 'VirtualHostName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->virtualHostName) {
             $res['VirtualHostName'] = $this->virtualHostName;
         }
@@ -71,23 +61,26 @@ class sourceRabbitMQParameters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sourceRabbitMQParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['VirtualHostName'])) {
             $model->virtualHostName = $map['VirtualHostName'];
         }

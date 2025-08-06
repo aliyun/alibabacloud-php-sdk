@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\DiscoverEventSourceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\DiscoverEventSourceResponseBody\data\sourceMySQLDiscovery;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,23 +17,29 @@ class data extends Model
         'sourceMySQLDiscovery' => 'SourceMySQLDiscovery',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->sourceMySQLDiscovery) {
+            $this->sourceMySQLDiscovery->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sourceMySQLDiscovery) {
-            $res['SourceMySQLDiscovery'] = null !== $this->sourceMySQLDiscovery ? $this->sourceMySQLDiscovery->toMap() : null;
+            $res['SourceMySQLDiscovery'] = null !== $this->sourceMySQLDiscovery ? $this->sourceMySQLDiscovery->toArray($noStream) : $this->sourceMySQLDiscovery;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sinkCustomizedKafkaParameters extends Model
 {
     /**
-     * @example 90be1f96-4229-4535-bb76-34b4f6fb****
-     *
      * @var string
      */
     public $instanceId;
@@ -18,9 +16,12 @@ class sinkCustomizedKafkaParameters extends Model
         'instanceId' => 'InstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -30,11 +31,11 @@ class sinkCustomizedKafkaParameters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sinkCustomizedKafkaParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

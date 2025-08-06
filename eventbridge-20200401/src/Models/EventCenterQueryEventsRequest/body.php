@@ -4,42 +4,22 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\EventCenterQueryEventsRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\EventCenterQueryEventsRequest\body\parameters;
-use AlibabaCloud\Tea\Model;
 
 class body extends Model
 {
     /**
-     * @description The query parameters.
-     *
-     * This parameter is required.
-     *
      * @var parameters
      */
     public $parameters;
 
     /**
-     * @description The query type. Valid values:
-     *
-     *   **timeseries**: queries time series data.
-     *   **table**: queries table data.
-     *   **timeseries_and_table**: queries time series data and table data at the same time.
-     *
-     * This parameter is required.
-     *
-     * @example timeseries_and_table
-     *
      * @var string
      */
     public $queryType;
 
     /**
-     * @description The schema ID.
-     *
-     * This parameter is required.
-     *
-     * @example ecs:GeneralSchema
-     *
      * @var string
      */
     public $schemaId;
@@ -49,17 +29,25 @@ class body extends Model
         'schemaId' => 'SchemaId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->parameters) {
+            $this->parameters->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parameters) {
-            $res['Parameters'] = null !== $this->parameters ? $this->parameters->toMap() : null;
+            $res['Parameters'] = null !== $this->parameters ? $this->parameters->toArray($noStream) : $this->parameters;
         }
+
         if (null !== $this->queryType) {
             $res['QueryType'] = $this->queryType;
         }
+
         if (null !== $this->schemaId) {
             $res['SchemaId'] = $this->schemaId;
         }
@@ -67,20 +55,22 @@ class body extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return body
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Parameters'])) {
             $model->parameters = parameters::fromMap($map['Parameters']);
         }
+
         if (isset($map['QueryType'])) {
             $model->queryType = $map['QueryType'];
         }
+
         if (isset($map['SchemaId'])) {
             $model->schemaId = $map['SchemaId'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkCustomizedKafkaConnectorParameters;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class connectorParameters extends Model
 {
     /**
-     * @example {
-     * "connector.class": "com.mongodb.kafka.connect.MongoSinkConnector",
-     * "tasks.max": "1",
-     * "topics": "sourceA,sourceB"
-     * }
-     *
      * @var mixed[]
      */
     public $config;
 
     /**
-     * @example mongo-sink
-     *
      * @var string
      */
     public $name;
@@ -30,14 +22,26 @@ class connectorParameters extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->config)) {
+            Model::validateArray($this->config);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
-            $res['Config'] = $this->config;
+            if (\is_array($this->config)) {
+                $res['Config'] = [];
+                foreach ($this->config as $key1 => $value1) {
+                    $res['Config'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -45,17 +49,23 @@ class connectorParameters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return connectorParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
-            $model->config = $map['Config'];
+            if (!empty($map['Config'])) {
+                $model->config = [];
+                foreach ($map['Config'] as $key1 => $value1) {
+                    $model->config[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

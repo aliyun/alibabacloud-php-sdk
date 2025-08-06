@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\sink\sinkRocketMQCheckpointParameters;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class group extends Model
 {
     /**
-     * @description The method that you want to use to transform events. Default value: CONSTANT.
-     *
-     * @example CONSTANT
-     *
      * @var string
      */
     public $form;
 
     /**
-     * @description The template based on which you want events to be transformed.
-     *
-     * @example None
-     *
      * @var string
      */
     public $template;
 
     /**
-     * @description The ID of the consumer group.
-     *
-     * @example GID_EVENTBRIDGE_1736234******
-     *
      * @var string
      */
     public $value;
@@ -40,17 +28,22 @@ class group extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->form) {
             $res['Form'] = $this->form;
         }
+
         if (null !== $this->template) {
             $res['Template'] = $this->template;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -58,20 +51,22 @@ class group extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return group
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Form'])) {
             $model->form = $map['Form'];
         }
+
         if (isset($map['Template'])) {
             $model->template = $map['Template'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

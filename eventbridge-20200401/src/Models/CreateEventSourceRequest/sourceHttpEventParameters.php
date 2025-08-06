@@ -4,63 +4,31 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventSourceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sourceHttpEventParameters extends Model
 {
     /**
-     * @description The CIDR block that is used for security settings. This parameter is required only if you set SecurityConfig to ip. You can enter a CIDR block or an IP address.
-     *
      * @var string[]
      */
     public $ip;
 
     /**
-     * @description The HTTP request method supported by the generated webhook URL. You can select multiple values. Valid values:
-     *
-     *   GET
-     *   POST
-     *   PUT
-     *   PATCH
-     *   DELETE
-     *   HEAD
-     *   OPTIONS
-     *   TRACE
-     *   CONNECT
-     *
      * @var string[]
      */
     public $method;
 
     /**
-     * @description The security domain name. This parameter is required only if you set SecurityConfig to referer. You can enter a domain name.
-     *
      * @var string[]
      */
     public $referer;
 
     /**
-     * @description The type of security settings. Valid values:
-     *
-     *   none: No configuration is required.
-     *   ip: CIDR block.
-     *   referer: security domain name.
-     *
-     * @example none
-     *
      * @var string
      */
     public $securityConfig;
 
     /**
-     * @description The protocol type that is supported by the generated webhook URL. Valid values:
-     *
-     *   HTTP
-     *   HTTPS
-     *   HTTP\\&HTTPS
-     *
-     * @example HTTPS
-     *
      * @var string
      */
     public $type;
@@ -72,23 +40,60 @@ class sourceHttpEventParameters extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ip)) {
+            Model::validateArray($this->ip);
+        }
+        if (\is_array($this->method)) {
+            Model::validateArray($this->method);
+        }
+        if (\is_array($this->referer)) {
+            Model::validateArray($this->referer);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ip) {
-            $res['Ip'] = $this->ip;
+            if (\is_array($this->ip)) {
+                $res['Ip'] = [];
+                $n1 = 0;
+                foreach ($this->ip as $item1) {
+                    $res['Ip'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->method) {
-            $res['Method'] = $this->method;
+            if (\is_array($this->method)) {
+                $res['Method'] = [];
+                $n1 = 0;
+                foreach ($this->method as $item1) {
+                    $res['Method'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->referer) {
-            $res['Referer'] = $this->referer;
+            if (\is_array($this->referer)) {
+                $res['Referer'] = [];
+                $n1 = 0;
+                foreach ($this->referer as $item1) {
+                    $res['Referer'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->securityConfig) {
             $res['SecurityConfig'] = $this->securityConfig;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -96,32 +101,51 @@ class sourceHttpEventParameters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sourceHttpEventParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ip'])) {
             if (!empty($map['Ip'])) {
-                $model->ip = $map['Ip'];
+                $model->ip = [];
+                $n1 = 0;
+                foreach ($map['Ip'] as $item1) {
+                    $model->ip[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Method'])) {
             if (!empty($map['Method'])) {
-                $model->method = $map['Method'];
+                $model->method = [];
+                $n1 = 0;
+                foreach ($map['Method'] as $item1) {
+                    $model->method[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Referer'])) {
             if (!empty($map['Referer'])) {
-                $model->referer = $map['Referer'];
+                $model->referer = [];
+                $n1 = 0;
+                foreach ($map['Referer'] as $item1) {
+                    $model->referer[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SecurityConfig'])) {
             $model->securityConfig = $map['SecurityConfig'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkSLSParameters;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class roleName extends Model
 {
     /**
-     * @description The method that is used to transform the event. Default value: CONSTANT.
-     *
-     * @example CONSTANT
-     *
      * @var string
      */
     public $form;
 
     /**
-     * @description The template style.
-     *
      * @var string
      */
     public $template;
 
     /**
-     * @description The role name. If you want to authorize EventBridge to use this role to read logs in Log Service, you must select Alibaba Cloud Service for Selected Trusted Entity and EventBridge for Select Trusted Service when you create the role in the RAM console.
-     *
-     * @example testRole
-     *
      * @var string
      */
     public $value;
@@ -38,17 +28,22 @@ class roleName extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->form) {
             $res['Form'] = $this->form;
         }
+
         if (null !== $this->template) {
             $res['Template'] = $this->template;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -56,20 +51,22 @@ class roleName extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return roleName
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Form'])) {
             $model->form = $map['Form'];
         }
+
         if (isset($map['Template'])) {
             $model->template = $map['Template'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

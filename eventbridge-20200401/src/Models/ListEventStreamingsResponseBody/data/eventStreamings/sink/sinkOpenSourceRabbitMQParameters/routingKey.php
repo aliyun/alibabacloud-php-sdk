@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkOpenSourceRabbitMQParameters;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class routingKey extends Model
 {
     /**
-     * @example JSONPATH
-     *
      * @var string
      */
     public $form;
 
     /**
-     * @example The value of ${key} is ${value}!
-     *
      * @var string
      */
     public $template;
 
     /**
-     * @example housekeeping
-     *
      * @var string
      */
     public $value;
@@ -34,17 +28,22 @@ class routingKey extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->form) {
             $res['Form'] = $this->form;
         }
+
         if (null !== $this->template) {
             $res['Template'] = $this->template;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -52,20 +51,22 @@ class routingKey extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return routingKey
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Form'])) {
             $model->form = $map['Form'];
         }
+
         if (isset($map['Template'])) {
             $model->template = $map['Template'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

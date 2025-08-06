@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateConnectionRequest\authParameters\OAuthParameters\OAuthHttpParameters;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class queryStringParameters extends Model
 {
     /**
-     * @description Specifies whether to enable authentication.
-     *
-     * @example false
-     *
      * @var string
      */
     public $isValueSecret;
 
     /**
-     * @description The key of the request path.
-     *
-     * @example keyDemo
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The value of the request path.
-     *
-     * @example valueDemo
-     *
      * @var string
      */
     public $value;
@@ -40,17 +28,22 @@ class queryStringParameters extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isValueSecret) {
             $res['IsValueSecret'] = $this->isValueSecret;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -58,20 +51,22 @@ class queryStringParameters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return queryStringParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsValueSecret'])) {
             $model->isValueSecret = $map['IsValueSecret'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetConnectionResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetConnectionResponseBody\data\connections;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The queried connections.
-     *
      * @var connections[]
      */
     public $connections;
@@ -19,17 +17,24 @@ class data extends Model
         'connections' => 'Connections',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->connections)) {
+            Model::validateArray($this->connections);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connections) {
-            $res['Connections'] = [];
-            if (null !== $this->connections && \is_array($this->connections)) {
-                $n = 0;
-                foreach ($this->connections as $item) {
-                    $res['Connections'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->connections)) {
+                $res['Connections'] = [];
+                $n1 = 0;
+                foreach ($this->connections as $item1) {
+                    $res['Connections'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Connections'])) {
             if (!empty($map['Connections'])) {
                 $model->connections = [];
-                $n = 0;
-                foreach ($map['Connections'] as $item) {
-                    $model->connections[$n++] = null !== $item ? connections::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Connections'] as $item1) {
+                    $model->connections[$n1] = connections::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

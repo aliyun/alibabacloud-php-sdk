@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\runOptions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class retryStrategy extends Model
 {
     /**
-     * @description The retry policy. Valid values: BACKOFF_RETRY and EXPONENTIAL_DECAY_RETRY.
-     *
-     * @example EXPONENTIALDECAY_RETRY
-     *
      * @var string
      */
     public $pushRetryStrategy;
@@ -20,9 +16,12 @@ class retryStrategy extends Model
         'pushRetryStrategy' => 'PushRetryStrategy',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pushRetryStrategy) {
@@ -32,11 +31,11 @@ class retryStrategy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return retryStrategy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

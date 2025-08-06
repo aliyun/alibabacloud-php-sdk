@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkDorisParameters\beHttpEndpoint;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkDorisParameters\body;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkDorisParameters\database;
@@ -16,7 +17,6 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkDorisParameters\userName;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkDorisParameters\vpcId;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\sink\sinkDorisParameters\vSwitchIds;
-use AlibabaCloud\Tea\Model;
 
 class sinkDorisParameters extends Model
 {
@@ -94,92 +94,153 @@ class sinkDorisParameters extends Model
         'vpcId' => 'VpcId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->beHttpEndpoint) {
+            $this->beHttpEndpoint->validate();
+        }
+        if (null !== $this->body) {
+            $this->body->validate();
+        }
+        if (null !== $this->database) {
+            $this->database->validate();
+        }
+        if (null !== $this->feHttpEndpoint) {
+            $this->feHttpEndpoint->validate();
+        }
+        if (null !== $this->networkType) {
+            $this->networkType->validate();
+        }
+        if (null !== $this->password) {
+            $this->password->validate();
+        }
+        if (null !== $this->queryEndpoint) {
+            $this->queryEndpoint->validate();
+        }
+        if (null !== $this->securityGroupId) {
+            $this->securityGroupId->validate();
+        }
+        if (null !== $this->table) {
+            $this->table->validate();
+        }
+        if (null !== $this->userName) {
+            $this->userName->validate();
+        }
+        if (null !== $this->vSwitchIds) {
+            $this->vSwitchIds->validate();
+        }
+        if (null !== $this->vpcId) {
+            $this->vpcId->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->beHttpEndpoint) {
-            $res['BeHttpEndpoint'] = null !== $this->beHttpEndpoint ? $this->beHttpEndpoint->toMap() : null;
+            $res['BeHttpEndpoint'] = null !== $this->beHttpEndpoint ? $this->beHttpEndpoint->toArray($noStream) : $this->beHttpEndpoint;
         }
+
         if (null !== $this->body) {
-            $res['Body'] = null !== $this->body ? $this->body->toMap() : null;
+            $res['Body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
+
         if (null !== $this->database) {
-            $res['Database'] = null !== $this->database ? $this->database->toMap() : null;
+            $res['Database'] = null !== $this->database ? $this->database->toArray($noStream) : $this->database;
         }
+
         if (null !== $this->feHttpEndpoint) {
-            $res['FeHttpEndpoint'] = null !== $this->feHttpEndpoint ? $this->feHttpEndpoint->toMap() : null;
+            $res['FeHttpEndpoint'] = null !== $this->feHttpEndpoint ? $this->feHttpEndpoint->toArray($noStream) : $this->feHttpEndpoint;
         }
+
         if (null !== $this->networkType) {
-            $res['NetworkType'] = null !== $this->networkType ? $this->networkType->toMap() : null;
+            $res['NetworkType'] = null !== $this->networkType ? $this->networkType->toArray($noStream) : $this->networkType;
         }
+
         if (null !== $this->password) {
-            $res['Password'] = null !== $this->password ? $this->password->toMap() : null;
+            $res['Password'] = null !== $this->password ? $this->password->toArray($noStream) : $this->password;
         }
+
         if (null !== $this->queryEndpoint) {
-            $res['QueryEndpoint'] = null !== $this->queryEndpoint ? $this->queryEndpoint->toMap() : null;
+            $res['QueryEndpoint'] = null !== $this->queryEndpoint ? $this->queryEndpoint->toArray($noStream) : $this->queryEndpoint;
         }
+
         if (null !== $this->securityGroupId) {
-            $res['SecurityGroupId'] = null !== $this->securityGroupId ? $this->securityGroupId->toMap() : null;
+            $res['SecurityGroupId'] = null !== $this->securityGroupId ? $this->securityGroupId->toArray($noStream) : $this->securityGroupId;
         }
+
         if (null !== $this->table) {
-            $res['Table'] = null !== $this->table ? $this->table->toMap() : null;
+            $res['Table'] = null !== $this->table ? $this->table->toArray($noStream) : $this->table;
         }
+
         if (null !== $this->userName) {
-            $res['UserName'] = null !== $this->userName ? $this->userName->toMap() : null;
+            $res['UserName'] = null !== $this->userName ? $this->userName->toArray($noStream) : $this->userName;
         }
+
         if (null !== $this->vSwitchIds) {
-            $res['VSwitchIds'] = null !== $this->vSwitchIds ? $this->vSwitchIds->toMap() : null;
+            $res['VSwitchIds'] = null !== $this->vSwitchIds ? $this->vSwitchIds->toArray($noStream) : $this->vSwitchIds;
         }
+
         if (null !== $this->vpcId) {
-            $res['VpcId'] = null !== $this->vpcId ? $this->vpcId->toMap() : null;
+            $res['VpcId'] = null !== $this->vpcId ? $this->vpcId->toArray($noStream) : $this->vpcId;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sinkDorisParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BeHttpEndpoint'])) {
             $model->beHttpEndpoint = beHttpEndpoint::fromMap($map['BeHttpEndpoint']);
         }
+
         if (isset($map['Body'])) {
             $model->body = body::fromMap($map['Body']);
         }
+
         if (isset($map['Database'])) {
             $model->database = database::fromMap($map['Database']);
         }
+
         if (isset($map['FeHttpEndpoint'])) {
             $model->feHttpEndpoint = feHttpEndpoint::fromMap($map['FeHttpEndpoint']);
         }
+
         if (isset($map['NetworkType'])) {
             $model->networkType = networkType::fromMap($map['NetworkType']);
         }
+
         if (isset($map['Password'])) {
             $model->password = password::fromMap($map['Password']);
         }
+
         if (isset($map['QueryEndpoint'])) {
             $model->queryEndpoint = queryEndpoint::fromMap($map['QueryEndpoint']);
         }
+
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = securityGroupId::fromMap($map['SecurityGroupId']);
         }
+
         if (isset($map['Table'])) {
             $model->table = table::fromMap($map['Table']);
         }
+
         if (isset($map['UserName'])) {
             $model->userName = userName::fromMap($map['UserName']);
         }
+
         if (isset($map['VSwitchIds'])) {
             $model->vSwitchIds = vSwitchIds::fromMap($map['VSwitchIds']);
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = vpcId::fromMap($map['VpcId']);
         }

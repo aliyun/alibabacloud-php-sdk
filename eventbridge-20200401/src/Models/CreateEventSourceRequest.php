@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventSourceRequest\sourceHttpEventParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventSourceRequest\sourceKafkaParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventSourceRequest\sourceMNSParameters;
@@ -11,109 +12,70 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventSourceRequest\sourc
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventSourceRequest\sourceRocketMQParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventSourceRequest\sourceScheduledEventParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventSourceRequest\sourceSLSParameters;
-use AlibabaCloud\Tea\Model;
 
 class CreateEventSourceRequest extends Model
 {
     /**
-     * @description The description of the event source.
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the event bus with which the event source is associated.
-     *
-     * This parameter is required.
-     *
-     * @example my-event-bus
-     *
      * @var string
      */
     public $eventBusName;
 
     /**
-     * @description The name of the event source.
-     *
-     * This parameter is required.
-     *
-     * @example myrabbitmq.sourc
-     *
      * @var string
      */
     public $eventSourceName;
 
     /**
-     * @description The configurations of the external data source.
-     *
      * @var mixed[]
      */
     public $externalSourceConfig;
 
     /**
-     * @description The type of the external data source.
-     *
-     * @example RabbitMQ
-     *
      * @var int[]
      */
     public $externalSourceType;
 
     /**
-     * @description Specify whether to connect to an external data source.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $linkedExternalSource;
 
     /**
-     * @description The parameters that are configured if the event source is HTTP events.
-     *
      * @var sourceHttpEventParameters
      */
     public $sourceHttpEventParameters;
 
     /**
-     * @description The parameters that are configured if the event source is Message Queue for Apache Kafka.
-     *
      * @var sourceKafkaParameters
      */
     public $sourceKafkaParameters;
 
     /**
-     * @description The parameters that are configured if you specify Simple Message Queue (formerly MNS) (SMQ) as the event source. If you specify SMQ as the event source, you must configure RegionId, IsBase64Decode, and QueueName.
-     *
      * @var sourceMNSParameters
      */
     public $sourceMNSParameters;
 
     /**
-     * @description The parameters that are configured if the event source is Message Queue for RabbitMQ.
-     *
      * @var sourceRabbitMQParameters
      */
     public $sourceRabbitMQParameters;
 
     /**
-     * @description The parameters that are configured if the event source is Message Queue for Apache RocketMQ.
-     *
      * @var sourceRocketMQParameters
      */
     public $sourceRocketMQParameters;
 
     /**
-     * @description The parameters that are configured if the event source is Log Service.
-     *
      * @var sourceSLSParameters
      */
     public $sourceSLSParameters;
 
     /**
-     * @description The parameters that are configured if you specify scheduled events as the event source.
-     *
      * @var sourceScheduledEventParameters
      */
     public $sourceScheduledEventParameters;
@@ -133,98 +95,159 @@ class CreateEventSourceRequest extends Model
         'sourceScheduledEventParameters' => 'SourceScheduledEventParameters',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->externalSourceConfig)) {
+            Model::validateArray($this->externalSourceConfig);
+        }
+        if (null !== $this->sourceHttpEventParameters) {
+            $this->sourceHttpEventParameters->validate();
+        }
+        if (null !== $this->sourceKafkaParameters) {
+            $this->sourceKafkaParameters->validate();
+        }
+        if (null !== $this->sourceMNSParameters) {
+            $this->sourceMNSParameters->validate();
+        }
+        if (null !== $this->sourceRabbitMQParameters) {
+            $this->sourceRabbitMQParameters->validate();
+        }
+        if (null !== $this->sourceRocketMQParameters) {
+            $this->sourceRocketMQParameters->validate();
+        }
+        if (null !== $this->sourceSLSParameters) {
+            $this->sourceSLSParameters->validate();
+        }
+        if (null !== $this->sourceScheduledEventParameters) {
+            $this->sourceScheduledEventParameters->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->eventBusName) {
             $res['EventBusName'] = $this->eventBusName;
         }
+
         if (null !== $this->eventSourceName) {
             $res['EventSourceName'] = $this->eventSourceName;
         }
+
         if (null !== $this->externalSourceConfig) {
-            $res['ExternalSourceConfig'] = $this->externalSourceConfig;
+            if (\is_array($this->externalSourceConfig)) {
+                $res['ExternalSourceConfig'] = [];
+                foreach ($this->externalSourceConfig as $key1 => $value1) {
+                    $res['ExternalSourceConfig'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->externalSourceType) {
             $res['ExternalSourceType'] = $this->externalSourceType;
         }
+
         if (null !== $this->linkedExternalSource) {
             $res['LinkedExternalSource'] = $this->linkedExternalSource;
         }
+
         if (null !== $this->sourceHttpEventParameters) {
-            $res['SourceHttpEventParameters'] = null !== $this->sourceHttpEventParameters ? $this->sourceHttpEventParameters->toMap() : null;
+            $res['SourceHttpEventParameters'] = null !== $this->sourceHttpEventParameters ? $this->sourceHttpEventParameters->toArray($noStream) : $this->sourceHttpEventParameters;
         }
+
         if (null !== $this->sourceKafkaParameters) {
-            $res['SourceKafkaParameters'] = null !== $this->sourceKafkaParameters ? $this->sourceKafkaParameters->toMap() : null;
+            $res['SourceKafkaParameters'] = null !== $this->sourceKafkaParameters ? $this->sourceKafkaParameters->toArray($noStream) : $this->sourceKafkaParameters;
         }
+
         if (null !== $this->sourceMNSParameters) {
-            $res['SourceMNSParameters'] = null !== $this->sourceMNSParameters ? $this->sourceMNSParameters->toMap() : null;
+            $res['SourceMNSParameters'] = null !== $this->sourceMNSParameters ? $this->sourceMNSParameters->toArray($noStream) : $this->sourceMNSParameters;
         }
+
         if (null !== $this->sourceRabbitMQParameters) {
-            $res['SourceRabbitMQParameters'] = null !== $this->sourceRabbitMQParameters ? $this->sourceRabbitMQParameters->toMap() : null;
+            $res['SourceRabbitMQParameters'] = null !== $this->sourceRabbitMQParameters ? $this->sourceRabbitMQParameters->toArray($noStream) : $this->sourceRabbitMQParameters;
         }
+
         if (null !== $this->sourceRocketMQParameters) {
-            $res['SourceRocketMQParameters'] = null !== $this->sourceRocketMQParameters ? $this->sourceRocketMQParameters->toMap() : null;
+            $res['SourceRocketMQParameters'] = null !== $this->sourceRocketMQParameters ? $this->sourceRocketMQParameters->toArray($noStream) : $this->sourceRocketMQParameters;
         }
+
         if (null !== $this->sourceSLSParameters) {
-            $res['SourceSLSParameters'] = null !== $this->sourceSLSParameters ? $this->sourceSLSParameters->toMap() : null;
+            $res['SourceSLSParameters'] = null !== $this->sourceSLSParameters ? $this->sourceSLSParameters->toArray($noStream) : $this->sourceSLSParameters;
         }
+
         if (null !== $this->sourceScheduledEventParameters) {
-            $res['SourceScheduledEventParameters'] = null !== $this->sourceScheduledEventParameters ? $this->sourceScheduledEventParameters->toMap() : null;
+            $res['SourceScheduledEventParameters'] = null !== $this->sourceScheduledEventParameters ? $this->sourceScheduledEventParameters->toArray($noStream) : $this->sourceScheduledEventParameters;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateEventSourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EventBusName'])) {
             $model->eventBusName = $map['EventBusName'];
         }
+
         if (isset($map['EventSourceName'])) {
             $model->eventSourceName = $map['EventSourceName'];
         }
+
         if (isset($map['ExternalSourceConfig'])) {
-            $model->externalSourceConfig = $map['ExternalSourceConfig'];
+            if (!empty($map['ExternalSourceConfig'])) {
+                $model->externalSourceConfig = [];
+                foreach ($map['ExternalSourceConfig'] as $key1 => $value1) {
+                    $model->externalSourceConfig[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['ExternalSourceType'])) {
             $model->externalSourceType = $map['ExternalSourceType'];
         }
+
         if (isset($map['LinkedExternalSource'])) {
             $model->linkedExternalSource = $map['LinkedExternalSource'];
         }
+
         if (isset($map['SourceHttpEventParameters'])) {
             $model->sourceHttpEventParameters = sourceHttpEventParameters::fromMap($map['SourceHttpEventParameters']);
         }
+
         if (isset($map['SourceKafkaParameters'])) {
             $model->sourceKafkaParameters = sourceKafkaParameters::fromMap($map['SourceKafkaParameters']);
         }
+
         if (isset($map['SourceMNSParameters'])) {
             $model->sourceMNSParameters = sourceMNSParameters::fromMap($map['SourceMNSParameters']);
         }
+
         if (isset($map['SourceRabbitMQParameters'])) {
             $model->sourceRabbitMQParameters = sourceRabbitMQParameters::fromMap($map['SourceRabbitMQParameters']);
         }
+
         if (isset($map['SourceRocketMQParameters'])) {
             $model->sourceRocketMQParameters = sourceRocketMQParameters::fromMap($map['SourceRocketMQParameters']);
         }
+
         if (isset($map['SourceSLSParameters'])) {
             $model->sourceSLSParameters = sourceSLSParameters::fromMap($map['SourceSLSParameters']);
         }
+
         if (isset($map['SourceScheduledEventParameters'])) {
             $model->sourceScheduledEventParameters = sourceScheduledEventParameters::fromMap($map['SourceScheduledEventParameters']);
         }

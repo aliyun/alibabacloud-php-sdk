@@ -4,46 +4,26 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListApiDestinationsRequest extends Model
 {
     /**
-     * @description The prefix of the API destination name.
-     *
-     * @example api-demo
-     *
      * @var string
      */
     public $apiDestinationNamePrefix;
 
     /**
-     * @description The connection name.
-     *
-     * @example connection-name
-     *
      * @var string
      */
     public $connectionName;
 
     /**
-     * @description The maximum number of entries to be returned in a call. You can use this parameter and NextToken to implement paging.
-     *
-     *   Default value: 10.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description If you set Limit and excess return values exist, this parameter is returned.
-     *
-     *   Default value: 0.
-     *
-     * @example 0
-     *
      * @var string
      */
     public $nextToken;
@@ -54,20 +34,26 @@ class ListApiDestinationsRequest extends Model
         'nextToken' => 'NextToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiDestinationNamePrefix) {
             $res['ApiDestinationNamePrefix'] = $this->apiDestinationNamePrefix;
         }
+
         if (null !== $this->connectionName) {
             $res['ConnectionName'] = $this->connectionName;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -75,23 +61,26 @@ class ListApiDestinationsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListApiDestinationsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiDestinationNamePrefix'])) {
             $model->apiDestinationNamePrefix = $map['ApiDestinationNamePrefix'];
         }
+
         if (isset($map['ConnectionName'])) {
             $model->connectionName = $map['ConnectionName'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

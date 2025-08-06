@@ -4,86 +4,46 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryTracedEventsRequest extends Model
 {
     /**
-     * @description The end of the time range when event traces are queried. Unit: milliseconds.
-     *
-     * This parameter is required.
-     *
-     * @example 1661773509000
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The name of the event bus.
-     *
-     * This parameter is required.
-     *
-     * @example MyEventBus
-     *
      * @var string
      */
     public $eventBusName;
 
     /**
-     * @description The name of the event source.
-     *
-     * @example mse
-     *
      * @var string
      */
     public $eventSource;
 
     /**
-     * @description The event type.
-     *
-     * @example eventbridge:Events:HTTPEvent
-     *
      * @var string
      */
     public $eventType;
 
     /**
-     * @description The maximum number of entries to return in a request. You can use this parameter and NextToken to implement paging.
-     *
-     * >  A maximum of 100 entries can be returned in a request.
-     *
-     * @example 50
-     *
      * @var int
      */
     public $limit;
 
     /**
-     * @description The name of the event rule that is matched.
-     *
-     * @example test-mnsrule
-     *
      * @var string
      */
     public $matchedRule;
 
     /**
-     * @description If you configure Limit and excess return values exist, this parameter is returned.
-     *
-     * @example 1000
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The beginning of the time range to query event traces. Unit: milliseconds.
-     *
-     * This parameter is required.
-     *
-     * @example 1661773509000
-     *
      * @var int
      */
     public $startTime;
@@ -98,32 +58,42 @@ class QueryTracedEventsRequest extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->eventBusName) {
             $res['EventBusName'] = $this->eventBusName;
         }
+
         if (null !== $this->eventSource) {
             $res['EventSource'] = $this->eventSource;
         }
+
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
         }
+
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
         }
+
         if (null !== $this->matchedRule) {
             $res['MatchedRule'] = $this->matchedRule;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -131,35 +101,42 @@ class QueryTracedEventsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryTracedEventsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['EventBusName'])) {
             $model->eventBusName = $map['EventBusName'];
         }
+
         if (isset($map['EventSource'])) {
             $model->eventSource = $map['EventSource'];
         }
+
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
         }
+
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
         }
+
         if (isset($map['MatchedRule'])) {
             $model->matchedRule = $map['MatchedRule'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

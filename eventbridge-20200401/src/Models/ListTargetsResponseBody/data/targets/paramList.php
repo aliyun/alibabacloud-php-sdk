@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListTargetsResponseBody\data\targets;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class paramList extends Model
 {
     /**
-     * @description The format that is used by the event target parameter.
-     *
-     * @example TEMPLATE
-     *
      * @var string
      */
     public $form;
 
     /**
-     * @description The resource parameter of the event target.
-     *
-     * @example body
-     *
      * @var string
      */
     public $resourceKey;
 
     /**
-     * @description The template that is used by the event target parameter.
-     *
-     * @example The value of ${key} is ${value}!
-     *
      * @var string
      */
     public $template;
 
     /**
-     * @description The value of the event target parameter.
-     *
-     * @example {\\"key\\"=\\"value\\"}
-     *
      * @var string
      */
     public $value;
@@ -50,20 +34,26 @@ class paramList extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->form) {
             $res['Form'] = $this->form;
         }
+
         if (null !== $this->resourceKey) {
             $res['ResourceKey'] = $this->resourceKey;
         }
+
         if (null !== $this->template) {
             $res['Template'] = $this->template;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -71,23 +61,26 @@ class paramList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return paramList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Form'])) {
             $model->form = $map['Form'];
         }
+
         if (isset($map['ResourceKey'])) {
             $model->resourceKey = $map['ResourceKey'];
         }
+
         if (isset($map['Template'])) {
             $model->template = $map['Template'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

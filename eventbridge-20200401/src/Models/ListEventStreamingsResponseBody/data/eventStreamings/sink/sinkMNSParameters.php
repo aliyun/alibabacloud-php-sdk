@@ -4,30 +4,24 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkMNSParameters\body;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkMNSParameters\isBase64Encode;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkMNSParameters\queueName;
-use AlibabaCloud\Tea\Model;
 
 class sinkMNSParameters extends Model
 {
     /**
-     * @description The message content.
-     *
      * @var body
      */
     public $body;
 
     /**
-     * @description Indicates whether Base64 encoding is enabled.
-     *
      * @var isBase64Encode
      */
     public $isBase64Encode;
 
     /**
-     * @description The name of the MNS queue.
-     *
      * @var queueName
      */
     public $queueName;
@@ -37,38 +31,54 @@ class sinkMNSParameters extends Model
         'queueName' => 'QueueName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->body) {
+            $this->body->validate();
+        }
+        if (null !== $this->isBase64Encode) {
+            $this->isBase64Encode->validate();
+        }
+        if (null !== $this->queueName) {
+            $this->queueName->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
-            $res['Body'] = null !== $this->body ? $this->body->toMap() : null;
+            $res['Body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
+
         if (null !== $this->isBase64Encode) {
-            $res['IsBase64Encode'] = null !== $this->isBase64Encode ? $this->isBase64Encode->toMap() : null;
+            $res['IsBase64Encode'] = null !== $this->isBase64Encode ? $this->isBase64Encode->toArray($noStream) : $this->isBase64Encode;
         }
+
         if (null !== $this->queueName) {
-            $res['QueueName'] = null !== $this->queueName ? $this->queueName->toMap() : null;
+            $res['QueueName'] = null !== $this->queueName ? $this->queueName->toArray($noStream) : $this->queueName;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sinkMNSParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Body'])) {
             $model->body = body::fromMap($map['Body']);
         }
+
         if (isset($map['IsBase64Encode'])) {
             $model->isBase64Encode = isBase64Encode::fromMap($map['IsBase64Encode']);
         }
+
         if (isset($map['QueueName'])) {
             $model->queueName = queueName::fromMap($map['QueueName']);
         }

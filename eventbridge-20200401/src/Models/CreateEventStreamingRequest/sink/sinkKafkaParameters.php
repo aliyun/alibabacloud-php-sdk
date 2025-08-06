@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkKafkaParameters\acks;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkKafkaParameters\headers;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkKafkaParameters\instanceId;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkKafkaParameters\key;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkKafkaParameters\topic;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkKafkaParameters\value;
-use AlibabaCloud\Tea\Model;
 
 class sinkKafkaParameters extends Model
 {
     /**
-     * @description The acknowledgment (ACK) mode.
-     *
-     *   If you set this parameter to 0, no response is returned from the broker. In this mode, the performance is high, but the risk of data loss is also high.
-     *   If you set this parameter to 1, a response is returned when data is written to the leader. In this mode, the performance and the risk of data loss are moderate. Data loss may occur if a failure occurs on the leader.
-     *   If you set this parameter to all, a response is returned when data is written to the leader and synchronized to the followers. In this mode, the performance is low, but the risk of data loss is also low. Data loss occurs if the leader and the followers fail at the same time.
-     *
      * @var acks
      */
     public $acks;
@@ -31,29 +25,21 @@ class sinkKafkaParameters extends Model
     public $headers;
 
     /**
-     * @description The ID of the ApsaraMQ for Kafka instance.
-     *
      * @var instanceId
      */
     public $instanceId;
 
     /**
-     * @description The message key.
-     *
      * @var key
      */
     public $key;
 
     /**
-     * @description The name of the topic on the ApsaraMQ for Kafka instance.
-     *
      * @var topic
      */
     public $topic;
 
     /**
-     * @description The message body.
-     *
      * @var value
      */
     public $value;
@@ -66,56 +52,87 @@ class sinkKafkaParameters extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->acks) {
+            $this->acks->validate();
+        }
+        if (null !== $this->headers) {
+            $this->headers->validate();
+        }
+        if (null !== $this->instanceId) {
+            $this->instanceId->validate();
+        }
+        if (null !== $this->key) {
+            $this->key->validate();
+        }
+        if (null !== $this->topic) {
+            $this->topic->validate();
+        }
+        if (null !== $this->value) {
+            $this->value->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acks) {
-            $res['Acks'] = null !== $this->acks ? $this->acks->toMap() : null;
+            $res['Acks'] = null !== $this->acks ? $this->acks->toArray($noStream) : $this->acks;
         }
+
         if (null !== $this->headers) {
-            $res['Headers'] = null !== $this->headers ? $this->headers->toMap() : null;
+            $res['Headers'] = null !== $this->headers ? $this->headers->toArray($noStream) : $this->headers;
         }
+
         if (null !== $this->instanceId) {
-            $res['InstanceId'] = null !== $this->instanceId ? $this->instanceId->toMap() : null;
+            $res['InstanceId'] = null !== $this->instanceId ? $this->instanceId->toArray($noStream) : $this->instanceId;
         }
+
         if (null !== $this->key) {
-            $res['Key'] = null !== $this->key ? $this->key->toMap() : null;
+            $res['Key'] = null !== $this->key ? $this->key->toArray($noStream) : $this->key;
         }
+
         if (null !== $this->topic) {
-            $res['Topic'] = null !== $this->topic ? $this->topic->toMap() : null;
+            $res['Topic'] = null !== $this->topic ? $this->topic->toArray($noStream) : $this->topic;
         }
+
         if (null !== $this->value) {
-            $res['Value'] = null !== $this->value ? $this->value->toMap() : null;
+            $res['Value'] = null !== $this->value ? $this->value->toArray($noStream) : $this->value;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sinkKafkaParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Acks'])) {
             $model->acks = acks::fromMap($map['Acks']);
         }
+
         if (isset($map['Headers'])) {
             $model->headers = headers::fromMap($map['Headers']);
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = instanceId::fromMap($map['InstanceId']);
         }
+
         if (isset($map['Key'])) {
             $model->key = key::fromMap($map['Key']);
         }
+
         if (isset($map['Topic'])) {
             $model->topic = topic::fromMap($map['Topic']);
         }
+
         if (isset($map['Value'])) {
             $model->value = value::fromMap($map['Value']);
         }

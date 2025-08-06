@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\source;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\GetEventStreamingResponseBody\data\source\sourceCustomizedKafkaConnectorParameters\connectorParameters;
-use AlibabaCloud\Tea\Model;
 
 class sourceCustomizedKafkaConnectorParameters extends Model
 {
     /**
-     * @example "https://examplebucket.oss-cn-hangzhou.aliyuncs.com/testDoc/Old_Homebrew/2024-06-26%2022%3A34%3A08/opt/homebrew/homebrew/Library/Homebrew/test/support/fixtures/cask/AppWithBinary.zip?OSSAccessKeyId=ri&Expires=1725539627&Signature=rb8q3OpV2i3gZJ"
-     *
      * @var string
      */
     public $connectorPackageUrl;
@@ -22,15 +20,6 @@ class sourceCustomizedKafkaConnectorParameters extends Model
     public $connectorParameters;
 
     /**
-     * @example {
-     * "group.id": "connect-eb-cluster-KAFKA_CONNECTORC",
-     * "offset.storage.topic": "connect-eb-offset-KAFKA_CONNECTOR_yjqC8K5ewC",
-     * "config.storage.topic": "connect-eb-config-KAFKA_CONNECTOR_yjqC8K5ewC",
-     * "status.storage.topic": "connect-eb-status-KAFKA_CONNECTOR_yjqC8K5ewC",
-     * "consumer.group.id": "connector-eb-cluster-KAFKA_CONNECTOR_yjqC8K5ewC-mongo-sink",
-     * "bootstrap.servers": "alikafka-post:9092"
-     * }
-     *
      * @var mixed[]
      */
     public $workerParameters;
@@ -40,40 +29,63 @@ class sourceCustomizedKafkaConnectorParameters extends Model
         'workerParameters' => 'WorkerParameters',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->connectorParameters) {
+            $this->connectorParameters->validate();
+        }
+        if (\is_array($this->workerParameters)) {
+            Model::validateArray($this->workerParameters);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectorPackageUrl) {
             $res['ConnectorPackageUrl'] = $this->connectorPackageUrl;
         }
+
         if (null !== $this->connectorParameters) {
-            $res['ConnectorParameters'] = null !== $this->connectorParameters ? $this->connectorParameters->toMap() : null;
+            $res['ConnectorParameters'] = null !== $this->connectorParameters ? $this->connectorParameters->toArray($noStream) : $this->connectorParameters;
         }
+
         if (null !== $this->workerParameters) {
-            $res['WorkerParameters'] = $this->workerParameters;
+            if (\is_array($this->workerParameters)) {
+                $res['WorkerParameters'] = [];
+                foreach ($this->workerParameters as $key1 => $value1) {
+                    $res['WorkerParameters'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sourceCustomizedKafkaConnectorParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectorPackageUrl'])) {
             $model->connectorPackageUrl = $map['ConnectorPackageUrl'];
         }
+
         if (isset($map['ConnectorParameters'])) {
             $model->connectorParameters = connectorParameters::fromMap($map['ConnectorParameters']);
         }
+
         if (isset($map['WorkerParameters'])) {
-            $model->workerParameters = $map['WorkerParameters'];
+            if (!empty($map['WorkerParameters'])) {
+                $model->workerParameters = [];
+                foreach ($map['WorkerParameters'] as $key1 => $value1) {
+                    $model->workerParameters[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CheckServiceLinkedRoleForProductRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CheckServiceLinkedRoleForProductResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateApiDestinationRequest;
@@ -108,16 +107,17 @@ use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventBusResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventSourceRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventSourceResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventSourceShrinkRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingBusinessOptionRequest;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingBusinessOptionResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingResponse;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingShrinkRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateRuleRequest;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateRuleResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Eventbridge extends OpenApiClient
 {
@@ -142,33 +142,40 @@ class Eventbridge extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 检查账号是否存在ServiceLinkedRole授权
-     *  *
-     * @param CheckServiceLinkedRoleForProductRequest $request CheckServiceLinkedRoleForProductRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * 检查账号是否存在ServiceLinkedRole授权.
      *
-     * @return CheckServiceLinkedRoleForProductResponse CheckServiceLinkedRoleForProductResponse
+     * @param request - CheckServiceLinkedRoleForProductRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckServiceLinkedRoleForProductResponse
+     *
+     * @param CheckServiceLinkedRoleForProductRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return CheckServiceLinkedRoleForProductResponse
      */
     public function checkServiceLinkedRoleForProductWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->productName)) {
-            $query['ProductName'] = $request->productName;
+        if (null !== $request->productName) {
+            @$query['ProductName'] = $request->productName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CheckServiceLinkedRoleForProduct',
@@ -186,11 +193,15 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary 检查账号是否存在ServiceLinkedRole授权
-     *  *
-     * @param CheckServiceLinkedRoleForProductRequest $request CheckServiceLinkedRoleForProductRequest
+     * 检查账号是否存在ServiceLinkedRole授权.
      *
-     * @return CheckServiceLinkedRoleForProductResponse CheckServiceLinkedRoleForProductResponse
+     * @param request - CheckServiceLinkedRoleForProductRequest
+     *
+     * @returns CheckServiceLinkedRoleForProductResponse
+     *
+     * @param CheckServiceLinkedRoleForProductRequest $request
+     *
+     * @return CheckServiceLinkedRoleForProductResponse
      */
     public function checkServiceLinkedRoleForProduct($request)
     {
@@ -200,38 +211,49 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Creates an API destination.
-     *  *
-     * @description You can call this API operation to create an API destination.
-     *  *
-     * @param CreateApiDestinationRequest $tmpReq  CreateApiDestinationRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Creates an API destination.
      *
-     * @return CreateApiDestinationResponse CreateApiDestinationResponse
+     * @remarks
+     * You can call this API operation to create an API destination.
+     *
+     * @param tmpReq - CreateApiDestinationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateApiDestinationResponse
+     *
+     * @param CreateApiDestinationRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateApiDestinationResponse
      */
     public function createApiDestinationWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateApiDestinationShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->httpApiParameters)) {
-            $request->httpApiParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->httpApiParameters, 'HttpApiParameters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->httpApiParameters) {
+            $request->httpApiParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->httpApiParameters, 'HttpApiParameters', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->apiDestinationName)) {
-            $query['ApiDestinationName'] = $request->apiDestinationName;
+        if (null !== $request->apiDestinationName) {
+            @$query['ApiDestinationName'] = $request->apiDestinationName;
         }
-        if (!Utils::isUnset($request->connectionName)) {
-            $query['ConnectionName'] = $request->connectionName;
+
+        if (null !== $request->connectionName) {
+            @$query['ConnectionName'] = $request->connectionName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->httpApiParametersShrink)) {
-            $query['HttpApiParameters'] = $request->httpApiParametersShrink;
+
+        if (null !== $request->httpApiParametersShrink) {
+            @$query['HttpApiParameters'] = $request->httpApiParametersShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateApiDestination',
@@ -249,13 +271,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Creates an API destination.
-     *  *
-     * @description You can call this API operation to create an API destination.
-     *  *
-     * @param CreateApiDestinationRequest $request CreateApiDestinationRequest
+     * Creates an API destination.
      *
-     * @return CreateApiDestinationResponse CreateApiDestinationResponse
+     * @remarks
+     * You can call this API operation to create an API destination.
+     *
+     * @param request - CreateApiDestinationRequest
+     *
+     * @returns CreateApiDestinationResponse
+     *
+     * @param CreateApiDestinationRequest $request
+     *
+     * @return CreateApiDestinationResponse
      */
     public function createApiDestination($request)
     {
@@ -265,41 +292,53 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Creates a connection.
-     *  *
-     * @description You can call this API operation to create a connection.
-     *  *
-     * @param CreateConnectionRequest $tmpReq  CreateConnectionRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Creates a connection.
      *
-     * @return CreateConnectionResponse CreateConnectionResponse
+     * @remarks
+     * You can call this API operation to create a connection.
+     *
+     * @param tmpReq - CreateConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateConnectionResponse
+     *
+     * @param CreateConnectionRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateConnectionResponse
      */
     public function createConnectionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateConnectionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->authParameters)) {
-            $request->authParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->authParameters, 'AuthParameters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->authParameters) {
+            $request->authParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->authParameters, 'AuthParameters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->networkParameters)) {
-            $request->networkParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->networkParameters, 'NetworkParameters', 'json');
+
+        if (null !== $tmpReq->networkParameters) {
+            $request->networkParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->networkParameters, 'NetworkParameters', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->authParametersShrink)) {
-            $query['AuthParameters'] = $request->authParametersShrink;
+        if (null !== $request->authParametersShrink) {
+            @$query['AuthParameters'] = $request->authParametersShrink;
         }
-        if (!Utils::isUnset($request->connectionName)) {
-            $query['ConnectionName'] = $request->connectionName;
+
+        if (null !== $request->connectionName) {
+            @$query['ConnectionName'] = $request->connectionName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->networkParametersShrink)) {
-            $query['NetworkParameters'] = $request->networkParametersShrink;
+
+        if (null !== $request->networkParametersShrink) {
+            @$query['NetworkParameters'] = $request->networkParametersShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateConnection',
@@ -317,13 +356,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Creates a connection.
-     *  *
-     * @description You can call this API operation to create a connection.
-     *  *
-     * @param CreateConnectionRequest $request CreateConnectionRequest
+     * Creates a connection.
      *
-     * @return CreateConnectionResponse CreateConnectionResponse
+     * @remarks
+     * You can call this API operation to create a connection.
+     *
+     * @param request - CreateConnectionRequest
+     *
+     * @returns CreateConnectionResponse
+     *
+     * @param CreateConnectionRequest $request
+     *
+     * @return CreateConnectionResponse
      */
     public function createConnection($request)
     {
@@ -333,27 +377,35 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Creates an event bus.
-     *  *
-     * @description Creates an event bus.
-     *  *
-     * @param CreateEventBusRequest $request CreateEventBusRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Creates an event bus.
      *
-     * @return CreateEventBusResponse CreateEventBusResponse
+     * @remarks
+     * Creates an event bus.
+     *
+     * @param request - CreateEventBusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateEventBusResponse
+     *
+     * @param CreateEventBusRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateEventBusResponse
      */
     public function createEventBusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->eventBusName)) {
-            $query['EventBusName'] = $request->eventBusName;
+
+        if (null !== $request->eventBusName) {
+            @$query['EventBusName'] = $request->eventBusName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateEventBus',
@@ -371,13 +423,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Creates an event bus.
-     *  *
-     * @description Creates an event bus.
-     *  *
-     * @param CreateEventBusRequest $request CreateEventBusRequest
+     * Creates an event bus.
      *
-     * @return CreateEventBusResponse CreateEventBusResponse
+     * @remarks
+     * Creates an event bus.
+     *
+     * @param request - CreateEventBusRequest
+     *
+     * @returns CreateEventBusResponse
+     *
+     * @param CreateEventBusRequest $request
+     *
+     * @return CreateEventBusResponse
      */
     public function createEventBus($request)
     {
@@ -387,86 +444,113 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Creates an event source.
-     *  *
-     * @description You can call this operation to create an event source.
-     *  *
-     * @param CreateEventSourceRequest $tmpReq  CreateEventSourceRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates an event source.
      *
-     * @return CreateEventSourceResponse CreateEventSourceResponse
+     * @remarks
+     * You can call this operation to create an event source.
+     *
+     * @param tmpReq - CreateEventSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateEventSourceResponse
+     *
+     * @param CreateEventSourceRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateEventSourceResponse
      */
     public function createEventSourceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateEventSourceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->externalSourceConfig)) {
-            $request->externalSourceConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->externalSourceConfig, 'ExternalSourceConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->externalSourceConfig) {
+            $request->externalSourceConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->externalSourceConfig, 'ExternalSourceConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceHttpEventParameters)) {
-            $request->sourceHttpEventParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceHttpEventParameters, 'SourceHttpEventParameters', 'json');
+
+        if (null !== $tmpReq->sourceHttpEventParameters) {
+            $request->sourceHttpEventParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceHttpEventParameters, 'SourceHttpEventParameters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceKafkaParameters)) {
-            $request->sourceKafkaParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceKafkaParameters, 'SourceKafkaParameters', 'json');
+
+        if (null !== $tmpReq->sourceKafkaParameters) {
+            $request->sourceKafkaParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceKafkaParameters, 'SourceKafkaParameters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceMNSParameters)) {
-            $request->sourceMNSParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceMNSParameters, 'SourceMNSParameters', 'json');
+
+        if (null !== $tmpReq->sourceMNSParameters) {
+            $request->sourceMNSParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceMNSParameters, 'SourceMNSParameters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceRabbitMQParameters)) {
-            $request->sourceRabbitMQParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceRabbitMQParameters, 'SourceRabbitMQParameters', 'json');
+
+        if (null !== $tmpReq->sourceRabbitMQParameters) {
+            $request->sourceRabbitMQParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceRabbitMQParameters, 'SourceRabbitMQParameters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceRocketMQParameters)) {
-            $request->sourceRocketMQParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceRocketMQParameters, 'SourceRocketMQParameters', 'json');
+
+        if (null !== $tmpReq->sourceRocketMQParameters) {
+            $request->sourceRocketMQParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceRocketMQParameters, 'SourceRocketMQParameters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceSLSParameters)) {
-            $request->sourceSLSParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceSLSParameters, 'SourceSLSParameters', 'json');
+
+        if (null !== $tmpReq->sourceSLSParameters) {
+            $request->sourceSLSParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceSLSParameters, 'SourceSLSParameters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceScheduledEventParameters)) {
-            $request->sourceScheduledEventParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceScheduledEventParameters, 'SourceScheduledEventParameters', 'json');
+
+        if (null !== $tmpReq->sourceScheduledEventParameters) {
+            $request->sourceScheduledEventParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceScheduledEventParameters, 'SourceScheduledEventParameters', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->eventBusName)) {
-            $body['EventBusName'] = $request->eventBusName;
+
+        if (null !== $request->eventBusName) {
+            @$body['EventBusName'] = $request->eventBusName;
         }
-        if (!Utils::isUnset($request->eventSourceName)) {
-            $body['EventSourceName'] = $request->eventSourceName;
+
+        if (null !== $request->eventSourceName) {
+            @$body['EventSourceName'] = $request->eventSourceName;
         }
-        if (!Utils::isUnset($request->externalSourceConfigShrink)) {
-            $body['ExternalSourceConfig'] = $request->externalSourceConfigShrink;
+
+        if (null !== $request->externalSourceConfigShrink) {
+            @$body['ExternalSourceConfig'] = $request->externalSourceConfigShrink;
         }
-        if (!Utils::isUnset($request->externalSourceType)) {
-            $body['ExternalSourceType'] = $request->externalSourceType;
+
+        if (null !== $request->externalSourceType) {
+            @$body['ExternalSourceType'] = $request->externalSourceType;
         }
-        if (!Utils::isUnset($request->linkedExternalSource)) {
-            $body['LinkedExternalSource'] = $request->linkedExternalSource;
+
+        if (null !== $request->linkedExternalSource) {
+            @$body['LinkedExternalSource'] = $request->linkedExternalSource;
         }
-        if (!Utils::isUnset($request->sourceHttpEventParametersShrink)) {
-            $body['SourceHttpEventParameters'] = $request->sourceHttpEventParametersShrink;
+
+        if (null !== $request->sourceHttpEventParametersShrink) {
+            @$body['SourceHttpEventParameters'] = $request->sourceHttpEventParametersShrink;
         }
-        if (!Utils::isUnset($request->sourceKafkaParametersShrink)) {
-            $body['SourceKafkaParameters'] = $request->sourceKafkaParametersShrink;
+
+        if (null !== $request->sourceKafkaParametersShrink) {
+            @$body['SourceKafkaParameters'] = $request->sourceKafkaParametersShrink;
         }
-        if (!Utils::isUnset($request->sourceMNSParametersShrink)) {
-            $body['SourceMNSParameters'] = $request->sourceMNSParametersShrink;
+
+        if (null !== $request->sourceMNSParametersShrink) {
+            @$body['SourceMNSParameters'] = $request->sourceMNSParametersShrink;
         }
-        if (!Utils::isUnset($request->sourceRabbitMQParametersShrink)) {
-            $body['SourceRabbitMQParameters'] = $request->sourceRabbitMQParametersShrink;
+
+        if (null !== $request->sourceRabbitMQParametersShrink) {
+            @$body['SourceRabbitMQParameters'] = $request->sourceRabbitMQParametersShrink;
         }
-        if (!Utils::isUnset($request->sourceRocketMQParametersShrink)) {
-            $body['SourceRocketMQParameters'] = $request->sourceRocketMQParametersShrink;
+
+        if (null !== $request->sourceRocketMQParametersShrink) {
+            @$body['SourceRocketMQParameters'] = $request->sourceRocketMQParametersShrink;
         }
-        if (!Utils::isUnset($request->sourceSLSParametersShrink)) {
-            $body['SourceSLSParameters'] = $request->sourceSLSParametersShrink;
+
+        if (null !== $request->sourceSLSParametersShrink) {
+            @$body['SourceSLSParameters'] = $request->sourceSLSParametersShrink;
         }
-        if (!Utils::isUnset($request->sourceScheduledEventParametersShrink)) {
-            $body['SourceScheduledEventParameters'] = $request->sourceScheduledEventParametersShrink;
+
+        if (null !== $request->sourceScheduledEventParametersShrink) {
+            @$body['SourceScheduledEventParameters'] = $request->sourceScheduledEventParametersShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateEventSource',
@@ -484,13 +568,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Creates an event source.
-     *  *
-     * @description You can call this operation to create an event source.
-     *  *
-     * @param CreateEventSourceRequest $request CreateEventSourceRequest
+     * Creates an event source.
      *
-     * @return CreateEventSourceResponse CreateEventSourceResponse
+     * @remarks
+     * You can call this operation to create an event source.
+     *
+     * @param request - CreateEventSourceRequest
+     *
+     * @returns CreateEventSourceResponse
+     *
+     * @param CreateEventSourceRequest $request
+     *
+     * @return CreateEventSourceResponse
      */
     public function createEventSource($request)
     {
@@ -500,59 +589,77 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Creates an event stream.
-     *  *
-     * @description You can call this API operation to create an event stream.
-     *  *
-     * @param CreateEventStreamingRequest $tmpReq  CreateEventStreamingRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Creates an event stream.
      *
-     * @return CreateEventStreamingResponse CreateEventStreamingResponse
+     * @remarks
+     * You can call this API operation to create an event stream.
+     *
+     * @param tmpReq - CreateEventStreamingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateEventStreamingResponse
+     *
+     * @param CreateEventStreamingRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateEventStreamingResponse
      */
     public function createEventStreamingWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateEventStreamingShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->runOptions)) {
-            $request->runOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->runOptions, 'RunOptions', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->runOptions) {
+            $request->runOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->runOptions, 'RunOptions', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sink)) {
-            $request->sinkShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sink, 'Sink', 'json');
+
+        if (null !== $tmpReq->sink) {
+            $request->sinkShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sink, 'Sink', 'json');
         }
-        if (!Utils::isUnset($tmpReq->source)) {
-            $request->sourceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->source, 'Source', 'json');
+
+        if (null !== $tmpReq->source) {
+            $request->sourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->source, 'Source', 'json');
         }
-        if (!Utils::isUnset($tmpReq->transforms)) {
-            $request->transformsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->transforms, 'Transforms', 'json');
+
+        if (null !== $tmpReq->transforms) {
+            $request->transformsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->transforms, 'Transforms', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->eventStreamingName)) {
-            $body['EventStreamingName'] = $request->eventStreamingName;
+
+        if (null !== $request->eventStreamingName) {
+            @$body['EventStreamingName'] = $request->eventStreamingName;
         }
-        if (!Utils::isUnset($request->filterPattern)) {
-            $body['FilterPattern'] = $request->filterPattern;
+
+        if (null !== $request->filterPattern) {
+            @$body['FilterPattern'] = $request->filterPattern;
         }
-        if (!Utils::isUnset($request->runOptionsShrink)) {
-            $body['RunOptions'] = $request->runOptionsShrink;
+
+        if (null !== $request->runOptionsShrink) {
+            @$body['RunOptions'] = $request->runOptionsShrink;
         }
-        if (!Utils::isUnset($request->sinkShrink)) {
-            $body['Sink'] = $request->sinkShrink;
+
+        if (null !== $request->sinkShrink) {
+            @$body['Sink'] = $request->sinkShrink;
         }
-        if (!Utils::isUnset($request->sourceShrink)) {
-            $body['Source'] = $request->sourceShrink;
+
+        if (null !== $request->sourceShrink) {
+            @$body['Source'] = $request->sourceShrink;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $body['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->transformsShrink)) {
-            $body['Transforms'] = $request->transformsShrink;
+
+        if (null !== $request->transformsShrink) {
+            @$body['Transforms'] = $request->transformsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateEventStreaming',
@@ -570,13 +677,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Creates an event stream.
-     *  *
-     * @description You can call this API operation to create an event stream.
-     *  *
-     * @param CreateEventStreamingRequest $request CreateEventStreamingRequest
+     * Creates an event stream.
      *
-     * @return CreateEventStreamingResponse CreateEventStreamingResponse
+     * @remarks
+     * You can call this API operation to create an event stream.
+     *
+     * @param request - CreateEventStreamingRequest
+     *
+     * @returns CreateEventStreamingResponse
+     *
+     * @param CreateEventStreamingRequest $request
+     *
+     * @return CreateEventStreamingResponse
      */
     public function createEventStreaming($request)
     {
@@ -586,44 +698,57 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Creates an event rule.
-     *  *
-     * @description You can call this API operation to create an event rule.
-     *  *
-     * @param CreateRuleRequest $tmpReq  CreateRuleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Creates an event rule.
      *
-     * @return CreateRuleResponse CreateRuleResponse
+     * @remarks
+     * You can call this API operation to create an event rule.
+     *
+     * @param tmpReq - CreateRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRuleResponse
+     *
+     * @param CreateRuleRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateRuleResponse
      */
     public function createRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->eventTargets)) {
-            $request->eventTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->eventTargets, 'EventTargets', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->eventTargets) {
+            $request->eventTargetsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->eventTargets, 'EventTargets', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->eventBusName)) {
-            $query['EventBusName'] = $request->eventBusName;
+
+        if (null !== $request->eventBusName) {
+            @$query['EventBusName'] = $request->eventBusName;
         }
-        if (!Utils::isUnset($request->eventTargetsShrink)) {
-            $query['EventTargets'] = $request->eventTargetsShrink;
+
+        if (null !== $request->eventTargetsShrink) {
+            @$query['EventTargets'] = $request->eventTargetsShrink;
         }
-        if (!Utils::isUnset($request->filterPattern)) {
-            $query['FilterPattern'] = $request->filterPattern;
+
+        if (null !== $request->filterPattern) {
+            @$query['FilterPattern'] = $request->filterPattern;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateRule',
@@ -641,13 +766,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Creates an event rule.
-     *  *
-     * @description You can call this API operation to create an event rule.
-     *  *
-     * @param CreateRuleRequest $request CreateRuleRequest
+     * Creates an event rule.
      *
-     * @return CreateRuleResponse CreateRuleResponse
+     * @remarks
+     * You can call this API operation to create an event rule.
+     *
+     * @param request - CreateRuleRequest
+     *
+     * @returns CreateRuleResponse
+     *
+     * @param CreateRuleRequest $request
+     *
+     * @return CreateRuleResponse
      */
     public function createRule($request)
     {
@@ -657,24 +787,31 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Creates a service-linked role for your cloud service.
-     *  *
-     * @description You can call this API operation to create a service-linked role for your cloud service.
-     *  *
-     * @param CreateServiceLinkedRoleForProductRequest $request CreateServiceLinkedRoleForProductRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Creates a service-linked role for your cloud service.
      *
-     * @return CreateServiceLinkedRoleForProductResponse CreateServiceLinkedRoleForProductResponse
+     * @remarks
+     * You can call this API operation to create a service-linked role for your cloud service.
+     *
+     * @param request - CreateServiceLinkedRoleForProductRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateServiceLinkedRoleForProductResponse
+     *
+     * @param CreateServiceLinkedRoleForProductRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return CreateServiceLinkedRoleForProductResponse
      */
     public function createServiceLinkedRoleForProductWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->productName)) {
-            $query['ProductName'] = $request->productName;
+        if (null !== $request->productName) {
+            @$query['ProductName'] = $request->productName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateServiceLinkedRoleForProduct',
@@ -692,13 +829,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Creates a service-linked role for your cloud service.
-     *  *
-     * @description You can call this API operation to create a service-linked role for your cloud service.
-     *  *
-     * @param CreateServiceLinkedRoleForProductRequest $request CreateServiceLinkedRoleForProductRequest
+     * Creates a service-linked role for your cloud service.
      *
-     * @return CreateServiceLinkedRoleForProductResponse CreateServiceLinkedRoleForProductResponse
+     * @remarks
+     * You can call this API operation to create a service-linked role for your cloud service.
+     *
+     * @param request - CreateServiceLinkedRoleForProductRequest
+     *
+     * @returns CreateServiceLinkedRoleForProductResponse
+     *
+     * @param CreateServiceLinkedRoleForProductRequest $request
+     *
+     * @return CreateServiceLinkedRoleForProductResponse
      */
     public function createServiceLinkedRoleForProduct($request)
     {
@@ -708,24 +850,31 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an API destination.
-     *  *
-     * @description You can call this API operation to delete an API destination.
-     *  *
-     * @param DeleteApiDestinationRequest $request DeleteApiDestinationRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Deletes an API destination.
      *
-     * @return DeleteApiDestinationResponse DeleteApiDestinationResponse
+     * @remarks
+     * You can call this API operation to delete an API destination.
+     *
+     * @param request - DeleteApiDestinationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteApiDestinationResponse
+     *
+     * @param DeleteApiDestinationRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteApiDestinationResponse
      */
     public function deleteApiDestinationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->apiDestinationName)) {
-            $query['ApiDestinationName'] = $request->apiDestinationName;
+        if (null !== $request->apiDestinationName) {
+            @$query['ApiDestinationName'] = $request->apiDestinationName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteApiDestination',
@@ -743,13 +892,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an API destination.
-     *  *
-     * @description You can call this API operation to delete an API destination.
-     *  *
-     * @param DeleteApiDestinationRequest $request DeleteApiDestinationRequest
+     * Deletes an API destination.
      *
-     * @return DeleteApiDestinationResponse DeleteApiDestinationResponse
+     * @remarks
+     * You can call this API operation to delete an API destination.
+     *
+     * @param request - DeleteApiDestinationRequest
+     *
+     * @returns DeleteApiDestinationResponse
+     *
+     * @param DeleteApiDestinationRequest $request
+     *
+     * @return DeleteApiDestinationResponse
      */
     public function deleteApiDestination($request)
     {
@@ -759,24 +913,31 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a connection.
-     *  *
-     * @description You can call this API operation to delete a connection.
-     *  *
-     * @param DeleteConnectionRequest $request DeleteConnectionRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Deletes a connection.
      *
-     * @return DeleteConnectionResponse DeleteConnectionResponse
+     * @remarks
+     * You can call this API operation to delete a connection.
+     *
+     * @param request - DeleteConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteConnectionResponse
+     *
+     * @param DeleteConnectionRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteConnectionResponse
      */
     public function deleteConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->connectionName)) {
-            $query['ConnectionName'] = $request->connectionName;
+        if (null !== $request->connectionName) {
+            @$query['ConnectionName'] = $request->connectionName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteConnection',
@@ -794,13 +955,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a connection.
-     *  *
-     * @description You can call this API operation to delete a connection.
-     *  *
-     * @param DeleteConnectionRequest $request DeleteConnectionRequest
+     * Deletes a connection.
      *
-     * @return DeleteConnectionResponse DeleteConnectionResponse
+     * @remarks
+     * You can call this API operation to delete a connection.
+     *
+     * @param request - DeleteConnectionRequest
+     *
+     * @returns DeleteConnectionResponse
+     *
+     * @param DeleteConnectionRequest $request
+     *
+     * @return DeleteConnectionResponse
      */
     public function deleteConnection($request)
     {
@@ -810,24 +976,31 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an event bus.
-     *  *
-     * @description You can call this API operation to delete an event bus.
-     *  *
-     * @param DeleteEventBusRequest $request DeleteEventBusRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes an event bus.
      *
-     * @return DeleteEventBusResponse DeleteEventBusResponse
+     * @remarks
+     * You can call this API operation to delete an event bus.
+     *
+     * @param request - DeleteEventBusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEventBusResponse
+     *
+     * @param DeleteEventBusRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteEventBusResponse
      */
     public function deleteEventBusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eventBusName)) {
-            $query['EventBusName'] = $request->eventBusName;
+        if (null !== $request->eventBusName) {
+            @$query['EventBusName'] = $request->eventBusName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteEventBus',
@@ -845,13 +1018,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an event bus.
-     *  *
-     * @description You can call this API operation to delete an event bus.
-     *  *
-     * @param DeleteEventBusRequest $request DeleteEventBusRequest
+     * Deletes an event bus.
      *
-     * @return DeleteEventBusResponse DeleteEventBusResponse
+     * @remarks
+     * You can call this API operation to delete an event bus.
+     *
+     * @param request - DeleteEventBusRequest
+     *
+     * @returns DeleteEventBusResponse
+     *
+     * @param DeleteEventBusRequest $request
+     *
+     * @return DeleteEventBusResponse
      */
     public function deleteEventBus($request)
     {
@@ -861,27 +1039,35 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an event source.
-     *  *
-     * @description You can call this API operation to delete an event source.
-     *  *
-     * @param DeleteEventSourceRequest $request DeleteEventSourceRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes an event source.
      *
-     * @return DeleteEventSourceResponse DeleteEventSourceResponse
+     * @remarks
+     * You can call this API operation to delete an event source.
+     *
+     * @param request - DeleteEventSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEventSourceResponse
+     *
+     * @param DeleteEventSourceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteEventSourceResponse
      */
     public function deleteEventSourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->eventBusName)) {
-            $body['EventBusName'] = $request->eventBusName;
+        if (null !== $request->eventBusName) {
+            @$body['EventBusName'] = $request->eventBusName;
         }
-        if (!Utils::isUnset($request->eventSourceName)) {
-            $body['EventSourceName'] = $request->eventSourceName;
+
+        if (null !== $request->eventSourceName) {
+            @$body['EventSourceName'] = $request->eventSourceName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteEventSource',
@@ -899,13 +1085,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an event source.
-     *  *
-     * @description You can call this API operation to delete an event source.
-     *  *
-     * @param DeleteEventSourceRequest $request DeleteEventSourceRequest
+     * Deletes an event source.
      *
-     * @return DeleteEventSourceResponse DeleteEventSourceResponse
+     * @remarks
+     * You can call this API operation to delete an event source.
+     *
+     * @param request - DeleteEventSourceRequest
+     *
+     * @returns DeleteEventSourceResponse
+     *
+     * @param DeleteEventSourceRequest $request
+     *
+     * @return DeleteEventSourceResponse
      */
     public function deleteEventSource($request)
     {
@@ -915,24 +1106,31 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an event stream.
-     *  *
-     * @description You can call this API operation to delete an event stream.
-     *  *
-     * @param DeleteEventStreamingRequest $request DeleteEventStreamingRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Deletes an event stream.
      *
-     * @return DeleteEventStreamingResponse DeleteEventStreamingResponse
+     * @remarks
+     * You can call this API operation to delete an event stream.
+     *
+     * @param request - DeleteEventStreamingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEventStreamingResponse
+     *
+     * @param DeleteEventStreamingRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteEventStreamingResponse
      */
     public function deleteEventStreamingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->eventStreamingName)) {
-            $body['EventStreamingName'] = $request->eventStreamingName;
+        if (null !== $request->eventStreamingName) {
+            @$body['EventStreamingName'] = $request->eventStreamingName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteEventStreaming',
@@ -950,13 +1148,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an event stream.
-     *  *
-     * @description You can call this API operation to delete an event stream.
-     *  *
-     * @param DeleteEventStreamingRequest $request DeleteEventStreamingRequest
+     * Deletes an event stream.
      *
-     * @return DeleteEventStreamingResponse DeleteEventStreamingResponse
+     * @remarks
+     * You can call this API operation to delete an event stream.
+     *
+     * @param request - DeleteEventStreamingRequest
+     *
+     * @returns DeleteEventStreamingResponse
+     *
+     * @param DeleteEventStreamingRequest $request
+     *
+     * @return DeleteEventStreamingResponse
      */
     public function deleteEventStreaming($request)
     {
@@ -966,27 +1169,35 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an event rule.
-     *  *
-     * @description You can call this API operation to delete an event rule.
-     *  *
-     * @param DeleteRuleRequest $request DeleteRuleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Deletes an event rule.
      *
-     * @return DeleteRuleResponse DeleteRuleResponse
+     * @remarks
+     * You can call this API operation to delete an event rule.
+     *
+     * @param request - DeleteRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRuleResponse
+     *
+     * @param DeleteRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteRuleResponse
      */
     public function deleteRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eventBusName)) {
-            $query['EventBusName'] = $request->eventBusName;
+        if (null !== $request->eventBusName) {
+            @$query['EventBusName'] = $request->eventBusName;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteRule',
@@ -1004,13 +1215,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an event rule.
-     *  *
-     * @description You can call this API operation to delete an event rule.
-     *  *
-     * @param DeleteRuleRequest $request DeleteRuleRequest
+     * Deletes an event rule.
      *
-     * @return DeleteRuleResponse DeleteRuleResponse
+     * @remarks
+     * You can call this API operation to delete an event rule.
+     *
+     * @param request - DeleteRuleRequest
+     *
+     * @returns DeleteRuleResponse
+     *
+     * @param DeleteRuleRequest $request
+     *
+     * @return DeleteRuleResponse
      */
     public function deleteRule($request)
     {
@@ -1020,35 +1236,45 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more event targets of an event rule.
-     *  *
-     * @description You can call this API operation to delete one or more event targets of an event rule.
-     *  *
-     * @param DeleteTargetsRequest $tmpReq  DeleteTargetsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes one or more event targets of an event rule.
      *
-     * @return DeleteTargetsResponse DeleteTargetsResponse
+     * @remarks
+     * You can call this API operation to delete one or more event targets of an event rule.
+     *
+     * @param tmpReq - DeleteTargetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteTargetsResponse
+     *
+     * @param DeleteTargetsRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteTargetsResponse
      */
     public function deleteTargetsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteTargetsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->targetIds)) {
-            $request->targetIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->targetIds, 'TargetIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->targetIds) {
+            $request->targetIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->targetIds, 'TargetIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->eventBusName)) {
-            $query['EventBusName'] = $request->eventBusName;
+        if (null !== $request->eventBusName) {
+            @$query['EventBusName'] = $request->eventBusName;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->targetIdsShrink)) {
-            $query['TargetIds'] = $request->targetIdsShrink;
+
+        if (null !== $request->targetIdsShrink) {
+            @$query['TargetIds'] = $request->targetIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteTargets',
@@ -1066,13 +1292,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more event targets of an event rule.
-     *  *
-     * @description You can call this API operation to delete one or more event targets of an event rule.
-     *  *
-     * @param DeleteTargetsRequest $request DeleteTargetsRequest
+     * Deletes one or more event targets of an event rule.
      *
-     * @return DeleteTargetsResponse DeleteTargetsResponse
+     * @remarks
+     * You can call this API operation to delete one or more event targets of an event rule.
+     *
+     * @param request - DeleteTargetsRequest
+     *
+     * @returns DeleteTargetsResponse
+     *
+     * @param DeleteTargetsRequest $request
+     *
+     * @return DeleteTargetsResponse
      */
     public function deleteTargets($request)
     {
@@ -1082,27 +1313,35 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Disables an event rule.
-     *  *
-     * @description You can call this API operation to disable an event rule.
-     *  *
-     * @param DisableRuleRequest $request DisableRuleRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Disables an event rule.
      *
-     * @return DisableRuleResponse DisableRuleResponse
+     * @remarks
+     * You can call this API operation to disable an event rule.
+     *
+     * @param request - DisableRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableRuleResponse
+     *
+     * @param DisableRuleRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DisableRuleResponse
      */
     public function disableRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eventBusName)) {
-            $query['EventBusName'] = $request->eventBusName;
+        if (null !== $request->eventBusName) {
+            @$query['EventBusName'] = $request->eventBusName;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DisableRule',
@@ -1120,13 +1359,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Disables an event rule.
-     *  *
-     * @description You can call this API operation to disable an event rule.
-     *  *
-     * @param DisableRuleRequest $request DisableRuleRequest
+     * Disables an event rule.
      *
-     * @return DisableRuleResponse DisableRuleResponse
+     * @remarks
+     * You can call this API operation to disable an event rule.
+     *
+     * @param request - DisableRuleRequest
+     *
+     * @returns DisableRuleResponse
+     *
+     * @param DisableRuleRequest $request
+     *
+     * @return DisableRuleResponse
      */
     public function disableRule($request)
     {
@@ -1136,27 +1380,34 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary 发现EventSource(例如：Mysql)的Schema和SimpleData
-     *  *
-     * @param DiscoverEventSourceRequest $tmpReq  DiscoverEventSourceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 发现EventSource(例如：Mysql)的Schema和SimpleData.
      *
-     * @return DiscoverEventSourceResponse DiscoverEventSourceResponse
+     * @param tmpReq - DiscoverEventSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DiscoverEventSourceResponse
+     *
+     * @param DiscoverEventSourceRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DiscoverEventSourceResponse
      */
     public function discoverEventSourceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DiscoverEventSourceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->sourceMySQLParameters)) {
-            $request->sourceMySQLParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceMySQLParameters, 'SourceMySQLParameters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sourceMySQLParameters) {
+            $request->sourceMySQLParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceMySQLParameters, 'SourceMySQLParameters', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->sourceMySQLParametersShrink)) {
-            $body['SourceMySQLParameters'] = $request->sourceMySQLParametersShrink;
+        if (null !== $request->sourceMySQLParametersShrink) {
+            @$body['SourceMySQLParameters'] = $request->sourceMySQLParametersShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DiscoverEventSource',
@@ -1174,11 +1425,15 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary 发现EventSource(例如：Mysql)的Schema和SimpleData
-     *  *
-     * @param DiscoverEventSourceRequest $request DiscoverEventSourceRequest
+     * 发现EventSource(例如：Mysql)的Schema和SimpleData.
      *
-     * @return DiscoverEventSourceResponse DiscoverEventSourceResponse
+     * @param request - DiscoverEventSourceRequest
+     *
+     * @returns DiscoverEventSourceResponse
+     *
+     * @param DiscoverEventSourceRequest $request
+     *
+     * @return DiscoverEventSourceResponse
      */
     public function discoverEventSource($request)
     {
@@ -1188,27 +1443,35 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Enables an event rule.
-     *  *
-     * @description You can call this API operation to enable an event rule.
-     *  *
-     * @param EnableRuleRequest $request EnableRuleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Enables an event rule.
      *
-     * @return EnableRuleResponse EnableRuleResponse
+     * @remarks
+     * You can call this API operation to enable an event rule.
+     *
+     * @param request - EnableRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableRuleResponse
+     *
+     * @param EnableRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return EnableRuleResponse
      */
     public function enableRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eventBusName)) {
-            $query['EventBusName'] = $request->eventBusName;
+        if (null !== $request->eventBusName) {
+            @$query['EventBusName'] = $request->eventBusName;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'EnableRule',
@@ -1226,13 +1489,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Enables an event rule.
-     *  *
-     * @description You can call this API operation to enable an event rule.
-     *  *
-     * @param EnableRuleRequest $request EnableRuleRequest
+     * Enables an event rule.
      *
-     * @return EnableRuleResponse EnableRuleResponse
+     * @remarks
+     * You can call this API operation to enable an event rule.
+     *
+     * @param request - EnableRuleRequest
+     *
+     * @returns EnableRuleResponse
+     *
+     * @param EnableRuleRequest $request
+     *
+     * @return EnableRuleResponse
      */
     public function enableRule($request)
     {
@@ -1242,38 +1510,48 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary EventCenterQueryEvents
-     *  *
-     * @param EventCenterQueryEventsRequest $tmpReq  EventCenterQueryEventsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * EventCenterQueryEvents.
      *
-     * @return EventCenterQueryEventsResponse EventCenterQueryEventsResponse
+     * @param tmpReq - EventCenterQueryEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EventCenterQueryEventsResponse
+     *
+     * @param EventCenterQueryEventsRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return EventCenterQueryEventsResponse
      */
     public function eventCenterQueryEventsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new EventCenterQueryEventsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->body)) {
-            $request->bodyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->body, 'Body', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->body) {
+            $request->bodyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->body, 'Body', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->busName)) {
-            $query['BusName'] = $request->busName;
+        if (null !== $request->busName) {
+            @$query['BusName'] = $request->busName;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->bodyShrink)) {
-            $body['Body'] = $request->bodyShrink;
+        if (null !== $request->bodyShrink) {
+            @$body['Body'] = $request->bodyShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'EventCenterQueryEvents',
@@ -1291,11 +1569,15 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary EventCenterQueryEvents
-     *  *
-     * @param EventCenterQueryEventsRequest $request EventCenterQueryEventsRequest
+     * EventCenterQueryEvents.
      *
-     * @return EventCenterQueryEventsResponse EventCenterQueryEventsResponse
+     * @param request - EventCenterQueryEventsRequest
+     *
+     * @returns EventCenterQueryEventsResponse
+     *
+     * @param EventCenterQueryEventsRequest $request
+     *
+     * @return EventCenterQueryEventsResponse
      */
     public function eventCenterQueryEvents($request)
     {
@@ -1305,24 +1587,31 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an API destination.
-     *  *
-     * @description You can call this API operation to query the information about an API destination.
-     *  *
-     * @param GetApiDestinationRequest $request GetApiDestinationRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the information about an API destination.
      *
-     * @return GetApiDestinationResponse GetApiDestinationResponse
+     * @remarks
+     * You can call this API operation to query the information about an API destination.
+     *
+     * @param request - GetApiDestinationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetApiDestinationResponse
+     *
+     * @param GetApiDestinationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetApiDestinationResponse
      */
     public function getApiDestinationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->apiDestinationName)) {
-            $query['ApiDestinationName'] = $request->apiDestinationName;
+        if (null !== $request->apiDestinationName) {
+            @$query['ApiDestinationName'] = $request->apiDestinationName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetApiDestination',
@@ -1340,13 +1629,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an API destination.
-     *  *
-     * @description You can call this API operation to query the information about an API destination.
-     *  *
-     * @param GetApiDestinationRequest $request GetApiDestinationRequest
+     * Queries the information about an API destination.
      *
-     * @return GetApiDestinationResponse GetApiDestinationResponse
+     * @remarks
+     * You can call this API operation to query the information about an API destination.
+     *
+     * @param request - GetApiDestinationRequest
+     *
+     * @returns GetApiDestinationResponse
+     *
+     * @param GetApiDestinationRequest $request
+     *
+     * @return GetApiDestinationResponse
      */
     public function getApiDestination($request)
     {
@@ -1356,24 +1650,31 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of a connection.
-     *  *
-     * @description You can call this API operation to query the configurations of a connection.
-     *  *
-     * @param GetConnectionRequest $request GetConnectionRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the configurations of a connection.
      *
-     * @return GetConnectionResponse GetConnectionResponse
+     * @remarks
+     * You can call this API operation to query the configurations of a connection.
+     *
+     * @param request - GetConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetConnectionResponse
+     *
+     * @param GetConnectionRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetConnectionResponse
      */
     public function getConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->connectionName)) {
-            $query['ConnectionName'] = $request->connectionName;
+        if (null !== $request->connectionName) {
+            @$query['ConnectionName'] = $request->connectionName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetConnection',
@@ -1391,13 +1692,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of a connection.
-     *  *
-     * @description You can call this API operation to query the configurations of a connection.
-     *  *
-     * @param GetConnectionRequest $request GetConnectionRequest
+     * Queries the configurations of a connection.
      *
-     * @return GetConnectionResponse GetConnectionResponse
+     * @remarks
+     * You can call this API operation to query the configurations of a connection.
+     *
+     * @param request - GetConnectionRequest
+     *
+     * @returns GetConnectionResponse
+     *
+     * @param GetConnectionRequest $request
+     *
+     * @return GetConnectionResponse
      */
     public function getConnection($request)
     {
@@ -1407,24 +1713,31 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries the detailed information about an event bus.
-     *  *
-     * @description You can call this API operation to query the detailed information about an event bus.
-     *  *
-     * @param GetEventBusRequest $request GetEventBusRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the detailed information about an event bus.
      *
-     * @return GetEventBusResponse GetEventBusResponse
+     * @remarks
+     * You can call this API operation to query the detailed information about an event bus.
+     *
+     * @param request - GetEventBusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEventBusResponse
+     *
+     * @param GetEventBusRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetEventBusResponse
      */
     public function getEventBusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eventBusName)) {
-            $query['EventBusName'] = $request->eventBusName;
+        if (null !== $request->eventBusName) {
+            @$query['EventBusName'] = $request->eventBusName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetEventBus',
@@ -1442,13 +1755,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries the detailed information about an event bus.
-     *  *
-     * @description You can call this API operation to query the detailed information about an event bus.
-     *  *
-     * @param GetEventBusRequest $request GetEventBusRequest
+     * Queries the detailed information about an event bus.
      *
-     * @return GetEventBusResponse GetEventBusResponse
+     * @remarks
+     * You can call this API operation to query the detailed information about an event bus.
+     *
+     * @param request - GetEventBusRequest
+     *
+     * @returns GetEventBusResponse
+     *
+     * @param GetEventBusRequest $request
+     *
+     * @return GetEventBusResponse
      */
     public function getEventBus($request)
     {
@@ -1458,24 +1776,31 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an event stream.
-     *  *
-     * @description You can call this API operation to query the details of an event stream.
-     *  *
-     * @param GetEventStreamingRequest $request GetEventStreamingRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an event stream.
      *
-     * @return GetEventStreamingResponse GetEventStreamingResponse
+     * @remarks
+     * You can call this API operation to query the details of an event stream.
+     *
+     * @param request - GetEventStreamingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEventStreamingResponse
+     *
+     * @param GetEventStreamingRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetEventStreamingResponse
      */
     public function getEventStreamingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->eventStreamingName)) {
-            $body['EventStreamingName'] = $request->eventStreamingName;
+        if (null !== $request->eventStreamingName) {
+            @$body['EventStreamingName'] = $request->eventStreamingName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetEventStreaming',
@@ -1493,13 +1818,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an event stream.
-     *  *
-     * @description You can call this API operation to query the details of an event stream.
-     *  *
-     * @param GetEventStreamingRequest $request GetEventStreamingRequest
+     * Queries the details of an event stream.
      *
-     * @return GetEventStreamingResponse GetEventStreamingResponse
+     * @remarks
+     * You can call this API operation to query the details of an event stream.
+     *
+     * @param request - GetEventStreamingRequest
+     *
+     * @returns GetEventStreamingResponse
+     *
+     * @param GetEventStreamingRequest $request
+     *
+     * @return GetEventStreamingResponse
      */
     public function getEventStreaming($request)
     {
@@ -1509,27 +1839,35 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an event rule.
-     *  *
-     * @description You can call this API operation to query the details of an event rule.
-     *  *
-     * @param GetRuleRequest $request GetRuleRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an event rule.
      *
-     * @return GetRuleResponse GetRuleResponse
+     * @remarks
+     * You can call this API operation to query the details of an event rule.
+     *
+     * @param request - GetRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRuleResponse
+     *
+     * @param GetRuleRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetRuleResponse
      */
     public function getRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eventBusName)) {
-            $query['EventBusName'] = $request->eventBusName;
+        if (null !== $request->eventBusName) {
+            @$query['EventBusName'] = $request->eventBusName;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetRule',
@@ -1547,13 +1885,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an event rule.
-     *  *
-     * @description You can call this API operation to query the details of an event rule.
-     *  *
-     * @param GetRuleRequest $request GetRuleRequest
+     * Queries the details of an event rule.
      *
-     * @return GetRuleResponse GetRuleResponse
+     * @remarks
+     * You can call this API operation to query the details of an event rule.
+     *
+     * @param request - GetRuleRequest
+     *
+     * @returns GetRuleResponse
+     *
+     * @param GetRuleRequest $request
+     *
+     * @return GetRuleResponse
      */
     public function getRule($request)
     {
@@ -1563,13 +1906,19 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries all Alibaba Cloud service event sources.
-     *  *
-     * @description You can call this API operation to query all Alibaba Cloud service event sources.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries all Alibaba Cloud service event sources.
      *
-     * @return ListAliyunOfficialEventSourcesResponse ListAliyunOfficialEventSourcesResponse
+     * @remarks
+     * You can call this API operation to query all Alibaba Cloud service event sources.
+     *
+     * @param request - ListAliyunOfficialEventSourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAliyunOfficialEventSourcesResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListAliyunOfficialEventSourcesResponse
      */
     public function listAliyunOfficialEventSourcesWithOptions($runtime)
     {
@@ -1590,11 +1939,14 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries all Alibaba Cloud service event sources.
-     *  *
-     * @description You can call this API operation to query all Alibaba Cloud service event sources.
-     *  *
-     * @return ListAliyunOfficialEventSourcesResponse ListAliyunOfficialEventSourcesResponse
+     * Queries all Alibaba Cloud service event sources.
+     *
+     * @remarks
+     * You can call this API operation to query all Alibaba Cloud service event sources.
+     *
+     * @returns ListAliyunOfficialEventSourcesResponse
+     *
+     * @return ListAliyunOfficialEventSourcesResponse
      */
     public function listAliyunOfficialEventSources()
     {
@@ -1604,33 +1956,43 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of API destinations.
-     *  *
-     * @description You can use this API operation to query a list of API destinations.
-     *  *
-     * @param ListApiDestinationsRequest $request ListApiDestinationsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries a list of API destinations.
      *
-     * @return ListApiDestinationsResponse ListApiDestinationsResponse
+     * @remarks
+     * You can use this API operation to query a list of API destinations.
+     *
+     * @param request - ListApiDestinationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListApiDestinationsResponse
+     *
+     * @param ListApiDestinationsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListApiDestinationsResponse
      */
     public function listApiDestinationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->apiDestinationNamePrefix)) {
-            $query['ApiDestinationNamePrefix'] = $request->apiDestinationNamePrefix;
+        if (null !== $request->apiDestinationNamePrefix) {
+            @$query['ApiDestinationNamePrefix'] = $request->apiDestinationNamePrefix;
         }
-        if (!Utils::isUnset($request->connectionName)) {
-            $query['ConnectionName'] = $request->connectionName;
+
+        if (null !== $request->connectionName) {
+            @$query['ConnectionName'] = $request->connectionName;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListApiDestinations',
@@ -1648,13 +2010,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of API destinations.
-     *  *
-     * @description You can use this API operation to query a list of API destinations.
-     *  *
-     * @param ListApiDestinationsRequest $request ListApiDestinationsRequest
+     * Queries a list of API destinations.
      *
-     * @return ListApiDestinationsResponse ListApiDestinationsResponse
+     * @remarks
+     * You can use this API operation to query a list of API destinations.
+     *
+     * @param request - ListApiDestinationsRequest
+     *
+     * @returns ListApiDestinationsResponse
+     *
+     * @param ListApiDestinationsRequest $request
+     *
+     * @return ListApiDestinationsResponse
      */
     public function listApiDestinations($request)
     {
@@ -1664,30 +2031,39 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries connections.
-     *  *
-     * @description You can call this API operation to query connections.
-     *  *
-     * @param ListConnectionsRequest $request ListConnectionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries connections.
      *
-     * @return ListConnectionsResponse ListConnectionsResponse
+     * @remarks
+     * You can call this API operation to query connections.
+     *
+     * @param request - ListConnectionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListConnectionsResponse
+     *
+     * @param ListConnectionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListConnectionsResponse
      */
     public function listConnectionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->connectionNamePrefix)) {
-            $body['ConnectionNamePrefix'] = $request->connectionNamePrefix;
+        if (null !== $request->connectionNamePrefix) {
+            @$body['ConnectionNamePrefix'] = $request->connectionNamePrefix;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListConnections',
@@ -1705,13 +2081,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries connections.
-     *  *
-     * @description You can call this API operation to query connections.
-     *  *
-     * @param ListConnectionsRequest $request ListConnectionsRequest
+     * Queries connections.
      *
-     * @return ListConnectionsResponse ListConnectionsResponse
+     * @remarks
+     * You can call this API operation to query connections.
+     *
+     * @param request - ListConnectionsRequest
+     *
+     * @returns ListConnectionsResponse
+     *
+     * @param ListConnectionsRequest $request
+     *
+     * @return ListConnectionsResponse
      */
     public function listConnections($request)
     {
@@ -1721,30 +2102,39 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries all event buses.
-     *  *
-     * @description You can call this API operation to query all event buses.
-     *  *
-     * @param ListEventBusesRequest $request ListEventBusesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries all event buses.
      *
-     * @return ListEventBusesResponse ListEventBusesResponse
+     * @remarks
+     * You can call this API operation to query all event buses.
+     *
+     * @param request - ListEventBusesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEventBusesResponse
+     *
+     * @param ListEventBusesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListEventBusesResponse
      */
     public function listEventBusesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->namePrefix)) {
-            $query['NamePrefix'] = $request->namePrefix;
+
+        if (null !== $request->namePrefix) {
+            @$query['NamePrefix'] = $request->namePrefix;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListEventBuses',
@@ -1762,13 +2152,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries all event buses.
-     *  *
-     * @description You can call this API operation to query all event buses.
-     *  *
-     * @param ListEventBusesRequest $request ListEventBusesRequest
+     * Queries all event buses.
      *
-     * @return ListEventBusesResponse ListEventBusesResponse
+     * @remarks
+     * You can call this API operation to query all event buses.
+     *
+     * @param request - ListEventBusesRequest
+     *
+     * @returns ListEventBusesResponse
+     *
+     * @param ListEventBusesRequest $request
+     *
+     * @return ListEventBusesResponse
      */
     public function listEventBuses($request)
     {
@@ -1778,39 +2173,51 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries event streams.
-     *  *
-     * @description You can call this API operation to query event streams.
-     *  *
-     * @param ListEventStreamingsRequest $request ListEventStreamingsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries event streams.
      *
-     * @return ListEventStreamingsResponse ListEventStreamingsResponse
+     * @remarks
+     * You can call this API operation to query event streams.
+     *
+     * @param request - ListEventStreamingsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEventStreamingsResponse
+     *
+     * @param ListEventStreamingsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListEventStreamingsResponse
      */
     public function listEventStreamingsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->limit)) {
-            $body['Limit'] = $request->limit;
+        if (null !== $request->limit) {
+            @$body['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->namePrefix)) {
-            $body['NamePrefix'] = $request->namePrefix;
+
+        if (null !== $request->namePrefix) {
+            @$body['NamePrefix'] = $request->namePrefix;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->sinkArn)) {
-            $body['SinkArn'] = $request->sinkArn;
+
+        if (null !== $request->sinkArn) {
+            @$body['SinkArn'] = $request->sinkArn;
         }
-        if (!Utils::isUnset($request->sourceArn)) {
-            $body['SourceArn'] = $request->sourceArn;
+
+        if (null !== $request->sourceArn) {
+            @$body['SourceArn'] = $request->sourceArn;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $body['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$body['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListEventStreamings',
@@ -1828,13 +2235,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries event streams.
-     *  *
-     * @description You can call this API operation to query event streams.
-     *  *
-     * @param ListEventStreamingsRequest $request ListEventStreamingsRequest
+     * Queries event streams.
      *
-     * @return ListEventStreamingsResponse ListEventStreamingsResponse
+     * @remarks
+     * You can call this API operation to query event streams.
+     *
+     * @param request - ListEventStreamingsRequest
+     *
+     * @returns ListEventStreamingsResponse
+     *
+     * @param ListEventStreamingsRequest $request
+     *
+     * @return ListEventStreamingsResponse
      */
     public function listEventStreamings($request)
     {
@@ -1844,33 +2256,43 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries all rules of an event bus.
-     *  *
-     * @description You can call this API operation to query all rules of an event bus.
-     *  *
-     * @param ListRulesRequest $request ListRulesRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries all rules of an event bus.
      *
-     * @return ListRulesResponse ListRulesResponse
+     * @remarks
+     * You can call this API operation to query all rules of an event bus.
+     *
+     * @param request - ListRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRulesResponse
+     *
+     * @param ListRulesRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListRulesResponse
      */
     public function listRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eventBusName)) {
-            $query['EventBusName'] = $request->eventBusName;
+        if (null !== $request->eventBusName) {
+            @$query['EventBusName'] = $request->eventBusName;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ruleNamePrefix)) {
-            $query['RuleNamePrefix'] = $request->ruleNamePrefix;
+
+        if (null !== $request->ruleNamePrefix) {
+            @$query['RuleNamePrefix'] = $request->ruleNamePrefix;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListRules',
@@ -1888,13 +2310,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries all rules of an event bus.
-     *  *
-     * @description You can call this API operation to query all rules of an event bus.
-     *  *
-     * @param ListRulesRequest $request ListRulesRequest
+     * Queries all rules of an event bus.
      *
-     * @return ListRulesResponse ListRulesResponse
+     * @remarks
+     * You can call this API operation to query all rules of an event bus.
+     *
+     * @param request - ListRulesRequest
+     *
+     * @returns ListRulesResponse
+     *
+     * @param ListRulesRequest $request
+     *
+     * @return ListRulesResponse
      */
     public function listRules($request)
     {
@@ -1904,34 +2331,44 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries all event targets of an event rule.
-     *  *
-     * @param ListTargetsRequest $request ListTargetsRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries all event targets of an event rule.
      *
-     * @return ListTargetsResponse ListTargetsResponse
+     * @param request - ListTargetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTargetsResponse
+     *
+     * @param ListTargetsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListTargetsResponse
      */
     public function listTargetsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->arn)) {
-            $query['Arn'] = $request->arn;
+        if (null !== $request->arn) {
+            @$query['Arn'] = $request->arn;
         }
-        if (!Utils::isUnset($request->eventBusName)) {
-            $query['EventBusName'] = $request->eventBusName;
+
+        if (null !== $request->eventBusName) {
+            @$query['EventBusName'] = $request->eventBusName;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTargets',
@@ -1949,11 +2386,15 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries all event targets of an event rule.
-     *  *
-     * @param ListTargetsRequest $request ListTargetsRequest
+     * Queries all event targets of an event rule.
      *
-     * @return ListTargetsResponse ListTargetsResponse
+     * @param request - ListTargetsRequest
+     *
+     * @returns ListTargetsResponse
+     *
+     * @param ListTargetsRequest $request
+     *
+     * @return ListTargetsResponse
      */
     public function listTargets($request)
     {
@@ -1963,33 +2404,43 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries all custom event sources.
-     *  *
-     * @description You can call this API operation to query custom event sources.
-     *  *
-     * @param ListUserDefinedEventSourcesRequest $request ListUserDefinedEventSourcesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries all custom event sources.
      *
-     * @return ListUserDefinedEventSourcesResponse ListUserDefinedEventSourcesResponse
+     * @remarks
+     * You can call this API operation to query custom event sources.
+     *
+     * @param request - ListUserDefinedEventSourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListUserDefinedEventSourcesResponse
+     *
+     * @param ListUserDefinedEventSourcesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListUserDefinedEventSourcesResponse
      */
     public function listUserDefinedEventSourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eventBusName)) {
-            $query['EventBusName'] = $request->eventBusName;
+        if (null !== $request->eventBusName) {
+            @$query['EventBusName'] = $request->eventBusName;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->namePrefix)) {
-            $query['NamePrefix'] = $request->namePrefix;
+
+        if (null !== $request->namePrefix) {
+            @$query['NamePrefix'] = $request->namePrefix;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListUserDefinedEventSources',
@@ -2007,13 +2458,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries all custom event sources.
-     *  *
-     * @description You can call this API operation to query custom event sources.
-     *  *
-     * @param ListUserDefinedEventSourcesRequest $request ListUserDefinedEventSourcesRequest
+     * Queries all custom event sources.
      *
-     * @return ListUserDefinedEventSourcesResponse ListUserDefinedEventSourcesResponse
+     * @remarks
+     * You can call this API operation to query custom event sources.
+     *
+     * @param request - ListUserDefinedEventSourcesRequest
+     *
+     * @returns ListUserDefinedEventSourcesResponse
+     *
+     * @param ListUserDefinedEventSourcesRequest $request
+     *
+     * @return ListUserDefinedEventSourcesResponse
      */
     public function listUserDefinedEventSources($request)
     {
@@ -2023,24 +2479,31 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Stops an event stream that is running.
-     *  *
-     * @description You can call this API operation to stop an event stream that is running.
-     *  *
-     * @param PauseEventStreamingRequest $request PauseEventStreamingRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Stops an event stream that is running.
      *
-     * @return PauseEventStreamingResponse PauseEventStreamingResponse
+     * @remarks
+     * You can call this API operation to stop an event stream that is running.
+     *
+     * @param request - PauseEventStreamingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PauseEventStreamingResponse
+     *
+     * @param PauseEventStreamingRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return PauseEventStreamingResponse
      */
     public function pauseEventStreamingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->eventStreamingName)) {
-            $body['EventStreamingName'] = $request->eventStreamingName;
+        if (null !== $request->eventStreamingName) {
+            @$body['EventStreamingName'] = $request->eventStreamingName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'PauseEventStreaming',
@@ -2058,13 +2521,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Stops an event stream that is running.
-     *  *
-     * @description You can call this API operation to stop an event stream that is running.
-     *  *
-     * @param PauseEventStreamingRequest $request PauseEventStreamingRequest
+     * Stops an event stream that is running.
      *
-     * @return PauseEventStreamingResponse PauseEventStreamingResponse
+     * @remarks
+     * You can call this API operation to stop an event stream that is running.
+     *
+     * @param request - PauseEventStreamingRequest
+     *
+     * @returns PauseEventStreamingResponse
+     *
+     * @param PauseEventStreamingRequest $request
+     *
+     * @return PauseEventStreamingResponse
      */
     public function pauseEventStreaming($request)
     {
@@ -2074,35 +2542,45 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Creates or updates event targets under a rule.
-     *  *
-     * @description You can call this API operation to create or update event targets under a rule.
-     *  *
-     * @param PutTargetsRequest $tmpReq  PutTargetsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Creates or updates event targets under a rule.
      *
-     * @return PutTargetsResponse PutTargetsResponse
+     * @remarks
+     * You can call this API operation to create or update event targets under a rule.
+     *
+     * @param tmpReq - PutTargetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutTargetsResponse
+     *
+     * @param PutTargetsRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return PutTargetsResponse
      */
     public function putTargetsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PutTargetsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->targets)) {
-            $request->targetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->targets, 'Targets', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->targets) {
+            $request->targetsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->targets, 'Targets', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->eventBusName)) {
-            $query['EventBusName'] = $request->eventBusName;
+        if (null !== $request->eventBusName) {
+            @$query['EventBusName'] = $request->eventBusName;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->targetsShrink)) {
-            $query['Targets'] = $request->targetsShrink;
+
+        if (null !== $request->targetsShrink) {
+            @$query['Targets'] = $request->targetsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'PutTargets',
@@ -2120,13 +2598,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Creates or updates event targets under a rule.
-     *  *
-     * @description You can call this API operation to create or update event targets under a rule.
-     *  *
-     * @param PutTargetsRequest $request PutTargetsRequest
+     * Creates or updates event targets under a rule.
      *
-     * @return PutTargetsResponse PutTargetsResponse
+     * @remarks
+     * You can call this API operation to create or update event targets under a rule.
+     *
+     * @param request - PutTargetsRequest
+     *
+     * @returns PutTargetsResponse
+     *
+     * @param PutTargetsRequest $request
+     *
+     * @return PutTargetsResponse
      */
     public function putTargets($request)
     {
@@ -2136,30 +2619,39 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries the content of an event.
-     *  *
-     * @description You can call this API operation to query the content of an event.
-     *  *
-     * @param QueryEventRequest $request QueryEventRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries the content of an event.
      *
-     * @return QueryEventResponse QueryEventResponse
+     * @remarks
+     * You can call this API operation to query the content of an event.
+     *
+     * @param request - QueryEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryEventResponse
+     *
+     * @param QueryEventRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return QueryEventResponse
      */
     public function queryEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eventBusName)) {
-            $query['EventBusName'] = $request->eventBusName;
+        if (null !== $request->eventBusName) {
+            @$query['EventBusName'] = $request->eventBusName;
         }
-        if (!Utils::isUnset($request->eventId)) {
-            $query['EventId'] = $request->eventId;
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
         }
-        if (!Utils::isUnset($request->eventSource)) {
-            $query['EventSource'] = $request->eventSource;
+
+        if (null !== $request->eventSource) {
+            @$query['EventSource'] = $request->eventSource;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryEvent',
@@ -2177,13 +2669,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries the content of an event.
-     *  *
-     * @description You can call this API operation to query the content of an event.
-     *  *
-     * @param QueryEventRequest $request QueryEventRequest
+     * Queries the content of an event.
      *
-     * @return QueryEventResponse QueryEventResponse
+     * @remarks
+     * You can call this API operation to query the content of an event.
+     *
+     * @param request - QueryEventRequest
+     *
+     * @returns QueryEventResponse
+     *
+     * @param QueryEventRequest $request
+     *
+     * @return QueryEventResponse
      */
     public function queryEvent($request)
     {
@@ -2193,27 +2690,35 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries event traces.
-     *  *
-     * @description You can call this API operation to query event traces.
-     *  *
-     * @param QueryEventTracesRequest $request QueryEventTracesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries event traces.
      *
-     * @return QueryEventTracesResponse QueryEventTracesResponse
+     * @remarks
+     * You can call this API operation to query event traces.
+     *
+     * @param request - QueryEventTracesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryEventTracesResponse
+     *
+     * @param QueryEventTracesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryEventTracesResponse
      */
     public function queryEventTracesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eventBusName)) {
-            $query['EventBusName'] = $request->eventBusName;
+        if (null !== $request->eventBusName) {
+            @$query['EventBusName'] = $request->eventBusName;
         }
-        if (!Utils::isUnset($request->eventId)) {
-            $query['EventId'] = $request->eventId;
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryEventTraces',
@@ -2231,13 +2736,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries event traces.
-     *  *
-     * @description You can call this API operation to query event traces.
-     *  *
-     * @param QueryEventTracesRequest $request QueryEventTracesRequest
+     * Queries event traces.
      *
-     * @return QueryEventTracesResponse QueryEventTracesResponse
+     * @remarks
+     * You can call this API operation to query event traces.
+     *
+     * @param request - QueryEventTracesRequest
+     *
+     * @returns QueryEventTracesResponse
+     *
+     * @param QueryEventTracesRequest $request
+     *
+     * @return QueryEventTracesResponse
      */
     public function queryEventTraces($request)
     {
@@ -2247,30 +2757,39 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries event traces by event ID.
-     *  *
-     * @description You can call this API operation to query event traces by event ID.
-     *  *
-     * @param QueryTracedEventByEventIdRequest $request QueryTracedEventByEventIdRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries event traces by event ID.
      *
-     * @return QueryTracedEventByEventIdResponse QueryTracedEventByEventIdResponse
+     * @remarks
+     * You can call this API operation to query event traces by event ID.
+     *
+     * @param request - QueryTracedEventByEventIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryTracedEventByEventIdResponse
+     *
+     * @param QueryTracedEventByEventIdRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryTracedEventByEventIdResponse
      */
     public function queryTracedEventByEventIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eventBusName)) {
-            $query['EventBusName'] = $request->eventBusName;
+        if (null !== $request->eventBusName) {
+            @$query['EventBusName'] = $request->eventBusName;
         }
-        if (!Utils::isUnset($request->eventId)) {
-            $query['EventId'] = $request->eventId;
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
         }
-        if (!Utils::isUnset($request->eventSource)) {
-            $query['EventSource'] = $request->eventSource;
+
+        if (null !== $request->eventSource) {
+            @$query['EventSource'] = $request->eventSource;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryTracedEventByEventId',
@@ -2288,13 +2807,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries event traces by event ID.
-     *  *
-     * @description You can call this API operation to query event traces by event ID.
-     *  *
-     * @param QueryTracedEventByEventIdRequest $request QueryTracedEventByEventIdRequest
+     * Queries event traces by event ID.
      *
-     * @return QueryTracedEventByEventIdResponse QueryTracedEventByEventIdResponse
+     * @remarks
+     * You can call this API operation to query event traces by event ID.
+     *
+     * @param request - QueryTracedEventByEventIdRequest
+     *
+     * @returns QueryTracedEventByEventIdResponse
+     *
+     * @param QueryTracedEventByEventIdRequest $request
+     *
+     * @return QueryTracedEventByEventIdResponse
      */
     public function queryTracedEventByEventId($request)
     {
@@ -2304,45 +2828,59 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries event traces by time range.
-     *  *
-     * @description You can call this API operation to query event traces by time range.
-     *  *
-     * @param QueryTracedEventsRequest $request QueryTracedEventsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries event traces by time range.
      *
-     * @return QueryTracedEventsResponse QueryTracedEventsResponse
+     * @remarks
+     * You can call this API operation to query event traces by time range.
+     *
+     * @param request - QueryTracedEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryTracedEventsResponse
+     *
+     * @param QueryTracedEventsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryTracedEventsResponse
      */
     public function queryTracedEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventBusName)) {
-            $query['EventBusName'] = $request->eventBusName;
+
+        if (null !== $request->eventBusName) {
+            @$query['EventBusName'] = $request->eventBusName;
         }
-        if (!Utils::isUnset($request->eventSource)) {
-            $query['EventSource'] = $request->eventSource;
+
+        if (null !== $request->eventSource) {
+            @$query['EventSource'] = $request->eventSource;
         }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
+
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->matchedRule)) {
-            $query['MatchedRule'] = $request->matchedRule;
+
+        if (null !== $request->matchedRule) {
+            @$query['MatchedRule'] = $request->matchedRule;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'QueryTracedEvents',
@@ -2360,13 +2898,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Queries event traces by time range.
-     *  *
-     * @description You can call this API operation to query event traces by time range.
-     *  *
-     * @param QueryTracedEventsRequest $request QueryTracedEventsRequest
+     * Queries event traces by time range.
      *
-     * @return QueryTracedEventsResponse QueryTracedEventsResponse
+     * @remarks
+     * You can call this API operation to query event traces by time range.
+     *
+     * @param request - QueryTracedEventsRequest
+     *
+     * @returns QueryTracedEventsResponse
+     *
+     * @param QueryTracedEventsRequest $request
+     *
+     * @return QueryTracedEventsResponse
      */
     public function queryTracedEvents($request)
     {
@@ -2376,24 +2919,31 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Enables a created or deactivated event stream.
-     *  *
-     * @description You can call this API operation to enable a created or deactivated event stream.
-     *  *
-     * @param StartEventStreamingRequest $request StartEventStreamingRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Enables a created or deactivated event stream.
      *
-     * @return StartEventStreamingResponse StartEventStreamingResponse
+     * @remarks
+     * You can call this API operation to enable a created or deactivated event stream.
+     *
+     * @param request - StartEventStreamingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartEventStreamingResponse
+     *
+     * @param StartEventStreamingRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return StartEventStreamingResponse
      */
     public function startEventStreamingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->eventStreamingName)) {
-            $body['EventStreamingName'] = $request->eventStreamingName;
+        if (null !== $request->eventStreamingName) {
+            @$body['EventStreamingName'] = $request->eventStreamingName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'StartEventStreaming',
@@ -2411,13 +2961,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Enables a created or deactivated event stream.
-     *  *
-     * @description You can call this API operation to enable a created or deactivated event stream.
-     *  *
-     * @param StartEventStreamingRequest $request StartEventStreamingRequest
+     * Enables a created or deactivated event stream.
      *
-     * @return StartEventStreamingResponse StartEventStreamingResponse
+     * @remarks
+     * You can call this API operation to enable a created or deactivated event stream.
+     *
+     * @param request - StartEventStreamingRequest
+     *
+     * @returns StartEventStreamingResponse
+     *
+     * @param StartEventStreamingRequest $request
+     *
+     * @return StartEventStreamingResponse
      */
     public function startEventStreaming($request)
     {
@@ -2427,27 +2982,35 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether the event pattern matches the provided JSON format.
-     *  *
-     * @description You can call this API operation to check whether the event pattern matches the provided JSON format.
-     *  *
-     * @param TestEventPatternRequest $request TestEventPatternRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Checks whether the event pattern matches the provided JSON format.
      *
-     * @return TestEventPatternResponse TestEventPatternResponse
+     * @remarks
+     * You can call this API operation to check whether the event pattern matches the provided JSON format.
+     *
+     * @param request - TestEventPatternRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TestEventPatternResponse
+     *
+     * @param TestEventPatternRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return TestEventPatternResponse
      */
     public function testEventPatternWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->event)) {
-            $body['Event'] = $request->event;
+        if (null !== $request->event) {
+            @$body['Event'] = $request->event;
         }
-        if (!Utils::isUnset($request->eventPattern)) {
-            $body['EventPattern'] = $request->eventPattern;
+
+        if (null !== $request->eventPattern) {
+            @$body['EventPattern'] = $request->eventPattern;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'TestEventPattern',
@@ -2465,13 +3028,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether the event pattern matches the provided JSON format.
-     *  *
-     * @description You can call this API operation to check whether the event pattern matches the provided JSON format.
-     *  *
-     * @param TestEventPatternRequest $request TestEventPatternRequest
+     * Checks whether the event pattern matches the provided JSON format.
      *
-     * @return TestEventPatternResponse TestEventPatternResponse
+     * @remarks
+     * You can call this API operation to check whether the event pattern matches the provided JSON format.
+     *
+     * @param request - TestEventPatternRequest
+     *
+     * @returns TestEventPatternResponse
+     *
+     * @param TestEventPatternRequest $request
+     *
+     * @return TestEventPatternResponse
      */
     public function testEventPattern($request)
     {
@@ -2481,29 +3049,37 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether event source configurations are available.
-     *  *
-     * @description You can call this API operation to query all custom event sources.
-     *  *
-     * @param TestEventSourceConfigRequest $tmpReq  TestEventSourceConfigRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Checks whether event source configurations are available.
      *
-     * @return TestEventSourceConfigResponse TestEventSourceConfigResponse
+     * @remarks
+     * You can call this API operation to query all custom event sources.
+     *
+     * @param tmpReq - TestEventSourceConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TestEventSourceConfigResponse
+     *
+     * @param TestEventSourceConfigRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return TestEventSourceConfigResponse
      */
     public function testEventSourceConfigWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new TestEventSourceConfigShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->sourceMySQLParameters)) {
-            $request->sourceMySQLParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceMySQLParameters, 'SourceMySQLParameters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sourceMySQLParameters) {
+            $request->sourceMySQLParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceMySQLParameters, 'SourceMySQLParameters', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->sourceMySQLParametersShrink)) {
-            $body['SourceMySQLParameters'] = $request->sourceMySQLParametersShrink;
+        if (null !== $request->sourceMySQLParametersShrink) {
+            @$body['SourceMySQLParameters'] = $request->sourceMySQLParametersShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'TestEventSourceConfig',
@@ -2521,13 +3097,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether event source configurations are available.
-     *  *
-     * @description You can call this API operation to query all custom event sources.
-     *  *
-     * @param TestEventSourceConfigRequest $request TestEventSourceConfigRequest
+     * Checks whether event source configurations are available.
      *
-     * @return TestEventSourceConfigResponse TestEventSourceConfigResponse
+     * @remarks
+     * You can call this API operation to query all custom event sources.
+     *
+     * @param request - TestEventSourceConfigRequest
+     *
+     * @returns TestEventSourceConfigResponse
+     *
+     * @param TestEventSourceConfigRequest $request
+     *
+     * @return TestEventSourceConfigResponse
      */
     public function testEventSourceConfig($request)
     {
@@ -2537,38 +3118,49 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Updates an API destination.
-     *  *
-     * @description You can call this API operation to update an API destination.
-     *  *
-     * @param UpdateApiDestinationRequest $tmpReq  UpdateApiDestinationRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Updates an API destination.
      *
-     * @return UpdateApiDestinationResponse UpdateApiDestinationResponse
+     * @remarks
+     * You can call this API operation to update an API destination.
+     *
+     * @param tmpReq - UpdateApiDestinationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateApiDestinationResponse
+     *
+     * @param UpdateApiDestinationRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateApiDestinationResponse
      */
     public function updateApiDestinationWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateApiDestinationShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->httpApiParameters)) {
-            $request->httpApiParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->httpApiParameters, 'HttpApiParameters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->httpApiParameters) {
+            $request->httpApiParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->httpApiParameters, 'HttpApiParameters', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->apiDestinationName)) {
-            $query['ApiDestinationName'] = $request->apiDestinationName;
+        if (null !== $request->apiDestinationName) {
+            @$query['ApiDestinationName'] = $request->apiDestinationName;
         }
-        if (!Utils::isUnset($request->connectionName)) {
-            $query['ConnectionName'] = $request->connectionName;
+
+        if (null !== $request->connectionName) {
+            @$query['ConnectionName'] = $request->connectionName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->httpApiParametersShrink)) {
-            $query['HttpApiParameters'] = $request->httpApiParametersShrink;
+
+        if (null !== $request->httpApiParametersShrink) {
+            @$query['HttpApiParameters'] = $request->httpApiParametersShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateApiDestination',
@@ -2586,13 +3178,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Updates an API destination.
-     *  *
-     * @description You can call this API operation to update an API destination.
-     *  *
-     * @param UpdateApiDestinationRequest $request UpdateApiDestinationRequest
+     * Updates an API destination.
      *
-     * @return UpdateApiDestinationResponse UpdateApiDestinationResponse
+     * @remarks
+     * You can call this API operation to update an API destination.
+     *
+     * @param request - UpdateApiDestinationRequest
+     *
+     * @returns UpdateApiDestinationResponse
+     *
+     * @param UpdateApiDestinationRequest $request
+     *
+     * @return UpdateApiDestinationResponse
      */
     public function updateApiDestination($request)
     {
@@ -2602,41 +3199,53 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Updates a connection.
-     *  *
-     * @description You can call this API operation to update a connection.
-     *  *
-     * @param UpdateConnectionRequest $tmpReq  UpdateConnectionRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Updates a connection.
      *
-     * @return UpdateConnectionResponse UpdateConnectionResponse
+     * @remarks
+     * You can call this API operation to update a connection.
+     *
+     * @param tmpReq - UpdateConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateConnectionResponse
+     *
+     * @param UpdateConnectionRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateConnectionResponse
      */
     public function updateConnectionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateConnectionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->authParameters)) {
-            $request->authParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->authParameters, 'AuthParameters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->authParameters) {
+            $request->authParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->authParameters, 'AuthParameters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->networkParameters)) {
-            $request->networkParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->networkParameters, 'NetworkParameters', 'json');
+
+        if (null !== $tmpReq->networkParameters) {
+            $request->networkParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->networkParameters, 'NetworkParameters', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->authParametersShrink)) {
-            $query['AuthParameters'] = $request->authParametersShrink;
+        if (null !== $request->authParametersShrink) {
+            @$query['AuthParameters'] = $request->authParametersShrink;
         }
-        if (!Utils::isUnset($request->connectionName)) {
-            $query['ConnectionName'] = $request->connectionName;
+
+        if (null !== $request->connectionName) {
+            @$query['ConnectionName'] = $request->connectionName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->networkParametersShrink)) {
-            $query['NetworkParameters'] = $request->networkParametersShrink;
+
+        if (null !== $request->networkParametersShrink) {
+            @$query['NetworkParameters'] = $request->networkParametersShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateConnection',
@@ -2654,13 +3263,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Updates a connection.
-     *  *
-     * @description You can call this API operation to update a connection.
-     *  *
-     * @param UpdateConnectionRequest $request UpdateConnectionRequest
+     * Updates a connection.
      *
-     * @return UpdateConnectionResponse UpdateConnectionResponse
+     * @remarks
+     * You can call this API operation to update a connection.
+     *
+     * @param request - UpdateConnectionRequest
+     *
+     * @returns UpdateConnectionResponse
+     *
+     * @param UpdateConnectionRequest $request
+     *
+     * @return UpdateConnectionResponse
      */
     public function updateConnection($request)
     {
@@ -2670,27 +3284,35 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Updates an event bus.
-     *  *
-     * @description You can call this operation to update an event bus.
-     *  *
-     * @param UpdateEventBusRequest $request UpdateEventBusRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Updates an event bus.
      *
-     * @return UpdateEventBusResponse UpdateEventBusResponse
+     * @remarks
+     * You can call this operation to update an event bus.
+     *
+     * @param request - UpdateEventBusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEventBusResponse
+     *
+     * @param UpdateEventBusRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateEventBusResponse
      */
     public function updateEventBusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->eventBusName)) {
-            $query['EventBusName'] = $request->eventBusName;
+
+        if (null !== $request->eventBusName) {
+            @$query['EventBusName'] = $request->eventBusName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateEventBus',
@@ -2708,13 +3330,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Updates an event bus.
-     *  *
-     * @description You can call this operation to update an event bus.
-     *  *
-     * @param UpdateEventBusRequest $request UpdateEventBusRequest
+     * Updates an event bus.
      *
-     * @return UpdateEventBusResponse UpdateEventBusResponse
+     * @remarks
+     * You can call this operation to update an event bus.
+     *
+     * @param request - UpdateEventBusRequest
+     *
+     * @returns UpdateEventBusResponse
+     *
+     * @param UpdateEventBusRequest $request
+     *
+     * @return UpdateEventBusResponse
      */
     public function updateEventBus($request)
     {
@@ -2724,86 +3351,113 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Updates an event source.
-     *  *
-     * @description You can call this API operation to update an event source.
-     *  *
-     * @param UpdateEventSourceRequest $tmpReq  UpdateEventSourceRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Updates an event source.
      *
-     * @return UpdateEventSourceResponse UpdateEventSourceResponse
+     * @remarks
+     * You can call this API operation to update an event source.
+     *
+     * @param tmpReq - UpdateEventSourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEventSourceResponse
+     *
+     * @param UpdateEventSourceRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateEventSourceResponse
      */
     public function updateEventSourceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateEventSourceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->externalSourceConfig)) {
-            $request->externalSourceConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->externalSourceConfig, 'ExternalSourceConfig', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->externalSourceConfig) {
+            $request->externalSourceConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->externalSourceConfig, 'ExternalSourceConfig', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceHttpEventParameters)) {
-            $request->sourceHttpEventParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceHttpEventParameters, 'SourceHttpEventParameters', 'json');
+
+        if (null !== $tmpReq->sourceHttpEventParameters) {
+            $request->sourceHttpEventParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceHttpEventParameters, 'SourceHttpEventParameters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceKafkaParameters)) {
-            $request->sourceKafkaParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceKafkaParameters, 'SourceKafkaParameters', 'json');
+
+        if (null !== $tmpReq->sourceKafkaParameters) {
+            $request->sourceKafkaParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceKafkaParameters, 'SourceKafkaParameters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceMNSParameters)) {
-            $request->sourceMNSParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceMNSParameters, 'SourceMNSParameters', 'json');
+
+        if (null !== $tmpReq->sourceMNSParameters) {
+            $request->sourceMNSParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceMNSParameters, 'SourceMNSParameters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceRabbitMQParameters)) {
-            $request->sourceRabbitMQParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceRabbitMQParameters, 'SourceRabbitMQParameters', 'json');
+
+        if (null !== $tmpReq->sourceRabbitMQParameters) {
+            $request->sourceRabbitMQParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceRabbitMQParameters, 'SourceRabbitMQParameters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceRocketMQParameters)) {
-            $request->sourceRocketMQParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceRocketMQParameters, 'SourceRocketMQParameters', 'json');
+
+        if (null !== $tmpReq->sourceRocketMQParameters) {
+            $request->sourceRocketMQParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceRocketMQParameters, 'SourceRocketMQParameters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceSLSParameters)) {
-            $request->sourceSLSParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceSLSParameters, 'SourceSLSParameters', 'json');
+
+        if (null !== $tmpReq->sourceSLSParameters) {
+            $request->sourceSLSParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceSLSParameters, 'SourceSLSParameters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceScheduledEventParameters)) {
-            $request->sourceScheduledEventParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceScheduledEventParameters, 'SourceScheduledEventParameters', 'json');
+
+        if (null !== $tmpReq->sourceScheduledEventParameters) {
+            $request->sourceScheduledEventParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceScheduledEventParameters, 'SourceScheduledEventParameters', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->eventBusName)) {
-            $body['EventBusName'] = $request->eventBusName;
+
+        if (null !== $request->eventBusName) {
+            @$body['EventBusName'] = $request->eventBusName;
         }
-        if (!Utils::isUnset($request->eventSourceName)) {
-            $body['EventSourceName'] = $request->eventSourceName;
+
+        if (null !== $request->eventSourceName) {
+            @$body['EventSourceName'] = $request->eventSourceName;
         }
-        if (!Utils::isUnset($request->externalSourceConfigShrink)) {
-            $body['ExternalSourceConfig'] = $request->externalSourceConfigShrink;
+
+        if (null !== $request->externalSourceConfigShrink) {
+            @$body['ExternalSourceConfig'] = $request->externalSourceConfigShrink;
         }
-        if (!Utils::isUnset($request->externalSourceType)) {
-            $body['ExternalSourceType'] = $request->externalSourceType;
+
+        if (null !== $request->externalSourceType) {
+            @$body['ExternalSourceType'] = $request->externalSourceType;
         }
-        if (!Utils::isUnset($request->linkedExternalSource)) {
-            $body['LinkedExternalSource'] = $request->linkedExternalSource;
+
+        if (null !== $request->linkedExternalSource) {
+            @$body['LinkedExternalSource'] = $request->linkedExternalSource;
         }
-        if (!Utils::isUnset($request->sourceHttpEventParametersShrink)) {
-            $body['SourceHttpEventParameters'] = $request->sourceHttpEventParametersShrink;
+
+        if (null !== $request->sourceHttpEventParametersShrink) {
+            @$body['SourceHttpEventParameters'] = $request->sourceHttpEventParametersShrink;
         }
-        if (!Utils::isUnset($request->sourceKafkaParametersShrink)) {
-            $body['SourceKafkaParameters'] = $request->sourceKafkaParametersShrink;
+
+        if (null !== $request->sourceKafkaParametersShrink) {
+            @$body['SourceKafkaParameters'] = $request->sourceKafkaParametersShrink;
         }
-        if (!Utils::isUnset($request->sourceMNSParametersShrink)) {
-            $body['SourceMNSParameters'] = $request->sourceMNSParametersShrink;
+
+        if (null !== $request->sourceMNSParametersShrink) {
+            @$body['SourceMNSParameters'] = $request->sourceMNSParametersShrink;
         }
-        if (!Utils::isUnset($request->sourceRabbitMQParametersShrink)) {
-            $body['SourceRabbitMQParameters'] = $request->sourceRabbitMQParametersShrink;
+
+        if (null !== $request->sourceRabbitMQParametersShrink) {
+            @$body['SourceRabbitMQParameters'] = $request->sourceRabbitMQParametersShrink;
         }
-        if (!Utils::isUnset($request->sourceRocketMQParametersShrink)) {
-            $body['SourceRocketMQParameters'] = $request->sourceRocketMQParametersShrink;
+
+        if (null !== $request->sourceRocketMQParametersShrink) {
+            @$body['SourceRocketMQParameters'] = $request->sourceRocketMQParametersShrink;
         }
-        if (!Utils::isUnset($request->sourceSLSParametersShrink)) {
-            $body['SourceSLSParameters'] = $request->sourceSLSParametersShrink;
+
+        if (null !== $request->sourceSLSParametersShrink) {
+            @$body['SourceSLSParameters'] = $request->sourceSLSParametersShrink;
         }
-        if (!Utils::isUnset($request->sourceScheduledEventParametersShrink)) {
-            $body['SourceScheduledEventParameters'] = $request->sourceScheduledEventParametersShrink;
+
+        if (null !== $request->sourceScheduledEventParametersShrink) {
+            @$body['SourceScheduledEventParameters'] = $request->sourceScheduledEventParametersShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateEventSource',
@@ -2821,13 +3475,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Updates an event source.
-     *  *
-     * @description You can call this API operation to update an event source.
-     *  *
-     * @param UpdateEventSourceRequest $request UpdateEventSourceRequest
+     * Updates an event source.
      *
-     * @return UpdateEventSourceResponse UpdateEventSourceResponse
+     * @remarks
+     * You can call this API operation to update an event source.
+     *
+     * @param request - UpdateEventSourceRequest
+     *
+     * @returns UpdateEventSourceResponse
+     *
+     * @param UpdateEventSourceRequest $request
+     *
+     * @return UpdateEventSourceResponse
      */
     public function updateEventSource($request)
     {
@@ -2837,56 +3496,73 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
-     *  *
-     * @description You can call this API operation to modify the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
-     *  *
-     * @param UpdateEventStreamingRequest $tmpReq  UpdateEventStreamingRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Modifies the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
      *
-     * @return UpdateEventStreamingResponse UpdateEventStreamingResponse
+     * @remarks
+     * You can call this API operation to modify the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
+     *
+     * @param tmpReq - UpdateEventStreamingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEventStreamingResponse
+     *
+     * @param UpdateEventStreamingRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateEventStreamingResponse
      */
     public function updateEventStreamingWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateEventStreamingShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->runOptions)) {
-            $request->runOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->runOptions, 'RunOptions', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->runOptions) {
+            $request->runOptionsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->runOptions, 'RunOptions', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sink)) {
-            $request->sinkShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sink, 'Sink', 'json');
+
+        if (null !== $tmpReq->sink) {
+            $request->sinkShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sink, 'Sink', 'json');
         }
-        if (!Utils::isUnset($tmpReq->source)) {
-            $request->sourceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->source, 'Source', 'json');
+
+        if (null !== $tmpReq->source) {
+            $request->sourceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->source, 'Source', 'json');
         }
-        if (!Utils::isUnset($tmpReq->transforms)) {
-            $request->transformsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->transforms, 'Transforms', 'json');
+
+        if (null !== $tmpReq->transforms) {
+            $request->transformsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->transforms, 'Transforms', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->eventStreamingName)) {
-            $body['EventStreamingName'] = $request->eventStreamingName;
+
+        if (null !== $request->eventStreamingName) {
+            @$body['EventStreamingName'] = $request->eventStreamingName;
         }
-        if (!Utils::isUnset($request->filterPattern)) {
-            $body['FilterPattern'] = $request->filterPattern;
+
+        if (null !== $request->filterPattern) {
+            @$body['FilterPattern'] = $request->filterPattern;
         }
-        if (!Utils::isUnset($request->runOptionsShrink)) {
-            $body['RunOptions'] = $request->runOptionsShrink;
+
+        if (null !== $request->runOptionsShrink) {
+            @$body['RunOptions'] = $request->runOptionsShrink;
         }
-        if (!Utils::isUnset($request->sinkShrink)) {
-            $body['Sink'] = $request->sinkShrink;
+
+        if (null !== $request->sinkShrink) {
+            @$body['Sink'] = $request->sinkShrink;
         }
-        if (!Utils::isUnset($request->sourceShrink)) {
-            $body['Source'] = $request->sourceShrink;
+
+        if (null !== $request->sourceShrink) {
+            @$body['Source'] = $request->sourceShrink;
         }
-        if (!Utils::isUnset($request->transformsShrink)) {
-            $body['Transforms'] = $request->transformsShrink;
+
+        if (null !== $request->transformsShrink) {
+            @$body['Transforms'] = $request->transformsShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateEventStreaming',
@@ -2904,13 +3580,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
-     *  *
-     * @description You can call this API operation to modify the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
-     *  *
-     * @param UpdateEventStreamingRequest $request UpdateEventStreamingRequest
+     * Modifies the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
      *
-     * @return UpdateEventStreamingResponse UpdateEventStreamingResponse
+     * @remarks
+     * You can call this API operation to modify the information about an event stream, such as the basic information and the information about the event source, event filtering rule, and event target.
+     *
+     * @param request - UpdateEventStreamingRequest
+     *
+     * @returns UpdateEventStreamingResponse
+     *
+     * @param UpdateEventStreamingRequest $request
+     *
+     * @return UpdateEventStreamingResponse
      */
     public function updateEventStreaming($request)
     {
@@ -2920,36 +3601,116 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Updates the configurations of an event rule.
-     *  *
-     * @description You can call this API operation to update the configurations of an event rule.
-     *  *
-     * @param UpdateRuleRequest $request UpdateRuleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 查询事件流
      *
-     * @return UpdateRuleResponse UpdateRuleResponse
+     * @param request - UpdateEventStreamingBusinessOptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEventStreamingBusinessOptionResponse
+     *
+     * @param UpdateEventStreamingBusinessOptionRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return UpdateEventStreamingBusinessOptionResponse
+     */
+    public function updateEventStreamingBusinessOptionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->businessMode) {
+            @$body['BusinessMode'] = $request->businessMode;
+        }
+
+        if (null !== $request->eventStreamingName) {
+            @$body['EventStreamingName'] = $request->eventStreamingName;
+        }
+
+        if (null !== $request->maxCapacityUnitCount) {
+            @$body['MaxCapacityUnitCount'] = $request->maxCapacityUnitCount;
+        }
+
+        if (null !== $request->minCapacityUnitCount) {
+            @$body['MinCapacityUnitCount'] = $request->minCapacityUnitCount;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateEventStreamingBusinessOption',
+            'version' => '2020-04-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateEventStreamingBusinessOptionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询事件流
+     *
+     * @param request - UpdateEventStreamingBusinessOptionRequest
+     *
+     * @returns UpdateEventStreamingBusinessOptionResponse
+     *
+     * @param UpdateEventStreamingBusinessOptionRequest $request
+     *
+     * @return UpdateEventStreamingBusinessOptionResponse
+     */
+    public function updateEventStreamingBusinessOption($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateEventStreamingBusinessOptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the configurations of an event rule.
+     *
+     * @remarks
+     * You can call this API operation to update the configurations of an event rule.
+     *
+     * @param request - UpdateRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRuleResponse
+     *
+     * @param UpdateRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateRuleResponse
      */
     public function updateRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->eventBusName)) {
-            $query['EventBusName'] = $request->eventBusName;
+
+        if (null !== $request->eventBusName) {
+            @$query['EventBusName'] = $request->eventBusName;
         }
-        if (!Utils::isUnset($request->filterPattern)) {
-            $query['FilterPattern'] = $request->filterPattern;
+
+        if (null !== $request->filterPattern) {
+            @$query['FilterPattern'] = $request->filterPattern;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateRule',
@@ -2967,13 +3728,18 @@ class Eventbridge extends OpenApiClient
     }
 
     /**
-     * @summary Updates the configurations of an event rule.
-     *  *
-     * @description You can call this API operation to update the configurations of an event rule.
-     *  *
-     * @param UpdateRuleRequest $request UpdateRuleRequest
+     * Updates the configurations of an event rule.
      *
-     * @return UpdateRuleResponse UpdateRuleResponse
+     * @remarks
+     * You can call this API operation to update the configurations of an event rule.
+     *
+     * @param request - UpdateRuleRequest
+     *
+     * @returns UpdateRuleResponse
+     *
+     * @param UpdateRuleRequest $request
+     *
+     * @return UpdateRuleResponse
      */
     public function updateRule($request)
     {

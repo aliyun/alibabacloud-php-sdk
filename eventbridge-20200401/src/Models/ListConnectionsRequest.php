@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListConnectionsRequest extends Model
 {
     /**
-     * @description The key word that you specify to query connections. Connections can be queried by prefixes.
-     *
-     * @example connection-name
-     *
      * @var string
      */
     public $connectionNamePrefix;
 
     /**
-     * @description The maximum number of entries to be returned in a single call. You can use this parameter and the NextToken parameter to implement paging.
-     *
-     *   Default value: 10.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description If you set the Limit parameter and excess return values exist, this parameter is returned.
-     *
-     *   Default value: 0.
-     *
-     * @example 0
-     *
      * @var string
      */
     public $nextToken;
@@ -44,17 +28,22 @@ class ListConnectionsRequest extends Model
         'nextToken' => 'NextToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectionNamePrefix) {
             $res['ConnectionNamePrefix'] = $this->connectionNamePrefix;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -62,20 +51,22 @@ class ListConnectionsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListConnectionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionNamePrefix'])) {
             $model->connectionNamePrefix = $map['ConnectionNamePrefix'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

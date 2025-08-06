@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteEventSourceRequest extends Model
 {
@@ -14,12 +14,6 @@ class DeleteEventSourceRequest extends Model
     public $eventBusName;
 
     /**
-     * @description The name of the event source.
-     *
-     * This parameter is required.
-     *
-     * @example myrabbitmq.source
-     *
      * @var string
      */
     public $eventSourceName;
@@ -28,14 +22,18 @@ class DeleteEventSourceRequest extends Model
         'eventSourceName' => 'EventSourceName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventBusName) {
             $res['EventBusName'] = $this->eventBusName;
         }
+
         if (null !== $this->eventSourceName) {
             $res['EventSourceName'] = $this->eventSourceName;
         }
@@ -43,17 +41,18 @@ class DeleteEventSourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteEventSourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventBusName'])) {
             $model->eventBusName = $map['EventBusName'];
         }
+
         if (isset($map['EventSourceName'])) {
             $model->eventSourceName = $map['EventSourceName'];
         }

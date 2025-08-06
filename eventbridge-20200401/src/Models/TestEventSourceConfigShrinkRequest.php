@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TestEventSourceConfigShrinkRequest extends Model
 {
     /**
-     * @description The parameters that are configured if you specify MySQL as the event source.
-     *
      * @var string
      */
     public $sourceMySQLParametersShrink;
@@ -18,9 +16,12 @@ class TestEventSourceConfigShrinkRequest extends Model
         'sourceMySQLParametersShrink' => 'SourceMySQLParameters',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sourceMySQLParametersShrink) {
@@ -30,11 +31,11 @@ class TestEventSourceConfigShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TestEventSourceConfigShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

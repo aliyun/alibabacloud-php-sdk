@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListUserDefinedEventSourcesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListUserDefinedEventSourcesResponseBody\data\eventSourceList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The event sources.
-     *
      * @var eventSourceList[]
      */
     public $eventSourceList;
 
     /**
-     * @description If excess return values exist when you configure Limit, this parameter is returned.
-     *
-     * @example 100
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 18
-     *
      * @var int
      */
     public $total;
@@ -39,23 +29,32 @@ class data extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->eventSourceList)) {
+            Model::validateArray($this->eventSourceList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventSourceList) {
-            $res['EventSourceList'] = [];
-            if (null !== $this->eventSourceList && \is_array($this->eventSourceList)) {
-                $n = 0;
-                foreach ($this->eventSourceList as $item) {
-                    $res['EventSourceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->eventSourceList)) {
+                $res['EventSourceList'] = [];
+                $n1 = 0;
+                foreach ($this->eventSourceList as $item1) {
+                    $res['EventSourceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -63,26 +62,29 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventSourceList'])) {
             if (!empty($map['EventSourceList'])) {
                 $model->eventSourceList = [];
-                $n = 0;
-                foreach ($map['EventSourceList'] as $item) {
-                    $model->eventSourceList[$n++] = null !== $item ? eventSourceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EventSourceList'] as $item1) {
+                    $model->eventSourceList[$n1] = eventSourceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

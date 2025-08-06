@@ -4,54 +4,36 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\UpdateEventStreamingRequest\source;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sourcePrometheusParameters extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example c83555068b6******ad213f565f209
-     *
      * @var string
      */
     public $clusterId;
 
     /**
-     * @description The data type.
-     *
-     * @example json
-     *
      * @var string
      */
     public $dataType;
 
     /**
-     * @example {"env":"test"}
-     *
      * @var string
      */
     public $externalLabels;
 
     /**
-     * @description The labels.
-     *
-     * @example __name__=.*
-     *
      * @var string
      */
     public $labels;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example test-role
-     *
      * @var string
      */
     public $roleName;
@@ -64,26 +46,34 @@ class sourcePrometheusParameters extends Model
         'roleName' => 'RoleName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->dataType) {
             $res['DataType'] = $this->dataType;
         }
+
         if (null !== $this->externalLabels) {
             $res['ExternalLabels'] = $this->externalLabels;
         }
+
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->roleName) {
             $res['RoleName'] = $this->roleName;
         }
@@ -91,29 +81,34 @@ class sourcePrometheusParameters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sourcePrometheusParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['DataType'])) {
             $model->dataType = $map['DataType'];
         }
+
         if (isset($map['ExternalLabels'])) {
             $model->externalLabels = $map['ExternalLabels'];
         }
+
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RoleName'])) {
             $model->roleName = $map['RoleName'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\runOptions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class businessOption extends Model
 {
@@ -28,17 +28,22 @@ class businessOption extends Model
         'minCapacityUnitCount' => 'MinCapacityUnitCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->businessMode) {
             $res['BusinessMode'] = $this->businessMode;
         }
+
         if (null !== $this->maxCapacityUnitCount) {
             $res['MaxCapacityUnitCount'] = $this->maxCapacityUnitCount;
         }
+
         if (null !== $this->minCapacityUnitCount) {
             $res['MinCapacityUnitCount'] = $this->minCapacityUnitCount;
         }
@@ -46,20 +51,22 @@ class businessOption extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return businessOption
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BusinessMode'])) {
             $model->businessMode = $map['BusinessMode'];
         }
+
         if (isset($map['MaxCapacityUnitCount'])) {
             $model->maxCapacityUnitCount = $map['MaxCapacityUnitCount'];
         }
+
         if (isset($map['MinCapacityUnitCount'])) {
             $model->minCapacityUnitCount = $map['MinCapacityUnitCount'];
         }

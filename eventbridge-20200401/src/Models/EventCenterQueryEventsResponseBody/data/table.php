@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\EventCenterQueryEventsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class table extends Model
 {
     /**
-     * @example {
-     * "id":"xxx",
-     * "source":"acs.ecs"
-     * }
-     *
      * @var mixed[]
      */
     public $rowData;
@@ -21,28 +16,44 @@ class table extends Model
         'rowData' => 'RowData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->rowData)) {
+            Model::validateArray($this->rowData);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rowData) {
-            $res['RowData'] = $this->rowData;
+            if (\is_array($this->rowData)) {
+                $res['RowData'] = [];
+                foreach ($this->rowData as $key1 => $value1) {
+                    $res['RowData'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return table
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RowData'])) {
-            $model->rowData = $map['RowData'];
+            if (!empty($map['RowData'])) {
+                $model->rowData = [];
+                foreach ($map['RowData'] as $key1 => $value1) {
+                    $model->rowData[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

@@ -4,24 +4,20 @@
 
 namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkDashVectorParameters\dashVectorSchemaParameters;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkDashVectorParameters\partition;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkDashVectorParameters\primaryKeyId;
 use AlibabaCloud\SDK\Eventbridge\V20200401\Models\ListEventStreamingsResponseBody\data\eventStreamings\sink\sinkDashVectorParameters\vector;
-use AlibabaCloud\Tea\Model;
 
 class sinkDashVectorParameters extends Model
 {
     /**
-     * @example Q34nExQH7sQ****
-     *
      * @var string
      */
     public $apiKey;
 
     /**
-     * @example collection1
-     *
      * @var string
      */
     public $collection;
@@ -32,22 +28,16 @@ class sinkDashVectorParameters extends Model
     public $dashVectorSchemaParameters;
 
     /**
-     * @example vrs-cn-lbj3ru1***
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example PublicNetwork
-     *
      * @var string
      */
     public $network;
 
     /**
-     * @example Upsert
-     *
      * @var string
      */
     public $operation;
@@ -78,74 +68,105 @@ class sinkDashVectorParameters extends Model
         'vector' => 'Vector',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->dashVectorSchemaParameters) {
+            $this->dashVectorSchemaParameters->validate();
+        }
+        if (null !== $this->partition) {
+            $this->partition->validate();
+        }
+        if (null !== $this->primaryKeyId) {
+            $this->primaryKeyId->validate();
+        }
+        if (null !== $this->vector) {
+            $this->vector->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiKey) {
             $res['ApiKey'] = $this->apiKey;
         }
+
         if (null !== $this->collection) {
             $res['Collection'] = $this->collection;
         }
+
         if (null !== $this->dashVectorSchemaParameters) {
-            $res['DashVectorSchemaParameters'] = null !== $this->dashVectorSchemaParameters ? $this->dashVectorSchemaParameters->toMap() : null;
+            $res['DashVectorSchemaParameters'] = null !== $this->dashVectorSchemaParameters ? $this->dashVectorSchemaParameters->toArray($noStream) : $this->dashVectorSchemaParameters;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->network) {
             $res['Network'] = $this->network;
         }
+
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
         }
+
         if (null !== $this->partition) {
-            $res['Partition'] = null !== $this->partition ? $this->partition->toMap() : null;
+            $res['Partition'] = null !== $this->partition ? $this->partition->toArray($noStream) : $this->partition;
         }
+
         if (null !== $this->primaryKeyId) {
-            $res['PrimaryKeyId'] = null !== $this->primaryKeyId ? $this->primaryKeyId->toMap() : null;
+            $res['PrimaryKeyId'] = null !== $this->primaryKeyId ? $this->primaryKeyId->toArray($noStream) : $this->primaryKeyId;
         }
+
         if (null !== $this->vector) {
-            $res['Vector'] = null !== $this->vector ? $this->vector->toMap() : null;
+            $res['Vector'] = null !== $this->vector ? $this->vector->toArray($noStream) : $this->vector;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sinkDashVectorParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiKey'])) {
             $model->apiKey = $map['ApiKey'];
         }
+
         if (isset($map['Collection'])) {
             $model->collection = $map['Collection'];
         }
+
         if (isset($map['DashVectorSchemaParameters'])) {
             $model->dashVectorSchemaParameters = dashVectorSchemaParameters::fromMap($map['DashVectorSchemaParameters']);
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Network'])) {
             $model->network = $map['Network'];
         }
+
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
         }
+
         if (isset($map['Partition'])) {
             $model->partition = partition::fromMap($map['Partition']);
         }
+
         if (isset($map['PrimaryKeyId'])) {
             $model->primaryKeyId = primaryKeyId::fromMap($map['PrimaryKeyId']);
         }
+
         if (isset($map['Vector'])) {
             $model->vector = vector::fromMap($map['Vector']);
         }
