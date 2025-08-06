@@ -58,6 +58,11 @@ class ips extends Model
      * @var string
      */
     public $warmupType;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'expiredTime' => 'ExpiredTime',
         'id' => 'Id',
@@ -69,6 +74,7 @@ class ips extends Model
         'status' => 'Status',
         'warmupStatus' => 'WarmupStatus',
         'warmupType' => 'WarmupType',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -122,6 +128,10 @@ class ips extends Model
             $res['WarmupType'] = $this->warmupType;
         }
 
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
+        }
+
         return $res;
     }
 
@@ -171,6 +181,10 @@ class ips extends Model
 
         if (isset($map['WarmupType'])) {
             $model->warmupType = $map['WarmupType'];
+        }
+
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

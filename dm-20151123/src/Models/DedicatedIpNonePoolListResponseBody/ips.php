@@ -17,9 +17,15 @@ class ips extends Model
      * @var string
      */
     public $ip;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'id' => 'Id',
         'ip' => 'Ip',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -36,6 +42,10 @@ class ips extends Model
 
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
+        }
+
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -55,6 +65,10 @@ class ips extends Model
 
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
+        }
+
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;
