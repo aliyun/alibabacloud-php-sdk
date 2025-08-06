@@ -60,7 +60,8 @@ class ListUserSolutionsRequest extends Model
                 $res['ExistStatus'] = [];
                 $n1 = 0;
                 foreach ($this->existStatus as $item1) {
-                    $res['ExistStatus'][$n1++] = $item1;
+                    $res['ExistStatus'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -97,7 +98,8 @@ class ListUserSolutionsRequest extends Model
                 $model->existStatus = [];
                 $n1 = 0;
                 foreach ($map['ExistStatus'] as $item1) {
-                    $model->existStatus[$n1++] = $item1;
+                    $model->existStatus[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\Companyreg\V20200306\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Companyreg\V20200306\Models\ListUserIntentionNotesResponseBody\data;
+use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryCallRecordListResponseBody\data;
 
-class ListUserIntentionNotesResponseBody extends Model
+class QueryCallRecordListResponseBody extends Model
 {
     /**
      * @var data[]
@@ -15,14 +15,14 @@ class ListUserIntentionNotesResponseBody extends Model
     public $data;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageNum;
+    public $errorCode;
 
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $errorMsg;
 
     /**
      * @var string
@@ -33,24 +33,12 @@ class ListUserIntentionNotesResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @var int
-     */
-    public $totalItemNum;
-
-    /**
-     * @var int
-     */
-    public $totalPageNum;
     protected $_name = [
         'data' => 'Data',
-        'pageNum' => 'PageNum',
-        'pageSize' => 'PageSize',
+        'errorCode' => 'ErrorCode',
+        'errorMsg' => 'ErrorMsg',
         'requestId' => 'RequestId',
         'success' => 'Success',
-        'totalItemNum' => 'TotalItemNum',
-        'totalPageNum' => 'TotalPageNum',
     ];
 
     public function validate()
@@ -75,12 +63,12 @@ class ListUserIntentionNotesResponseBody extends Model
             }
         }
 
-        if (null !== $this->pageNum) {
-            $res['PageNum'] = $this->pageNum;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
 
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->errorMsg) {
+            $res['ErrorMsg'] = $this->errorMsg;
         }
 
         if (null !== $this->requestId) {
@@ -89,14 +77,6 @@ class ListUserIntentionNotesResponseBody extends Model
 
         if (null !== $this->success) {
             $res['Success'] = $this->success;
-        }
-
-        if (null !== $this->totalItemNum) {
-            $res['TotalItemNum'] = $this->totalItemNum;
-        }
-
-        if (null !== $this->totalPageNum) {
-            $res['TotalPageNum'] = $this->totalPageNum;
         }
 
         return $res;
@@ -121,12 +101,12 @@ class ListUserIntentionNotesResponseBody extends Model
             }
         }
 
-        if (isset($map['PageNum'])) {
-            $model->pageNum = $map['PageNum'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
 
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['ErrorMsg'])) {
+            $model->errorMsg = $map['ErrorMsg'];
         }
 
         if (isset($map['RequestId'])) {
@@ -135,14 +115,6 @@ class ListUserIntentionNotesResponseBody extends Model
 
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-
-        if (isset($map['TotalItemNum'])) {
-            $model->totalItemNum = $map['TotalItemNum'];
-        }
-
-        if (isset($map['TotalPageNum'])) {
-            $model->totalPageNum = $map['TotalPageNum'];
         }
 
         return $model;

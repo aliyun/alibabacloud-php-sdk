@@ -46,6 +46,8 @@ use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryAvailableNumbersRequest;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryAvailableNumbersResponse;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryBagRemainingRequest;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryBagRemainingResponse;
+use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryCallRecordListRequest;
+use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryCallRecordListResponse;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryInstanceRequest;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryInstanceResponse;
 use AlibabaCloud\SDK\Companyreg\V20200306\Models\QueryPartnerIntentionListRequest;
@@ -354,6 +356,8 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * CreateBusinessOpportunity.
+     *
      * @param request - CreateBusinessOpportunityRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -407,6 +411,8 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * CreateBusinessOpportunity.
+     *
      * @param request - CreateBusinessOpportunityRequest
      *
      * @returns CreateBusinessOpportunityResponse
@@ -541,6 +547,8 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * GenerateUploadFilePolicy.
+     *
      * @param request - GenerateUploadFilePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
      *
@@ -586,6 +594,8 @@ class Companyreg extends OpenApiClient
     }
 
     /**
+     * GenerateUploadFilePolicy.
+     *
      * @param request - GenerateUploadFilePolicyRequest
      *
      * @returns GenerateUploadFilePolicyResponse
@@ -1458,6 +1468,71 @@ class Companyreg extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryBagRemainingWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询玄坛外呼语音文件.
+     *
+     * @param request - QueryCallRecordListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryCallRecordListResponse
+     *
+     * @param QueryCallRecordListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryCallRecordListResponse
+     */
+    public function queryCallRecordListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
+        }
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
+        }
+
+        if (null !== $request->skillType) {
+            @$query['SkillType'] = $request->skillType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'QueryCallRecordList',
+            'version' => '2020-03-06',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return QueryCallRecordListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询玄坛外呼语音文件.
+     *
+     * @param request - QueryCallRecordListRequest
+     *
+     * @returns QueryCallRecordListResponse
+     *
+     * @param QueryCallRecordListRequest $request
+     *
+     * @return QueryCallRecordListResponse
+     */
+    public function queryCallRecordList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCallRecordListWithOptions($request, $runtime);
     }
 
     /**

@@ -45,7 +45,8 @@ class data extends Model
                 $res['AuthorizedUserList'] = [];
                 $n1 = 0;
                 foreach ($this->authorizedUserList as $item1) {
-                    $res['AuthorizedUserList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['AuthorizedUserList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class data extends Model
                 $model->authorizedUserList = [];
                 $n1 = 0;
                 foreach ($map['AuthorizedUserList'] as $item1) {
-                    $model->authorizedUserList[$n1++] = authorizedUserList::fromMap($item1);
+                    $model->authorizedUserList[$n1] = authorizedUserList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

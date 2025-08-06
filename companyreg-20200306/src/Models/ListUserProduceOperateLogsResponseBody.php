@@ -69,7 +69,8 @@ class ListUserProduceOperateLogsResponseBody extends Model
                 $res['Data'] = [];
                 $n1 = 0;
                 foreach ($this->data as $item1) {
-                    $res['Data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Data'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -114,7 +115,8 @@ class ListUserProduceOperateLogsResponseBody extends Model
                 $model->data = [];
                 $n1 = 0;
                 foreach ($map['Data'] as $item1) {
-                    $model->data[$n1++] = data::fromMap($item1);
+                    $model->data[$n1] = data::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
