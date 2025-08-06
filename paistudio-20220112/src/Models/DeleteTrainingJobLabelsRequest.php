@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteTrainingJobLabelsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example RootModelID
-     *
      * @var string
      */
     public $keys;
@@ -20,9 +16,12 @@ class DeleteTrainingJobLabelsRequest extends Model
         'keys' => 'Keys',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keys) {
@@ -32,11 +31,11 @@ class DeleteTrainingJobLabelsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteTrainingJobLabelsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

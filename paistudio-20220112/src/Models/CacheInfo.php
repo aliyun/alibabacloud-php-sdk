@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CacheInfo extends Model
 {
@@ -22,14 +22,18 @@ class CacheInfo extends Model
         'port' => 'Port',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mountPoint) {
             $res['MountPoint'] = $this->mountPoint;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
@@ -37,17 +41,18 @@ class CacheInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CacheInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MountPoint'])) {
             $model->mountPoint = $map['MountPoint'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }

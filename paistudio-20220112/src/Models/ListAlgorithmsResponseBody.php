@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListAlgorithmsResponseBody\algorithms;
-use AlibabaCloud\Tea\Model;
 
 class ListAlgorithmsResponseBody extends Model
 {
@@ -15,15 +15,11 @@ class ListAlgorithmsResponseBody extends Model
     public $algorithms;
 
     /**
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 4
-     *
      * @var int
      */
     public $totalCount;
@@ -33,23 +29,32 @@ class ListAlgorithmsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->algorithms)) {
+            Model::validateArray($this->algorithms);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->algorithms) {
-            $res['Algorithms'] = [];
-            if (null !== $this->algorithms && \is_array($this->algorithms)) {
-                $n = 0;
-                foreach ($this->algorithms as $item) {
-                    $res['Algorithms'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->algorithms)) {
+                $res['Algorithms'] = [];
+                $n1 = 0;
+                foreach ($this->algorithms as $item1) {
+                    $res['Algorithms'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -57,26 +62,29 @@ class ListAlgorithmsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAlgorithmsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Algorithms'])) {
             if (!empty($map['Algorithms'])) {
                 $model->algorithms = [];
-                $n = 0;
-                foreach ($map['Algorithms'] as $item) {
-                    $model->algorithms[$n++] = null !== $item ? algorithms::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Algorithms'] as $item1) {
+                    $model->algorithms[$n1] = algorithms::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

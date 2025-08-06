@@ -4,22 +4,28 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResourceInfo extends Model
 {
-    public function validate() {}
+    protected $_name = [
+    ];
 
-    public function toMap()
+    public function validate()
+    {
+        parent::validate();
+    }
+
+    public function toArray($noStream = false)
     {
         return [];
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResourceInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         return new self();

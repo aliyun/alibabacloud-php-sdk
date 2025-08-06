@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Node extends Model
 {
@@ -202,116 +202,158 @@ class Node extends Model
         'workloadNum' => 'WorkloadNum',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->boundQuotas)) {
+            Model::validateArray($this->boundQuotas);
+        }
+        if (\is_array($this->users)) {
+            Model::validateArray($this->users);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceleratorType) {
             $res['AcceleratorType'] = $this->acceleratorType;
         }
+
         if (null !== $this->availabilityZone) {
             $res['AvailabilityZone'] = $this->availabilityZone;
         }
+
         if (null !== $this->boundQuotas) {
-            $res['BoundQuotas'] = [];
-            if (null !== $this->boundQuotas && \is_array($this->boundQuotas)) {
-                $n = 0;
-                foreach ($this->boundQuotas as $item) {
-                    $res['BoundQuotas'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->boundQuotas)) {
+                $res['BoundQuotas'] = [];
+                $n1 = 0;
+                foreach ($this->boundQuotas as $item1) {
+                    $res['BoundQuotas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->CPU) {
             $res['CPU'] = $this->CPU;
         }
+
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
         }
+
         if (null !== $this->GPU) {
             $res['GPU'] = $this->GPU;
         }
+
         if (null !== $this->GPUMemory) {
             $res['GPUMemory'] = $this->GPUMemory;
         }
+
         if (null !== $this->GPUType) {
             $res['GPUType'] = $this->GPUType;
         }
+
         if (null !== $this->gmtCreateTime) {
             $res['GmtCreateTime'] = $this->gmtCreateTime;
         }
+
         if (null !== $this->gmtExpiredTime) {
             $res['GmtExpiredTime'] = $this->gmtExpiredTime;
         }
+
         if (null !== $this->gmtModifiedTime) {
             $res['GmtModifiedTime'] = $this->gmtModifiedTime;
         }
+
         if (null !== $this->hyperZone) {
             $res['HyperZone'] = $this->hyperZone;
         }
+
         if (null !== $this->isBound) {
             $res['IsBound'] = $this->isBound;
         }
+
         if (null !== $this->limitCPU) {
             $res['LimitCPU'] = $this->limitCPU;
         }
+
         if (null !== $this->limitGPU) {
             $res['LimitGPU'] = $this->limitGPU;
         }
+
         if (null !== $this->limitMemory) {
             $res['LimitMemory'] = $this->limitMemory;
         }
+
         if (null !== $this->machineGroupId) {
             $res['MachineGroupId'] = $this->machineGroupId;
         }
+
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
+
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
         }
+
         if (null !== $this->nodeStatus) {
             $res['NodeStatus'] = $this->nodeStatus;
         }
+
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
         }
+
         if (null !== $this->orderStatus) {
             $res['OrderStatus'] = $this->orderStatus;
         }
+
         if (null !== $this->podNum) {
             $res['PodNum'] = $this->podNum;
         }
+
         if (null !== $this->reasonCode) {
             $res['ReasonCode'] = $this->reasonCode;
         }
+
         if (null !== $this->reasonMessage) {
             $res['ReasonMessage'] = $this->reasonMessage;
         }
+
         if (null !== $this->requestCPU) {
             $res['RequestCPU'] = $this->requestCPU;
         }
+
         if (null !== $this->requestGPU) {
             $res['RequestGPU'] = $this->requestGPU;
         }
+
         if (null !== $this->requestMemory) {
             $res['RequestMemory'] = $this->requestMemory;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->resourceGroupName) {
             $res['ResourceGroupName'] = $this->resourceGroupName;
         }
+
         if (null !== $this->users) {
-            $res['Users'] = [];
-            if (null !== $this->users && \is_array($this->users)) {
-                $n = 0;
-                foreach ($this->users as $item) {
-                    $res['Users'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->users)) {
+                $res['Users'] = [];
+                $n1 = 0;
+                foreach ($this->users as $item1) {
+                    $res['Users'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->workloadNum) {
             $res['WorkloadNum'] = $this->workloadNum;
         }
@@ -319,119 +361,152 @@ class Node extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Node
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceleratorType'])) {
             $model->acceleratorType = $map['AcceleratorType'];
         }
+
         if (isset($map['AvailabilityZone'])) {
             $model->availabilityZone = $map['AvailabilityZone'];
         }
+
         if (isset($map['BoundQuotas'])) {
             if (!empty($map['BoundQuotas'])) {
                 $model->boundQuotas = [];
-                $n = 0;
-                foreach ($map['BoundQuotas'] as $item) {
-                    $model->boundQuotas[$n++] = null !== $item ? QuotaIdName::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BoundQuotas'] as $item1) {
+                    $model->boundQuotas[$n1] = QuotaIdName::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['CPU'])) {
             $model->CPU = $map['CPU'];
         }
+
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];
         }
+
         if (isset($map['GPU'])) {
             $model->GPU = $map['GPU'];
         }
+
         if (isset($map['GPUMemory'])) {
             $model->GPUMemory = $map['GPUMemory'];
         }
+
         if (isset($map['GPUType'])) {
             $model->GPUType = $map['GPUType'];
         }
+
         if (isset($map['GmtCreateTime'])) {
             $model->gmtCreateTime = $map['GmtCreateTime'];
         }
+
         if (isset($map['GmtExpiredTime'])) {
             $model->gmtExpiredTime = $map['GmtExpiredTime'];
         }
+
         if (isset($map['GmtModifiedTime'])) {
             $model->gmtModifiedTime = $map['GmtModifiedTime'];
         }
+
         if (isset($map['HyperZone'])) {
             $model->hyperZone = $map['HyperZone'];
         }
+
         if (isset($map['IsBound'])) {
             $model->isBound = $map['IsBound'];
         }
+
         if (isset($map['LimitCPU'])) {
             $model->limitCPU = $map['LimitCPU'];
         }
+
         if (isset($map['LimitGPU'])) {
             $model->limitGPU = $map['LimitGPU'];
         }
+
         if (isset($map['LimitMemory'])) {
             $model->limitMemory = $map['LimitMemory'];
         }
+
         if (isset($map['MachineGroupId'])) {
             $model->machineGroupId = $map['MachineGroupId'];
         }
+
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }
+
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
         }
+
         if (isset($map['NodeStatus'])) {
             $model->nodeStatus = $map['NodeStatus'];
         }
+
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
         }
+
         if (isset($map['OrderStatus'])) {
             $model->orderStatus = $map['OrderStatus'];
         }
+
         if (isset($map['PodNum'])) {
             $model->podNum = $map['PodNum'];
         }
+
         if (isset($map['ReasonCode'])) {
             $model->reasonCode = $map['ReasonCode'];
         }
+
         if (isset($map['ReasonMessage'])) {
             $model->reasonMessage = $map['ReasonMessage'];
         }
+
         if (isset($map['RequestCPU'])) {
             $model->requestCPU = $map['RequestCPU'];
         }
+
         if (isset($map['RequestGPU'])) {
             $model->requestGPU = $map['RequestGPU'];
         }
+
         if (isset($map['RequestMemory'])) {
             $model->requestMemory = $map['RequestMemory'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['ResourceGroupName'])) {
             $model->resourceGroupName = $map['ResourceGroupName'];
         }
+
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {
                 $model->users = [];
-                $n = 0;
-                foreach ($map['Users'] as $item) {
-                    $model->users[$n++] = null !== $item ? UserInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Users'] as $item1) {
+                    $model->users[$n1] = UserInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['WorkloadNum'])) {
             $model->workloadNum = $map['WorkloadNum'];
         }

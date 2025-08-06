@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\AlgorithmSpec\computeResource;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\AlgorithmSpec\customization;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\AlgorithmSpec\progressDefinitions;
-use AlibabaCloud\Tea\Model;
 
 class AlgorithmSpec extends Model
 {
@@ -17,8 +17,6 @@ class AlgorithmSpec extends Model
     public $codeDir;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $command;
@@ -39,8 +37,6 @@ class AlgorithmSpec extends Model
     public $hyperParameters;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $image;
@@ -51,8 +47,6 @@ class AlgorithmSpec extends Model
     public $inputChannels;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $jobType;
@@ -103,80 +97,148 @@ class AlgorithmSpec extends Model
         'supportsDistributedTraining' => 'SupportsDistributedTraining',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->codeDir) {
+            $this->codeDir->validate();
+        }
+        if (\is_array($this->command)) {
+            Model::validateArray($this->command);
+        }
+        if (null !== $this->computeResource) {
+            $this->computeResource->validate();
+        }
+        if (null !== $this->customization) {
+            $this->customization->validate();
+        }
+        if (\is_array($this->hyperParameters)) {
+            Model::validateArray($this->hyperParameters);
+        }
+        if (\is_array($this->inputChannels)) {
+            Model::validateArray($this->inputChannels);
+        }
+        if (\is_array($this->metricDefinitions)) {
+            Model::validateArray($this->metricDefinitions);
+        }
+        if (\is_array($this->outputChannels)) {
+            Model::validateArray($this->outputChannels);
+        }
+        if (null !== $this->progressDefinitions) {
+            $this->progressDefinitions->validate();
+        }
+        if (\is_array($this->resourceRequirements)) {
+            Model::validateArray($this->resourceRequirements);
+        }
+        if (\is_array($this->supportedInstanceTypes)) {
+            Model::validateArray($this->supportedInstanceTypes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->codeDir) {
-            $res['CodeDir'] = null !== $this->codeDir ? $this->codeDir->toMap() : null;
+            $res['CodeDir'] = null !== $this->codeDir ? $this->codeDir->toArray($noStream) : $this->codeDir;
         }
+
         if (null !== $this->command) {
-            $res['Command'] = $this->command;
-        }
-        if (null !== $this->computeResource) {
-            $res['ComputeResource'] = null !== $this->computeResource ? $this->computeResource->toMap() : null;
-        }
-        if (null !== $this->customization) {
-            $res['Customization'] = null !== $this->customization ? $this->customization->toMap() : null;
-        }
-        if (null !== $this->hyperParameters) {
-            $res['HyperParameters'] = [];
-            if (null !== $this->hyperParameters && \is_array($this->hyperParameters)) {
-                $n = 0;
-                foreach ($this->hyperParameters as $item) {
-                    $res['HyperParameters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->command)) {
+                $res['Command'] = [];
+                $n1 = 0;
+                foreach ($this->command as $item1) {
+                    $res['Command'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->computeResource) {
+            $res['ComputeResource'] = null !== $this->computeResource ? $this->computeResource->toArray($noStream) : $this->computeResource;
+        }
+
+        if (null !== $this->customization) {
+            $res['Customization'] = null !== $this->customization ? $this->customization->toArray($noStream) : $this->customization;
+        }
+
+        if (null !== $this->hyperParameters) {
+            if (\is_array($this->hyperParameters)) {
+                $res['HyperParameters'] = [];
+                $n1 = 0;
+                foreach ($this->hyperParameters as $item1) {
+                    $res['HyperParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
+
         if (null !== $this->inputChannels) {
-            $res['InputChannels'] = [];
-            if (null !== $this->inputChannels && \is_array($this->inputChannels)) {
-                $n = 0;
-                foreach ($this->inputChannels as $item) {
-                    $res['InputChannels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->inputChannels)) {
+                $res['InputChannels'] = [];
+                $n1 = 0;
+                foreach ($this->inputChannels as $item1) {
+                    $res['InputChannels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
         }
+
         if (null !== $this->metricDefinitions) {
-            $res['MetricDefinitions'] = [];
-            if (null !== $this->metricDefinitions && \is_array($this->metricDefinitions)) {
-                $n = 0;
-                foreach ($this->metricDefinitions as $item) {
-                    $res['MetricDefinitions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->metricDefinitions)) {
+                $res['MetricDefinitions'] = [];
+                $n1 = 0;
+                foreach ($this->metricDefinitions as $item1) {
+                    $res['MetricDefinitions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->outputChannels) {
-            $res['OutputChannels'] = [];
-            if (null !== $this->outputChannels && \is_array($this->outputChannels)) {
-                $n = 0;
-                foreach ($this->outputChannels as $item) {
-                    $res['OutputChannels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->outputChannels)) {
+                $res['OutputChannels'] = [];
+                $n1 = 0;
+                foreach ($this->outputChannels as $item1) {
+                    $res['OutputChannels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->progressDefinitions) {
-            $res['ProgressDefinitions'] = null !== $this->progressDefinitions ? $this->progressDefinitions->toMap() : null;
+            $res['ProgressDefinitions'] = null !== $this->progressDefinitions ? $this->progressDefinitions->toArray($noStream) : $this->progressDefinitions;
         }
+
         if (null !== $this->resourceRequirements) {
-            $res['ResourceRequirements'] = [];
-            if (null !== $this->resourceRequirements && \is_array($this->resourceRequirements)) {
-                $n = 0;
-                foreach ($this->resourceRequirements as $item) {
-                    $res['ResourceRequirements'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceRequirements)) {
+                $res['ResourceRequirements'] = [];
+                $n1 = 0;
+                foreach ($this->resourceRequirements as $item1) {
+                    $res['ResourceRequirements'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->supportedInstanceTypes) {
-            $res['SupportedInstanceTypes'] = $this->supportedInstanceTypes;
+            if (\is_array($this->supportedInstanceTypes)) {
+                $res['SupportedInstanceTypes'] = [];
+                $n1 = 0;
+                foreach ($this->supportedInstanceTypes as $item1) {
+                    $res['SupportedInstanceTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->supportsDistributedTraining) {
             $res['SupportsDistributedTraining'] = $this->supportsDistributedTraining;
         }
@@ -184,87 +246,115 @@ class AlgorithmSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AlgorithmSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CodeDir'])) {
             $model->codeDir = Location::fromMap($map['CodeDir']);
         }
+
         if (isset($map['Command'])) {
             if (!empty($map['Command'])) {
-                $model->command = $map['Command'];
+                $model->command = [];
+                $n1 = 0;
+                foreach ($map['Command'] as $item1) {
+                    $model->command[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ComputeResource'])) {
             $model->computeResource = computeResource::fromMap($map['ComputeResource']);
         }
+
         if (isset($map['Customization'])) {
             $model->customization = customization::fromMap($map['Customization']);
         }
+
         if (isset($map['HyperParameters'])) {
             if (!empty($map['HyperParameters'])) {
                 $model->hyperParameters = [];
-                $n = 0;
-                foreach ($map['HyperParameters'] as $item) {
-                    $model->hyperParameters[$n++] = null !== $item ? HyperParameterDefinition::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['HyperParameters'] as $item1) {
+                    $model->hyperParameters[$n1] = HyperParameterDefinition::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
         }
+
         if (isset($map['InputChannels'])) {
             if (!empty($map['InputChannels'])) {
                 $model->inputChannels = [];
-                $n = 0;
-                foreach ($map['InputChannels'] as $item) {
-                    $model->inputChannels[$n++] = null !== $item ? Channel::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InputChannels'] as $item1) {
+                    $model->inputChannels[$n1] = Channel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
         }
+
         if (isset($map['MetricDefinitions'])) {
             if (!empty($map['MetricDefinitions'])) {
                 $model->metricDefinitions = [];
-                $n = 0;
-                foreach ($map['MetricDefinitions'] as $item) {
-                    $model->metricDefinitions[$n++] = null !== $item ? MetricDefinition::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MetricDefinitions'] as $item1) {
+                    $model->metricDefinitions[$n1] = MetricDefinition::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['OutputChannels'])) {
             if (!empty($map['OutputChannels'])) {
                 $model->outputChannels = [];
-                $n = 0;
-                foreach ($map['OutputChannels'] as $item) {
-                    $model->outputChannels[$n++] = null !== $item ? Channel::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OutputChannels'] as $item1) {
+                    $model->outputChannels[$n1] = Channel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ProgressDefinitions'])) {
             $model->progressDefinitions = progressDefinitions::fromMap($map['ProgressDefinitions']);
         }
+
         if (isset($map['ResourceRequirements'])) {
             if (!empty($map['ResourceRequirements'])) {
                 $model->resourceRequirements = [];
-                $n = 0;
-                foreach ($map['ResourceRequirements'] as $item) {
-                    $model->resourceRequirements[$n++] = null !== $item ? ConditionExpression::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ResourceRequirements'] as $item1) {
+                    $model->resourceRequirements[$n1] = ConditionExpression::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SupportedInstanceTypes'])) {
             if (!empty($map['SupportedInstanceTypes'])) {
-                $model->supportedInstanceTypes = $map['SupportedInstanceTypes'];
+                $model->supportedInstanceTypes = [];
+                $n1 = 0;
+                foreach ($map['SupportedInstanceTypes'] as $item1) {
+                    $model->supportedInstanceTypes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SupportsDistributedTraining'])) {
             $model->supportsDistributedTraining = $map['SupportsDistributedTraining'];
         }

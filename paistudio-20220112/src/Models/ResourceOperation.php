@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResourceOperation extends Model
 {
@@ -94,50 +94,66 @@ class ResourceOperation extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
         }
+
         if (null !== $this->gmtCreatedTime) {
             $res['GmtCreatedTime'] = $this->gmtCreatedTime;
         }
+
         if (null !== $this->gmtEndTime) {
             $res['GmtEndTime'] = $this->gmtEndTime;
         }
+
         if (null !== $this->gmtModifiedTime) {
             $res['GmtModifiedTime'] = $this->gmtModifiedTime;
         }
+
         if (null !== $this->gmtStartTime) {
             $res['GmtStartTime'] = $this->gmtStartTime;
         }
+
         if (null !== $this->objectId) {
             $res['ObjectId'] = $this->objectId;
         }
+
         if (null !== $this->objectType) {
             $res['ObjectType'] = $this->objectType;
         }
+
         if (null !== $this->operationDescription) {
             $res['OperationDescription'] = $this->operationDescription;
         }
+
         if (null !== $this->operationId) {
             $res['OperationId'] = $this->operationId;
         }
+
         if (null !== $this->operationSpecJson) {
             $res['OperationSpecJson'] = $this->operationSpecJson;
         }
+
         if (null !== $this->operationType) {
             $res['OperationType'] = $this->operationType;
         }
+
         if (null !== $this->reasonCode) {
             $res['ReasonCode'] = $this->reasonCode;
         }
+
         if (null !== $this->reasonMessage) {
             $res['ReasonMessage'] = $this->reasonMessage;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -145,53 +161,66 @@ class ResourceOperation extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResourceOperation
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];
         }
+
         if (isset($map['GmtCreatedTime'])) {
             $model->gmtCreatedTime = $map['GmtCreatedTime'];
         }
+
         if (isset($map['GmtEndTime'])) {
             $model->gmtEndTime = $map['GmtEndTime'];
         }
+
         if (isset($map['GmtModifiedTime'])) {
             $model->gmtModifiedTime = $map['GmtModifiedTime'];
         }
+
         if (isset($map['GmtStartTime'])) {
             $model->gmtStartTime = $map['GmtStartTime'];
         }
+
         if (isset($map['ObjectId'])) {
             $model->objectId = $map['ObjectId'];
         }
+
         if (isset($map['ObjectType'])) {
             $model->objectType = $map['ObjectType'];
         }
+
         if (isset($map['OperationDescription'])) {
             $model->operationDescription = $map['OperationDescription'];
         }
+
         if (isset($map['OperationId'])) {
             $model->operationId = $map['OperationId'];
         }
+
         if (isset($map['OperationSpecJson'])) {
             $model->operationSpecJson = $map['OperationSpecJson'];
         }
+
         if (isset($map['OperationType'])) {
             $model->operationType = $map['OperationType'];
         }
+
         if (isset($map['ReasonCode'])) {
             $model->reasonCode = $map['ReasonCode'];
         }
+
         if (isset($map['ReasonMessage'])) {
             $model->reasonMessage = $map['ReasonMessage'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

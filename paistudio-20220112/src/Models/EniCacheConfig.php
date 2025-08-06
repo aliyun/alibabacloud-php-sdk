@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EniCacheConfig extends Model
 {
@@ -22,14 +22,18 @@ class EniCacheConfig extends Model
         'enabled' => 'Enabled',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cachePoolSize) {
             $res['CachePoolSize'] = $this->cachePoolSize;
         }
+
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
@@ -37,17 +41,18 @@ class EniCacheConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EniCacheConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CachePoolSize'])) {
             $model->cachePoolSize = $map['CachePoolSize'];
         }
+
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }

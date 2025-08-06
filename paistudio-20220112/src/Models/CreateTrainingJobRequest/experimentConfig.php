@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateTrainingJobRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class experimentConfig extends Model
 {
     /**
-     * @example exp-ds9aefia90v
-     *
      * @var string
      */
     public $experimentId;
@@ -18,9 +16,12 @@ class experimentConfig extends Model
         'experimentId' => 'ExperimentId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->experimentId) {
@@ -30,11 +31,11 @@ class experimentConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return experimentConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
