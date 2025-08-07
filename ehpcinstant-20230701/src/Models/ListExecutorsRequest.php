@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListExecutorsRequest\filter;
-use AlibabaCloud\Tea\Model;
 
 class ListExecutorsRequest extends Model
 {
@@ -15,15 +15,11 @@ class ListExecutorsRequest extends Model
     public $filter;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 50
-     *
      * @var int
      */
     public $pageSize;
@@ -33,17 +29,25 @@ class ListExecutorsRequest extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->filter) {
+            $this->filter->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filter) {
-            $res['Filter'] = null !== $this->filter ? $this->filter->toMap() : null;
+            $res['Filter'] = null !== $this->filter ? $this->filter->toArray($noStream) : $this->filter;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -51,20 +55,22 @@ class ListExecutorsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListExecutorsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Filter'])) {
             $model->filter = filter::fromMap($map['Filter']);
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

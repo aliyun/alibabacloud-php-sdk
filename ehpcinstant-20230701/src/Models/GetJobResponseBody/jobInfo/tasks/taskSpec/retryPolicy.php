@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\tasks\taskSpec;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\tasks\taskSpec\retryPolicy\exitCodeActions;
-use AlibabaCloud\Tea\Model;
 
 class retryPolicy extends Model
 {
@@ -23,20 +23,28 @@ class retryPolicy extends Model
         'retryCount' => 'RetryCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->exitCodeActions)) {
+            Model::validateArray($this->exitCodeActions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exitCodeActions) {
-            $res['ExitCodeActions'] = [];
-            if (null !== $this->exitCodeActions && \is_array($this->exitCodeActions)) {
-                $n = 0;
-                foreach ($this->exitCodeActions as $item) {
-                    $res['ExitCodeActions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->exitCodeActions)) {
+                $res['ExitCodeActions'] = [];
+                $n1 = 0;
+                foreach ($this->exitCodeActions as $item1) {
+                    $res['ExitCodeActions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->retryCount) {
             $res['RetryCount'] = $this->retryCount;
         }
@@ -44,23 +52,25 @@ class retryPolicy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return retryPolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExitCodeActions'])) {
             if (!empty($map['ExitCodeActions'])) {
                 $model->exitCodeActions = [];
-                $n = 0;
-                foreach ($map['ExitCodeActions'] as $item) {
-                    $model->exitCodeActions[$n++] = null !== $item ? exitCodeActions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ExitCodeActions'] as $item1) {
+                    $model->exitCodeActions[$n1] = exitCodeActions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RetryCount'])) {
             $model->retryCount = $map['RetryCount'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\securityPolicy\securityGroup;
-use AlibabaCloud\Tea\Model;
 
 class securityPolicy extends Model
 {
@@ -17,23 +17,29 @@ class securityPolicy extends Model
         'securityGroup' => 'SecurityGroup',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->securityGroup) {
+            $this->securityGroup->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->securityGroup) {
-            $res['SecurityGroup'] = null !== $this->securityGroup ? $this->securityGroup->toMap() : null;
+            $res['SecurityGroup'] = null !== $this->securityGroup ? $this->securityGroup->toArray($noStream) : $this->securityGroup;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return securityPolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

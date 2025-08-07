@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdatePoolRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resourceLimits extends Model
 {
     /**
-     * @example 2000
-     *
      * @var int
      */
     public $maxExectorNum;
@@ -18,9 +16,12 @@ class resourceLimits extends Model
         'maxExectorNum' => 'MaxExectorNum',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxExectorNum) {
@@ -30,11 +31,11 @@ class resourceLimits extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceLimits
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

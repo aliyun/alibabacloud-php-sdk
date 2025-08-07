@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\tasks\taskSpec\retryPolicy;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class exitCodeActions extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $action;
 
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $exitCode;
@@ -26,14 +22,18 @@ class exitCodeActions extends Model
         'exitCode' => 'ExitCode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
+
         if (null !== $this->exitCode) {
             $res['ExitCode'] = $this->exitCode;
         }
@@ -41,17 +41,18 @@ class exitCodeActions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return exitCodeActions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
+
         if (isset($map['ExitCode'])) {
             $model->exitCode = $map['ExitCode'];
         }

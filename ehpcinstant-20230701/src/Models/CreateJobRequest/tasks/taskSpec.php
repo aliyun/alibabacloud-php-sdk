@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\tasks;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\tasks\taskSpec\resource;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\tasks\taskSpec\retryPolicy;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\tasks\taskSpec\taskExecutor;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\tasks\taskSpec\volumeMount;
-use AlibabaCloud\Tea\Model;
 
 class taskSpec extends Model
 {
@@ -23,8 +23,6 @@ class taskSpec extends Model
     public $retryPolicy;
 
     /**
-     * @description This parameter is required.
-     *
      * @var taskExecutor[]
      */
     public $taskExecutor;
@@ -40,32 +38,52 @@ class taskSpec extends Model
         'volumeMount' => 'VolumeMount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->resource) {
+            $this->resource->validate();
+        }
+        if (null !== $this->retryPolicy) {
+            $this->retryPolicy->validate();
+        }
+        if (\is_array($this->taskExecutor)) {
+            Model::validateArray($this->taskExecutor);
+        }
+        if (\is_array($this->volumeMount)) {
+            Model::validateArray($this->volumeMount);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resource) {
-            $res['Resource'] = null !== $this->resource ? $this->resource->toMap() : null;
+            $res['Resource'] = null !== $this->resource ? $this->resource->toArray($noStream) : $this->resource;
         }
+
         if (null !== $this->retryPolicy) {
-            $res['RetryPolicy'] = null !== $this->retryPolicy ? $this->retryPolicy->toMap() : null;
+            $res['RetryPolicy'] = null !== $this->retryPolicy ? $this->retryPolicy->toArray($noStream) : $this->retryPolicy;
         }
+
         if (null !== $this->taskExecutor) {
-            $res['TaskExecutor'] = [];
-            if (null !== $this->taskExecutor && \is_array($this->taskExecutor)) {
-                $n = 0;
-                foreach ($this->taskExecutor as $item) {
-                    $res['TaskExecutor'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskExecutor)) {
+                $res['TaskExecutor'] = [];
+                $n1 = 0;
+                foreach ($this->taskExecutor as $item1) {
+                    $res['TaskExecutor'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->volumeMount) {
-            $res['VolumeMount'] = [];
-            if (null !== $this->volumeMount && \is_array($this->volumeMount)) {
-                $n = 0;
-                foreach ($this->volumeMount as $item) {
-                    $res['VolumeMount'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->volumeMount)) {
+                $res['VolumeMount'] = [];
+                $n1 = 0;
+                foreach ($this->volumeMount as $item1) {
+                    $res['VolumeMount'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,35 +91,40 @@ class taskSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return taskSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Resource'])) {
             $model->resource = resource::fromMap($map['Resource']);
         }
+
         if (isset($map['RetryPolicy'])) {
             $model->retryPolicy = retryPolicy::fromMap($map['RetryPolicy']);
         }
+
         if (isset($map['TaskExecutor'])) {
             if (!empty($map['TaskExecutor'])) {
                 $model->taskExecutor = [];
-                $n = 0;
-                foreach ($map['TaskExecutor'] as $item) {
-                    $model->taskExecutor[$n++] = null !== $item ? taskExecutor::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TaskExecutor'] as $item1) {
+                    $model->taskExecutor[$n1] = taskExecutor::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['VolumeMount'])) {
             if (!empty($map['VolumeMount'])) {
                 $model->volumeMount = [];
-                $n = 0;
-                foreach ($map['VolumeMount'] as $item) {
-                    $model->volumeMount[$n++] = null !== $item ? volumeMount::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VolumeMount'] as $item1) {
+                    $model->volumeMount[$n1] = volumeMount::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

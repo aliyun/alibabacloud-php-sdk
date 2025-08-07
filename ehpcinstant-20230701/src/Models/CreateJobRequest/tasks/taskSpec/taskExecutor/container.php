@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\tasks\taskSpec\taskExecutor;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\tasks\taskSpec\taskExecutor\container\environmentVars;
-use AlibabaCloud\Tea\Model;
 
 class container extends Model
 {
@@ -30,17 +30,11 @@ class container extends Model
     public $environmentVars;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example registry-vpc.cn-hangzhou.aliyuncs.com/ehpc/hpl:latest
-     *
      * @var string
      */
     public $image;
 
     /**
-     * @example /usr/local/
-     *
      * @var string
      */
     public $workingDir;
@@ -53,32 +47,64 @@ class container extends Model
         'workingDir' => 'WorkingDir',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->arg)) {
+            Model::validateArray($this->arg);
+        }
+        if (\is_array($this->command)) {
+            Model::validateArray($this->command);
+        }
+        if (\is_array($this->environmentVars)) {
+            Model::validateArray($this->environmentVars);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->arg) {
-            $res['Arg'] = $this->arg;
-        }
-        if (null !== $this->command) {
-            $res['Command'] = $this->command;
-        }
-        if (null !== $this->environmentVars) {
-            $res['EnvironmentVars'] = [];
-            if (null !== $this->environmentVars && \is_array($this->environmentVars)) {
-                $n = 0;
-                foreach ($this->environmentVars as $item) {
-                    $res['EnvironmentVars'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->arg)) {
+                $res['Arg'] = [];
+                $n1 = 0;
+                foreach ($this->arg as $item1) {
+                    $res['Arg'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->command) {
+            if (\is_array($this->command)) {
+                $res['Command'] = [];
+                $n1 = 0;
+                foreach ($this->command as $item1) {
+                    $res['Command'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->environmentVars) {
+            if (\is_array($this->environmentVars)) {
+                $res['EnvironmentVars'] = [];
+                $n1 = 0;
+                foreach ($this->environmentVars as $item1) {
+                    $res['EnvironmentVars'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
+
         if (null !== $this->workingDir) {
             $res['WorkingDir'] = $this->workingDir;
         }
@@ -86,39 +112,55 @@ class container extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return container
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['Arg'])) {
             if (!empty($map['Arg'])) {
-                $model->arg = $map['Arg'];
-            }
-        }
-        if (isset($map['Command'])) {
-            if (!empty($map['Command'])) {
-                $model->command = $map['Command'];
-            }
-        }
-        if (isset($map['EnvironmentVars'])) {
-            if (!empty($map['EnvironmentVars'])) {
-                $model->environmentVars = [];
-                $n = 0;
-                foreach ($map['EnvironmentVars'] as $item) {
-                    $model->environmentVars[$n++] = null !== $item ? environmentVars::fromMap($item) : $item;
+                $model->arg = [];
+                $n1 = 0;
+                foreach ($map['Arg'] as $item1) {
+                    $model->arg[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['Command'])) {
+            if (!empty($map['Command'])) {
+                $model->command = [];
+                $n1 = 0;
+                foreach ($map['Command'] as $item1) {
+                    $model->command[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['EnvironmentVars'])) {
+            if (!empty($map['EnvironmentVars'])) {
+                $model->environmentVars = [];
+                $n1 = 0;
+                foreach ($map['EnvironmentVars'] as $item1) {
+                    $model->environmentVars[$n1] = environmentVars::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
         }
+
         if (isset($map['WorkingDir'])) {
             $model->workingDir = $map['WorkingDir'];
         }

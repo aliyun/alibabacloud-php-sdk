@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeJobMetricLastShrinkRequest extends Model
 {
@@ -14,15 +14,11 @@ class DescribeJobMetricLastShrinkRequest extends Model
     public $arrayIndexShrink;
 
     /**
-     * @example job-xxxxx
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @example Task0
-     *
      * @var string
      */
     public $taskName;
@@ -32,17 +28,22 @@ class DescribeJobMetricLastShrinkRequest extends Model
         'taskName' => 'TaskName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->arrayIndexShrink) {
             $res['ArrayIndex'] = $this->arrayIndexShrink;
         }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
+
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
@@ -50,20 +51,22 @@ class DescribeJobMetricLastShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeJobMetricLastShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArrayIndex'])) {
             $model->arrayIndexShrink = $map['ArrayIndex'];
         }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
+
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }

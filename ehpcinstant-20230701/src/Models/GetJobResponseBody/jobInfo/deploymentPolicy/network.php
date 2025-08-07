@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\deploymentPolicy;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class network extends Model
 {
@@ -28,41 +28,63 @@ class network extends Model
         'vswitch' => 'Vswitch',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->vswitch)) {
+            Model::validateArray($this->vswitch);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableENIMapping) {
             $res['EnableENIMapping'] = $this->enableENIMapping;
         }
+
         if (null !== $this->enableExternalIpAddress) {
             $res['EnableExternalIpAddress'] = $this->enableExternalIpAddress;
         }
+
         if (null !== $this->vswitch) {
-            $res['Vswitch'] = $this->vswitch;
+            if (\is_array($this->vswitch)) {
+                $res['Vswitch'] = [];
+                $n1 = 0;
+                foreach ($this->vswitch as $item1) {
+                    $res['Vswitch'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return network
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableENIMapping'])) {
             $model->enableENIMapping = $map['EnableENIMapping'];
         }
+
         if (isset($map['EnableExternalIpAddress'])) {
             $model->enableExternalIpAddress = $map['EnableExternalIpAddress'];
         }
+
         if (isset($map['Vswitch'])) {
             if (!empty($map['Vswitch'])) {
-                $model->vswitch = $map['Vswitch'];
+                $model->vswitch = [];
+                $n1 = 0;
+                foreach ($map['Vswitch'] as $item1) {
+                    $model->vswitch[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

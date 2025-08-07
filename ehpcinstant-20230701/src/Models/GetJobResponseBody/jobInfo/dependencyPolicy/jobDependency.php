@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\dependencyPolicy;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class jobDependency extends Model
 {
@@ -22,14 +22,18 @@ class jobDependency extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -37,17 +41,18 @@ class jobDependency extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return jobDependency
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

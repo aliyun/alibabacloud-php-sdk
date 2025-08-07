@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveImageRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example m-bp14wakr1rkxtb******
-     *
      * @var string
      */
     public $imageId;
@@ -26,14 +22,18 @@ class RemoveImageRequest extends Model
         'imageType' => 'ImageType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
         }
@@ -41,17 +41,18 @@ class RemoveImageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveImageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];
         }

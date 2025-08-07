@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListPoolsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filter extends Model
 {
@@ -19,15 +19,11 @@ class filter extends Model
     public $status;
 
     /**
-     * @example 1703819914
-     *
      * @var int
      */
     public $timeCreatedAfter;
 
     /**
-     * @example 1703820113
-     *
      * @var int
      */
     public $timeCreatedBefore;
@@ -38,20 +34,46 @@ class filter extends Model
         'timeCreatedBefore' => 'TimeCreatedBefore',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->poolName)) {
+            Model::validateArray($this->poolName);
+        }
+        if (\is_array($this->status)) {
+            Model::validateArray($this->status);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->poolName) {
-            $res['PoolName'] = $this->poolName;
+            if (\is_array($this->poolName)) {
+                $res['PoolName'] = [];
+                $n1 = 0;
+                foreach ($this->poolName as $item1) {
+                    $res['PoolName'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->status) {
-            $res['Status'] = $this->status;
+            if (\is_array($this->status)) {
+                $res['Status'] = [];
+                $n1 = 0;
+                foreach ($this->status as $item1) {
+                    $res['Status'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->timeCreatedAfter) {
             $res['TimeCreatedAfter'] = $this->timeCreatedAfter;
         }
+
         if (null !== $this->timeCreatedBefore) {
             $res['TimeCreatedBefore'] = $this->timeCreatedBefore;
         }
@@ -59,27 +81,40 @@ class filter extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PoolName'])) {
             if (!empty($map['PoolName'])) {
-                $model->poolName = $map['PoolName'];
+                $model->poolName = [];
+                $n1 = 0;
+                foreach ($map['PoolName'] as $item1) {
+                    $model->poolName[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Status'])) {
             if (!empty($map['Status'])) {
-                $model->status = $map['Status'];
+                $model->status = [];
+                $n1 = 0;
+                foreach ($map['Status'] as $item1) {
+                    $model->status[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['TimeCreatedAfter'])) {
             $model->timeCreatedAfter = $map['TimeCreatedAfter'];
         }
+
         if (isset($map['TimeCreatedBefore'])) {
             $model->timeCreatedBefore = $map['TimeCreatedBefore'];
         }

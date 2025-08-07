@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\tasks\taskSpec\taskExecutor\container;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class environmentVars extends Model
 {
     /**
-     * @example PATH
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example /usr/local/bin
-     *
      * @var string
      */
     public $value;
@@ -26,14 +22,18 @@ class environmentVars extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -41,17 +41,18 @@ class environmentVars extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return environmentVars
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
