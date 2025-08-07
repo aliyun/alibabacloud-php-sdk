@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateMemoryResponseBody extends Model
 {
     /**
-     * @example 6a71f2d9-f1c9-913b-818b-114029103cad
-     *
      * @var string
      */
     public $requestId;
@@ -18,9 +16,12 @@ class UpdateMemoryResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -30,11 +31,11 @@ class UpdateMemoryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateMemoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

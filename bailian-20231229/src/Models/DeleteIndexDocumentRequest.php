@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteIndexDocumentRequest extends Model
 {
     /**
-     * @description The list of the primary key IDs of the documents.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $documentIds;
 
     /**
-     * @description The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
-     *
-     * This parameter is required.
-     *
-     * @example 79c0aly8zw
-     *
      * @var string
      */
     public $indexId;
@@ -32,14 +22,28 @@ class DeleteIndexDocumentRequest extends Model
         'indexId' => 'IndexId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->documentIds)) {
+            Model::validateArray($this->documentIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->documentIds) {
-            $res['DocumentIds'] = $this->documentIds;
+            if (\is_array($this->documentIds)) {
+                $res['DocumentIds'] = [];
+                $n1 = 0;
+                foreach ($this->documentIds as $item1) {
+                    $res['DocumentIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->indexId) {
             $res['IndexId'] = $this->indexId;
         }
@@ -47,19 +51,25 @@ class DeleteIndexDocumentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteIndexDocumentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocumentIds'])) {
             if (!empty($map['DocumentIds'])) {
-                $model->documentIds = $map['DocumentIds'];
+                $model->documentIds = [];
+                $n1 = 0;
+                foreach ($map['DocumentIds'] as $item1) {
+                    $model->documentIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['IndexId'])) {
             $model->indexId = $map['IndexId'];
         }

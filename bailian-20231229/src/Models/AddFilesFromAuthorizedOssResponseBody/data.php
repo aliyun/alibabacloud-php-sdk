@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\AddFilesFromAuthorizedOssResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\AddFilesFromAuthorizedOssResponseBody\data\addFileResultList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,17 +17,24 @@ class data extends Model
         'addFileResultList' => 'AddFileResultList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->addFileResultList)) {
+            Model::validateArray($this->addFileResultList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addFileResultList) {
-            $res['AddFileResultList'] = [];
-            if (null !== $this->addFileResultList && \is_array($this->addFileResultList)) {
-                $n = 0;
-                foreach ($this->addFileResultList as $item) {
-                    $res['AddFileResultList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->addFileResultList)) {
+                $res['AddFileResultList'] = [];
+                $n1 = 0;
+                foreach ($this->addFileResultList as $item1) {
+                    $res['AddFileResultList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddFileResultList'])) {
             if (!empty($map['AddFileResultList'])) {
                 $model->addFileResultList = [];
-                $n = 0;
-                foreach ($map['AddFileResultList'] as $item) {
-                    $model->addFileResultList[$n++] = null !== $item ? addFileResultList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AddFileResultList'] as $item1) {
+                    $model->addFileResultList[$n1] = addFileResultList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

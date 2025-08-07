@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\ListCategoryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListCategoryResponseBody\data\categoryList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -15,29 +15,21 @@ class data extends Model
     public $categoryList;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $hasNext;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example AAAAALHWGpGoYCcYMxiFfmlhvh7Z4G8jiXR6IjHYd+M9WQVJ
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $totalCount;
@@ -49,29 +41,40 @@ class data extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->categoryList)) {
+            Model::validateArray($this->categoryList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->categoryList) {
-            $res['CategoryList'] = [];
-            if (null !== $this->categoryList && \is_array($this->categoryList)) {
-                $n = 0;
-                foreach ($this->categoryList as $item) {
-                    $res['CategoryList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->categoryList)) {
+                $res['CategoryList'] = [];
+                $n1 = 0;
+                foreach ($this->categoryList as $item1) {
+                    $res['CategoryList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->hasNext) {
             $res['HasNext'] = $this->hasNext;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -79,32 +82,37 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CategoryList'])) {
             if (!empty($map['CategoryList'])) {
                 $model->categoryList = [];
-                $n = 0;
-                foreach ($map['CategoryList'] as $item) {
-                    $model->categoryList[$n++] = null !== $item ? categoryList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CategoryList'] as $item1) {
+                    $model->categoryList[$n1] = categoryList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['HasNext'])) {
             $model->hasNext = $map['HasNext'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

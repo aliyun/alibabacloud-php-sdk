@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\CreateAndPulishAgentRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sampleLibrary extends Model
 {
@@ -28,17 +28,32 @@ class sampleLibrary extends Model
         'topK' => 'topK',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->sampleLibraryIdList)) {
+            Model::validateArray($this->sampleLibraryIdList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableSample) {
             $res['enableSample'] = $this->enableSample;
         }
+
         if (null !== $this->sampleLibraryIdList) {
-            $res['sampleLibraryIdList'] = $this->sampleLibraryIdList;
+            if (\is_array($this->sampleLibraryIdList)) {
+                $res['sampleLibraryIdList'] = [];
+                $n1 = 0;
+                foreach ($this->sampleLibraryIdList as $item1) {
+                    $res['sampleLibraryIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->topK) {
             $res['topK'] = $this->topK;
         }
@@ -46,22 +61,29 @@ class sampleLibrary extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sampleLibrary
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['enableSample'])) {
             $model->enableSample = $map['enableSample'];
         }
+
         if (isset($map['sampleLibraryIdList'])) {
             if (!empty($map['sampleLibraryIdList'])) {
-                $model->sampleLibraryIdList = $map['sampleLibraryIdList'];
+                $model->sampleLibraryIdList = [];
+                $n1 = 0;
+                foreach ($map['sampleLibraryIdList'] as $item1) {
+                    $model->sampleLibraryIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['topK'])) {
             $model->topK = $map['topK'];
         }

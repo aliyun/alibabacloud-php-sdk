@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\ListPublishedAgentResponseBody\data\list_\applicationConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ragConfig extends Model
 {
@@ -34,20 +34,36 @@ class ragConfig extends Model
         'topK' => 'topK',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->knowledgeBaseCodeList)) {
+            Model::validateArray($this->knowledgeBaseCodeList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableCitation) {
             $res['enableCitation'] = $this->enableCitation;
         }
+
         if (null !== $this->enableSearch) {
             $res['enableSearch'] = $this->enableSearch;
         }
+
         if (null !== $this->knowledgeBaseCodeList) {
-            $res['knowledgeBaseCodeList'] = $this->knowledgeBaseCodeList;
+            if (\is_array($this->knowledgeBaseCodeList)) {
+                $res['knowledgeBaseCodeList'] = [];
+                $n1 = 0;
+                foreach ($this->knowledgeBaseCodeList as $item1) {
+                    $res['knowledgeBaseCodeList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->topK) {
             $res['topK'] = $this->topK;
         }
@@ -55,25 +71,33 @@ class ragConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ragConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['enableCitation'])) {
             $model->enableCitation = $map['enableCitation'];
         }
+
         if (isset($map['enableSearch'])) {
             $model->enableSearch = $map['enableSearch'];
         }
+
         if (isset($map['knowledgeBaseCodeList'])) {
             if (!empty($map['knowledgeBaseCodeList'])) {
-                $model->knowledgeBaseCodeList = $map['knowledgeBaseCodeList'];
+                $model->knowledgeBaseCodeList = [];
+                $n1 = 0;
+                foreach ($map['knowledgeBaseCodeList'] as $item1) {
+                    $model->knowledgeBaseCodeList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['topK'])) {
             $model->topK = $map['topK'];
         }

@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndicesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\ListIndicesResponseBody\data\indices;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The list of knowledge bases.
-     *
      * @var indices[]
      */
     public $indices;
 
     /**
-     * @description The specified page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The specified number of documents on each page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The total number of knowledge bases returned.
-     *
-     * @example 48
-     *
      * @var int
      */
     public $totalCount;
@@ -49,26 +35,36 @@ class data extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->indices)) {
+            Model::validateArray($this->indices);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->indices) {
-            $res['Indices'] = [];
-            if (null !== $this->indices && \is_array($this->indices)) {
-                $n = 0;
-                foreach ($this->indices as $item) {
-                    $res['Indices'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->indices)) {
+                $res['Indices'] = [];
+                $n1 = 0;
+                foreach ($this->indices as $item1) {
+                    $res['Indices'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -76,29 +72,33 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Indices'])) {
             if (!empty($map['Indices'])) {
                 $model->indices = [];
-                $n = 0;
-                foreach ($map['Indices'] as $item) {
-                    $model->indices[$n++] = null !== $item ? indices::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Indices'] as $item1) {
+                    $model->indices[$n1] = indices::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

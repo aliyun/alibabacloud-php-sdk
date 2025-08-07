@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateFileTagResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example file_9a65732555b54d5ea10796ca5742ba22_xxxxxxxx
-     *
      * @var string
      */
     public $fileId;
@@ -18,9 +16,12 @@ class data extends Model
         'fileId' => 'FileId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileId) {
@@ -30,11 +31,11 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteIndexDocumentResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The list of primary key IDs of documents that are deleted.
-     *
      * @var string[]
      */
     public $deletedDocument;
@@ -18,29 +16,47 @@ class data extends Model
         'deletedDocument' => 'DeletedDocument',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->deletedDocument)) {
+            Model::validateArray($this->deletedDocument);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deletedDocument) {
-            $res['DeletedDocument'] = $this->deletedDocument;
+            if (\is_array($this->deletedDocument)) {
+                $res['DeletedDocument'] = [];
+                $n1 = 0;
+                foreach ($this->deletedDocument as $item1) {
+                    $res['DeletedDocument'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeletedDocument'])) {
             if (!empty($map['DeletedDocument'])) {
-                $model->deletedDocument = $map['DeletedDocument'];
+                $model->deletedDocument = [];
+                $n1 = 0;
+                foreach ($map['DeletedDocument'] as $item1) {
+                    $model->deletedDocument[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

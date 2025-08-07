@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\SubmitIndexJobResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The primary key ID of the job, which is the `JobId` parameter of the [GetIndexJobStatus](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-getindexjobstatus) operation.
-     *
-     * @example eFDr2fGRzP9gdDZWAdo3YQ==
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The primary key ID of the knowledge base.
-     *
-     * @example khdyak1uuj
-     *
      * @var string
      */
     public $indexId;
@@ -30,14 +22,18 @@ class data extends Model
         'indexId' => 'IndexId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->indexId) {
             $res['IndexId'] = $this->indexId;
         }
@@ -45,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['IndexId'])) {
             $model->indexId = $map['IndexId'];
         }

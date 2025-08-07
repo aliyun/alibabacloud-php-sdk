@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models\AddFilesFromAuthorizedOssResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class addFileResultList extends Model
 {
     /**
-     * @example file_809f469a59ac449586ec692576xxxxx_102248XXX
-     *
      * @var string
      */
     public $fileId;
 
     /**
-     * @example size too large
-     *
      * @var string
      */
     public $msg;
 
     /**
-     * @example root/path/this_is_temp_xxxx.pdf
-     *
      * @var string
      */
     public $ossKey;
 
     /**
-     * @example success
-     *
      * @var string
      */
     public $status;
@@ -42,20 +34,26 @@ class addFileResultList extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
+
         if (null !== $this->msg) {
             $res['Msg'] = $this->msg;
         }
+
         if (null !== $this->ossKey) {
             $res['OssKey'] = $this->ossKey;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -63,23 +61,26 @@ class addFileResultList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return addFileResultList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
+
         if (isset($map['Msg'])) {
             $model->msg = $map['Msg'];
         }
+
         if (isset($map['OssKey'])) {
             $model->ossKey = $map['OssKey'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
