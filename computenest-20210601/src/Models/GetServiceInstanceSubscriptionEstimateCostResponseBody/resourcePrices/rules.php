@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceInstanceSubscriptionEstimateCostResponseBody\resourcePrices;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rules extends Model
 {
     /**
-     * @description Promotion description.
-     *
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description Promotion name.
-     *
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description Promotion ID.
-     *
-     * @example 1021199213
-     *
      * @var int
      */
     public $ruleDescId;
@@ -40,17 +28,22 @@ class rules extends Model
         'ruleDescId' => 'RuleDescId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->ruleDescId) {
             $res['RuleDescId'] = $this->ruleDescId;
         }
@@ -58,20 +51,22 @@ class rules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RuleDescId'])) {
             $model->ruleDescId = $map['RuleDescId'];
         }

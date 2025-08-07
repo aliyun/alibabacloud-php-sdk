@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceTemplateParameterConstraintsResponseBody\parameterConstraints;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class queryErrors extends Model
 {
     /**
-     * @description The error message.
-     *
-     * @example record not exist
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description The resource name.
-     *
-     * @example MyECS
-     *
      * @var string
      */
     public $resourceName;
 
     /**
-     * @description The resource type.
-     *
-     * @example ALIYUN::ECS::InstanceGroup
-     *
      * @var string
      */
     public $resourceType;
@@ -40,17 +28,22 @@ class queryErrors extends Model
         'resourceType' => 'ResourceType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -58,20 +51,22 @@ class queryErrors extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return queryErrors
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

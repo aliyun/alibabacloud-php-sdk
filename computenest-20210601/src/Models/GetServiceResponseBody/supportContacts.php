@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class supportContacts extends Model
 {
     /**
-     * @description The type of contact information.
-     *
-     * @example Email
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The value of contact information.
-     *
-     * @example supplier@example.com
-     *
      * @var string
      */
     public $value;
@@ -30,14 +22,18 @@ class supportContacts extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -45,17 +41,18 @@ class supportContacts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportContacts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

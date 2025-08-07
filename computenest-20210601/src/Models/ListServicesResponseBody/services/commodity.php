@@ -4,25 +4,16 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServicesResponseBody\services;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class commodity extends Model
 {
     /**
-     * @description The commodity code.
-     *
-     * @example cmjj00****
-     *
      * @var string
      */
     public $commodityCode;
 
     /**
-     * @description Deploy Page.
-     *
-     * @example Order： Order Page
-     * Detail： Detail Page
-     *
      * @var string
      */
     public $deployPage;
@@ -31,14 +22,18 @@ class commodity extends Model
         'deployPage' => 'DeployPage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
+
         if (null !== $this->deployPage) {
             $res['DeployPage'] = $this->deployPage;
         }
@@ -46,17 +41,18 @@ class commodity extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return commodity
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
+
         if (isset($map['DeployPage'])) {
             $model->deployPage = $map['DeployPage'];
         }

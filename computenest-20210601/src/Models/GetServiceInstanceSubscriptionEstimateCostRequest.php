@@ -4,72 +4,42 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceInstanceSubscriptionEstimateCostRequest\resourcePeriod;
-use AlibabaCloud\Tea\Model;
 
 class GetServiceInstanceSubscriptionEstimateCostRequest extends Model
 {
     /**
-     * @description Ensures idempotence of the request. Generate a parameter value from your client to ensure its uniqueness across different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters.
-     *
-     * @example 123e4567-e89b-12d3-a456-426655440000
-     *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description Order type. Possible value: Renewal.
-     *
-     * This parameter is required.
-     *
-     * @example Renewal
-     *
      * @var string
      */
     public $orderType;
 
     /**
-     * @description The renewal duration for all prepaid resources of the service instance. The unit is specified by PeriodUnit.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $period;
 
     /**
-     * @description The time unit for the renewal duration of all prepaid resources of the service instance, which is the unit of the Period parameter. Valid values: Month, Year. Default value: Month.
-     *
-     * @example Month
-     *
      * @var string
      */
     public $periodUnit;
 
     /**
-     * @description Region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description Resource renewal configuration.
-     *
      * @var resourcePeriod[]
      */
     public $resourcePeriod;
 
     /**
-     * @description Service instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example si-d6ab3a63ccbb4b17****
-     *
      * @var string
      */
     public $serviceInstanceId;
@@ -83,35 +53,48 @@ class GetServiceInstanceSubscriptionEstimateCostRequest extends Model
         'serviceInstanceId' => 'ServiceInstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->resourcePeriod)) {
+            Model::validateArray($this->resourcePeriod);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
         }
+
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourcePeriod) {
-            $res['ResourcePeriod'] = [];
-            if (null !== $this->resourcePeriod && \is_array($this->resourcePeriod)) {
-                $n = 0;
-                foreach ($this->resourcePeriod as $item) {
-                    $res['ResourcePeriod'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourcePeriod)) {
+                $res['ResourcePeriod'] = [];
+                $n1 = 0;
+                foreach ($this->resourcePeriod as $item1) {
+                    $res['ResourcePeriod'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->serviceInstanceId) {
             $res['ServiceInstanceId'] = $this->serviceInstanceId;
         }
@@ -119,38 +102,45 @@ class GetServiceInstanceSubscriptionEstimateCostRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetServiceInstanceSubscriptionEstimateCostRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
         }
+
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourcePeriod'])) {
             if (!empty($map['ResourcePeriod'])) {
                 $model->resourcePeriod = [];
-                $n = 0;
-                foreach ($map['ResourcePeriod'] as $item) {
-                    $model->resourcePeriod[$n++] = null !== $item ? resourcePeriod::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ResourcePeriod'] as $item1) {
+                    $model->resourcePeriod[$n1] = resourcePeriod::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ServiceInstanceId'])) {
             $model->serviceInstanceId = $map['ServiceInstanceId'];
         }

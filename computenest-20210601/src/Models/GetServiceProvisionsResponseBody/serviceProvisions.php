@@ -4,78 +4,43 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceProvisionsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceProvisionsResponseBody\serviceProvisions\commodityProvisions;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceProvisionsResponseBody\serviceProvisions\roleProvision;
-use AlibabaCloud\Tea\Model;
 
 class serviceProvisions extends Model
 {
     /**
-     * @description Indicates whether automatic activation for the service is defined in the template. Valid values:
-     *
-     *   true: Automatic activation for the service is defined in the template.
-     *   false: Manual activation for the service is defined in the template.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoEnableService;
 
     /**
-     * @description Product details. Some services (such as ACS) involve the activation of multiple products
-     *
      * @var commodityProvisions[]
      */
     public $commodityProvisions;
 
     /**
-     * @description The URL that points to the activation page of the service.
-     *
-     * > This parameter is returned if Status is set to Disabled.
-     *
-     * @example https://common-buy.aliyun.com/?commodityCode=sls
-     *
      * @var string
      */
     public $enableURL;
 
     /**
-     * @description The information about the RAM roles of the service. If this parameter is empty, no RAM role is associated with the service.
-     *
      * @var roleProvision
      */
     public $roleProvision;
 
     /**
-     * @description The service name.
-     *
-     * @example CS
-     *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description The activation status of the service. Valid values:
-     *
-     *   Enabled: The service is activated.
-     *   Disabled: The service is not activated.
-     *   Unknown: The activation status of the service is unknown.
-     *
-     * @example Enabled
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The reason why the service is in the Disabled or Unknown state.
-     *
-     * > This parameter is returned if Status is set to Disabled or Unknown.
-     *
-     * @example No permission
-     *
      * @var string
      */
     public $statusReason;
@@ -89,35 +54,51 @@ class serviceProvisions extends Model
         'statusReason' => 'StatusReason',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->commodityProvisions)) {
+            Model::validateArray($this->commodityProvisions);
+        }
+        if (null !== $this->roleProvision) {
+            $this->roleProvision->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoEnableService) {
             $res['AutoEnableService'] = $this->autoEnableService;
         }
+
         if (null !== $this->commodityProvisions) {
-            $res['CommodityProvisions'] = [];
-            if (null !== $this->commodityProvisions && \is_array($this->commodityProvisions)) {
-                $n = 0;
-                foreach ($this->commodityProvisions as $item) {
-                    $res['CommodityProvisions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->commodityProvisions)) {
+                $res['CommodityProvisions'] = [];
+                $n1 = 0;
+                foreach ($this->commodityProvisions as $item1) {
+                    $res['CommodityProvisions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->enableURL) {
             $res['EnableURL'] = $this->enableURL;
         }
+
         if (null !== $this->roleProvision) {
-            $res['RoleProvision'] = null !== $this->roleProvision ? $this->roleProvision->toMap() : null;
+            $res['RoleProvision'] = null !== $this->roleProvision ? $this->roleProvision->toArray($noStream) : $this->roleProvision;
         }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->statusReason) {
             $res['StatusReason'] = $this->statusReason;
         }
@@ -125,38 +106,45 @@ class serviceProvisions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return serviceProvisions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoEnableService'])) {
             $model->autoEnableService = $map['AutoEnableService'];
         }
+
         if (isset($map['CommodityProvisions'])) {
             if (!empty($map['CommodityProvisions'])) {
                 $model->commodityProvisions = [];
-                $n = 0;
-                foreach ($map['CommodityProvisions'] as $item) {
-                    $model->commodityProvisions[$n++] = null !== $item ? commodityProvisions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CommodityProvisions'] as $item1) {
+                    $model->commodityProvisions[$n1] = commodityProvisions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['EnableURL'])) {
             $model->enableURL = $map['EnableURL'];
         }
+
         if (isset($map['RoleProvision'])) {
             $model->roleProvision = roleProvision::fromMap($map['RoleProvision']);
         }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['StatusReason'])) {
             $model->statusReason = $map['StatusReason'];
         }

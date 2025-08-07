@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\RenewServiceInstanceResourcesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class failureDetails extends Model
 {
     /**
-     * @description Error code.
-     *
-     * @example InvalidPeriod
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description Error message.
-     *
-     * @example Error message
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description Resource ARN (Aliyun Resource Name).
-     *
-     * @example acs:ecs:cn-hongkong:1488317743351199:instance/i-j6c6f3lbky38o8rpeqw2
-     *
      * @var string
      */
     public $resourceArn;
@@ -40,17 +28,22 @@ class failureDetails extends Model
         'resourceArn' => 'ResourceArn',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->resourceArn) {
             $res['ResourceArn'] = $this->resourceArn;
         }
@@ -58,20 +51,22 @@ class failureDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failureDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['ResourceArn'])) {
             $model->resourceArn = $map['ResourceArn'];
         }

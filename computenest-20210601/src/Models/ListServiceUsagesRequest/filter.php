@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceUsagesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filter extends Model
 {
     /**
-     * @description The parameter name of the filter. You can specify one or more filters. Valid values:
-     *
-     *   ServiceId: the ID of the service.
-     *   ServiceName: the service name.
-     *   Status: the state of the service.
-     *   SupplierName: the name of the service provider.
-     *
-     * @example ServiceId
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The parameter values of the filter.
-     *
      * @var string[]
      */
     public $value;
@@ -33,35 +22,55 @@ class filter extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->value)) {
+            Model::validateArray($this->value);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->value) {
-            $res['Value'] = $this->value;
+            if (\is_array($this->value)) {
+                $res['Value'] = [];
+                $n1 = 0;
+                foreach ($this->value as $item1) {
+                    $res['Value'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Value'])) {
             if (!empty($map['Value'])) {
-                $model->value = $map['Value'];
+                $model->value = [];
+                $n1 = 0;
+                foreach ($map['Value'] as $item1) {
+                    $model->value[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 
