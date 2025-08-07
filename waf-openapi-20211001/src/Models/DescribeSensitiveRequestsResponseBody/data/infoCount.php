@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveRequestsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class infoCount extends Model
 {
     /**
-     * @description The type of the sensitive data.
-     *
-     * @example 1001
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The number of sensitive data entries.
-     *
-     * @example 23
-     *
      * @var int
      */
     public $count;
@@ -30,14 +22,18 @@ class infoCount extends Model
         'count' => 'Count',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
@@ -45,17 +41,18 @@ class infoCount extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return infoCount
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }

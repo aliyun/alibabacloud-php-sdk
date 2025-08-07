@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeVisitTopIpResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class topIp extends Model
 {
     /**
-     * @description The ordinal number of the area to which the IP address belongs.
-     *
-     * @example 310000
-     *
      * @var string
      */
     public $area;
 
     /**
-     * @description The total number of requests that are sent from the IP address.
-     *
-     * @example 2622
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The IP address.
-     *
-     * @example 1.1.XX.XX
-     *
      * @var string
      */
     public $ip;
 
     /**
-     * @description The ISP.
-     *
-     * @example AAA
-     *
      * @var string
      */
     public $isp;
@@ -50,20 +34,26 @@ class topIp extends Model
         'isp' => 'Isp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->area) {
             $res['Area'] = $this->area;
         }
+
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
+
         if (null !== $this->isp) {
             $res['Isp'] = $this->isp;
         }
@@ -71,23 +61,26 @@ class topIp extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return topIp
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Area'])) {
             $model->area = $map['Area'];
         }
+
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
+
         if (isset($map['Isp'])) {
             $model->isp = $map['Isp'];
         }

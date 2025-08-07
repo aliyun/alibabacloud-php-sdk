@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateCertsResponseBody extends Model
 {
     /**
-     * @description The ID of the certificate.
-     *
-     * @example 123456-cn-hangzhou
-     *
      * @var string
      */
     public $certIdentifier;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 5BBA38B1-07AE-559F-8766-AB50****C300
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class CreateCertsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certIdentifier) {
             $res['CertIdentifier'] = $this->certIdentifier;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class CreateCertsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCertsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertIdentifier'])) {
             $model->certIdentifier = $map['CertIdentifier'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

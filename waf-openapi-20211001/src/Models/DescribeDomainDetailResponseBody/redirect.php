@@ -4,165 +4,100 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponseBody\redirect\backends;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponseBody\redirect\backupBackends;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponseBody\redirect\requestHeaders;
-use AlibabaCloud\Tea\Model;
 
 class redirect extends Model
 {
     /**
-     * @description An array of addresses of origin servers.
-     *
+     * @var string[]
+     */
+    public $backUpBackendList;
+
+    /**
+     * @var string[]
+     */
+    public $backendList;
+
+    /**
      * @var backends[]
      */
     public $backends;
 
     /**
-     * @description An array of HTTPS listener ports.
-     *
      * @var backupBackends[]
      */
     public $backupBackends;
 
     /**
-     * @description The timeout period of the connection. Unit: seconds. Valid values: 5 to 120.
-     *
-     * @example 120
-     *
      * @var int
      */
     public $connectTimeout;
 
     /**
-     * @description Indicates whether HTTPS to HTTP redirection is enabled for back-to-origin requests of the domain name. Valid values:
-     *
-     *   **true:** HTTPS to HTTP redirection for back-to-origin requests of the domain name is enabled.
-     *   **false:** HTTPS to HTTP redirection for back-to-origin requests of the domain name is disabled.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $focusHttpBackend;
 
     /**
-     * @description Indicates whether the persistent connection feature is enabled. Valid values:
-     *
-     *   **true:** The persistent connection feature is enabled. This is the default value.
-     *   **false:** The persistent connection feature is disabled.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $keepalive;
 
     /**
-     * @description The number of reused persistent connections. Valid values: 60 to 1000.
-     *
-     * >  This parameter specifies the number of reused persistent connections when you enable the persistent connection feature.
-     *
-     * @example 1000
-     *
      * @var int
      */
     public $keepaliveRequests;
 
     /**
-     * @description The timeout period of persistent connections that are in the Idle state. Valid values: 1 to 60. Default value: 15. Unit: seconds.
-     *
-     * >  This parameter specifies the period of time during which a reused persistent connection is allowed to remain in the Idle state before the persistent connection is released.
-     *
-     * @example 15
-     *
      * @var int
      */
     public $keepaliveTimeout;
 
     /**
-     * @description The load balancing algorithm that is used when WAF forwards requests to the origin server. Valid values:
-     *
-     *   **ip_hash:** the IP hash algorithm.
-     *   **roundRobin:** the round-robin algorithm.
-     *   **leastTime:** the least response time algorithm.
-     *
-     * @example iphash
-     *
      * @var string
      */
     public $loadbalance;
 
     /**
-     * @description The read timeout period. Unit: seconds. Valid values: 5 to 1800.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $readTimeout;
 
     /**
-     * @description An array of key-value pairs that are used to mark the requests that pass through the WAF instance.
-     *
      * @var requestHeaders[]
      */
     public $requestHeaders;
 
     /**
-     * @description Indicates whether WAF retries when requests fail to be forwarded to the origin server. Valid values:
-     *
-     *   **true:** WAF retries. This is the default value.
-     *   **false:** WAF does not retry.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $retry;
 
     /**
-     * @description Indicates whether origin Server Name Indication (SNI) is enabled. Valid values:
-     *
-     *   **true:** Origin SNI is enabled.
-     *   **false:** Origin SNI is disabled. This is the default value.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $sniEnabled;
 
     /**
-     * @description The value of the custom SNI field.
-     *
-     * @example www.aliyundoc.com
-     *
      * @var string
      */
     public $sniHost;
 
     /**
-     * @description The write timeout period. Unit: seconds. Valid values: 5 to 1800.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $writeTimeout;
 
     /**
-     * @description Indicates whether the X-Forward-For-Proto header is used to identify the protocol used by WAF to forward requests to the origin server. Valid values:
-     *
-     *   **true** (default)
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $xffProto;
     protected $_name = [
+        'backUpBackendList' => 'BackUpBackendList',
+        'backendList' => 'BackendList',
         'backends' => 'Backends',
         'backupBackends' => 'BackupBackends',
         'connectTimeout' => 'ConnectTimeout',
@@ -180,71 +115,128 @@ class redirect extends Model
         'xffProto' => 'XffProto',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->backUpBackendList)) {
+            Model::validateArray($this->backUpBackendList);
+        }
+        if (\is_array($this->backendList)) {
+            Model::validateArray($this->backendList);
+        }
+        if (\is_array($this->backends)) {
+            Model::validateArray($this->backends);
+        }
+        if (\is_array($this->backupBackends)) {
+            Model::validateArray($this->backupBackends);
+        }
+        if (\is_array($this->requestHeaders)) {
+            Model::validateArray($this->requestHeaders);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->backUpBackendList) {
+            if (\is_array($this->backUpBackendList)) {
+                $res['BackUpBackendList'] = [];
+                $n1 = 0;
+                foreach ($this->backUpBackendList as $item1) {
+                    $res['BackUpBackendList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->backendList) {
+            if (\is_array($this->backendList)) {
+                $res['BackendList'] = [];
+                $n1 = 0;
+                foreach ($this->backendList as $item1) {
+                    $res['BackendList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->backends) {
-            $res['Backends'] = [];
-            if (null !== $this->backends && \is_array($this->backends)) {
-                $n = 0;
-                foreach ($this->backends as $item) {
-                    $res['Backends'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->backends)) {
+                $res['Backends'] = [];
+                $n1 = 0;
+                foreach ($this->backends as $item1) {
+                    $res['Backends'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->backupBackends) {
-            $res['BackupBackends'] = [];
-            if (null !== $this->backupBackends && \is_array($this->backupBackends)) {
-                $n = 0;
-                foreach ($this->backupBackends as $item) {
-                    $res['BackupBackends'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->backupBackends)) {
+                $res['BackupBackends'] = [];
+                $n1 = 0;
+                foreach ($this->backupBackends as $item1) {
+                    $res['BackupBackends'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->connectTimeout) {
             $res['ConnectTimeout'] = $this->connectTimeout;
         }
+
         if (null !== $this->focusHttpBackend) {
             $res['FocusHttpBackend'] = $this->focusHttpBackend;
         }
+
         if (null !== $this->keepalive) {
             $res['Keepalive'] = $this->keepalive;
         }
+
         if (null !== $this->keepaliveRequests) {
             $res['KeepaliveRequests'] = $this->keepaliveRequests;
         }
+
         if (null !== $this->keepaliveTimeout) {
             $res['KeepaliveTimeout'] = $this->keepaliveTimeout;
         }
+
         if (null !== $this->loadbalance) {
             $res['Loadbalance'] = $this->loadbalance;
         }
+
         if (null !== $this->readTimeout) {
             $res['ReadTimeout'] = $this->readTimeout;
         }
+
         if (null !== $this->requestHeaders) {
-            $res['RequestHeaders'] = [];
-            if (null !== $this->requestHeaders && \is_array($this->requestHeaders)) {
-                $n = 0;
-                foreach ($this->requestHeaders as $item) {
-                    $res['RequestHeaders'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->requestHeaders)) {
+                $res['RequestHeaders'] = [];
+                $n1 = 0;
+                foreach ($this->requestHeaders as $item1) {
+                    $res['RequestHeaders'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->retry) {
             $res['Retry'] = $this->retry;
         }
+
         if (null !== $this->sniEnabled) {
             $res['SniEnabled'] = $this->sniEnabled;
         }
+
         if (null !== $this->sniHost) {
             $res['SniHost'] = $this->sniHost;
         }
+
         if (null !== $this->writeTimeout) {
             $res['WriteTimeout'] = $this->writeTimeout;
         }
+
         if (null !== $this->xffProto) {
             $res['XffProto'] = $this->xffProto;
         }
@@ -252,74 +244,113 @@ class redirect extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return redirect
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackUpBackendList'])) {
+            if (!empty($map['BackUpBackendList'])) {
+                $model->backUpBackendList = [];
+                $n1 = 0;
+                foreach ($map['BackUpBackendList'] as $item1) {
+                    $model->backUpBackendList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['BackendList'])) {
+            if (!empty($map['BackendList'])) {
+                $model->backendList = [];
+                $n1 = 0;
+                foreach ($map['BackendList'] as $item1) {
+                    $model->backendList[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['Backends'])) {
             if (!empty($map['Backends'])) {
                 $model->backends = [];
-                $n = 0;
-                foreach ($map['Backends'] as $item) {
-                    $model->backends[$n++] = null !== $item ? backends::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Backends'] as $item1) {
+                    $model->backends[$n1] = backends::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['BackupBackends'])) {
             if (!empty($map['BackupBackends'])) {
                 $model->backupBackends = [];
-                $n = 0;
-                foreach ($map['BackupBackends'] as $item) {
-                    $model->backupBackends[$n++] = null !== $item ? backupBackends::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BackupBackends'] as $item1) {
+                    $model->backupBackends[$n1] = backupBackends::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ConnectTimeout'])) {
             $model->connectTimeout = $map['ConnectTimeout'];
         }
+
         if (isset($map['FocusHttpBackend'])) {
             $model->focusHttpBackend = $map['FocusHttpBackend'];
         }
+
         if (isset($map['Keepalive'])) {
             $model->keepalive = $map['Keepalive'];
         }
+
         if (isset($map['KeepaliveRequests'])) {
             $model->keepaliveRequests = $map['KeepaliveRequests'];
         }
+
         if (isset($map['KeepaliveTimeout'])) {
             $model->keepaliveTimeout = $map['KeepaliveTimeout'];
         }
+
         if (isset($map['Loadbalance'])) {
             $model->loadbalance = $map['Loadbalance'];
         }
+
         if (isset($map['ReadTimeout'])) {
             $model->readTimeout = $map['ReadTimeout'];
         }
+
         if (isset($map['RequestHeaders'])) {
             if (!empty($map['RequestHeaders'])) {
                 $model->requestHeaders = [];
-                $n = 0;
-                foreach ($map['RequestHeaders'] as $item) {
-                    $model->requestHeaders[$n++] = null !== $item ? requestHeaders::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RequestHeaders'] as $item1) {
+                    $model->requestHeaders[$n1] = requestHeaders::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Retry'])) {
             $model->retry = $map['Retry'];
         }
+
         if (isset($map['SniEnabled'])) {
             $model->sniEnabled = $map['SniEnabled'];
         }
+
         if (isset($map['SniHost'])) {
             $model->sniHost = $map['SniHost'];
         }
+
         if (isset($map['WriteTimeout'])) {
             $model->writeTimeout = $map['WriteTimeout'];
         }
+
         if (isset($map['XffProto'])) {
             $model->xffProto = $map['XffProto'];
         }

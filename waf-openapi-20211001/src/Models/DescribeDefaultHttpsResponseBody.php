@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefaultHttpsResponseBody\defaultHttps;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDefaultHttpsResponseBody extends Model
 {
     /**
-     * @description The default SSL and TLS settings.
-     *
      * @var defaultHttps
      */
     public $defaultHttps;
 
     /**
-     * @description The request ID.
-     *
-     * @example F35F45B0-5D6B-4238-BE02-A62D****E840
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeDefaultHttpsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->defaultHttps) {
+            $this->defaultHttps->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defaultHttps) {
-            $res['DefaultHttps'] = null !== $this->defaultHttps ? $this->defaultHttps->toMap() : null;
+            $res['DefaultHttps'] = null !== $this->defaultHttps ? $this->defaultHttps->toArray($noStream) : $this->defaultHttps;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeDefaultHttpsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDefaultHttpsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefaultHttps'])) {
             $model->defaultHttps = defaultHttps::fromMap($map['DefaultHttps']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,36 +4,16 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserApiRequestResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class requests extends Model
 {
     /**
-     * @description The number of entries returned.
-     *
-     * @example 76
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The type of the statistics. Valid values:
-     *
-     *   **client_list**: client
-     *   **ip**: IP address
-     *   **region_id** region
-     *   **country_id**: country
-     *
-     * @example {
-     * "client_list": [
-     * "Unknown"
-     * ],
-     * "ip": "47.92.113.***",
-     * "region_id": "110000",
-     * "country_id": "CN"
-     * }
-     *
      * @var string
      */
     public $value;
@@ -42,14 +22,18 @@ class requests extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -57,17 +41,18 @@ class requests extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return requests
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

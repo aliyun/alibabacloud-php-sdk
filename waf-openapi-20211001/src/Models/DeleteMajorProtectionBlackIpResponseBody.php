@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteMajorProtectionBlackIpResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 66A98669-CC6E-4F3E-80A6-3014697B11AE
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class DeleteMajorProtectionBlackIpResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class DeleteMajorProtectionBlackIpResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteMajorProtectionBlackIpResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

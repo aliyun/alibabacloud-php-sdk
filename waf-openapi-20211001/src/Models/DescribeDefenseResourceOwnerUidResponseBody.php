@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceOwnerUidResponseBody\ownerInfos;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDefenseResourceOwnerUidResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class DescribeDefenseResourceOwnerUidResponseBody extends Model
     public $ownerInfos;
 
     /**
-     * @example 7326952B-B83B-5B7C-84FA-77F3E17310A2
-     *
      * @var string
      */
     public $requestId;
@@ -25,20 +23,28 @@ class DescribeDefenseResourceOwnerUidResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ownerInfos)) {
+            Model::validateArray($this->ownerInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerInfos) {
-            $res['OwnerInfos'] = [];
-            if (null !== $this->ownerInfos && \is_array($this->ownerInfos)) {
-                $n = 0;
-                foreach ($this->ownerInfos as $item) {
-                    $res['OwnerInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ownerInfos)) {
+                $res['OwnerInfos'] = [];
+                $n1 = 0;
+                foreach ($this->ownerInfos as $item1) {
+                    $res['OwnerInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,23 +52,25 @@ class DescribeDefenseResourceOwnerUidResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDefenseResourceOwnerUidResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerInfos'])) {
             if (!empty($map['OwnerInfos'])) {
                 $model->ownerInfos = [];
-                $n = 0;
-                foreach ($map['OwnerInfos'] as $item) {
-                    $model->ownerInfos[$n++] = null !== $item ? ownerInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OwnerInfos'] as $item1) {
+                    $model->ownerInfos[$n1] = ownerInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

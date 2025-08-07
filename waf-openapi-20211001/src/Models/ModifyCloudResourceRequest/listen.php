@@ -4,123 +4,57 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyCloudResourceRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyCloudResourceRequest\listen\certificates;
-use AlibabaCloud\Tea\Model;
 
 class listen extends Model
 {
     /**
-     * @description The certificates.
-     *
      * @var certificates[]
      */
     public $certificates;
 
     /**
-     * @description The type of the cipher suites that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
-     *
-     *   **1**: all cipher suites.
-     *   **2**: strong cipher suites. This value is available only if you set **TLSVersion** to **tlsv1.2**.
-     *   **99**: custom cipher suites.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $cipherSuite;
 
     /**
-     * @description The custom cipher suites that you want to add.
-     *
      * @var string[]
      */
     public $customCiphers;
 
     /**
-     * @description Specifies whether to support TLS 1.3. This parameter is available only if you specify **HttpsPorts**. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableTLSv3;
 
     /**
-     * @description Specifies whether to enable HTTP/2. This parameter is available only if you specify **HttpsPorts**. Valid values:
-     *
-     *   **true**
-     *   **false** (default)
-     *
-     * @example true
-     *
      * @var bool
      */
     public $http2Enabled;
 
     /**
-     * @description The port of the cloud service instance that is added to WAF.
-     *
-     * This parameter is required.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $port;
 
     /**
-     * @description The protocol type. Valid values:
-     *
-     *   **http**
-     *   **https**
-     *
-     * This parameter is required.
-     *
-     * @example http
-     *
      * @var string
      */
     public $protocol;
 
     /**
-     * @description The ID of the cloud service instance that is added to WAF.
-     *
-     * This parameter is required.
-     *
-     * @example lb-***
-     *
      * @var string
      */
     public $resourceInstanceId;
 
     /**
-     * @description The type of the cloud service. Valid values:
-     *
-     *   **clb4**: Layer 4 Classic Load Balancer (CLB).
-     *   **clb7**: Layer 7 CLB.
-     *   **ecs**: Elastic Compute Service (ECS).
-     *   **nlb**: Network Load Balancer (NLB).
-     *
-     * This parameter is required.
-     *
-     * @example clb7
-     *
      * @var string
      */
     public $resourceProduct;
 
     /**
-     * @description The Transport Layer Security (TLS) version that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
-     *
-     *   **tlsv1**
-     *   **tlsv1.1**
-     *   **tlsv1.2**
-     *
-     * @example tlsv1.2
-     *
      * @var string
      */
     public $TLSVersion;
@@ -137,44 +71,70 @@ class listen extends Model
         'TLSVersion' => 'TLSVersion',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->certificates)) {
+            Model::validateArray($this->certificates);
+        }
+        if (\is_array($this->customCiphers)) {
+            Model::validateArray($this->customCiphers);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certificates) {
-            $res['Certificates'] = [];
-            if (null !== $this->certificates && \is_array($this->certificates)) {
-                $n = 0;
-                foreach ($this->certificates as $item) {
-                    $res['Certificates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->certificates)) {
+                $res['Certificates'] = [];
+                $n1 = 0;
+                foreach ($this->certificates as $item1) {
+                    $res['Certificates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->cipherSuite) {
             $res['CipherSuite'] = $this->cipherSuite;
         }
+
         if (null !== $this->customCiphers) {
-            $res['CustomCiphers'] = $this->customCiphers;
+            if (\is_array($this->customCiphers)) {
+                $res['CustomCiphers'] = [];
+                $n1 = 0;
+                foreach ($this->customCiphers as $item1) {
+                    $res['CustomCiphers'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->enableTLSv3) {
             $res['EnableTLSv3'] = $this->enableTLSv3;
         }
+
         if (null !== $this->http2Enabled) {
             $res['Http2Enabled'] = $this->http2Enabled;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
+
         if (null !== $this->resourceInstanceId) {
             $res['ResourceInstanceId'] = $this->resourceInstanceId;
         }
+
         if (null !== $this->resourceProduct) {
             $res['ResourceProduct'] = $this->resourceProduct;
         }
+
         if (null !== $this->TLSVersion) {
             $res['TLSVersion'] = $this->TLSVersion;
         }
@@ -182,49 +142,64 @@ class listen extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return listen
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Certificates'])) {
             if (!empty($map['Certificates'])) {
                 $model->certificates = [];
-                $n = 0;
-                foreach ($map['Certificates'] as $item) {
-                    $model->certificates[$n++] = null !== $item ? certificates::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Certificates'] as $item1) {
+                    $model->certificates[$n1] = certificates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['CipherSuite'])) {
             $model->cipherSuite = $map['CipherSuite'];
         }
+
         if (isset($map['CustomCiphers'])) {
             if (!empty($map['CustomCiphers'])) {
-                $model->customCiphers = $map['CustomCiphers'];
+                $model->customCiphers = [];
+                $n1 = 0;
+                foreach ($map['CustomCiphers'] as $item1) {
+                    $model->customCiphers[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['EnableTLSv3'])) {
             $model->enableTLSv3 = $map['EnableTLSv3'];
         }
+
         if (isset($map['Http2Enabled'])) {
             $model->http2Enabled = $map['Http2Enabled'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }
+
         if (isset($map['ResourceInstanceId'])) {
             $model->resourceInstanceId = $map['ResourceInstanceId'];
         }
+
         if (isset($map['ResourceProduct'])) {
             $model->resourceProduct = $map['ResourceProduct'];
         }
+
         if (isset($map['TLSVersion'])) {
             $model->TLSVersion = $map['TLSVersion'];
         }

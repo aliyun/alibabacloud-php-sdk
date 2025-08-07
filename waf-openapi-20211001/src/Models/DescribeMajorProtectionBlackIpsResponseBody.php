@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMajorProtectionBlackIpsResponseBody\ipList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeMajorProtectionBlackIpsResponseBody extends Model
 {
     /**
-     * @description An array of IP addresses in the IP address blacklist.
-     *
      * @var ipList[]
      */
     public $ipList;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 41631674-EEB0-5B02-BEB4-40A758E9B841
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of IP addresses in the blacklist.
-     *
-     * @example 63
-     *
      * @var int
      */
     public $totalCount;
@@ -39,23 +29,32 @@ class DescribeMajorProtectionBlackIpsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ipList)) {
+            Model::validateArray($this->ipList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipList) {
-            $res['IpList'] = [];
-            if (null !== $this->ipList && \is_array($this->ipList)) {
-                $n = 0;
-                foreach ($this->ipList as $item) {
-                    $res['IpList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipList)) {
+                $res['IpList'] = [];
+                $n1 = 0;
+                foreach ($this->ipList as $item1) {
+                    $res['IpList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -63,26 +62,29 @@ class DescribeMajorProtectionBlackIpsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeMajorProtectionBlackIpsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpList'])) {
             if (!empty($map['IpList'])) {
                 $model->ipList = [];
-                $n = 0;
-                foreach ($map['IpList'] as $item) {
-                    $model->ipList[$n++] = null !== $item ? ipList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['IpList'] as $item1) {
+                    $model->ipList[$n1] = ipList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

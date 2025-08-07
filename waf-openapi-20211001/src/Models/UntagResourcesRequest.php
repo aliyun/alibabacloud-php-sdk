@@ -4,59 +4,31 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to remove all tags from the specified resource groups or members. Valid values:
-     *
-     *   false (default)
-     *   true
-     *
-     * @example false
-     *
      * @var bool
      */
     public $all;
 
     /**
-     * @description The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
-     *
-     *   **cn-hangzhou**: Chinese mainland.
-     *   **ap-southeast-1**: outside the Chinese mainland.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The resource IDs. You can specify up to 50 resource IDs.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description The type of the resource. Set the value to ALIYUN::WAF::DEFENSERESOURCE.
-     *
-     * This parameter is required.
-     *
-     * @example ALIYUN::WAF::DEFENSERESOURCE
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description The tag keys. You can specify up to 20 tag keys.
-     *
      * @var string[]
      */
     public $tagKey;
@@ -68,55 +40,96 @@ class UntagResourcesRequest extends Model
         'tagKey' => 'TagKey',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->resourceId)) {
+            Model::validateArray($this->resourceId);
+        }
+        if (\is_array($this->tagKey)) {
+            Model::validateArray($this->tagKey);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->all) {
             $res['All'] = $this->all;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
+            if (\is_array($this->resourceId)) {
+                $res['ResourceId'] = [];
+                $n1 = 0;
+                foreach ($this->resourceId as $item1) {
+                    $res['ResourceId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->tagKey) {
-            $res['TagKey'] = $this->tagKey;
+            if (\is_array($this->tagKey)) {
+                $res['TagKey'] = [];
+                $n1 = 0;
+                foreach ($this->tagKey as $item1) {
+                    $res['TagKey'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UntagResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['All'])) {
             $model->all = $map['All'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
-                $model->resourceId = $map['ResourceId'];
+                $model->resourceId = [];
+                $n1 = 0;
+                foreach ($map['ResourceId'] as $item1) {
+                    $model->resourceId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['TagKey'])) {
             if (!empty($map['TagKey'])) {
-                $model->tagKey = $map['TagKey'];
+                $model->tagKey = [];
+                $n1 = 0;
+                foreach ($map['TagKey'] as $item1) {
+                    $model->tagKey[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

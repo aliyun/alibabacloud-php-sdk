@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeNetworkFlowTopNMetricResponseBody\networkFlowTopNValues;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeNetworkFlowTopNMetricResponseBody\topNMetaData;
-use AlibabaCloud\Tea\Model;
 
 class DescribeNetworkFlowTopNMetricResponseBody extends Model
 {
     /**
-     * @description The top statistical data array returned.
-     *
      * @var networkFlowTopNValues[]
      */
     public $networkFlowTopNValues;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example D827FCFE-90A7-4330-9326-D33C8B4C7726
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The metadata of the returned data.
-     *
      * @var topNMetaData
      */
     public $topNMetaData;
@@ -38,50 +30,65 @@ class DescribeNetworkFlowTopNMetricResponseBody extends Model
         'topNMetaData' => 'TopNMetaData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->networkFlowTopNValues)) {
+            Model::validateArray($this->networkFlowTopNValues);
+        }
+        if (null !== $this->topNMetaData) {
+            $this->topNMetaData->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkFlowTopNValues) {
-            $res['NetworkFlowTopNValues'] = [];
-            if (null !== $this->networkFlowTopNValues && \is_array($this->networkFlowTopNValues)) {
-                $n = 0;
-                foreach ($this->networkFlowTopNValues as $item) {
-                    $res['NetworkFlowTopNValues'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->networkFlowTopNValues)) {
+                $res['NetworkFlowTopNValues'] = [];
+                $n1 = 0;
+                foreach ($this->networkFlowTopNValues as $item1) {
+                    $res['NetworkFlowTopNValues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->topNMetaData) {
-            $res['TopNMetaData'] = null !== $this->topNMetaData ? $this->topNMetaData->toMap() : null;
+            $res['TopNMetaData'] = null !== $this->topNMetaData ? $this->topNMetaData->toArray($noStream) : $this->topNMetaData;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeNetworkFlowTopNMetricResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkFlowTopNValues'])) {
             if (!empty($map['NetworkFlowTopNValues'])) {
                 $model->networkFlowTopNValues = [];
-                $n = 0;
-                foreach ($map['NetworkFlowTopNValues'] as $item) {
-                    $model->networkFlowTopNValues[$n++] = null !== $item ? networkFlowTopNValues::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NetworkFlowTopNValues'] as $item1) {
+                    $model->networkFlowTopNValues[$n1] = networkFlowTopNValues::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TopNMetaData'])) {
             $model->topNMetaData = topNMetaData::fromMap($map['TopNMetaData']);
         }

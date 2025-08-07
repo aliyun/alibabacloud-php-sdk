@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeUserAbnormalTypeResponseBody\abnormal;
-use AlibabaCloud\Tea\Model;
 
 class DescribeUserAbnormalTypeResponseBody extends Model
 {
     /**
-     * @description The types and statistics of risks.
-     *
      * @var abnormal[]
      */
     public $abnormal;
 
     /**
-     * @description The request ID.
-     *
-     * @example 3E1CB966-1407-5988-9432-7***D784
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class DescribeUserAbnormalTypeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->abnormal)) {
+            Model::validateArray($this->abnormal);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->abnormal) {
-            $res['Abnormal'] = [];
-            if (null !== $this->abnormal && \is_array($this->abnormal)) {
-                $n = 0;
-                foreach ($this->abnormal as $item) {
-                    $res['Abnormal'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->abnormal)) {
+                $res['Abnormal'] = [];
+                $n1 = 0;
+                foreach ($this->abnormal as $item1) {
+                    $res['Abnormal'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class DescribeUserAbnormalTypeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUserAbnormalTypeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Abnormal'])) {
             if (!empty($map['Abnormal'])) {
                 $model->abnormal = [];
-                $n = 0;
-                foreach ($map['Abnormal'] as $item) {
-                    $model->abnormal[$n++] = null !== $item ? abnormal::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Abnormal'] as $item1) {
+                    $model->abnormal[$n1] = abnormal::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

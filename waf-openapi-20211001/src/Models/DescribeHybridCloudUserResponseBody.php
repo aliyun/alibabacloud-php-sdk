@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudUserResponseBody\userInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeHybridCloudUserResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 9178CB86-285F-5679-A30A-3B3F007E4206
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information about the ports that can be used by a hybrid cloud cluster.
-     *
      * @var userInfo
      */
     public $userInfo;
@@ -29,32 +23,40 @@ class DescribeHybridCloudUserResponseBody extends Model
         'userInfo' => 'UserInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->userInfo) {
+            $this->userInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->userInfo) {
-            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toMap() : null;
+            $res['UserInfo'] = null !== $this->userInfo ? $this->userInfo->toArray($noStream) : $this->userInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeHybridCloudUserResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfo = userInfo::fromMap($map['UserInfo']);
         }

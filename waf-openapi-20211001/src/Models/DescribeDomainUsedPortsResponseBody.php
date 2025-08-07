@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDomainUsedPortsResponseBody extends Model
 {
     /**
-     * @example D7861F61-5B61-*-A47C-*
-     *
      * @var string
      */
     public $requestId;
@@ -24,35 +22,55 @@ class DescribeDomainUsedPortsResponseBody extends Model
         'usedPorts' => 'UsedPorts',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->usedPorts)) {
+            Model::validateArray($this->usedPorts);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->usedPorts) {
-            $res['UsedPorts'] = $this->usedPorts;
+            if (\is_array($this->usedPorts)) {
+                $res['UsedPorts'] = [];
+                $n1 = 0;
+                foreach ($this->usedPorts as $item1) {
+                    $res['UsedPorts'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainUsedPortsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UsedPorts'])) {
             if (!empty($map['UsedPorts'])) {
-                $model->usedPorts = $map['UsedPorts'];
+                $model->usedPorts = [];
+                $n1 = 0;
+                foreach ($map['UsedPorts'] as $item1) {
+                    $model->usedPorts[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

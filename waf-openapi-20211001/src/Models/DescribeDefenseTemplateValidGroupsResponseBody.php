@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDefenseTemplateValidGroupsResponseBody extends Model
 {
     /**
-     * @description The names of the protected object groups.
-     *
      * @var string[]
      */
     public $groups;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 6EA4B39A-9C0C-5E57-993E-30B6****3AD0
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 27
-     *
      * @var int
      */
     public $totalCount;
@@ -38,17 +28,32 @@ class DescribeDefenseTemplateValidGroupsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->groups)) {
+            Model::validateArray($this->groups);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groups) {
-            $res['Groups'] = $this->groups;
+            if (\is_array($this->groups)) {
+                $res['Groups'] = [];
+                $n1 = 0;
+                foreach ($this->groups as $item1) {
+                    $res['Groups'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -56,22 +61,29 @@ class DescribeDefenseTemplateValidGroupsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDefenseTemplateValidGroupsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Groups'])) {
             if (!empty($map['Groups'])) {
-                $model->groups = $map['Groups'];
+                $model->groups = [];
+                $n1 = 0;
+                foreach ($map['Groups'] as $item1) {
+                    $model->groups[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

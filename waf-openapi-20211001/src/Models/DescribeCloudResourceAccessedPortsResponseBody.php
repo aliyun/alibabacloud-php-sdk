@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCloudResourceAccessedPortsResponseBody extends Model
 {
     /**
-     * @description The HTTP ports.
-     *
      * @var int[]
      */
     public $http;
 
     /**
-     * @description The HTTPS ports.
-     *
      * @var int[]
      */
     public $https;
 
     /**
-     * @description The request ID.
-     *
-     * @example C1823E96-EF4B-5BD2-9E02-1D18****3ED8
-     *
      * @var string
      */
     public $requestId;
@@ -36,17 +28,42 @@ class DescribeCloudResourceAccessedPortsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->http)) {
+            Model::validateArray($this->http);
+        }
+        if (\is_array($this->https)) {
+            Model::validateArray($this->https);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->http) {
-            $res['Http'] = $this->http;
+            if (\is_array($this->http)) {
+                $res['Http'] = [];
+                $n1 = 0;
+                foreach ($this->http as $item1) {
+                    $res['Http'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->https) {
-            $res['Https'] = $this->https;
+            if (\is_array($this->https)) {
+                $res['Https'] = [];
+                $n1 = 0;
+                foreach ($this->https as $item1) {
+                    $res['Https'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -54,24 +71,36 @@ class DescribeCloudResourceAccessedPortsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCloudResourceAccessedPortsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Http'])) {
             if (!empty($map['Http'])) {
-                $model->http = $map['Http'];
+                $model->http = [];
+                $n1 = 0;
+                foreach ($map['Http'] as $item1) {
+                    $model->http[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Https'])) {
             if (!empty($map['Https'])) {
-                $model->https = $map['Https'];
+                $model->https = [];
+                $n1 = 0;
+                foreach ($map['Https'] as $item1) {
+                    $model->https[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

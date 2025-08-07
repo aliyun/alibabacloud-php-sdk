@@ -4,39 +4,27 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSecurityEventLogsResponseBody\securityEventMetaData;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSecurityEventLogsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example D827FCFE-90A7-4330-9326-D33C8B4C7726
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The attack logs returned.
-     *
      * @var mixed[]
      */
     public $securityEventLogs;
 
     /**
-     * @description The total number of logs returned.
-     *
-     * @example 1000
-     *
      * @var int
      */
     public $securityEventLogsTotalCount;
 
     /**
-     * @description The metadata of the time series data returned.
-     *
      * @var securityEventMetaData
      */
     public $securityEventMetaData;
@@ -47,46 +35,73 @@ class DescribeSecurityEventLogsResponseBody extends Model
         'securityEventMetaData' => 'SecurityEventMetaData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->securityEventLogs)) {
+            Model::validateArray($this->securityEventLogs);
+        }
+        if (null !== $this->securityEventMetaData) {
+            $this->securityEventMetaData->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->securityEventLogs) {
-            $res['SecurityEventLogs'] = $this->securityEventLogs;
+            if (\is_array($this->securityEventLogs)) {
+                $res['SecurityEventLogs'] = [];
+                $n1 = 0;
+                foreach ($this->securityEventLogs as $item1) {
+                    $res['SecurityEventLogs'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->securityEventLogsTotalCount) {
             $res['SecurityEventLogsTotalCount'] = $this->securityEventLogsTotalCount;
         }
+
         if (null !== $this->securityEventMetaData) {
-            $res['SecurityEventMetaData'] = null !== $this->securityEventMetaData ? $this->securityEventMetaData->toMap() : null;
+            $res['SecurityEventMetaData'] = null !== $this->securityEventMetaData ? $this->securityEventMetaData->toArray($noStream) : $this->securityEventMetaData;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSecurityEventLogsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SecurityEventLogs'])) {
             if (!empty($map['SecurityEventLogs'])) {
-                $model->securityEventLogs = $map['SecurityEventLogs'];
+                $model->securityEventLogs = [];
+                $n1 = 0;
+                foreach ($map['SecurityEventLogs'] as $item1) {
+                    $model->securityEventLogs[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['SecurityEventLogsTotalCount'])) {
             $model->securityEventLogsTotalCount = $map['SecurityEventLogsTotalCount'];
         }
+
         if (isset($map['SecurityEventMetaData'])) {
             $model->securityEventMetaData = securityEventMetaData::fromMap($map['SecurityEventMetaData']);
         }

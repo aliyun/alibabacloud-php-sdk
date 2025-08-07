@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCertDetailResponseBody\certDetail;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCertDetailResponseBody extends Model
 {
     /**
-     * @description The details of the certificate.
-     *
      * @var certDetail
      */
     public $certDetail;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 3C115DBE-8E53-5A12-9CAF-FD3F****CDF6
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeCertDetailResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->certDetail) {
+            $this->certDetail->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certDetail) {
-            $res['CertDetail'] = null !== $this->certDetail ? $this->certDetail->toMap() : null;
+            $res['CertDetail'] = null !== $this->certDetail ? $this->certDetail->toArray($noStream) : $this->certDetail;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeCertDetailResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCertDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertDetail'])) {
             $model->certDetail = certDetail::fromMap($map['CertDetail']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,35 +4,25 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponseBody\certDetail;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponseBody\listen;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponseBody\redirect;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponseBody\SM2CertDetail;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDomainDetailResponseBody extends Model
 {
     /**
-     * @description The details of the SSL certificate.
-     *
      * @var certDetail
      */
     public $certDetail;
 
     /**
-     * @description The CNAME that is assigned by WAF to the domain name.
-     *
-     * @example xxxxxcvdaf.****.com
-     *
      * @var string
      */
     public $cname;
 
     /**
-     * @description The domain name.
-     *
-     * @example www.aliyundoc.com
-     *
      * @var string
      */
     public $domain;
@@ -43,55 +33,31 @@ class DescribeDomainDetailResponseBody extends Model
     public $domainId;
 
     /**
-     * @description The configurations of the listeners.
-     *
      * @var listen
      */
     public $listen;
 
     /**
-     * @description The configurations of the forwarding rule.
-     *
      * @var redirect
      */
     public $redirect;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example BAEF9CA9-66A0-533E-BD09-5D5D7AA8****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-acfm***q
-     *
      * @var string
      */
     public $resourceManagerResourceGroupId;
 
     /**
-     * @description The information about the SM certificate.
-     *
      * @var SM2CertDetail
      */
     public $SM2CertDetail;
 
     /**
-     * @description The status of the domain name. Valid values:
-     *
-     *   **1:** The domain name is in a normal state.
-     *   **2:** The domain name is being created.
-     *   **3:** The domain name is being modified.
-     *   **4:** The domain name is being released.
-     *   **5:** WAF no longer forwards traffic of the domain name.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $status;
@@ -108,38 +74,62 @@ class DescribeDomainDetailResponseBody extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->certDetail) {
+            $this->certDetail->validate();
+        }
+        if (null !== $this->listen) {
+            $this->listen->validate();
+        }
+        if (null !== $this->redirect) {
+            $this->redirect->validate();
+        }
+        if (null !== $this->SM2CertDetail) {
+            $this->SM2CertDetail->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certDetail) {
-            $res['CertDetail'] = null !== $this->certDetail ? $this->certDetail->toMap() : null;
+            $res['CertDetail'] = null !== $this->certDetail ? $this->certDetail->toArray($noStream) : $this->certDetail;
         }
+
         if (null !== $this->cname) {
             $res['Cname'] = $this->cname;
         }
+
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->domainId) {
             $res['DomainId'] = $this->domainId;
         }
+
         if (null !== $this->listen) {
-            $res['Listen'] = null !== $this->listen ? $this->listen->toMap() : null;
+            $res['Listen'] = null !== $this->listen ? $this->listen->toArray($noStream) : $this->listen;
         }
+
         if (null !== $this->redirect) {
-            $res['Redirect'] = null !== $this->redirect ? $this->redirect->toMap() : null;
+            $res['Redirect'] = null !== $this->redirect ? $this->redirect->toArray($noStream) : $this->redirect;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
         }
+
         if (null !== $this->SM2CertDetail) {
-            $res['SM2CertDetail'] = null !== $this->SM2CertDetail ? $this->SM2CertDetail->toMap() : null;
+            $res['SM2CertDetail'] = null !== $this->SM2CertDetail ? $this->SM2CertDetail->toArray($noStream) : $this->SM2CertDetail;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -147,41 +137,50 @@ class DescribeDomainDetailResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertDetail'])) {
             $model->certDetail = certDetail::fromMap($map['CertDetail']);
         }
+
         if (isset($map['Cname'])) {
             $model->cname = $map['Cname'];
         }
+
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['DomainId'])) {
             $model->domainId = $map['DomainId'];
         }
+
         if (isset($map['Listen'])) {
             $model->listen = listen::fromMap($map['Listen']);
         }
+
         if (isset($map['Redirect'])) {
             $model->redirect = redirect::fromMap($map['Redirect']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
         }
+
         if (isset($map['SM2CertDetail'])) {
             $model->SM2CertDetail = SM2CertDetail::fromMap($map['SM2CertDetail']);
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeIpAbroadCountryInfosResponseBody\abroadInfos;
-use AlibabaCloud\Tea\Model;
 
 class DescribeIpAbroadCountryInfosResponseBody extends Model
 {
@@ -15,29 +15,21 @@ class DescribeIpAbroadCountryInfosResponseBody extends Model
     public $abroadInfos;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example caeba0bbb2be03f84eb48b699f0*****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example 66A98669-CC6E-4F3E-80A6-3014697B11AE
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $totalCount;
@@ -49,29 +41,40 @@ class DescribeIpAbroadCountryInfosResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->abroadInfos)) {
+            Model::validateArray($this->abroadInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->abroadInfos) {
-            $res['AbroadInfos'] = [];
-            if (null !== $this->abroadInfos && \is_array($this->abroadInfos)) {
-                $n = 0;
-                foreach ($this->abroadInfos as $item) {
-                    $res['AbroadInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->abroadInfos)) {
+                $res['AbroadInfos'] = [];
+                $n1 = 0;
+                foreach ($this->abroadInfos as $item1) {
+                    $res['AbroadInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -79,32 +82,37 @@ class DescribeIpAbroadCountryInfosResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeIpAbroadCountryInfosResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AbroadInfos'])) {
             if (!empty($map['AbroadInfos'])) {
                 $model->abroadInfos = [];
-                $n = 0;
-                foreach ($map['AbroadInfos'] as $item) {
-                    $model->abroadInfos[$n++] = null !== $item ? abroadInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AbroadInfos'] as $item1) {
+                    $model->abroadInfos[$n1] = abroadInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

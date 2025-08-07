@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSecurityEventLogsRequest\filter;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dateRange extends Model
 {
     /**
-     * @description The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
-     *
-     * This parameter is required.
-     *
-     * @example 1713888600
-     *
      * @var int
      */
     public $endDate;
 
     /**
-     * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
-     *
-     * This parameter is required.
-     *
-     * @example 1713888000
-     *
      * @var int
      */
     public $startDate;
@@ -34,14 +22,18 @@ class dateRange extends Model
         'startDate' => 'StartDate',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
+
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
@@ -49,17 +41,18 @@ class dateRange extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dateRange
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
+
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }

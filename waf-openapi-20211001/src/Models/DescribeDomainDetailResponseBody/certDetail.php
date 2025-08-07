@@ -4,58 +4,36 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class certDetail extends Model
 {
     /**
-     * @description The domain name of your website.
-     *
-     * @example test.aliyundoc.com
-     *
      * @var string
      */
     public $commonName;
 
     /**
-     * @description The end of the validity period of the SSL certificate. The value is in the UNIX timestamp format. Unit: milliseconds.
-     *
-     * @example 1685590400000
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The ID of the SSL certificate.
-     *
-     * @example 123-cn-hangzhou
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The name of the SSL certificate.
-     *
-     * @example test-cert-name
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description All domain names that are bound to the certificate.
-     *
      * @var string[]
      */
     public $sans;
 
     /**
-     * @description The beginning of the validity period of the SSL certificate. The value is in the UNIX timestamp format. Unit: milliseconds.
-     *
-     * @example 1677772800000
-     *
      * @var int
      */
     public $startTime;
@@ -68,26 +46,44 @@ class certDetail extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->sans)) {
+            Model::validateArray($this->sans);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commonName) {
             $res['CommonName'] = $this->commonName;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->sans) {
-            $res['Sans'] = $this->sans;
+            if (\is_array($this->sans)) {
+                $res['Sans'] = [];
+                $n1 = 0;
+                foreach ($this->sans as $item1) {
+                    $res['Sans'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -95,31 +91,41 @@ class certDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return certDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommonName'])) {
             $model->commonName = $map['CommonName'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Sans'])) {
             if (!empty($map['Sans'])) {
-                $model->sans = $map['Sans'];
+                $model->sans = [];
+                $n1 = 0;
+                foreach ($map['Sans'] as $item1) {
+                    $model->sans[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

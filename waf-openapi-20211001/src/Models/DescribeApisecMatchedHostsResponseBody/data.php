@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeApisecMatchedHostsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The number of APIs related to the domain name.
-     *
-     * @example 31
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The domain name or IP address.
-     *
-     * @example bc.aliyun.com
-     *
      * @var string
      */
     public $matchedHost;
@@ -30,14 +22,18 @@ class data extends Model
         'matchedHost' => 'MatchedHost',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->matchedHost) {
             $res['MatchedHost'] = $this->matchedHost;
         }
@@ -45,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['MatchedHost'])) {
             $model->matchedHost = $map['MatchedHost'];
         }

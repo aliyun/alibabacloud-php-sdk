@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeProductInstancesResponseBody\productInstances;
-use AlibabaCloud\Tea\Model;
 
 class DescribeProductInstancesResponseBody extends Model
 {
     /**
-     * @description The information about the instances.
-     *
      * @var productInstances[]
      */
     public $productInstances;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example FDCBAE1E-2B3F-5C13-AD20-844B9473****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $totalCount;
@@ -39,23 +29,32 @@ class DescribeProductInstancesResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->productInstances)) {
+            Model::validateArray($this->productInstances);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->productInstances) {
-            $res['ProductInstances'] = [];
-            if (null !== $this->productInstances && \is_array($this->productInstances)) {
-                $n = 0;
-                foreach ($this->productInstances as $item) {
-                    $res['ProductInstances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->productInstances)) {
+                $res['ProductInstances'] = [];
+                $n1 = 0;
+                foreach ($this->productInstances as $item1) {
+                    $res['ProductInstances'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -63,26 +62,29 @@ class DescribeProductInstancesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeProductInstancesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProductInstances'])) {
             if (!empty($map['ProductInstances'])) {
                 $model->productInstances = [];
-                $n = 0;
-                foreach ($map['ProductInstances'] as $item) {
-                    $model->productInstances[$n++] = null !== $item ? productInstances::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ProductInstances'] as $item1) {
+                    $model->productInstances[$n1] = productInstances::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

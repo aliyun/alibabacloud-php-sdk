@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeProductInstancesResponseBody\productInstances\resourcePorts;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class certificates extends Model
 {
@@ -14,19 +14,11 @@ class certificates extends Model
     public $appliedType;
 
     /**
-     * @description The ID of the certificate.
-     *
-     * @example 10106183
-     *
      * @var string
      */
     public $certificateId;
 
     /**
-     * @description The name of the certificate.
-     *
-     * @example trafficxxxx.cn
-     *
      * @var string
      */
     public $certificateName;
@@ -42,20 +34,26 @@ class certificates extends Model
         'domain' => 'Domain',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appliedType) {
             $res['AppliedType'] = $this->appliedType;
         }
+
         if (null !== $this->certificateId) {
             $res['CertificateId'] = $this->certificateId;
         }
+
         if (null !== $this->certificateName) {
             $res['CertificateName'] = $this->certificateName;
         }
+
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
@@ -63,23 +61,26 @@ class certificates extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return certificates
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppliedType'])) {
             $model->appliedType = $map['AppliedType'];
         }
+
         if (isset($map['CertificateId'])) {
             $model->certificateId = $map['CertificateId'];
         }
+
         if (isset($map['CertificateName'])) {
             $model->certificateName = $map['CertificateName'];
         }
+
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }

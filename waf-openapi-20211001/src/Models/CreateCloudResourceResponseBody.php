@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateCloudResourceResponseBody extends Model
 {
     /**
-     * @description The ID of the resource that is added to WAF. The ID is automatically generated.
-     *
-     * @example lb-***
-     *
      * @var string
      */
     public $cloudResourceId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 66A98669-ER12-WE34-23PO-301469*****E
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class CreateCloudResourceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cloudResourceId) {
             $res['CloudResourceId'] = $this->cloudResourceId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class CreateCloudResourceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCloudResourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CloudResourceId'])) {
             $model->cloudResourceId = $map['CloudResourceId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

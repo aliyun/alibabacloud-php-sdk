@@ -4,48 +4,36 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudClusterRulesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 1099
-     *
      * @var int
      */
     public $clusterId;
 
     /**
-     * @example hdbc-clusterrule-*****khzre0ym0w
-     *
      * @var string
      */
     public $clusterRuleResourceId;
 
     /**
-     * @example {\\"check_mode\\": \\"all\\", \\"type\\": \\"exact\\", \\"substance\\": \\"122\\"}
-     *
      * @var string
      */
     public $ruleConfig;
 
     /**
-     * @example pullin
-     *
      * @var string
      */
     public $ruleType;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $version;
@@ -58,26 +46,34 @@ class data extends Model
         'version' => 'Version',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->clusterRuleResourceId) {
             $res['ClusterRuleResourceId'] = $this->clusterRuleResourceId;
         }
+
         if (null !== $this->ruleConfig) {
             $res['RuleConfig'] = $this->ruleConfig;
         }
+
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -85,29 +81,34 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['ClusterRuleResourceId'])) {
             $model->clusterRuleResourceId = $map['ClusterRuleResourceId'];
         }
+
         if (isset($map['RuleConfig'])) {
             $model->ruleConfig = $map['RuleConfig'];
         }
+
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

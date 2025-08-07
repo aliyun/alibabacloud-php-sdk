@@ -4,79 +4,46 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyTemplateResourcesRequest extends Model
 {
     /**
-     * @description The protected object groups that you want to associate with the template. Specify the value in the [**"group1","group2",...**] format.
-     *
      * @var string[]
      */
     public $bindResourceGroups;
 
     /**
-     * @description The protected objects that you want to associate with the template. Specify the value in the [**"XX1","XX2",...**] format.
-     *
      * @var string[]
      */
     public $bindResources;
 
     /**
-     * @description The ID of the Web Application Firewall (WAF) instance.
-     *
-     * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
-     *
-     * This parameter is required.
-     *
-     * @example waf_cdnsdf3****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The region ID of the WAF instance. Valid values:
-     *
-     *   **cn-hangzhou**: Chinese mainland
-     *   **ap-southeast-1**: outside the Chinese mainland.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the Alibaba Cloud resource group.
-     *
-     * @example rg-acfm***q
-     *
      * @var string
      */
     public $resourceManagerResourceGroupId;
 
     /**
-     * @description The ID of the protection rule template.
-     *
-     * This parameter is required.
-     *
-     * @example 2291
-     *
      * @var int
      */
     public $templateId;
 
     /**
-     * @description The protected object groups that you want to disassociate from the template. Specify the value in the [**"group1","group2",...**] format.
-     *
      * @var string[]
      */
     public $unbindResourceGroups;
 
     /**
-     * @description The protected objects that you want to disassociate from the template. Specify the value in the [**"XX1","XX2",...**] format.
-     *
      * @var string[]
      */
     public $unbindResources;
@@ -91,77 +58,154 @@ class ModifyTemplateResourcesRequest extends Model
         'unbindResources' => 'UnbindResources',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->bindResourceGroups)) {
+            Model::validateArray($this->bindResourceGroups);
+        }
+        if (\is_array($this->bindResources)) {
+            Model::validateArray($this->bindResources);
+        }
+        if (\is_array($this->unbindResourceGroups)) {
+            Model::validateArray($this->unbindResourceGroups);
+        }
+        if (\is_array($this->unbindResources)) {
+            Model::validateArray($this->unbindResources);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bindResourceGroups) {
-            $res['BindResourceGroups'] = $this->bindResourceGroups;
+            if (\is_array($this->bindResourceGroups)) {
+                $res['BindResourceGroups'] = [];
+                $n1 = 0;
+                foreach ($this->bindResourceGroups as $item1) {
+                    $res['BindResourceGroups'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->bindResources) {
-            $res['BindResources'] = $this->bindResources;
+            if (\is_array($this->bindResources)) {
+                $res['BindResources'] = [];
+                $n1 = 0;
+                foreach ($this->bindResources as $item1) {
+                    $res['BindResources'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+
         if (null !== $this->unbindResourceGroups) {
-            $res['UnbindResourceGroups'] = $this->unbindResourceGroups;
+            if (\is_array($this->unbindResourceGroups)) {
+                $res['UnbindResourceGroups'] = [];
+                $n1 = 0;
+                foreach ($this->unbindResourceGroups as $item1) {
+                    $res['UnbindResourceGroups'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->unbindResources) {
-            $res['UnbindResources'] = $this->unbindResources;
+            if (\is_array($this->unbindResources)) {
+                $res['UnbindResources'] = [];
+                $n1 = 0;
+                foreach ($this->unbindResources as $item1) {
+                    $res['UnbindResources'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyTemplateResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BindResourceGroups'])) {
             if (!empty($map['BindResourceGroups'])) {
-                $model->bindResourceGroups = $map['BindResourceGroups'];
+                $model->bindResourceGroups = [];
+                $n1 = 0;
+                foreach ($map['BindResourceGroups'] as $item1) {
+                    $model->bindResourceGroups[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['BindResources'])) {
             if (!empty($map['BindResources'])) {
-                $model->bindResources = $map['BindResources'];
+                $model->bindResources = [];
+                $n1 = 0;
+                foreach ($map['BindResources'] as $item1) {
+                    $model->bindResources[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
+
         if (isset($map['UnbindResourceGroups'])) {
             if (!empty($map['UnbindResourceGroups'])) {
-                $model->unbindResourceGroups = $map['UnbindResourceGroups'];
+                $model->unbindResourceGroups = [];
+                $n1 = 0;
+                foreach ($map['UnbindResourceGroups'] as $item1) {
+                    $model->unbindResourceGroups[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['UnbindResources'])) {
             if (!empty($map['UnbindResources'])) {
-                $model->unbindResources = $map['UnbindResources'];
+                $model->unbindResources = [];
+                $n1 = 0;
+                foreach ($map['UnbindResources'] as $item1) {
+                    $model->unbindResources[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

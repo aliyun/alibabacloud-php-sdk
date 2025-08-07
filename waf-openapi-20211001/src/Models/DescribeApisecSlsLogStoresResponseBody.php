@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeApisecSlsLogStoresResponseBody extends Model
 {
     /**
-     * @description The names of the Logstores in Simple Log Service.
-     *
      * @var string[]
      */
     public $logStores;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example D7861F61-5B61-46CE-A47C-6B19****5EB0
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +22,28 @@ class DescribeApisecSlsLogStoresResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->logStores)) {
+            Model::validateArray($this->logStores);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logStores) {
-            $res['LogStores'] = $this->logStores;
+            if (\is_array($this->logStores)) {
+                $res['LogStores'] = [];
+                $n1 = 0;
+                foreach ($this->logStores as $item1) {
+                    $res['LogStores'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,19 +51,25 @@ class DescribeApisecSlsLogStoresResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeApisecSlsLogStoresResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogStores'])) {
             if (!empty($map['LogStores'])) {
-                $model->logStores = $map['LogStores'];
+                $model->logStores = [];
+                $n1 = 0;
+                foreach ($map['LogStores'] as $item1) {
+                    $model->logStores[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSecurityEventTimeSeriesMetricResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSecurityEventTimeSeriesMetricResponseBody\timeSeriesMetaData\dateRange;
-use AlibabaCloud\Tea\Model;
 
 class timeSeriesMetaData extends Model
 {
     /**
-     * @description The time granularity of data points in the time series data returned. For example, a value of 15m indicates that data points are collected at 15-minute intervals. For more information about time granularities, see the **Time granularities of data points in time series** section below.
-     *
-     * @example 1m
-     *
      * @var string
      */
     public $aggregateInterval;
 
     /**
-     * @description The time range that is used for the query.
-     *
      * @var dateRange
      */
     public $dateRange;
 
     /**
-     * @description The unit of the statistics returned. It is fixed as requests.
-     *
-     * @example requests
-     *
      * @var string
      */
     public $units;
@@ -39,17 +29,25 @@ class timeSeriesMetaData extends Model
         'units' => 'Units',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->dateRange) {
+            $this->dateRange->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aggregateInterval) {
             $res['AggregateInterval'] = $this->aggregateInterval;
         }
+
         if (null !== $this->dateRange) {
-            $res['DateRange'] = null !== $this->dateRange ? $this->dateRange->toMap() : null;
+            $res['DateRange'] = null !== $this->dateRange ? $this->dateRange->toArray($noStream) : $this->dateRange;
         }
+
         if (null !== $this->units) {
             $res['Units'] = $this->units;
         }
@@ -57,20 +55,22 @@ class timeSeriesMetaData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return timeSeriesMetaData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AggregateInterval'])) {
             $model->aggregateInterval = $map['AggregateInterval'];
         }
+
         if (isset($map['DateRange'])) {
             $model->dateRange = dateRange::fromMap($map['DateRange']);
         }
+
         if (isset($map['Units'])) {
             $model->units = $map['Units'];
         }

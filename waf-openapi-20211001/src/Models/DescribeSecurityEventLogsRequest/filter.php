@@ -4,24 +4,18 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSecurityEventLogsRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSecurityEventLogsRequest\filter\conditions;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSecurityEventLogsRequest\filter\dateRange;
-use AlibabaCloud\Tea\Model;
 
 class filter extends Model
 {
     /**
-     * @description The filter conditions. Each object describes a filter condition.
-     *
      * @var conditions[]
      */
     public $conditions;
 
     /**
-     * @description The time range for the query.
-     *
-     * This parameter is required.
-     *
      * @var dateRange
      */
     public $dateRange;
@@ -30,44 +24,57 @@ class filter extends Model
         'dateRange' => 'DateRange',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->conditions)) {
+            Model::validateArray($this->conditions);
+        }
+        if (null !== $this->dateRange) {
+            $this->dateRange->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conditions) {
-            $res['Conditions'] = [];
-            if (null !== $this->conditions && \is_array($this->conditions)) {
-                $n = 0;
-                foreach ($this->conditions as $item) {
-                    $res['Conditions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->conditions)) {
+                $res['Conditions'] = [];
+                $n1 = 0;
+                foreach ($this->conditions as $item1) {
+                    $res['Conditions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->dateRange) {
-            $res['DateRange'] = null !== $this->dateRange ? $this->dateRange->toMap() : null;
+            $res['DateRange'] = null !== $this->dateRange ? $this->dateRange->toArray($noStream) : $this->dateRange;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Conditions'])) {
             if (!empty($map['Conditions'])) {
                 $model->conditions = [];
-                $n = 0;
-                foreach ($map['Conditions'] as $item) {
-                    $model->conditions[$n++] = null !== $item ? conditions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Conditions'] as $item1) {
+                    $model->conditions[$n1] = conditions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['DateRange'])) {
             $model->dateRange = dateRange::fromMap($map['DateRange']);
         }

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFreeUserAssetCountResponseBody\asset;
-use AlibabaCloud\Tea\Model;
 
 class DescribeFreeUserAssetCountResponseBody extends Model
 {
     /**
-     * @description The asset statistics provided by basic detection.
-     *
      * @var asset
      */
     public $asset;
 
     /**
-     * @description The request ID.
-     *
-     * @example 30488BF0-FD58-52DD-B396-D014549F43A3
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeFreeUserAssetCountResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->asset) {
+            $this->asset->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->asset) {
-            $res['Asset'] = null !== $this->asset ? $this->asset->toMap() : null;
+            $res['Asset'] = null !== $this->asset ? $this->asset->toArray($noStream) : $this->asset;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeFreeUserAssetCountResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeFreeUserAssetCountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Asset'])) {
             $model->asset = asset::fromMap($map['Asset']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

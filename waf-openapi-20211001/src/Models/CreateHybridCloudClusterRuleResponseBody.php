@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateHybridCloudClusterRuleResponseBody extends Model
 {
     /**
-     * @example hdbc-clusterrule-*******m0w
-     *
      * @var string
      */
     public $clusterRuleResourceId;
 
     /**
-     * @example 66A98669-CC6E-4F3E-*****-3014697B11AE
-     *
      * @var string
      */
     public $requestId;
@@ -26,14 +22,18 @@ class CreateHybridCloudClusterRuleResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterRuleResourceId) {
             $res['ClusterRuleResourceId'] = $this->clusterRuleResourceId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,17 +41,18 @@ class CreateHybridCloudClusterRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateHybridCloudClusterRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterRuleResourceId'])) {
             $model->clusterRuleResourceId = $map['ClusterRuleResourceId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
