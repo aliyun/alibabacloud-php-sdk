@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200630\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCertificatePrivateKeyResponseBody extends Model
 {
     /**
-     * @description The content of the encrypted private key.
-     *
-     * @example -----BEGIN ENCRYPTED PRIVATE KEY----- …… -----END ENCRYPTED PRIVATE KEY-----
-     *
      * @var string
      */
     public $encryptedData;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 09470F19-CEE8-5C63-BF2C-02B5E3F07A17
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class DescribeCertificatePrivateKeyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->encryptedData) {
             $res['EncryptedData'] = $this->encryptedData;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class DescribeCertificatePrivateKeyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCertificatePrivateKeyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EncryptedData'])) {
             $model->encryptedData = $map['EncryptedData'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

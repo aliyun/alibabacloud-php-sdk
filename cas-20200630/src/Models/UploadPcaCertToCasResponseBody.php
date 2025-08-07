@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200630\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UploadPcaCertToCasResponseBody extends Model
 {
     /**
-     * @description Id of the request
-     *
-     * @example CBF1E9B7-D6A0-4E9E-AD3E-2B47E6C2837D
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class UploadPcaCertToCasResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class UploadPcaCertToCasResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UploadPcaCertToCasResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,36 +4,28 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200630\Models\CreateCustomCertificateRequest\apiPassthrough;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateCustomCertificateRequest\apiPassthrough\extensions\keyUsage;
 use AlibabaCloud\SDK\Cas\V20200630\Models\CreateCustomCertificateRequest\apiPassthrough\extensions\subjectAlternativeNames;
-use AlibabaCloud\Tea\Model;
 
 class extensions extends Model
 {
     /**
-     * @description If it is a necessary parameter, the critical list contains the parameter name.
-     *
      * @var string[]
      */
     public $criticals;
 
     /**
-     * @description The extended key usage.
-     *
      * @var string[]
      */
     public $extendedKeyUsages;
 
     /**
-     * @description The key usage.
-     *
      * @var keyUsage
      */
     public $keyUsage;
 
     /**
-     * @description The aliases of the entities.
-     *
      * @var subjectAlternativeNames[]
      */
     public $subjectAlternativeNames;
@@ -44,26 +36,59 @@ class extensions extends Model
         'subjectAlternativeNames' => 'SubjectAlternativeNames',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->criticals)) {
+            Model::validateArray($this->criticals);
+        }
+        if (\is_array($this->extendedKeyUsages)) {
+            Model::validateArray($this->extendedKeyUsages);
+        }
+        if (null !== $this->keyUsage) {
+            $this->keyUsage->validate();
+        }
+        if (\is_array($this->subjectAlternativeNames)) {
+            Model::validateArray($this->subjectAlternativeNames);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->criticals) {
-            $res['Criticals'] = $this->criticals;
+            if (\is_array($this->criticals)) {
+                $res['Criticals'] = [];
+                $n1 = 0;
+                foreach ($this->criticals as $item1) {
+                    $res['Criticals'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->extendedKeyUsages) {
-            $res['ExtendedKeyUsages'] = $this->extendedKeyUsages;
+            if (\is_array($this->extendedKeyUsages)) {
+                $res['ExtendedKeyUsages'] = [];
+                $n1 = 0;
+                foreach ($this->extendedKeyUsages as $item1) {
+                    $res['ExtendedKeyUsages'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->keyUsage) {
-            $res['KeyUsage'] = null !== $this->keyUsage ? $this->keyUsage->toMap() : null;
+            $res['KeyUsage'] = null !== $this->keyUsage ? $this->keyUsage->toArray($noStream) : $this->keyUsage;
         }
+
         if (null !== $this->subjectAlternativeNames) {
-            $res['SubjectAlternativeNames'] = [];
-            if (null !== $this->subjectAlternativeNames && \is_array($this->subjectAlternativeNames)) {
-                $n = 0;
-                foreach ($this->subjectAlternativeNames as $item) {
-                    $res['SubjectAlternativeNames'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subjectAlternativeNames)) {
+                $res['SubjectAlternativeNames'] = [];
+                $n1 = 0;
+                foreach ($this->subjectAlternativeNames as $item1) {
+                    $res['SubjectAlternativeNames'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -71,33 +96,47 @@ class extensions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return extensions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Criticals'])) {
             if (!empty($map['Criticals'])) {
-                $model->criticals = $map['Criticals'];
+                $model->criticals = [];
+                $n1 = 0;
+                foreach ($map['Criticals'] as $item1) {
+                    $model->criticals[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ExtendedKeyUsages'])) {
             if (!empty($map['ExtendedKeyUsages'])) {
-                $model->extendedKeyUsages = $map['ExtendedKeyUsages'];
+                $model->extendedKeyUsages = [];
+                $n1 = 0;
+                foreach ($map['ExtendedKeyUsages'] as $item1) {
+                    $model->extendedKeyUsages[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['KeyUsage'])) {
             $model->keyUsage = keyUsage::fromMap($map['KeyUsage']);
         }
+
         if (isset($map['SubjectAlternativeNames'])) {
             if (!empty($map['SubjectAlternativeNames'])) {
                 $model->subjectAlternativeNames = [];
-                $n = 0;
-                foreach ($map['SubjectAlternativeNames'] as $item) {
-                    $model->subjectAlternativeNames[$n++] = null !== $item ? subjectAlternativeNames::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SubjectAlternativeNames'] as $item1) {
+                    $model->subjectAlternativeNames[$n1] = subjectAlternativeNames::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
