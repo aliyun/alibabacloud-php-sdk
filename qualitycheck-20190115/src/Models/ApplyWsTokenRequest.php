@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ApplyWsTokenRequest extends Model
 {
     /**
-     * @example 123456
-     *
      * @var int
      */
     public $baseMeAgentId;
 
     /**
-     * @example {
-     * "business": "test",
-     * "callType": 1,
-     * "callee": "13111111111",
-     * "caller": "13800000000",
-     * "skillGroupId": 1,
-     * "skillGroupName": "test",
-     * "taskConfigId": 399,
-     * "tid": "2025012412cb129e-1579-46b5-9326-1b2ececf8f30"
-     * }
-     *
      * @var string
      */
     public $jsonStr;
@@ -35,14 +22,18 @@ class ApplyWsTokenRequest extends Model
         'jsonStr' => 'JsonStr',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baseMeAgentId) {
             $res['BaseMeAgentId'] = $this->baseMeAgentId;
         }
+
         if (null !== $this->jsonStr) {
             $res['JsonStr'] = $this->jsonStr;
         }
@@ -50,17 +41,18 @@ class ApplyWsTokenRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ApplyWsTokenRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseMeAgentId'])) {
             $model->baseMeAgentId = $map['BaseMeAgentId'];
         }
+
         if (isset($map['JsonStr'])) {
             $model->jsonStr = $map['JsonStr'];
         }

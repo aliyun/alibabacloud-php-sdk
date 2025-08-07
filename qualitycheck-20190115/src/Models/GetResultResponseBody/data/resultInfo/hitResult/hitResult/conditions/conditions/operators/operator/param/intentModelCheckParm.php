@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitResult\hitResult\conditions\conditions\operators\operator\param;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitResult\hitResult\conditions\conditions\operators\operator\param\intentModelCheckParm\intents;
-use AlibabaCloud\Tea\Model;
 
 class intentModelCheckParm extends Model
 {
     /**
-     * @description 引用的意图模型
-     *
      * @var intents
      */
     public $intents;
 
     /**
-     * @description 模型应用的场景 AGENT:客户场景、CUSTOMER:客服场景 (CUSTOMER: 客户场景, AGENT: 坐席场景)
-     *
      * @var string
      */
     public $modelScene;
@@ -27,14 +23,21 @@ class intentModelCheckParm extends Model
         'modelScene' => 'ModelScene',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->intents) {
+            $this->intents->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->intents) {
-            $res['Intents'] = null !== $this->intents ? $this->intents->toMap() : null;
+            $res['Intents'] = null !== $this->intents ? $this->intents->toArray($noStream) : $this->intents;
         }
+
         if (null !== $this->modelScene) {
             $res['ModelScene'] = $this->modelScene;
         }
@@ -42,17 +45,18 @@ class intentModelCheckParm extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return intentModelCheckParm
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Intents'])) {
             $model->intents = intents::fromMap($map['Intents']);
         }
+
         if (isset($map['ModelScene'])) {
             $model->modelScene = $map['ModelScene'];
         }

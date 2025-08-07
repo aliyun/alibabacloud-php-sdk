@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetCustomizationConfigListResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class modelCustomizationDataSetPo extends Model
 {
@@ -14,22 +14,16 @@ class modelCustomizationDataSetPo extends Model
     public $asrVersion;
 
     /**
-     * @example 2019-01-08
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @example cdae396590bb479a9ec40f3476e274fc
-     *
      * @var string
      */
     public $modeCustomizationId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $modelId;
@@ -40,15 +34,11 @@ class modelCustomizationDataSetPo extends Model
     public $modelName;
 
     /**
-     * @example 5
-     *
      * @var int
      */
     public $modelStatus;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $taskType;
@@ -62,29 +52,38 @@ class modelCustomizationDataSetPo extends Model
         'taskType' => 'TaskType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->asrVersion) {
             $res['AsrVersion'] = $this->asrVersion;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->modeCustomizationId) {
             $res['ModeCustomizationId'] = $this->modeCustomizationId;
         }
+
         if (null !== $this->modelId) {
             $res['ModelId'] = $this->modelId;
         }
+
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
         }
+
         if (null !== $this->modelStatus) {
             $res['ModelStatus'] = $this->modelStatus;
         }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
@@ -92,32 +91,38 @@ class modelCustomizationDataSetPo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return modelCustomizationDataSetPo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AsrVersion'])) {
             $model->asrVersion = $map['AsrVersion'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['ModeCustomizationId'])) {
             $model->modeCustomizationId = $map['ModeCustomizationId'];
         }
+
         if (isset($map['ModelId'])) {
             $model->modelId = $map['ModelId'];
         }
+
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
         }
+
         if (isset($map['ModelStatus'])) {
             $model->modelStatus = $map['ModelStatus'];
         }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }

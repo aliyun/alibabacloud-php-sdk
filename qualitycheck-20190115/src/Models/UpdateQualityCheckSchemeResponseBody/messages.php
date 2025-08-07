@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UpdateQualityCheckSchemeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class messages extends Model
 {
@@ -16,29 +16,47 @@ class messages extends Model
         'message' => 'Message',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->message)) {
+            Model::validateArray($this->message);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
-            $res['Message'] = $this->message;
+            if (\is_array($this->message)) {
+                $res['Message'] = [];
+                $n1 = 0;
+                foreach ($this->message as $item1) {
+                    $res['Message'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return messages
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             if (!empty($map['Message'])) {
-                $model->message = $map['Message'];
+                $model->message = [];
+                $n1 = 0;
+                foreach ($map['Message'] as $item1) {
+                    $model->message[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncForLLMResponseBody\data\resultInfo\rules\ruleHitInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncForLLMResponseBody\data\resultInfo\rules\ruleHitInfo\hit\conditionHitInfo;
-use AlibabaCloud\Tea\Model;
 
 class hit extends Model
 {
@@ -17,17 +17,24 @@ class hit extends Model
         'conditionHitInfo' => 'ConditionHitInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->conditionHitInfo)) {
+            Model::validateArray($this->conditionHitInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conditionHitInfo) {
-            $res['ConditionHitInfo'] = [];
-            if (null !== $this->conditionHitInfo && \is_array($this->conditionHitInfo)) {
-                $n = 0;
-                foreach ($this->conditionHitInfo as $item) {
-                    $res['ConditionHitInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->conditionHitInfo)) {
+                $res['ConditionHitInfo'] = [];
+                $n1 = 0;
+                foreach ($this->conditionHitInfo as $item1) {
+                    $res['ConditionHitInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class hit extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hit
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConditionHitInfo'])) {
             if (!empty($map['ConditionHitInfo'])) {
                 $model->conditionHitInfo = [];
-                $n = 0;
-                foreach ($map['ConditionHitInfo'] as $item) {
-                    $model->conditionHitInfo[$n++] = null !== $item ? conditionHitInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ConditionHitInfo'] as $item1) {
+                    $model->conditionHitInfo[$n1] = conditionHitInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

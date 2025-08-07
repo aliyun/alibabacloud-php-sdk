@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListAsrVocabResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListAsrVocabResponseBody\data\asrVocab;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,17 +17,24 @@ class data extends Model
         'asrVocab' => 'AsrVocab',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->asrVocab)) {
+            Model::validateArray($this->asrVocab);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->asrVocab) {
-            $res['AsrVocab'] = [];
-            if (null !== $this->asrVocab && \is_array($this->asrVocab)) {
-                $n = 0;
-                foreach ($this->asrVocab as $item) {
-                    $res['AsrVocab'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->asrVocab)) {
+                $res['AsrVocab'] = [];
+                $n1 = 0;
+                foreach ($this->asrVocab as $item1) {
+                    $res['AsrVocab'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AsrVocab'])) {
             if (!empty($map['AsrVocab'])) {
                 $model->asrVocab = [];
-                $n = 0;
-                foreach ($map['AsrVocab'] as $item) {
-                    $model->asrVocab[$n++] = null !== $item ? asrVocab::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AsrVocab'] as $item1) {
+                    $model->asrVocab[$n1] = asrVocab::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

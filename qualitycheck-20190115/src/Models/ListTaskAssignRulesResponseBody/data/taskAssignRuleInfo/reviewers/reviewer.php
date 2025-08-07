@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTaskAssignRulesResponseBody\data\taskAssignRuleInfo\reviewers;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class reviewer extends Model
 {
     /**
-     * @example 2337235457340978
-     *
      * @var string
      */
     public $reviewerId;
@@ -24,14 +22,18 @@ class reviewer extends Model
         'reviewerName' => 'ReviewerName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reviewerId) {
             $res['ReviewerId'] = $this->reviewerId;
         }
+
         if (null !== $this->reviewerName) {
             $res['ReviewerName'] = $this->reviewerName;
         }
@@ -39,17 +41,18 @@ class reviewer extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return reviewer
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReviewerId'])) {
             $model->reviewerId = $map['ReviewerId'];
         }
+
         if (isset($map['ReviewerName'])) {
             $model->reviewerName = $map['ReviewerName'];
         }

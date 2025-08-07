@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateRuleV4Request extends Model
 {
     /**
-     * @description baseMeAgentId
-     *
      * @var int
      */
     public $baseMeAgentId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $jsonStrForRule;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $ruleId;
@@ -34,17 +28,22 @@ class UpdateRuleV4Request extends Model
         'ruleId' => 'RuleId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baseMeAgentId) {
             $res['BaseMeAgentId'] = $this->baseMeAgentId;
         }
+
         if (null !== $this->jsonStrForRule) {
             $res['JsonStrForRule'] = $this->jsonStrForRule;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -52,20 +51,22 @@ class UpdateRuleV4Request extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateRuleV4Request
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseMeAgentId'])) {
             $model->baseMeAgentId = $map['BaseMeAgentId'];
         }
+
         if (isset($map['JsonStrForRule'])) {
             $model->jsonStrForRule = $map['JsonStrForRule'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

@@ -4,29 +4,37 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitScore\hitScore;
 
 class hitScore extends Model
 {
     /**
-     * @var hitScore\hitScore[]
+     * @var hitScore[]
      */
     public $hitScore;
     protected $_name = [
         'hitScore' => 'HitScore',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->hitScore)) {
+            Model::validateArray($this->hitScore);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hitScore) {
-            $res['HitScore'] = [];
-            if (null !== $this->hitScore && \is_array($this->hitScore)) {
-                $n = 0;
-                foreach ($this->hitScore as $item) {
-                    $res['HitScore'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hitScore)) {
+                $res['HitScore'] = [];
+                $n1 = 0;
+                foreach ($this->hitScore as $item1) {
+                    $res['HitScore'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +42,21 @@ class hitScore extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hitScore
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HitScore'])) {
             if (!empty($map['HitScore'])) {
                 $model->hitScore = [];
-                $n = 0;
-                foreach ($map['HitScore'] as $item) {
-                    $model->hitScore[$n++] = null !== $item ? hitScore\hitScore::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['HitScore'] as $item1) {
+                    $model->hitScore[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

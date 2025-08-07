@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\NextNodeSituations;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\JudgeNodeMetaDesc;
-use AlibabaCloud\Tea\Model;
 
 class conditionGroup extends Model
 {
@@ -23,20 +23,28 @@ class conditionGroup extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->conditions)) {
+            Model::validateArray($this->conditions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conditions) {
-            $res['Conditions'] = [];
-            if (null !== $this->conditions && \is_array($this->conditions)) {
-                $n = 0;
-                foreach ($this->conditions as $item) {
-                    $res['Conditions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->conditions)) {
+                $res['Conditions'] = [];
+                $n1 = 0;
+                foreach ($this->conditions as $item1) {
+                    $res['Conditions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -44,23 +52,25 @@ class conditionGroup extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return conditionGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Conditions'])) {
             if (!empty($map['Conditions'])) {
                 $model->conditions = [];
-                $n = 0;
-                foreach ($map['Conditions'] as $item) {
-                    $model->conditions[$n++] = null !== $item ? JudgeNodeMetaDesc::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Conditions'] as $item1) {
+                    $model->conditions[$n1] = JudgeNodeMetaDesc::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

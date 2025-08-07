@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListSchemeTaskConfigRequest extends Model
 {
     /**
-     * @description baseMeAgentId
-     *
      * @var int
      */
     public $baseMeAgentId;
 
     /**
-     * @example {"pageNumber":1,"pageSize":10,"sourceDataType":"1"}
-     *
      * @var string
      */
     public $jsonStr;
@@ -26,14 +22,18 @@ class ListSchemeTaskConfigRequest extends Model
         'jsonStr' => 'jsonStr',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baseMeAgentId) {
             $res['BaseMeAgentId'] = $this->baseMeAgentId;
         }
+
         if (null !== $this->jsonStr) {
             $res['jsonStr'] = $this->jsonStr;
         }
@@ -41,17 +41,18 @@ class ListSchemeTaskConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSchemeTaskConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseMeAgentId'])) {
             $model->baseMeAgentId = $map['BaseMeAgentId'];
         }
+
         if (isset($map['jsonStr'])) {
             $model->jsonStr = $map['jsonStr'];
         }

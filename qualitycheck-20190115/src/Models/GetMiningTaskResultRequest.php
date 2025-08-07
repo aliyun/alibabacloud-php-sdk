@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMiningTaskResultRequest extends Model
 {
     /**
-     * @example 123456
-     *
      * @var int
      */
     public $baseMeAgentId;
 
     /**
-     * @example 106C6CA0-282D-4AF7-85F0-D2D24***
-     *
      * @var string
      */
     public $taskId;
@@ -26,14 +22,18 @@ class GetMiningTaskResultRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baseMeAgentId) {
             $res['BaseMeAgentId'] = $this->baseMeAgentId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -41,17 +41,18 @@ class GetMiningTaskResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMiningTaskResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseMeAgentId'])) {
             $model->baseMeAgentId = $map['BaseMeAgentId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

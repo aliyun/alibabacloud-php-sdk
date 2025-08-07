@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSchemeTaskConfigResponseBody\data\dataConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSchemeTaskConfigResponseBody\data\dataConfig\assignConfigs\assignConfigContests;
-use AlibabaCloud\Tea\Model;
 
 class assignConfigs extends Model
 {
@@ -17,17 +17,24 @@ class assignConfigs extends Model
         'assignConfigContests' => 'AssignConfigContests',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->assignConfigContests)) {
+            Model::validateArray($this->assignConfigContests);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assignConfigContests) {
-            $res['AssignConfigContests'] = [];
-            if (null !== $this->assignConfigContests && \is_array($this->assignConfigContests)) {
-                $n = 0;
-                foreach ($this->assignConfigContests as $item) {
-                    $res['AssignConfigContests'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->assignConfigContests)) {
+                $res['AssignConfigContests'] = [];
+                $n1 = 0;
+                foreach ($this->assignConfigContests as $item1) {
+                    $res['AssignConfigContests'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class assignConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return assignConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssignConfigContests'])) {
             if (!empty($map['AssignConfigContests'])) {
                 $model->assignConfigContests = [];
-                $n = 0;
-                foreach ($map['AssignConfigContests'] as $item) {
-                    $model->assignConfigContests[$n++] = null !== $item ? assignConfigContests::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AssignConfigContests'] as $item1) {
+                    $model->assignConfigContests[$n1] = assignConfigContests::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

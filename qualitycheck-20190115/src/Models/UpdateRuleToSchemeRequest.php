@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateRuleToSchemeRequest extends Model
 {
     /**
-     * @description baseMeAgentId
-     *
      * @var int
      */
     public $baseMeAgentId;
 
     /**
-     * @example {"schemeId":"10","schemeRules":[{"ruleId":229,"checkType":0}]}
-     *
      * @var string
      */
     public $jsonStr;
@@ -26,14 +22,18 @@ class UpdateRuleToSchemeRequest extends Model
         'jsonStr' => 'jsonStr',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baseMeAgentId) {
             $res['BaseMeAgentId'] = $this->baseMeAgentId;
         }
+
         if (null !== $this->jsonStr) {
             $res['jsonStr'] = $this->jsonStr;
         }
@@ -41,17 +41,18 @@ class UpdateRuleToSchemeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateRuleToSchemeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseMeAgentId'])) {
             $model->baseMeAgentId = $map['BaseMeAgentId'];
         }
+
         if (isset($map['jsonStr'])) {
             $model->jsonStr = $map['jsonStr'];
         }

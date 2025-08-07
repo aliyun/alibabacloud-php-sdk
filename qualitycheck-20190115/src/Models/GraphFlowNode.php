@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GraphFlowNode\nextNodes;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GraphFlowNode\properties;
-use AlibabaCloud\Tea\Model;
 
 class GraphFlowNode extends Model
 {
@@ -72,50 +72,73 @@ class GraphFlowNode extends Model
         'useConditions' => 'UseConditions',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->conditions)) {
+            Model::validateArray($this->conditions);
+        }
+        if (\is_array($this->nextNodes)) {
+            Model::validateArray($this->nextNodes);
+        }
+        if (null !== $this->properties) {
+            $this->properties->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conditions) {
-            $res['Conditions'] = [];
-            if (null !== $this->conditions && \is_array($this->conditions)) {
-                $n = 0;
-                foreach ($this->conditions as $item) {
-                    $res['Conditions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->conditions)) {
+                $res['Conditions'] = [];
+                $n1 = 0;
+                foreach ($this->conditions as $item1) {
+                    $res['Conditions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->nextNodes) {
-            $res['NextNodes'] = [];
-            if (null !== $this->nextNodes && \is_array($this->nextNodes)) {
-                $n = 0;
-                foreach ($this->nextNodes as $item) {
-                    $res['NextNodes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nextNodes)) {
+                $res['NextNodes'] = [];
+                $n1 = 0;
+                foreach ($this->nextNodes as $item1) {
+                    $res['NextNodes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
         }
+
         if (null !== $this->properties) {
-            $res['Properties'] = null !== $this->properties ? $this->properties->toMap() : null;
+            $res['Properties'] = null !== $this->properties ? $this->properties->toArray($noStream) : $this->properties;
         }
+
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
         }
+
         if (null !== $this->useConditions) {
             $res['UseConditions'] = $this->useConditions;
         }
@@ -123,53 +146,64 @@ class GraphFlowNode extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GraphFlowNode
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Conditions'])) {
             if (!empty($map['Conditions'])) {
                 $model->conditions = [];
-                $n = 0;
-                foreach ($map['Conditions'] as $item) {
-                    $model->conditions[$n++] = null !== $item ? ConditionBasicInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Conditions'] as $item1) {
+                    $model->conditions[$n1] = ConditionBasicInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NextNodes'])) {
             if (!empty($map['NextNodes'])) {
                 $model->nextNodes = [];
-                $n = 0;
-                foreach ($map['NextNodes'] as $item) {
-                    $model->nextNodes[$n++] = null !== $item ? nextNodes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NextNodes'] as $item1) {
+                    $model->nextNodes[$n1] = nextNodes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
         }
+
         if (isset($map['Properties'])) {
             $model->properties = properties::fromMap($map['Properties']);
         }
+
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
         }
+
         if (isset($map['UseConditions'])) {
             $model->useConditions = $map['UseConditions'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class schemeNameList extends Model
 {
@@ -16,29 +16,47 @@ class schemeNameList extends Model
         'schemeNameList' => 'SchemeNameList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->schemeNameList)) {
+            Model::validateArray($this->schemeNameList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->schemeNameList) {
-            $res['SchemeNameList'] = $this->schemeNameList;
+            if (\is_array($this->schemeNameList)) {
+                $res['SchemeNameList'] = [];
+                $n1 = 0;
+                foreach ($this->schemeNameList as $item1) {
+                    $res['SchemeNameList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return schemeNameList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SchemeNameList'])) {
             if (!empty($map['SchemeNameList'])) {
-                $model->schemeNameList = $map['SchemeNameList'];
+                $model->schemeNameList = [];
+                $n1 = 0;
+                foreach ($map['SchemeNameList'] as $item1) {
+                    $model->schemeNameList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

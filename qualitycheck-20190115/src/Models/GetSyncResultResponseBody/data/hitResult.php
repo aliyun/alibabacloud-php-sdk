@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSyncResultResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSyncResultResponseBody\data\hitResult\hits;
-use AlibabaCloud\Tea\Model;
 
 class hitResult extends Model
 {
@@ -20,22 +20,16 @@ class hitResult extends Model
     public $name;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $reviewResult;
 
     /**
-     * @example 1211
-     *
      * @var string
      */
     public $rid;
 
     /**
-     * @example 2
-     *
      * @var string
      */
     public $type;
@@ -47,29 +41,40 @@ class hitResult extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->hits)) {
+            Model::validateArray($this->hits);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hits) {
-            $res['Hits'] = [];
-            if (null !== $this->hits && \is_array($this->hits)) {
-                $n = 0;
-                foreach ($this->hits as $item) {
-                    $res['Hits'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hits)) {
+                $res['Hits'] = [];
+                $n1 = 0;
+                foreach ($this->hits as $item1) {
+                    $res['Hits'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->reviewResult) {
             $res['ReviewResult'] = $this->reviewResult;
         }
+
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -77,32 +82,37 @@ class hitResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hitResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Hits'])) {
             if (!empty($map['Hits'])) {
                 $model->hits = [];
-                $n = 0;
-                foreach ($map['Hits'] as $item) {
-                    $model->hits[$n++] = null !== $item ? hits::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Hits'] as $item1) {
+                    $model->hits[$n1] = hits::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ReviewResult'])) {
             $model->reviewResult = $map['ReviewResult'];
         }
+
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

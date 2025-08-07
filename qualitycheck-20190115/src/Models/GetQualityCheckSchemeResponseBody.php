@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetQualityCheckSchemeResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class GetQualityCheckSchemeResponseBody extends Model
 {
     /**
-     * @example 200
-     *
      * @var string
      */
     public $code;
@@ -22,15 +20,11 @@ class GetQualityCheckSchemeResponseBody extends Model
     public $data;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @example successful
-     *
      * @var string
      */
     public $message;
@@ -41,15 +35,11 @@ class GetQualityCheckSchemeResponseBody extends Model
     public $messages;
 
     /**
-     * @example 96138D8D-8D26-4E41-BFF4-77AED1088BBD
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -63,29 +53,51 @@ class GetQualityCheckSchemeResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        if (\is_array($this->messages)) {
+            Model::validateArray($this->messages);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->messages) {
-            $res['Messages'] = $this->messages;
+            if (\is_array($this->messages)) {
+                $res['Messages'] = [];
+                $n1 = 0;
+                foreach ($this->messages as $item1) {
+                    $res['Messages'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -93,34 +105,45 @@ class GetQualityCheckSchemeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetQualityCheckSchemeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Messages'])) {
             if (!empty($map['Messages'])) {
-                $model->messages = $map['Messages'];
+                $model->messages = [];
+                $n1 = 0;
+                foreach ($map['Messages'] as $item1) {
+                    $model->messages[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

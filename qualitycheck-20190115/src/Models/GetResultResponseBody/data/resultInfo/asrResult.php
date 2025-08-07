@@ -4,29 +4,37 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\asrResult\asrResult;
 
 class asrResult extends Model
 {
     /**
-     * @var asrResult\asrResult[]
+     * @var asrResult[]
      */
     public $asrResult;
     protected $_name = [
         'asrResult' => 'AsrResult',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->asrResult)) {
+            Model::validateArray($this->asrResult);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->asrResult) {
-            $res['AsrResult'] = [];
-            if (null !== $this->asrResult && \is_array($this->asrResult)) {
-                $n = 0;
-                foreach ($this->asrResult as $item) {
-                    $res['AsrResult'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->asrResult)) {
+                $res['AsrResult'] = [];
+                $n1 = 0;
+                foreach ($this->asrResult as $item1) {
+                    $res['AsrResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +42,21 @@ class asrResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return asrResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AsrResult'])) {
             if (!empty($map['AsrResult'])) {
                 $model->asrResult = [];
-                $n = 0;
-                foreach ($map['AsrResult'] as $item) {
-                    $model->asrResult[$n++] = null !== $item ? asrResult\asrResult::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AsrResult'] as $item1) {
+                    $model->asrResult[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

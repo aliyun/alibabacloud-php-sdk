@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListWarningConfigResponseBody\data\warningConfigInfo\ruleList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class warningRule extends Model
 {
     /**
-     * @example 33452
-     *
      * @var int
      */
     public $rid;
@@ -24,14 +22,18 @@ class warningRule extends Model
         'ruleName' => 'RuleName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
@@ -39,17 +41,18 @@ class warningRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return warningRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }

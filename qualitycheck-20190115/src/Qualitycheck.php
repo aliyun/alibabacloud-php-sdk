@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddBusinessCategoryRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddBusinessCategoryResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\AddRuleCategoryRequest;
@@ -202,11 +201,10 @@ use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\VerifyFileRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\VerifyFileResponse;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\VerifySentenceRequest;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\VerifySentenceResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Qualitycheck extends OpenApiClient
 {
@@ -231,34 +229,42 @@ class Qualitycheck extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param AddBusinessCategoryRequest $request AddBusinessCategoryRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - AddBusinessCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return AddBusinessCategoryResponse AddBusinessCategoryResponse
+     * @returns AddBusinessCategoryResponse
+     *
+     * @param AddBusinessCategoryRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AddBusinessCategoryResponse
      */
     public function addBusinessCategoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AddBusinessCategory',
@@ -276,9 +282,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param AddBusinessCategoryRequest $request AddBusinessCategoryRequest
+     * @param request - AddBusinessCategoryRequest
      *
-     * @return AddBusinessCategoryResponse AddBusinessCategoryResponse
+     * @returns AddBusinessCategoryResponse
+     *
+     * @param AddBusinessCategoryRequest $request
+     *
+     * @return AddBusinessCategoryResponse
      */
     public function addBusinessCategory($request)
     {
@@ -288,23 +298,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param AddRuleCategoryRequest $request AddRuleCategoryRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - AddRuleCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return AddRuleCategoryResponse AddRuleCategoryResponse
+     * @returns AddRuleCategoryResponse
+     *
+     * @param AddRuleCategoryRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddRuleCategoryResponse
      */
     public function addRuleCategoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AddRuleCategory',
@@ -322,9 +339,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param AddRuleCategoryRequest $request AddRuleCategoryRequest
+     * @param request - AddRuleCategoryRequest
      *
-     * @return AddRuleCategoryResponse AddRuleCategoryResponse
+     * @returns AddRuleCategoryResponse
+     *
+     * @param AddRuleCategoryRequest $request
+     *
+     * @return AddRuleCategoryResponse
      */
     public function addRuleCategory($request)
     {
@@ -334,30 +355,38 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary V4创建规则
-     *  *
-     * @param AddRuleV4Request $request AddRuleV4Request
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * V4创建规则.
      *
-     * @return AddRuleV4Response AddRuleV4Response
+     * @param request - AddRuleV4Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddRuleV4Response
+     *
+     * @param AddRuleV4Request $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return AddRuleV4Response
      */
     public function addRuleV4WithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->isCopy)) {
-            $body['IsCopy'] = $request->isCopy;
+        if (null !== $request->isCopy) {
+            @$body['IsCopy'] = $request->isCopy;
         }
-        if (!Utils::isUnset($request->jsonStrForRule)) {
-            $body['JsonStrForRule'] = $request->jsonStrForRule;
+
+        if (null !== $request->jsonStrForRule) {
+            @$body['JsonStrForRule'] = $request->jsonStrForRule;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AddRuleV4',
@@ -375,11 +404,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary V4创建规则
-     *  *
-     * @param AddRuleV4Request $request AddRuleV4Request
+     * V4创建规则.
      *
-     * @return AddRuleV4Response AddRuleV4Response
+     * @param request - AddRuleV4Request
+     *
+     * @returns AddRuleV4Response
+     *
+     * @param AddRuleV4Request $request
+     *
+     * @return AddRuleV4Response
      */
     public function addRuleV4($request)
     {
@@ -389,25 +422,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 申领实时语音所需token
-     *  *
-     * @param ApplyWsTokenRequest $request ApplyWsTokenRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 申领实时语音所需token.
      *
-     * @return ApplyWsTokenResponse ApplyWsTokenResponse
+     * @param request - ApplyWsTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyWsTokenResponse
+     *
+     * @param ApplyWsTokenRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ApplyWsTokenResponse
      */
     public function applyWsTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ApplyWsToken',
@@ -425,11 +465,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 申领实时语音所需token
-     *  *
-     * @param ApplyWsTokenRequest $request ApplyWsTokenRequest
+     * 申领实时语音所需token.
      *
-     * @return ApplyWsTokenResponse ApplyWsTokenResponse
+     * @param request - ApplyWsTokenRequest
+     *
+     * @returns ApplyWsTokenResponse
+     *
+     * @param ApplyWsTokenRequest $request
+     *
+     * @return ApplyWsTokenResponse
      */
     public function applyWsToken($request)
     {
@@ -439,23 +483,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param AssignReviewerRequest $request AssignReviewerRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - AssignReviewerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return AssignReviewerResponse AssignReviewerResponse
+     * @returns AssignReviewerResponse
+     *
+     * @param AssignReviewerRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AssignReviewerResponse
      */
     public function assignReviewerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AssignReviewer',
@@ -473,9 +524,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param AssignReviewerRequest $request AssignReviewerRequest
+     * @param request - AssignReviewerRequest
      *
-     * @return AssignReviewerResponse AssignReviewerResponse
+     * @returns AssignReviewerResponse
+     *
+     * @param AssignReviewerRequest $request
+     *
+     * @return AssignReviewerResponse
      */
     public function assignReviewer($request)
     {
@@ -485,29 +540,34 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * 会话组批量分配.
+     *
      * @deprecated OpenAPI AssignReviewerBySessionGroup is deprecated
-     *  *
-     * @summary 会话组批量分配
-     *  *
-     * Deprecated
      *
-     * @param AssignReviewerBySessionGroupRequest $request AssignReviewerBySessionGroupRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param request - AssignReviewerBySessionGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return AssignReviewerBySessionGroupResponse AssignReviewerBySessionGroupResponse
+     * @returns AssignReviewerBySessionGroupResponse
+     *
+     * @param AssignReviewerBySessionGroupRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return AssignReviewerBySessionGroupResponse
      */
     public function assignReviewerBySessionGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['jsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['jsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'AssignReviewerBySessionGroup',
@@ -524,16 +584,19 @@ class Qualitycheck extends OpenApiClient
         return AssignReviewerBySessionGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * 会话组批量分配.
+     *
      * @deprecated OpenAPI AssignReviewerBySessionGroup is deprecated
-     *  *
-     * @summary 会话组批量分配
-     *  *
-     * Deprecated
      *
-     * @param AssignReviewerBySessionGroupRequest $request AssignReviewerBySessionGroupRequest
+     * @param request - AssignReviewerBySessionGroupRequest
      *
-     * @return AssignReviewerBySessionGroupResponse AssignReviewerBySessionGroupResponse
+     * @returns AssignReviewerBySessionGroupResponse
+     *
+     * @param AssignReviewerBySessionGroupRequest $request
+     *
+     * @return AssignReviewerBySessionGroupResponse
      */
     public function assignReviewerBySessionGroup($request)
     {
@@ -543,25 +606,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 批量复核
-     *  *
-     * @param BatchSubmitReviewInfoRequest $request BatchSubmitReviewInfoRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 批量复核.
      *
-     * @return BatchSubmitReviewInfoResponse BatchSubmitReviewInfoResponse
+     * @param request - BatchSubmitReviewInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchSubmitReviewInfoResponse
+     *
+     * @param BatchSubmitReviewInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return BatchSubmitReviewInfoResponse
      */
     public function batchSubmitReviewInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['jsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['jsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'BatchSubmitReviewInfo',
@@ -579,11 +649,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 批量复核
-     *  *
-     * @param BatchSubmitReviewInfoRequest $request BatchSubmitReviewInfoRequest
+     * 批量复核.
      *
-     * @return BatchSubmitReviewInfoResponse BatchSubmitReviewInfoResponse
+     * @param request - BatchSubmitReviewInfoRequest
+     *
+     * @returns BatchSubmitReviewInfoResponse
+     *
+     * @param BatchSubmitReviewInfoRequest $request
+     *
+     * @return BatchSubmitReviewInfoResponse
      */
     public function batchSubmitReviewInfo($request)
     {
@@ -593,25 +667,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 创建热词模型
-     *  *
-     * @param CreateAsrVocabRequest $request CreateAsrVocabRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 创建热词模型.
      *
-     * @return CreateAsrVocabResponse CreateAsrVocabResponse
+     * @param request - CreateAsrVocabRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAsrVocabResponse
+     *
+     * @param CreateAsrVocabRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateAsrVocabResponse
      */
     public function createAsrVocabWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateAsrVocab',
@@ -629,11 +710,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 创建热词模型
-     *  *
-     * @param CreateAsrVocabRequest $request CreateAsrVocabRequest
+     * 创建热词模型.
      *
-     * @return CreateAsrVocabResponse CreateAsrVocabResponse
+     * @param request - CreateAsrVocabRequest
+     *
+     * @returns CreateAsrVocabResponse
+     *
+     * @param CreateAsrVocabRequest $request
+     *
+     * @return CreateAsrVocabResponse
      */
     public function createAsrVocab($request)
     {
@@ -643,25 +728,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 创建质检方案中的质检维度
-     *  *
-     * @param CreateCheckTypeToSchemeRequest $request CreateCheckTypeToSchemeRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 创建质检方案中的质检维度.
      *
-     * @return CreateCheckTypeToSchemeResponse CreateCheckTypeToSchemeResponse
+     * @param request - CreateCheckTypeToSchemeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateCheckTypeToSchemeResponse
+     *
+     * @param CreateCheckTypeToSchemeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateCheckTypeToSchemeResponse
      */
     public function createCheckTypeToSchemeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['jsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['jsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateCheckTypeToScheme',
@@ -679,11 +771,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 创建质检方案中的质检维度
-     *  *
-     * @param CreateCheckTypeToSchemeRequest $request CreateCheckTypeToSchemeRequest
+     * 创建质检方案中的质检维度.
      *
-     * @return CreateCheckTypeToSchemeResponse CreateCheckTypeToSchemeResponse
+     * @param request - CreateCheckTypeToSchemeRequest
+     *
+     * @returns CreateCheckTypeToSchemeResponse
+     *
+     * @param CreateCheckTypeToSchemeRequest $request
+     *
+     * @return CreateCheckTypeToSchemeResponse
      */
     public function createCheckTypeToScheme($request)
     {
@@ -693,36 +789,46 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 创建标签挖掘任务
-     *  *
-     * @param CreateMiningTaskRequest $request CreateMiningTaskRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 创建标签挖掘任务
      *
-     * @return CreateMiningTaskResponse CreateMiningTaskResponse
+     * @param request - CreateMiningTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMiningTaskResponse
+     *
+     * @param CreateMiningTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateMiningTaskResponse
      */
     public function createMiningTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->callbackUrl)) {
-            $body['CallbackUrl'] = $request->callbackUrl;
+        if (null !== $request->callbackUrl) {
+            @$body['CallbackUrl'] = $request->callbackUrl;
         }
-        if (!Utils::isUnset($request->filePath)) {
-            $body['FilePath'] = $request->filePath;
+
+        if (null !== $request->filePath) {
+            @$body['FilePath'] = $request->filePath;
         }
-        if (!Utils::isUnset($request->param)) {
-            $body['Param'] = $request->param;
+
+        if (null !== $request->param) {
+            @$body['Param'] = $request->param;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $body['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$body['TaskType'] = $request->taskType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateMiningTask',
@@ -740,11 +846,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 创建标签挖掘任务
-     *  *
-     * @param CreateMiningTaskRequest $request CreateMiningTaskRequest
+     * 创建标签挖掘任务
      *
-     * @return CreateMiningTaskResponse CreateMiningTaskResponse
+     * @param request - CreateMiningTaskRequest
+     *
+     * @returns CreateMiningTaskResponse
+     *
+     * @param CreateMiningTaskRequest $request
+     *
+     * @return CreateMiningTaskResponse
      */
     public function createMiningTask($request)
     {
@@ -754,25 +864,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 新增质检方案
-     *  *
-     * @param CreateQualityCheckSchemeRequest $request CreateQualityCheckSchemeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 新增质检方案.
      *
-     * @return CreateQualityCheckSchemeResponse CreateQualityCheckSchemeResponse
+     * @param request - CreateQualityCheckSchemeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateQualityCheckSchemeResponse
+     *
+     * @param CreateQualityCheckSchemeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateQualityCheckSchemeResponse
      */
     public function createQualityCheckSchemeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['jsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['jsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateQualityCheckScheme',
@@ -790,11 +907,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 新增质检方案
-     *  *
-     * @param CreateQualityCheckSchemeRequest $request CreateQualityCheckSchemeRequest
+     * 新增质检方案.
      *
-     * @return CreateQualityCheckSchemeResponse CreateQualityCheckSchemeResponse
+     * @param request - CreateQualityCheckSchemeRequest
+     *
+     * @returns CreateQualityCheckSchemeResponse
+     *
+     * @param CreateQualityCheckSchemeRequest $request
+     *
+     * @return CreateQualityCheckSchemeResponse
      */
     public function createQualityCheckScheme($request)
     {
@@ -804,25 +925,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 新建质检任务
-     *  *
-     * @param CreateSchemeTaskConfigRequest $request CreateSchemeTaskConfigRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 新建质检任务
      *
-     * @return CreateSchemeTaskConfigResponse CreateSchemeTaskConfigResponse
+     * @param request - CreateSchemeTaskConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSchemeTaskConfigResponse
+     *
+     * @param CreateSchemeTaskConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateSchemeTaskConfigResponse
      */
     public function createSchemeTaskConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['jsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['jsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateSchemeTaskConfig',
@@ -840,11 +968,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 新建质检任务
-     *  *
-     * @param CreateSchemeTaskConfigRequest $request CreateSchemeTaskConfigRequest
+     * 新建质检任务
      *
-     * @return CreateSchemeTaskConfigResponse CreateSchemeTaskConfigResponse
+     * @param request - CreateSchemeTaskConfigRequest
+     *
+     * @returns CreateSchemeTaskConfigResponse
+     *
+     * @param CreateSchemeTaskConfigRequest $request
+     *
+     * @return CreateSchemeTaskConfigResponse
      */
     public function createSchemeTaskConfig($request)
     {
@@ -855,26 +987,31 @@ class Qualitycheck extends OpenApiClient
 
     /**
      * @deprecated OpenAPI CreateSkillGroupConfig is deprecated
-     *  *
-     * Deprecated
      *
-     * @param CreateSkillGroupConfigRequest $request CreateSkillGroupConfigRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateSkillGroupConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateSkillGroupConfigResponse CreateSkillGroupConfigResponse
+     * @returns CreateSkillGroupConfigResponse
+     *
+     * @param CreateSkillGroupConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateSkillGroupConfigResponse
      */
     public function createSkillGroupConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateSkillGroupConfig',
@@ -891,14 +1028,17 @@ class Qualitycheck extends OpenApiClient
         return CreateSkillGroupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * @deprecated OpenAPI CreateSkillGroupConfig is deprecated
-     *  *
-     * Deprecated
      *
-     * @param CreateSkillGroupConfigRequest $request CreateSkillGroupConfigRequest
+     * @param request - CreateSkillGroupConfigRequest
      *
-     * @return CreateSkillGroupConfigResponse CreateSkillGroupConfigResponse
+     * @returns CreateSkillGroupConfigResponse
+     *
+     * @param CreateSkillGroupConfigRequest $request
+     *
+     * @return CreateSkillGroupConfigResponse
      */
     public function createSkillGroupConfig($request)
     {
@@ -908,23 +1048,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateTaskAssignRuleRequest $request CreateTaskAssignRuleRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateTaskAssignRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateTaskAssignRuleResponse CreateTaskAssignRuleResponse
+     * @returns CreateTaskAssignRuleResponse
+     *
+     * @param CreateTaskAssignRuleRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateTaskAssignRuleResponse
      */
     public function createTaskAssignRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateTaskAssignRule',
@@ -942,9 +1089,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateTaskAssignRuleRequest $request CreateTaskAssignRuleRequest
+     * @param request - CreateTaskAssignRuleRequest
      *
-     * @return CreateTaskAssignRuleResponse CreateTaskAssignRuleResponse
+     * @returns CreateTaskAssignRuleResponse
+     *
+     * @param CreateTaskAssignRuleRequest $request
+     *
+     * @return CreateTaskAssignRuleResponse
      */
     public function createTaskAssignRule($request)
     {
@@ -954,23 +1105,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateWarningConfigRequest $request CreateWarningConfigRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateWarningConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateWarningConfigResponse CreateWarningConfigResponse
+     * @returns CreateWarningConfigResponse
+     *
+     * @param CreateWarningConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateWarningConfigResponse
      */
     public function createWarningConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateWarningConfig',
@@ -988,9 +1146,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param CreateWarningConfigRequest $request CreateWarningConfigRequest
+     * @param request - CreateWarningConfigRequest
      *
-     * @return CreateWarningConfigResponse CreateWarningConfigResponse
+     * @returns CreateWarningConfigResponse
+     *
+     * @param CreateWarningConfigRequest $request
+     *
+     * @return CreateWarningConfigResponse
      */
     public function createWarningConfig($request)
     {
@@ -1000,25 +1162,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary  预警策略-新增
-     *  *
-     * @param CreateWarningStrategyConfigRequest $request CreateWarningStrategyConfigRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 预警策略-新增.
      *
-     * @return CreateWarningStrategyConfigResponse CreateWarningStrategyConfigResponse
+     * @param request - CreateWarningStrategyConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateWarningStrategyConfigResponse
+     *
+     * @param CreateWarningStrategyConfigRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateWarningStrategyConfigResponse
      */
     public function createWarningStrategyConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'CreateWarningStrategyConfig',
@@ -1036,11 +1205,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary  预警策略-新增
-     *  *
-     * @param CreateWarningStrategyConfigRequest $request CreateWarningStrategyConfigRequest
+     * 预警策略-新增.
      *
-     * @return CreateWarningStrategyConfigResponse CreateWarningStrategyConfigResponse
+     * @param request - CreateWarningStrategyConfigRequest
+     *
+     * @returns CreateWarningStrategyConfigResponse
+     *
+     * @param CreateWarningStrategyConfigRequest $request
+     *
+     * @return CreateWarningStrategyConfigResponse
      */
     public function createWarningStrategyConfig($request)
     {
@@ -1050,23 +1223,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DelRuleCategoryRequest $request DelRuleCategoryRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - DelRuleCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DelRuleCategoryResponse DelRuleCategoryResponse
+     * @returns DelRuleCategoryResponse
+     *
+     * @param DelRuleCategoryRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DelRuleCategoryResponse
      */
     public function delRuleCategoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DelRuleCategory',
@@ -1084,9 +1264,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DelRuleCategoryRequest $request DelRuleCategoryRequest
+     * @param request - DelRuleCategoryRequest
      *
-     * @return DelRuleCategoryResponse DelRuleCategoryResponse
+     * @returns DelRuleCategoryResponse
+     *
+     * @param DelRuleCategoryRequest $request
+     *
+     * @return DelRuleCategoryResponse
      */
     public function delRuleCategory($request)
     {
@@ -1096,23 +1280,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteAsrVocabRequest $request DeleteAsrVocabRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteAsrVocabRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteAsrVocabResponse DeleteAsrVocabResponse
+     * @returns DeleteAsrVocabResponse
+     *
+     * @param DeleteAsrVocabRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteAsrVocabResponse
      */
     public function deleteAsrVocabWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteAsrVocab',
@@ -1130,9 +1321,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteAsrVocabRequest $request DeleteAsrVocabRequest
+     * @param request - DeleteAsrVocabRequest
      *
-     * @return DeleteAsrVocabResponse DeleteAsrVocabResponse
+     * @returns DeleteAsrVocabResponse
+     *
+     * @param DeleteAsrVocabRequest $request
+     *
+     * @return DeleteAsrVocabResponse
      */
     public function deleteAsrVocab($request)
     {
@@ -1142,23 +1337,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteBusinessCategoryRequest $request DeleteBusinessCategoryRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteBusinessCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteBusinessCategoryResponse DeleteBusinessCategoryResponse
+     * @returns DeleteBusinessCategoryResponse
+     *
+     * @param DeleteBusinessCategoryRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteBusinessCategoryResponse
      */
     public function deleteBusinessCategoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteBusinessCategory',
@@ -1176,9 +1378,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteBusinessCategoryRequest $request DeleteBusinessCategoryRequest
+     * @param request - DeleteBusinessCategoryRequest
      *
-     * @return DeleteBusinessCategoryResponse DeleteBusinessCategoryResponse
+     * @returns DeleteBusinessCategoryResponse
+     *
+     * @param DeleteBusinessCategoryRequest $request
+     *
+     * @return DeleteBusinessCategoryResponse
      */
     public function deleteBusinessCategory($request)
     {
@@ -1188,25 +1394,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 删除质检唯独
-     *  *
-     * @param DeleteCheckTypeToSchemeRequest $request DeleteCheckTypeToSchemeRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 删除质检唯独.
      *
-     * @return DeleteCheckTypeToSchemeResponse DeleteCheckTypeToSchemeResponse
+     * @param request - DeleteCheckTypeToSchemeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCheckTypeToSchemeResponse
+     *
+     * @param DeleteCheckTypeToSchemeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteCheckTypeToSchemeResponse
      */
     public function deleteCheckTypeToSchemeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteCheckTypeToScheme',
@@ -1224,11 +1437,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 删除质检唯独
-     *  *
-     * @param DeleteCheckTypeToSchemeRequest $request DeleteCheckTypeToSchemeRequest
+     * 删除质检唯独.
      *
-     * @return DeleteCheckTypeToSchemeResponse DeleteCheckTypeToSchemeResponse
+     * @param request - DeleteCheckTypeToSchemeRequest
+     *
+     * @returns DeleteCheckTypeToSchemeResponse
+     *
+     * @param DeleteCheckTypeToSchemeRequest $request
+     *
+     * @return DeleteCheckTypeToSchemeResponse
      */
     public function deleteCheckTypeToScheme($request)
     {
@@ -1238,23 +1455,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomizationConfigRequest $request DeleteCustomizationConfigRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteCustomizationConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteCustomizationConfigResponse DeleteCustomizationConfigResponse
+     * @returns DeleteCustomizationConfigResponse
+     *
+     * @param DeleteCustomizationConfigRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteCustomizationConfigResponse
      */
     public function deleteCustomizationConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteCustomizationConfig',
@@ -1272,9 +1496,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteCustomizationConfigRequest $request DeleteCustomizationConfigRequest
+     * @param request - DeleteCustomizationConfigRequest
      *
-     * @return DeleteCustomizationConfigResponse DeleteCustomizationConfigResponse
+     * @returns DeleteCustomizationConfigResponse
+     *
+     * @param DeleteCustomizationConfigRequest $request
+     *
+     * @return DeleteCustomizationConfigResponse
      */
     public function deleteCustomizationConfig($request)
     {
@@ -1285,26 +1513,31 @@ class Qualitycheck extends OpenApiClient
 
     /**
      * @deprecated OpenAPI DeleteDataSet is deprecated
-     *  *
-     * Deprecated
      *
-     * @param DeleteDataSetRequest $request DeleteDataSetRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteDataSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteDataSetResponse DeleteDataSetResponse
+     * @returns DeleteDataSetResponse
+     *
+     * @param DeleteDataSetRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteDataSetResponse
      */
     public function deleteDataSetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteDataSet',
@@ -1321,14 +1554,17 @@ class Qualitycheck extends OpenApiClient
         return DeleteDataSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * @deprecated OpenAPI DeleteDataSet is deprecated
-     *  *
-     * Deprecated
      *
-     * @param DeleteDataSetRequest $request DeleteDataSetRequest
+     * @param request - DeleteDataSetRequest
      *
-     * @return DeleteDataSetResponse DeleteDataSetResponse
+     * @returns DeleteDataSetResponse
+     *
+     * @param DeleteDataSetRequest $request
+     *
+     * @return DeleteDataSetResponse
      */
     public function deleteDataSet($request)
     {
@@ -1338,23 +1574,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeletePrecisionTaskRequest $request DeletePrecisionTaskRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - DeletePrecisionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeletePrecisionTaskResponse DeletePrecisionTaskResponse
+     * @returns DeletePrecisionTaskResponse
+     *
+     * @param DeletePrecisionTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeletePrecisionTaskResponse
      */
     public function deletePrecisionTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeletePrecisionTask',
@@ -1372,9 +1615,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeletePrecisionTaskRequest $request DeletePrecisionTaskRequest
+     * @param request - DeletePrecisionTaskRequest
      *
-     * @return DeletePrecisionTaskResponse DeletePrecisionTaskResponse
+     * @returns DeletePrecisionTaskResponse
+     *
+     * @param DeletePrecisionTaskRequest $request
+     *
+     * @return DeletePrecisionTaskResponse
      */
     public function deletePrecisionTask($request)
     {
@@ -1384,25 +1631,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 删除质检方案
-     *  *
-     * @param DeleteQualityCheckSchemeRequest $request DeleteQualityCheckSchemeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 删除质检方案.
      *
-     * @return DeleteQualityCheckSchemeResponse DeleteQualityCheckSchemeResponse
+     * @param request - DeleteQualityCheckSchemeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteQualityCheckSchemeResponse
+     *
+     * @param DeleteQualityCheckSchemeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteQualityCheckSchemeResponse
      */
     public function deleteQualityCheckSchemeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['jsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['jsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteQualityCheckScheme',
@@ -1420,11 +1674,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 删除质检方案
-     *  *
-     * @param DeleteQualityCheckSchemeRequest $request DeleteQualityCheckSchemeRequest
+     * 删除质检方案.
      *
-     * @return DeleteQualityCheckSchemeResponse DeleteQualityCheckSchemeResponse
+     * @param request - DeleteQualityCheckSchemeRequest
+     *
+     * @returns DeleteQualityCheckSchemeResponse
+     *
+     * @param DeleteQualityCheckSchemeRequest $request
+     *
+     * @return DeleteQualityCheckSchemeResponse
      */
     public function deleteQualityCheckScheme($request)
     {
@@ -1434,37 +1692,44 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * 删除规则.
+     *
      * @deprecated openAPI DeleteRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead
-     *  *
-     * @summary 删除规则
-     *  *
-     * Deprecated
      *
-     * @param DeleteRuleRequest $request DeleteRuleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteRuleResponse DeleteRuleResponse
+     * @returns DeleteRuleResponse
+     *
+     * @param DeleteRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteRuleResponse
      */
     public function deleteRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->forceDelete)) {
-            $body['ForceDelete'] = $request->forceDelete;
+        if (null !== $request->forceDelete) {
+            @$body['ForceDelete'] = $request->forceDelete;
         }
-        if (!Utils::isUnset($request->isSchemeData)) {
-            $body['IsSchemeData'] = $request->isSchemeData;
+
+        if (null !== $request->isSchemeData) {
+            @$body['IsSchemeData'] = $request->isSchemeData;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $body['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$body['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteRule',
@@ -1481,16 +1746,19 @@ class Qualitycheck extends OpenApiClient
         return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * 删除规则.
+     *
      * @deprecated openAPI DeleteRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead
-     *  *
-     * @summary 删除规则
-     *  *
-     * Deprecated
      *
-     * @param DeleteRuleRequest $request DeleteRuleRequest
+     * @param request - DeleteRuleRequest
      *
-     * @return DeleteRuleResponse DeleteRuleResponse
+     * @returns DeleteRuleResponse
+     *
+     * @param DeleteRuleRequest $request
+     *
+     * @return DeleteRuleResponse
      */
     public function deleteRule($request)
     {
@@ -1500,30 +1768,38 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary V4删除规则
-     *  *
-     * @param DeleteRuleV4Request $request DeleteRuleV4Request
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * V4删除规则.
      *
-     * @return DeleteRuleV4Response DeleteRuleV4Response
+     * @param request - DeleteRuleV4Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRuleV4Response
+     *
+     * @param DeleteRuleV4Request $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteRuleV4Response
      */
     public function deleteRuleV4WithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->forceDelete)) {
-            $body['ForceDelete'] = $request->forceDelete;
+        if (null !== $request->forceDelete) {
+            @$body['ForceDelete'] = $request->forceDelete;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $body['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$body['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeleteRuleV4',
@@ -1541,11 +1817,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary V4删除规则
-     *  *
-     * @param DeleteRuleV4Request $request DeleteRuleV4Request
+     * V4删除规则.
      *
-     * @return DeleteRuleV4Response DeleteRuleV4Response
+     * @param request - DeleteRuleV4Request
+     *
+     * @returns DeleteRuleV4Response
+     *
+     * @param DeleteRuleV4Request $request
+     *
+     * @return DeleteRuleV4Response
      */
     public function deleteRuleV4($request)
     {
@@ -1555,25 +1835,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 删除质检任务
-     *  *
-     * @param DeleteSchemeTaskConfigRequest $request DeleteSchemeTaskConfigRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 删除质检任务
      *
-     * @return DeleteSchemeTaskConfigResponse DeleteSchemeTaskConfigResponse
+     * @param request - DeleteSchemeTaskConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSchemeTaskConfigResponse
+     *
+     * @param DeleteSchemeTaskConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteSchemeTaskConfigResponse
      */
     public function deleteSchemeTaskConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['jsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['jsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteSchemeTaskConfig',
@@ -1591,11 +1878,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 删除质检任务
-     *  *
-     * @param DeleteSchemeTaskConfigRequest $request DeleteSchemeTaskConfigRequest
+     * 删除质检任务
      *
-     * @return DeleteSchemeTaskConfigResponse DeleteSchemeTaskConfigResponse
+     * @param request - DeleteSchemeTaskConfigRequest
+     *
+     * @returns DeleteSchemeTaskConfigResponse
+     *
+     * @param DeleteSchemeTaskConfigRequest $request
+     *
+     * @return DeleteSchemeTaskConfigResponse
      */
     public function deleteSchemeTaskConfig($request)
     {
@@ -1606,26 +1897,31 @@ class Qualitycheck extends OpenApiClient
 
     /**
      * @deprecated OpenAPI DeleteSkillGroupConfig is deprecated
-     *  *
-     * Deprecated
      *
-     * @param DeleteSkillGroupConfigRequest $request DeleteSkillGroupConfigRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteSkillGroupConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteSkillGroupConfigResponse DeleteSkillGroupConfigResponse
+     * @returns DeleteSkillGroupConfigResponse
+     *
+     * @param DeleteSkillGroupConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteSkillGroupConfigResponse
      */
     public function deleteSkillGroupConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteSkillGroupConfig',
@@ -1642,14 +1938,17 @@ class Qualitycheck extends OpenApiClient
         return DeleteSkillGroupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * @deprecated OpenAPI DeleteSkillGroupConfig is deprecated
-     *  *
-     * Deprecated
      *
-     * @param DeleteSkillGroupConfigRequest $request DeleteSkillGroupConfigRequest
+     * @param request - DeleteSkillGroupConfigRequest
      *
-     * @return DeleteSkillGroupConfigResponse DeleteSkillGroupConfigResponse
+     * @returns DeleteSkillGroupConfigResponse
+     *
+     * @param DeleteSkillGroupConfigRequest $request
+     *
+     * @return DeleteSkillGroupConfigResponse
      */
     public function deleteSkillGroupConfig($request)
     {
@@ -1659,23 +1958,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteTaskAssignRuleRequest $request DeleteTaskAssignRuleRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteTaskAssignRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteTaskAssignRuleResponse DeleteTaskAssignRuleResponse
+     * @returns DeleteTaskAssignRuleResponse
+     *
+     * @param DeleteTaskAssignRuleRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteTaskAssignRuleResponse
      */
     public function deleteTaskAssignRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteTaskAssignRule',
@@ -1693,9 +1999,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteTaskAssignRuleRequest $request DeleteTaskAssignRuleRequest
+     * @param request - DeleteTaskAssignRuleRequest
      *
-     * @return DeleteTaskAssignRuleResponse DeleteTaskAssignRuleResponse
+     * @returns DeleteTaskAssignRuleResponse
+     *
+     * @param DeleteTaskAssignRuleRequest $request
+     *
+     * @return DeleteTaskAssignRuleResponse
      */
     public function deleteTaskAssignRule($request)
     {
@@ -1705,23 +2015,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteWarningConfigRequest $request DeleteWarningConfigRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteWarningConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteWarningConfigResponse DeleteWarningConfigResponse
+     * @returns DeleteWarningConfigResponse
+     *
+     * @param DeleteWarningConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteWarningConfigResponse
      */
     public function deleteWarningConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteWarningConfig',
@@ -1739,9 +2056,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param DeleteWarningConfigRequest $request DeleteWarningConfigRequest
+     * @param request - DeleteWarningConfigRequest
      *
-     * @return DeleteWarningConfigResponse DeleteWarningConfigResponse
+     * @returns DeleteWarningConfigResponse
+     *
+     * @param DeleteWarningConfigRequest $request
+     *
+     * @return DeleteWarningConfigResponse
      */
     public function deleteWarningConfig($request)
     {
@@ -1751,25 +2072,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary  预警策略-删除
-     *  *
-     * @param DeleteWarningStrategyConfigRequest $request DeleteWarningStrategyConfigRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 预警策略-删除.
      *
-     * @return DeleteWarningStrategyConfigResponse DeleteWarningStrategyConfigResponse
+     * @param request - DeleteWarningStrategyConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteWarningStrategyConfigResponse
+     *
+     * @param DeleteWarningStrategyConfigRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteWarningStrategyConfigResponse
      */
     public function deleteWarningStrategyConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteWarningStrategyConfig',
@@ -1787,11 +2115,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary  预警策略-删除
-     *  *
-     * @param DeleteWarningStrategyConfigRequest $request DeleteWarningStrategyConfigRequest
+     * 预警策略-删除.
      *
-     * @return DeleteWarningStrategyConfigResponse DeleteWarningStrategyConfigResponse
+     * @param request - DeleteWarningStrategyConfigRequest
+     *
+     * @returns DeleteWarningStrategyConfigResponse
+     *
+     * @param DeleteWarningStrategyConfigRequest $request
+     *
+     * @return DeleteWarningStrategyConfigResponse
      */
     public function deleteWarningStrategyConfig($request)
     {
@@ -1801,23 +2133,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetAsrVocabRequest $request GetAsrVocabRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param request - GetAsrVocabRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetAsrVocabResponse GetAsrVocabResponse
+     * @returns GetAsrVocabResponse
+     *
+     * @param GetAsrVocabRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetAsrVocabResponse
      */
     public function getAsrVocabWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetAsrVocab',
@@ -1835,9 +2174,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetAsrVocabRequest $request GetAsrVocabRequest
+     * @param request - GetAsrVocabRequest
      *
-     * @return GetAsrVocabResponse GetAsrVocabResponse
+     * @returns GetAsrVocabResponse
+     *
+     * @param GetAsrVocabRequest $request
+     *
+     * @return GetAsrVocabResponse
      */
     public function getAsrVocab($request)
     {
@@ -1847,23 +2190,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetBusinessCategoryListRequest $request GetBusinessCategoryListRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - GetBusinessCategoryListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetBusinessCategoryListResponse GetBusinessCategoryListResponse
+     * @returns GetBusinessCategoryListResponse
+     *
+     * @param GetBusinessCategoryListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetBusinessCategoryListResponse
      */
     public function getBusinessCategoryListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetBusinessCategoryList',
@@ -1881,9 +2231,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetBusinessCategoryListRequest $request GetBusinessCategoryListRequest
+     * @param request - GetBusinessCategoryListRequest
      *
-     * @return GetBusinessCategoryListResponse GetBusinessCategoryListResponse
+     * @returns GetBusinessCategoryListResponse
+     *
+     * @param GetBusinessCategoryListRequest $request
+     *
+     * @return GetBusinessCategoryListResponse
      */
     public function getBusinessCategoryList($request)
     {
@@ -1893,25 +2247,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 获取语音模型列表
-     *  *
-     * @param GetCustomizationConfigListRequest $request GetCustomizationConfigListRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 获取语音模型列表.
      *
-     * @return GetCustomizationConfigListResponse GetCustomizationConfigListResponse
+     * @param request - GetCustomizationConfigListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetCustomizationConfigListResponse
+     *
+     * @param GetCustomizationConfigListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetCustomizationConfigListResponse
      */
     public function getCustomizationConfigListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetCustomizationConfigList',
@@ -1929,11 +2290,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 获取语音模型列表
-     *  *
-     * @param GetCustomizationConfigListRequest $request GetCustomizationConfigListRequest
+     * 获取语音模型列表.
      *
-     * @return GetCustomizationConfigListResponse GetCustomizationConfigListResponse
+     * @param request - GetCustomizationConfigListRequest
+     *
+     * @returns GetCustomizationConfigListResponse
+     *
+     * @param GetCustomizationConfigListRequest $request
+     *
+     * @return GetCustomizationConfigListResponse
      */
     public function getCustomizationConfigList($request)
     {
@@ -1943,25 +2308,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 获取标签挖掘任务结果
-     *  *
-     * @param GetMiningTaskResultRequest $request GetMiningTaskResultRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 获取标签挖掘任务结果.
      *
-     * @return GetMiningTaskResultResponse GetMiningTaskResultResponse
+     * @param request - GetMiningTaskResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetMiningTaskResultResponse
+     *
+     * @param GetMiningTaskResultRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetMiningTaskResultResponse
      */
     public function getMiningTaskResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetMiningTaskResult',
@@ -1979,11 +2351,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 获取标签挖掘任务结果
-     *  *
-     * @param GetMiningTaskResultRequest $request GetMiningTaskResultRequest
+     * 获取标签挖掘任务结果.
      *
-     * @return GetMiningTaskResultResponse GetMiningTaskResultResponse
+     * @param request - GetMiningTaskResultRequest
+     *
+     * @returns GetMiningTaskResultResponse
+     *
+     * @param GetMiningTaskResultRequest $request
+     *
+     * @return GetMiningTaskResultResponse
      */
     public function getMiningTaskResult($request)
     {
@@ -1993,23 +2369,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetNextResultToVerifyRequest $request GetNextResultToVerifyRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - GetNextResultToVerifyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetNextResultToVerifyResponse GetNextResultToVerifyResponse
+     * @returns GetNextResultToVerifyResponse
+     *
+     * @param GetNextResultToVerifyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetNextResultToVerifyResponse
      */
     public function getNextResultToVerifyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetNextResultToVerify',
@@ -2027,9 +2410,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetNextResultToVerifyRequest $request GetNextResultToVerifyRequest
+     * @param request - GetNextResultToVerifyRequest
      *
-     * @return GetNextResultToVerifyResponse GetNextResultToVerifyResponse
+     * @returns GetNextResultToVerifyResponse
+     *
+     * @param GetNextResultToVerifyRequest $request
+     *
+     * @return GetNextResultToVerifyResponse
      */
     public function getNextResultToVerify($request)
     {
@@ -2039,23 +2426,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetPrecisionTaskRequest $request GetPrecisionTaskRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - GetPrecisionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetPrecisionTaskResponse GetPrecisionTaskResponse
+     * @returns GetPrecisionTaskResponse
+     *
+     * @param GetPrecisionTaskRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetPrecisionTaskResponse
      */
     public function getPrecisionTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetPrecisionTask',
@@ -2073,9 +2467,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetPrecisionTaskRequest $request GetPrecisionTaskRequest
+     * @param request - GetPrecisionTaskRequest
      *
-     * @return GetPrecisionTaskResponse GetPrecisionTaskResponse
+     * @returns GetPrecisionTaskResponse
+     *
+     * @param GetPrecisionTaskRequest $request
+     *
+     * @return GetPrecisionTaskResponse
      */
     public function getPrecisionTask($request)
     {
@@ -2085,25 +2483,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 获取质检方案
-     *  *
-     * @param GetQualityCheckSchemeRequest $request GetQualityCheckSchemeRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 获取质检方案.
      *
-     * @return GetQualityCheckSchemeResponse GetQualityCheckSchemeResponse
+     * @param request - GetQualityCheckSchemeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetQualityCheckSchemeResponse
+     *
+     * @param GetQualityCheckSchemeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetQualityCheckSchemeResponse
      */
     public function getQualityCheckSchemeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['jsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['jsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetQualityCheckScheme',
@@ -2121,11 +2526,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 获取质检方案
-     *  *
-     * @param GetQualityCheckSchemeRequest $request GetQualityCheckSchemeRequest
+     * 获取质检方案.
      *
-     * @return GetQualityCheckSchemeResponse GetQualityCheckSchemeResponse
+     * @param request - GetQualityCheckSchemeRequest
+     *
+     * @returns GetQualityCheckSchemeResponse
+     *
+     * @param GetQualityCheckSchemeRequest $request
+     *
+     * @return GetQualityCheckSchemeResponse
      */
     public function getQualityCheckScheme($request)
     {
@@ -2135,23 +2544,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetResultRequest $request GetResultRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @param request - GetResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetResultResponse GetResultResponse
+     * @returns GetResultResponse
+     *
+     * @param GetResultRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetResultResponse
      */
     public function getResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetResult',
@@ -2169,9 +2585,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetResultRequest $request GetResultRequest
+     * @param request - GetResultRequest
      *
-     * @return GetResultResponse GetResultResponse
+     * @returns GetResultResponse
+     *
+     * @param GetResultRequest $request
+     *
+     * @return GetResultResponse
      */
     public function getResult($request)
     {
@@ -2181,23 +2601,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetResultToReviewRequest $request GetResultToReviewRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - GetResultToReviewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetResultToReviewResponse GetResultToReviewResponse
+     * @returns GetResultToReviewResponse
+     *
+     * @param GetResultToReviewRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetResultToReviewResponse
      */
     public function getResultToReviewWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetResultToReview',
@@ -2215,9 +2642,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetResultToReviewRequest $request GetResultToReviewRequest
+     * @param request - GetResultToReviewRequest
      *
-     * @return GetResultToReviewResponse GetResultToReviewResponse
+     * @returns GetResultToReviewResponse
+     *
+     * @param GetResultToReviewRequest $request
+     *
+     * @return GetResultToReviewResponse
      */
     public function getResultToReview($request)
     {
@@ -2227,27 +2658,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI GetRule is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
-     *  *
-     * Deprecated
+     * @deprecated openAPI GetRule is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead
      *
-     * @param GetRuleRequest $request GetRuleRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param request - GetRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetRuleResponse GetRuleResponse
+     * @returns GetRuleResponse
+     *
+     * @param GetRuleRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetRuleResponse
      */
     public function getRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetRule',
@@ -2264,14 +2700,17 @@ class Qualitycheck extends OpenApiClient
         return GetRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
-     * @deprecated OpenAPI GetRule is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
-     *  *
-     * Deprecated
+     * @deprecated openAPI GetRule is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead
      *
-     * @param GetRuleRequest $request GetRuleRequest
+     * @param request - GetRuleRequest
      *
-     * @return GetRuleResponse GetRuleResponse
+     * @returns GetRuleResponse
+     *
+     * @param GetRuleRequest $request
+     *
+     * @return GetRuleResponse
      */
     public function getRule($request)
     {
@@ -2281,31 +2720,36 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * 获取规则.
+     *
      * @deprecated openAPI GetRuleById is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead
-     *  *
-     * @summary 获取规则
-     *  *
-     * Deprecated
      *
-     * @param GetRuleByIdRequest $request GetRuleByIdRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param request - GetRuleByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetRuleByIdResponse GetRuleByIdResponse
+     * @returns GetRuleByIdResponse
+     *
+     * @param GetRuleByIdRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetRuleByIdResponse
      */
     public function getRuleByIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->ruleId)) {
-            $body['RuleId'] = $request->ruleId;
+        if (null !== $request->ruleId) {
+            @$body['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetRuleById',
@@ -2322,16 +2766,19 @@ class Qualitycheck extends OpenApiClient
         return GetRuleByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * 获取规则.
+     *
      * @deprecated openAPI GetRuleById is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead
-     *  *
-     * @summary 获取规则
-     *  *
-     * Deprecated
      *
-     * @param GetRuleByIdRequest $request GetRuleByIdRequest
+     * @param request - GetRuleByIdRequest
      *
-     * @return GetRuleByIdResponse GetRuleByIdResponse
+     * @returns GetRuleByIdResponse
+     *
+     * @param GetRuleByIdRequest $request
+     *
+     * @return GetRuleByIdResponse
      */
     public function getRuleById($request)
     {
@@ -2341,23 +2788,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetRuleCategoryRequest $request GetRuleCategoryRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - GetRuleCategoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetRuleCategoryResponse GetRuleCategoryResponse
+     * @returns GetRuleCategoryResponse
+     *
+     * @param GetRuleCategoryRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetRuleCategoryResponse
      */
     public function getRuleCategoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetRuleCategory',
@@ -2375,9 +2829,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param GetRuleCategoryRequest $request GetRuleCategoryRequest
+     * @param request - GetRuleCategoryRequest
      *
-     * @return GetRuleCategoryResponse GetRuleCategoryResponse
+     * @returns GetRuleCategoryResponse
+     *
+     * @param GetRuleCategoryRequest $request
+     *
+     * @return GetRuleCategoryResponse
      */
     public function getRuleCategory($request)
     {
@@ -2387,27 +2845,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI GetRuleDetail is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
-     *  *
-     * Deprecated
+     * @deprecated openAPI GetRuleDetail is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead
      *
-     * @param GetRuleDetailRequest $request GetRuleDetailRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - GetRuleDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetRuleDetailResponse GetRuleDetailResponse
+     * @returns GetRuleDetailResponse
+     *
+     * @param GetRuleDetailRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetRuleDetailResponse
      */
     public function getRuleDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetRuleDetail',
@@ -2424,14 +2887,17 @@ class Qualitycheck extends OpenApiClient
         return GetRuleDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
-     * @deprecated OpenAPI GetRuleDetail is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead.
-     *  *
-     * Deprecated
+     * @deprecated openAPI GetRuleDetail is deprecated, please use Qualitycheck::2019-01-15::GetRuleV4 instead
      *
-     * @param GetRuleDetailRequest $request GetRuleDetailRequest
+     * @param request - GetRuleDetailRequest
      *
-     * @return GetRuleDetailResponse GetRuleDetailResponse
+     * @returns GetRuleDetailResponse
+     *
+     * @param GetRuleDetailRequest $request
+     *
+     * @return GetRuleDetailResponse
      */
     public function getRuleDetail($request)
     {
@@ -2441,22 +2907,28 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary V4获取规则
-     *  *
-     * @param GetRuleV4Request $request GetRuleV4Request
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * V4获取规则.
      *
-     * @return GetRuleV4Response GetRuleV4Response
+     * @param request - GetRuleV4Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRuleV4Response
+     *
+     * @param GetRuleV4Request $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetRuleV4Response
      */
     public function getRuleV4WithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->ruleId)) {
-            $body['RuleId'] = $request->ruleId;
+        if (null !== $request->ruleId) {
+            @$body['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetRuleV4',
@@ -2474,11 +2946,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary V4获取规则
-     *  *
-     * @param GetRuleV4Request $request GetRuleV4Request
+     * V4获取规则.
      *
-     * @return GetRuleV4Response GetRuleV4Response
+     * @param request - GetRuleV4Request
+     *
+     * @returns GetRuleV4Response
+     *
+     * @param GetRuleV4Request $request
+     *
+     * @return GetRuleV4Response
      */
     public function getRuleV4($request)
     {
@@ -2488,99 +2964,130 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 获得规则列表
-     *  *
-     * @param GetRulesCountListRequest $request GetRulesCountListRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 获得规则列表.
      *
-     * @return GetRulesCountListResponse GetRulesCountListResponse
+     * @param request - GetRulesCountListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRulesCountListResponse
+     *
+     * @param GetRulesCountListRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetRulesCountListResponse
      */
     public function getRulesCountListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->businessName)) {
-            $body['BusinessName'] = $request->businessName;
+        if (null !== $request->businessName) {
+            @$body['BusinessName'] = $request->businessName;
         }
-        if (!Utils::isUnset($request->businessRange)) {
-            $body['BusinessRange'] = $request->businessRange;
+
+        if (null !== $request->businessRange) {
+            @$body['BusinessRange'] = $request->businessRange;
         }
-        if (!Utils::isUnset($request->categoryName)) {
-            $body['CategoryName'] = $request->categoryName;
+
+        if (null !== $request->categoryName) {
+            @$body['CategoryName'] = $request->categoryName;
         }
-        if (!Utils::isUnset($request->countTotal)) {
-            $body['CountTotal'] = $request->countTotal;
+
+        if (null !== $request->countTotal) {
+            @$body['CountTotal'] = $request->countTotal;
         }
-        if (!Utils::isUnset($request->createEmpid)) {
-            $body['CreateEmpid'] = $request->createEmpid;
+
+        if (null !== $request->createEmpid) {
+            @$body['CreateEmpid'] = $request->createEmpid;
         }
-        if (!Utils::isUnset($request->createUserId)) {
-            $body['CreateUserId'] = $request->createUserId;
+
+        if (null !== $request->createUserId) {
+            @$body['CreateUserId'] = $request->createUserId;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->lastUpdateEmpid)) {
-            $body['LastUpdateEmpid'] = $request->lastUpdateEmpid;
+
+        if (null !== $request->lastUpdateEmpid) {
+            @$body['LastUpdateEmpid'] = $request->lastUpdateEmpid;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->requireInfos)) {
-            $body['RequireInfos'] = $request->requireInfos;
+
+        if (null !== $request->requireInfos) {
+            @$body['RequireInfos'] = $request->requireInfos;
         }
-        if (!Utils::isUnset($request->rid)) {
-            $body['Rid'] = $request->rid;
+
+        if (null !== $request->rid) {
+            @$body['Rid'] = $request->rid;
         }
-        if (!Utils::isUnset($request->ruleIdOrRuleName)) {
-            $body['RuleIdOrRuleName'] = $request->ruleIdOrRuleName;
+
+        if (null !== $request->ruleIdOrRuleName) {
+            @$body['RuleIdOrRuleName'] = $request->ruleIdOrRuleName;
         }
-        if (!Utils::isUnset($request->ruleScoreSingleType)) {
-            $body['RuleScoreSingleType'] = $request->ruleScoreSingleType;
+
+        if (null !== $request->ruleScoreSingleType) {
+            @$body['RuleScoreSingleType'] = $request->ruleScoreSingleType;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $body['RuleType'] = $request->ruleType;
+
+        if (null !== $request->ruleType) {
+            @$body['RuleType'] = $request->ruleType;
         }
-        if (!Utils::isUnset($request->schemeId)) {
-            $body['SchemeId'] = $request->schemeId;
+
+        if (null !== $request->schemeId) {
+            @$body['SchemeId'] = $request->schemeId;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $body['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$body['SourceType'] = $request->sourceType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->typeName)) {
-            $body['TypeName'] = $request->typeName;
+
+        if (null !== $request->typeName) {
+            @$body['TypeName'] = $request->typeName;
         }
-        if (!Utils::isUnset($request->updateEndTime)) {
-            $body['UpdateEndTime'] = $request->updateEndTime;
+
+        if (null !== $request->updateEndTime) {
+            @$body['UpdateEndTime'] = $request->updateEndTime;
         }
-        if (!Utils::isUnset($request->updateStartTime)) {
-            $body['UpdateStartTime'] = $request->updateStartTime;
+
+        if (null !== $request->updateStartTime) {
+            @$body['UpdateStartTime'] = $request->updateStartTime;
         }
-        if (!Utils::isUnset($request->updateUserId)) {
-            $body['UpdateUserId'] = $request->updateUserId;
+
+        if (null !== $request->updateUserId) {
+            @$body['UpdateUserId'] = $request->updateUserId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'GetRulesCountList',
@@ -2598,11 +3105,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 获得规则列表
-     *  *
-     * @param GetRulesCountListRequest $request GetRulesCountListRequest
+     * 获得规则列表.
      *
-     * @return GetRulesCountListResponse GetRulesCountListResponse
+     * @param request - GetRulesCountListRequest
+     *
+     * @returns GetRulesCountListResponse
+     *
+     * @param GetRulesCountListRequest $request
+     *
+     * @return GetRulesCountListResponse
      */
     public function getRulesCountList($request)
     {
@@ -2612,25 +3123,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 获取质检任务配置详情
-     *  *
-     * @param GetSchemeTaskConfigRequest $request GetSchemeTaskConfigRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 获取质检任务配置详情.
      *
-     * @return GetSchemeTaskConfigResponse GetSchemeTaskConfigResponse
+     * @param request - GetSchemeTaskConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetSchemeTaskConfigResponse
+     *
+     * @param GetSchemeTaskConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetSchemeTaskConfigResponse
      */
     public function getSchemeTaskConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetSchemeTaskConfig',
@@ -2648,11 +3166,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 获取质检任务配置详情
-     *  *
-     * @param GetSchemeTaskConfigRequest $request GetSchemeTaskConfigRequest
+     * 获取质检任务配置详情.
      *
-     * @return GetSchemeTaskConfigResponse GetSchemeTaskConfigResponse
+     * @param request - GetSchemeTaskConfigRequest
+     *
+     * @returns GetSchemeTaskConfigResponse
+     *
+     * @param GetSchemeTaskConfigRequest $request
+     *
+     * @return GetSchemeTaskConfigResponse
      */
     public function getSchemeTaskConfig($request)
     {
@@ -2663,26 +3185,31 @@ class Qualitycheck extends OpenApiClient
 
     /**
      * @deprecated OpenAPI GetScoreInfo is deprecated
-     *  *
-     * Deprecated
      *
-     * @param GetScoreInfoRequest $request GetScoreInfoRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - GetScoreInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetScoreInfoResponse GetScoreInfoResponse
+     * @returns GetScoreInfoResponse
+     *
+     * @param GetScoreInfoRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetScoreInfoResponse
      */
     public function getScoreInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetScoreInfo',
@@ -2699,14 +3226,17 @@ class Qualitycheck extends OpenApiClient
         return GetScoreInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * @deprecated OpenAPI GetScoreInfo is deprecated
-     *  *
-     * Deprecated
      *
-     * @param GetScoreInfoRequest $request GetScoreInfoRequest
+     * @param request - GetScoreInfoRequest
      *
-     * @return GetScoreInfoResponse GetScoreInfoResponse
+     * @returns GetScoreInfoResponse
+     *
+     * @param GetScoreInfoRequest $request
+     *
+     * @return GetScoreInfoResponse
      */
     public function getScoreInfo($request)
     {
@@ -2717,26 +3247,31 @@ class Qualitycheck extends OpenApiClient
 
     /**
      * @deprecated OpenAPI GetSkillGroupConfig is deprecated
-     *  *
-     * Deprecated
      *
-     * @param GetSkillGroupConfigRequest $request GetSkillGroupConfigRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - GetSkillGroupConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetSkillGroupConfigResponse GetSkillGroupConfigResponse
+     * @returns GetSkillGroupConfigResponse
+     *
+     * @param GetSkillGroupConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetSkillGroupConfigResponse
      */
     public function getSkillGroupConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetSkillGroupConfig',
@@ -2753,14 +3288,17 @@ class Qualitycheck extends OpenApiClient
         return GetSkillGroupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * @deprecated OpenAPI GetSkillGroupConfig is deprecated
-     *  *
-     * Deprecated
      *
-     * @param GetSkillGroupConfigRequest $request GetSkillGroupConfigRequest
+     * @param request - GetSkillGroupConfigRequest
      *
-     * @return GetSkillGroupConfigResponse GetSkillGroupConfigResponse
+     * @returns GetSkillGroupConfigResponse
+     *
+     * @param GetSkillGroupConfigRequest $request
+     *
+     * @return GetSkillGroupConfigResponse
      */
     public function getSkillGroupConfig($request)
     {
@@ -2770,27 +3308,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI GetSyncResult is deprecated, please use Qualitycheck::2019-01-15::GetResult instead.
-     *  *
-     * Deprecated
+     * @deprecated openAPI GetSyncResult is deprecated, please use Qualitycheck::2019-01-15::GetResult instead
      *
-     * @param GetSyncResultRequest $request GetSyncResultRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - GetSyncResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetSyncResultResponse GetSyncResultResponse
+     * @returns GetSyncResultResponse
+     *
+     * @param GetSyncResultRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetSyncResultResponse
      */
     public function getSyncResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetSyncResult',
@@ -2807,14 +3350,17 @@ class Qualitycheck extends OpenApiClient
         return GetSyncResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
-     * @deprecated OpenAPI GetSyncResult is deprecated, please use Qualitycheck::2019-01-15::GetResult instead.
-     *  *
-     * Deprecated
+     * @deprecated openAPI GetSyncResult is deprecated, please use Qualitycheck::2019-01-15::GetResult instead
      *
-     * @param GetSyncResultRequest $request GetSyncResultRequest
+     * @param request - GetSyncResultRequest
      *
-     * @return GetSyncResultResponse GetSyncResultResponse
+     * @returns GetSyncResultResponse
+     *
+     * @param GetSyncResultRequest $request
+     *
+     * @return GetSyncResultResponse
      */
     public function getSyncResult($request)
     {
@@ -2824,25 +3370,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 预警策略-详情
-     *  *
-     * @param GetWarningStrategyConfigRequest $request GetWarningStrategyConfigRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 预警策略-详情.
      *
-     * @return GetWarningStrategyConfigResponse GetWarningStrategyConfigResponse
+     * @param request - GetWarningStrategyConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetWarningStrategyConfigResponse
+     *
+     * @param GetWarningStrategyConfigRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetWarningStrategyConfigResponse
      */
     public function getWarningStrategyConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetWarningStrategyConfig',
@@ -2860,11 +3413,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 预警策略-详情
-     *  *
-     * @param GetWarningStrategyConfigRequest $request GetWarningStrategyConfigRequest
+     * 预警策略-详情.
      *
-     * @return GetWarningStrategyConfigResponse GetWarningStrategyConfigResponse
+     * @param request - GetWarningStrategyConfigRequest
+     *
+     * @returns GetWarningStrategyConfigResponse
+     *
+     * @param GetWarningStrategyConfigRequest $request
+     *
+     * @return GetWarningStrategyConfigResponse
      */
     public function getWarningStrategyConfig($request)
     {
@@ -2874,23 +3431,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param HandleComplaintRequest $request HandleComplaintRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - HandleComplaintRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return HandleComplaintResponse HandleComplaintResponse
+     * @returns HandleComplaintResponse
+     *
+     * @param HandleComplaintRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return HandleComplaintResponse
      */
     public function handleComplaintWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'HandleComplaint',
@@ -2908,9 +3472,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param HandleComplaintRequest $request HandleComplaintRequest
+     * @param request - HandleComplaintRequest
      *
-     * @return HandleComplaintResponse HandleComplaintResponse
+     * @returns HandleComplaintResponse
+     *
+     * @param HandleComplaintRequest $request
+     *
+     * @return HandleComplaintResponse
      */
     public function handleComplaint($request)
     {
@@ -2920,27 +3488,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI InvalidRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead.
-     *  *
-     * Deprecated
+     * @deprecated openAPI InvalidRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead
      *
-     * @param InvalidRuleRequest $request InvalidRuleRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param request - InvalidRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return InvalidRuleResponse InvalidRuleResponse
+     * @returns InvalidRuleResponse
+     *
+     * @param InvalidRuleRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return InvalidRuleResponse
      */
     public function invalidRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'InvalidRule',
@@ -2957,14 +3530,17 @@ class Qualitycheck extends OpenApiClient
         return InvalidRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
-     * @deprecated OpenAPI InvalidRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead.
-     *  *
-     * Deprecated
+     * @deprecated openAPI InvalidRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead
      *
-     * @param InvalidRuleRequest $request InvalidRuleRequest
+     * @param request - InvalidRuleRequest
      *
-     * @return InvalidRuleResponse InvalidRuleResponse
+     * @returns InvalidRuleResponse
+     *
+     * @param InvalidRuleRequest $request
+     *
+     * @return InvalidRuleResponse
      */
     public function invalidRule($request)
     {
@@ -2974,25 +3550,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 获取热词模型列表
-     *  *
-     * @param ListAsrVocabRequest $request ListAsrVocabRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取热词模型列表.
      *
-     * @return ListAsrVocabResponse ListAsrVocabResponse
+     * @param request - ListAsrVocabRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAsrVocabResponse
+     *
+     * @param ListAsrVocabRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListAsrVocabResponse
      */
     public function listAsrVocabWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListAsrVocab',
@@ -3010,11 +3593,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 获取热词模型列表
-     *  *
-     * @param ListAsrVocabRequest $request ListAsrVocabRequest
+     * 获取热词模型列表.
      *
-     * @return ListAsrVocabResponse ListAsrVocabResponse
+     * @param request - ListAsrVocabRequest
+     *
+     * @returns ListAsrVocabResponse
+     *
+     * @param ListAsrVocabRequest $request
+     *
+     * @return ListAsrVocabResponse
      */
     public function listAsrVocab($request)
     {
@@ -3024,29 +3611,34 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * 获取数据集列表.
+     *
      * @deprecated OpenAPI ListDataSet is deprecated
-     *  *
-     * @summary 获取数据集列表
-     *  *
-     * Deprecated
      *
-     * @param ListDataSetRequest $request ListDataSetRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param request - ListDataSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListDataSetResponse ListDataSetResponse
+     * @returns ListDataSetResponse
+     *
+     * @param ListDataSetRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListDataSetResponse
      */
     public function listDataSetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDataSet',
@@ -3063,16 +3655,19 @@ class Qualitycheck extends OpenApiClient
         return ListDataSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * 获取数据集列表.
+     *
      * @deprecated OpenAPI ListDataSet is deprecated
-     *  *
-     * @summary 获取数据集列表
-     *  *
-     * Deprecated
      *
-     * @param ListDataSetRequest $request ListDataSetRequest
+     * @param request - ListDataSetRequest
      *
-     * @return ListDataSetResponse ListDataSetResponse
+     * @returns ListDataSetResponse
+     *
+     * @param ListDataSetRequest $request
+     *
+     * @return ListDataSetResponse
      */
     public function listDataSet($request)
     {
@@ -3082,23 +3677,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListPrecisionTaskRequest $request ListPrecisionTaskRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - ListPrecisionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListPrecisionTaskResponse ListPrecisionTaskResponse
+     * @returns ListPrecisionTaskResponse
+     *
+     * @param ListPrecisionTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListPrecisionTaskResponse
      */
     public function listPrecisionTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPrecisionTask',
@@ -3116,9 +3718,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListPrecisionTaskRequest $request ListPrecisionTaskRequest
+     * @param request - ListPrecisionTaskRequest
      *
-     * @return ListPrecisionTaskResponse ListPrecisionTaskResponse
+     * @returns ListPrecisionTaskResponse
+     *
+     * @param ListPrecisionTaskRequest $request
+     *
+     * @return ListPrecisionTaskResponse
      */
     public function listPrecisionTask($request)
     {
@@ -3128,25 +3734,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 质检方案列表
-     *  *
-     * @param ListQualityCheckSchemeRequest $request ListQualityCheckSchemeRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 质检方案列表.
      *
-     * @return ListQualityCheckSchemeResponse ListQualityCheckSchemeResponse
+     * @param request - ListQualityCheckSchemeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListQualityCheckSchemeResponse
+     *
+     * @param ListQualityCheckSchemeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListQualityCheckSchemeResponse
      */
     public function listQualityCheckSchemeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListQualityCheckScheme',
@@ -3164,11 +3777,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 质检方案列表
-     *  *
-     * @param ListQualityCheckSchemeRequest $request ListQualityCheckSchemeRequest
+     * 质检方案列表.
      *
-     * @return ListQualityCheckSchemeResponse ListQualityCheckSchemeResponse
+     * @param request - ListQualityCheckSchemeRequest
+     *
+     * @returns ListQualityCheckSchemeResponse
+     *
+     * @param ListQualityCheckSchemeRequest $request
+     *
+     * @return ListQualityCheckSchemeResponse
      */
     public function listQualityCheckScheme($request)
     {
@@ -3178,27 +3795,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ListRules is deprecated, please use Qualitycheck::2019-01-15::ListRulesV4 instead.
-     *  *
-     * Deprecated
+     * @deprecated openAPI ListRules is deprecated, please use Qualitycheck::2019-01-15::ListRulesV4 instead
      *
-     * @param ListRulesRequest $request ListRulesRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @param request - ListRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListRulesResponse ListRulesResponse
+     * @returns ListRulesResponse
+     *
+     * @param ListRulesRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListRulesResponse
      */
     public function listRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListRules',
@@ -3215,14 +3837,17 @@ class Qualitycheck extends OpenApiClient
         return ListRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
-     * @deprecated OpenAPI ListRules is deprecated, please use Qualitycheck::2019-01-15::ListRulesV4 instead.
-     *  *
-     * Deprecated
+     * @deprecated openAPI ListRules is deprecated, please use Qualitycheck::2019-01-15::ListRulesV4 instead
      *
-     * @param ListRulesRequest $request ListRulesRequest
+     * @param request - ListRulesRequest
      *
-     * @return ListRulesResponse ListRulesResponse
+     * @returns ListRulesResponse
+     *
+     * @param ListRulesRequest $request
+     *
+     * @return ListRulesResponse
      */
     public function listRules($request)
     {
@@ -3232,99 +3857,130 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary V4获得规则列表
-     *  *
-     * @param ListRulesV4Request $request ListRulesV4Request
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * V4获得规则列表.
      *
-     * @return ListRulesV4Response ListRulesV4Response
+     * @param request - ListRulesV4Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRulesV4Response
+     *
+     * @param ListRulesV4Request $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListRulesV4Response
      */
     public function listRulesV4WithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->businessName)) {
-            $body['BusinessName'] = $request->businessName;
+        if (null !== $request->businessName) {
+            @$body['BusinessName'] = $request->businessName;
         }
-        if (!Utils::isUnset($request->businessRange)) {
-            $body['BusinessRange'] = $request->businessRange;
+
+        if (null !== $request->businessRange) {
+            @$body['BusinessRange'] = $request->businessRange;
         }
-        if (!Utils::isUnset($request->categoryName)) {
-            $body['CategoryName'] = $request->categoryName;
+
+        if (null !== $request->categoryName) {
+            @$body['CategoryName'] = $request->categoryName;
         }
-        if (!Utils::isUnset($request->countTotal)) {
-            $body['CountTotal'] = $request->countTotal;
+
+        if (null !== $request->countTotal) {
+            @$body['CountTotal'] = $request->countTotal;
         }
-        if (!Utils::isUnset($request->createEmpid)) {
-            $body['CreateEmpid'] = $request->createEmpid;
+
+        if (null !== $request->createEmpid) {
+            @$body['CreateEmpid'] = $request->createEmpid;
         }
-        if (!Utils::isUnset($request->createUserId)) {
-            $body['CreateUserId'] = $request->createUserId;
+
+        if (null !== $request->createUserId) {
+            @$body['CreateUserId'] = $request->createUserId;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->lastUpdateEmpid)) {
-            $body['LastUpdateEmpid'] = $request->lastUpdateEmpid;
+
+        if (null !== $request->lastUpdateEmpid) {
+            @$body['LastUpdateEmpid'] = $request->lastUpdateEmpid;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->requireInfos)) {
-            $body['RequireInfos'] = $request->requireInfos;
+
+        if (null !== $request->requireInfos) {
+            @$body['RequireInfos'] = $request->requireInfos;
         }
-        if (!Utils::isUnset($request->rid)) {
-            $body['Rid'] = $request->rid;
+
+        if (null !== $request->rid) {
+            @$body['Rid'] = $request->rid;
         }
-        if (!Utils::isUnset($request->ruleIdOrRuleName)) {
-            $body['RuleIdOrRuleName'] = $request->ruleIdOrRuleName;
+
+        if (null !== $request->ruleIdOrRuleName) {
+            @$body['RuleIdOrRuleName'] = $request->ruleIdOrRuleName;
         }
-        if (!Utils::isUnset($request->ruleScoreSingleType)) {
-            $body['RuleScoreSingleType'] = $request->ruleScoreSingleType;
+
+        if (null !== $request->ruleScoreSingleType) {
+            @$body['RuleScoreSingleType'] = $request->ruleScoreSingleType;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $body['RuleType'] = $request->ruleType;
+
+        if (null !== $request->ruleType) {
+            @$body['RuleType'] = $request->ruleType;
         }
-        if (!Utils::isUnset($request->schemeId)) {
-            $body['SchemeId'] = $request->schemeId;
+
+        if (null !== $request->schemeId) {
+            @$body['SchemeId'] = $request->schemeId;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $body['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$body['SourceType'] = $request->sourceType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->typeName)) {
-            $body['TypeName'] = $request->typeName;
+
+        if (null !== $request->typeName) {
+            @$body['TypeName'] = $request->typeName;
         }
-        if (!Utils::isUnset($request->updateEndTime)) {
-            $body['UpdateEndTime'] = $request->updateEndTime;
+
+        if (null !== $request->updateEndTime) {
+            @$body['UpdateEndTime'] = $request->updateEndTime;
         }
-        if (!Utils::isUnset($request->updateStartTime)) {
-            $body['UpdateStartTime'] = $request->updateStartTime;
+
+        if (null !== $request->updateStartTime) {
+            @$body['UpdateStartTime'] = $request->updateStartTime;
         }
-        if (!Utils::isUnset($request->updateUserId)) {
-            $body['UpdateUserId'] = $request->updateUserId;
+
+        if (null !== $request->updateUserId) {
+            @$body['UpdateUserId'] = $request->updateUserId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ListRulesV4',
@@ -3342,11 +3998,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary V4获得规则列表
-     *  *
-     * @param ListRulesV4Request $request ListRulesV4Request
+     * V4获得规则列表.
      *
-     * @return ListRulesV4Response ListRulesV4Response
+     * @param request - ListRulesV4Request
+     *
+     * @returns ListRulesV4Response
+     *
+     * @param ListRulesV4Request $request
+     *
+     * @return ListRulesV4Response
      */
     public function listRulesV4($request)
     {
@@ -3356,25 +4016,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 获取质检任务列表
-     *  *
-     * @param ListSchemeTaskConfigRequest $request ListSchemeTaskConfigRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 获取质检任务列表.
      *
-     * @return ListSchemeTaskConfigResponse ListSchemeTaskConfigResponse
+     * @param request - ListSchemeTaskConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSchemeTaskConfigResponse
+     *
+     * @param ListSchemeTaskConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListSchemeTaskConfigResponse
      */
     public function listSchemeTaskConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['jsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['jsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListSchemeTaskConfig',
@@ -3392,11 +4059,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 获取质检任务列表
-     *  *
-     * @param ListSchemeTaskConfigRequest $request ListSchemeTaskConfigRequest
+     * 获取质检任务列表.
      *
-     * @return ListSchemeTaskConfigResponse ListSchemeTaskConfigResponse
+     * @param request - ListSchemeTaskConfigRequest
+     *
+     * @returns ListSchemeTaskConfigResponse
+     *
+     * @param ListSchemeTaskConfigRequest $request
+     *
+     * @return ListSchemeTaskConfigResponse
      */
     public function listSchemeTaskConfig($request)
     {
@@ -3406,29 +4077,34 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * 获取会话组列表.
+     *
      * @deprecated OpenAPI ListSessionGroup is deprecated
-     *  *
-     * @summary 获取会话组列表
-     *  *
-     * Deprecated
      *
-     * @param ListSessionGroupRequest $request ListSessionGroupRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - ListSessionGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListSessionGroupResponse ListSessionGroupResponse
+     * @returns ListSessionGroupResponse
+     *
+     * @param ListSessionGroupRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListSessionGroupResponse
      */
     public function listSessionGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['jsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['jsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListSessionGroup',
@@ -3445,16 +4121,19 @@ class Qualitycheck extends OpenApiClient
         return ListSessionGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * 获取会话组列表.
+     *
      * @deprecated OpenAPI ListSessionGroup is deprecated
-     *  *
-     * @summary 获取会话组列表
-     *  *
-     * Deprecated
      *
-     * @param ListSessionGroupRequest $request ListSessionGroupRequest
+     * @param request - ListSessionGroupRequest
      *
-     * @return ListSessionGroupResponse ListSessionGroupResponse
+     * @returns ListSessionGroupResponse
+     *
+     * @param ListSessionGroupRequest $request
+     *
+     * @return ListSessionGroupResponse
      */
     public function listSessionGroup($request)
     {
@@ -3465,26 +4144,31 @@ class Qualitycheck extends OpenApiClient
 
     /**
      * @deprecated OpenAPI ListSkillGroupConfig is deprecated
-     *  *
-     * Deprecated
      *
-     * @param ListSkillGroupConfigRequest $request ListSkillGroupConfigRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - ListSkillGroupConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListSkillGroupConfigResponse ListSkillGroupConfigResponse
+     * @returns ListSkillGroupConfigResponse
+     *
+     * @param ListSkillGroupConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListSkillGroupConfigResponse
      */
     public function listSkillGroupConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListSkillGroupConfig',
@@ -3501,14 +4185,17 @@ class Qualitycheck extends OpenApiClient
         return ListSkillGroupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * @deprecated OpenAPI ListSkillGroupConfig is deprecated
-     *  *
-     * Deprecated
      *
-     * @param ListSkillGroupConfigRequest $request ListSkillGroupConfigRequest
+     * @param request - ListSkillGroupConfigRequest
      *
-     * @return ListSkillGroupConfigResponse ListSkillGroupConfigResponse
+     * @returns ListSkillGroupConfigResponse
+     *
+     * @param ListSkillGroupConfigRequest $request
+     *
+     * @return ListSkillGroupConfigResponse
      */
     public function listSkillGroupConfig($request)
     {
@@ -3518,23 +4205,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListTaskAssignRulesRequest $request ListTaskAssignRulesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - ListTaskAssignRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListTaskAssignRulesResponse ListTaskAssignRulesResponse
+     * @returns ListTaskAssignRulesResponse
+     *
+     * @param ListTaskAssignRulesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListTaskAssignRulesResponse
      */
     public function listTaskAssignRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListTaskAssignRules',
@@ -3552,9 +4246,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListTaskAssignRulesRequest $request ListTaskAssignRulesRequest
+     * @param request - ListTaskAssignRulesRequest
      *
-     * @return ListTaskAssignRulesResponse ListTaskAssignRulesResponse
+     * @returns ListTaskAssignRulesResponse
+     *
+     * @param ListTaskAssignRulesRequest $request
+     *
+     * @return ListTaskAssignRulesResponse
      */
     public function listTaskAssignRules($request)
     {
@@ -3564,23 +4262,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request ListUsersRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @param request - ListUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListUsersResponse ListUsersResponse
+     * @returns ListUsersResponse
+     *
+     * @param ListUsersRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListUsersResponse
      */
     public function listUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListUsers',
@@ -3598,9 +4303,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request ListUsersRequest
+     * @param request - ListUsersRequest
      *
-     * @return ListUsersResponse ListUsersResponse
+     * @returns ListUsersResponse
+     *
+     * @param ListUsersRequest $request
+     *
+     * @return ListUsersResponse
      */
     public function listUsers($request)
     {
@@ -3610,23 +4319,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListWarningConfigRequest $request ListWarningConfigRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - ListWarningConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListWarningConfigResponse ListWarningConfigResponse
+     * @returns ListWarningConfigResponse
+     *
+     * @param ListWarningConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListWarningConfigResponse
      */
     public function listWarningConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListWarningConfig',
@@ -3644,9 +4360,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param ListWarningConfigRequest $request ListWarningConfigRequest
+     * @param request - ListWarningConfigRequest
      *
-     * @return ListWarningConfigResponse ListWarningConfigResponse
+     * @returns ListWarningConfigResponse
+     *
+     * @param ListWarningConfigRequest $request
+     *
+     * @return ListWarningConfigResponse
      */
     public function listWarningConfig($request)
     {
@@ -3656,25 +4376,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary  预警策略-列表
-     *  *
-     * @param ListWarningStrategyConfigRequest $request ListWarningStrategyConfigRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 预警策略-列表.
      *
-     * @return ListWarningStrategyConfigResponse ListWarningStrategyConfigResponse
+     * @param request - ListWarningStrategyConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListWarningStrategyConfigResponse
+     *
+     * @param ListWarningStrategyConfigRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListWarningStrategyConfigResponse
      */
     public function listWarningStrategyConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListWarningStrategyConfig',
@@ -3692,11 +4419,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary  预警策略-列表
-     *  *
-     * @param ListWarningStrategyConfigRequest $request ListWarningStrategyConfigRequest
+     * 预警策略-列表.
      *
-     * @return ListWarningStrategyConfigResponse ListWarningStrategyConfigResponse
+     * @param request - ListWarningStrategyConfigRequest
+     *
+     * @returns ListWarningStrategyConfigResponse
+     *
+     * @param ListWarningStrategyConfigRequest $request
+     *
+     * @return ListWarningStrategyConfigResponse
      */
     public function listWarningStrategyConfig($request)
     {
@@ -3706,25 +4437,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 批量回收
-     *  *
-     * @param RevertAssignedSessionRequest $request RevertAssignedSessionRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 批量回收.
      *
-     * @return RevertAssignedSessionResponse RevertAssignedSessionResponse
+     * @param request - RevertAssignedSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RevertAssignedSessionResponse
+     *
+     * @param RevertAssignedSessionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RevertAssignedSessionResponse
      */
     public function revertAssignedSessionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['jsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['jsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RevertAssignedSession',
@@ -3742,11 +4480,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 批量回收
-     *  *
-     * @param RevertAssignedSessionRequest $request RevertAssignedSessionRequest
+     * 批量回收.
      *
-     * @return RevertAssignedSessionResponse RevertAssignedSessionResponse
+     * @param request - RevertAssignedSessionRequest
+     *
+     * @returns RevertAssignedSessionResponse
+     *
+     * @param RevertAssignedSessionRequest $request
+     *
+     * @return RevertAssignedSessionResponse
      */
     public function revertAssignedSession($request)
     {
@@ -3756,29 +4498,34 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * 会话组批量回收.
+     *
      * @deprecated OpenAPI RevertAssignedSessionGroup is deprecated
-     *  *
-     * @summary 会话组批量回收
-     *  *
-     * Deprecated
      *
-     * @param RevertAssignedSessionGroupRequest $request RevertAssignedSessionGroupRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - RevertAssignedSessionGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RevertAssignedSessionGroupResponse RevertAssignedSessionGroupResponse
+     * @returns RevertAssignedSessionGroupResponse
+     *
+     * @param RevertAssignedSessionGroupRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RevertAssignedSessionGroupResponse
      */
     public function revertAssignedSessionGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['jsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['jsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'RevertAssignedSessionGroup',
@@ -3795,16 +4542,19 @@ class Qualitycheck extends OpenApiClient
         return RevertAssignedSessionGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * 会话组批量回收.
+     *
      * @deprecated OpenAPI RevertAssignedSessionGroup is deprecated
-     *  *
-     * @summary 会话组批量回收
-     *  *
-     * Deprecated
      *
-     * @param RevertAssignedSessionGroupRequest $request RevertAssignedSessionGroupRequest
+     * @param request - RevertAssignedSessionGroupRequest
      *
-     * @return RevertAssignedSessionGroupResponse RevertAssignedSessionGroupResponse
+     * @returns RevertAssignedSessionGroupResponse
+     *
+     * @param RevertAssignedSessionGroupRequest $request
+     *
+     * @return RevertAssignedSessionGroupResponse
      */
     public function revertAssignedSessionGroup($request)
     {
@@ -3815,26 +4565,31 @@ class Qualitycheck extends OpenApiClient
 
     /**
      * @deprecated OpenAPI SaveConfigDataSet is deprecated
-     *  *
-     * Deprecated
      *
-     * @param SaveConfigDataSetRequest $request SaveConfigDataSetRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - SaveConfigDataSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SaveConfigDataSetResponse SaveConfigDataSetResponse
+     * @returns SaveConfigDataSetResponse
+     *
+     * @param SaveConfigDataSetRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SaveConfigDataSetResponse
      */
     public function saveConfigDataSetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SaveConfigDataSet',
@@ -3851,14 +4606,17 @@ class Qualitycheck extends OpenApiClient
         return SaveConfigDataSetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * @deprecated OpenAPI SaveConfigDataSet is deprecated
-     *  *
-     * Deprecated
      *
-     * @param SaveConfigDataSetRequest $request SaveConfigDataSetRequest
+     * @param request - SaveConfigDataSetRequest
      *
-     * @return SaveConfigDataSetResponse SaveConfigDataSetResponse
+     * @returns SaveConfigDataSetResponse
+     *
+     * @param SaveConfigDataSetRequest $request
+     *
+     * @return SaveConfigDataSetResponse
      */
     public function saveConfigDataSet($request)
     {
@@ -3868,23 +4626,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SubmitComplaintRequest $request SubmitComplaintRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - SubmitComplaintRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SubmitComplaintResponse SubmitComplaintResponse
+     * @returns SubmitComplaintResponse
+     *
+     * @param SubmitComplaintRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SubmitComplaintResponse
      */
     public function submitComplaintWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitComplaint',
@@ -3902,9 +4667,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SubmitComplaintRequest $request SubmitComplaintRequest
+     * @param request - SubmitComplaintRequest
      *
-     * @return SubmitComplaintResponse SubmitComplaintResponse
+     * @returns SubmitComplaintResponse
+     *
+     * @param SubmitComplaintRequest $request
+     *
+     * @return SubmitComplaintResponse
      */
     public function submitComplaint($request)
     {
@@ -3914,23 +4683,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SubmitPrecisionTaskRequest $request SubmitPrecisionTaskRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - SubmitPrecisionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SubmitPrecisionTaskResponse SubmitPrecisionTaskResponse
+     * @returns SubmitPrecisionTaskResponse
+     *
+     * @param SubmitPrecisionTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SubmitPrecisionTaskResponse
      */
     public function submitPrecisionTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitPrecisionTask',
@@ -3948,9 +4724,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SubmitPrecisionTaskRequest $request SubmitPrecisionTaskRequest
+     * @param request - SubmitPrecisionTaskRequest
      *
-     * @return SubmitPrecisionTaskResponse SubmitPrecisionTaskResponse
+     * @returns SubmitPrecisionTaskResponse
+     *
+     * @param SubmitPrecisionTaskRequest $request
+     *
+     * @return SubmitPrecisionTaskResponse
      */
     public function submitPrecisionTask($request)
     {
@@ -3960,23 +4740,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SubmitQualityCheckTaskRequest $request SubmitQualityCheckTaskRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - SubmitQualityCheckTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SubmitQualityCheckTaskResponse SubmitQualityCheckTaskResponse
+     * @returns SubmitQualityCheckTaskResponse
+     *
+     * @param SubmitQualityCheckTaskRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return SubmitQualityCheckTaskResponse
      */
     public function submitQualityCheckTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitQualityCheckTask',
@@ -3994,9 +4781,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SubmitQualityCheckTaskRequest $request SubmitQualityCheckTaskRequest
+     * @param request - SubmitQualityCheckTaskRequest
      *
-     * @return SubmitQualityCheckTaskResponse SubmitQualityCheckTaskResponse
+     * @returns SubmitQualityCheckTaskResponse
+     *
+     * @param SubmitQualityCheckTaskRequest $request
+     *
+     * @return SubmitQualityCheckTaskResponse
      */
     public function submitQualityCheckTask($request)
     {
@@ -4006,23 +4797,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SubmitReviewInfoRequest $request SubmitReviewInfoRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - SubmitReviewInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SubmitReviewInfoResponse SubmitReviewInfoResponse
+     * @returns SubmitReviewInfoResponse
+     *
+     * @param SubmitReviewInfoRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SubmitReviewInfoResponse
      */
     public function submitReviewInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SubmitReviewInfo',
@@ -4040,9 +4838,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SubmitReviewInfoRequest $request SubmitReviewInfoRequest
+     * @param request - SubmitReviewInfoRequest
      *
-     * @return SubmitReviewInfoResponse SubmitReviewInfoResponse
+     * @returns SubmitReviewInfoResponse
+     *
+     * @param SubmitReviewInfoRequest $request
+     *
+     * @return SubmitReviewInfoResponse
      */
     public function submitReviewInfo($request)
     {
@@ -4052,23 +4854,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SyncQualityCheckRequest $request SyncQualityCheckRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - SyncQualityCheckRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SyncQualityCheckResponse SyncQualityCheckResponse
+     * @returns SyncQualityCheckResponse
+     *
+     * @param SyncQualityCheckRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SyncQualityCheckResponse
      */
     public function syncQualityCheckWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'SyncQualityCheck',
@@ -4086,9 +4895,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param SyncQualityCheckRequest $request SyncQualityCheckRequest
+     * @param request - SyncQualityCheckRequest
      *
-     * @return SyncQualityCheckResponse SyncQualityCheckResponse
+     * @returns SyncQualityCheckResponse
+     *
+     * @param SyncQualityCheckRequest $request
+     *
+     * @return SyncQualityCheckResponse
      */
     public function syncQualityCheck($request)
     {
@@ -4098,25 +4911,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 测试规则
-     *  *
-     * @param TestRuleV4Request $request TestRuleV4Request
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 测试规则.
      *
-     * @return TestRuleV4Response TestRuleV4Response
+     * @param request - TestRuleV4Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TestRuleV4Response
+     *
+     * @param TestRuleV4Request $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return TestRuleV4Response
      */
     public function testRuleV4WithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->isSchemeData)) {
-            $body['IsSchemeData'] = $request->isSchemeData;
+        if (null !== $request->isSchemeData) {
+            @$body['IsSchemeData'] = $request->isSchemeData;
         }
-        if (!Utils::isUnset($request->testJson)) {
-            $body['TestJson'] = $request->testJson;
+
+        if (null !== $request->testJson) {
+            @$body['TestJson'] = $request->testJson;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'TestRuleV4',
@@ -4134,11 +4954,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 测试规则
-     *  *
-     * @param TestRuleV4Request $request TestRuleV4Request
+     * 测试规则.
      *
-     * @return TestRuleV4Response TestRuleV4Response
+     * @param request - TestRuleV4Request
+     *
+     * @returns TestRuleV4Response
+     *
+     * @param TestRuleV4Request $request
+     *
+     * @return TestRuleV4Response
      */
     public function testRuleV4($request)
     {
@@ -4148,23 +4972,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateAsrVocabRequest $request UpdateAsrVocabRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateAsrVocabRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UpdateAsrVocabResponse UpdateAsrVocabResponse
+     * @returns UpdateAsrVocabResponse
+     *
+     * @param UpdateAsrVocabRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateAsrVocabResponse
      */
     public function updateAsrVocabWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateAsrVocab',
@@ -4182,9 +5013,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateAsrVocabRequest $request UpdateAsrVocabRequest
+     * @param request - UpdateAsrVocabRequest
      *
-     * @return UpdateAsrVocabResponse UpdateAsrVocabResponse
+     * @returns UpdateAsrVocabResponse
+     *
+     * @param UpdateAsrVocabRequest $request
+     *
+     * @return UpdateAsrVocabResponse
      */
     public function updateAsrVocab($request)
     {
@@ -4194,25 +5029,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 更新质检方案中的质检维度
-     *  *
-     * @param UpdateCheckTypeToSchemeRequest $request UpdateCheckTypeToSchemeRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 更新质检方案中的质检维度.
      *
-     * @return UpdateCheckTypeToSchemeResponse UpdateCheckTypeToSchemeResponse
+     * @param request - UpdateCheckTypeToSchemeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateCheckTypeToSchemeResponse
+     *
+     * @param UpdateCheckTypeToSchemeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateCheckTypeToSchemeResponse
      */
     public function updateCheckTypeToSchemeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['jsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['jsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateCheckTypeToScheme',
@@ -4230,11 +5072,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 更新质检方案中的质检维度
-     *  *
-     * @param UpdateCheckTypeToSchemeRequest $request UpdateCheckTypeToSchemeRequest
+     * 更新质检方案中的质检维度.
      *
-     * @return UpdateCheckTypeToSchemeResponse UpdateCheckTypeToSchemeResponse
+     * @param request - UpdateCheckTypeToSchemeRequest
+     *
+     * @returns UpdateCheckTypeToSchemeResponse
+     *
+     * @param UpdateCheckTypeToSchemeRequest $request
+     *
+     * @return UpdateCheckTypeToSchemeResponse
      */
     public function updateCheckTypeToScheme($request)
     {
@@ -4244,25 +5090,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 更新会话随录数据
-     *  *
-     * @param UpdateQualityCheckDataRequest $request UpdateQualityCheckDataRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 更新会话随录数据.
      *
-     * @return UpdateQualityCheckDataResponse UpdateQualityCheckDataResponse
+     * @param request - UpdateQualityCheckDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateQualityCheckDataResponse
+     *
+     * @param UpdateQualityCheckDataRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateQualityCheckDataResponse
      */
     public function updateQualityCheckDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateQualityCheckData',
@@ -4280,11 +5133,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 更新会话随录数据
-     *  *
-     * @param UpdateQualityCheckDataRequest $request UpdateQualityCheckDataRequest
+     * 更新会话随录数据.
      *
-     * @return UpdateQualityCheckDataResponse UpdateQualityCheckDataResponse
+     * @param request - UpdateQualityCheckDataRequest
+     *
+     * @returns UpdateQualityCheckDataResponse
+     *
+     * @param UpdateQualityCheckDataRequest $request
+     *
+     * @return UpdateQualityCheckDataResponse
      */
     public function updateQualityCheckData($request)
     {
@@ -4294,25 +5151,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 更新质检方案
-     *  *
-     * @param UpdateQualityCheckSchemeRequest $request UpdateQualityCheckSchemeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 更新质检方案.
      *
-     * @return UpdateQualityCheckSchemeResponse UpdateQualityCheckSchemeResponse
+     * @param request - UpdateQualityCheckSchemeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateQualityCheckSchemeResponse
+     *
+     * @param UpdateQualityCheckSchemeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateQualityCheckSchemeResponse
      */
     public function updateQualityCheckSchemeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['jsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['jsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateQualityCheckScheme',
@@ -4330,11 +5194,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 更新质检方案
-     *  *
-     * @param UpdateQualityCheckSchemeRequest $request UpdateQualityCheckSchemeRequest
+     * 更新质检方案.
      *
-     * @return UpdateQualityCheckSchemeResponse UpdateQualityCheckSchemeResponse
+     * @param request - UpdateQualityCheckSchemeRequest
+     *
+     * @returns UpdateQualityCheckSchemeResponse
+     *
+     * @param UpdateQualityCheckSchemeRequest $request
+     *
+     * @return UpdateQualityCheckSchemeResponse
      */
     public function updateQualityCheckScheme($request)
     {
@@ -4344,27 +5212,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI UpdateRule is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead.
-     *  *
-     * Deprecated
+     * @deprecated openAPI UpdateRule is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead
      *
-     * @param UpdateRuleRequest $request UpdateRuleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UpdateRuleResponse UpdateRuleResponse
+     * @returns UpdateRuleResponse
+     *
+     * @param UpdateRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateRuleResponse
      */
     public function updateRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateRule',
@@ -4381,14 +5254,17 @@ class Qualitycheck extends OpenApiClient
         return UpdateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
-     * @deprecated OpenAPI UpdateRule is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead.
-     *  *
-     * Deprecated
+     * @deprecated openAPI UpdateRule is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead
      *
-     * @param UpdateRuleRequest $request UpdateRuleRequest
+     * @param request - UpdateRuleRequest
      *
-     * @return UpdateRuleResponse UpdateRuleResponse
+     * @returns UpdateRuleResponse
+     *
+     * @param UpdateRuleRequest $request
+     *
+     * @return UpdateRuleResponse
      */
     public function updateRule($request)
     {
@@ -4398,40 +5274,48 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * 更新规则.
+     *
      * @deprecated openAPI UpdateRuleById is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead
-     *  *
-     * @summary 更新规则
-     *  *
-     * Deprecated
      *
-     * @param UpdateRuleByIdRequest $request UpdateRuleByIdRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateRuleByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UpdateRuleByIdResponse UpdateRuleByIdResponse
+     * @returns UpdateRuleByIdResponse
+     *
+     * @param UpdateRuleByIdRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateRuleByIdResponse
      */
     public function updateRuleByIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->isCopy)) {
-            $body['IsCopy'] = $request->isCopy;
+        if (null !== $request->isCopy) {
+            @$body['IsCopy'] = $request->isCopy;
         }
-        if (!Utils::isUnset($request->jsonStrForRule)) {
-            $body['JsonStrForRule'] = $request->jsonStrForRule;
+
+        if (null !== $request->jsonStrForRule) {
+            @$body['JsonStrForRule'] = $request->jsonStrForRule;
         }
-        if (!Utils::isUnset($request->returnRelatedSchemes)) {
-            $body['ReturnRelatedSchemes'] = $request->returnRelatedSchemes;
+
+        if (null !== $request->returnRelatedSchemes) {
+            @$body['ReturnRelatedSchemes'] = $request->returnRelatedSchemes;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $body['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$body['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateRuleById',
@@ -4448,16 +5332,19 @@ class Qualitycheck extends OpenApiClient
         return UpdateRuleByIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * 更新规则.
+     *
      * @deprecated openAPI UpdateRuleById is deprecated, please use Qualitycheck::2019-01-15::UpdateRuleV4 instead
-     *  *
-     * @summary 更新规则
-     *  *
-     * Deprecated
      *
-     * @param UpdateRuleByIdRequest $request UpdateRuleByIdRequest
+     * @param request - UpdateRuleByIdRequest
      *
-     * @return UpdateRuleByIdResponse UpdateRuleByIdResponse
+     * @returns UpdateRuleByIdResponse
+     *
+     * @param UpdateRuleByIdRequest $request
+     *
+     * @return UpdateRuleByIdResponse
      */
     public function updateRuleById($request)
     {
@@ -4467,25 +5354,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 更新质检方案的规则
-     *  *
-     * @param UpdateRuleToSchemeRequest $request UpdateRuleToSchemeRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 更新质检方案的规则.
      *
-     * @return UpdateRuleToSchemeResponse UpdateRuleToSchemeResponse
+     * @param request - UpdateRuleToSchemeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRuleToSchemeResponse
+     *
+     * @param UpdateRuleToSchemeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateRuleToSchemeResponse
      */
     public function updateRuleToSchemeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['jsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['jsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateRuleToScheme',
@@ -4503,11 +5397,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 更新质检方案的规则
-     *  *
-     * @param UpdateRuleToSchemeRequest $request UpdateRuleToSchemeRequest
+     * 更新质检方案的规则.
      *
-     * @return UpdateRuleToSchemeResponse UpdateRuleToSchemeResponse
+     * @param request - UpdateRuleToSchemeRequest
+     *
+     * @returns UpdateRuleToSchemeResponse
+     *
+     * @param UpdateRuleToSchemeRequest $request
+     *
+     * @return UpdateRuleToSchemeResponse
      */
     public function updateRuleToScheme($request)
     {
@@ -4517,30 +5415,38 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary V4更新规则
-     *  *
-     * @param UpdateRuleV4Request $request UpdateRuleV4Request
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * V4更新规则.
      *
-     * @return UpdateRuleV4Response UpdateRuleV4Response
+     * @param request - UpdateRuleV4Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRuleV4Response
+     *
+     * @param UpdateRuleV4Request $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateRuleV4Response
      */
     public function updateRuleV4WithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->jsonStrForRule)) {
-            $body['JsonStrForRule'] = $request->jsonStrForRule;
+        if (null !== $request->jsonStrForRule) {
+            @$body['JsonStrForRule'] = $request->jsonStrForRule;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $body['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$body['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateRuleV4',
@@ -4558,11 +5464,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary V4更新规则
-     *  *
-     * @param UpdateRuleV4Request $request UpdateRuleV4Request
+     * V4更新规则.
      *
-     * @return UpdateRuleV4Response UpdateRuleV4Response
+     * @param request - UpdateRuleV4Request
+     *
+     * @returns UpdateRuleV4Response
+     *
+     * @param UpdateRuleV4Request $request
+     *
+     * @return UpdateRuleV4Response
      */
     public function updateRuleV4($request)
     {
@@ -4572,25 +5482,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 更新质检任务
-     *  *
-     * @param UpdateSchemeTaskConfigRequest $request UpdateSchemeTaskConfigRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 更新质检任务
      *
-     * @return UpdateSchemeTaskConfigResponse UpdateSchemeTaskConfigResponse
+     * @param request - UpdateSchemeTaskConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateSchemeTaskConfigResponse
+     *
+     * @param UpdateSchemeTaskConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateSchemeTaskConfigResponse
      */
     public function updateSchemeTaskConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['jsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['jsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateSchemeTaskConfig',
@@ -4608,11 +5525,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary 更新质检任务
-     *  *
-     * @param UpdateSchemeTaskConfigRequest $request UpdateSchemeTaskConfigRequest
+     * 更新质检任务
      *
-     * @return UpdateSchemeTaskConfigResponse UpdateSchemeTaskConfigResponse
+     * @param request - UpdateSchemeTaskConfigRequest
+     *
+     * @returns UpdateSchemeTaskConfigResponse
+     *
+     * @param UpdateSchemeTaskConfigRequest $request
+     *
+     * @return UpdateSchemeTaskConfigResponse
      */
     public function updateSchemeTaskConfig($request)
     {
@@ -4623,26 +5544,31 @@ class Qualitycheck extends OpenApiClient
 
     /**
      * @deprecated OpenAPI UpdateSkillGroupConfig is deprecated
-     *  *
-     * Deprecated
      *
-     * @param UpdateSkillGroupConfigRequest $request UpdateSkillGroupConfigRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateSkillGroupConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UpdateSkillGroupConfigResponse UpdateSkillGroupConfigResponse
+     * @returns UpdateSkillGroupConfigResponse
+     *
+     * @param UpdateSkillGroupConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateSkillGroupConfigResponse
      */
     public function updateSkillGroupConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateSkillGroupConfig',
@@ -4659,14 +5585,17 @@ class Qualitycheck extends OpenApiClient
         return UpdateSkillGroupConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * @deprecated OpenAPI UpdateSkillGroupConfig is deprecated
-     *  *
-     * Deprecated
      *
-     * @param UpdateSkillGroupConfigRequest $request UpdateSkillGroupConfigRequest
+     * @param request - UpdateSkillGroupConfigRequest
      *
-     * @return UpdateSkillGroupConfigResponse UpdateSkillGroupConfigResponse
+     * @returns UpdateSkillGroupConfigResponse
+     *
+     * @param UpdateSkillGroupConfigRequest $request
+     *
+     * @return UpdateSkillGroupConfigResponse
      */
     public function updateSkillGroupConfig($request)
     {
@@ -4676,23 +5605,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateSyncQualityCheckDataRequest $request UpdateSyncQualityCheckDataRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateSyncQualityCheckDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UpdateSyncQualityCheckDataResponse UpdateSyncQualityCheckDataResponse
+     * @returns UpdateSyncQualityCheckDataResponse
+     *
+     * @param UpdateSyncQualityCheckDataRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateSyncQualityCheckDataResponse
      */
     public function updateSyncQualityCheckDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateSyncQualityCheckData',
@@ -4710,9 +5646,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateSyncQualityCheckDataRequest $request UpdateSyncQualityCheckDataRequest
+     * @param request - UpdateSyncQualityCheckDataRequest
      *
-     * @return UpdateSyncQualityCheckDataResponse UpdateSyncQualityCheckDataResponse
+     * @returns UpdateSyncQualityCheckDataResponse
+     *
+     * @param UpdateSyncQualityCheckDataRequest $request
+     *
+     * @return UpdateSyncQualityCheckDataResponse
      */
     public function updateSyncQualityCheckData($request)
     {
@@ -4722,23 +5662,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateTaskAssignRuleRequest $request UpdateTaskAssignRuleRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateTaskAssignRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UpdateTaskAssignRuleResponse UpdateTaskAssignRuleResponse
+     * @returns UpdateTaskAssignRuleResponse
+     *
+     * @param UpdateTaskAssignRuleRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateTaskAssignRuleResponse
      */
     public function updateTaskAssignRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateTaskAssignRule',
@@ -4756,9 +5703,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateTaskAssignRuleRequest $request UpdateTaskAssignRuleRequest
+     * @param request - UpdateTaskAssignRuleRequest
      *
-     * @return UpdateTaskAssignRuleResponse UpdateTaskAssignRuleResponse
+     * @returns UpdateTaskAssignRuleResponse
+     *
+     * @param UpdateTaskAssignRuleRequest $request
+     *
+     * @return UpdateTaskAssignRuleResponse
      */
     public function updateTaskAssignRule($request)
     {
@@ -4768,23 +5719,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserRequest $request UpdateUserRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserResponse UpdateUserResponse
+     * @returns UpdateUserResponse
+     *
+     * @param UpdateUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateUserResponse
      */
     public function updateUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateUser',
@@ -4802,9 +5760,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserRequest $request UpdateUserRequest
+     * @param request - UpdateUserRequest
      *
-     * @return UpdateUserResponse UpdateUserResponse
+     * @returns UpdateUserResponse
+     *
+     * @param UpdateUserRequest $request
+     *
+     * @return UpdateUserResponse
      */
     public function updateUser($request)
     {
@@ -4814,23 +5776,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateWarningConfigRequest $request UpdateWarningConfigRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateWarningConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UpdateWarningConfigResponse UpdateWarningConfigResponse
+     * @returns UpdateWarningConfigResponse
+     *
+     * @param UpdateWarningConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateWarningConfigResponse
      */
     public function updateWarningConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateWarningConfig',
@@ -4848,9 +5817,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UpdateWarningConfigRequest $request UpdateWarningConfigRequest
+     * @param request - UpdateWarningConfigRequest
      *
-     * @return UpdateWarningConfigResponse UpdateWarningConfigResponse
+     * @returns UpdateWarningConfigResponse
+     *
+     * @param UpdateWarningConfigRequest $request
+     *
+     * @return UpdateWarningConfigResponse
      */
     public function updateWarningConfig($request)
     {
@@ -4860,25 +5833,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary  预警策略-更新
-     *  *
-     * @param UpdateWarningStrategyConfigRequest $request UpdateWarningStrategyConfigRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 预警策略-更新.
      *
-     * @return UpdateWarningStrategyConfigResponse UpdateWarningStrategyConfigResponse
+     * @param request - UpdateWarningStrategyConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateWarningStrategyConfigResponse
+     *
+     * @param UpdateWarningStrategyConfigRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateWarningStrategyConfigResponse
      */
     public function updateWarningStrategyConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateWarningStrategyConfig',
@@ -4896,11 +5876,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary  预警策略-更新
-     *  *
-     * @param UpdateWarningStrategyConfigRequest $request UpdateWarningStrategyConfigRequest
+     * 预警策略-更新.
      *
-     * @return UpdateWarningStrategyConfigResponse UpdateWarningStrategyConfigResponse
+     * @param request - UpdateWarningStrategyConfigRequest
+     *
+     * @returns UpdateWarningStrategyConfigResponse
+     *
+     * @param UpdateWarningStrategyConfigRequest $request
+     *
+     * @return UpdateWarningStrategyConfigResponse
      */
     public function updateWarningStrategyConfig($request)
     {
@@ -4910,23 +5894,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UploadAudioDataRequest $request UploadAudioDataRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - UploadAudioDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UploadAudioDataResponse UploadAudioDataResponse
+     * @returns UploadAudioDataResponse
+     *
+     * @param UploadAudioDataRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UploadAudioDataResponse
      */
     public function uploadAudioDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UploadAudioData',
@@ -4944,9 +5935,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UploadAudioDataRequest $request UploadAudioDataRequest
+     * @param request - UploadAudioDataRequest
      *
-     * @return UploadAudioDataResponse UploadAudioDataResponse
+     * @returns UploadAudioDataResponse
+     *
+     * @param UploadAudioDataRequest $request
+     *
+     * @return UploadAudioDataResponse
      */
     public function uploadAudioData($request)
     {
@@ -4956,29 +5951,34 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
+     * 推荐使用UploadDataV4接口,支持更长的JsonStr,但仅支持POST方法.
+     *
      * @deprecated openAPI UploadData is deprecated, please use Qualitycheck::2019-01-15::UploadDataV4 instead
-     *  *
-     * @summary 推荐使用UploadDataV4接口,支持更长的JsonStr,但仅支持POST方法.
-     *  *
-     * Deprecated
      *
-     * @param UploadDataRequest $request UploadDataRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - UploadDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UploadDataResponse UploadDataResponse
+     * @returns UploadDataResponse
+     *
+     * @param UploadDataRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UploadDataResponse
      */
     public function uploadDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UploadData',
@@ -4995,16 +5995,19 @@ class Qualitycheck extends OpenApiClient
         return UploadDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * 推荐使用UploadDataV4接口,支持更长的JsonStr,但仅支持POST方法.
+     *
      * @deprecated openAPI UploadData is deprecated, please use Qualitycheck::2019-01-15::UploadDataV4 instead
-     *  *
-     * @summary 推荐使用UploadDataV4接口,支持更长的JsonStr,但仅支持POST方法.
-     *  *
-     * Deprecated
      *
-     * @param UploadDataRequest $request UploadDataRequest
+     * @param request - UploadDataRequest
      *
-     * @return UploadDataResponse UploadDataResponse
+     * @returns UploadDataResponse
+     *
+     * @param UploadDataRequest $request
+     *
+     * @return UploadDataResponse
      */
     public function uploadData($request)
     {
@@ -5014,25 +6017,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary http_hsf
-     *  *
-     * @param UploadDataSyncRequest $request UploadDataSyncRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * http_hsf.
      *
-     * @return UploadDataSyncResponse UploadDataSyncResponse
+     * @param request - UploadDataSyncRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadDataSyncResponse
+     *
+     * @param UploadDataSyncRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UploadDataSyncResponse
      */
     public function uploadDataSyncWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UploadDataSync',
@@ -5050,11 +6060,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary http_hsf
-     *  *
-     * @param UploadDataSyncRequest $request UploadDataSyncRequest
+     * http_hsf.
      *
-     * @return UploadDataSyncResponse UploadDataSyncResponse
+     * @param request - UploadDataSyncRequest
+     *
+     * @returns UploadDataSyncResponse
+     *
+     * @param UploadDataSyncRequest $request
+     *
+     * @return UploadDataSyncResponse
      */
     public function uploadDataSync($request)
     {
@@ -5064,25 +6078,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary http_hsf
-     *  *
-     * @param UploadDataSyncForLLMRequest $request UploadDataSyncForLLMRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * http_hsf.
      *
-     * @return UploadDataSyncForLLMResponse UploadDataSyncForLLMResponse
+     * @param request - UploadDataSyncForLLMRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadDataSyncForLLMResponse
+     *
+     * @param UploadDataSyncForLLMRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UploadDataSyncForLLMResponse
      */
     public function uploadDataSyncForLLMWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UploadDataSyncForLLM',
@@ -5100,11 +6121,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary http_hsf
-     *  *
-     * @param UploadDataSyncForLLMRequest $request UploadDataSyncForLLMRequest
+     * http_hsf.
      *
-     * @return UploadDataSyncForLLMResponse UploadDataSyncForLLMResponse
+     * @param request - UploadDataSyncForLLMRequest
+     *
+     * @returns UploadDataSyncForLLMResponse
+     *
+     * @param UploadDataSyncForLLMRequest $request
+     *
+     * @return UploadDataSyncForLLMResponse
      */
     public function uploadDataSyncForLLM($request)
     {
@@ -5114,25 +6139,32 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary UploadDataV4
-     *  *
-     * @param UploadDataV4Request $request UploadDataV4Request
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * UploadDataV4.
      *
-     * @return UploadDataV4Response UploadDataV4Response
+     * @param request - UploadDataV4Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadDataV4Response
+     *
+     * @param UploadDataV4Request $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UploadDataV4Response
      */
     public function uploadDataV4WithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $body['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$body['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $body['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$body['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UploadDataV4',
@@ -5150,11 +6182,15 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @summary UploadDataV4
-     *  *
-     * @param UploadDataV4Request $request UploadDataV4Request
+     * UploadDataV4.
      *
-     * @return UploadDataV4Response UploadDataV4Response
+     * @param request - UploadDataV4Request
+     *
+     * @returns UploadDataV4Response
+     *
+     * @param UploadDataV4Request $request
+     *
+     * @return UploadDataV4Response
      */
     public function uploadDataV4($request)
     {
@@ -5164,23 +6200,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UploadRuleRequest $request UploadRuleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - UploadRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UploadRuleResponse UploadRuleResponse
+     * @returns UploadRuleResponse
+     *
+     * @param UploadRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UploadRuleResponse
      */
     public function uploadRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UploadRule',
@@ -5198,9 +6241,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param UploadRuleRequest $request UploadRuleRequest
+     * @param request - UploadRuleRequest
      *
-     * @return UploadRuleResponse UploadRuleResponse
+     * @returns UploadRuleResponse
+     *
+     * @param UploadRuleRequest $request
+     *
+     * @return UploadRuleResponse
      */
     public function uploadRule($request)
     {
@@ -5210,23 +6257,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param VerifyFileRequest $request VerifyFileRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - VerifyFileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return VerifyFileResponse VerifyFileResponse
+     * @returns VerifyFileResponse
+     *
+     * @param VerifyFileRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return VerifyFileResponse
      */
     public function verifyFileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'VerifyFile',
@@ -5244,9 +6298,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param VerifyFileRequest $request VerifyFileRequest
+     * @param request - VerifyFileRequest
      *
-     * @return VerifyFileResponse VerifyFileResponse
+     * @returns VerifyFileResponse
+     *
+     * @param VerifyFileRequest $request
+     *
+     * @return VerifyFileResponse
      */
     public function verifyFile($request)
     {
@@ -5256,23 +6314,30 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param VerifySentenceRequest $request VerifySentenceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - VerifySentenceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return VerifySentenceResponse VerifySentenceResponse
+     * @returns VerifySentenceResponse
+     *
+     * @param VerifySentenceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return VerifySentenceResponse
      */
     public function verifySentenceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->baseMeAgentId)) {
-            $query['BaseMeAgentId'] = $request->baseMeAgentId;
+        if (null !== $request->baseMeAgentId) {
+            @$query['BaseMeAgentId'] = $request->baseMeAgentId;
         }
-        if (!Utils::isUnset($request->jsonStr)) {
-            $query['JsonStr'] = $request->jsonStr;
+
+        if (null !== $request->jsonStr) {
+            @$query['JsonStr'] = $request->jsonStr;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'VerifySentence',
@@ -5290,9 +6355,13 @@ class Qualitycheck extends OpenApiClient
     }
 
     /**
-     * @param VerifySentenceRequest $request VerifySentenceRequest
+     * @param request - VerifySentenceRequest
      *
-     * @return VerifySentenceResponse VerifySentenceResponse
+     * @returns VerifySentenceResponse
+     *
+     * @param VerifySentenceRequest $request
+     *
+     * @return VerifySentenceResponse
      */
     public function verifySentence($request)
     {

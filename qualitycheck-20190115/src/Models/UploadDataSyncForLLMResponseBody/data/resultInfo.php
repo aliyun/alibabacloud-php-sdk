@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncForLLMResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncForLLMResponseBody\data\resultInfo\rules;
-use AlibabaCloud\Tea\Model;
 
 class resultInfo extends Model
 {
@@ -23,14 +23,21 @@ class resultInfo extends Model
         'score' => 'Score',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->rules) {
+            $this->rules->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rules) {
-            $res['Rules'] = null !== $this->rules ? $this->rules->toMap() : null;
+            $res['Rules'] = null !== $this->rules ? $this->rules->toArray($noStream) : $this->rules;
         }
+
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
@@ -38,17 +45,18 @@ class resultInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Rules'])) {
             $model->rules = rules::fromMap($map['Rules']);
         }
+
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }

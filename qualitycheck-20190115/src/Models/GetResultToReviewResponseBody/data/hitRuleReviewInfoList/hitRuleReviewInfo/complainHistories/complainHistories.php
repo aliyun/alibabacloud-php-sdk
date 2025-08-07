@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\hitRuleReviewInfoList\hitRuleReviewInfo\complainHistories;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class complainHistories extends Model
 {
@@ -14,22 +14,16 @@ class complainHistories extends Model
     public $comments;
 
     /**
-     * @example 2020-10-16T11:13Z
-     *
      * @var string
      */
     public $operationTime;
 
     /**
-     * @example 5
-     *
      * @var int
      */
     public $operationType;
 
     /**
-     * @example 123456
-     *
      * @var int
      */
     public $operator;
@@ -46,23 +40,30 @@ class complainHistories extends Model
         'operatorName' => 'OperatorName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->comments) {
             $res['Comments'] = $this->comments;
         }
+
         if (null !== $this->operationTime) {
             $res['OperationTime'] = $this->operationTime;
         }
+
         if (null !== $this->operationType) {
             $res['OperationType'] = $this->operationType;
         }
+
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
+
         if (null !== $this->operatorName) {
             $res['OperatorName'] = $this->operatorName;
         }
@@ -70,26 +71,30 @@ class complainHistories extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return complainHistories
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Comments'])) {
             $model->comments = $map['Comments'];
         }
+
         if (isset($map['OperationTime'])) {
             $model->operationTime = $map['OperationTime'];
         }
+
         if (isset($map['OperationType'])) {
             $model->operationType = $map['OperationType'];
         }
+
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
+
         if (isset($map['OperatorName'])) {
             $model->operatorName = $map['OperatorName'];
         }

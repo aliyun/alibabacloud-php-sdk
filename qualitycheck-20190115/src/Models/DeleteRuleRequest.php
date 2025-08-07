@@ -4,36 +4,26 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteRuleRequest extends Model
 {
     /**
-     * @description baseMeAgentId
-     *
      * @var int
      */
     public $baseMeAgentId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $forceDelete;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $isSchemeData;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $ruleId;
@@ -44,20 +34,26 @@ class DeleteRuleRequest extends Model
         'ruleId' => 'RuleId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baseMeAgentId) {
             $res['BaseMeAgentId'] = $this->baseMeAgentId;
         }
+
         if (null !== $this->forceDelete) {
             $res['ForceDelete'] = $this->forceDelete;
         }
+
         if (null !== $this->isSchemeData) {
             $res['IsSchemeData'] = $this->isSchemeData;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -65,23 +61,26 @@ class DeleteRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaseMeAgentId'])) {
             $model->baseMeAgentId = $map['BaseMeAgentId'];
         }
+
         if (isset($map['ForceDelete'])) {
             $model->forceDelete = $map['ForceDelete'];
         }
+
         if (isset($map['IsSchemeData'])) {
             $model->isSchemeData = $map['IsSchemeData'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

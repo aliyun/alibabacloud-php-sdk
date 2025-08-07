@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTaskAssignRulesResponseBody\data\taskAssignRuleInfo\skillGroups;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class skillGroup extends Model
 {
     /**
-     * @example XXX
-     *
      * @var string
      */
     public $skillId;
@@ -24,14 +22,18 @@ class skillGroup extends Model
         'skillName' => 'SkillName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->skillId) {
             $res['SkillId'] = $this->skillId;
         }
+
         if (null !== $this->skillName) {
             $res['SkillName'] = $this->skillName;
         }
@@ -39,17 +41,18 @@ class skillGroup extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return skillGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SkillId'])) {
             $model->skillId = $map['SkillId'];
         }
+
         if (isset($map['SkillName'])) {
             $model->skillName = $map['SkillName'];
         }

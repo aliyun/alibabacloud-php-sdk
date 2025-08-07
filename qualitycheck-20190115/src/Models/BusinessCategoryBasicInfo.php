@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BusinessCategoryBasicInfo extends Model
 {
@@ -34,20 +34,26 @@ class BusinessCategoryBasicInfo extends Model
         'serviceType' => 'ServiceType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bid) {
             $res['Bid'] = $this->bid;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->originalId) {
             $res['OriginalId'] = $this->originalId;
         }
+
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
         }
@@ -55,23 +61,26 @@ class BusinessCategoryBasicInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BusinessCategoryBasicInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bid'])) {
             $model->bid = $map['Bid'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['OriginalId'])) {
             $model->originalId = $map['OriginalId'];
         }
+
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];
         }

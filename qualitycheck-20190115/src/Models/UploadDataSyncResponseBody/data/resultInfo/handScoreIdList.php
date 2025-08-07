@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncResponseBody\data\resultInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class handScoreIdList extends Model
 {
@@ -16,29 +16,47 @@ class handScoreIdList extends Model
         'handScoreIdList' => 'HandScoreIdList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->handScoreIdList)) {
+            Model::validateArray($this->handScoreIdList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->handScoreIdList) {
-            $res['HandScoreIdList'] = $this->handScoreIdList;
+            if (\is_array($this->handScoreIdList)) {
+                $res['HandScoreIdList'] = [];
+                $n1 = 0;
+                foreach ($this->handScoreIdList as $item1) {
+                    $res['HandScoreIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return handScoreIdList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HandScoreIdList'])) {
             if (!empty($map['HandScoreIdList'])) {
-                $model->handScoreIdList = $map['HandScoreIdList'];
+                $model->handScoreIdList = [];
+                $n1 = 0;
+                foreach ($map['HandScoreIdList'] as $item1) {
+                    $model->handScoreIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

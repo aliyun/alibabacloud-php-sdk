@@ -4,41 +4,31 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultToReviewResponseBody\data\hitRuleReviewInfoList\hitRuleReviewInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class reviewInfo extends Model
 {
     /**
-     * @example 013c68142fec4f0899fa6ee0exxx
-     *
      * @var string
      */
     public $hitId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $reviewResult;
 
     /**
-     * @example 2019-10-12 17:06:00
-     *
      * @var string
      */
     public $reviewTime;
 
     /**
-     * @example 123
-     *
      * @var string
      */
     public $reviewer;
 
     /**
-     * @example 451
-     *
      * @var int
      */
     public $rid;
@@ -50,23 +40,30 @@ class reviewInfo extends Model
         'rid' => 'Rid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hitId) {
             $res['HitId'] = $this->hitId;
         }
+
         if (null !== $this->reviewResult) {
             $res['ReviewResult'] = $this->reviewResult;
         }
+
         if (null !== $this->reviewTime) {
             $res['ReviewTime'] = $this->reviewTime;
         }
+
         if (null !== $this->reviewer) {
             $res['Reviewer'] = $this->reviewer;
         }
+
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
         }
@@ -74,26 +71,30 @@ class reviewInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return reviewInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HitId'])) {
             $model->hitId = $map['HitId'];
         }
+
         if (isset($map['ReviewResult'])) {
             $model->reviewResult = $map['ReviewResult'];
         }
+
         if (isset($map['ReviewTime'])) {
             $model->reviewTime = $map['ReviewTime'];
         }
+
         if (isset($map['Reviewer'])) {
             $model->reviewer = $map['Reviewer'];
         }
+
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
         }

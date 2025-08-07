@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailResponseBody\data\rules\ruleBasicInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class triggers extends Model
 {
@@ -16,29 +16,47 @@ class triggers extends Model
         'trigger' => 'Trigger',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->trigger)) {
+            Model::validateArray($this->trigger);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->trigger) {
-            $res['Trigger'] = $this->trigger;
+            if (\is_array($this->trigger)) {
+                $res['Trigger'] = [];
+                $n1 = 0;
+                foreach ($this->trigger as $item1) {
+                    $res['Trigger'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return triggers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Trigger'])) {
             if (!empty($map['Trigger'])) {
-                $model->trigger = $map['Trigger'];
+                $model->trigger = [];
+                $n1 = 0;
+                foreach ($map['Trigger'] as $item1) {
+                    $model->trigger[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

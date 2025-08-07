@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncResponseBody\data\resultInfo\handScoreIdList;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\UploadDataSyncResponseBody\data\resultInfo\rules;
-use AlibabaCloud\Tea\Model;
 
 class resultInfo extends Model
 {
@@ -21,8 +21,6 @@ class resultInfo extends Model
     public $rules;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $score;
@@ -32,17 +30,28 @@ class resultInfo extends Model
         'score' => 'Score',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->handScoreIdList) {
+            $this->handScoreIdList->validate();
+        }
+        if (null !== $this->rules) {
+            $this->rules->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->handScoreIdList) {
-            $res['HandScoreIdList'] = null !== $this->handScoreIdList ? $this->handScoreIdList->toMap() : null;
+            $res['HandScoreIdList'] = null !== $this->handScoreIdList ? $this->handScoreIdList->toArray($noStream) : $this->handScoreIdList;
         }
+
         if (null !== $this->rules) {
-            $res['Rules'] = null !== $this->rules ? $this->rules->toMap() : null;
+            $res['Rules'] = null !== $this->rules ? $this->rules->toArray($noStream) : $this->rules;
         }
+
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
@@ -50,20 +59,22 @@ class resultInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HandScoreIdList'])) {
             $model->handScoreIdList = handScoreIdList::fromMap($map['HandScoreIdList']);
         }
+
         if (isset($map['Rules'])) {
             $model->rules = rules::fromMap($map['Rules']);
         }
+
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }

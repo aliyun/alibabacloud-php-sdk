@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitResult\hitResult\hits\hit;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitResult\hitResult\hits\hit\keyWords\keyWord;
-use AlibabaCloud\Tea\Model;
 
 class keyWords extends Model
 {
@@ -17,17 +17,24 @@ class keyWords extends Model
         'keyWord' => 'KeyWord',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->keyWord)) {
+            Model::validateArray($this->keyWord);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyWord) {
-            $res['KeyWord'] = [];
-            if (null !== $this->keyWord && \is_array($this->keyWord)) {
-                $n = 0;
-                foreach ($this->keyWord as $item) {
-                    $res['KeyWord'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->keyWord)) {
+                $res['KeyWord'] = [];
+                $n1 = 0;
+                foreach ($this->keyWord as $item1) {
+                    $res['KeyWord'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class keyWords extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return keyWords
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyWord'])) {
             if (!empty($map['KeyWord'])) {
                 $model->keyWord = [];
-                $n = 0;
-                foreach ($map['KeyWord'] as $item) {
-                    $model->keyWord[$n++] = null !== $item ? keyWord::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['KeyWord'] as $item1) {
+                    $model->keyWord[$n1] = keyWord::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

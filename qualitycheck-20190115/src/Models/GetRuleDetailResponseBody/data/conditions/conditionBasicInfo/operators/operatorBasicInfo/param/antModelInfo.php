@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetRuleDetailResponseBody\data\conditions\conditionBasicInfo\operators\operatorBasicInfo\param;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class antModelInfo extends Model
 {
@@ -16,29 +16,47 @@ class antModelInfo extends Model
         'antModelInfo' => 'AntModelInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->antModelInfo)) {
+            Model::validateArray($this->antModelInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->antModelInfo) {
-            $res['AntModelInfo'] = $this->antModelInfo;
+            if (\is_array($this->antModelInfo)) {
+                $res['AntModelInfo'] = [];
+                $n1 = 0;
+                foreach ($this->antModelInfo as $item1) {
+                    $res['AntModelInfo'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return antModelInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AntModelInfo'])) {
             if (!empty($map['AntModelInfo'])) {
-                $model->antModelInfo = $map['AntModelInfo'];
+                $model->antModelInfo = [];
+                $n1 = 0;
+                foreach ($map['AntModelInfo'] as $item1) {
+                    $model->antModelInfo[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

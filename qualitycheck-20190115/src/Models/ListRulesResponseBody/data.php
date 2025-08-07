@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListRulesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -19,8 +19,6 @@ class data extends Model
     public $comments;
 
     /**
-     * @example 2020-04-20T20:10Z
-     *
      * @var string
      */
     public $createTime;
@@ -31,22 +29,16 @@ class data extends Model
     public $name;
 
     /**
-     * @example 1234567
-     *
      * @var int
      */
     public $rid;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $ruleType;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $type;
@@ -66,32 +58,52 @@ class data extends Model
         'typeName' => 'TypeName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->businessCategoryNameList)) {
+            Model::validateArray($this->businessCategoryNameList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->businessCategoryNameList) {
-            $res['BusinessCategoryNameList'] = $this->businessCategoryNameList;
+            if (\is_array($this->businessCategoryNameList)) {
+                $res['BusinessCategoryNameList'] = [];
+                $n1 = 0;
+                foreach ($this->businessCategoryNameList as $item1) {
+                    $res['BusinessCategoryNameList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->comments) {
             $res['Comments'] = $this->comments;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->rid) {
             $res['Rid'] = $this->rid;
         }
+
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->typeName) {
             $res['TypeName'] = $this->typeName;
         }
@@ -99,37 +111,49 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BusinessCategoryNameList'])) {
             if (!empty($map['BusinessCategoryNameList'])) {
-                $model->businessCategoryNameList = $map['BusinessCategoryNameList'];
+                $model->businessCategoryNameList = [];
+                $n1 = 0;
+                foreach ($map['BusinessCategoryNameList'] as $item1) {
+                    $model->businessCategoryNameList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Comments'])) {
             $model->comments = $map['Comments'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Rid'])) {
             $model->rid = $map['Rid'];
         }
+
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['TypeName'])) {
             $model->typeName = $map['TypeName'];
         }

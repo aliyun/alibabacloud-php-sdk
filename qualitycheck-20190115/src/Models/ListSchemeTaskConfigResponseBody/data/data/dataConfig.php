@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSchemeTaskConfigResponseBody\data\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListSchemeTaskConfigResponseBody\data\data\dataConfig\assignConfigs;
-use AlibabaCloud\Tea\Model;
 
 class dataConfig extends Model
 {
@@ -15,22 +15,16 @@ class dataConfig extends Model
     public $assignConfigs;
 
     /**
-     * @example []
-     *
      * @var string
      */
     public $dataSets;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $index;
 
     /**
-     * @example {}
-     *
      * @var string
      */
     public $resultParam;
@@ -41,20 +35,29 @@ class dataConfig extends Model
         'resultParam' => 'ResultParam',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->assignConfigs) {
+            $this->assignConfigs->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assignConfigs) {
-            $res['AssignConfigs'] = null !== $this->assignConfigs ? $this->assignConfigs->toMap() : null;
+            $res['AssignConfigs'] = null !== $this->assignConfigs ? $this->assignConfigs->toArray($noStream) : $this->assignConfigs;
         }
+
         if (null !== $this->dataSets) {
             $res['DataSets'] = $this->dataSets;
         }
+
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
+
         if (null !== $this->resultParam) {
             $res['ResultParam'] = $this->resultParam;
         }
@@ -62,23 +65,26 @@ class dataConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssignConfigs'])) {
             $model->assignConfigs = assignConfigs::fromMap($map['AssignConfigs']);
         }
+
         if (isset($map['DataSets'])) {
             $model->dataSets = $map['DataSets'];
         }
+
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }
+
         if (isset($map['ResultParam'])) {
             $model->resultParam = $map['ResultParam'];
         }

@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitResult\hitResult\conditions\conditions\checkRange;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class anchor extends Model
 {
     /**
-     * @description 条件ID
-     *
      * @var string
      */
     public $cid;
 
     /**
-     * @description 命中次数
-     *
      * @var int
      */
     public $hitTime;
 
     /**
-     * @description 位置
-     *
      * @var string
      */
     public $location;
@@ -34,17 +28,22 @@ class anchor extends Model
         'location' => 'Location',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cid) {
             $res['Cid'] = $this->cid;
         }
+
         if (null !== $this->hitTime) {
             $res['Hit_time'] = $this->hitTime;
         }
+
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
@@ -52,20 +51,22 @@ class anchor extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return anchor
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cid'])) {
             $model->cid = $map['Cid'];
         }
+
         if (isset($map['Hit_time'])) {
             $model->hitTime = $map['Hit_time'];
         }
+
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }

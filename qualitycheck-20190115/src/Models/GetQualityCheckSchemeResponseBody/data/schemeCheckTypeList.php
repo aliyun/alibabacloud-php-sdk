@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetQualityCheckSchemeResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class schemeCheckTypeList extends Model
 {
@@ -14,36 +14,26 @@ class schemeCheckTypeList extends Model
     public $checkName;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $checkType;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $enable;
 
     /**
-     * @example 32
-     *
      * @var int
      */
     public $schemeId;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $score;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $sourceScore;
@@ -56,26 +46,34 @@ class schemeCheckTypeList extends Model
         'sourceScore' => 'SourceScore',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkName) {
             $res['CheckName'] = $this->checkName;
         }
+
         if (null !== $this->checkType) {
             $res['CheckType'] = $this->checkType;
         }
+
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
+
         if (null !== $this->schemeId) {
             $res['SchemeId'] = $this->schemeId;
         }
+
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
+
         if (null !== $this->sourceScore) {
             $res['SourceScore'] = $this->sourceScore;
         }
@@ -83,29 +81,34 @@ class schemeCheckTypeList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return schemeCheckTypeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckName'])) {
             $model->checkName = $map['CheckName'];
         }
+
         if (isset($map['CheckType'])) {
             $model->checkType = $map['CheckType'];
         }
+
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
+
         if (isset($map['SchemeId'])) {
             $model->schemeId = $map['SchemeId'];
         }
+
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
+
         if (isset($map['SourceScore'])) {
             $model->sourceScore = $map['SourceScore'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\hitResult\hitResult\conditions\conditions\checkRange;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class timeRange extends Model
 {
@@ -22,14 +22,18 @@ class timeRange extends Model
         'to' => 'To',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
+
         if (null !== $this->to) {
             $res['To'] = $this->to;
         }
@@ -37,17 +41,18 @@ class timeRange extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return timeRange
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
+
         if (isset($map['To'])) {
             $model->to = $map['To'];
         }

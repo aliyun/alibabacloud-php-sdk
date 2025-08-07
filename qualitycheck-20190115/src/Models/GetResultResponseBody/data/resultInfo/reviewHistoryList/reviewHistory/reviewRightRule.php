@@ -4,29 +4,37 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\reviewHistoryList\reviewHistory;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetResultResponseBody\data\resultInfo\reviewHistoryList\reviewHistory\reviewRightRule\reviewRightRule;
 
 class reviewRightRule extends Model
 {
     /**
-     * @var reviewRightRule\reviewRightRule[]
+     * @var reviewRightRule[]
      */
     public $reviewRightRule;
     protected $_name = [
         'reviewRightRule' => 'ReviewRightRule',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->reviewRightRule)) {
+            Model::validateArray($this->reviewRightRule);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reviewRightRule) {
-            $res['ReviewRightRule'] = [];
-            if (null !== $this->reviewRightRule && \is_array($this->reviewRightRule)) {
-                $n = 0;
-                foreach ($this->reviewRightRule as $item) {
-                    $res['ReviewRightRule'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->reviewRightRule)) {
+                $res['ReviewRightRule'] = [];
+                $n1 = 0;
+                foreach ($this->reviewRightRule as $item1) {
+                    $res['ReviewRightRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +42,21 @@ class reviewRightRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return reviewRightRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReviewRightRule'])) {
             if (!empty($map['ReviewRightRule'])) {
                 $model->reviewRightRule = [];
-                $n = 0;
-                foreach ($map['ReviewRightRule'] as $item) {
-                    $model->reviewRightRule[$n++] = null !== $item ? reviewRightRule\reviewRightRule::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ReviewRightRule'] as $item1) {
+                    $model->reviewRightRule[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

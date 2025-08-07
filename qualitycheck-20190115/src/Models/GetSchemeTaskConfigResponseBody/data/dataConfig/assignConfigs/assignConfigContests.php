@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\GetSchemeTaskConfigResponseBody\data\dataConfig\assignConfigs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class assignConfigContests extends Model
 {
     /**
-     * @example 3
-     *
      * @var int
      */
     public $dataType;
@@ -21,22 +19,16 @@ class assignConfigContests extends Model
     public $listObject;
 
     /**
-     * @example callStartTime
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example 4
-     *
      * @var int
      */
     public $symbol;
 
     /**
-     * @example {\\"start\\":\\"2022-09-01 00:00:00\\",\\"end\\":\\"2022-09-30 00:00:00\\"}
-     *
      * @var string
      */
     public $value;
@@ -48,23 +40,40 @@ class assignConfigContests extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->listObject)) {
+            Model::validateArray($this->listObject);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataType) {
             $res['DataType'] = $this->dataType;
         }
+
         if (null !== $this->listObject) {
-            $res['ListObject'] = $this->listObject;
+            if (\is_array($this->listObject)) {
+                $res['ListObject'] = [];
+                $n1 = 0;
+                foreach ($this->listObject as $item1) {
+                    $res['ListObject'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->symbol) {
             $res['Symbol'] = $this->symbol;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -72,28 +81,37 @@ class assignConfigContests extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return assignConfigContests
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataType'])) {
             $model->dataType = $map['DataType'];
         }
+
         if (isset($map['ListObject'])) {
             if (!empty($map['ListObject'])) {
-                $model->listObject = $map['ListObject'];
+                $model->listObject = [];
+                $n1 = 0;
+                foreach ($map['ListObject'] as $item1) {
+                    $model->listObject[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Symbol'])) {
             $model->symbol = $map['Symbol'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

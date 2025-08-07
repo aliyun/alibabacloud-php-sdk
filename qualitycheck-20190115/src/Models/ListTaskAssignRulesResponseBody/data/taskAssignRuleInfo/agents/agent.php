@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Qualitycheck\V20190115\Models\ListTaskAssignRulesResponseBody\data\taskAssignRuleInfo\agents;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class agent extends Model
 {
     /**
-     * @example 202526561358712105
-     *
      * @var string
      */
     public $agentId;
 
     /**
-     * @example agent
-     *
      * @var string
      */
     public $agentName;
@@ -26,14 +22,18 @@ class agent extends Model
         'agentName' => 'AgentName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
         }
+
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
         }
@@ -41,17 +41,18 @@ class agent extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return agent
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
         }
+
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
         }
