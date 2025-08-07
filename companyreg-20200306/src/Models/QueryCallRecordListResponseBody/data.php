@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $contactDisposition;
+
+    /**
      * @var int
      */
     public $duration;
@@ -22,10 +27,17 @@ class data extends Model
      * @var int
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
+        'contactDisposition' => 'ContactDisposition',
         'duration' => 'Duration',
         'signatureUrl' => 'SignatureUrl',
         'startTime' => 'StartTime',
+        'taskId' => 'taskId',
     ];
 
     public function validate()
@@ -36,6 +48,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->contactDisposition) {
+            $res['ContactDisposition'] = $this->contactDisposition;
+        }
+
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
@@ -46,6 +62,10 @@ class data extends Model
 
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+
+        if (null !== $this->taskId) {
+            $res['taskId'] = $this->taskId;
         }
 
         return $res;
@@ -59,6 +79,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContactDisposition'])) {
+            $model->contactDisposition = $map['ContactDisposition'];
+        }
+
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
@@ -69,6 +93,10 @@ class data extends Model
 
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+
+        if (isset($map['taskId'])) {
+            $model->taskId = $map['taskId'];
         }
 
         return $model;
