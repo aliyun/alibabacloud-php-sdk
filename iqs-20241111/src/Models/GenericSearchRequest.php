@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GenericSearchRequest extends Model
 {
@@ -19,15 +19,11 @@ class GenericSearchRequest extends Model
     public $industry;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $query;
@@ -53,8 +49,6 @@ class GenericSearchRequest extends Model
     public $sessionId;
 
     /**
-     * @example OneWeek
-     *
      * @var string
      */
     public $timeRange;
@@ -70,35 +64,46 @@ class GenericSearchRequest extends Model
         'timeRange' => 'timeRange',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableRerank) {
             $res['enableRerank'] = $this->enableRerank;
         }
+
         if (null !== $this->industry) {
             $res['industry'] = $this->industry;
         }
+
         if (null !== $this->page) {
             $res['page'] = $this->page;
         }
+
         if (null !== $this->query) {
             $res['query'] = $this->query;
         }
+
         if (null !== $this->returnMainText) {
             $res['returnMainText'] = $this->returnMainText;
         }
+
         if (null !== $this->returnMarkdownText) {
             $res['returnMarkdownText'] = $this->returnMarkdownText;
         }
+
         if (null !== $this->returnSummary) {
             $res['returnSummary'] = $this->returnSummary;
         }
+
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
         }
+
         if (null !== $this->timeRange) {
             $res['timeRange'] = $this->timeRange;
         }
@@ -106,38 +111,46 @@ class GenericSearchRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenericSearchRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['enableRerank'])) {
             $model->enableRerank = $map['enableRerank'];
         }
+
         if (isset($map['industry'])) {
             $model->industry = $map['industry'];
         }
+
         if (isset($map['page'])) {
             $model->page = $map['page'];
         }
+
         if (isset($map['query'])) {
             $model->query = $map['query'];
         }
+
         if (isset($map['returnMainText'])) {
             $model->returnMainText = $map['returnMainText'];
         }
+
         if (isset($map['returnMarkdownText'])) {
             $model->returnMarkdownText = $map['returnMarkdownText'];
         }
+
         if (isset($map['returnSummary'])) {
             $model->returnSummary = $map['returnSummary'];
         }
+
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
         }
+
         if (isset($map['timeRange'])) {
             $model->timeRange = $map['timeRange'];
         }

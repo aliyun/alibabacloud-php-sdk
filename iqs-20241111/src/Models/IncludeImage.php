@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IncludeImage extends Model
 {
     /**
-     * @example 324
-     *
      * @var int
      */
     public $height;
 
     /**
-     * @example http://k.sinaimg.cn/n/sinakd20121/594/w2048h946/20240328/74cf-32c0d62e843df76567d760b4459d57c1.jpg/w700d1q75cms.jpg
-     *
      * @var string
      */
     public $imageLink;
 
     /**
-     * @example 700
-     *
      * @var int
      */
     public $width;
@@ -34,17 +28,22 @@ class IncludeImage extends Model
         'width' => 'width',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->height) {
             $res['height'] = $this->height;
         }
+
         if (null !== $this->imageLink) {
             $res['imageLink'] = $this->imageLink;
         }
+
         if (null !== $this->width) {
             $res['width'] = $this->width;
         }
@@ -52,20 +51,22 @@ class IncludeImage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IncludeImage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['height'])) {
             $model->height = $map['height'];
         }
+
         if (isset($map['imageLink'])) {
             $model->imageLink = $map['imageLink'];
         }
+
         if (isset($map['width'])) {
             $model->width = $map['width'];
         }

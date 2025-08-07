@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IQS\V20241111\Models\GetIqsUsageResult\records;
-use AlibabaCloud\Tea\Model;
 
 class GetIqsUsageResult extends Model
 {
@@ -17,17 +17,24 @@ class GetIqsUsageResult extends Model
         'records' => 'records',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->records)) {
+            Model::validateArray($this->records);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->records) {
-            $res['records'] = [];
-            if (null !== $this->records && \is_array($this->records)) {
-                $n = 0;
-                foreach ($this->records as $item) {
-                    $res['records'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->records)) {
+                $res['records'] = [];
+                $n1 = 0;
+                foreach ($this->records as $item1) {
+                    $res['records'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class GetIqsUsageResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetIqsUsageResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['records'])) {
             if (!empty($map['records'])) {
                 $model->records = [];
-                $n = 0;
-                foreach ($map['records'] as $item) {
-                    $model->records[$n++] = null !== $item ? records::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['records'] as $item1) {
+                    $model->records[$n1] = records::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

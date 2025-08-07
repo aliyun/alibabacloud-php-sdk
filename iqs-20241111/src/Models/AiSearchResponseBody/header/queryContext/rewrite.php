@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models\AiSearchResponseBody\header\queryContext;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rewrite extends Model
 {
@@ -22,14 +22,18 @@ class rewrite extends Model
         'timeRange' => 'timeRange',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enabled) {
             $res['enabled'] = $this->enabled;
         }
+
         if (null !== $this->timeRange) {
             $res['timeRange'] = $this->timeRange;
         }
@@ -37,17 +41,18 @@ class rewrite extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rewrite
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['enabled'])) {
             $model->enabled = $map['enabled'];
         }
+
         if (isset($map['timeRange'])) {
             $model->timeRange = $map['timeRange'];
         }

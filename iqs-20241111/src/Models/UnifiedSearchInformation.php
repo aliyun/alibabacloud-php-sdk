@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UnifiedSearchInformation extends Model
 {
@@ -16,9 +16,12 @@ class UnifiedSearchInformation extends Model
         'searchTime' => 'searchTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->searchTime) {
@@ -28,11 +31,11 @@ class UnifiedSearchInformation extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UnifiedSearchInformation
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

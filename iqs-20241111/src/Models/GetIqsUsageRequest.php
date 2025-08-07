@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetIqsUsageRequest extends Model
 {
     /**
-     * @example 20241017
-     *
      * @var string
      */
     public $endDate;
 
     /**
-     * @example 20241011
-     *
      * @var string
      */
     public $startDate;
@@ -26,14 +22,18 @@ class GetIqsUsageRequest extends Model
         'startDate' => 'startDate',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endDate) {
             $res['endDate'] = $this->endDate;
         }
+
         if (null !== $this->startDate) {
             $res['startDate'] = $this->startDate;
         }
@@ -41,17 +41,18 @@ class GetIqsUsageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetIqsUsageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['endDate'])) {
             $model->endDate = $map['endDate'];
         }
+
         if (isset($map['startDate'])) {
             $model->startDate = $map['startDate'];
         }
