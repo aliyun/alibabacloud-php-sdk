@@ -11,6 +11,11 @@ class DescribeParameterGroupRequest extends Model
     /**
      * @var string
      */
+    public $DBType;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -43,6 +48,7 @@ class DescribeParameterGroupRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'DBType' => 'DBType',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'parameterGroupId' => 'ParameterGroupId',
@@ -60,6 +66,10 @@ class DescribeParameterGroupRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->DBType) {
+            $res['DBType'] = $this->DBType;
+        }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -99,6 +109,10 @@ class DescribeParameterGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBType'])) {
+            $model->DBType = $map['DBType'];
+        }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }

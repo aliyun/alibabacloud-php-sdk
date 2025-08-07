@@ -57,6 +57,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateStoragePlanRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateStoragePlanResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteApplicationRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteApplicationResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteBackupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteBackupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteDatabaseRequest;
@@ -89,6 +91,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActivationCodesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActivationCodesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActiveOperationTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActiveOperationTasksResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterPerformanceRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAIDBClusterPerformanceResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAITaskStatusRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAITaskStatusResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAutoRenewAttributeRequest;
@@ -2963,6 +2967,63 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * 删除PolarDB应用.
+     *
+     * @param request - DeleteApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteApplicationResponse
+     *
+     * @param DeleteApplicationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteApplicationResponse
+     */
+    public function deleteApplicationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteApplication',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DeleteApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除PolarDB应用.
+     *
+     * @param request - DeleteApplicationRequest
+     *
+     * @returns DeleteApplicationResponse
+     *
+     * @param DeleteApplicationRequest $request
+     *
+     * @return DeleteApplicationResponse
+     */
+    public function deleteApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApplicationWithOptions($request, $runtime);
+    }
+
+    /**
      * Deletes the backup sets of a PolarDB cluster.
      *
      * @remarks
@@ -3928,6 +3989,79 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取ai容器性能指标.
+     *
+     * @param request - DescribeAIDBClusterPerformanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAIDBClusterPerformanceResponse
+     *
+     * @param DescribeAIDBClusterPerformanceRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeAIDBClusterPerformanceResponse
+     */
+    public function describeAIDBClusterPerformanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
+        }
+
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeAIDBClusterPerformance',
+            'version' => '2017-08-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeAIDBClusterPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 获取ai容器性能指标.
+     *
+     * @param request - DescribeAIDBClusterPerformanceRequest
+     *
+     * @returns DescribeAIDBClusterPerformanceResponse
+     *
+     * @param DescribeAIDBClusterPerformanceRequest $request
+     *
+     * @return DescribeAIDBClusterPerformanceResponse
+     */
+    public function describeAIDBClusterPerformance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAIDBClusterPerformanceWithOptions($request, $runtime);
     }
 
     /**
@@ -8057,6 +8191,10 @@ class Polardb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->DBType) {
+            @$query['DBType'] = $request->DBType;
+        }
+
         if (null !== $request->ownerAccount) {
             @$query['OwnerAccount'] = $request->ownerAccount;
         }
