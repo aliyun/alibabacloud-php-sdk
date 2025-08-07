@@ -67,6 +67,11 @@ class rows extends Model
      * @var string
      */
     public $title;
+
+    /**
+     * @var string
+     */
+    public $titleh;
     protected $_name = [
         'categoryName' => 'CategoryName',
         'class' => 'Class',
@@ -80,6 +85,7 @@ class rows extends Model
         'msgId' => 'MsgId',
         'status' => 'Status',
         'title' => 'Title',
+        'titleh' => 'Titleh',
     ];
 
     public function validate()
@@ -136,6 +142,10 @@ class rows extends Model
 
         if (null !== $this->title) {
             $res['Title'] = $this->title;
+        }
+
+        if (null !== $this->titleh) {
+            $res['Titleh'] = $this->titleh;
         }
 
         return $res;
@@ -195,6 +205,10 @@ class rows extends Model
 
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
+        }
+
+        if (isset($map['Titleh'])) {
+            $model->titleh = $map['Titleh'];
         }
 
         return $model;

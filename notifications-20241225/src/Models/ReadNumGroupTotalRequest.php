@@ -51,6 +51,11 @@ class ReadNumGroupTotalRequest extends Model
     /**
      * @var string
      */
+    public $title;
+
+    /**
+     * @var string
+     */
     public $uidType;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
@@ -61,6 +66,7 @@ class ReadNumGroupTotalRequest extends Model
         'cookies' => 'Cookies',
         'srcUrl' => 'SrcUrl',
         'tenantCode' => 'TenantCode',
+        'title' => 'Title',
         'uidType' => 'UidType',
     ];
 
@@ -102,6 +108,10 @@ class ReadNumGroupTotalRequest extends Model
 
         if (null !== $this->tenantCode) {
             $res['TenantCode'] = $this->tenantCode;
+        }
+
+        if (null !== $this->title) {
+            $res['Title'] = $this->title;
         }
 
         if (null !== $this->uidType) {
@@ -149,6 +159,10 @@ class ReadNumGroupTotalRequest extends Model
 
         if (isset($map['TenantCode'])) {
             $model->tenantCode = $map['TenantCode'];
+        }
+
+        if (isset($map['Title'])) {
+            $model->title = $map['Title'];
         }
 
         if (isset($map['UidType'])) {

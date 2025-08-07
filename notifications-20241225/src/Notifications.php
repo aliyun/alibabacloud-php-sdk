@@ -978,6 +978,10 @@ class Notifications extends OpenApiClient
             @$body['TenantCode'] = $request->tenantCode;
         }
 
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
+        }
+
         if (null !== $request->uidType) {
             @$body['UidType'] = $request->uidType;
         }
