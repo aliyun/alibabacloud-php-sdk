@@ -29,6 +29,11 @@ class GetErrorRequest extends Model
     public $did;
 
     /**
+     * @var string
+     */
+    public $digestHash;
+
+    /**
      * @var bool
      */
     public $force;
@@ -47,6 +52,7 @@ class GetErrorRequest extends Model
         'bizModule' => 'BizModule',
         'clientTime' => 'ClientTime',
         'did' => 'Did',
+        'digestHash' => 'DigestHash',
         'force' => 'Force',
         'os' => 'Os',
         'uuid' => 'Uuid',
@@ -74,6 +80,10 @@ class GetErrorRequest extends Model
 
         if (null !== $this->did) {
             $res['Did'] = $this->did;
+        }
+
+        if (null !== $this->digestHash) {
+            $res['DigestHash'] = $this->digestHash;
         }
 
         if (null !== $this->force) {
@@ -113,6 +123,10 @@ class GetErrorRequest extends Model
 
         if (isset($map['Did'])) {
             $model->did = $map['Did'];
+        }
+
+        if (isset($map['DigestHash'])) {
+            $model->digestHash = $map['DigestHash'];
         }
 
         if (isset($map['Force'])) {

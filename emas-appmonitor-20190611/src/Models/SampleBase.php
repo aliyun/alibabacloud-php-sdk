@@ -53,7 +53,8 @@ class SampleBase extends Model
                 $res['FullSampleDeviceIds'] = [];
                 $n1 = 0;
                 foreach ($this->fullSampleDeviceIds as $item1) {
-                    $res['FullSampleDeviceIds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FullSampleDeviceIds'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,7 +64,8 @@ class SampleBase extends Model
                 $res['FullSampleUsers'] = [];
                 $n1 = 0;
                 foreach ($this->fullSampleUsers as $item1) {
-                    $res['FullSampleUsers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FullSampleUsers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -92,7 +94,8 @@ class SampleBase extends Model
                 $model->fullSampleDeviceIds = [];
                 $n1 = 0;
                 foreach ($map['FullSampleDeviceIds'] as $item1) {
-                    $model->fullSampleDeviceIds[$n1++] = FullSampleItem::fromMap($item1);
+                    $model->fullSampleDeviceIds[$n1] = FullSampleItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -102,7 +105,8 @@ class SampleBase extends Model
                 $model->fullSampleUsers = [];
                 $n1 = 0;
                 foreach ($map['FullSampleUsers'] as $item1) {
-                    $model->fullSampleUsers[$n1++] = FullSampleItem::fromMap($item1);
+                    $model->fullSampleUsers[$n1] = FullSampleItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

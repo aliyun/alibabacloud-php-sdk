@@ -21,6 +21,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $digestHash;
+
+    /**
+     * @var string
+     */
     public $utdid;
 
     /**
@@ -30,6 +35,7 @@ class items extends Model
     protected $_name = [
         'clientTime' => 'ClientTime',
         'did' => 'Did',
+        'digestHash' => 'DigestHash',
         'utdid' => 'Utdid',
         'uuid' => 'Uuid',
     ];
@@ -48,6 +54,10 @@ class items extends Model
 
         if (null !== $this->did) {
             $res['Did'] = $this->did;
+        }
+
+        if (null !== $this->digestHash) {
+            $res['DigestHash'] = $this->digestHash;
         }
 
         if (null !== $this->utdid) {
@@ -75,6 +85,10 @@ class items extends Model
 
         if (isset($map['Did'])) {
             $model->did = $map['Did'];
+        }
+
+        if (isset($map['DigestHash'])) {
+            $model->digestHash = $map['DigestHash'];
         }
 
         if (isset($map['Utdid'])) {

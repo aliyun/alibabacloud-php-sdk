@@ -14,6 +14,26 @@ class items extends Model
     public $affectedUserCount;
 
     /**
+     * @var int
+     */
+    public $allocSizeMax;
+
+    /**
+     * @var int
+     */
+    public $allocSizePct50;
+
+    /**
+     * @var int
+     */
+    public $allocSizePct70;
+
+    /**
+     * @var int
+     */
+    public $allocSizePct90;
+
+    /**
      * @var string
      */
     public $digestHash;
@@ -94,6 +114,10 @@ class items extends Model
     public $status;
     protected $_name = [
         'affectedUserCount' => 'AffectedUserCount',
+        'allocSizeMax' => 'AllocSizeMax',
+        'allocSizePct50' => 'AllocSizePct50',
+        'allocSizePct70' => 'AllocSizePct70',
+        'allocSizePct90' => 'AllocSizePct90',
         'digestHash' => 'DigestHash',
         'domScore' => 'DomScore',
         'errorColumn' => 'ErrorColumn',
@@ -122,6 +146,22 @@ class items extends Model
         $res = [];
         if (null !== $this->affectedUserCount) {
             $res['AffectedUserCount'] = $this->affectedUserCount;
+        }
+
+        if (null !== $this->allocSizeMax) {
+            $res['AllocSizeMax'] = $this->allocSizeMax;
+        }
+
+        if (null !== $this->allocSizePct50) {
+            $res['AllocSizePct50'] = $this->allocSizePct50;
+        }
+
+        if (null !== $this->allocSizePct70) {
+            $res['AllocSizePct70'] = $this->allocSizePct70;
+        }
+
+        if (null !== $this->allocSizePct90) {
+            $res['AllocSizePct90'] = $this->allocSizePct90;
         }
 
         if (null !== $this->digestHash) {
@@ -201,6 +241,22 @@ class items extends Model
         $model = new self();
         if (isset($map['AffectedUserCount'])) {
             $model->affectedUserCount = $map['AffectedUserCount'];
+        }
+
+        if (isset($map['AllocSizeMax'])) {
+            $model->allocSizeMax = $map['AllocSizeMax'];
+        }
+
+        if (isset($map['AllocSizePct50'])) {
+            $model->allocSizePct50 = $map['AllocSizePct50'];
+        }
+
+        if (isset($map['AllocSizePct70'])) {
+            $model->allocSizePct70 = $map['AllocSizePct70'];
+        }
+
+        if (isset($map['AllocSizePct90'])) {
+            $model->allocSizePct90 = $map['AllocSizePct90'];
         }
 
         if (isset($map['DigestHash'])) {

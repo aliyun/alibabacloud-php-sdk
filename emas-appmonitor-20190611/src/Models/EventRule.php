@@ -62,7 +62,8 @@ class EventRule extends Model
                 $res['Conditional'] = [];
                 $n1 = 0;
                 foreach ($this->conditional as $item1) {
-                    $res['Conditional'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Conditional'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -103,7 +104,8 @@ class EventRule extends Model
                 $model->conditional = [];
                 $n1 = 0;
                 foreach ($map['Conditional'] as $item1) {
-                    $model->conditional[$n1++] = ConditionalRule::fromMap($item1);
+                    $model->conditional[$n1] = ConditionalRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

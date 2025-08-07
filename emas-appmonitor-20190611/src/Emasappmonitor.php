@@ -94,6 +94,10 @@ class Emasappmonitor extends OpenApiClient
             @$body['Did'] = $request->did;
         }
 
+        if (null !== $request->digestHash) {
+            @$body['DigestHash'] = $request->digestHash;
+        }
+
         if (null !== $request->force) {
             @$body['Force'] = $request->force;
         }

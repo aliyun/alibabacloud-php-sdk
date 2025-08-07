@@ -621,6 +621,11 @@ class model_ extends Model
     /**
      * @var string
      */
+    public $structuredStack;
+
+    /**
+     * @var string
+     */
     public $summary;
 
     /**
@@ -835,6 +840,7 @@ class model_ extends Model
         'speedFlags' => 'SpeedFlags',
         'stack' => 'Stack',
         'status' => 'Status',
+        'structuredStack' => 'StructuredStack',
         'summary' => 'Summary',
         'symbolicFileType' => 'SymbolicFileType',
         'sysLog' => 'SysLog',
@@ -1350,6 +1356,10 @@ class model_ extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->structuredStack) {
+            $res['StructuredStack'] = $this->structuredStack;
         }
 
         if (null !== $this->summary) {
@@ -1925,6 +1935,10 @@ class model_ extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['StructuredStack'])) {
+            $model->structuredStack = $map['StructuredStack'];
         }
 
         if (isset($map['Summary'])) {

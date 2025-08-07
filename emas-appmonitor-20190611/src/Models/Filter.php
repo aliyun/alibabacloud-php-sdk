@@ -58,7 +58,8 @@ class Filter extends Model
                 $res['SubFilters'] = [];
                 $n1 = 0;
                 foreach ($this->subFilters as $item1) {
-                    $res['SubFilters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SubFilters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class Filter extends Model
                 $model->subFilters = [];
                 $n1 = 0;
                 foreach ($map['SubFilters'] as $item1) {
-                    $model->subFilters[$n1++] = self::fromMap($item1);
+                    $model->subFilters[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
