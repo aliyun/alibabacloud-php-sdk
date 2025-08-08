@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetMcubeUpgradePackageInfoResponseBody\getPackageResult;
-use AlibabaCloud\Tea\Model;
 
 class GetMcubeUpgradePackageInfoResponseBody extends Model
 {
@@ -30,27 +30,34 @@ class GetMcubeUpgradePackageInfoResponseBody extends Model
     public $resultMessage;
     protected $_name = [
         'getPackageResult' => 'GetPackageResult',
-        'requestId'        => 'RequestId',
-        'resultCode'       => 'ResultCode',
-        'resultMessage'    => 'ResultMessage',
+        'requestId' => 'RequestId',
+        'resultCode' => 'ResultCode',
+        'resultMessage' => 'ResultMessage',
     ];
 
     public function validate()
     {
+        if (null !== $this->getPackageResult) {
+            $this->getPackageResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->getPackageResult) {
-            $res['GetPackageResult'] = null !== $this->getPackageResult ? $this->getPackageResult->toMap() : null;
+            $res['GetPackageResult'] = null !== $this->getPackageResult ? $this->getPackageResult->toArray($noStream) : $this->getPackageResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resultCode) {
             $res['ResultCode'] = $this->resultCode;
         }
+
         if (null !== $this->resultMessage) {
             $res['ResultMessage'] = $this->resultMessage;
         }
@@ -58,23 +65,26 @@ class GetMcubeUpgradePackageInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMcubeUpgradePackageInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GetPackageResult'])) {
             $model->getPackageResult = getPackageResult::fromMap($map['GetPackageResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResultCode'])) {
             $model->resultCode = $map['ResultCode'];
         }
+
         if (isset($map['ResultMessage'])) {
             $model->resultMessage = $map['ResultMessage'];
         }

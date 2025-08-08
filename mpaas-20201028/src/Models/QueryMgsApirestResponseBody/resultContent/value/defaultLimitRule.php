@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMgsApirestResponseBody\resultContent\value;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class defaultLimitRule extends Model
 {
@@ -18,20 +18,22 @@ class defaultLimitRule extends Model
      */
     public $defaultLimit;
     protected $_name = [
-        'configId'     => 'ConfigId',
+        'configId' => 'ConfigId',
         'defaultLimit' => 'DefaultLimit',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
+
         if (null !== $this->defaultLimit) {
             $res['DefaultLimit'] = $this->defaultLimit;
         }
@@ -39,17 +41,18 @@ class defaultLimitRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return defaultLimitRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }
+
         if (isset($map['DefaultLimit'])) {
             $model->defaultLimit = $map['DefaultLimit'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcubeUpgradeResourceResponseBody\deleteResult;
-use AlibabaCloud\Tea\Model;
 
 class DeleteMcubeUpgradeResourceResponseBody extends Model
 {
@@ -29,28 +29,35 @@ class DeleteMcubeUpgradeResourceResponseBody extends Model
      */
     public $resultMessage;
     protected $_name = [
-        'deleteResult'  => 'DeleteResult',
-        'requestId'     => 'RequestId',
-        'resultCode'    => 'ResultCode',
+        'deleteResult' => 'DeleteResult',
+        'requestId' => 'RequestId',
+        'resultCode' => 'ResultCode',
         'resultMessage' => 'ResultMessage',
     ];
 
     public function validate()
     {
+        if (null !== $this->deleteResult) {
+            $this->deleteResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deleteResult) {
-            $res['DeleteResult'] = null !== $this->deleteResult ? $this->deleteResult->toMap() : null;
+            $res['DeleteResult'] = null !== $this->deleteResult ? $this->deleteResult->toArray($noStream) : $this->deleteResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resultCode) {
             $res['ResultCode'] = $this->resultCode;
         }
+
         if (null !== $this->resultMessage) {
             $res['ResultMessage'] = $this->resultMessage;
         }
@@ -58,23 +65,26 @@ class DeleteMcubeUpgradeResourceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteMcubeUpgradeResourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeleteResult'])) {
             $model->deleteResult = deleteResult::fromMap($map['DeleteResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResultCode'])) {
             $model->resultCode = $map['ResultCode'];
         }
+
         if (isset($map['ResultMessage'])) {
             $model->resultMessage = $map['ResultMessage'];
         }

@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryLinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example BB5953C300957
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 8hGb9SyJARqp7V4PGP92X
-     *
      * @var string
      */
     public $url;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example default
-     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'appId'       => 'AppId',
-        'url'         => 'Url',
+        'appId' => 'AppId',
+        'url' => 'Url',
         'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -60,20 +51,22 @@ class QueryLinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryLinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

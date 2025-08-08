@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\PushMultipleResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class pushResult extends Model
 {
@@ -23,24 +23,27 @@ class pushResult extends Model
      */
     public $success;
     protected $_name = [
-        'data'      => 'Data',
+        'data' => 'Data',
         'resultMsg' => 'ResultMsg',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->resultMsg) {
             $res['ResultMsg'] = $this->resultMsg;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -48,20 +51,22 @@ class pushResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pushResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['ResultMsg'])) {
             $model->resultMsg = $map['ResultMsg'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

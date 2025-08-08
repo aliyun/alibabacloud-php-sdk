@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\ExportMappCenterAppConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class exportMappCenterAppConfigResult extends Model
 {
@@ -24,23 +24,26 @@ class exportMappCenterAppConfigResult extends Model
     public $success;
     protected $_name = [
         'configDownloadUrl' => 'ConfigDownloadUrl',
-        'resultMsg'         => 'ResultMsg',
-        'success'           => 'Success',
+        'resultMsg' => 'ResultMsg',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configDownloadUrl) {
             $res['ConfigDownloadUrl'] = $this->configDownloadUrl;
         }
+
         if (null !== $this->resultMsg) {
             $res['ResultMsg'] = $this->resultMsg;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -48,20 +51,22 @@ class exportMappCenterAppConfigResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return exportMappCenterAppConfigResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigDownloadUrl'])) {
             $model->configDownloadUrl = $map['ConfigDownloadUrl'];
         }
+
         if (isset($map['ResultMsg'])) {
             $model->resultMsg = $map['ResultMsg'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

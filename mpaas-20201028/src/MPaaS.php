@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\AddMdsMiniConfigRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\AddMdsMiniConfigResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CancelPushSchedulerRequest;
@@ -20,14 +19,6 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\CopyMcdpGroupRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CopyMcdpGroupResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateLinkRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateLinkResponse;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMasCrowdRequest;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMasCrowdResponse;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMasFunnelRequest;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMasFunnelResponse;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcdpEventAttributeRequest;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcdpEventAttributeResponse;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcdpEventRequest;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcdpEventResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcdpGroupRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcdpGroupResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcdpMaterialRequest;
@@ -56,8 +47,6 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcubeWhitelistRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcubeWhitelistResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMdsMiniprogramTaskRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMdsMiniprogramTaskResponse;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMsaEnhanceRequest;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMsaEnhanceResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateOpenGlobalDataRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateOpenGlobalDataResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateOpenSingleDataRequest;
@@ -68,12 +57,6 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcdpAimRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcdpAimResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcdpCrowdRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcdpCrowdResponse;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcdpEventAttributeByIdRequest;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcdpEventAttributeByIdResponse;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcdpEventByIdRequest;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcdpEventByIdResponse;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcdpMaterialRequest;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcdpMaterialResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcdpZoneRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcdpZoneResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcubeMiniAppRequest;
@@ -136,32 +119,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcubeWhitelistsRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcubeWhitelistsResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMgsApiRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMgsApiResponse;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\LogMsaQueryRequest;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\LogMsaQueryResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\MTRSOCRServiceRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\MTRSOCRServiceResponse;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiAddActiveCodeRequest;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiAddActiveCodeResponse;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiAddActiveSceneRequest;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiAddActiveSceneResponse;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiCallbackRequest;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiCallbackResponse;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiDecodeRequest;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiDecodeResponse;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiDeleteActiveCodeRequest;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiDeleteActiveCodeResponse;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiEncodeRequest;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiEncodeResponse;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiQueryActiveCodeRequest;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiQueryActiveCodeResponse;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiQueryActiveSceneRequest;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiQueryActiveSceneResponse;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiUniqueEncodeRequest;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiUniqueEncodeResponse;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiUpdateActiveCodeRequest;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiUpdateActiveCodeResponse;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiUpdateActiveSceneRequest;
-use AlibabaCloud\SDK\MPaaS\V20201028\Models\OpenApiUpdateActiveSceneResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushBindRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushBindResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\PushBroadcastRequest;
@@ -224,6 +183,8 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\SaveMgsApirestRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\SaveMgsApirestResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\StartUserAppAsyncEnhanceInMsaRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\StartUserAppAsyncEnhanceInMsaResponse;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateLinkRequest;
+use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateLinkResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateMcubeWhitelistRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateMcubeWhitelistResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UpdateMpaasAppInfoRequest;
@@ -236,11 +197,10 @@ use AlibabaCloud\SDK\MPaaS\V20201028\Models\UploadMcubeRsaKeyRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UploadMcubeRsaKeyResponse;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UploadUserAppToMsaRequest;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UploadUserAppToMsaResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class MPaaS extends OpenApiClient
 {
@@ -248,61 +208,61 @@ class MPaaS extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-hangzhou'                 => 'mpaas.aliyuncs.com',
-            'ap-northeast-1'              => 'mpaas.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'mpaas.aliyuncs.com',
-            'ap-south-1'                  => 'mpaas.aliyuncs.com',
-            'ap-southeast-1'              => 'mpaas.aliyuncs.com',
-            'ap-southeast-2'              => 'mpaas.aliyuncs.com',
-            'ap-southeast-3'              => 'mpaas.aliyuncs.com',
-            'ap-southeast-5'              => 'mpaas.aliyuncs.com',
-            'cn-beijing'                  => 'mpaas.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'mpaas.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'mpaas.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'mpaas.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'mpaas.aliyuncs.com',
-            'cn-chengdu'                  => 'mpaas.aliyuncs.com',
-            'cn-edge-1'                   => 'mpaas.aliyuncs.com',
-            'cn-fujian'                   => 'mpaas.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'mpaas.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'mpaas.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'mpaas.aliyuncs.com',
+        $this->_endpointMap = [
+            'cn-hangzhou' => 'mpaas.aliyuncs.com',
+            'ap-northeast-1' => 'mpaas.aliyuncs.com',
+            'ap-northeast-2-pop' => 'mpaas.aliyuncs.com',
+            'ap-south-1' => 'mpaas.aliyuncs.com',
+            'ap-southeast-1' => 'mpaas.aliyuncs.com',
+            'ap-southeast-2' => 'mpaas.aliyuncs.com',
+            'ap-southeast-3' => 'mpaas.aliyuncs.com',
+            'ap-southeast-5' => 'mpaas.aliyuncs.com',
+            'cn-beijing' => 'mpaas.aliyuncs.com',
+            'cn-beijing-finance-1' => 'mpaas.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'mpaas.aliyuncs.com',
+            'cn-beijing-gov-1' => 'mpaas.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'mpaas.aliyuncs.com',
+            'cn-chengdu' => 'mpaas.aliyuncs.com',
+            'cn-edge-1' => 'mpaas.aliyuncs.com',
+            'cn-fujian' => 'mpaas.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'mpaas.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'mpaas.aliyuncs.com',
+            'cn-hangzhou-finance' => 'mpaas.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'mpaas.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'mpaas.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'mpaas.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'mpaas.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'mpaas.aliyuncs.com',
-            'cn-hongkong'                 => 'mpaas.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'mpaas.aliyuncs.com',
-            'cn-huhehaote'                => 'mpaas.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'mpaas.aliyuncs.com',
-            'cn-qingdao'                  => 'mpaas.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'mpaas.aliyuncs.com',
-            'cn-shanghai'                 => 'mpaas.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'mpaas.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'mpaas.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'mpaas.aliyuncs.com',
-            'cn-shanghai-inner'           => 'mpaas.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'mpaas.aliyuncs.com',
+            'cn-hongkong' => 'mpaas.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'mpaas.aliyuncs.com',
+            'cn-huhehaote' => 'mpaas.aliyuncs.com',
+            'cn-north-2-gov-1' => 'mpaas.aliyuncs.com',
+            'cn-qingdao' => 'mpaas.aliyuncs.com',
+            'cn-qingdao-nebula' => 'mpaas.aliyuncs.com',
+            'cn-shanghai' => 'mpaas.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'mpaas.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'mpaas.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'mpaas.aliyuncs.com',
+            'cn-shanghai-inner' => 'mpaas.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'mpaas.aliyuncs.com',
-            'cn-shenzhen'                 => 'mpaas.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'mpaas.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'mpaas.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'mpaas.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'mpaas.aliyuncs.com',
-            'cn-wuhan'                    => 'mpaas.aliyuncs.com',
-            'cn-yushanfang'               => 'mpaas.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'mpaas.aliyuncs.com',
-            'cn-zhangjiakou'              => 'mpaas.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'mpaas.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'mpaas.aliyuncs.com',
-            'eu-central-1'                => 'mpaas.aliyuncs.com',
-            'eu-west-1'                   => 'mpaas.aliyuncs.com',
-            'eu-west-1-oxs'               => 'mpaas.aliyuncs.com',
-            'me-east-1'                   => 'mpaas.aliyuncs.com',
-            'rus-west-1-pop'              => 'mpaas.aliyuncs.com',
-            'us-east-1'                   => 'mpaas.aliyuncs.com',
-            'us-west-1'                   => 'mpaas.aliyuncs.com',
+            'cn-shenzhen' => 'mpaas.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'mpaas.aliyuncs.com',
+            'cn-shenzhen-inner' => 'mpaas.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'mpaas.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'mpaas.aliyuncs.com',
+            'cn-wuhan' => 'mpaas.aliyuncs.com',
+            'cn-yushanfang' => 'mpaas.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'mpaas.aliyuncs.com',
+            'cn-zhangjiakou' => 'mpaas.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'mpaas.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'mpaas.aliyuncs.com',
+            'eu-central-1' => 'mpaas.aliyuncs.com',
+            'eu-west-1' => 'mpaas.aliyuncs.com',
+            'eu-west-1-oxs' => 'mpaas.aliyuncs.com',
+            'me-east-1' => 'mpaas.aliyuncs.com',
+            'rus-west-1-pop' => 'mpaas.aliyuncs.com',
+            'us-east-1' => 'mpaas.aliyuncs.com',
+            'us-west-1' => 'mpaas.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('mpaas', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -321,60 +281,74 @@ class MPaaS extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param AddMdsMiniConfigRequest $request AddMdsMiniConfigRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - AddMdsMiniConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return AddMdsMiniConfigResponse AddMdsMiniConfigResponse
+     * @returns AddMdsMiniConfigResponse
+     *
+     * @param AddMdsMiniConfigRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddMdsMiniConfigResponse
      */
     public function addMdsMiniConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->mpaasMappcenterMiniConfigAddJsonStr)) {
-            $body['MpaasMappcenterMiniConfigAddJsonStr'] = $request->mpaasMappcenterMiniConfigAddJsonStr;
+
+        if (null !== $request->mpaasMappcenterMiniConfigAddJsonStr) {
+            @$body['MpaasMappcenterMiniConfigAddJsonStr'] = $request->mpaasMappcenterMiniConfigAddJsonStr;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddMdsMiniConfig',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddMdsMiniConfig',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddMdsMiniConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param AddMdsMiniConfigRequest $request AddMdsMiniConfigRequest
+     * @param request - AddMdsMiniConfigRequest
      *
-     * @return AddMdsMiniConfigResponse AddMdsMiniConfigResponse
+     * @returns AddMdsMiniConfigResponse
+     *
+     * @param AddMdsMiniConfigRequest $request
+     *
+     * @return AddMdsMiniConfigResponse
      */
     public function addMdsMiniConfig($request)
     {
@@ -384,49 +358,66 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CancelPushSchedulerRequest $request CancelPushSchedulerRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - CancelPushSchedulerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CancelPushSchedulerResponse CancelPushSchedulerResponse
+     * @returns CancelPushSchedulerResponse
+     *
+     * @param CancelPushSchedulerRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CancelPushSchedulerResponse
      */
     public function cancelPushSchedulerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->uniqueIds)) {
-            $body['UniqueIds'] = $request->uniqueIds;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->uniqueIds) {
+            @$body['UniqueIds'] = $request->uniqueIds;
         }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CancelPushScheduler',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelPushScheduler',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CancelPushSchedulerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CancelPushSchedulerRequest $request CancelPushSchedulerRequest
+     * @param request - CancelPushSchedulerRequest
      *
-     * @return CancelPushSchedulerResponse CancelPushSchedulerResponse
+     * @returns CancelPushSchedulerResponse
+     *
+     * @param CancelPushSchedulerRequest $request
+     *
+     * @return CancelPushSchedulerResponse
      */
     public function cancelPushScheduler($request)
     {
@@ -436,58 +427,74 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ChangeMcubeMiniTaskStatusRequest $request ChangeMcubeMiniTaskStatusRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - ChangeMcubeMiniTaskStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ChangeMcubeMiniTaskStatusResponse ChangeMcubeMiniTaskStatusResponse
+     * @returns ChangeMcubeMiniTaskStatusResponse
+     *
+     * @param ChangeMcubeMiniTaskStatusRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ChangeMcubeMiniTaskStatusResponse
      */
     public function changeMcubeMiniTaskStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $body['BizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->packageId)) {
-            $body['PackageId'] = $request->packageId;
+
+        if (null !== $request->packageId) {
+            @$body['PackageId'] = $request->packageId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->taskStatus)) {
-            $body['TaskStatus'] = $request->taskStatus;
+
+        if (null !== $request->taskStatus) {
+            @$body['TaskStatus'] = $request->taskStatus;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ChangeMcubeMiniTaskStatus',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeMcubeMiniTaskStatus',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ChangeMcubeMiniTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ChangeMcubeMiniTaskStatusRequest $request ChangeMcubeMiniTaskStatusRequest
+     * @param request - ChangeMcubeMiniTaskStatusRequest
      *
-     * @return ChangeMcubeMiniTaskStatusResponse ChangeMcubeMiniTaskStatusResponse
+     * @returns ChangeMcubeMiniTaskStatusResponse
+     *
+     * @param ChangeMcubeMiniTaskStatusRequest $request
+     *
+     * @return ChangeMcubeMiniTaskStatusResponse
      */
     public function changeMcubeMiniTaskStatus($request)
     {
@@ -497,58 +504,74 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ChangeMcubeNebulaTaskStatusRequest $request ChangeMcubeNebulaTaskStatusRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - ChangeMcubeNebulaTaskStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ChangeMcubeNebulaTaskStatusResponse ChangeMcubeNebulaTaskStatusResponse
+     * @returns ChangeMcubeNebulaTaskStatusResponse
+     *
+     * @param ChangeMcubeNebulaTaskStatusRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ChangeMcubeNebulaTaskStatusResponse
      */
     public function changeMcubeNebulaTaskStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $body['BizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->packageId)) {
-            $body['PackageId'] = $request->packageId;
+
+        if (null !== $request->packageId) {
+            @$body['PackageId'] = $request->packageId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->taskStatus)) {
-            $body['TaskStatus'] = $request->taskStatus;
+
+        if (null !== $request->taskStatus) {
+            @$body['TaskStatus'] = $request->taskStatus;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ChangeMcubeNebulaTaskStatus',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeMcubeNebulaTaskStatus',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ChangeMcubeNebulaTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ChangeMcubeNebulaTaskStatusRequest $request ChangeMcubeNebulaTaskStatusRequest
+     * @param request - ChangeMcubeNebulaTaskStatusRequest
      *
-     * @return ChangeMcubeNebulaTaskStatusResponse ChangeMcubeNebulaTaskStatusResponse
+     * @returns ChangeMcubeNebulaTaskStatusResponse
+     *
+     * @param ChangeMcubeNebulaTaskStatusRequest $request
+     *
+     * @return ChangeMcubeNebulaTaskStatusResponse
      */
     public function changeMcubeNebulaTaskStatus($request)
     {
@@ -558,52 +581,66 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ChangeMcubePublicTaskStatusRequest $request ChangeMcubePublicTaskStatusRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - ChangeMcubePublicTaskStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ChangeMcubePublicTaskStatusResponse ChangeMcubePublicTaskStatusResponse
+     * @returns ChangeMcubePublicTaskStatusResponse
+     *
+     * @param ChangeMcubePublicTaskStatusRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ChangeMcubePublicTaskStatusResponse
      */
     public function changeMcubePublicTaskStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->taskStatus)) {
-            $body['TaskStatus'] = $request->taskStatus;
+
+        if (null !== $request->taskStatus) {
+            @$body['TaskStatus'] = $request->taskStatus;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ChangeMcubePublicTaskStatus',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeMcubePublicTaskStatus',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ChangeMcubePublicTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ChangeMcubePublicTaskStatusRequest $request ChangeMcubePublicTaskStatusRequest
+     * @param request - ChangeMcubePublicTaskStatusRequest
      *
-     * @return ChangeMcubePublicTaskStatusResponse ChangeMcubePublicTaskStatusResponse
+     * @returns ChangeMcubePublicTaskStatusResponse
+     *
+     * @param ChangeMcubePublicTaskStatusRequest $request
+     *
+     * @return ChangeMcubePublicTaskStatusResponse
      */
     public function changeMcubePublicTaskStatus($request)
     {
@@ -613,49 +650,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CopyMcdpGroupRequest $request CopyMcdpGroupRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - CopyMcdpGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CopyMcdpGroupResponse CopyMcdpGroupResponse
+     * @returns CopyMcdpGroupResponse
+     *
+     * @param CopyMcdpGroupRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CopyMcdpGroupResponse
      */
     public function copyMcdpGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->mpaasMappcenterMcdpGroupCopyJsonStr)) {
-            $body['MpaasMappcenterMcdpGroupCopyJsonStr'] = $request->mpaasMappcenterMcdpGroupCopyJsonStr;
+
+        if (null !== $request->mpaasMappcenterMcdpGroupCopyJsonStr) {
+            @$body['MpaasMappcenterMcdpGroupCopyJsonStr'] = $request->mpaasMappcenterMcdpGroupCopyJsonStr;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CopyMcdpGroup',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CopyMcdpGroup',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CopyMcdpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CopyMcdpGroupRequest $request CopyMcdpGroupRequest
+     * @param request - CopyMcdpGroupRequest
      *
-     * @return CopyMcdpGroupResponse CopyMcdpGroupResponse
+     * @returns CopyMcdpGroupResponse
+     *
+     * @param CopyMcdpGroupRequest $request
+     *
+     * @return CopyMcdpGroupResponse
      */
     public function copyMcdpGroup($request)
     {
@@ -665,59 +715,74 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @summary 创建短链
-     *  *
-     * @param CreateLinkRequest $request CreateLinkRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 创建短链.
      *
-     * @return CreateLinkResponse CreateLinkResponse
+     * @param request - CreateLinkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateLinkResponse
+     *
+     * @param CreateLinkRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateLinkResponse
      */
     public function createLinkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->cors)) {
-            $body['Cors'] = $request->cors;
+
+        if (null !== $request->cors) {
+            @$body['Cors'] = $request->cors;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $body['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$body['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->dynamicfield)) {
-            $body['Dynamicfield'] = $request->dynamicfield;
+
+        if (null !== $request->dynamicfield) {
+            @$body['Dynamicfield'] = $request->dynamicfield;
         }
-        if (!Utils::isUnset($request->targetUrl)) {
-            $body['TargetUrl'] = $request->targetUrl;
+
+        if (null !== $request->targetUrl) {
+            @$body['TargetUrl'] = $request->targetUrl;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateLink',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateLink',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateLinkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建短链
-     *  *
-     * @param CreateLinkRequest $request CreateLinkRequest
+     * 创建短链.
      *
-     * @return CreateLinkResponse CreateLinkResponse
+     * @param request - CreateLinkRequest
+     *
+     * @returns CreateLinkResponse
+     *
+     * @param CreateLinkRequest $request
+     *
+     * @return CreateLinkResponse
      */
     public function createLink($request)
     {
@@ -727,257 +792,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMasCrowdRequest $request CreateMasCrowdRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateMcdpGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateMasCrowdResponse CreateMasCrowdResponse
-     */
-    public function createMasCrowdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mpaasMappcenterMcdpMasCrowdCreateJsonStr)) {
-            $body['MpaasMappcenterMcdpMasCrowdCreateJsonStr'] = $request->mpaasMappcenterMcdpMasCrowdCreateJsonStr;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateMasCrowd',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateMasCrowdResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateMasCrowdRequest $request CreateMasCrowdRequest
+     * @returns CreateMcdpGroupResponse
      *
-     * @return CreateMasCrowdResponse CreateMasCrowdResponse
-     */
-    public function createMasCrowd($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createMasCrowdWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateMasFunnelRequest $request CreateMasFunnelRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param CreateMcdpGroupRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return CreateMasFunnelResponse CreateMasFunnelResponse
-     */
-    public function createMasFunnelWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mpaasMappcenterMcdpMasFunnelCreateJsonStr)) {
-            $body['MpaasMappcenterMcdpMasFunnelCreateJsonStr'] = $request->mpaasMappcenterMcdpMasFunnelCreateJsonStr;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateMasFunnel',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateMasFunnelResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateMasFunnelRequest $request CreateMasFunnelRequest
-     *
-     * @return CreateMasFunnelResponse CreateMasFunnelResponse
-     */
-    public function createMasFunnel($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createMasFunnelWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateMcdpEventRequest $request CreateMcdpEventRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
-     *
-     * @return CreateMcdpEventResponse CreateMcdpEventResponse
-     */
-    public function createMcdpEventWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mpaasMappcenterMcdpEventCreateJsonStr)) {
-            $body['MpaasMappcenterMcdpEventCreateJsonStr'] = $request->mpaasMappcenterMcdpEventCreateJsonStr;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateMcdpEvent',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateMcdpEventResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateMcdpEventRequest $request CreateMcdpEventRequest
-     *
-     * @return CreateMcdpEventResponse CreateMcdpEventResponse
-     */
-    public function createMcdpEvent($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createMcdpEventWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateMcdpEventAttributeRequest $request CreateMcdpEventAttributeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
-     *
-     * @return CreateMcdpEventAttributeResponse CreateMcdpEventAttributeResponse
-     */
-    public function createMcdpEventAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mpaasMappcenterMcdpEventAttributeCreateJsonStr)) {
-            $body['MpaasMappcenterMcdpEventAttributeCreateJsonStr'] = $request->mpaasMappcenterMcdpEventAttributeCreateJsonStr;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateMcdpEventAttribute',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateMcdpEventAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateMcdpEventAttributeRequest $request CreateMcdpEventAttributeRequest
-     *
-     * @return CreateMcdpEventAttributeResponse CreateMcdpEventAttributeResponse
-     */
-    public function createMcdpEventAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createMcdpEventAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateMcdpGroupRequest $request CreateMcdpGroupRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
-     *
-     * @return CreateMcdpGroupResponse CreateMcdpGroupResponse
+     * @return CreateMcdpGroupResponse
      */
     public function createMcdpGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->mpaasMappcenterMcdpGroupCreateJsonStr)) {
-            $body['MpaasMappcenterMcdpGroupCreateJsonStr'] = $request->mpaasMappcenterMcdpGroupCreateJsonStr;
+
+        if (null !== $request->mpaasMappcenterMcdpGroupCreateJsonStr) {
+            @$body['MpaasMappcenterMcdpGroupCreateJsonStr'] = $request->mpaasMappcenterMcdpGroupCreateJsonStr;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMcdpGroup',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMcdpGroup',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMcdpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateMcdpGroupRequest $request CreateMcdpGroupRequest
+     * @param request - CreateMcdpGroupRequest
      *
-     * @return CreateMcdpGroupResponse CreateMcdpGroupResponse
+     * @returns CreateMcdpGroupResponse
+     *
+     * @param CreateMcdpGroupRequest $request
+     *
+     * @return CreateMcdpGroupResponse
      */
     public function createMcdpGroup($request)
     {
@@ -987,49 +857,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcdpMaterialRequest $request CreateMcdpMaterialRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateMcdpMaterialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateMcdpMaterialResponse CreateMcdpMaterialResponse
+     * @returns CreateMcdpMaterialResponse
+     *
+     * @param CreateMcdpMaterialRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateMcdpMaterialResponse
      */
     public function createMcdpMaterialWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->mpaasMappcenterMcdpMaterialCreateJsonStr)) {
-            $body['MpaasMappcenterMcdpMaterialCreateJsonStr'] = $request->mpaasMappcenterMcdpMaterialCreateJsonStr;
+
+        if (null !== $request->mpaasMappcenterMcdpMaterialCreateJsonStr) {
+            @$body['MpaasMappcenterMcdpMaterialCreateJsonStr'] = $request->mpaasMappcenterMcdpMaterialCreateJsonStr;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMcdpMaterial',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMcdpMaterial',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMcdpMaterialResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateMcdpMaterialRequest $request CreateMcdpMaterialRequest
+     * @param request - CreateMcdpMaterialRequest
      *
-     * @return CreateMcdpMaterialResponse CreateMcdpMaterialResponse
+     * @returns CreateMcdpMaterialResponse
+     *
+     * @param CreateMcdpMaterialRequest $request
+     *
+     * @return CreateMcdpMaterialResponse
      */
     public function createMcdpMaterial($request)
     {
@@ -1039,49 +922,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcdpZoneRequest $request CreateMcdpZoneRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateMcdpZoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateMcdpZoneResponse CreateMcdpZoneResponse
+     * @returns CreateMcdpZoneResponse
+     *
+     * @param CreateMcdpZoneRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateMcdpZoneResponse
      */
     public function createMcdpZoneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->mpaasMappcenterMcdpZoneCreateJsonStr)) {
-            $body['MpaasMappcenterMcdpZoneCreateJsonStr'] = $request->mpaasMappcenterMcdpZoneCreateJsonStr;
+
+        if (null !== $request->mpaasMappcenterMcdpZoneCreateJsonStr) {
+            @$body['MpaasMappcenterMcdpZoneCreateJsonStr'] = $request->mpaasMappcenterMcdpZoneCreateJsonStr;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMcdpZone',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMcdpZone',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMcdpZoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateMcdpZoneRequest $request CreateMcdpZoneRequest
+     * @param request - CreateMcdpZoneRequest
      *
-     * @return CreateMcdpZoneResponse CreateMcdpZoneResponse
+     * @returns CreateMcdpZoneResponse
+     *
+     * @param CreateMcdpZoneRequest $request
+     *
+     * @return CreateMcdpZoneResponse
      */
     public function createMcdpZone($request)
     {
@@ -1091,52 +987,66 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeMiniAppRequest $request CreateMcubeMiniAppRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateMcubeMiniAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateMcubeMiniAppResponse CreateMcubeMiniAppResponse
+     * @returns CreateMcubeMiniAppResponse
+     *
+     * @param CreateMcubeMiniAppRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateMcubeMiniAppResponse
      */
     public function createMcubeMiniAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->h5Id)) {
-            $body['H5Id'] = $request->h5Id;
+
+        if (null !== $request->h5Id) {
+            @$body['H5Id'] = $request->h5Id;
         }
-        if (!Utils::isUnset($request->h5Name)) {
-            $body['H5Name'] = $request->h5Name;
+
+        if (null !== $request->h5Name) {
+            @$body['H5Name'] = $request->h5Name;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMcubeMiniApp',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMcubeMiniApp',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMcubeMiniAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateMcubeMiniAppRequest $request CreateMcubeMiniAppRequest
+     * @param request - CreateMcubeMiniAppRequest
      *
-     * @return CreateMcubeMiniAppResponse CreateMcubeMiniAppResponse
+     * @returns CreateMcubeMiniAppResponse
+     *
+     * @param CreateMcubeMiniAppRequest $request
+     *
+     * @return CreateMcubeMiniAppResponse
      */
     public function createMcubeMiniApp($request)
     {
@@ -1146,70 +1056,90 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeMiniTaskRequest $request CreateMcubeMiniTaskRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateMcubeMiniTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateMcubeMiniTaskResponse CreateMcubeMiniTaskResponse
+     * @returns CreateMcubeMiniTaskResponse
+     *
+     * @param CreateMcubeMiniTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateMcubeMiniTaskResponse
      */
     public function createMcubeMiniTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->greyConfigInfo)) {
-            $body['GreyConfigInfo'] = $request->greyConfigInfo;
+
+        if (null !== $request->greyConfigInfo) {
+            @$body['GreyConfigInfo'] = $request->greyConfigInfo;
         }
-        if (!Utils::isUnset($request->greyEndtimeData)) {
-            $body['GreyEndtimeData'] = $request->greyEndtimeData;
+
+        if (null !== $request->greyEndtimeData) {
+            @$body['GreyEndtimeData'] = $request->greyEndtimeData;
         }
-        if (!Utils::isUnset($request->greyNum)) {
-            $body['GreyNum'] = $request->greyNum;
+
+        if (null !== $request->greyNum) {
+            @$body['GreyNum'] = $request->greyNum;
         }
-        if (!Utils::isUnset($request->memo)) {
-            $body['Memo'] = $request->memo;
+
+        if (null !== $request->memo) {
+            @$body['Memo'] = $request->memo;
         }
-        if (!Utils::isUnset($request->packageId)) {
-            $body['PackageId'] = $request->packageId;
+
+        if (null !== $request->packageId) {
+            @$body['PackageId'] = $request->packageId;
         }
-        if (!Utils::isUnset($request->publishMode)) {
-            $body['PublishMode'] = $request->publishMode;
+
+        if (null !== $request->publishMode) {
+            @$body['PublishMode'] = $request->publishMode;
         }
-        if (!Utils::isUnset($request->publishType)) {
-            $body['PublishType'] = $request->publishType;
+
+        if (null !== $request->publishType) {
+            @$body['PublishType'] = $request->publishType;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->whitelistIds)) {
-            $body['WhitelistIds'] = $request->whitelistIds;
+
+        if (null !== $request->whitelistIds) {
+            @$body['WhitelistIds'] = $request->whitelistIds;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMcubeMiniTask',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMcubeMiniTask',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMcubeMiniTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateMcubeMiniTaskRequest $request CreateMcubeMiniTaskRequest
+     * @param request - CreateMcubeMiniTaskRequest
      *
-     * @return CreateMcubeMiniTaskResponse CreateMcubeMiniTaskResponse
+     * @returns CreateMcubeMiniTaskResponse
+     *
+     * @param CreateMcubeMiniTaskRequest $request
+     *
+     * @return CreateMcubeMiniTaskResponse
      */
     public function createMcubeMiniTask($request)
     {
@@ -1219,52 +1149,66 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeNebulaAppRequest $request CreateMcubeNebulaAppRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateMcubeNebulaAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateMcubeNebulaAppResponse CreateMcubeNebulaAppResponse
+     * @returns CreateMcubeNebulaAppResponse
+     *
+     * @param CreateMcubeNebulaAppRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateMcubeNebulaAppResponse
      */
     public function createMcubeNebulaAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->h5Id)) {
-            $body['H5Id'] = $request->h5Id;
+
+        if (null !== $request->h5Id) {
+            @$body['H5Id'] = $request->h5Id;
         }
-        if (!Utils::isUnset($request->h5Name)) {
-            $body['H5Name'] = $request->h5Name;
+
+        if (null !== $request->h5Name) {
+            @$body['H5Name'] = $request->h5Name;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMcubeNebulaApp',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMcubeNebulaApp',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMcubeNebulaAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateMcubeNebulaAppRequest $request CreateMcubeNebulaAppRequest
+     * @param request - CreateMcubeNebulaAppRequest
      *
-     * @return CreateMcubeNebulaAppResponse CreateMcubeNebulaAppResponse
+     * @returns CreateMcubeNebulaAppResponse
+     *
+     * @param CreateMcubeNebulaAppRequest $request
+     *
+     * @return CreateMcubeNebulaAppResponse
      */
     public function createMcubeNebulaApp($request)
     {
@@ -1274,97 +1218,126 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeNebulaResourceRequest $request CreateMcubeNebulaResourceRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateMcubeNebulaResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateMcubeNebulaResourceResponse CreateMcubeNebulaResourceResponse
+     * @returns CreateMcubeNebulaResourceResponse
+     *
+     * @param CreateMcubeNebulaResourceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateMcubeNebulaResourceResponse
      */
     public function createMcubeNebulaResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->autoInstall)) {
-            $body['AutoInstall'] = $request->autoInstall;
+
+        if (null !== $request->autoInstall) {
+            @$body['AutoInstall'] = $request->autoInstall;
         }
-        if (!Utils::isUnset($request->clientVersionMax)) {
-            $body['ClientVersionMax'] = $request->clientVersionMax;
+
+        if (null !== $request->clientVersionMax) {
+            @$body['ClientVersionMax'] = $request->clientVersionMax;
         }
-        if (!Utils::isUnset($request->clientVersionMin)) {
-            $body['ClientVersionMin'] = $request->clientVersionMin;
+
+        if (null !== $request->clientVersionMin) {
+            @$body['ClientVersionMin'] = $request->clientVersionMin;
         }
-        if (!Utils::isUnset($request->customDomainName)) {
-            $body['CustomDomainName'] = $request->customDomainName;
+
+        if (null !== $request->customDomainName) {
+            @$body['CustomDomainName'] = $request->customDomainName;
         }
-        if (!Utils::isUnset($request->extendInfo)) {
-            $body['ExtendInfo'] = $request->extendInfo;
+
+        if (null !== $request->extendInfo) {
+            @$body['ExtendInfo'] = $request->extendInfo;
         }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $body['FileUrl'] = $request->fileUrl;
+
+        if (null !== $request->fileUrl) {
+            @$body['FileUrl'] = $request->fileUrl;
         }
-        if (!Utils::isUnset($request->h5Id)) {
-            $body['H5Id'] = $request->h5Id;
+
+        if (null !== $request->h5Id) {
+            @$body['H5Id'] = $request->h5Id;
         }
-        if (!Utils::isUnset($request->h5Name)) {
-            $body['H5Name'] = $request->h5Name;
+
+        if (null !== $request->h5Name) {
+            @$body['H5Name'] = $request->h5Name;
         }
-        if (!Utils::isUnset($request->h5Version)) {
-            $body['H5Version'] = $request->h5Version;
+
+        if (null !== $request->h5Version) {
+            @$body['H5Version'] = $request->h5Version;
         }
-        if (!Utils::isUnset($request->installType)) {
-            $body['InstallType'] = $request->installType;
+
+        if (null !== $request->installType) {
+            @$body['InstallType'] = $request->installType;
         }
-        if (!Utils::isUnset($request->mainUrl)) {
-            $body['MainUrl'] = $request->mainUrl;
+
+        if (null !== $request->mainUrl) {
+            @$body['MainUrl'] = $request->mainUrl;
         }
-        if (!Utils::isUnset($request->onexFlag)) {
-            $body['OnexFlag'] = $request->onexFlag;
+
+        if (null !== $request->onexFlag) {
+            @$body['OnexFlag'] = $request->onexFlag;
         }
-        if (!Utils::isUnset($request->platform)) {
-            $body['Platform'] = $request->platform;
+
+        if (null !== $request->platform) {
+            @$body['Platform'] = $request->platform;
         }
-        if (!Utils::isUnset($request->repeatNebula)) {
-            $body['RepeatNebula'] = $request->repeatNebula;
+
+        if (null !== $request->repeatNebula) {
+            @$body['RepeatNebula'] = $request->repeatNebula;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->subUrl)) {
-            $body['SubUrl'] = $request->subUrl;
+
+        if (null !== $request->subUrl) {
+            @$body['SubUrl'] = $request->subUrl;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->vhost)) {
-            $body['Vhost'] = $request->vhost;
+
+        if (null !== $request->vhost) {
+            @$body['Vhost'] = $request->vhost;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMcubeNebulaResource',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMcubeNebulaResource',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMcubeNebulaResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateMcubeNebulaResourceRequest $request CreateMcubeNebulaResourceRequest
+     * @param request - CreateMcubeNebulaResourceRequest
      *
-     * @return CreateMcubeNebulaResourceResponse CreateMcubeNebulaResourceResponse
+     * @returns CreateMcubeNebulaResourceResponse
+     *
+     * @param CreateMcubeNebulaResourceRequest $request
+     *
+     * @return CreateMcubeNebulaResourceResponse
      */
     public function createMcubeNebulaResource($request)
     {
@@ -1374,151 +1347,198 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeNebulaTaskRequest $request CreateMcubeNebulaTaskRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateMcubeNebulaTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateMcubeNebulaTaskResponse CreateMcubeNebulaTaskResponse
+     * @returns CreateMcubeNebulaTaskResponse
+     *
+     * @param CreateMcubeNebulaTaskRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateMcubeNebulaTaskResponse
      */
     public function createMcubeNebulaTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appCode)) {
-            $body['AppCode'] = $request->appCode;
+        if (null !== $request->appCode) {
+            @$body['AppCode'] = $request->appCode;
         }
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $body['BizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->creator)) {
-            $body['Creator'] = $request->creator;
+
+        if (null !== $request->creator) {
+            @$body['Creator'] = $request->creator;
         }
-        if (!Utils::isUnset($request->gmtCreate)) {
-            $body['GmtCreate'] = $request->gmtCreate;
+
+        if (null !== $request->gmtCreate) {
+            @$body['GmtCreate'] = $request->gmtCreate;
         }
-        if (!Utils::isUnset($request->gmtModified)) {
-            $body['GmtModified'] = $request->gmtModified;
+
+        if (null !== $request->gmtModified) {
+            @$body['GmtModified'] = $request->gmtModified;
         }
-        if (!Utils::isUnset($request->gmtModifiedStr)) {
-            $body['GmtModifiedStr'] = $request->gmtModifiedStr;
+
+        if (null !== $request->gmtModifiedStr) {
+            @$body['GmtModifiedStr'] = $request->gmtModifiedStr;
         }
-        if (!Utils::isUnset($request->greyConfigInfo)) {
-            $body['GreyConfigInfo'] = $request->greyConfigInfo;
+
+        if (null !== $request->greyConfigInfo) {
+            @$body['GreyConfigInfo'] = $request->greyConfigInfo;
         }
-        if (!Utils::isUnset($request->greyEndtime)) {
-            $body['GreyEndtime'] = $request->greyEndtime;
+
+        if (null !== $request->greyEndtime) {
+            @$body['GreyEndtime'] = $request->greyEndtime;
         }
-        if (!Utils::isUnset($request->greyEndtimeData)) {
-            $body['GreyEndtimeData'] = $request->greyEndtimeData;
+
+        if (null !== $request->greyEndtimeData) {
+            @$body['GreyEndtimeData'] = $request->greyEndtimeData;
         }
-        if (!Utils::isUnset($request->greyEndtimeStr)) {
-            $body['GreyEndtimeStr'] = $request->greyEndtimeStr;
+
+        if (null !== $request->greyEndtimeStr) {
+            @$body['GreyEndtimeStr'] = $request->greyEndtimeStr;
         }
-        if (!Utils::isUnset($request->greyNum)) {
-            $body['GreyNum'] = $request->greyNum;
+
+        if (null !== $request->greyNum) {
+            @$body['GreyNum'] = $request->greyNum;
         }
-        if (!Utils::isUnset($request->greyUrl)) {
-            $body['GreyUrl'] = $request->greyUrl;
+
+        if (null !== $request->greyUrl) {
+            @$body['GreyUrl'] = $request->greyUrl;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->memo)) {
-            $body['Memo'] = $request->memo;
+
+        if (null !== $request->memo) {
+            @$body['Memo'] = $request->memo;
         }
-        if (!Utils::isUnset($request->modifier)) {
-            $body['Modifier'] = $request->modifier;
+
+        if (null !== $request->modifier) {
+            @$body['Modifier'] = $request->modifier;
         }
-        if (!Utils::isUnset($request->packageId)) {
-            $body['PackageId'] = $request->packageId;
+
+        if (null !== $request->packageId) {
+            @$body['PackageId'] = $request->packageId;
         }
-        if (!Utils::isUnset($request->percent)) {
-            $body['Percent'] = $request->percent;
+
+        if (null !== $request->percent) {
+            @$body['Percent'] = $request->percent;
         }
-        if (!Utils::isUnset($request->platform)) {
-            $body['Platform'] = $request->platform;
+
+        if (null !== $request->platform) {
+            @$body['Platform'] = $request->platform;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->productVersion)) {
-            $body['ProductVersion'] = $request->productVersion;
+
+        if (null !== $request->productVersion) {
+            @$body['ProductVersion'] = $request->productVersion;
         }
-        if (!Utils::isUnset($request->publishMode)) {
-            $body['PublishMode'] = $request->publishMode;
+
+        if (null !== $request->publishMode) {
+            @$body['PublishMode'] = $request->publishMode;
         }
-        if (!Utils::isUnset($request->publishType)) {
-            $body['PublishType'] = $request->publishType;
+
+        if (null !== $request->publishType) {
+            @$body['PublishType'] = $request->publishType;
         }
-        if (!Utils::isUnset($request->releaseVersion)) {
-            $body['ReleaseVersion'] = $request->releaseVersion;
+
+        if (null !== $request->releaseVersion) {
+            @$body['ReleaseVersion'] = $request->releaseVersion;
         }
-        if (!Utils::isUnset($request->resIds)) {
-            $body['ResIds'] = $request->resIds;
+
+        if (null !== $request->resIds) {
+            @$body['ResIds'] = $request->resIds;
         }
-        if (!Utils::isUnset($request->serialVersionUID)) {
-            $body['SerialVersionUID'] = $request->serialVersionUID;
+
+        if (null !== $request->serialVersionUID) {
+            @$body['SerialVersionUID'] = $request->serialVersionUID;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->syncMode)) {
-            $body['SyncMode'] = $request->syncMode;
+
+        if (null !== $request->syncMode) {
+            @$body['SyncMode'] = $request->syncMode;
         }
-        if (!Utils::isUnset($request->syncResult)) {
-            $body['SyncResult'] = $request->syncResult;
+
+        if (null !== $request->syncResult) {
+            @$body['SyncResult'] = $request->syncResult;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $body['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->taskStatus)) {
-            $body['TaskStatus'] = $request->taskStatus;
+
+        if (null !== $request->taskStatus) {
+            @$body['TaskStatus'] = $request->taskStatus;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $body['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$body['TaskType'] = $request->taskType;
         }
-        if (!Utils::isUnset($request->taskVersion)) {
-            $body['TaskVersion'] = $request->taskVersion;
+
+        if (null !== $request->taskVersion) {
+            @$body['TaskVersion'] = $request->taskVersion;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->upgradeNoticeNum)) {
-            $body['UpgradeNoticeNum'] = $request->upgradeNoticeNum;
+
+        if (null !== $request->upgradeNoticeNum) {
+            @$body['UpgradeNoticeNum'] = $request->upgradeNoticeNum;
         }
-        if (!Utils::isUnset($request->upgradeProgress)) {
-            $body['UpgradeProgress'] = $request->upgradeProgress;
+
+        if (null !== $request->upgradeProgress) {
+            @$body['UpgradeProgress'] = $request->upgradeProgress;
         }
-        if (!Utils::isUnset($request->whitelistIds)) {
-            $body['WhitelistIds'] = $request->whitelistIds;
+
+        if (null !== $request->whitelistIds) {
+            @$body['WhitelistIds'] = $request->whitelistIds;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMcubeNebulaTask',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMcubeNebulaTask',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMcubeNebulaTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateMcubeNebulaTaskRequest $request CreateMcubeNebulaTaskRequest
+     * @param request - CreateMcubeNebulaTaskRequest
      *
-     * @return CreateMcubeNebulaTaskResponse CreateMcubeNebulaTaskResponse
+     * @returns CreateMcubeNebulaTaskResponse
+     *
+     * @param CreateMcubeNebulaTaskRequest $request
+     *
+     * @return CreateMcubeNebulaTaskResponse
      */
     public function createMcubeNebulaTask($request)
     {
@@ -1528,91 +1548,118 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeUpgradePackageRequest $request CreateMcubeUpgradePackageRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateMcubeUpgradePackageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateMcubeUpgradePackageResponse CreateMcubeUpgradePackageResponse
+     * @returns CreateMcubeUpgradePackageResponse
+     *
+     * @param CreateMcubeUpgradePackageRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateMcubeUpgradePackageResponse
      */
     public function createMcubeUpgradePackageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->appVersion)) {
-            $body['AppVersion'] = $request->appVersion;
+
+        if (null !== $request->appVersion) {
+            @$body['AppVersion'] = $request->appVersion;
         }
-        if (!Utils::isUnset($request->appstoreUrl)) {
-            $body['AppstoreUrl'] = $request->appstoreUrl;
+
+        if (null !== $request->appstoreUrl) {
+            @$body['AppstoreUrl'] = $request->appstoreUrl;
         }
-        if (!Utils::isUnset($request->bundleId)) {
-            $body['BundleId'] = $request->bundleId;
+
+        if (null !== $request->bundleId) {
+            @$body['BundleId'] = $request->bundleId;
         }
-        if (!Utils::isUnset($request->customDomainName)) {
-            $body['CustomDomainName'] = $request->customDomainName;
+
+        if (null !== $request->customDomainName) {
+            @$body['CustomDomainName'] = $request->customDomainName;
         }
-        if (!Utils::isUnset($request->desc)) {
-            $body['Desc'] = $request->desc;
+
+        if (null !== $request->desc) {
+            @$body['Desc'] = $request->desc;
         }
-        if (!Utils::isUnset($request->downloadUrl)) {
-            $body['DownloadUrl'] = $request->downloadUrl;
+
+        if (null !== $request->downloadUrl) {
+            @$body['DownloadUrl'] = $request->downloadUrl;
         }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $body['FileUrl'] = $request->fileUrl;
+
+        if (null !== $request->fileUrl) {
+            @$body['FileUrl'] = $request->fileUrl;
         }
-        if (!Utils::isUnset($request->iconFileUrl)) {
-            $body['IconFileUrl'] = $request->iconFileUrl;
+
+        if (null !== $request->iconFileUrl) {
+            @$body['IconFileUrl'] = $request->iconFileUrl;
         }
-        if (!Utils::isUnset($request->installAmount)) {
-            $body['InstallAmount'] = $request->installAmount;
+
+        if (null !== $request->installAmount) {
+            @$body['InstallAmount'] = $request->installAmount;
         }
-        if (!Utils::isUnset($request->iosSymbolfileUrl)) {
-            $body['IosSymbolfileUrl'] = $request->iosSymbolfileUrl;
+
+        if (null !== $request->iosSymbolfileUrl) {
+            @$body['IosSymbolfileUrl'] = $request->iosSymbolfileUrl;
         }
-        if (!Utils::isUnset($request->isEnterprise)) {
-            $body['IsEnterprise'] = $request->isEnterprise;
+
+        if (null !== $request->isEnterprise) {
+            @$body['IsEnterprise'] = $request->isEnterprise;
         }
-        if (!Utils::isUnset($request->needCheck)) {
-            $body['NeedCheck'] = $request->needCheck;
+
+        if (null !== $request->needCheck) {
+            @$body['NeedCheck'] = $request->needCheck;
         }
-        if (!Utils::isUnset($request->onexFlag)) {
-            $body['OnexFlag'] = $request->onexFlag;
+
+        if (null !== $request->onexFlag) {
+            @$body['OnexFlag'] = $request->onexFlag;
         }
-        if (!Utils::isUnset($request->platform)) {
-            $body['Platform'] = $request->platform;
+
+        if (null !== $request->platform) {
+            @$body['Platform'] = $request->platform;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->validDays)) {
-            $body['ValidDays'] = $request->validDays;
+
+        if (null !== $request->validDays) {
+            @$body['ValidDays'] = $request->validDays;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMcubeUpgradePackage',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMcubeUpgradePackage',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMcubeUpgradePackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateMcubeUpgradePackageRequest $request CreateMcubeUpgradePackageRequest
+     * @param request - CreateMcubeUpgradePackageRequest
      *
-     * @return CreateMcubeUpgradePackageResponse CreateMcubeUpgradePackageResponse
+     * @returns CreateMcubeUpgradePackageResponse
+     *
+     * @param CreateMcubeUpgradePackageRequest $request
+     *
+     * @return CreateMcubeUpgradePackageResponse
      */
     public function createMcubeUpgradePackage($request)
     {
@@ -1622,79 +1669,102 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeUpgradeTaskRequest $request CreateMcubeUpgradeTaskRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateMcubeUpgradeTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateMcubeUpgradeTaskResponse CreateMcubeUpgradeTaskResponse
+     * @returns CreateMcubeUpgradeTaskResponse
+     *
+     * @param CreateMcubeUpgradeTaskRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateMcubeUpgradeTaskResponse
      */
     public function createMcubeUpgradeTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->greyConfigInfo)) {
-            $body['GreyConfigInfo'] = $request->greyConfigInfo;
+
+        if (null !== $request->greyConfigInfo) {
+            @$body['GreyConfigInfo'] = $request->greyConfigInfo;
         }
-        if (!Utils::isUnset($request->greyEndtimeData)) {
-            $body['GreyEndtimeData'] = $request->greyEndtimeData;
+
+        if (null !== $request->greyEndtimeData) {
+            @$body['GreyEndtimeData'] = $request->greyEndtimeData;
         }
-        if (!Utils::isUnset($request->greyNum)) {
-            $body['GreyNum'] = $request->greyNum;
+
+        if (null !== $request->greyNum) {
+            @$body['GreyNum'] = $request->greyNum;
         }
-        if (!Utils::isUnset($request->historyForce)) {
-            $body['HistoryForce'] = $request->historyForce;
+
+        if (null !== $request->historyForce) {
+            @$body['HistoryForce'] = $request->historyForce;
         }
-        if (!Utils::isUnset($request->memo)) {
-            $body['Memo'] = $request->memo;
+
+        if (null !== $request->memo) {
+            @$body['Memo'] = $request->memo;
         }
-        if (!Utils::isUnset($request->packageInfoId)) {
-            $body['PackageInfoId'] = $request->packageInfoId;
+
+        if (null !== $request->packageInfoId) {
+            @$body['PackageInfoId'] = $request->packageInfoId;
         }
-        if (!Utils::isUnset($request->publishMode)) {
-            $body['PublishMode'] = $request->publishMode;
+
+        if (null !== $request->publishMode) {
+            @$body['PublishMode'] = $request->publishMode;
         }
-        if (!Utils::isUnset($request->publishType)) {
-            $body['PublishType'] = $request->publishType;
+
+        if (null !== $request->publishType) {
+            @$body['PublishType'] = $request->publishType;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->upgradeContent)) {
-            $body['UpgradeContent'] = $request->upgradeContent;
+
+        if (null !== $request->upgradeContent) {
+            @$body['UpgradeContent'] = $request->upgradeContent;
         }
-        if (!Utils::isUnset($request->upgradeType)) {
-            $body['UpgradeType'] = $request->upgradeType;
+
+        if (null !== $request->upgradeType) {
+            @$body['UpgradeType'] = $request->upgradeType;
         }
-        if (!Utils::isUnset($request->whitelistIds)) {
-            $body['WhitelistIds'] = $request->whitelistIds;
+
+        if (null !== $request->whitelistIds) {
+            @$body['WhitelistIds'] = $request->whitelistIds;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMcubeUpgradeTask',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMcubeUpgradeTask',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMcubeUpgradeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateMcubeUpgradeTaskRequest $request CreateMcubeUpgradeTaskRequest
+     * @param request - CreateMcubeUpgradeTaskRequest
      *
-     * @return CreateMcubeUpgradeTaskResponse CreateMcubeUpgradeTaskResponse
+     * @returns CreateMcubeUpgradeTaskResponse
+     *
+     * @param CreateMcubeUpgradeTaskRequest $request
+     *
+     * @return CreateMcubeUpgradeTaskResponse
      */
     public function createMcubeUpgradeTask($request)
     {
@@ -1704,49 +1774,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeVhostRequest $request CreateMcubeVhostRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateMcubeVhostRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateMcubeVhostResponse CreateMcubeVhostResponse
+     * @returns CreateMcubeVhostResponse
+     *
+     * @param CreateMcubeVhostRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateMcubeVhostResponse
      */
     public function createMcubeVhostWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->vhost)) {
-            $body['Vhost'] = $request->vhost;
+
+        if (null !== $request->vhost) {
+            @$body['Vhost'] = $request->vhost;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMcubeVhost',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMcubeVhost',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMcubeVhostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateMcubeVhostRequest $request CreateMcubeVhostRequest
+     * @param request - CreateMcubeVhostRequest
      *
-     * @return CreateMcubeVhostResponse CreateMcubeVhostResponse
+     * @returns CreateMcubeVhostResponse
+     *
+     * @param CreateMcubeVhostRequest $request
+     *
+     * @return CreateMcubeVhostResponse
      */
     public function createMcubeVhost($request)
     {
@@ -1756,52 +1839,66 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeWhitelistRequest $request CreateMcubeWhitelistRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateMcubeWhitelistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateMcubeWhitelistResponse CreateMcubeWhitelistResponse
+     * @returns CreateMcubeWhitelistResponse
+     *
+     * @param CreateMcubeWhitelistRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateMcubeWhitelistResponse
      */
     public function createMcubeWhitelistWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->whiteListName)) {
-            $body['WhiteListName'] = $request->whiteListName;
+
+        if (null !== $request->whiteListName) {
+            @$body['WhiteListName'] = $request->whiteListName;
         }
-        if (!Utils::isUnset($request->whitelistType)) {
-            $body['WhitelistType'] = $request->whitelistType;
+
+        if (null !== $request->whitelistType) {
+            @$body['WhitelistType'] = $request->whitelistType;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMcubeWhitelist',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMcubeWhitelist',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMcubeWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateMcubeWhitelistRequest $request CreateMcubeWhitelistRequest
+     * @param request - CreateMcubeWhitelistRequest
      *
-     * @return CreateMcubeWhitelistResponse CreateMcubeWhitelistResponse
+     * @returns CreateMcubeWhitelistResponse
+     *
+     * @param CreateMcubeWhitelistRequest $request
+     *
+     * @return CreateMcubeWhitelistResponse
      */
     public function createMcubeWhitelist($request)
     {
@@ -1811,52 +1908,66 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMcubeWhitelistForIdeRequest $request CreateMcubeWhitelistForIdeRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateMcubeWhitelistForIdeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateMcubeWhitelistForIdeResponse CreateMcubeWhitelistForIdeResponse
+     * @returns CreateMcubeWhitelistForIdeResponse
+     *
+     * @param CreateMcubeWhitelistForIdeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateMcubeWhitelistForIdeResponse
      */
     public function createMcubeWhitelistForIdeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
         }
-        if (!Utils::isUnset($request->whitelistValue)) {
-            $body['WhitelistValue'] = $request->whitelistValue;
+
+        if (null !== $request->whitelistValue) {
+            @$body['WhitelistValue'] = $request->whitelistValue;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMcubeWhitelistForIde',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMcubeWhitelistForIde',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMcubeWhitelistForIdeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateMcubeWhitelistForIdeRequest $request CreateMcubeWhitelistForIdeRequest
+     * @param request - CreateMcubeWhitelistForIdeRequest
      *
-     * @return CreateMcubeWhitelistForIdeResponse CreateMcubeWhitelistForIdeResponse
+     * @returns CreateMcubeWhitelistForIdeResponse
+     *
+     * @param CreateMcubeWhitelistForIdeRequest $request
+     *
+     * @return CreateMcubeWhitelistForIdeResponse
      */
     public function createMcubeWhitelistForIde($request)
     {
@@ -1866,76 +1977,98 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMdsMiniprogramTaskRequest $request CreateMdsMiniprogramTaskRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateMdsMiniprogramTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateMdsMiniprogramTaskResponse CreateMdsMiniprogramTaskResponse
+     * @returns CreateMdsMiniprogramTaskResponse
+     *
+     * @param CreateMdsMiniprogramTaskRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateMdsMiniprogramTaskResponse
      */
     public function createMdsMiniprogramTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->greyConfigInfo)) {
-            $body['GreyConfigInfo'] = $request->greyConfigInfo;
+
+        if (null !== $request->greyConfigInfo) {
+            @$body['GreyConfigInfo'] = $request->greyConfigInfo;
         }
-        if (!Utils::isUnset($request->greyEndtimeData)) {
-            $body['GreyEndtimeData'] = $request->greyEndtimeData;
+
+        if (null !== $request->greyEndtimeData) {
+            @$body['GreyEndtimeData'] = $request->greyEndtimeData;
         }
-        if (!Utils::isUnset($request->greyNum)) {
-            $body['GreyNum'] = $request->greyNum;
+
+        if (null !== $request->greyNum) {
+            @$body['GreyNum'] = $request->greyNum;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->memo)) {
-            $body['Memo'] = $request->memo;
+
+        if (null !== $request->memo) {
+            @$body['Memo'] = $request->memo;
         }
-        if (!Utils::isUnset($request->packageId)) {
-            $body['PackageId'] = $request->packageId;
+
+        if (null !== $request->packageId) {
+            @$body['PackageId'] = $request->packageId;
         }
-        if (!Utils::isUnset($request->publishMode)) {
-            $body['PublishMode'] = $request->publishMode;
+
+        if (null !== $request->publishMode) {
+            @$body['PublishMode'] = $request->publishMode;
         }
-        if (!Utils::isUnset($request->publishType)) {
-            $body['PublishType'] = $request->publishType;
+
+        if (null !== $request->publishType) {
+            @$body['PublishType'] = $request->publishType;
         }
-        if (!Utils::isUnset($request->syncMode)) {
-            $body['SyncMode'] = $request->syncMode;
+
+        if (null !== $request->syncMode) {
+            @$body['SyncMode'] = $request->syncMode;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->whitelistIds)) {
-            $body['WhitelistIds'] = $request->whitelistIds;
+
+        if (null !== $request->whitelistIds) {
+            @$body['WhitelistIds'] = $request->whitelistIds;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMdsMiniprogramTask',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMdsMiniprogramTask',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMdsMiniprogramTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateMdsMiniprogramTaskRequest $request CreateMdsMiniprogramTaskRequest
+     * @param request - CreateMdsMiniprogramTaskRequest
      *
-     * @return CreateMdsMiniprogramTaskResponse CreateMdsMiniprogramTaskResponse
+     * @returns CreateMdsMiniprogramTaskResponse
+     *
+     * @param CreateMdsMiniprogramTaskRequest $request
+     *
+     * @return CreateMdsMiniprogramTaskResponse
      */
     public function createMdsMiniprogramTask($request)
     {
@@ -1945,131 +2078,106 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateMsaEnhanceRequest $request CreateMsaEnhanceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateOpenGlobalDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateMsaEnhanceResponse CreateMsaEnhanceResponse
-     */
-    public function createMsaEnhanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mpaasMappcenterMsaEnhanceCreateJsonStr)) {
-            $body['MpaasMappcenterMsaEnhanceCreateJsonStr'] = $request->mpaasMappcenterMsaEnhanceCreateJsonStr;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateMsaEnhance',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateMsaEnhanceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateMsaEnhanceRequest $request CreateMsaEnhanceRequest
+     * @returns CreateOpenGlobalDataResponse
      *
-     * @return CreateMsaEnhanceResponse CreateMsaEnhanceResponse
-     */
-    public function createMsaEnhance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createMsaEnhanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param CreateOpenGlobalDataRequest $request CreateOpenGlobalDataRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param CreateOpenGlobalDataRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return CreateOpenGlobalDataResponse CreateOpenGlobalDataResponse
+     * @return CreateOpenGlobalDataResponse
      */
     public function createOpenGlobalDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->appMaxVersion)) {
-            $body['AppMaxVersion'] = $request->appMaxVersion;
+
+        if (null !== $request->appMaxVersion) {
+            @$body['AppMaxVersion'] = $request->appMaxVersion;
         }
-        if (!Utils::isUnset($request->appMinVersion)) {
-            $body['AppMinVersion'] = $request->appMinVersion;
+
+        if (null !== $request->appMinVersion) {
+            @$body['AppMinVersion'] = $request->appMinVersion;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $body['BizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->extAttrStr)) {
-            $body['ExtAttrStr'] = $request->extAttrStr;
+
+        if (null !== $request->extAttrStr) {
+            @$body['ExtAttrStr'] = $request->extAttrStr;
         }
-        if (!Utils::isUnset($request->maxUid)) {
-            $body['MaxUid'] = $request->maxUid;
+
+        if (null !== $request->maxUid) {
+            @$body['MaxUid'] = $request->maxUid;
         }
-        if (!Utils::isUnset($request->minUid)) {
-            $body['MinUid'] = $request->minUid;
+
+        if (null !== $request->minUid) {
+            @$body['MinUid'] = $request->minUid;
         }
-        if (!Utils::isUnset($request->osType)) {
-            $body['OsType'] = $request->osType;
+
+        if (null !== $request->osType) {
+            @$body['OsType'] = $request->osType;
         }
-        if (!Utils::isUnset($request->payload)) {
-            $body['Payload'] = $request->payload;
+
+        if (null !== $request->payload) {
+            @$body['Payload'] = $request->payload;
         }
-        if (!Utils::isUnset($request->thirdMsgId)) {
-            $body['ThirdMsgId'] = $request->thirdMsgId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->uids)) {
-            $body['Uids'] = $request->uids;
+
+        if (null !== $request->thirdMsgId) {
+            @$body['ThirdMsgId'] = $request->thirdMsgId;
         }
-        if (!Utils::isUnset($request->validTimeEnd)) {
-            $body['ValidTimeEnd'] = $request->validTimeEnd;
+
+        if (null !== $request->uids) {
+            @$body['Uids'] = $request->uids;
         }
-        if (!Utils::isUnset($request->validTimeStart)) {
-            $body['ValidTimeStart'] = $request->validTimeStart;
+
+        if (null !== $request->validTimeEnd) {
+            @$body['ValidTimeEnd'] = $request->validTimeEnd;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->validTimeStart) {
+            @$body['ValidTimeStart'] = $request->validTimeStart;
         }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateOpenGlobalData',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateOpenGlobalData',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateOpenGlobalDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateOpenGlobalDataRequest $request CreateOpenGlobalDataRequest
+     * @param request - CreateOpenGlobalDataRequest
      *
-     * @return CreateOpenGlobalDataResponse CreateOpenGlobalDataResponse
+     * @returns CreateOpenGlobalDataResponse
+     *
+     * @param CreateOpenGlobalDataRequest $request
+     *
+     * @return CreateOpenGlobalDataResponse
      */
     public function createOpenGlobalData($request)
     {
@@ -2079,76 +2187,102 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param CreateOpenSingleDataRequest $request CreateOpenSingleDataRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateOpenSingleDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateOpenSingleDataResponse CreateOpenSingleDataResponse
+     * @returns CreateOpenSingleDataResponse
+     *
+     * @param CreateOpenSingleDataRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateOpenSingleDataResponse
      */
     public function createOpenSingleDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->appMaxVersion)) {
-            $body['AppMaxVersion'] = $request->appMaxVersion;
+
+        if (null !== $request->appMaxVersion) {
+            @$body['AppMaxVersion'] = $request->appMaxVersion;
         }
-        if (!Utils::isUnset($request->appMinVersion)) {
-            $body['AppMinVersion'] = $request->appMinVersion;
+
+        if (null !== $request->appMinVersion) {
+            @$body['AppMinVersion'] = $request->appMinVersion;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $body['BizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$body['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->checkOnline)) {
-            $body['CheckOnline'] = $request->checkOnline;
+
+        if (null !== $request->checkOnline) {
+            @$body['CheckOnline'] = $request->checkOnline;
         }
-        if (!Utils::isUnset($request->extAttrStr)) {
-            $body['ExtAttrStr'] = $request->extAttrStr;
+
+        if (null !== $request->extAttrStr) {
+            @$body['ExtAttrStr'] = $request->extAttrStr;
         }
-        if (!Utils::isUnset($request->linkToken)) {
-            $body['LinkToken'] = $request->linkToken;
+
+        if (null !== $request->linkToken) {
+            @$body['LinkToken'] = $request->linkToken;
         }
-        if (!Utils::isUnset($request->osType)) {
-            $body['OsType'] = $request->osType;
+
+        if (null !== $request->osType) {
+            @$body['OsType'] = $request->osType;
         }
-        if (!Utils::isUnset($request->payload)) {
-            $body['Payload'] = $request->payload;
+
+        if (null !== $request->payload) {
+            @$body['Payload'] = $request->payload;
         }
-        if (!Utils::isUnset($request->thirdMsgId)) {
-            $body['ThirdMsgId'] = $request->thirdMsgId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->validTimeEnd)) {
-            $body['ValidTimeEnd'] = $request->validTimeEnd;
+
+        if (null !== $request->thirdMsgId) {
+            @$body['ThirdMsgId'] = $request->thirdMsgId;
         }
-        if (!Utils::isUnset($request->validTimeStart)) {
-            $body['ValidTimeStart'] = $request->validTimeStart;
+
+        if (null !== $request->validTimeEnd) {
+            @$body['ValidTimeEnd'] = $request->validTimeEnd;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->validTimeStart) {
+            @$body['ValidTimeStart'] = $request->validTimeStart;
         }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateOpenSingleData',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateOpenSingleData',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateOpenSingleDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateOpenSingleDataRequest $request CreateOpenSingleDataRequest
+     * @param request - CreateOpenSingleDataRequest
      *
-     * @return CreateOpenSingleDataResponse CreateOpenSingleDataResponse
+     * @returns CreateOpenSingleDataResponse
+     *
+     * @param CreateOpenSingleDataRequest $request
+     *
+     * @return CreateOpenSingleDataResponse
      */
     public function createOpenSingleData($request)
     {
@@ -2158,52 +2292,66 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteCubecardWhitelistContentRequest $request DeleteCubecardWhitelistContentRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteCubecardWhitelistContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteCubecardWhitelistContentResponse DeleteCubecardWhitelistContentResponse
+     * @returns DeleteCubecardWhitelistContentResponse
+     *
+     * @param DeleteCubecardWhitelistContentRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteCubecardWhitelistContentResponse
      */
     public function deleteCubecardWhitelistContentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->whitelistId)) {
-            $body['WhitelistId'] = $request->whitelistId;
+
+        if (null !== $request->whitelistId) {
+            @$body['WhitelistId'] = $request->whitelistId;
         }
-        if (!Utils::isUnset($request->whitelistValue)) {
-            $body['WhitelistValue'] = $request->whitelistValue;
+
+        if (null !== $request->whitelistValue) {
+            @$body['WhitelistValue'] = $request->whitelistValue;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCubecardWhitelistContent',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCubecardWhitelistContent',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteCubecardWhitelistContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteCubecardWhitelistContentRequest $request DeleteCubecardWhitelistContentRequest
+     * @param request - DeleteCubecardWhitelistContentRequest
      *
-     * @return DeleteCubecardWhitelistContentResponse DeleteCubecardWhitelistContentResponse
+     * @returns DeleteCubecardWhitelistContentResponse
+     *
+     * @param DeleteCubecardWhitelistContentRequest $request
+     *
+     * @return DeleteCubecardWhitelistContentResponse
      */
     public function deleteCubecardWhitelistContent($request)
     {
@@ -2213,49 +2361,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcdpAimRequest $request DeleteMcdpAimRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteMcdpAimRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteMcdpAimResponse DeleteMcdpAimResponse
+     * @returns DeleteMcdpAimResponse
+     *
+     * @param DeleteMcdpAimRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteMcdpAimResponse
      */
     public function deleteMcdpAimWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->mpaasMappcenterMcdpAimDeleteJsonStr)) {
-            $body['MpaasMappcenterMcdpAimDeleteJsonStr'] = $request->mpaasMappcenterMcdpAimDeleteJsonStr;
+
+        if (null !== $request->mpaasMappcenterMcdpAimDeleteJsonStr) {
+            @$body['MpaasMappcenterMcdpAimDeleteJsonStr'] = $request->mpaasMappcenterMcdpAimDeleteJsonStr;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMcdpAim',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMcdpAim',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteMcdpAimResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteMcdpAimRequest $request DeleteMcdpAimRequest
+     * @param request - DeleteMcdpAimRequest
      *
-     * @return DeleteMcdpAimResponse DeleteMcdpAimResponse
+     * @returns DeleteMcdpAimResponse
+     *
+     * @param DeleteMcdpAimRequest $request
+     *
+     * @return DeleteMcdpAimResponse
      */
     public function deleteMcdpAim($request)
     {
@@ -2265,49 +2426,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcdpCrowdRequest $request DeleteMcdpCrowdRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteMcdpCrowdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteMcdpCrowdResponse DeleteMcdpCrowdResponse
+     * @returns DeleteMcdpCrowdResponse
+     *
+     * @param DeleteMcdpCrowdRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteMcdpCrowdResponse
      */
     public function deleteMcdpCrowdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->mpaasMappcenterMcdpCrowdDeleteJsonStr)) {
-            $body['MpaasMappcenterMcdpCrowdDeleteJsonStr'] = $request->mpaasMappcenterMcdpCrowdDeleteJsonStr;
+
+        if (null !== $request->mpaasMappcenterMcdpCrowdDeleteJsonStr) {
+            @$body['MpaasMappcenterMcdpCrowdDeleteJsonStr'] = $request->mpaasMappcenterMcdpCrowdDeleteJsonStr;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMcdpCrowd',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMcdpCrowd',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteMcdpCrowdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteMcdpCrowdRequest $request DeleteMcdpCrowdRequest
+     * @param request - DeleteMcdpCrowdRequest
      *
-     * @return DeleteMcdpCrowdResponse DeleteMcdpCrowdResponse
+     * @returns DeleteMcdpCrowdResponse
+     *
+     * @param DeleteMcdpCrowdRequest $request
+     *
+     * @return DeleteMcdpCrowdResponse
      */
     public function deleteMcdpCrowd($request)
     {
@@ -2317,205 +2491,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcdpEventAttributeByIdRequest $request DeleteMcdpEventAttributeByIdRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteMcdpZoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteMcdpEventAttributeByIdResponse DeleteMcdpEventAttributeByIdResponse
-     */
-    public function deleteMcdpEventAttributeByIdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mpaasMappcenterMcdpEventAttributeDeleteJsonStr)) {
-            $body['MpaasMappcenterMcdpEventAttributeDeleteJsonStr'] = $request->mpaasMappcenterMcdpEventAttributeDeleteJsonStr;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteMcdpEventAttributeById',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteMcdpEventAttributeByIdResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteMcdpEventAttributeByIdRequest $request DeleteMcdpEventAttributeByIdRequest
+     * @returns DeleteMcdpZoneResponse
      *
-     * @return DeleteMcdpEventAttributeByIdResponse DeleteMcdpEventAttributeByIdResponse
-     */
-    public function deleteMcdpEventAttributeById($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteMcdpEventAttributeByIdWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteMcdpEventByIdRequest $request DeleteMcdpEventByIdRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param DeleteMcdpZoneRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return DeleteMcdpEventByIdResponse DeleteMcdpEventByIdResponse
-     */
-    public function deleteMcdpEventByIdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mpaasMappcenterMcdpEventDeleteJsonStr)) {
-            $body['MpaasMappcenterMcdpEventDeleteJsonStr'] = $request->mpaasMappcenterMcdpEventDeleteJsonStr;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteMcdpEventById',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteMcdpEventByIdResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteMcdpEventByIdRequest $request DeleteMcdpEventByIdRequest
-     *
-     * @return DeleteMcdpEventByIdResponse DeleteMcdpEventByIdResponse
-     */
-    public function deleteMcdpEventById($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteMcdpEventByIdWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteMcdpMaterialRequest $request DeleteMcdpMaterialRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DeleteMcdpMaterialResponse DeleteMcdpMaterialResponse
-     */
-    public function deleteMcdpMaterialWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mpaasMappcenterMcdpMaterialDeleteJsonStr)) {
-            $body['MpaasMappcenterMcdpMaterialDeleteJsonStr'] = $request->mpaasMappcenterMcdpMaterialDeleteJsonStr;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteMcdpMaterial',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteMcdpMaterialResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteMcdpMaterialRequest $request DeleteMcdpMaterialRequest
-     *
-     * @return DeleteMcdpMaterialResponse DeleteMcdpMaterialResponse
-     */
-    public function deleteMcdpMaterial($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteMcdpMaterialWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteMcdpZoneRequest $request DeleteMcdpZoneRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DeleteMcdpZoneResponse DeleteMcdpZoneResponse
+     * @return DeleteMcdpZoneResponse
      */
     public function deleteMcdpZoneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->mpaasMappcenterMcdpZoneDeleteJsonStr)) {
-            $body['MpaasMappcenterMcdpZoneDeleteJsonStr'] = $request->mpaasMappcenterMcdpZoneDeleteJsonStr;
+
+        if (null !== $request->mpaasMappcenterMcdpZoneDeleteJsonStr) {
+            @$body['MpaasMappcenterMcdpZoneDeleteJsonStr'] = $request->mpaasMappcenterMcdpZoneDeleteJsonStr;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMcdpZone',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMcdpZone',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteMcdpZoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteMcdpZoneRequest $request DeleteMcdpZoneRequest
+     * @param request - DeleteMcdpZoneRequest
      *
-     * @return DeleteMcdpZoneResponse DeleteMcdpZoneResponse
+     * @returns DeleteMcdpZoneResponse
+     *
+     * @param DeleteMcdpZoneRequest $request
+     *
+     * @return DeleteMcdpZoneResponse
      */
     public function deleteMcdpZone($request)
     {
@@ -2525,49 +2556,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcubeMiniAppRequest $request DeleteMcubeMiniAppRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteMcubeMiniAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteMcubeMiniAppResponse DeleteMcubeMiniAppResponse
+     * @returns DeleteMcubeMiniAppResponse
+     *
+     * @param DeleteMcubeMiniAppRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteMcubeMiniAppResponse
      */
     public function deleteMcubeMiniAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->h5Id)) {
-            $body['H5Id'] = $request->h5Id;
+
+        if (null !== $request->h5Id) {
+            @$body['H5Id'] = $request->h5Id;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMcubeMiniApp',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMcubeMiniApp',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteMcubeMiniAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteMcubeMiniAppRequest $request DeleteMcubeMiniAppRequest
+     * @param request - DeleteMcubeMiniAppRequest
      *
-     * @return DeleteMcubeMiniAppResponse DeleteMcubeMiniAppResponse
+     * @returns DeleteMcubeMiniAppResponse
+     *
+     * @param DeleteMcubeMiniAppRequest $request
+     *
+     * @return DeleteMcubeMiniAppResponse
      */
     public function deleteMcubeMiniApp($request)
     {
@@ -2577,49 +2621,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcubeNebulaAppRequest $request DeleteMcubeNebulaAppRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteMcubeNebulaAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteMcubeNebulaAppResponse DeleteMcubeNebulaAppResponse
+     * @returns DeleteMcubeNebulaAppResponse
+     *
+     * @param DeleteMcubeNebulaAppRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteMcubeNebulaAppResponse
      */
     public function deleteMcubeNebulaAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->h5Id)) {
-            $body['H5Id'] = $request->h5Id;
+
+        if (null !== $request->h5Id) {
+            @$body['H5Id'] = $request->h5Id;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMcubeNebulaApp',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMcubeNebulaApp',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteMcubeNebulaAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteMcubeNebulaAppRequest $request DeleteMcubeNebulaAppRequest
+     * @param request - DeleteMcubeNebulaAppRequest
      *
-     * @return DeleteMcubeNebulaAppResponse DeleteMcubeNebulaAppResponse
+     * @returns DeleteMcubeNebulaAppResponse
+     *
+     * @param DeleteMcubeNebulaAppRequest $request
+     *
+     * @return DeleteMcubeNebulaAppResponse
      */
     public function deleteMcubeNebulaApp($request)
     {
@@ -2629,52 +2686,66 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcubeUpgradeResourceRequest $request DeleteMcubeUpgradeResourceRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteMcubeUpgradeResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteMcubeUpgradeResourceResponse DeleteMcubeUpgradeResourceResponse
+     * @returns DeleteMcubeUpgradeResourceResponse
+     *
+     * @param DeleteMcubeUpgradeResourceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteMcubeUpgradeResourceResponse
      */
     public function deleteMcubeUpgradeResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->platform)) {
-            $body['Platform'] = $request->platform;
+
+        if (null !== $request->platform) {
+            @$body['Platform'] = $request->platform;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMcubeUpgradeResource',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMcubeUpgradeResource',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteMcubeUpgradeResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteMcubeUpgradeResourceRequest $request DeleteMcubeUpgradeResourceRequest
+     * @param request - DeleteMcubeUpgradeResourceRequest
      *
-     * @return DeleteMcubeUpgradeResourceResponse DeleteMcubeUpgradeResourceResponse
+     * @returns DeleteMcubeUpgradeResourceResponse
+     *
+     * @param DeleteMcubeUpgradeResourceRequest $request
+     *
+     * @return DeleteMcubeUpgradeResourceResponse
      */
     public function deleteMcubeUpgradeResource($request)
     {
@@ -2684,49 +2755,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMcubeWhitelistRequest $request DeleteMcubeWhitelistRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteMcubeWhitelistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteMcubeWhitelistResponse DeleteMcubeWhitelistResponse
+     * @returns DeleteMcubeWhitelistResponse
+     *
+     * @param DeleteMcubeWhitelistRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteMcubeWhitelistResponse
      */
     public function deleteMcubeWhitelistWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMcubeWhitelist',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMcubeWhitelist',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteMcubeWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteMcubeWhitelistRequest $request DeleteMcubeWhitelistRequest
+     * @param request - DeleteMcubeWhitelistRequest
      *
-     * @return DeleteMcubeWhitelistResponse DeleteMcubeWhitelistResponse
+     * @returns DeleteMcubeWhitelistResponse
+     *
+     * @param DeleteMcubeWhitelistRequest $request
+     *
+     * @return DeleteMcubeWhitelistResponse
      */
     public function deleteMcubeWhitelist($request)
     {
@@ -2736,52 +2820,66 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param DeleteMdsWhitelistContentRequest $request DeleteMdsWhitelistContentRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteMdsWhitelistContentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DeleteMdsWhitelistContentResponse DeleteMdsWhitelistContentResponse
+     * @returns DeleteMdsWhitelistContentResponse
+     *
+     * @param DeleteMdsWhitelistContentRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteMdsWhitelistContentResponse
      */
     public function deleteMdsWhitelistContentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->whitelistId)) {
-            $body['WhitelistId'] = $request->whitelistId;
+
+        if (null !== $request->whitelistId) {
+            @$body['WhitelistId'] = $request->whitelistId;
         }
-        if (!Utils::isUnset($request->whitelistValue)) {
-            $body['WhitelistValue'] = $request->whitelistValue;
+
+        if (null !== $request->whitelistValue) {
+            @$body['WhitelistValue'] = $request->whitelistValue;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMdsWhitelistContent',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMdsWhitelistContent',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteMdsWhitelistContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteMdsWhitelistContentRequest $request DeleteMdsWhitelistContentRequest
+     * @param request - DeleteMdsWhitelistContentRequest
      *
-     * @return DeleteMdsWhitelistContentResponse DeleteMdsWhitelistContentResponse
+     * @returns DeleteMdsWhitelistContentResponse
+     *
+     * @param DeleteMdsWhitelistContentRequest $request
+     *
+     * @return DeleteMdsWhitelistContentResponse
      */
     public function deleteMdsWhitelistContent($request)
     {
@@ -2791,46 +2889,58 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ExistMcubeRsaKeyRequest $request ExistMcubeRsaKeyRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - ExistMcubeRsaKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ExistMcubeRsaKeyResponse ExistMcubeRsaKeyResponse
+     * @returns ExistMcubeRsaKeyResponse
+     *
+     * @param ExistMcubeRsaKeyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ExistMcubeRsaKeyResponse
      */
     public function existMcubeRsaKeyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExistMcubeRsaKey',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExistMcubeRsaKey',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ExistMcubeRsaKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ExistMcubeRsaKeyRequest $request ExistMcubeRsaKeyRequest
+     * @param request - ExistMcubeRsaKeyRequest
      *
-     * @return ExistMcubeRsaKeyResponse ExistMcubeRsaKeyResponse
+     * @returns ExistMcubeRsaKeyResponse
+     *
+     * @param ExistMcubeRsaKeyRequest $request
+     *
+     * @return ExistMcubeRsaKeyResponse
      */
     public function existMcubeRsaKey($request)
     {
@@ -2840,58 +2950,74 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ExportMappCenterAppConfigRequest $request ExportMappCenterAppConfigRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - ExportMappCenterAppConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ExportMappCenterAppConfigResponse ExportMappCenterAppConfigResponse
+     * @returns ExportMappCenterAppConfigResponse
+     *
+     * @param ExportMappCenterAppConfigRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ExportMappCenterAppConfigResponse
      */
     public function exportMappCenterAppConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->apkFileUrl)) {
-            $body['ApkFileUrl'] = $request->apkFileUrl;
+        if (null !== $request->apkFileUrl) {
+            @$body['ApkFileUrl'] = $request->apkFileUrl;
         }
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->certRsaBase64)) {
-            $body['CertRsaBase64'] = $request->certRsaBase64;
+
+        if (null !== $request->certRsaBase64) {
+            @$body['CertRsaBase64'] = $request->certRsaBase64;
         }
-        if (!Utils::isUnset($request->identifier)) {
-            $body['Identifier'] = $request->identifier;
+
+        if (null !== $request->identifier) {
+            @$body['Identifier'] = $request->identifier;
         }
-        if (!Utils::isUnset($request->onexFlag)) {
-            $body['OnexFlag'] = $request->onexFlag;
+
+        if (null !== $request->onexFlag) {
+            @$body['OnexFlag'] = $request->onexFlag;
         }
-        if (!Utils::isUnset($request->systemType)) {
-            $body['SystemType'] = $request->systemType;
+
+        if (null !== $request->systemType) {
+            @$body['SystemType'] = $request->systemType;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExportMappCenterAppConfig',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExportMappCenterAppConfig',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ExportMappCenterAppConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ExportMappCenterAppConfigRequest $request ExportMappCenterAppConfigRequest
+     * @param request - ExportMappCenterAppConfigRequest
      *
-     * @return ExportMappCenterAppConfigResponse ExportMappCenterAppConfigResponse
+     * @returns ExportMappCenterAppConfigResponse
+     *
+     * @param ExportMappCenterAppConfigRequest $request
+     *
+     * @return ExportMappCenterAppConfigResponse
      */
     public function exportMappCenterAppConfig($request)
     {
@@ -2901,49 +3027,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetFileTokenForUploadToMsaRequest $request GetFileTokenForUploadToMsaRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - GetFileTokenForUploadToMsaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetFileTokenForUploadToMsaResponse GetFileTokenForUploadToMsaResponse
+     * @returns GetFileTokenForUploadToMsaResponse
+     *
+     * @param GetFileTokenForUploadToMsaRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetFileTokenForUploadToMsaResponse
      */
     public function getFileTokenForUploadToMsaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->onexFlag)) {
-            $body['OnexFlag'] = $request->onexFlag;
+
+        if (null !== $request->onexFlag) {
+            @$body['OnexFlag'] = $request->onexFlag;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFileTokenForUploadToMsa',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFileTokenForUploadToMsa',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetFileTokenForUploadToMsaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetFileTokenForUploadToMsaRequest $request GetFileTokenForUploadToMsaRequest
+     * @param request - GetFileTokenForUploadToMsaRequest
      *
-     * @return GetFileTokenForUploadToMsaResponse GetFileTokenForUploadToMsaResponse
+     * @returns GetFileTokenForUploadToMsaResponse
+     *
+     * @param GetFileTokenForUploadToMsaRequest $request
+     *
+     * @return GetFileTokenForUploadToMsaResponse
      */
     public function getFileTokenForUploadToMsa($request)
     {
@@ -2953,49 +3092,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetLogUrlInMsaRequest $request GetLogUrlInMsaRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - GetLogUrlInMsaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetLogUrlInMsaResponse GetLogUrlInMsaResponse
+     * @returns GetLogUrlInMsaResponse
+     *
+     * @param GetLogUrlInMsaRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetLogUrlInMsaResponse
      */
     public function getLogUrlInMsaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetLogUrlInMsa',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetLogUrlInMsa',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetLogUrlInMsaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetLogUrlInMsaRequest $request GetLogUrlInMsaRequest
+     * @param request - GetLogUrlInMsaRequest
      *
-     * @return GetLogUrlInMsaResponse GetLogUrlInMsaResponse
+     * @returns GetLogUrlInMsaResponse
+     *
+     * @param GetLogUrlInMsaRequest $request
+     *
+     * @return GetLogUrlInMsaResponse
      */
     public function getLogUrlInMsa($request)
     {
@@ -3005,49 +3157,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetMcubeFileTokenRequest $request GetMcubeFileTokenRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - GetMcubeFileTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetMcubeFileTokenResponse GetMcubeFileTokenResponse
+     * @returns GetMcubeFileTokenResponse
+     *
+     * @param GetMcubeFileTokenRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetMcubeFileTokenResponse
      */
     public function getMcubeFileTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->onexFlag)) {
-            $body['OnexFlag'] = $request->onexFlag;
+
+        if (null !== $request->onexFlag) {
+            @$body['OnexFlag'] = $request->onexFlag;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetMcubeFileToken',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMcubeFileToken',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetMcubeFileTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetMcubeFileTokenRequest $request GetMcubeFileTokenRequest
+     * @param request - GetMcubeFileTokenRequest
      *
-     * @return GetMcubeFileTokenResponse GetMcubeFileTokenResponse
+     * @returns GetMcubeFileTokenResponse
+     *
+     * @param GetMcubeFileTokenRequest $request
+     *
+     * @return GetMcubeFileTokenResponse
      */
     public function getMcubeFileToken($request)
     {
@@ -3057,49 +3222,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetMcubeNebulaResourceRequest $request GetMcubeNebulaResourceRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - GetMcubeNebulaResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetMcubeNebulaResourceResponse GetMcubeNebulaResourceResponse
+     * @returns GetMcubeNebulaResourceResponse
+     *
+     * @param GetMcubeNebulaResourceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetMcubeNebulaResourceResponse
      */
     public function getMcubeNebulaResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetMcubeNebulaResource',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMcubeNebulaResource',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetMcubeNebulaResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetMcubeNebulaResourceRequest $request GetMcubeNebulaResourceRequest
+     * @param request - GetMcubeNebulaResourceRequest
      *
-     * @return GetMcubeNebulaResourceResponse GetMcubeNebulaResourceResponse
+     * @returns GetMcubeNebulaResourceResponse
+     *
+     * @param GetMcubeNebulaResourceRequest $request
+     *
+     * @return GetMcubeNebulaResourceResponse
      */
     public function getMcubeNebulaResource($request)
     {
@@ -3109,49 +3287,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetMcubeNebulaTaskDetailRequest $request GetMcubeNebulaTaskDetailRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - GetMcubeNebulaTaskDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetMcubeNebulaTaskDetailResponse GetMcubeNebulaTaskDetailResponse
+     * @returns GetMcubeNebulaTaskDetailResponse
+     *
+     * @param GetMcubeNebulaTaskDetailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetMcubeNebulaTaskDetailResponse
      */
     public function getMcubeNebulaTaskDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetMcubeNebulaTaskDetail',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMcubeNebulaTaskDetail',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetMcubeNebulaTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetMcubeNebulaTaskDetailRequest $request GetMcubeNebulaTaskDetailRequest
+     * @param request - GetMcubeNebulaTaskDetailRequest
      *
-     * @return GetMcubeNebulaTaskDetailResponse GetMcubeNebulaTaskDetailResponse
+     * @returns GetMcubeNebulaTaskDetailResponse
+     *
+     * @param GetMcubeNebulaTaskDetailRequest $request
+     *
+     * @return GetMcubeNebulaTaskDetailResponse
      */
     public function getMcubeNebulaTaskDetail($request)
     {
@@ -3161,49 +3352,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetMcubeUpgradePackageInfoRequest $request GetMcubeUpgradePackageInfoRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - GetMcubeUpgradePackageInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetMcubeUpgradePackageInfoResponse GetMcubeUpgradePackageInfoResponse
+     * @returns GetMcubeUpgradePackageInfoResponse
+     *
+     * @param GetMcubeUpgradePackageInfoRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetMcubeUpgradePackageInfoResponse
      */
     public function getMcubeUpgradePackageInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->packageId)) {
-            $body['PackageId'] = $request->packageId;
+
+        if (null !== $request->packageId) {
+            @$body['PackageId'] = $request->packageId;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetMcubeUpgradePackageInfo',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMcubeUpgradePackageInfo',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetMcubeUpgradePackageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetMcubeUpgradePackageInfoRequest $request GetMcubeUpgradePackageInfoRequest
+     * @param request - GetMcubeUpgradePackageInfoRequest
      *
-     * @return GetMcubeUpgradePackageInfoResponse GetMcubeUpgradePackageInfoResponse
+     * @returns GetMcubeUpgradePackageInfoResponse
+     *
+     * @param GetMcubeUpgradePackageInfoRequest $request
+     *
+     * @return GetMcubeUpgradePackageInfoResponse
      */
     public function getMcubeUpgradePackageInfo($request)
     {
@@ -3213,49 +3417,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetMcubeUpgradeTaskInfoRequest $request GetMcubeUpgradeTaskInfoRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - GetMcubeUpgradeTaskInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetMcubeUpgradeTaskInfoResponse GetMcubeUpgradeTaskInfoResponse
+     * @returns GetMcubeUpgradeTaskInfoResponse
+     *
+     * @param GetMcubeUpgradeTaskInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetMcubeUpgradeTaskInfoResponse
      */
     public function getMcubeUpgradeTaskInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetMcubeUpgradeTaskInfo',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMcubeUpgradeTaskInfo',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetMcubeUpgradeTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetMcubeUpgradeTaskInfoRequest $request GetMcubeUpgradeTaskInfoRequest
+     * @param request - GetMcubeUpgradeTaskInfoRequest
      *
-     * @return GetMcubeUpgradeTaskInfoResponse GetMcubeUpgradeTaskInfoResponse
+     * @returns GetMcubeUpgradeTaskInfoResponse
+     *
+     * @param GetMcubeUpgradeTaskInfoRequest $request
+     *
+     * @return GetMcubeUpgradeTaskInfoResponse
      */
     public function getMcubeUpgradeTaskInfo($request)
     {
@@ -3265,49 +3482,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetMdsMiniConfigRequest $request GetMdsMiniConfigRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - GetMdsMiniConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetMdsMiniConfigResponse GetMdsMiniConfigResponse
+     * @returns GetMdsMiniConfigResponse
+     *
+     * @param GetMdsMiniConfigRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetMdsMiniConfigResponse
      */
     public function getMdsMiniConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->h5Id)) {
-            $body['H5Id'] = $request->h5Id;
+
+        if (null !== $request->h5Id) {
+            @$body['H5Id'] = $request->h5Id;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetMdsMiniConfig',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMdsMiniConfig',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetMdsMiniConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetMdsMiniConfigRequest $request GetMdsMiniConfigRequest
+     * @param request - GetMdsMiniConfigRequest
      *
-     * @return GetMdsMiniConfigResponse GetMdsMiniConfigResponse
+     * @returns GetMdsMiniConfigResponse
+     *
+     * @param GetMdsMiniConfigRequest $request
+     *
+     * @return GetMdsMiniConfigResponse
      */
     public function getMdsMiniConfig($request)
     {
@@ -3317,49 +3547,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetUserAppDonwloadUrlInMsaRequest $request GetUserAppDonwloadUrlInMsaRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - GetUserAppDonwloadUrlInMsaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetUserAppDonwloadUrlInMsaResponse GetUserAppDonwloadUrlInMsaResponse
+     * @returns GetUserAppDonwloadUrlInMsaResponse
+     *
+     * @param GetUserAppDonwloadUrlInMsaRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetUserAppDonwloadUrlInMsaResponse
      */
     public function getUserAppDonwloadUrlInMsaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetUserAppDonwloadUrlInMsa',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUserAppDonwloadUrlInMsa',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetUserAppDonwloadUrlInMsaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetUserAppDonwloadUrlInMsaRequest $request GetUserAppDonwloadUrlInMsaRequest
+     * @param request - GetUserAppDonwloadUrlInMsaRequest
      *
-     * @return GetUserAppDonwloadUrlInMsaResponse GetUserAppDonwloadUrlInMsaResponse
+     * @returns GetUserAppDonwloadUrlInMsaResponse
+     *
+     * @param GetUserAppDonwloadUrlInMsaRequest $request
+     *
+     * @return GetUserAppDonwloadUrlInMsaResponse
      */
     public function getUserAppDonwloadUrlInMsa($request)
     {
@@ -3369,49 +3612,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetUserAppEnhanceProcessInMsaRequest $request GetUserAppEnhanceProcessInMsaRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * @param request - GetUserAppEnhanceProcessInMsaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetUserAppEnhanceProcessInMsaResponse GetUserAppEnhanceProcessInMsaResponse
+     * @returns GetUserAppEnhanceProcessInMsaResponse
+     *
+     * @param GetUserAppEnhanceProcessInMsaRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetUserAppEnhanceProcessInMsaResponse
      */
     public function getUserAppEnhanceProcessInMsaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetUserAppEnhanceProcessInMsa',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUserAppEnhanceProcessInMsa',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetUserAppEnhanceProcessInMsaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetUserAppEnhanceProcessInMsaRequest $request GetUserAppEnhanceProcessInMsaRequest
+     * @param request - GetUserAppEnhanceProcessInMsaRequest
      *
-     * @return GetUserAppEnhanceProcessInMsaResponse GetUserAppEnhanceProcessInMsaResponse
+     * @returns GetUserAppEnhanceProcessInMsaResponse
+     *
+     * @param GetUserAppEnhanceProcessInMsaRequest $request
+     *
+     * @return GetUserAppEnhanceProcessInMsaResponse
      */
     public function getUserAppEnhanceProcessInMsa($request)
     {
@@ -3421,49 +3677,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param GetUserAppUploadProcessInMsaRequest $request GetUserAppUploadProcessInMsaRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param request - GetUserAppUploadProcessInMsaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetUserAppUploadProcessInMsaResponse GetUserAppUploadProcessInMsaResponse
+     * @returns GetUserAppUploadProcessInMsaResponse
+     *
+     * @param GetUserAppUploadProcessInMsaRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetUserAppUploadProcessInMsaResponse
      */
     public function getUserAppUploadProcessInMsaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetUserAppUploadProcessInMsa',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetUserAppUploadProcessInMsa',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return GetUserAppUploadProcessInMsaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetUserAppUploadProcessInMsaRequest $request GetUserAppUploadProcessInMsaRequest
+     * @param request - GetUserAppUploadProcessInMsaRequest
      *
-     * @return GetUserAppUploadProcessInMsaResponse GetUserAppUploadProcessInMsaResponse
+     * @returns GetUserAppUploadProcessInMsaResponse
+     *
+     * @param GetUserAppUploadProcessInMsaRequest $request
+     *
+     * @return GetUserAppUploadProcessInMsaResponse
      */
     public function getUserAppUploadProcessInMsa($request)
     {
@@ -3473,30 +3742,37 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param request - ListMappCenterAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListMappCenterAppsResponse ListMappCenterAppsResponse
+     * @returns ListMappCenterAppsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListMappCenterAppsResponse
      */
     public function listMappCenterAppsWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListMappCenterApps',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMappCenterApps',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListMappCenterAppsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @return ListMappCenterAppsResponse ListMappCenterAppsResponse
+     * @returns ListMappCenterAppsResponse
+     *
+     * @return ListMappCenterAppsResponse
      */
     public function listMappCenterApps()
     {
@@ -3506,30 +3782,37 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param request - ListMappCenterWorkspacesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListMappCenterWorkspacesResponse ListMappCenterWorkspacesResponse
+     * @returns ListMappCenterWorkspacesResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListMappCenterWorkspacesResponse
      */
     public function listMappCenterWorkspacesWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListMappCenterWorkspaces',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMappCenterWorkspaces',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListMappCenterWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @return ListMappCenterWorkspacesResponse ListMappCenterWorkspacesResponse
+     * @returns ListMappCenterWorkspacesResponse
+     *
+     * @return ListMappCenterWorkspacesResponse
      */
     public function listMappCenterWorkspaces()
     {
@@ -3539,70 +3822,90 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcdpAimRequest $request ListMcdpAimRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param request - ListMcdpAimRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListMcdpAimResponse ListMcdpAimResponse
+     * @returns ListMcdpAimResponse
+     *
+     * @param ListMcdpAimRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListMcdpAimResponse
      */
     public function listMcdpAimWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->emptyTag)) {
-            $body['EmptyTag'] = $request->emptyTag;
+
+        if (null !== $request->emptyTag) {
+            @$body['EmptyTag'] = $request->emptyTag;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $body['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $body['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$body['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $body['Sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$body['Sort'] = $request->sort;
         }
-        if (!Utils::isUnset($request->sortField)) {
-            $body['SortField'] = $request->sortField;
+
+        if (null !== $request->sortField) {
+            @$body['SortField'] = $request->sortField;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListMcdpAim',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMcdpAim',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListMcdpAimResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListMcdpAimRequest $request ListMcdpAimRequest
+     * @param request - ListMcdpAimRequest
      *
-     * @return ListMcdpAimResponse ListMcdpAimResponse
+     * @returns ListMcdpAimResponse
+     *
+     * @param ListMcdpAimRequest $request
+     *
+     * @return ListMcdpAimResponse
      */
     public function listMcdpAim($request)
     {
@@ -3612,55 +3915,70 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeMiniAppsRequest $request ListMcubeMiniAppsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - ListMcubeMiniAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListMcubeMiniAppsResponse ListMcubeMiniAppsResponse
+     * @returns ListMcubeMiniAppsResponse
+     *
+     * @param ListMcubeMiniAppsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListMcubeMiniAppsResponse
      */
     public function listMcubeMiniAppsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $body['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $body['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$body['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListMcubeMiniApps',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMcubeMiniApps',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListMcubeMiniAppsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListMcubeMiniAppsRequest $request ListMcubeMiniAppsRequest
+     * @param request - ListMcubeMiniAppsRequest
      *
-     * @return ListMcubeMiniAppsResponse ListMcubeMiniAppsResponse
+     * @returns ListMcubeMiniAppsResponse
+     *
+     * @param ListMcubeMiniAppsRequest $request
+     *
+     * @return ListMcubeMiniAppsResponse
      */
     public function listMcubeMiniApps($request)
     {
@@ -3670,58 +3988,74 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeMiniPackagesRequest $request ListMcubeMiniPackagesRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - ListMcubeMiniPackagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListMcubeMiniPackagesResponse ListMcubeMiniPackagesResponse
+     * @returns ListMcubeMiniPackagesResponse
+     *
+     * @param ListMcubeMiniPackagesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListMcubeMiniPackagesResponse
      */
     public function listMcubeMiniPackagesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->h5Id)) {
-            $body['H5Id'] = $request->h5Id;
+
+        if (null !== $request->h5Id) {
+            @$body['H5Id'] = $request->h5Id;
         }
-        if (!Utils::isUnset($request->packageTypes)) {
-            $body['PackageTypes'] = $request->packageTypes;
+
+        if (null !== $request->packageTypes) {
+            @$body['PackageTypes'] = $request->packageTypes;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $body['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$body['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListMcubeMiniPackages',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMcubeMiniPackages',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListMcubeMiniPackagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListMcubeMiniPackagesRequest $request ListMcubeMiniPackagesRequest
+     * @param request - ListMcubeMiniPackagesRequest
      *
-     * @return ListMcubeMiniPackagesResponse ListMcubeMiniPackagesResponse
+     * @returns ListMcubeMiniPackagesResponse
+     *
+     * @param ListMcubeMiniPackagesRequest $request
+     *
+     * @return ListMcubeMiniPackagesResponse
      */
     public function listMcubeMiniPackages($request)
     {
@@ -3731,49 +4065,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeMiniTasksRequest $request ListMcubeMiniTasksRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - ListMcubeMiniTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListMcubeMiniTasksResponse ListMcubeMiniTasksResponse
+     * @returns ListMcubeMiniTasksResponse
+     *
+     * @param ListMcubeMiniTasksRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListMcubeMiniTasksResponse
      */
     public function listMcubeMiniTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListMcubeMiniTasks',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMcubeMiniTasks',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListMcubeMiniTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListMcubeMiniTasksRequest $request ListMcubeMiniTasksRequest
+     * @param request - ListMcubeMiniTasksRequest
      *
-     * @return ListMcubeMiniTasksResponse ListMcubeMiniTasksResponse
+     * @returns ListMcubeMiniTasksResponse
+     *
+     * @param ListMcubeMiniTasksRequest $request
+     *
+     * @return ListMcubeMiniTasksResponse
      */
     public function listMcubeMiniTasks($request)
     {
@@ -3783,55 +4130,70 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeNebulaAppsRequest $request ListMcubeNebulaAppsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - ListMcubeNebulaAppsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListMcubeNebulaAppsResponse ListMcubeNebulaAppsResponse
+     * @returns ListMcubeNebulaAppsResponse
+     *
+     * @param ListMcubeNebulaAppsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListMcubeNebulaAppsResponse
      */
     public function listMcubeNebulaAppsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $body['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$body['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $body['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$body['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListMcubeNebulaApps',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMcubeNebulaApps',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListMcubeNebulaAppsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListMcubeNebulaAppsRequest $request ListMcubeNebulaAppsRequest
+     * @param request - ListMcubeNebulaAppsRequest
      *
-     * @return ListMcubeNebulaAppsResponse ListMcubeNebulaAppsResponse
+     * @returns ListMcubeNebulaAppsResponse
+     *
+     * @param ListMcubeNebulaAppsRequest $request
+     *
+     * @return ListMcubeNebulaAppsResponse
      */
     public function listMcubeNebulaApps($request)
     {
@@ -3841,55 +4203,70 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeNebulaResourcesRequest $request ListMcubeNebulaResourcesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - ListMcubeNebulaResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListMcubeNebulaResourcesResponse ListMcubeNebulaResourcesResponse
+     * @returns ListMcubeNebulaResourcesResponse
+     *
+     * @param ListMcubeNebulaResourcesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListMcubeNebulaResourcesResponse
      */
     public function listMcubeNebulaResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->h5Id)) {
-            $body['H5Id'] = $request->h5Id;
+
+        if (null !== $request->h5Id) {
+            @$body['H5Id'] = $request->h5Id;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $body['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$body['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListMcubeNebulaResources',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMcubeNebulaResources',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListMcubeNebulaResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListMcubeNebulaResourcesRequest $request ListMcubeNebulaResourcesRequest
+     * @param request - ListMcubeNebulaResourcesRequest
      *
-     * @return ListMcubeNebulaResourcesResponse ListMcubeNebulaResourcesResponse
+     * @returns ListMcubeNebulaResourcesResponse
+     *
+     * @param ListMcubeNebulaResourcesRequest $request
+     *
+     * @return ListMcubeNebulaResourcesResponse
      */
     public function listMcubeNebulaResources($request)
     {
@@ -3899,49 +4276,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeNebulaTasksRequest $request ListMcubeNebulaTasksRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - ListMcubeNebulaTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListMcubeNebulaTasksResponse ListMcubeNebulaTasksResponse
+     * @returns ListMcubeNebulaTasksResponse
+     *
+     * @param ListMcubeNebulaTasksRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListMcubeNebulaTasksResponse
      */
     public function listMcubeNebulaTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListMcubeNebulaTasks',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMcubeNebulaTasks',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListMcubeNebulaTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListMcubeNebulaTasksRequest $request ListMcubeNebulaTasksRequest
+     * @param request - ListMcubeNebulaTasksRequest
      *
-     * @return ListMcubeNebulaTasksResponse ListMcubeNebulaTasksResponse
+     * @returns ListMcubeNebulaTasksResponse
+     *
+     * @param ListMcubeNebulaTasksRequest $request
+     *
+     * @return ListMcubeNebulaTasksResponse
      */
     public function listMcubeNebulaTasks($request)
     {
@@ -3951,52 +4341,66 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeUpgradePackagesRequest $request ListMcubeUpgradePackagesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - ListMcubeUpgradePackagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListMcubeUpgradePackagesResponse ListMcubeUpgradePackagesResponse
+     * @returns ListMcubeUpgradePackagesResponse
+     *
+     * @param ListMcubeUpgradePackagesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListMcubeUpgradePackagesResponse
      */
     public function listMcubeUpgradePackagesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $body['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$body['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListMcubeUpgradePackages',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMcubeUpgradePackages',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListMcubeUpgradePackagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListMcubeUpgradePackagesRequest $request ListMcubeUpgradePackagesRequest
+     * @param request - ListMcubeUpgradePackagesRequest
      *
-     * @return ListMcubeUpgradePackagesResponse ListMcubeUpgradePackagesResponse
+     * @returns ListMcubeUpgradePackagesResponse
+     *
+     * @param ListMcubeUpgradePackagesRequest $request
+     *
+     * @return ListMcubeUpgradePackagesResponse
      */
     public function listMcubeUpgradePackages($request)
     {
@@ -4006,49 +4410,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeUpgradeTasksRequest $request ListMcubeUpgradeTasksRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - ListMcubeUpgradeTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListMcubeUpgradeTasksResponse ListMcubeUpgradeTasksResponse
+     * @returns ListMcubeUpgradeTasksResponse
+     *
+     * @param ListMcubeUpgradeTasksRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListMcubeUpgradeTasksResponse
      */
     public function listMcubeUpgradeTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->packageId)) {
-            $body['PackageId'] = $request->packageId;
+
+        if (null !== $request->packageId) {
+            @$body['PackageId'] = $request->packageId;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListMcubeUpgradeTasks',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMcubeUpgradeTasks',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListMcubeUpgradeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListMcubeUpgradeTasksRequest $request ListMcubeUpgradeTasksRequest
+     * @param request - ListMcubeUpgradeTasksRequest
      *
-     * @return ListMcubeUpgradeTasksResponse ListMcubeUpgradeTasksResponse
+     * @returns ListMcubeUpgradeTasksResponse
+     *
+     * @param ListMcubeUpgradeTasksRequest $request
+     *
+     * @return ListMcubeUpgradeTasksResponse
      */
     public function listMcubeUpgradeTasks($request)
     {
@@ -4058,55 +4475,70 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMcubeWhitelistsRequest $request ListMcubeWhitelistsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - ListMcubeWhitelistsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListMcubeWhitelistsResponse ListMcubeWhitelistsResponse
+     * @returns ListMcubeWhitelistsResponse
+     *
+     * @param ListMcubeWhitelistsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListMcubeWhitelistsResponse
      */
     public function listMcubeWhitelistsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $body['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$body['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->whitelistName)) {
-            $body['WhitelistName'] = $request->whitelistName;
+
+        if (null !== $request->whitelistName) {
+            @$body['WhitelistName'] = $request->whitelistName;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListMcubeWhitelists',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMcubeWhitelists',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListMcubeWhitelistsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListMcubeWhitelistsRequest $request ListMcubeWhitelistsRequest
+     * @param request - ListMcubeWhitelistsRequest
      *
-     * @return ListMcubeWhitelistsResponse ListMcubeWhitelistsResponse
+     * @returns ListMcubeWhitelistsResponse
+     *
+     * @param ListMcubeWhitelistsRequest $request
+     *
+     * @return ListMcubeWhitelistsResponse
      */
     public function listMcubeWhitelists($request)
     {
@@ -4116,85 +4548,110 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param ListMgsApiRequest $request ListMgsApiRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - ListMgsApiRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListMgsApiResponse ListMgsApiResponse
+     * @returns ListMgsApiResponse
+     *
+     * @param ListMgsApiRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListMgsApiResponse
      */
     public function listMgsApiWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->apiStatus)) {
-            $body['ApiStatus'] = $request->apiStatus;
+        if (null !== $request->apiStatus) {
+            @$body['ApiStatus'] = $request->apiStatus;
         }
-        if (!Utils::isUnset($request->apiType)) {
-            $body['ApiType'] = $request->apiType;
+
+        if (null !== $request->apiType) {
+            @$body['ApiType'] = $request->apiType;
         }
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->format)) {
-            $body['Format'] = $request->format;
+
+        if (null !== $request->format) {
+            @$body['Format'] = $request->format;
         }
-        if (!Utils::isUnset($request->host)) {
-            $body['Host'] = $request->host;
+
+        if (null !== $request->host) {
+            @$body['Host'] = $request->host;
         }
-        if (!Utils::isUnset($request->needEncrypt)) {
-            $body['NeedEncrypt'] = $request->needEncrypt;
+
+        if (null !== $request->needEncrypt) {
+            @$body['NeedEncrypt'] = $request->needEncrypt;
         }
-        if (!Utils::isUnset($request->needEtag)) {
-            $body['NeedEtag'] = $request->needEtag;
+
+        if (null !== $request->needEtag) {
+            @$body['NeedEtag'] = $request->needEtag;
         }
-        if (!Utils::isUnset($request->needSign)) {
-            $body['NeedSign'] = $request->needSign;
+
+        if (null !== $request->needSign) {
+            @$body['NeedSign'] = $request->needSign;
         }
-        if (!Utils::isUnset($request->operationType)) {
-            $body['OperationType'] = $request->operationType;
+
+        if (null !== $request->operationType) {
+            @$body['OperationType'] = $request->operationType;
         }
-        if (!Utils::isUnset($request->optFuzzy)) {
-            $body['OptFuzzy'] = $request->optFuzzy;
+
+        if (null !== $request->optFuzzy) {
+            @$body['OptFuzzy'] = $request->optFuzzy;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $body['PageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$body['PageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sysId)) {
-            $body['SysId'] = $request->sysId;
+
+        if (null !== $request->sysId) {
+            @$body['SysId'] = $request->sysId;
         }
-        if (!Utils::isUnset($request->sysName)) {
-            $body['SysName'] = $request->sysName;
+
+        if (null !== $request->sysName) {
+            @$body['SysName'] = $request->sysName;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListMgsApi',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMgsApi',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ListMgsApiResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListMgsApiRequest $request ListMgsApiRequest
+     * @param request - ListMgsApiRequest
      *
-     * @return ListMgsApiResponse ListMgsApiResponse
+     * @returns ListMgsApiResponse
+     *
+     * @param ListMgsApiRequest $request
+     *
+     * @return ListMgsApiResponse
      */
     public function listMgsApi($request)
     {
@@ -4204,114 +4661,74 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param LogMsaQueryRequest $request LogMsaQueryRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * OCR通用接口.
      *
-     * @return LogMsaQueryResponse LogMsaQueryResponse
-     */
-    public function logMsaQueryWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->onexFlag)) {
-            $body['OnexFlag'] = $request->onexFlag;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'LogMsaQuery',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return LogMsaQueryResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param LogMsaQueryRequest $request LogMsaQueryRequest
+     * @param request - MTRSOCRServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return LogMsaQueryResponse LogMsaQueryResponse
-     */
-    public function logMsaQuery($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->logMsaQueryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary OCR通用接口
-     *  *
-     * @param MTRSOCRServiceRequest $request MTRSOCRServiceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @returns MTRSOCRServiceResponse
      *
-     * @return MTRSOCRServiceResponse MTRSOCRServiceResponse
+     * @param MTRSOCRServiceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return MTRSOCRServiceResponse
      */
     public function mTRSOCRServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->imageRaw)) {
-            $body['ImageRaw'] = $request->imageRaw;
+
+        if (null !== $request->imageRaw) {
+            @$body['ImageRaw'] = $request->imageRaw;
         }
-        if (!Utils::isUnset($request->mask)) {
-            $body['Mask'] = $request->mask;
+
+        if (null !== $request->mask) {
+            @$body['Mask'] = $request->mask;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'MTRSOCRService',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MTRSOCRService',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return MTRSOCRServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary OCR通用接口
-     *  *
-     * @param MTRSOCRServiceRequest $request MTRSOCRServiceRequest
+     * OCR通用接口.
      *
-     * @return MTRSOCRServiceResponse MTRSOCRServiceResponse
+     * @param request - MTRSOCRServiceRequest
+     *
+     * @returns MTRSOCRServiceResponse
+     *
+     * @param MTRSOCRServiceRequest $request
+     *
+     * @return MTRSOCRServiceResponse
      */
     public function mTRSOCRService($request)
     {
@@ -4321,671 +4738,74 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @summary 新增主扫码
-     *  *
-     * @param OpenApiAddActiveCodeRequest $request OpenApiAddActiveCodeRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - PushBindRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return OpenApiAddActiveCodeResponse OpenApiAddActiveCodeResponse
-     */
-    public function openApiAddActiveCodeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mpaasMqcpOpenApiAddActiveCodeReqJsonStr)) {
-            $body['MpaasMqcpOpenApiAddActiveCodeReqJsonStr'] = $request->mpaasMqcpOpenApiAddActiveCodeReqJsonStr;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'OpenApiAddActiveCode',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return OpenApiAddActiveCodeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 新增主扫码
-     *  *
-     * @param OpenApiAddActiveCodeRequest $request OpenApiAddActiveCodeRequest
+     * @returns PushBindResponse
      *
-     * @return OpenApiAddActiveCodeResponse OpenApiAddActiveCodeResponse
-     */
-    public function openApiAddActiveCode($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->openApiAddActiveCodeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 新增场景
-     *  *
-     * @param OpenApiAddActiveSceneRequest $request OpenApiAddActiveSceneRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param PushBindRequest $request
+     * @param RuntimeOptions  $runtime
      *
-     * @return OpenApiAddActiveSceneResponse OpenApiAddActiveSceneResponse
-     */
-    public function openApiAddActiveSceneWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mpaasMqcpOpenApiAddActiveSceneReqJsonStr)) {
-            $body['MpaasMqcpOpenApiAddActiveSceneReqJsonStr'] = $request->mpaasMqcpOpenApiAddActiveSceneReqJsonStr;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'OpenApiAddActiveScene',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return OpenApiAddActiveSceneResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 新增场景
-     *  *
-     * @param OpenApiAddActiveSceneRequest $request OpenApiAddActiveSceneRequest
-     *
-     * @return OpenApiAddActiveSceneResponse OpenApiAddActiveSceneResponse
-     */
-    public function openApiAddActiveScene($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->openApiAddActiveSceneWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 用户注册
-     *  *
-     * @param OpenApiCallbackRequest $request OpenApiCallbackRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
-     *
-     * @return OpenApiCallbackResponse OpenApiCallbackResponse
-     */
-    public function openApiCallbackWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mpaasMqcpOpenApiCallbackRequestJsonStr)) {
-            $body['MpaasMqcpOpenApiCallbackRequestJsonStr'] = $request->mpaasMqcpOpenApiCallbackRequestJsonStr;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'OpenApiCallback',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return OpenApiCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 用户注册
-     *  *
-     * @param OpenApiCallbackRequest $request OpenApiCallbackRequest
-     *
-     * @return OpenApiCallbackResponse OpenApiCallbackResponse
-     */
-    public function openApiCallback($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->openApiCallbackWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 解码
-     *  *
-     * @param OpenApiDecodeRequest $request OpenApiDecodeRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
-     *
-     * @return OpenApiDecodeResponse OpenApiDecodeResponse
-     */
-    public function openApiDecodeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mpaasMqcpOpenApiDecodeRequestJsonStr)) {
-            $body['MpaasMqcpOpenApiDecodeRequestJsonStr'] = $request->mpaasMqcpOpenApiDecodeRequestJsonStr;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'OpenApiDecode',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return OpenApiDecodeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 解码
-     *  *
-     * @param OpenApiDecodeRequest $request OpenApiDecodeRequest
-     *
-     * @return OpenApiDecodeResponse OpenApiDecodeResponse
-     */
-    public function openApiDecode($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->openApiDecodeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 删除主扫码
-     *  *
-     * @param OpenApiDeleteActiveCodeRequest $request OpenApiDeleteActiveCodeRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
-     *
-     * @return OpenApiDeleteActiveCodeResponse OpenApiDeleteActiveCodeResponse
-     */
-    public function openApiDeleteActiveCodeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mpaasMqcpOpenApiDeleteActiveCodeReqJsonStr)) {
-            $body['MpaasMqcpOpenApiDeleteActiveCodeReqJsonStr'] = $request->mpaasMqcpOpenApiDeleteActiveCodeReqJsonStr;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'OpenApiDeleteActiveCode',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return OpenApiDeleteActiveCodeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 删除主扫码
-     *  *
-     * @param OpenApiDeleteActiveCodeRequest $request OpenApiDeleteActiveCodeRequest
-     *
-     * @return OpenApiDeleteActiveCodeResponse OpenApiDeleteActiveCodeResponse
-     */
-    public function openApiDeleteActiveCode($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->openApiDeleteActiveCodeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 编码
-     *  *
-     * @param OpenApiEncodeRequest $request OpenApiEncodeRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
-     *
-     * @return OpenApiEncodeResponse OpenApiEncodeResponse
-     */
-    public function openApiEncodeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mpaasMqcpOpenApiEncodeRequestJsonStr)) {
-            $body['MpaasMqcpOpenApiEncodeRequestJsonStr'] = $request->mpaasMqcpOpenApiEncodeRequestJsonStr;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'OpenApiEncode',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return OpenApiEncodeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 编码
-     *  *
-     * @param OpenApiEncodeRequest $request OpenApiEncodeRequest
-     *
-     * @return OpenApiEncodeResponse OpenApiEncodeResponse
-     */
-    public function openApiEncode($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->openApiEncodeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 主扫码查询
-     *  *
-     * @param OpenApiQueryActiveCodeRequest $request OpenApiQueryActiveCodeRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
-     *
-     * @return OpenApiQueryActiveCodeResponse OpenApiQueryActiveCodeResponse
-     */
-    public function openApiQueryActiveCodeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mpaasMqcpOpenApiQueryActiveCodeReqJsonStr)) {
-            $body['MpaasMqcpOpenApiQueryActiveCodeReqJsonStr'] = $request->mpaasMqcpOpenApiQueryActiveCodeReqJsonStr;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'OpenApiQueryActiveCode',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return OpenApiQueryActiveCodeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 主扫码查询
-     *  *
-     * @param OpenApiQueryActiveCodeRequest $request OpenApiQueryActiveCodeRequest
-     *
-     * @return OpenApiQueryActiveCodeResponse OpenApiQueryActiveCodeResponse
-     */
-    public function openApiQueryActiveCode($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->openApiQueryActiveCodeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 查询场景
-     *  *
-     * @param OpenApiQueryActiveSceneRequest $request OpenApiQueryActiveSceneRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
-     *
-     * @return OpenApiQueryActiveSceneResponse OpenApiQueryActiveSceneResponse
-     */
-    public function openApiQueryActiveSceneWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mpaasMqcpOpenApiQueryActiveSceneReqJsonStr)) {
-            $body['MpaasMqcpOpenApiQueryActiveSceneReqJsonStr'] = $request->mpaasMqcpOpenApiQueryActiveSceneReqJsonStr;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'OpenApiQueryActiveScene',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return OpenApiQueryActiveSceneResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 查询场景
-     *  *
-     * @param OpenApiQueryActiveSceneRequest $request OpenApiQueryActiveSceneRequest
-     *
-     * @return OpenApiQueryActiveSceneResponse OpenApiQueryActiveSceneResponse
-     */
-    public function openApiQueryActiveScene($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->openApiQueryActiveSceneWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 生成唯一被扫码
-     *  *
-     * @param OpenApiUniqueEncodeRequest $request OpenApiUniqueEncodeRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
-     *
-     * @return OpenApiUniqueEncodeResponse OpenApiUniqueEncodeResponse
-     */
-    public function openApiUniqueEncodeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mpaasMqcpOpenApiUniqueEncodeRequestJsonStr)) {
-            $body['MpaasMqcpOpenApiUniqueEncodeRequestJsonStr'] = $request->mpaasMqcpOpenApiUniqueEncodeRequestJsonStr;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'OpenApiUniqueEncode',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return OpenApiUniqueEncodeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 生成唯一被扫码
-     *  *
-     * @param OpenApiUniqueEncodeRequest $request OpenApiUniqueEncodeRequest
-     *
-     * @return OpenApiUniqueEncodeResponse OpenApiUniqueEncodeResponse
-     */
-    public function openApiUniqueEncode($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->openApiUniqueEncodeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 更新主扫码
-     *  *
-     * @param OpenApiUpdateActiveCodeRequest $request OpenApiUpdateActiveCodeRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
-     *
-     * @return OpenApiUpdateActiveCodeResponse OpenApiUpdateActiveCodeResponse
-     */
-    public function openApiUpdateActiveCodeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mpaasMqcpOpenApiUpdateActiveCodeReqJsonStr)) {
-            $body['MpaasMqcpOpenApiUpdateActiveCodeReqJsonStr'] = $request->mpaasMqcpOpenApiUpdateActiveCodeReqJsonStr;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'OpenApiUpdateActiveCode',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return OpenApiUpdateActiveCodeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 更新主扫码
-     *  *
-     * @param OpenApiUpdateActiveCodeRequest $request OpenApiUpdateActiveCodeRequest
-     *
-     * @return OpenApiUpdateActiveCodeResponse OpenApiUpdateActiveCodeResponse
-     */
-    public function openApiUpdateActiveCode($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->openApiUpdateActiveCodeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 更新场景
-     *  *
-     * @param OpenApiUpdateActiveSceneRequest $request OpenApiUpdateActiveSceneRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
-     *
-     * @return OpenApiUpdateActiveSceneResponse OpenApiUpdateActiveSceneResponse
-     */
-    public function openApiUpdateActiveSceneWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->mpaasMqcpOpenApiUpdateActiveSceneReqJsonStr)) {
-            $body['MpaasMqcpOpenApiUpdateActiveSceneReqJsonStr'] = $request->mpaasMqcpOpenApiUpdateActiveSceneReqJsonStr;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'OpenApiUpdateActiveScene',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return OpenApiUpdateActiveSceneResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 更新场景
-     *  *
-     * @param OpenApiUpdateActiveSceneRequest $request OpenApiUpdateActiveSceneRequest
-     *
-     * @return OpenApiUpdateActiveSceneResponse OpenApiUpdateActiveSceneResponse
-     */
-    public function openApiUpdateActiveScene($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->openApiUpdateActiveSceneWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param PushBindRequest $request PushBindRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
-     *
-     * @return PushBindResponse PushBindResponse
+     * @return PushBindResponse
      */
     public function pushBindWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->deliveryToken)) {
-            $body['DeliveryToken'] = $request->deliveryToken;
+
+        if (null !== $request->deliveryToken) {
+            @$body['DeliveryToken'] = $request->deliveryToken;
         }
-        if (!Utils::isUnset($request->osType)) {
-            $body['OsType'] = $request->osType;
+
+        if (null !== $request->osType) {
+            @$body['OsType'] = $request->osType;
         }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $body['PhoneNumber'] = $request->phoneNumber;
+
+        if (null !== $request->phoneNumber) {
+            @$body['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
         }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PushBind',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PushBind',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PushBindResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param PushBindRequest $request PushBindRequest
+     * @param request - PushBindRequest
      *
-     * @return PushBindResponse PushBindResponse
+     * @returns PushBindResponse
+     *
+     * @param PushBindRequest $request
+     *
+     * @return PushBindResponse
      */
     public function pushBind($request)
     {
@@ -4995,108 +4815,152 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param PushBroadcastRequest $tmpReq  PushBroadcastRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - PushBroadcastRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return PushBroadcastResponse PushBroadcastResponse
+     * @returns PushBroadcastResponse
+     *
+     * @param PushBroadcastRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return PushBroadcastResponse
      */
     public function pushBroadcastWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PushBroadcastShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->thirdChannelCategory)) {
-            $request->thirdChannelCategoryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->thirdChannelCategory, 'ThirdChannelCategory', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->thirdChannelCategory) {
+            $request->thirdChannelCategoryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->thirdChannelCategory, 'ThirdChannelCategory', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->androidChannel)) {
-            $body['AndroidChannel'] = $request->androidChannel;
+        if (null !== $request->androidChannel) {
+            @$body['AndroidChannel'] = $request->androidChannel;
         }
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->bindPeriod)) {
-            $body['BindPeriod'] = $request->bindPeriod;
+
+        if (null !== $request->bindPeriod) {
+            @$body['BindPeriod'] = $request->bindPeriod;
         }
-        if (!Utils::isUnset($request->channelId)) {
-            $body['ChannelId'] = $request->channelId;
+
+        if (null !== $request->channelId) {
+            @$body['ChannelId'] = $request->channelId;
         }
-        if (!Utils::isUnset($request->classification)) {
-            $body['Classification'] = $request->classification;
+
+        if (null !== $request->classification) {
+            @$body['Classification'] = $request->classification;
         }
-        if (!Utils::isUnset($request->deliveryType)) {
-            $body['DeliveryType'] = $request->deliveryType;
+
+        if (null !== $request->deliveryType) {
+            @$body['DeliveryType'] = $request->deliveryType;
         }
-        if (!Utils::isUnset($request->expiredSeconds)) {
-            $body['ExpiredSeconds'] = $request->expiredSeconds;
+
+        if (null !== $request->expiredSeconds) {
+            @$body['ExpiredSeconds'] = $request->expiredSeconds;
         }
-        if (!Utils::isUnset($request->extendedParams)) {
-            $body['ExtendedParams'] = $request->extendedParams;
+
+        if (null !== $request->extendedParams) {
+            @$body['ExtendedParams'] = $request->extendedParams;
         }
-        if (!Utils::isUnset($request->miChannelId)) {
-            $body['MiChannelId'] = $request->miChannelId;
+
+        if (null !== $request->miChannelId) {
+            @$body['MiChannelId'] = $request->miChannelId;
         }
-        if (!Utils::isUnset($request->msgkey)) {
-            $body['Msgkey'] = $request->msgkey;
+
+        if (null !== $request->msgkey) {
+            @$body['Msgkey'] = $request->msgkey;
         }
-        if (!Utils::isUnset($request->notifyType)) {
-            $body['NotifyType'] = $request->notifyType;
+
+        if (null !== $request->notifyType) {
+            @$body['NotifyType'] = $request->notifyType;
         }
-        if (!Utils::isUnset($request->pushAction)) {
-            $body['PushAction'] = $request->pushAction;
+
+        if (null !== $request->pushAction) {
+            @$body['PushAction'] = $request->pushAction;
         }
-        if (!Utils::isUnset($request->pushStatus)) {
-            $body['PushStatus'] = $request->pushStatus;
+
+        if (null !== $request->pushStatus) {
+            @$body['PushStatus'] = $request->pushStatus;
         }
-        if (!Utils::isUnset($request->silent)) {
-            $body['Silent'] = $request->silent;
+
+        if (null !== $request->silent) {
+            @$body['Silent'] = $request->silent;
         }
-        if (!Utils::isUnset($request->strategyContent)) {
-            $body['StrategyContent'] = $request->strategyContent;
+
+        if (null !== $request->strategyContent) {
+            @$body['StrategyContent'] = $request->strategyContent;
         }
-        if (!Utils::isUnset($request->strategyType)) {
-            $body['StrategyType'] = $request->strategyType;
+
+        if (null !== $request->strategyType) {
+            @$body['StrategyType'] = $request->strategyType;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $body['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->templateKeyValue)) {
-            $body['TemplateKeyValue'] = $request->templateKeyValue;
+
+        if (null !== $request->templateKeyValue) {
+            @$body['TemplateKeyValue'] = $request->templateKeyValue;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $body['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$body['TemplateName'] = $request->templateName;
         }
-        if (!Utils::isUnset($request->thirdChannelCategoryShrink)) {
-            $body['ThirdChannelCategory'] = $request->thirdChannelCategoryShrink;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->unBindPeriod)) {
-            $body['UnBindPeriod'] = $request->unBindPeriod;
+
+        if (null !== $request->thirdChannelCategoryShrink) {
+            @$body['ThirdChannelCategory'] = $request->thirdChannelCategoryShrink;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->transparentMessagePayload) {
+            @$body['TransparentMessagePayload'] = $request->transparentMessagePayload;
         }
+
+        if (null !== $request->transparentMessageUrgency) {
+            @$body['TransparentMessageUrgency'] = $request->transparentMessageUrgency;
+        }
+
+        if (null !== $request->unBindPeriod) {
+            @$body['UnBindPeriod'] = $request->unBindPeriod;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PushBroadcast',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PushBroadcast',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PushBroadcastResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param PushBroadcastRequest $request PushBroadcastRequest
+     * @param request - PushBroadcastRequest
      *
-     * @return PushBroadcastResponse PushBroadcastResponse
+     * @returns PushBroadcastResponse
+     *
+     * @param PushBroadcastRequest $request
+     *
+     * @return PushBroadcastResponse
      */
     public function pushBroadcast($request)
     {
@@ -5106,102 +4970,144 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param PushMultipleRequest $tmpReq  PushMultipleRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - PushMultipleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return PushMultipleResponse PushMultipleResponse
+     * @returns PushMultipleResponse
+     *
+     * @param PushMultipleRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return PushMultipleResponse
      */
     public function pushMultipleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PushMultipleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->thirdChannelCategory)) {
-            $request->thirdChannelCategoryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->thirdChannelCategory, 'ThirdChannelCategory', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->thirdChannelCategory) {
+            $request->thirdChannelCategoryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->thirdChannelCategory, 'ThirdChannelCategory', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->activityContentState)) {
-            $body['ActivityContentState'] = $request->activityContentState;
+        if (null !== $request->activityContentState) {
+            @$body['ActivityContentState'] = $request->activityContentState;
         }
-        if (!Utils::isUnset($request->activityEvent)) {
-            $body['ActivityEvent'] = $request->activityEvent;
+
+        if (null !== $request->activityEvent) {
+            @$body['ActivityEvent'] = $request->activityEvent;
         }
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->channelId)) {
-            $body['ChannelId'] = $request->channelId;
+
+        if (null !== $request->channelId) {
+            @$body['ChannelId'] = $request->channelId;
         }
-        if (!Utils::isUnset($request->classification)) {
-            $body['Classification'] = $request->classification;
+
+        if (null !== $request->classification) {
+            @$body['Classification'] = $request->classification;
         }
-        if (!Utils::isUnset($request->deliveryType)) {
-            $body['DeliveryType'] = $request->deliveryType;
+
+        if (null !== $request->deliveryType) {
+            @$body['DeliveryType'] = $request->deliveryType;
         }
-        if (!Utils::isUnset($request->dismissalDate)) {
-            $body['DismissalDate'] = $request->dismissalDate;
+
+        if (null !== $request->dismissalDate) {
+            @$body['DismissalDate'] = $request->dismissalDate;
         }
-        if (!Utils::isUnset($request->expiredSeconds)) {
-            $body['ExpiredSeconds'] = $request->expiredSeconds;
+
+        if (null !== $request->expiredSeconds) {
+            @$body['ExpiredSeconds'] = $request->expiredSeconds;
         }
-        if (!Utils::isUnset($request->extendedParams)) {
-            $body['ExtendedParams'] = $request->extendedParams;
+
+        if (null !== $request->extendedParams) {
+            @$body['ExtendedParams'] = $request->extendedParams;
         }
-        if (!Utils::isUnset($request->miChannelId)) {
-            $body['MiChannelId'] = $request->miChannelId;
+
+        if (null !== $request->miChannelId) {
+            @$body['MiChannelId'] = $request->miChannelId;
         }
-        if (!Utils::isUnset($request->notifyType)) {
-            $body['NotifyType'] = $request->notifyType;
+
+        if (null !== $request->notifyType) {
+            @$body['NotifyType'] = $request->notifyType;
         }
-        if (!Utils::isUnset($request->pushAction)) {
-            $body['PushAction'] = $request->pushAction;
+
+        if (null !== $request->pushAction) {
+            @$body['PushAction'] = $request->pushAction;
         }
-        if (!Utils::isUnset($request->silent)) {
-            $body['Silent'] = $request->silent;
+
+        if (null !== $request->silent) {
+            @$body['Silent'] = $request->silent;
         }
-        if (!Utils::isUnset($request->strategyContent)) {
-            $body['StrategyContent'] = $request->strategyContent;
+
+        if (null !== $request->strategyContent) {
+            @$body['StrategyContent'] = $request->strategyContent;
         }
-        if (!Utils::isUnset($request->strategyType)) {
-            $body['StrategyType'] = $request->strategyType;
+
+        if (null !== $request->strategyType) {
+            @$body['StrategyType'] = $request->strategyType;
         }
-        if (!Utils::isUnset($request->targetMsg)) {
-            $body['TargetMsg'] = $request->targetMsg;
+
+        if (null !== $request->targetMsg) {
+            @$body['TargetMsg'] = $request->targetMsg;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $body['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $body['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$body['TemplateName'] = $request->templateName;
         }
-        if (!Utils::isUnset($request->thirdChannelCategoryShrink)) {
-            $body['ThirdChannelCategory'] = $request->thirdChannelCategoryShrink;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->thirdChannelCategoryShrink) {
+            @$body['ThirdChannelCategory'] = $request->thirdChannelCategoryShrink;
         }
+
+        if (null !== $request->transparentMessagePayload) {
+            @$body['TransparentMessagePayload'] = $request->transparentMessagePayload;
+        }
+
+        if (null !== $request->transparentMessageUrgency) {
+            @$body['TransparentMessageUrgency'] = $request->transparentMessageUrgency;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PushMultiple',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PushMultiple',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PushMultipleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param PushMultipleRequest $request PushMultipleRequest
+     * @param request - PushMultipleRequest
      *
-     * @return PushMultipleResponse PushMultipleResponse
+     * @returns PushMultipleResponse
+     *
+     * @param PushMultipleRequest $request
+     *
+     * @return PushMultipleResponse
      */
     public function pushMultiple($request)
     {
@@ -5211,76 +5117,102 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param PushReportRequest $request PushReportRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - PushReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return PushReportResponse PushReportResponse
+     * @returns PushReportResponse
+     *
+     * @param PushReportRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return PushReportResponse
      */
     public function pushReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->appVersion)) {
-            $body['AppVersion'] = $request->appVersion;
+
+        if (null !== $request->appVersion) {
+            @$body['AppVersion'] = $request->appVersion;
         }
-        if (!Utils::isUnset($request->channel)) {
-            $body['Channel'] = $request->channel;
+
+        if (null !== $request->channel) {
+            @$body['Channel'] = $request->channel;
         }
-        if (!Utils::isUnset($request->connectType)) {
-            $body['ConnectType'] = $request->connectType;
+
+        if (null !== $request->connectType) {
+            @$body['ConnectType'] = $request->connectType;
         }
-        if (!Utils::isUnset($request->deliveryToken)) {
-            $body['DeliveryToken'] = $request->deliveryToken;
+
+        if (null !== $request->deliveryToken) {
+            @$body['DeliveryToken'] = $request->deliveryToken;
         }
-        if (!Utils::isUnset($request->imei)) {
-            $body['Imei'] = $request->imei;
+
+        if (null !== $request->imei) {
+            @$body['Imei'] = $request->imei;
         }
-        if (!Utils::isUnset($request->imsi)) {
-            $body['Imsi'] = $request->imsi;
+
+        if (null !== $request->imsi) {
+            @$body['Imsi'] = $request->imsi;
         }
-        if (!Utils::isUnset($request->model)) {
-            $body['Model'] = $request->model;
+
+        if (null !== $request->model) {
+            @$body['Model'] = $request->model;
         }
-        if (!Utils::isUnset($request->osType)) {
-            $body['OsType'] = $request->osType;
+
+        if (null !== $request->osType) {
+            @$body['OsType'] = $request->osType;
         }
-        if (!Utils::isUnset($request->pushVersion)) {
-            $body['PushVersion'] = $request->pushVersion;
+
+        if (null !== $request->pushVersion) {
+            @$body['PushVersion'] = $request->pushVersion;
         }
-        if (!Utils::isUnset($request->thirdChannel)) {
-            $body['ThirdChannel'] = $request->thirdChannel;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->thirdChannelDeviceToken)) {
-            $body['ThirdChannelDeviceToken'] = $request->thirdChannelDeviceToken;
+
+        if (null !== $request->thirdChannel) {
+            @$body['ThirdChannel'] = $request->thirdChannel;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->thirdChannelDeviceToken) {
+            @$body['ThirdChannelDeviceToken'] = $request->thirdChannelDeviceToken;
         }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PushReport',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PushReport',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PushReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param PushReportRequest $request PushReportRequest
+     * @param request - PushReportRequest
      *
-     * @return PushReportResponse PushReportResponse
+     * @returns PushReportResponse
+     *
+     * @param PushReportRequest $request
+     *
+     * @return PushReportResponse
      */
     public function pushReport($request)
     {
@@ -5290,129 +5222,184 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param PushSimpleRequest $tmpReq  PushSimpleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 极简推送
      *
-     * @return PushSimpleResponse PushSimpleResponse
+     * @param tmpReq - PushSimpleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PushSimpleResponse
+     *
+     * @param PushSimpleRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return PushSimpleResponse
      */
     public function pushSimpleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PushSimpleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->thirdChannelCategory)) {
-            $request->thirdChannelCategoryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->thirdChannelCategory, 'ThirdChannelCategory', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->thirdChannelCategory) {
+            $request->thirdChannelCategoryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->thirdChannelCategory, 'ThirdChannelCategory', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->activityContentState)) {
-            $body['ActivityContentState'] = $request->activityContentState;
+        if (null !== $request->activityContentState) {
+            @$body['ActivityContentState'] = $request->activityContentState;
         }
-        if (!Utils::isUnset($request->activityEvent)) {
-            $body['ActivityEvent'] = $request->activityEvent;
+
+        if (null !== $request->activityEvent) {
+            @$body['ActivityEvent'] = $request->activityEvent;
         }
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->channelId)) {
-            $body['ChannelId'] = $request->channelId;
+
+        if (null !== $request->channelId) {
+            @$body['ChannelId'] = $request->channelId;
         }
-        if (!Utils::isUnset($request->classification)) {
-            $body['Classification'] = $request->classification;
+
+        if (null !== $request->classification) {
+            @$body['Classification'] = $request->classification;
         }
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$body['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->deliveryType)) {
-            $body['DeliveryType'] = $request->deliveryType;
+
+        if (null !== $request->deliveryType) {
+            @$body['DeliveryType'] = $request->deliveryType;
         }
-        if (!Utils::isUnset($request->dismissalDate)) {
-            $body['DismissalDate'] = $request->dismissalDate;
+
+        if (null !== $request->dismissalDate) {
+            @$body['DismissalDate'] = $request->dismissalDate;
         }
-        if (!Utils::isUnset($request->expiredSeconds)) {
-            $body['ExpiredSeconds'] = $request->expiredSeconds;
+
+        if (null !== $request->expiredSeconds) {
+            @$body['ExpiredSeconds'] = $request->expiredSeconds;
         }
-        if (!Utils::isUnset($request->extendedParams)) {
-            $body['ExtendedParams'] = $request->extendedParams;
+
+        if (null !== $request->extendedParams) {
+            @$body['ExtendedParams'] = $request->extendedParams;
         }
-        if (!Utils::isUnset($request->iconUrls)) {
-            $body['IconUrls'] = $request->iconUrls;
+
+        if (null !== $request->iconUrls) {
+            @$body['IconUrls'] = $request->iconUrls;
         }
-        if (!Utils::isUnset($request->imageUrls)) {
-            $body['ImageUrls'] = $request->imageUrls;
+
+        if (null !== $request->imageUrls) {
+            @$body['ImageUrls'] = $request->imageUrls;
         }
-        if (!Utils::isUnset($request->miChannelId)) {
-            $body['MiChannelId'] = $request->miChannelId;
+
+        if (null !== $request->miChannelId) {
+            @$body['MiChannelId'] = $request->miChannelId;
         }
-        if (!Utils::isUnset($request->notifyType)) {
-            $body['NotifyType'] = $request->notifyType;
+
+        if (null !== $request->notifyType) {
+            @$body['NotifyType'] = $request->notifyType;
         }
-        if (!Utils::isUnset($request->pushAction)) {
-            $body['PushAction'] = $request->pushAction;
+
+        if (null !== $request->pushAction) {
+            @$body['PushAction'] = $request->pushAction;
         }
-        if (!Utils::isUnset($request->pushStyle)) {
-            $body['PushStyle'] = $request->pushStyle;
+
+        if (null !== $request->pushStyle) {
+            @$body['PushStyle'] = $request->pushStyle;
         }
-        if (!Utils::isUnset($request->silent)) {
-            $body['Silent'] = $request->silent;
+
+        if (null !== $request->silent) {
+            @$body['Silent'] = $request->silent;
         }
-        if (!Utils::isUnset($request->smsSignName)) {
-            $body['SmsSignName'] = $request->smsSignName;
+
+        if (null !== $request->smsSignName) {
+            @$body['SmsSignName'] = $request->smsSignName;
         }
-        if (!Utils::isUnset($request->smsStrategy)) {
-            $body['SmsStrategy'] = $request->smsStrategy;
+
+        if (null !== $request->smsStrategy) {
+            @$body['SmsStrategy'] = $request->smsStrategy;
         }
-        if (!Utils::isUnset($request->smsTemplateCode)) {
-            $body['SmsTemplateCode'] = $request->smsTemplateCode;
+
+        if (null !== $request->smsTemplateCode) {
+            @$body['SmsTemplateCode'] = $request->smsTemplateCode;
         }
-        if (!Utils::isUnset($request->smsTemplateParam)) {
-            $body['SmsTemplateParam'] = $request->smsTemplateParam;
+
+        if (null !== $request->smsTemplateParam) {
+            @$body['SmsTemplateParam'] = $request->smsTemplateParam;
         }
-        if (!Utils::isUnset($request->strategyContent)) {
-            $body['StrategyContent'] = $request->strategyContent;
+
+        if (null !== $request->strategyContent) {
+            @$body['StrategyContent'] = $request->strategyContent;
         }
-        if (!Utils::isUnset($request->strategyType)) {
-            $body['StrategyType'] = $request->strategyType;
+
+        if (null !== $request->strategyType) {
+            @$body['StrategyType'] = $request->strategyType;
         }
-        if (!Utils::isUnset($request->targetMsgkey)) {
-            $body['TargetMsgkey'] = $request->targetMsgkey;
+
+        if (null !== $request->targetMsgkey) {
+            @$body['TargetMsgkey'] = $request->targetMsgkey;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $body['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->thirdChannelCategoryShrink)) {
-            $body['ThirdChannelCategory'] = $request->thirdChannelCategoryShrink;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['Title'] = $request->title;
+
+        if (null !== $request->thirdChannelCategoryShrink) {
+            @$body['ThirdChannelCategory'] = $request->thirdChannelCategoryShrink;
         }
-        if (!Utils::isUnset($request->uri)) {
-            $body['Uri'] = $request->uri;
+
+        if (null !== $request->title) {
+            @$body['Title'] = $request->title;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->transparentMessagePayload) {
+            @$body['TransparentMessagePayload'] = $request->transparentMessagePayload;
         }
+
+        if (null !== $request->transparentMessageUrgency) {
+            @$body['TransparentMessageUrgency'] = $request->transparentMessageUrgency;
+        }
+
+        if (null !== $request->uri) {
+            @$body['Uri'] = $request->uri;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PushSimple',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PushSimple',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PushSimpleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param PushSimpleRequest $request PushSimpleRequest
+     * 极简推送
      *
-     * @return PushSimpleResponse PushSimpleResponse
+     * @param request - PushSimpleRequest
+     *
+     * @returns PushSimpleResponse
+     *
+     * @param PushSimpleRequest $request
+     *
+     * @return PushSimpleResponse
      */
     public function pushSimple($request)
     {
@@ -5422,117 +5409,164 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param PushTemplateRequest $tmpReq  PushTemplateRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - PushTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return PushTemplateResponse PushTemplateResponse
+     * @returns PushTemplateResponse
+     *
+     * @param PushTemplateRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return PushTemplateResponse
      */
     public function pushTemplateWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PushTemplateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->thirdChannelCategory)) {
-            $request->thirdChannelCategoryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->thirdChannelCategory, 'ThirdChannelCategory', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->thirdChannelCategory) {
+            $request->thirdChannelCategoryShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->thirdChannelCategory, 'ThirdChannelCategory', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->activityContentState)) {
-            $body['ActivityContentState'] = $request->activityContentState;
+        if (null !== $request->activityContentState) {
+            @$body['ActivityContentState'] = $request->activityContentState;
         }
-        if (!Utils::isUnset($request->activityEvent)) {
-            $body['ActivityEvent'] = $request->activityEvent;
+
+        if (null !== $request->activityEvent) {
+            @$body['ActivityEvent'] = $request->activityEvent;
         }
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->channelId)) {
-            $body['ChannelId'] = $request->channelId;
+
+        if (null !== $request->channelId) {
+            @$body['ChannelId'] = $request->channelId;
         }
-        if (!Utils::isUnset($request->classification)) {
-            $body['Classification'] = $request->classification;
+
+        if (null !== $request->classification) {
+            @$body['Classification'] = $request->classification;
         }
-        if (!Utils::isUnset($request->deliveryType)) {
-            $body['DeliveryType'] = $request->deliveryType;
+
+        if (null !== $request->deliveryType) {
+            @$body['DeliveryType'] = $request->deliveryType;
         }
-        if (!Utils::isUnset($request->dismissalDate)) {
-            $body['DismissalDate'] = $request->dismissalDate;
+
+        if (null !== $request->dismissalDate) {
+            @$body['DismissalDate'] = $request->dismissalDate;
         }
-        if (!Utils::isUnset($request->expiredSeconds)) {
-            $body['ExpiredSeconds'] = $request->expiredSeconds;
+
+        if (null !== $request->expiredSeconds) {
+            @$body['ExpiredSeconds'] = $request->expiredSeconds;
         }
-        if (!Utils::isUnset($request->extendedParams)) {
-            $body['ExtendedParams'] = $request->extendedParams;
+
+        if (null !== $request->extendedParams) {
+            @$body['ExtendedParams'] = $request->extendedParams;
         }
-        if (!Utils::isUnset($request->miChannelId)) {
-            $body['MiChannelId'] = $request->miChannelId;
+
+        if (null !== $request->miChannelId) {
+            @$body['MiChannelId'] = $request->miChannelId;
         }
-        if (!Utils::isUnset($request->notifyType)) {
-            $body['NotifyType'] = $request->notifyType;
+
+        if (null !== $request->notifyType) {
+            @$body['NotifyType'] = $request->notifyType;
         }
-        if (!Utils::isUnset($request->pushAction)) {
-            $body['PushAction'] = $request->pushAction;
+
+        if (null !== $request->pushAction) {
+            @$body['PushAction'] = $request->pushAction;
         }
-        if (!Utils::isUnset($request->silent)) {
-            $body['Silent'] = $request->silent;
+
+        if (null !== $request->silent) {
+            @$body['Silent'] = $request->silent;
         }
-        if (!Utils::isUnset($request->smsSignName)) {
-            $body['SmsSignName'] = $request->smsSignName;
+
+        if (null !== $request->smsSignName) {
+            @$body['SmsSignName'] = $request->smsSignName;
         }
-        if (!Utils::isUnset($request->smsStrategy)) {
-            $body['SmsStrategy'] = $request->smsStrategy;
+
+        if (null !== $request->smsStrategy) {
+            @$body['SmsStrategy'] = $request->smsStrategy;
         }
-        if (!Utils::isUnset($request->smsTemplateCode)) {
-            $body['SmsTemplateCode'] = $request->smsTemplateCode;
+
+        if (null !== $request->smsTemplateCode) {
+            @$body['SmsTemplateCode'] = $request->smsTemplateCode;
         }
-        if (!Utils::isUnset($request->smsTemplateParam)) {
-            $body['SmsTemplateParam'] = $request->smsTemplateParam;
+
+        if (null !== $request->smsTemplateParam) {
+            @$body['SmsTemplateParam'] = $request->smsTemplateParam;
         }
-        if (!Utils::isUnset($request->strategyContent)) {
-            $body['StrategyContent'] = $request->strategyContent;
+
+        if (null !== $request->strategyContent) {
+            @$body['StrategyContent'] = $request->strategyContent;
         }
-        if (!Utils::isUnset($request->strategyType)) {
-            $body['StrategyType'] = $request->strategyType;
+
+        if (null !== $request->strategyType) {
+            @$body['StrategyType'] = $request->strategyType;
         }
-        if (!Utils::isUnset($request->targetMsgkey)) {
-            $body['TargetMsgkey'] = $request->targetMsgkey;
+
+        if (null !== $request->targetMsgkey) {
+            @$body['TargetMsgkey'] = $request->targetMsgkey;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $body['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->templateKeyValue)) {
-            $body['TemplateKeyValue'] = $request->templateKeyValue;
+
+        if (null !== $request->templateKeyValue) {
+            @$body['TemplateKeyValue'] = $request->templateKeyValue;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $body['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$body['TemplateName'] = $request->templateName;
         }
-        if (!Utils::isUnset($request->thirdChannelCategoryShrink)) {
-            $body['ThirdChannelCategory'] = $request->thirdChannelCategoryShrink;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->thirdChannelCategoryShrink) {
+            @$body['ThirdChannelCategory'] = $request->thirdChannelCategoryShrink;
         }
+
+        if (null !== $request->transparentMessagePayload) {
+            @$body['TransparentMessagePayload'] = $request->transparentMessagePayload;
+        }
+
+        if (null !== $request->transparentMessageUrgency) {
+            @$body['TransparentMessageUrgency'] = $request->transparentMessageUrgency;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PushTemplate',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PushTemplate',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PushTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param PushTemplateRequest $request PushTemplateRequest
+     * @param request - PushTemplateRequest
      *
-     * @return PushTemplateResponse PushTemplateResponse
+     * @returns PushTemplateResponse
+     *
+     * @param PushTemplateRequest $request
+     *
+     * @return PushTemplateResponse
      */
     public function pushTemplate($request)
     {
@@ -5542,49 +5576,66 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param PushUnBindRequest $request PushUnBindRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - PushUnBindRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return PushUnBindResponse PushUnBindResponse
+     * @returns PushUnBindResponse
+     *
+     * @param PushUnBindRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return PushUnBindResponse
      */
     public function pushUnBindWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->deliveryToken)) {
-            $body['DeliveryToken'] = $request->deliveryToken;
+
+        if (null !== $request->deliveryToken) {
+            @$body['DeliveryToken'] = $request->deliveryToken;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
         }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PushUnBind',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PushUnBind',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PushUnBindResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param PushUnBindRequest $request PushUnBindRequest
+     * @param request - PushUnBindRequest
      *
-     * @return PushUnBindResponse PushUnBindResponse
+     * @returns PushUnBindResponse
+     *
+     * @param PushUnBindRequest $request
+     *
+     * @return PushUnBindResponse
      */
     public function pushUnBind($request)
     {
@@ -5594,62 +5645,78 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @summary 查询Device+服务的
-     *  *
-     * @param QueryInfoFromMdpRequest $request QueryInfoFromMdpRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询Device+服务的.
      *
-     * @return QueryInfoFromMdpResponse QueryInfoFromMdpResponse
+     * @param request - QueryInfoFromMdpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryInfoFromMdpResponse
+     *
+     * @param QueryInfoFromMdpRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryInfoFromMdpResponse
      */
     public function queryInfoFromMdpWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->mobile)) {
-            $body['Mobile'] = $request->mobile;
+
+        if (null !== $request->mobile) {
+            @$body['Mobile'] = $request->mobile;
         }
-        if (!Utils::isUnset($request->mobileMd5)) {
-            $body['MobileMd5'] = $request->mobileMd5;
+
+        if (null !== $request->mobileMd5) {
+            @$body['MobileMd5'] = $request->mobileMd5;
         }
-        if (!Utils::isUnset($request->mobileSha256)) {
-            $body['MobileSha256'] = $request->mobileSha256;
+
+        if (null !== $request->mobileSha256) {
+            @$body['MobileSha256'] = $request->mobileSha256;
         }
-        if (!Utils::isUnset($request->riskScene)) {
-            $body['RiskScene'] = $request->riskScene;
+
+        if (null !== $request->mobileSm3) {
+            @$body['MobileSm3'] = $request->mobileSm3;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->riskScene) {
+            @$body['RiskScene'] = $request->riskScene;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryInfoFromMdp',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryInfoFromMdp',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryInfoFromMdpResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询Device+服务的
-     *  *
-     * @param QueryInfoFromMdpRequest $request QueryInfoFromMdpRequest
+     * 查询Device+服务的.
      *
-     * @return QueryInfoFromMdpResponse QueryInfoFromMdpResponse
+     * @param request - QueryInfoFromMdpRequest
+     *
+     * @returns QueryInfoFromMdpResponse
+     *
+     * @param QueryInfoFromMdpRequest $request
+     *
+     * @return QueryInfoFromMdpResponse
      */
     public function queryInfoFromMdp($request)
     {
@@ -5659,50 +5726,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @summary 查询短链
-     *  *
-     * @param QueryLinkRequest $request QueryLinkRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 查询短链.
      *
-     * @return QueryLinkResponse QueryLinkResponse
+     * @param request - QueryLinkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryLinkResponse
+     *
+     * @param QueryLinkRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return QueryLinkResponse
      */
     public function queryLinkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->url)) {
-            $body['Url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$body['Url'] = $request->url;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryLink',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryLink',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryLinkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询短链
-     *  *
-     * @param QueryLinkRequest $request QueryLinkRequest
+     * 查询短链.
      *
-     * @return QueryLinkResponse QueryLinkResponse
+     * @param request - QueryLinkRequest
+     *
+     * @returns QueryLinkResponse
+     *
+     * @param QueryLinkRequest $request
+     *
+     * @return QueryLinkResponse
      */
     public function queryLink($request)
     {
@@ -5712,43 +5791,54 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMappCenterAppRequest $request QueryMappCenterAppRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryMappCenterAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryMappCenterAppResponse QueryMappCenterAppResponse
+     * @returns QueryMappCenterAppResponse
+     *
+     * @param QueryMappCenterAppRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryMappCenterAppResponse
      */
     public function queryMappCenterAppWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryMappCenterApp',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryMappCenterApp',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryMappCenterAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryMappCenterAppRequest $request QueryMappCenterAppRequest
+     * @param request - QueryMappCenterAppRequest
      *
-     * @return QueryMappCenterAppResponse QueryMappCenterAppResponse
+     * @returns QueryMappCenterAppResponse
+     *
+     * @param QueryMappCenterAppRequest $request
+     *
+     * @return QueryMappCenterAppResponse
      */
     public function queryMappCenterApp($request)
     {
@@ -5758,49 +5848,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMcdpAimRequest $request QueryMcdpAimRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryMcdpAimRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryMcdpAimResponse QueryMcdpAimResponse
+     * @returns QueryMcdpAimResponse
+     *
+     * @param QueryMcdpAimRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return QueryMcdpAimResponse
      */
     public function queryMcdpAimWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryMcdpAim',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryMcdpAim',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryMcdpAimResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryMcdpAimRequest $request QueryMcdpAimRequest
+     * @param request - QueryMcdpAimRequest
      *
-     * @return QueryMcdpAimResponse QueryMcdpAimResponse
+     * @returns QueryMcdpAimResponse
+     *
+     * @param QueryMcdpAimRequest $request
+     *
+     * @return QueryMcdpAimResponse
      */
     public function queryMcdpAim($request)
     {
@@ -5810,49 +5913,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMcdpZoneRequest $request QueryMcdpZoneRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryMcdpZoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryMcdpZoneResponse QueryMcdpZoneResponse
+     * @returns QueryMcdpZoneResponse
+     *
+     * @param QueryMcdpZoneRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return QueryMcdpZoneResponse
      */
     public function queryMcdpZoneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryMcdpZone',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryMcdpZone',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryMcdpZoneResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryMcdpZoneRequest $request QueryMcdpZoneRequest
+     * @param request - QueryMcdpZoneRequest
      *
-     * @return QueryMcdpZoneResponse QueryMcdpZoneResponse
+     * @returns QueryMcdpZoneResponse
+     *
+     * @param QueryMcdpZoneRequest $request
+     *
+     * @return QueryMcdpZoneResponse
      */
     public function queryMcdpZone($request)
     {
@@ -5862,52 +5978,66 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMcubeMiniPackageRequest $request QueryMcubeMiniPackageRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryMcubeMiniPackageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryMcubeMiniPackageResponse QueryMcubeMiniPackageResponse
+     * @returns QueryMcubeMiniPackageResponse
+     *
+     * @param QueryMcubeMiniPackageRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryMcubeMiniPackageResponse
      */
     public function queryMcubeMiniPackageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->h5Id)) {
-            $body['H5Id'] = $request->h5Id;
+
+        if (null !== $request->h5Id) {
+            @$body['H5Id'] = $request->h5Id;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryMcubeMiniPackage',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryMcubeMiniPackage',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryMcubeMiniPackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryMcubeMiniPackageRequest $request QueryMcubeMiniPackageRequest
+     * @param request - QueryMcubeMiniPackageRequest
      *
-     * @return QueryMcubeMiniPackageResponse QueryMcubeMiniPackageResponse
+     * @returns QueryMcubeMiniPackageResponse
+     *
+     * @param QueryMcubeMiniPackageRequest $request
+     *
+     * @return QueryMcubeMiniPackageResponse
      */
     public function queryMcubeMiniPackage($request)
     {
@@ -5917,49 +6047,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMcubeMiniTaskRequest $request QueryMcubeMiniTaskRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryMcubeMiniTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryMcubeMiniTaskResponse QueryMcubeMiniTaskResponse
+     * @returns QueryMcubeMiniTaskResponse
+     *
+     * @param QueryMcubeMiniTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryMcubeMiniTaskResponse
      */
     public function queryMcubeMiniTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryMcubeMiniTask',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryMcubeMiniTask',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryMcubeMiniTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryMcubeMiniTaskRequest $request QueryMcubeMiniTaskRequest
+     * @param request - QueryMcubeMiniTaskRequest
      *
-     * @return QueryMcubeMiniTaskResponse QueryMcubeMiniTaskResponse
+     * @returns QueryMcubeMiniTaskResponse
+     *
+     * @param QueryMcubeMiniTaskRequest $request
+     *
+     * @return QueryMcubeMiniTaskResponse
      */
     public function queryMcubeMiniTask($request)
     {
@@ -5969,46 +6112,58 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMcubeVhostRequest $request QueryMcubeVhostRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryMcubeVhostRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryMcubeVhostResponse QueryMcubeVhostResponse
+     * @returns QueryMcubeVhostResponse
+     *
+     * @param QueryMcubeVhostRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryMcubeVhostResponse
      */
     public function queryMcubeVhostWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryMcubeVhost',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryMcubeVhost',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryMcubeVhostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryMcubeVhostRequest $request QueryMcubeVhostRequest
+     * @param request - QueryMcubeVhostRequest
      *
-     * @return QueryMcubeVhostResponse QueryMcubeVhostResponse
+     * @returns QueryMcubeVhostResponse
+     *
+     * @param QueryMcubeVhostRequest $request
+     *
+     * @return QueryMcubeVhostResponse
      */
     public function queryMcubeVhost($request)
     {
@@ -6018,49 +6173,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMdsUpgradeTaskDetailRequest $request QueryMdsUpgradeTaskDetailRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryMdsUpgradeTaskDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryMdsUpgradeTaskDetailResponse QueryMdsUpgradeTaskDetailResponse
+     * @returns QueryMdsUpgradeTaskDetailResponse
+     *
+     * @param QueryMdsUpgradeTaskDetailRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryMdsUpgradeTaskDetailResponse
      */
     public function queryMdsUpgradeTaskDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryMdsUpgradeTaskDetail',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryMdsUpgradeTaskDetail',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryMdsUpgradeTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryMdsUpgradeTaskDetailRequest $request QueryMdsUpgradeTaskDetailRequest
+     * @param request - QueryMdsUpgradeTaskDetailRequest
      *
-     * @return QueryMdsUpgradeTaskDetailResponse QueryMdsUpgradeTaskDetailResponse
+     * @returns QueryMdsUpgradeTaskDetailResponse
+     *
+     * @param QueryMdsUpgradeTaskDetailRequest $request
+     *
+     * @return QueryMdsUpgradeTaskDetailResponse
      */
     public function queryMdsUpgradeTaskDetail($request)
     {
@@ -6070,85 +6238,110 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMgsApipageRequest $request QueryMgsApipageRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryMgsApipageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryMgsApipageResponse QueryMgsApipageResponse
+     * @returns QueryMgsApipageResponse
+     *
+     * @param QueryMgsApipageRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryMgsApipageResponse
      */
     public function queryMgsApipageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->apiStatus)) {
-            $body['ApiStatus'] = $request->apiStatus;
+        if (null !== $request->apiStatus) {
+            @$body['ApiStatus'] = $request->apiStatus;
         }
-        if (!Utils::isUnset($request->apiType)) {
-            $body['ApiType'] = $request->apiType;
+
+        if (null !== $request->apiType) {
+            @$body['ApiType'] = $request->apiType;
         }
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->format)) {
-            $body['Format'] = $request->format;
+
+        if (null !== $request->format) {
+            @$body['Format'] = $request->format;
         }
-        if (!Utils::isUnset($request->host)) {
-            $body['Host'] = $request->host;
+
+        if (null !== $request->host) {
+            @$body['Host'] = $request->host;
         }
-        if (!Utils::isUnset($request->needEncrypt)) {
-            $body['NeedEncrypt'] = $request->needEncrypt;
+
+        if (null !== $request->needEncrypt) {
+            @$body['NeedEncrypt'] = $request->needEncrypt;
         }
-        if (!Utils::isUnset($request->needEtag)) {
-            $body['NeedEtag'] = $request->needEtag;
+
+        if (null !== $request->needEtag) {
+            @$body['NeedEtag'] = $request->needEtag;
         }
-        if (!Utils::isUnset($request->needSign)) {
-            $body['NeedSign'] = $request->needSign;
+
+        if (null !== $request->needSign) {
+            @$body['NeedSign'] = $request->needSign;
         }
-        if (!Utils::isUnset($request->operationType)) {
-            $body['OperationType'] = $request->operationType;
+
+        if (null !== $request->operationType) {
+            @$body['OperationType'] = $request->operationType;
         }
-        if (!Utils::isUnset($request->optFuzzy)) {
-            $body['OptFuzzy'] = $request->optFuzzy;
+
+        if (null !== $request->optFuzzy) {
+            @$body['OptFuzzy'] = $request->optFuzzy;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $body['PageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$body['PageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sysId)) {
-            $body['SysId'] = $request->sysId;
+
+        if (null !== $request->sysId) {
+            @$body['SysId'] = $request->sysId;
         }
-        if (!Utils::isUnset($request->sysName)) {
-            $body['SysName'] = $request->sysName;
+
+        if (null !== $request->sysName) {
+            @$body['SysName'] = $request->sysName;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryMgsApipage',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryMgsApipage',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryMgsApipageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryMgsApipageRequest $request QueryMgsApipageRequest
+     * @param request - QueryMgsApipageRequest
      *
-     * @return QueryMgsApipageResponse QueryMgsApipageResponse
+     * @returns QueryMgsApipageResponse
+     *
+     * @param QueryMgsApipageRequest $request
+     *
+     * @return QueryMgsApipageResponse
      */
     public function queryMgsApipage($request)
     {
@@ -6158,55 +6351,70 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMgsApirestRequest $request QueryMgsApirestRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryMgsApirestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryMgsApirestResponse QueryMgsApirestResponse
+     * @returns QueryMgsApirestResponse
+     *
+     * @param QueryMgsApirestRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryMgsApirestResponse
      */
     public function queryMgsApirestWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->format)) {
-            $body['Format'] = $request->format;
+
+        if (null !== $request->format) {
+            @$body['Format'] = $request->format;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryMgsApirest',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryMgsApirest',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryMgsApirestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryMgsApirestRequest $request QueryMgsApirestRequest
+     * @param request - QueryMgsApirestRequest
      *
-     * @return QueryMgsApirestResponse QueryMgsApirestResponse
+     * @returns QueryMgsApirestResponse
+     *
+     * @param QueryMgsApirestRequest $request
+     *
+     * @return QueryMgsApirestResponse
      */
     public function queryMgsApirest($request)
     {
@@ -6216,52 +6424,66 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMgsTestreqbodyautogenRequest $request QueryMgsTestreqbodyautogenRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryMgsTestreqbodyautogenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryMgsTestreqbodyautogenResponse QueryMgsTestreqbodyautogenResponse
+     * @returns QueryMgsTestreqbodyautogenResponse
+     *
+     * @param QueryMgsTestreqbodyautogenRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QueryMgsTestreqbodyautogenResponse
      */
     public function queryMgsTestreqbodyautogenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->format)) {
-            $body['Format'] = $request->format;
+
+        if (null !== $request->format) {
+            @$body['Format'] = $request->format;
         }
-        if (!Utils::isUnset($request->mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr)) {
-            $body['MpaasMappcenterMgsTestreqbodyautogenQueryJsonStr'] = $request->mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr;
+
+        if (null !== $request->mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr) {
+            @$body['MpaasMappcenterMgsTestreqbodyautogenQueryJsonStr'] = $request->mpaasMappcenterMgsTestreqbodyautogenQueryJsonStr;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryMgsTestreqbodyautogen',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryMgsTestreqbodyautogen',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryMgsTestreqbodyautogenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryMgsTestreqbodyautogenRequest $request QueryMgsTestreqbodyautogenRequest
+     * @param request - QueryMgsTestreqbodyautogenRequest
      *
-     * @return QueryMgsTestreqbodyautogenResponse QueryMgsTestreqbodyautogenResponse
+     * @returns QueryMgsTestreqbodyautogenResponse
+     *
+     * @param QueryMgsTestreqbodyautogenRequest $request
+     *
+     * @return QueryMgsTestreqbodyautogenResponse
      */
     public function queryMgsTestreqbodyautogen($request)
     {
@@ -6271,61 +6493,78 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryMpsSchedulerListRequest $request QueryMpsSchedulerListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryMpsSchedulerListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryMpsSchedulerListResponse QueryMpsSchedulerListResponse
+     * @returns QueryMpsSchedulerListResponse
+     *
+     * @param QueryMpsSchedulerListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryMpsSchedulerListResponse
      */
     public function queryMpsSchedulerListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->uniqueId)) {
-            $body['UniqueId'] = $request->uniqueId;
+
+        if (null !== $request->uniqueId) {
+            @$body['UniqueId'] = $request->uniqueId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryMpsSchedulerList',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryMpsSchedulerList',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryMpsSchedulerListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryMpsSchedulerListRequest $request QueryMpsSchedulerListRequest
+     * @param request - QueryMpsSchedulerListRequest
      *
-     * @return QueryMpsSchedulerListResponse QueryMpsSchedulerListResponse
+     * @returns QueryMpsSchedulerListResponse
+     *
+     * @param QueryMpsSchedulerListRequest $request
+     *
+     * @return QueryMpsSchedulerListResponse
      */
     public function queryMpsSchedulerList($request)
     {
@@ -6335,61 +6574,82 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryPushAnalysisCoreIndexRequest $request QueryPushAnalysisCoreIndexRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryPushAnalysisCoreIndexRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryPushAnalysisCoreIndexResponse QueryPushAnalysisCoreIndexResponse
+     * @returns QueryPushAnalysisCoreIndexResponse
+     *
+     * @param QueryPushAnalysisCoreIndexRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QueryPushAnalysisCoreIndexResponse
      */
     public function queryPushAnalysisCoreIndexWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->channel)) {
-            $body['Channel'] = $request->channel;
+
+        if (null !== $request->channel) {
+            @$body['Channel'] = $request->channel;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->platform)) {
-            $body['Platform'] = $request->platform;
+
+        if (null !== $request->platform) {
+            @$body['Platform'] = $request->platform;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryPushAnalysisCoreIndex',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryPushAnalysisCoreIndex',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryPushAnalysisCoreIndexResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryPushAnalysisCoreIndexRequest $request QueryPushAnalysisCoreIndexRequest
+     * @param request - QueryPushAnalysisCoreIndexRequest
      *
-     * @return QueryPushAnalysisCoreIndexResponse QueryPushAnalysisCoreIndexResponse
+     * @returns QueryPushAnalysisCoreIndexResponse
+     *
+     * @param QueryPushAnalysisCoreIndexRequest $request
+     *
+     * @return QueryPushAnalysisCoreIndexResponse
      */
     public function queryPushAnalysisCoreIndex($request)
     {
@@ -6399,46 +6659,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryPushAnalysisTaskDetailRequest $request QueryPushAnalysisTaskDetailRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryPushAnalysisTaskDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryPushAnalysisTaskDetailResponse QueryPushAnalysisTaskDetailResponse
+     * @returns QueryPushAnalysisTaskDetailResponse
+     *
+     * @param QueryPushAnalysisTaskDetailRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QueryPushAnalysisTaskDetailResponse
      */
     public function queryPushAnalysisTaskDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryPushAnalysisTaskDetail',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryPushAnalysisTaskDetail',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryPushAnalysisTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryPushAnalysisTaskDetailRequest $request QueryPushAnalysisTaskDetailRequest
+     * @param request - QueryPushAnalysisTaskDetailRequest
      *
-     * @return QueryPushAnalysisTaskDetailResponse QueryPushAnalysisTaskDetailResponse
+     * @returns QueryPushAnalysisTaskDetailResponse
+     *
+     * @param QueryPushAnalysisTaskDetailRequest $request
+     *
+     * @return QueryPushAnalysisTaskDetailResponse
      */
     public function queryPushAnalysisTaskDetail($request)
     {
@@ -6448,58 +6724,78 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryPushAnalysisTaskListRequest $request QueryPushAnalysisTaskListRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryPushAnalysisTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryPushAnalysisTaskListResponse QueryPushAnalysisTaskListResponse
+     * @returns QueryPushAnalysisTaskListResponse
+     *
+     * @param QueryPushAnalysisTaskListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryPushAnalysisTaskListResponse
      */
     public function queryPushAnalysisTaskListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $body['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$body['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryPushAnalysisTaskList',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryPushAnalysisTaskList',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryPushAnalysisTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryPushAnalysisTaskListRequest $request QueryPushAnalysisTaskListRequest
+     * @param request - QueryPushAnalysisTaskListRequest
      *
-     * @return QueryPushAnalysisTaskListResponse QueryPushAnalysisTaskListResponse
+     * @returns QueryPushAnalysisTaskListResponse
+     *
+     * @param QueryPushAnalysisTaskListRequest $request
+     *
+     * @return QueryPushAnalysisTaskListResponse
      */
     public function queryPushAnalysisTaskList($request)
     {
@@ -6509,61 +6805,82 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param QueryPushSchedulerListRequest $request QueryPushSchedulerListRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryPushSchedulerListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return QueryPushSchedulerListResponse QueryPushSchedulerListResponse
+     * @returns QueryPushSchedulerListResponse
+     *
+     * @param QueryPushSchedulerListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryPushSchedulerListResponse
      */
     public function queryPushSchedulerListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->uniqueId)) {
-            $body['UniqueId'] = $request->uniqueId;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->uniqueId) {
+            @$body['UniqueId'] = $request->uniqueId;
         }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryPushSchedulerList',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryPushSchedulerList',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return QueryPushSchedulerListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param QueryPushSchedulerListRequest $request QueryPushSchedulerListRequest
+     * @param request - QueryPushSchedulerListRequest
      *
-     * @return QueryPushSchedulerListResponse QueryPushSchedulerListResponse
+     * @returns QueryPushSchedulerListResponse
+     *
+     * @param QueryPushSchedulerListRequest $request
+     *
+     * @return QueryPushSchedulerListResponse
      */
     public function queryPushSchedulerList($request)
     {
@@ -6573,49 +6890,66 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param RevokePushMessageRequest $request RevokePushMessageRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - RevokePushMessageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RevokePushMessageResponse RevokePushMessageResponse
+     * @returns RevokePushMessageResponse
+     *
+     * @param RevokePushMessageRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RevokePushMessageResponse
      */
     public function revokePushMessageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->messageId)) {
-            $body['MessageId'] = $request->messageId;
+
+        if (null !== $request->messageId) {
+            @$body['MessageId'] = $request->messageId;
         }
-        if (!Utils::isUnset($request->targetId)) {
-            $body['TargetId'] = $request->targetId;
+
+        if (null !== $request->targetId) {
+            @$body['TargetId'] = $request->targetId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RevokePushMessage',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RevokePushMessage',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RevokePushMessageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RevokePushMessageRequest $request RevokePushMessageRequest
+     * @param request - RevokePushMessageRequest
      *
-     * @return RevokePushMessageResponse RevokePushMessageResponse
+     * @returns RevokePushMessageResponse
+     *
+     * @param RevokePushMessageRequest $request
+     *
+     * @return RevokePushMessageResponse
      */
     public function revokePushMessage($request)
     {
@@ -6625,46 +6959,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param RevokePushTaskRequest $request RevokePushTaskRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - RevokePushTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RevokePushTaskResponse RevokePushTaskResponse
+     * @returns RevokePushTaskResponse
+     *
+     * @param RevokePushTaskRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RevokePushTaskResponse
      */
     public function revokePushTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $body['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$body['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RevokePushTask',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RevokePushTask',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RevokePushTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RevokePushTaskRequest $request RevokePushTaskRequest
+     * @param request - RevokePushTaskRequest
      *
-     * @return RevokePushTaskResponse RevokePushTaskResponse
+     * @returns RevokePushTaskResponse
+     *
+     * @param RevokePushTaskRequest $request
+     *
+     * @return RevokePushTaskResponse
      */
     public function revokePushTask($request)
     {
@@ -6674,49 +7024,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param RunMsaDiffRequest $request RunMsaDiffRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - RunMsaDiffRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return RunMsaDiffResponse RunMsaDiffResponse
+     * @returns RunMsaDiffResponse
+     *
+     * @param RunMsaDiffRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return RunMsaDiffResponse
      */
     public function runMsaDiffWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->mpaasMappcenterMsaDiffRunJsonStr)) {
-            $body['MpaasMappcenterMsaDiffRunJsonStr'] = $request->mpaasMappcenterMsaDiffRunJsonStr;
+
+        if (null !== $request->mpaasMappcenterMsaDiffRunJsonStr) {
+            @$body['MpaasMappcenterMsaDiffRunJsonStr'] = $request->mpaasMappcenterMsaDiffRunJsonStr;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunMsaDiff',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RunMsaDiff',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RunMsaDiffResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param RunMsaDiffRequest $request RunMsaDiffRequest
+     * @param request - RunMsaDiffRequest
      *
-     * @return RunMsaDiffResponse RunMsaDiffResponse
+     * @returns RunMsaDiffResponse
+     *
+     * @param RunMsaDiffRequest $request
+     *
+     * @return RunMsaDiffResponse
      */
     public function runMsaDiff($request)
     {
@@ -6726,49 +7089,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param SaveMgsApirestRequest $request SaveMgsApirestRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - SaveMgsApirestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return SaveMgsApirestResponse SaveMgsApirestResponse
+     * @returns SaveMgsApirestResponse
+     *
+     * @param SaveMgsApirestRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SaveMgsApirestResponse
      */
     public function saveMgsApirestWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->mpaasMappcenterMgsApirestSaveJsonStr)) {
-            $body['MpaasMappcenterMgsApirestSaveJsonStr'] = $request->mpaasMappcenterMgsApirestSaveJsonStr;
+
+        if (null !== $request->mpaasMappcenterMgsApirestSaveJsonStr) {
+            @$body['MpaasMappcenterMgsApirestSaveJsonStr'] = $request->mpaasMappcenterMgsApirestSaveJsonStr;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SaveMgsApirest',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveMgsApirest',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SaveMgsApirestResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param SaveMgsApirestRequest $request SaveMgsApirestRequest
+     * @param request - SaveMgsApirestRequest
      *
-     * @return SaveMgsApirestResponse SaveMgsApirestResponse
+     * @returns SaveMgsApirestResponse
+     *
+     * @param SaveMgsApirestRequest $request
+     *
+     * @return SaveMgsApirestResponse
      */
     public function saveMgsApirest($request)
     {
@@ -6778,97 +7154,126 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param StartUserAppAsyncEnhanceInMsaRequest $request StartUserAppAsyncEnhanceInMsaRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * @param request - StartUserAppAsyncEnhanceInMsaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return StartUserAppAsyncEnhanceInMsaResponse StartUserAppAsyncEnhanceInMsaResponse
+     * @returns StartUserAppAsyncEnhanceInMsaResponse
+     *
+     * @param StartUserAppAsyncEnhanceInMsaRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return StartUserAppAsyncEnhanceInMsaResponse
      */
     public function startUserAppAsyncEnhanceInMsaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->apkProtector)) {
-            $body['ApkProtector'] = $request->apkProtector;
+        if (null !== $request->apkProtector) {
+            @$body['ApkProtector'] = $request->apkProtector;
         }
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->assetsFileList)) {
-            $body['AssetsFileList'] = $request->assetsFileList;
+
+        if (null !== $request->assetsFileList) {
+            @$body['AssetsFileList'] = $request->assetsFileList;
         }
-        if (!Utils::isUnset($request->classes)) {
-            $body['Classes'] = $request->classes;
+
+        if (null !== $request->classes) {
+            @$body['Classes'] = $request->classes;
         }
-        if (!Utils::isUnset($request->dalvikDebugger)) {
-            $body['DalvikDebugger'] = $request->dalvikDebugger;
+
+        if (null !== $request->dalvikDebugger) {
+            @$body['DalvikDebugger'] = $request->dalvikDebugger;
         }
-        if (!Utils::isUnset($request->emulatorEnvironment)) {
-            $body['EmulatorEnvironment'] = $request->emulatorEnvironment;
+
+        if (null !== $request->emulatorEnvironment) {
+            @$body['EmulatorEnvironment'] = $request->emulatorEnvironment;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->javaHook)) {
-            $body['JavaHook'] = $request->javaHook;
+
+        if (null !== $request->javaHook) {
+            @$body['JavaHook'] = $request->javaHook;
         }
-        if (!Utils::isUnset($request->memoryDump)) {
-            $body['MemoryDump'] = $request->memoryDump;
+
+        if (null !== $request->memoryDump) {
+            @$body['MemoryDump'] = $request->memoryDump;
         }
-        if (!Utils::isUnset($request->nativeDebugger)) {
-            $body['NativeDebugger'] = $request->nativeDebugger;
+
+        if (null !== $request->nativeDebugger) {
+            @$body['NativeDebugger'] = $request->nativeDebugger;
         }
-        if (!Utils::isUnset($request->nativeHook)) {
-            $body['NativeHook'] = $request->nativeHook;
+
+        if (null !== $request->nativeHook) {
+            @$body['NativeHook'] = $request->nativeHook;
         }
-        if (!Utils::isUnset($request->packageTampered)) {
-            $body['PackageTampered'] = $request->packageTampered;
+
+        if (null !== $request->packageTampered) {
+            @$body['PackageTampered'] = $request->packageTampered;
         }
-        if (!Utils::isUnset($request->root)) {
-            $body['Root'] = $request->root;
+
+        if (null !== $request->root) {
+            @$body['Root'] = $request->root;
         }
-        if (!Utils::isUnset($request->runMode)) {
-            $body['RunMode'] = $request->runMode;
+
+        if (null !== $request->runMode) {
+            @$body['RunMode'] = $request->runMode;
         }
-        if (!Utils::isUnset($request->soFileList)) {
-            $body['SoFileList'] = $request->soFileList;
+
+        if (null !== $request->soFileList) {
+            @$body['SoFileList'] = $request->soFileList;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $body['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$body['TaskType'] = $request->taskType;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->totalSwitch)) {
-            $body['TotalSwitch'] = $request->totalSwitch;
+
+        if (null !== $request->totalSwitch) {
+            @$body['TotalSwitch'] = $request->totalSwitch;
         }
-        if (!Utils::isUnset($request->useAShield)) {
-            $body['UseAShield'] = $request->useAShield;
+
+        if (null !== $request->useAShield) {
+            @$body['UseAShield'] = $request->useAShield;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartUserAppAsyncEnhanceInMsa',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartUserAppAsyncEnhanceInMsa',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return StartUserAppAsyncEnhanceInMsaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param StartUserAppAsyncEnhanceInMsaRequest $request StartUserAppAsyncEnhanceInMsaRequest
+     * @param request - StartUserAppAsyncEnhanceInMsaRequest
      *
-     * @return StartUserAppAsyncEnhanceInMsaResponse StartUserAppAsyncEnhanceInMsaResponse
+     * @returns StartUserAppAsyncEnhanceInMsaResponse
+     *
+     * @param StartUserAppAsyncEnhanceInMsaRequest $request
+     *
+     * @return StartUserAppAsyncEnhanceInMsaResponse
      */
     public function startUserAppAsyncEnhanceInMsa($request)
     {
@@ -6878,58 +7283,155 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param UpdateMcubeWhitelistRequest $request UpdateMcubeWhitelistRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 更新短链.
      *
-     * @return UpdateMcubeWhitelistResponse UpdateMcubeWhitelistResponse
+     * @param request - UpdateLinkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateLinkResponse
+     *
+     * @param UpdateLinkRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateLinkResponse
+     */
+    public function updateLinkWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->cors) {
+            @$body['Cors'] = $request->cors;
+        }
+
+        if (null !== $request->domain) {
+            @$body['Domain'] = $request->domain;
+        }
+
+        if (null !== $request->dynamicfield) {
+            @$body['Dynamicfield'] = $request->dynamicfield;
+        }
+
+        if (null !== $request->targetUrl) {
+            @$body['TargetUrl'] = $request->targetUrl;
+        }
+
+        if (null !== $request->url) {
+            @$body['Url'] = $request->url;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateLink',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UpdateLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新短链.
+     *
+     * @param request - UpdateLinkRequest
+     *
+     * @returns UpdateLinkResponse
+     *
+     * @param UpdateLinkRequest $request
+     *
+     * @return UpdateLinkResponse
+     */
+    public function updateLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLinkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - UpdateMcubeWhitelistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateMcubeWhitelistResponse
+     *
+     * @param UpdateMcubeWhitelistRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateMcubeWhitelistResponse
      */
     public function updateMcubeWhitelistWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->keyIds)) {
-            $body['KeyIds'] = $request->keyIds;
+
+        if (null !== $request->keyIds) {
+            @$body['KeyIds'] = $request->keyIds;
         }
-        if (!Utils::isUnset($request->onexFlag)) {
-            $body['OnexFlag'] = $request->onexFlag;
+
+        if (null !== $request->onexFlag) {
+            @$body['OnexFlag'] = $request->onexFlag;
         }
-        if (!Utils::isUnset($request->ossUrl)) {
-            $body['OssUrl'] = $request->ossUrl;
+
+        if (null !== $request->ossUrl) {
+            @$body['OssUrl'] = $request->ossUrl;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateMcubeWhitelist',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateMcubeWhitelist',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateMcubeWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateMcubeWhitelistRequest $request UpdateMcubeWhitelistRequest
+     * @param request - UpdateMcubeWhitelistRequest
      *
-     * @return UpdateMcubeWhitelistResponse UpdateMcubeWhitelistResponse
+     * @returns UpdateMcubeWhitelistResponse
+     *
+     * @param UpdateMcubeWhitelistRequest $request
+     *
+     * @return UpdateMcubeWhitelistResponse
      */
     public function updateMcubeWhitelist($request)
     {
@@ -6939,58 +7441,74 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param UpdateMpaasAppInfoRequest $request UpdateMpaasAppInfoRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateMpaasAppInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UpdateMpaasAppInfoResponse UpdateMpaasAppInfoResponse
+     * @returns UpdateMpaasAppInfoResponse
+     *
+     * @param UpdateMpaasAppInfoRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateMpaasAppInfoResponse
      */
     public function updateMpaasAppInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->appName)) {
-            $body['AppName'] = $request->appName;
+
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->iconFileUrl)) {
-            $body['IconFileUrl'] = $request->iconFileUrl;
+
+        if (null !== $request->iconFileUrl) {
+            @$body['IconFileUrl'] = $request->iconFileUrl;
         }
-        if (!Utils::isUnset($request->identifier)) {
-            $body['Identifier'] = $request->identifier;
+
+        if (null !== $request->identifier) {
+            @$body['Identifier'] = $request->identifier;
         }
-        if (!Utils::isUnset($request->onexFlag)) {
-            $body['OnexFlag'] = $request->onexFlag;
+
+        if (null !== $request->onexFlag) {
+            @$body['OnexFlag'] = $request->onexFlag;
         }
-        if (!Utils::isUnset($request->systemType)) {
-            $body['SystemType'] = $request->systemType;
+
+        if (null !== $request->systemType) {
+            @$body['SystemType'] = $request->systemType;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateMpaasAppInfo',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateMpaasAppInfo',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UpdateMpaasAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateMpaasAppInfoRequest $request UpdateMpaasAppInfoRequest
+     * @param request - UpdateMpaasAppInfoRequest
      *
-     * @return UpdateMpaasAppInfoResponse UpdateMpaasAppInfoResponse
+     * @returns UpdateMpaasAppInfoResponse
+     *
+     * @param UpdateMpaasAppInfoRequest $request
+     *
+     * @return UpdateMpaasAppInfoResponse
      */
     public function updateMpaasAppInfo($request)
     {
@@ -7000,62 +7518,78 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @summary 上传字节码到msa进行加固
-     *  *
-     * @param UploadBitcodeToMsaRequest $request UploadBitcodeToMsaRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 上传字节码到msa进行加固.
      *
-     * @return UploadBitcodeToMsaResponse UploadBitcodeToMsaResponse
+     * @param request - UploadBitcodeToMsaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UploadBitcodeToMsaResponse
+     *
+     * @param UploadBitcodeToMsaRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UploadBitcodeToMsaResponse
      */
     public function uploadBitcodeToMsaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->bitcode)) {
-            $body['Bitcode'] = $request->bitcode;
+
+        if (null !== $request->bitcode) {
+            @$body['Bitcode'] = $request->bitcode;
         }
-        if (!Utils::isUnset($request->codeVersion)) {
-            $body['CodeVersion'] = $request->codeVersion;
+
+        if (null !== $request->codeVersion) {
+            @$body['CodeVersion'] = $request->codeVersion;
         }
-        if (!Utils::isUnset($request->license)) {
-            $body['License'] = $request->license;
+
+        if (null !== $request->license) {
+            @$body['License'] = $request->license;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UploadBitcodeToMsa',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UploadBitcodeToMsa',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UploadBitcodeToMsaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 上传字节码到msa进行加固
-     *  *
-     * @param UploadBitcodeToMsaRequest $request UploadBitcodeToMsaRequest
+     * 上传字节码到msa进行加固.
      *
-     * @return UploadBitcodeToMsaResponse UploadBitcodeToMsaResponse
+     * @param request - UploadBitcodeToMsaRequest
+     *
+     * @returns UploadBitcodeToMsaResponse
+     *
+     * @param UploadBitcodeToMsaRequest $request
+     *
+     * @return UploadBitcodeToMsaResponse
      */
     public function uploadBitcodeToMsa($request)
     {
@@ -7065,112 +7599,146 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param UploadMcubeMiniPackageRequest $request UploadMcubeMiniPackageRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - UploadMcubeMiniPackageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UploadMcubeMiniPackageResponse UploadMcubeMiniPackageResponse
+     * @returns UploadMcubeMiniPackageResponse
+     *
+     * @param UploadMcubeMiniPackageRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UploadMcubeMiniPackageResponse
      */
     public function uploadMcubeMiniPackageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->autoInstall)) {
-            $body['AutoInstall'] = $request->autoInstall;
+
+        if (null !== $request->autoInstall) {
+            @$body['AutoInstall'] = $request->autoInstall;
         }
-        if (!Utils::isUnset($request->clientVersionMax)) {
-            $body['ClientVersionMax'] = $request->clientVersionMax;
+
+        if (null !== $request->clientVersionMax) {
+            @$body['ClientVersionMax'] = $request->clientVersionMax;
         }
-        if (!Utils::isUnset($request->clientVersionMin)) {
-            $body['ClientVersionMin'] = $request->clientVersionMin;
+
+        if (null !== $request->clientVersionMin) {
+            @$body['ClientVersionMin'] = $request->clientVersionMin;
         }
-        if (!Utils::isUnset($request->enableKeepAlive)) {
-            $body['EnableKeepAlive'] = $request->enableKeepAlive;
+
+        if (null !== $request->enableKeepAlive) {
+            @$body['EnableKeepAlive'] = $request->enableKeepAlive;
         }
-        if (!Utils::isUnset($request->enableOptionMenu)) {
-            $body['EnableOptionMenu'] = $request->enableOptionMenu;
+
+        if (null !== $request->enableOptionMenu) {
+            @$body['EnableOptionMenu'] = $request->enableOptionMenu;
         }
-        if (!Utils::isUnset($request->enableTabBar)) {
-            $body['EnableTabBar'] = $request->enableTabBar;
+
+        if (null !== $request->enableTabBar) {
+            @$body['EnableTabBar'] = $request->enableTabBar;
         }
-        if (!Utils::isUnset($request->extendInfo)) {
-            $body['ExtendInfo'] = $request->extendInfo;
+
+        if (null !== $request->extendInfo) {
+            @$body['ExtendInfo'] = $request->extendInfo;
         }
-        if (!Utils::isUnset($request->h5Id)) {
-            $body['H5Id'] = $request->h5Id;
+
+        if (null !== $request->h5Id) {
+            @$body['H5Id'] = $request->h5Id;
         }
-        if (!Utils::isUnset($request->h5Name)) {
-            $body['H5Name'] = $request->h5Name;
+
+        if (null !== $request->h5Name) {
+            @$body['H5Name'] = $request->h5Name;
         }
-        if (!Utils::isUnset($request->h5Version)) {
-            $body['H5Version'] = $request->h5Version;
+
+        if (null !== $request->h5Version) {
+            @$body['H5Version'] = $request->h5Version;
         }
-        if (!Utils::isUnset($request->iconFileUrl)) {
-            $body['IconFileUrl'] = $request->iconFileUrl;
+
+        if (null !== $request->iconFileUrl) {
+            @$body['IconFileUrl'] = $request->iconFileUrl;
         }
-        if (!Utils::isUnset($request->iconUrl)) {
-            $body['IconUrl'] = $request->iconUrl;
+
+        if (null !== $request->iconUrl) {
+            @$body['IconUrl'] = $request->iconUrl;
         }
-        if (!Utils::isUnset($request->installType)) {
-            $body['InstallType'] = $request->installType;
+
+        if (null !== $request->installType) {
+            @$body['InstallType'] = $request->installType;
         }
-        if (!Utils::isUnset($request->mainUrl)) {
-            $body['MainUrl'] = $request->mainUrl;
+
+        if (null !== $request->mainUrl) {
+            @$body['MainUrl'] = $request->mainUrl;
         }
-        if (!Utils::isUnset($request->onexFlag)) {
-            $body['OnexFlag'] = $request->onexFlag;
+
+        if (null !== $request->onexFlag) {
+            @$body['OnexFlag'] = $request->onexFlag;
         }
-        if (!Utils::isUnset($request->packageType)) {
-            $body['PackageType'] = $request->packageType;
+
+        if (null !== $request->packageType) {
+            @$body['PackageType'] = $request->packageType;
         }
-        if (!Utils::isUnset($request->platform)) {
-            $body['Platform'] = $request->platform;
+
+        if (null !== $request->platform) {
+            @$body['Platform'] = $request->platform;
         }
-        if (!Utils::isUnset($request->resourceFileUrl)) {
-            $body['ResourceFileUrl'] = $request->resourceFileUrl;
+
+        if (null !== $request->resourceFileUrl) {
+            @$body['ResourceFileUrl'] = $request->resourceFileUrl;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $body['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$body['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
         }
-        if (!Utils::isUnset($request->vhost)) {
-            $body['Vhost'] = $request->vhost;
+
+        if (null !== $request->vhost) {
+            @$body['Vhost'] = $request->vhost;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UploadMcubeMiniPackage',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UploadMcubeMiniPackage',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UploadMcubeMiniPackageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UploadMcubeMiniPackageRequest $request UploadMcubeMiniPackageRequest
+     * @param request - UploadMcubeMiniPackageRequest
      *
-     * @return UploadMcubeMiniPackageResponse UploadMcubeMiniPackageResponse
+     * @returns UploadMcubeMiniPackageResponse
+     *
+     * @param UploadMcubeMiniPackageRequest $request
+     *
+     * @return UploadMcubeMiniPackageResponse
      */
     public function uploadMcubeMiniPackage($request)
     {
@@ -7180,52 +7748,66 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param UploadMcubeRsaKeyRequest $request UploadMcubeRsaKeyRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - UploadMcubeRsaKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UploadMcubeRsaKeyResponse UploadMcubeRsaKeyResponse
+     * @returns UploadMcubeRsaKeyResponse
+     *
+     * @param UploadMcubeRsaKeyRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UploadMcubeRsaKeyResponse
      */
     public function uploadMcubeRsaKeyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $body['FileUrl'] = $request->fileUrl;
+
+        if (null !== $request->fileUrl) {
+            @$body['FileUrl'] = $request->fileUrl;
         }
-        if (!Utils::isUnset($request->onexFlag)) {
-            $body['OnexFlag'] = $request->onexFlag;
+
+        if (null !== $request->onexFlag) {
+            @$body['OnexFlag'] = $request->onexFlag;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UploadMcubeRsaKey',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UploadMcubeRsaKey',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UploadMcubeRsaKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UploadMcubeRsaKeyRequest $request UploadMcubeRsaKeyRequest
+     * @param request - UploadMcubeRsaKeyRequest
      *
-     * @return UploadMcubeRsaKeyResponse UploadMcubeRsaKeyResponse
+     * @returns UploadMcubeRsaKeyResponse
+     *
+     * @param UploadMcubeRsaKeyRequest $request
+     *
+     * @return UploadMcubeRsaKeyResponse
      */
     public function uploadMcubeRsaKey($request)
     {
@@ -7235,49 +7817,62 @@ class MPaaS extends OpenApiClient
     }
 
     /**
-     * @param UploadUserAppToMsaRequest $request UploadUserAppToMsaRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - UploadUserAppToMsaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return UploadUserAppToMsaResponse UploadUserAppToMsaResponse
+     * @returns UploadUserAppToMsaResponse
+     *
+     * @param UploadUserAppToMsaRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UploadUserAppToMsaResponse
      */
     public function uploadUserAppToMsaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
+        if (null !== $request->appId) {
+            @$body['AppId'] = $request->appId;
         }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $body['FileUrl'] = $request->fileUrl;
+
+        if (null !== $request->fileUrl) {
+            @$body['FileUrl'] = $request->fileUrl;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->workspaceId)) {
-            $body['WorkspaceId'] = $request->workspaceId;
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UploadUserAppToMsa',
-            'version'     => '2020-10-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UploadUserAppToMsa',
+            'version' => '2020-10-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UploadUserAppToMsaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param UploadUserAppToMsaRequest $request UploadUserAppToMsaRequest
+     * @param request - UploadUserAppToMsaRequest
      *
-     * @return UploadUserAppToMsaResponse UploadUserAppToMsaResponse
+     * @returns UploadUserAppToMsaResponse
+     *
+     * @param UploadUserAppToMsaRequest $request
+     *
+     * @return UploadUserAppToMsaResponse
      */
     public function uploadUserAppToMsa($request)
     {

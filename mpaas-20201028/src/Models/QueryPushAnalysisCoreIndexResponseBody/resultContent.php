@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryPushAnalysisCoreIndexResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryPushAnalysisCoreIndexResponseBody\resultContent\data;
-use AlibabaCloud\Tea\Model;
 
 class resultContent extends Model
 {
@@ -19,23 +19,27 @@ class resultContent extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultContent
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

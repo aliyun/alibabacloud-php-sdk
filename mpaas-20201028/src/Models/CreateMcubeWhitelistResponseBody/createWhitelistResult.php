@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcubeWhitelistResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class createWhitelistResult extends Model
 {
@@ -23,24 +23,27 @@ class createWhitelistResult extends Model
      */
     public $whitelistId;
     protected $_name = [
-        'resultMsg'   => 'ResultMsg',
-        'success'     => 'Success',
+        'resultMsg' => 'ResultMsg',
+        'success' => 'Success',
         'whitelistId' => 'WhitelistId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resultMsg) {
             $res['ResultMsg'] = $this->resultMsg;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->whitelistId) {
             $res['WhitelistId'] = $this->whitelistId;
         }
@@ -48,20 +51,22 @@ class createWhitelistResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return createWhitelistResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResultMsg'])) {
             $model->resultMsg = $map['ResultMsg'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['WhitelistId'])) {
             $model->whitelistId = $map['WhitelistId'];
         }

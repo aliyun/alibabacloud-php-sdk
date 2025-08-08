@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMcubeMiniTaskResponseBody\queryMiniTaskResult;
-use AlibabaCloud\Tea\Model;
 
 class QueryMcubeMiniTaskResponseBody extends Model
 {
@@ -30,27 +30,34 @@ class QueryMcubeMiniTaskResponseBody extends Model
     public $resultMessage;
     protected $_name = [
         'queryMiniTaskResult' => 'QueryMiniTaskResult',
-        'requestId'           => 'RequestId',
-        'resultCode'          => 'ResultCode',
-        'resultMessage'       => 'ResultMessage',
+        'requestId' => 'RequestId',
+        'resultCode' => 'ResultCode',
+        'resultMessage' => 'ResultMessage',
     ];
 
     public function validate()
     {
+        if (null !== $this->queryMiniTaskResult) {
+            $this->queryMiniTaskResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->queryMiniTaskResult) {
-            $res['QueryMiniTaskResult'] = null !== $this->queryMiniTaskResult ? $this->queryMiniTaskResult->toMap() : null;
+            $res['QueryMiniTaskResult'] = null !== $this->queryMiniTaskResult ? $this->queryMiniTaskResult->toArray($noStream) : $this->queryMiniTaskResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resultCode) {
             $res['ResultCode'] = $this->resultCode;
         }
+
         if (null !== $this->resultMessage) {
             $res['ResultMessage'] = $this->resultMessage;
         }
@@ -58,23 +65,26 @@ class QueryMcubeMiniTaskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryMcubeMiniTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QueryMiniTaskResult'])) {
             $model->queryMiniTaskResult = queryMiniTaskResult::fromMap($map['QueryMiniTaskResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResultCode'])) {
             $model->resultCode = $map['ResultCode'];
         }
+
         if (isset($map['ResultMessage'])) {
             $model->resultMessage = $map['ResultMessage'];
         }

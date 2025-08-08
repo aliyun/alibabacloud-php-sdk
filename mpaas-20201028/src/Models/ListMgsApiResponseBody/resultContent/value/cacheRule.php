@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMgsApiResponseBody\resultContent\value;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class cacheRule extends Model
 {
@@ -23,24 +23,27 @@ class cacheRule extends Model
      */
     public $ttl;
     protected $_name = [
-        'cacheKey'  => 'CacheKey',
+        'cacheKey' => 'CacheKey',
         'needCache' => 'NeedCache',
-        'ttl'       => 'Ttl',
+        'ttl' => 'Ttl',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cacheKey) {
             $res['CacheKey'] = $this->cacheKey;
         }
+
         if (null !== $this->needCache) {
             $res['NeedCache'] = $this->needCache;
         }
+
         if (null !== $this->ttl) {
             $res['Ttl'] = $this->ttl;
         }
@@ -48,20 +51,22 @@ class cacheRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cacheRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CacheKey'])) {
             $model->cacheKey = $map['CacheKey'];
         }
+
         if (isset($map['NeedCache'])) {
             $model->needCache = $map['NeedCache'];
         }
+
         if (isset($map['Ttl'])) {
             $model->ttl = $map['Ttl'];
         }

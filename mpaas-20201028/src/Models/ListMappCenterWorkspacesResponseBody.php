@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMappCenterWorkspacesResponseBody\listMappCenterWorkspaceResult;
-use AlibabaCloud\Tea\Model;
 
 class ListMappCenterWorkspacesResponseBody extends Model
 {
@@ -30,27 +30,34 @@ class ListMappCenterWorkspacesResponseBody extends Model
     public $resultMessage;
     protected $_name = [
         'listMappCenterWorkspaceResult' => 'ListMappCenterWorkspaceResult',
-        'requestId'                     => 'RequestId',
-        'resultCode'                    => 'ResultCode',
-        'resultMessage'                 => 'ResultMessage',
+        'requestId' => 'RequestId',
+        'resultCode' => 'ResultCode',
+        'resultMessage' => 'ResultMessage',
     ];
 
     public function validate()
     {
+        if (null !== $this->listMappCenterWorkspaceResult) {
+            $this->listMappCenterWorkspaceResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listMappCenterWorkspaceResult) {
-            $res['ListMappCenterWorkspaceResult'] = null !== $this->listMappCenterWorkspaceResult ? $this->listMappCenterWorkspaceResult->toMap() : null;
+            $res['ListMappCenterWorkspaceResult'] = null !== $this->listMappCenterWorkspaceResult ? $this->listMappCenterWorkspaceResult->toArray($noStream) : $this->listMappCenterWorkspaceResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resultCode) {
             $res['ResultCode'] = $this->resultCode;
         }
+
         if (null !== $this->resultMessage) {
             $res['ResultMessage'] = $this->resultMessage;
         }
@@ -58,23 +65,26 @@ class ListMappCenterWorkspacesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMappCenterWorkspacesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ListMappCenterWorkspaceResult'])) {
             $model->listMappCenterWorkspaceResult = listMappCenterWorkspaceResult::fromMap($map['ListMappCenterWorkspaceResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResultCode'])) {
             $model->resultCode = $map['ResultCode'];
         }
+
         if (isset($map['ResultMessage'])) {
             $model->resultMessage = $map['ResultMessage'];
         }

@@ -4,16 +4,19 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CancelPushSchedulerRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $appId;
+
+    /**
+     * @var string
+     */
+    public $tenantId;
 
     /**
      * @var int
@@ -21,41 +24,46 @@ class CancelPushSchedulerRequest extends Model
     public $type;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $uniqueIds;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'appId'       => 'AppId',
-        'type'        => 'Type',
-        'uniqueIds'   => 'UniqueIds',
+        'appId' => 'AppId',
+        'tenantId' => 'TenantId',
+        'type' => 'Type',
+        'uniqueIds' => 'UniqueIds',
         'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
+        }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->uniqueIds) {
             $res['UniqueIds'] = $this->uniqueIds;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -63,23 +71,30 @@ class CancelPushSchedulerRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CancelPushSchedulerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
+        }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['UniqueIds'])) {
             $model->uniqueIds = $map['UniqueIds'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

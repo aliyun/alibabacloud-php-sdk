@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\UploadMcubeRsaKeyResponseBody\uploadRsaResult;
-use AlibabaCloud\Tea\Model;
 
 class UploadMcubeRsaKeyResponseBody extends Model
 {
@@ -29,52 +29,62 @@ class UploadMcubeRsaKeyResponseBody extends Model
      */
     public $uploadRsaResult;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'resultCode'      => 'ResultCode',
-        'resultMessage'   => 'ResultMessage',
+        'requestId' => 'RequestId',
+        'resultCode' => 'ResultCode',
+        'resultMessage' => 'ResultMessage',
         'uploadRsaResult' => 'UploadRsaResult',
     ];
 
     public function validate()
     {
+        if (null !== $this->uploadRsaResult) {
+            $this->uploadRsaResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resultCode) {
             $res['ResultCode'] = $this->resultCode;
         }
+
         if (null !== $this->resultMessage) {
             $res['ResultMessage'] = $this->resultMessage;
         }
+
         if (null !== $this->uploadRsaResult) {
-            $res['UploadRsaResult'] = null !== $this->uploadRsaResult ? $this->uploadRsaResult->toMap() : null;
+            $res['UploadRsaResult'] = null !== $this->uploadRsaResult ? $this->uploadRsaResult->toArray($noStream) : $this->uploadRsaResult;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UploadMcubeRsaKeyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResultCode'])) {
             $model->resultCode = $map['ResultCode'];
         }
+
         if (isset($map['ResultMessage'])) {
             $model->resultMessage = $map['ResultMessage'];
         }
+
         if (isset($map['UploadRsaResult'])) {
             $model->uploadRsaResult = uploadRsaResult::fromMap($map['UploadRsaResult']);
         }

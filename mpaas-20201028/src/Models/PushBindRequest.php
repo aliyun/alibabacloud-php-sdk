@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PushBindRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $deliveryToken;
 
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $osType;
@@ -35,49 +29,61 @@ class PushBindRequest extends Model
     public $phoneNumber;
 
     /**
-     * @description This parameter is required.
-     *
+     * @var string
+     */
+    public $tenantId;
+
+    /**
      * @var string
      */
     public $userId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'appId'         => 'AppId',
+        'appId' => 'AppId',
         'deliveryToken' => 'DeliveryToken',
-        'osType'        => 'OsType',
-        'phoneNumber'   => 'PhoneNumber',
-        'userId'        => 'UserId',
-        'workspaceId'   => 'WorkspaceId',
+        'osType' => 'OsType',
+        'phoneNumber' => 'PhoneNumber',
+        'tenantId' => 'TenantId',
+        'userId' => 'UserId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->deliveryToken) {
             $res['DeliveryToken'] = $this->deliveryToken;
         }
+
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
         }
+
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
+
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
+        }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -85,29 +91,38 @@ class PushBindRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PushBindRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['DeliveryToken'])) {
             $model->deliveryToken = $map['DeliveryToken'];
         }
+
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
         }
+
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
         }
+
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
+        }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

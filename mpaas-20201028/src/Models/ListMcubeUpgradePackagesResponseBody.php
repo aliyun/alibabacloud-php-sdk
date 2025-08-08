@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcubeUpgradePackagesResponseBody\listPackagesResult;
-use AlibabaCloud\Tea\Model;
 
 class ListMcubeUpgradePackagesResponseBody extends Model
 {
@@ -30,27 +30,34 @@ class ListMcubeUpgradePackagesResponseBody extends Model
     public $resultMessage;
     protected $_name = [
         'listPackagesResult' => 'ListPackagesResult',
-        'requestId'          => 'RequestId',
-        'resultCode'         => 'ResultCode',
-        'resultMessage'      => 'ResultMessage',
+        'requestId' => 'RequestId',
+        'resultCode' => 'ResultCode',
+        'resultMessage' => 'ResultMessage',
     ];
 
     public function validate()
     {
+        if (null !== $this->listPackagesResult) {
+            $this->listPackagesResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listPackagesResult) {
-            $res['ListPackagesResult'] = null !== $this->listPackagesResult ? $this->listPackagesResult->toMap() : null;
+            $res['ListPackagesResult'] = null !== $this->listPackagesResult ? $this->listPackagesResult->toArray($noStream) : $this->listPackagesResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resultCode) {
             $res['ResultCode'] = $this->resultCode;
         }
+
         if (null !== $this->resultMessage) {
             $res['ResultMessage'] = $this->resultMessage;
         }
@@ -58,23 +65,26 @@ class ListMcubeUpgradePackagesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMcubeUpgradePackagesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ListPackagesResult'])) {
             $model->listPackagesResult = listPackagesResult::fromMap($map['ListPackagesResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResultCode'])) {
             $model->resultCode = $map['ResultCode'];
         }
+
         if (isset($map['ResultMessage'])) {
             $model->resultMessage = $map['ResultMessage'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMcubeMiniTaskResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMcubeMiniTaskResponseBody\queryMiniTaskResult\miniTaskInfo;
-use AlibabaCloud\Tea\Model;
 
 class queryMiniTaskResult extends Model
 {
@@ -25,23 +25,29 @@ class queryMiniTaskResult extends Model
     public $success;
     protected $_name = [
         'miniTaskInfo' => 'MiniTaskInfo',
-        'resultMsg'    => 'ResultMsg',
-        'success'      => 'Success',
+        'resultMsg' => 'ResultMsg',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (null !== $this->miniTaskInfo) {
+            $this->miniTaskInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->miniTaskInfo) {
-            $res['MiniTaskInfo'] = null !== $this->miniTaskInfo ? $this->miniTaskInfo->toMap() : null;
+            $res['MiniTaskInfo'] = null !== $this->miniTaskInfo ? $this->miniTaskInfo->toArray($noStream) : $this->miniTaskInfo;
         }
+
         if (null !== $this->resultMsg) {
             $res['ResultMsg'] = $this->resultMsg;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -49,20 +55,22 @@ class queryMiniTaskResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return queryMiniTaskResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MiniTaskInfo'])) {
             $model->miniTaskInfo = miniTaskInfo::fromMap($map['MiniTaskInfo']);
         }
+
         if (isset($map['ResultMsg'])) {
             $model->resultMsg = $map['ResultMsg'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

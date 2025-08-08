@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMappCenterAppResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMappCenterAppResponseBody\queryMappCenterAppResult\mappCenterApp;
-use AlibabaCloud\Tea\Model;
 
 class queryMappCenterAppResult extends Model
 {
@@ -25,23 +25,29 @@ class queryMappCenterAppResult extends Model
     public $success;
     protected $_name = [
         'mappCenterApp' => 'MappCenterApp',
-        'resultMsg'     => 'ResultMsg',
-        'success'       => 'Success',
+        'resultMsg' => 'ResultMsg',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (null !== $this->mappCenterApp) {
+            $this->mappCenterApp->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mappCenterApp) {
-            $res['MappCenterApp'] = null !== $this->mappCenterApp ? $this->mappCenterApp->toMap() : null;
+            $res['MappCenterApp'] = null !== $this->mappCenterApp ? $this->mappCenterApp->toArray($noStream) : $this->mappCenterApp;
         }
+
         if (null !== $this->resultMsg) {
             $res['ResultMsg'] = $this->resultMsg;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -49,20 +55,22 @@ class queryMappCenterAppResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return queryMappCenterAppResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MappCenterApp'])) {
             $model->mappCenterApp = mappCenterApp::fromMap($map['MappCenterApp']);
         }
+
         if (isset($map['ResultMsg'])) {
             $model->resultMsg = $map['ResultMsg'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

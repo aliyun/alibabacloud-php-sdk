@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMappCenterAppResponseBody\queryMappCenterAppResult\mappCenterApp;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class androidConfig extends Model
 {
@@ -18,20 +18,22 @@ class androidConfig extends Model
      */
     public $packageName;
     protected $_name = [
-        'certRSA'     => 'CertRSA',
+        'certRSA' => 'CertRSA',
         'packageName' => 'PackageName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certRSA) {
             $res['CertRSA'] = $this->certRSA;
         }
+
         if (null !== $this->packageName) {
             $res['PackageName'] = $this->packageName;
         }
@@ -39,17 +41,18 @@ class androidConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return androidConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertRSA'])) {
             $model->certRSA = $map['CertRSA'];
         }
+
         if (isset($map['PackageName'])) {
             $model->packageName = $map['PackageName'];
         }

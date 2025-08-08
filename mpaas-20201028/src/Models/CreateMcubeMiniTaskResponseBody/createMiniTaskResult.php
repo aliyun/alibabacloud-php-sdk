@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcubeMiniTaskResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class createMiniTaskResult extends Model
 {
@@ -24,23 +24,26 @@ class createMiniTaskResult extends Model
     public $success;
     protected $_name = [
         'miniTaskId' => 'MiniTaskId',
-        'resultMsg'  => 'ResultMsg',
-        'success'    => 'Success',
+        'resultMsg' => 'ResultMsg',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->miniTaskId) {
             $res['MiniTaskId'] = $this->miniTaskId;
         }
+
         if (null !== $this->resultMsg) {
             $res['ResultMsg'] = $this->resultMsg;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -48,20 +51,22 @@ class createMiniTaskResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return createMiniTaskResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MiniTaskId'])) {
             $model->miniTaskId = $map['MiniTaskId'];
         }
+
         if (isset($map['ResultMsg'])) {
             $model->resultMsg = $map['ResultMsg'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMappCenterWorkspacesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMappCenterWorkspacesResponseBody\listMappCenterWorkspaceResult\mappCenterWorkspaceList;
-use AlibabaCloud\Tea\Model;
 
 class listMappCenterWorkspaceResult extends Model
 {
@@ -30,33 +30,41 @@ class listMappCenterWorkspaceResult extends Model
     public $userId;
     protected $_name = [
         'mappCenterWorkspaceList' => 'MappCenterWorkspaceList',
-        'resultMsg'               => 'ResultMsg',
-        'success'                 => 'Success',
-        'userId'                  => 'UserId',
+        'resultMsg' => 'ResultMsg',
+        'success' => 'Success',
+        'userId' => 'UserId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->mappCenterWorkspaceList)) {
+            Model::validateArray($this->mappCenterWorkspaceList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mappCenterWorkspaceList) {
-            $res['MappCenterWorkspaceList'] = [];
-            if (null !== $this->mappCenterWorkspaceList && \is_array($this->mappCenterWorkspaceList)) {
-                $n = 0;
-                foreach ($this->mappCenterWorkspaceList as $item) {
-                    $res['MappCenterWorkspaceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->mappCenterWorkspaceList)) {
+                $res['MappCenterWorkspaceList'] = [];
+                $n1 = 0;
+                foreach ($this->mappCenterWorkspaceList as $item1) {
+                    $res['MappCenterWorkspaceList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->resultMsg) {
             $res['ResultMsg'] = $this->resultMsg;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -64,29 +72,33 @@ class listMappCenterWorkspaceResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return listMappCenterWorkspaceResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MappCenterWorkspaceList'])) {
             if (!empty($map['MappCenterWorkspaceList'])) {
                 $model->mappCenterWorkspaceList = [];
-                $n                              = 0;
-                foreach ($map['MappCenterWorkspaceList'] as $item) {
-                    $model->mappCenterWorkspaceList[$n++] = null !== $item ? mappCenterWorkspaceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MappCenterWorkspaceList'] as $item1) {
+                    $model->mappCenterWorkspaceList[$n1] = mappCenterWorkspaceList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ResultMsg'])) {
             $model->resultMsg = $map['ResultMsg'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

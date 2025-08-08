@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\PushMultipleRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class targetMsg extends Model
 {
@@ -14,15 +14,11 @@ class targetMsg extends Model
     public $extendedParams;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $msgKey;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $target;
@@ -32,28 +28,32 @@ class targetMsg extends Model
      */
     public $templateKeyValue;
     protected $_name = [
-        'extendedParams'   => 'ExtendedParams',
-        'msgKey'           => 'MsgKey',
-        'target'           => 'Target',
+        'extendedParams' => 'ExtendedParams',
+        'msgKey' => 'MsgKey',
+        'target' => 'Target',
         'templateKeyValue' => 'TemplateKeyValue',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extendedParams) {
             $res['ExtendedParams'] = $this->extendedParams;
         }
+
         if (null !== $this->msgKey) {
             $res['MsgKey'] = $this->msgKey;
         }
+
         if (null !== $this->target) {
             $res['Target'] = $this->target;
         }
+
         if (null !== $this->templateKeyValue) {
             $res['TemplateKeyValue'] = $this->templateKeyValue;
         }
@@ -61,23 +61,26 @@ class targetMsg extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return targetMsg
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExtendedParams'])) {
             $model->extendedParams = $map['ExtendedParams'];
         }
+
         if (isset($map['MsgKey'])) {
             $model->msgKey = $map['MsgKey'];
         }
+
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
         }
+
         if (isset($map['TemplateKeyValue'])) {
             $model->templateKeyValue = $map['TemplateKeyValue'];
         }

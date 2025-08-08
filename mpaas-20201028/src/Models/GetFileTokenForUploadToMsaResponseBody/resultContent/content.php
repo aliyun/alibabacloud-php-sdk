@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\GetFileTokenForUploadToMsaResponseBody\resultContent;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class content extends Model
 {
@@ -38,36 +38,42 @@ class content extends Model
      */
     public $signature;
     protected $_name = [
-        'accessid'  => 'Accessid',
-        'dir'       => 'Dir',
-        'expire'    => 'Expire',
-        'host'      => 'Host',
-        'policy'    => 'Policy',
+        'accessid' => 'Accessid',
+        'dir' => 'Dir',
+        'expire' => 'Expire',
+        'host' => 'Host',
+        'policy' => 'Policy',
         'signature' => 'Signature',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessid) {
             $res['Accessid'] = $this->accessid;
         }
+
         if (null !== $this->dir) {
             $res['Dir'] = $this->dir;
         }
+
         if (null !== $this->expire) {
             $res['Expire'] = $this->expire;
         }
+
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
+
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
         }
+
         if (null !== $this->signature) {
             $res['Signature'] = $this->signature;
         }
@@ -75,29 +81,34 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accessid'])) {
             $model->accessid = $map['Accessid'];
         }
+
         if (isset($map['Dir'])) {
             $model->dir = $map['Dir'];
         }
+
         if (isset($map['Expire'])) {
             $model->expire = $map['Expire'];
         }
+
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
+
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
         }
+
         if (isset($map['Signature'])) {
             $model->signature = $map['Signature'];
         }

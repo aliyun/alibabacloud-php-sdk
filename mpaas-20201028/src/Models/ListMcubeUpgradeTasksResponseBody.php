@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcubeUpgradeTasksResponseBody\listTaskResult;
-use AlibabaCloud\Tea\Model;
 
 class ListMcubeUpgradeTasksResponseBody extends Model
 {
@@ -30,27 +30,34 @@ class ListMcubeUpgradeTasksResponseBody extends Model
     public $resultMessage;
     protected $_name = [
         'listTaskResult' => 'ListTaskResult',
-        'requestId'      => 'RequestId',
-        'resultCode'     => 'ResultCode',
-        'resultMessage'  => 'ResultMessage',
+        'requestId' => 'RequestId',
+        'resultCode' => 'ResultCode',
+        'resultMessage' => 'ResultMessage',
     ];
 
     public function validate()
     {
+        if (null !== $this->listTaskResult) {
+            $this->listTaskResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listTaskResult) {
-            $res['ListTaskResult'] = null !== $this->listTaskResult ? $this->listTaskResult->toMap() : null;
+            $res['ListTaskResult'] = null !== $this->listTaskResult ? $this->listTaskResult->toArray($noStream) : $this->listTaskResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resultCode) {
             $res['ResultCode'] = $this->resultCode;
         }
+
         if (null !== $this->resultMessage) {
             $res['ResultMessage'] = $this->resultMessage;
         }
@@ -58,23 +65,26 @@ class ListMcubeUpgradeTasksResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMcubeUpgradeTasksResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ListTaskResult'])) {
             $model->listTaskResult = listTaskResult::fromMap($map['ListTaskResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResultCode'])) {
             $model->resultCode = $map['ResultCode'];
         }
+
         if (isset($map['ResultMessage'])) {
             $model->resultMessage = $map['ResultMessage'];
         }

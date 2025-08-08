@@ -4,60 +4,66 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RevokePushMessageRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $messageId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $targetId;
 
     /**
-     * @description This parameter is required.
-     *
+     * @var string
+     */
+    public $tenantId;
+
+    /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'appId'       => 'AppId',
-        'messageId'   => 'MessageId',
-        'targetId'    => 'TargetId',
+        'appId' => 'AppId',
+        'messageId' => 'MessageId',
+        'targetId' => 'TargetId',
+        'tenantId' => 'TenantId',
         'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->messageId) {
             $res['MessageId'] = $this->messageId;
         }
+
         if (null !== $this->targetId) {
             $res['TargetId'] = $this->targetId;
         }
+
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
+        }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -65,23 +71,30 @@ class RevokePushMessageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RevokePushMessageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['MessageId'])) {
             $model->messageId = $map['MessageId'];
         }
+
         if (isset($map['TargetId'])) {
             $model->targetId = $map['TargetId'];
         }
+
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
+        }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

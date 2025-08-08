@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcubeMiniTasksResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcubeMiniTasksResponseBody\listMiniTaskResult\miniTaskList;
-use AlibabaCloud\Tea\Model;
 
 class listMiniTaskResult extends Model
 {
@@ -25,29 +25,36 @@ class listMiniTaskResult extends Model
     public $success;
     protected $_name = [
         'miniTaskList' => 'MiniTaskList',
-        'resultMsg'    => 'ResultMsg',
-        'success'      => 'Success',
+        'resultMsg' => 'ResultMsg',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (\is_array($this->miniTaskList)) {
+            Model::validateArray($this->miniTaskList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->miniTaskList) {
-            $res['MiniTaskList'] = [];
-            if (null !== $this->miniTaskList && \is_array($this->miniTaskList)) {
-                $n = 0;
-                foreach ($this->miniTaskList as $item) {
-                    $res['MiniTaskList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->miniTaskList)) {
+                $res['MiniTaskList'] = [];
+                $n1 = 0;
+                foreach ($this->miniTaskList as $item1) {
+                    $res['MiniTaskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->resultMsg) {
             $res['ResultMsg'] = $this->resultMsg;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -55,26 +62,29 @@ class listMiniTaskResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return listMiniTaskResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MiniTaskList'])) {
             if (!empty($map['MiniTaskList'])) {
                 $model->miniTaskList = [];
-                $n                   = 0;
-                foreach ($map['MiniTaskList'] as $item) {
-                    $model->miniTaskList[$n++] = null !== $item ? miniTaskList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MiniTaskList'] as $item1) {
+                    $model->miniTaskList[$n1] = miniTaskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ResultMsg'])) {
             $model->resultMsg = $map['ResultMsg'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

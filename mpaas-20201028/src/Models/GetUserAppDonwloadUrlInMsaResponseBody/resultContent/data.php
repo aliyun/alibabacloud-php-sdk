@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\GetUserAppDonwloadUrlInMsaResponseBody\resultContent;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -19,19 +19,21 @@ class data extends Model
     public $url;
     protected $_name = [
         'filename' => 'Filename',
-        'url'      => 'Url',
+        'url' => 'Url',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filename) {
             $res['Filename'] = $this->filename;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -39,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Filename'])) {
             $model->filename = $map['Filename'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

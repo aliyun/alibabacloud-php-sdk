@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteMcdpZoneRequest extends Model
 {
@@ -14,8 +14,6 @@ class DeleteMcdpZoneRequest extends Model
     public $appId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $mpaasMappcenterMcdpZoneDeleteJsonStr;
@@ -30,28 +28,32 @@ class DeleteMcdpZoneRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'appId'                                => 'AppId',
+        'appId' => 'AppId',
         'mpaasMappcenterMcdpZoneDeleteJsonStr' => 'MpaasMappcenterMcdpZoneDeleteJsonStr',
-        'tenantId'                             => 'TenantId',
-        'workspaceId'                          => 'WorkspaceId',
+        'tenantId' => 'TenantId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->mpaasMappcenterMcdpZoneDeleteJsonStr) {
             $res['MpaasMappcenterMcdpZoneDeleteJsonStr'] = $this->mpaasMappcenterMcdpZoneDeleteJsonStr;
         }
+
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -59,23 +61,26 @@ class DeleteMcdpZoneRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteMcdpZoneRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['MpaasMappcenterMcdpZoneDeleteJsonStr'])) {
             $model->mpaasMappcenterMcdpZoneDeleteJsonStr = $map['MpaasMappcenterMcdpZoneDeleteJsonStr'];
         }
+
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

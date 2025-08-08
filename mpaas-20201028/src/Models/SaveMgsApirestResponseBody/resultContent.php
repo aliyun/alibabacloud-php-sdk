@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\SaveMgsApirestResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultContent extends Model
 {
@@ -24,23 +24,26 @@ class resultContent extends Model
     public $value;
     protected $_name = [
         'errorMessage' => 'ErrorMessage',
-        'success'      => 'Success',
-        'value'        => 'Value',
+        'success' => 'Success',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -48,20 +51,22 @@ class resultContent extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultContent
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\GetMcubeFileTokenResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\GetMcubeFileTokenResponseBody\getFileTokenResult\fileToken;
-use AlibabaCloud\Tea\Model;
 
 class getFileTokenResult extends Model
 {
@@ -26,22 +26,28 @@ class getFileTokenResult extends Model
     protected $_name = [
         'fileToken' => 'FileToken',
         'resultMsg' => 'ResultMsg',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (null !== $this->fileToken) {
+            $this->fileToken->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileToken) {
-            $res['FileToken'] = null !== $this->fileToken ? $this->fileToken->toMap() : null;
+            $res['FileToken'] = null !== $this->fileToken ? $this->fileToken->toArray($noStream) : $this->fileToken;
         }
+
         if (null !== $this->resultMsg) {
             $res['ResultMsg'] = $this->resultMsg;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -49,20 +55,22 @@ class getFileTokenResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return getFileTokenResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileToken'])) {
             $model->fileToken = fileToken::fromMap($map['FileToken']);
         }
+
         if (isset($map['ResultMsg'])) {
             $model->resultMsg = $map['ResultMsg'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

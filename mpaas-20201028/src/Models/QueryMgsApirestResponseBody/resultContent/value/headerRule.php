@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\QueryMgsApirestResponseBody\resultContent\value;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class headerRule extends Model
 {
@@ -29,27 +29,31 @@ class headerRule extends Model
     public $value;
     protected $_name = [
         'headerKey' => 'HeaderKey',
-        'location'  => 'Location',
-        'type'      => 'Type',
-        'value'     => 'Value',
+        'location' => 'Location',
+        'type' => 'Type',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->headerKey) {
             $res['HeaderKey'] = $this->headerKey;
         }
+
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -57,23 +61,26 @@ class headerRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return headerRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HeaderKey'])) {
             $model->headerKey = $map['HeaderKey'];
         }
+
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListMcdpAimRequest extends Model
 {
@@ -63,56 +63,67 @@ class ListMcdpAimRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
-        'appId'       => 'AppId',
-        'emptyTag'    => 'EmptyTag',
-        'keyword'     => 'Keyword',
-        'name'        => 'Name',
-        'pageNo'      => 'PageNo',
-        'pageSize'    => 'PageSize',
-        'sort'        => 'Sort',
-        'sortField'   => 'SortField',
-        'tenantId'    => 'TenantId',
-        'type'        => 'Type',
+        'appId' => 'AppId',
+        'emptyTag' => 'EmptyTag',
+        'keyword' => 'Keyword',
+        'name' => 'Name',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'sort' => 'Sort',
+        'sortField' => 'SortField',
+        'tenantId' => 'TenantId',
+        'type' => 'Type',
         'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->emptyTag) {
             $res['EmptyTag'] = $this->emptyTag;
         }
+
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
         }
+
         if (null !== $this->sortField) {
             $res['SortField'] = $this->sortField;
         }
+
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -120,44 +131,54 @@ class ListMcdpAimRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMcdpAimRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['EmptyTag'])) {
             $model->emptyTag = $map['EmptyTag'];
         }
+
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];
         }
+
         if (isset($map['SortField'])) {
             $model->sortField = $map['SortField'];
         }
+
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

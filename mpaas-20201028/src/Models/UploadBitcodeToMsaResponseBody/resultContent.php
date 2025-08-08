@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\UploadBitcodeToMsaResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resultContent extends Model
 {
     /**
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example 1234
-     *
      * @var string
      */
     public $data;
 
     /**
-     * @example Normal
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example True
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'    => 'Code',
-        'data'    => 'Data',
+        'code' => 'Code',
+        'data' => 'Data',
         'message' => 'Message',
         'success' => 'Success',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -65,23 +61,26 @@ class resultContent extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resultContent
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

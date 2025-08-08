@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\GetMcubeUpgradePackageInfoResponseBody\getPackageResult\packageInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class mobileTestFlightConfigDO extends Model
 {
@@ -38,36 +38,42 @@ class mobileTestFlightConfigDO extends Model
      */
     public $upgradeId;
     protected $_name = [
-        'gmtCreate'     => 'GmtCreate',
-        'gmtModified'   => 'GmtModified',
-        'id'            => 'Id',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
         'installAmount' => 'InstallAmount',
-        'invalidTime'   => 'InvalidTime',
-        'upgradeId'     => 'UpgradeId',
+        'invalidTime' => 'InvalidTime',
+        'upgradeId' => 'UpgradeId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
+
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->installAmount) {
             $res['InstallAmount'] = $this->installAmount;
         }
+
         if (null !== $this->invalidTime) {
             $res['InvalidTime'] = $this->invalidTime;
         }
+
         if (null !== $this->upgradeId) {
             $res['UpgradeId'] = $this->upgradeId;
         }
@@ -75,29 +81,34 @@ class mobileTestFlightConfigDO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mobileTestFlightConfigDO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
+
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['InstallAmount'])) {
             $model->installAmount = $map['InstallAmount'];
         }
+
         if (isset($map['InvalidTime'])) {
             $model->invalidTime = $map['InvalidTime'];
         }
+
         if (isset($map['UpgradeId'])) {
             $model->upgradeId = $map['UpgradeId'];
         }

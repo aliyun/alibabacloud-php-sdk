@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ChangeMcubeMiniTaskStatusResponseBody\changeMiniTaskStatusResult;
-use AlibabaCloud\Tea\Model;
 
 class ChangeMcubeMiniTaskStatusResponseBody extends Model
 {
@@ -30,27 +30,34 @@ class ChangeMcubeMiniTaskStatusResponseBody extends Model
     public $resultMessage;
     protected $_name = [
         'changeMiniTaskStatusResult' => 'ChangeMiniTaskStatusResult',
-        'requestId'                  => 'RequestId',
-        'resultCode'                 => 'ResultCode',
-        'resultMessage'              => 'ResultMessage',
+        'requestId' => 'RequestId',
+        'resultCode' => 'ResultCode',
+        'resultMessage' => 'ResultMessage',
     ];
 
     public function validate()
     {
+        if (null !== $this->changeMiniTaskStatusResult) {
+            $this->changeMiniTaskStatusResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeMiniTaskStatusResult) {
-            $res['ChangeMiniTaskStatusResult'] = null !== $this->changeMiniTaskStatusResult ? $this->changeMiniTaskStatusResult->toMap() : null;
+            $res['ChangeMiniTaskStatusResult'] = null !== $this->changeMiniTaskStatusResult ? $this->changeMiniTaskStatusResult->toArray($noStream) : $this->changeMiniTaskStatusResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resultCode) {
             $res['ResultCode'] = $this->resultCode;
         }
+
         if (null !== $this->resultMessage) {
             $res['ResultMessage'] = $this->resultMessage;
         }
@@ -58,23 +65,26 @@ class ChangeMcubeMiniTaskStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ChangeMcubeMiniTaskStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChangeMiniTaskStatusResult'])) {
             $model->changeMiniTaskStatusResult = changeMiniTaskStatusResult::fromMap($map['ChangeMiniTaskStatusResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResultCode'])) {
             $model->resultCode = $map['ResultCode'];
         }
+
         if (isset($map['ResultMessage'])) {
             $model->resultMessage = $map['ResultMessage'];
         }

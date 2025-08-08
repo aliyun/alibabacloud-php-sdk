@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMgsApiResponseBody\resultContent\value;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class limitRule extends Model
 {
@@ -34,31 +34,36 @@ class limitRule extends Model
     public $mode;
     protected $_name = [
         'defaultResponse' => 'DefaultResponse',
-        'i18nResponse'    => 'I18nResponse',
-        'interval'        => 'Interval',
-        'limit'           => 'Limit',
-        'mode'            => 'Mode',
+        'i18nResponse' => 'I18nResponse',
+        'interval' => 'Interval',
+        'limit' => 'Limit',
+        'mode' => 'Mode',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defaultResponse) {
             $res['DefaultResponse'] = $this->defaultResponse;
         }
+
         if (null !== $this->i18nResponse) {
             $res['I18nResponse'] = $this->i18nResponse;
         }
+
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
+
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
         }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
@@ -66,26 +71,30 @@ class limitRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return limitRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefaultResponse'])) {
             $model->defaultResponse = $map['DefaultResponse'];
         }
+
         if (isset($map['I18nResponse'])) {
             $model->i18nResponse = $map['I18nResponse'];
         }
+
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
+
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
         }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }

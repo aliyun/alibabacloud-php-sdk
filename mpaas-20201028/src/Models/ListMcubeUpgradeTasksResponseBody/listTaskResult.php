@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcubeUpgradeTasksResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcubeUpgradeTasksResponseBody\listTaskResult\taskInfo;
-use AlibabaCloud\Tea\Model;
 
 class listTaskResult extends Model
 {
@@ -37,35 +37,44 @@ class listTaskResult extends Model
         'errorCode' => 'ErrorCode',
         'requestId' => 'RequestId',
         'resultMsg' => 'ResultMsg',
-        'success'   => 'Success',
-        'taskInfo'  => 'TaskInfo',
+        'success' => 'Success',
+        'taskInfo' => 'TaskInfo',
     ];
 
     public function validate()
     {
+        if (\is_array($this->taskInfo)) {
+            Model::validateArray($this->taskInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resultMsg) {
             $res['ResultMsg'] = $this->resultMsg;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->taskInfo) {
-            $res['TaskInfo'] = [];
-            if (null !== $this->taskInfo && \is_array($this->taskInfo)) {
-                $n = 0;
-                foreach ($this->taskInfo as $item) {
-                    $res['TaskInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskInfo)) {
+                $res['TaskInfo'] = [];
+                $n1 = 0;
+                foreach ($this->taskInfo as $item1) {
+                    $res['TaskInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,32 +82,37 @@ class listTaskResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return listTaskResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResultMsg'])) {
             $model->resultMsg = $map['ResultMsg'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['TaskInfo'])) {
             if (!empty($map['TaskInfo'])) {
                 $model->taskInfo = [];
-                $n               = 0;
-                foreach ($map['TaskInfo'] as $item) {
-                    $model->taskInfo[$n++] = null !== $item ? taskInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TaskInfo'] as $item1) {
+                    $model->taskInfo[$n1] = taskInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

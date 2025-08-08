@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models\UploadMcubeMiniPackageResponseBody\uploadMiniPackageResult;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class returnPackageResult extends Model
 {
@@ -23,24 +23,27 @@ class returnPackageResult extends Model
      */
     public $userId;
     protected $_name = [
-        'debugUrl'  => 'DebugUrl',
+        'debugUrl' => 'DebugUrl',
         'packageId' => 'PackageId',
-        'userId'    => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->debugUrl) {
             $res['DebugUrl'] = $this->debugUrl;
         }
+
         if (null !== $this->packageId) {
             $res['PackageId'] = $this->packageId;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -48,20 +51,22 @@ class returnPackageResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return returnPackageResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DebugUrl'])) {
             $model->debugUrl = $map['DebugUrl'];
         }
+
         if (isset($map['PackageId'])) {
             $model->packageId = $map['PackageId'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

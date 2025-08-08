@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\ListMcubeNebulaTasksResponseBody\listMcubeNebulaTaskResult;
-use AlibabaCloud\Tea\Model;
 
 class ListMcubeNebulaTasksResponseBody extends Model
 {
@@ -30,27 +30,34 @@ class ListMcubeNebulaTasksResponseBody extends Model
     public $resultMessage;
     protected $_name = [
         'listMcubeNebulaTaskResult' => 'ListMcubeNebulaTaskResult',
-        'requestId'                 => 'RequestId',
-        'resultCode'                => 'ResultCode',
-        'resultMessage'             => 'ResultMessage',
+        'requestId' => 'RequestId',
+        'resultCode' => 'ResultCode',
+        'resultMessage' => 'ResultMessage',
     ];
 
     public function validate()
     {
+        if (null !== $this->listMcubeNebulaTaskResult) {
+            $this->listMcubeNebulaTaskResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listMcubeNebulaTaskResult) {
-            $res['ListMcubeNebulaTaskResult'] = null !== $this->listMcubeNebulaTaskResult ? $this->listMcubeNebulaTaskResult->toMap() : null;
+            $res['ListMcubeNebulaTaskResult'] = null !== $this->listMcubeNebulaTaskResult ? $this->listMcubeNebulaTaskResult->toArray($noStream) : $this->listMcubeNebulaTaskResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resultCode) {
             $res['ResultCode'] = $this->resultCode;
         }
+
         if (null !== $this->resultMessage) {
             $res['ResultMessage'] = $this->resultMessage;
         }
@@ -58,23 +65,26 @@ class ListMcubeNebulaTasksResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMcubeNebulaTasksResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ListMcubeNebulaTaskResult'])) {
             $model->listMcubeNebulaTaskResult = listMcubeNebulaTaskResult::fromMap($map['ListMcubeNebulaTaskResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResultCode'])) {
             $model->resultCode = $map['ResultCode'];
         }
+
         if (isset($map['ResultMessage'])) {
             $model->resultMessage = $map['ResultMessage'];
         }

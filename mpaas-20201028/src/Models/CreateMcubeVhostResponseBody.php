@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\CreateMcubeVhostResponseBody\createVhostResult;
-use AlibabaCloud\Tea\Model;
 
 class CreateMcubeVhostResponseBody extends Model
 {
@@ -30,27 +30,34 @@ class CreateMcubeVhostResponseBody extends Model
     public $resultMessage;
     protected $_name = [
         'createVhostResult' => 'CreateVhostResult',
-        'requestId'         => 'RequestId',
-        'resultCode'        => 'ResultCode',
-        'resultMessage'     => 'ResultMessage',
+        'requestId' => 'RequestId',
+        'resultCode' => 'ResultCode',
+        'resultMessage' => 'ResultMessage',
     ];
 
     public function validate()
     {
+        if (null !== $this->createVhostResult) {
+            $this->createVhostResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createVhostResult) {
-            $res['CreateVhostResult'] = null !== $this->createVhostResult ? $this->createVhostResult->toMap() : null;
+            $res['CreateVhostResult'] = null !== $this->createVhostResult ? $this->createVhostResult->toArray($noStream) : $this->createVhostResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resultCode) {
             $res['ResultCode'] = $this->resultCode;
         }
+
         if (null !== $this->resultMessage) {
             $res['ResultMessage'] = $this->resultMessage;
         }
@@ -58,23 +65,26 @@ class CreateMcubeVhostResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateMcubeVhostResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateVhostResult'])) {
             $model->createVhostResult = createVhostResult::fromMap($map['CreateVhostResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResultCode'])) {
             $model->resultCode = $map['ResultCode'];
         }
+
         if (isset($map['ResultMessage'])) {
             $model->resultMessage = $map['ResultMessage'];
         }

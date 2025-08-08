@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\MPaaS\V20201028\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MPaaS\V20201028\Models\DeleteMcubeMiniAppResponseBody\deleteMiniResult;
-use AlibabaCloud\Tea\Model;
 
 class DeleteMcubeMiniAppResponseBody extends Model
 {
@@ -30,27 +30,34 @@ class DeleteMcubeMiniAppResponseBody extends Model
     public $resultMessage;
     protected $_name = [
         'deleteMiniResult' => 'DeleteMiniResult',
-        'requestId'        => 'RequestId',
-        'resultCode'       => 'ResultCode',
-        'resultMessage'    => 'ResultMessage',
+        'requestId' => 'RequestId',
+        'resultCode' => 'ResultCode',
+        'resultMessage' => 'ResultMessage',
     ];
 
     public function validate()
     {
+        if (null !== $this->deleteMiniResult) {
+            $this->deleteMiniResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deleteMiniResult) {
-            $res['DeleteMiniResult'] = null !== $this->deleteMiniResult ? $this->deleteMiniResult->toMap() : null;
+            $res['DeleteMiniResult'] = null !== $this->deleteMiniResult ? $this->deleteMiniResult->toArray($noStream) : $this->deleteMiniResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resultCode) {
             $res['ResultCode'] = $this->resultCode;
         }
+
         if (null !== $this->resultMessage) {
             $res['ResultMessage'] = $this->resultMessage;
         }
@@ -58,23 +65,26 @@ class DeleteMcubeMiniAppResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteMcubeMiniAppResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeleteMiniResult'])) {
             $model->deleteMiniResult = deleteMiniResult::fromMap($map['DeleteMiniResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResultCode'])) {
             $model->resultCode = $map['ResultCode'];
         }
+
         if (isset($map['ResultMessage'])) {
             $model->resultMessage = $map['ResultMessage'];
         }
