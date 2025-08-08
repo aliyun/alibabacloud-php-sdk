@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MoMValues extends Model
 {
     /**
-     * @description total
-     *
      * @var int
      */
     public $currentValue;
 
     /**
-     * @description daily addition
-     *
      * @var int
      */
     public $lastDayValue;
 
     /**
-     * @description monthly addition
-     *
      * @var int
      */
     public $lastMonthValue;
@@ -34,17 +28,22 @@ class MoMValues extends Model
         'lastMonthValue' => 'lastMonthValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentValue) {
             $res['currentValue'] = $this->currentValue;
         }
+
         if (null !== $this->lastDayValue) {
             $res['lastDayValue'] = $this->lastDayValue;
         }
+
         if (null !== $this->lastMonthValue) {
             $res['lastMonthValue'] = $this->lastMonthValue;
         }
@@ -52,20 +51,22 @@ class MoMValues extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MoMValues
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['currentValue'])) {
             $model->currentValue = $map['currentValue'];
         }
+
         if (isset($map['lastDayValue'])) {
             $model->lastDayValue = $map['lastDayValue'];
         }
+
         if (isset($map['lastMonthValue'])) {
             $model->lastMonthValue = $map['lastMonthValue'];
         }

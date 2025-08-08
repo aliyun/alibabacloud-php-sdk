@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTableDetailsRequest extends Model
 {
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example ""
-     *
      * @var string
      */
     public $pageToken;
@@ -32,17 +28,22 @@ class ListTableDetailsRequest extends Model
         'tableNamePattern' => 'tableNamePattern',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
+
         if (null !== $this->pageToken) {
             $res['pageToken'] = $this->pageToken;
         }
+
         if (null !== $this->tableNamePattern) {
             $res['tableNamePattern'] = $this->tableNamePattern;
         }
@@ -50,20 +51,22 @@ class ListTableDetailsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTableDetailsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
+
         if (isset($map['pageToken'])) {
             $model->pageToken = $map['pageToken'];
         }
+
         if (isset($map['tableNamePattern'])) {
             $model->tableNamePattern = $map['tableNamePattern'];
         }

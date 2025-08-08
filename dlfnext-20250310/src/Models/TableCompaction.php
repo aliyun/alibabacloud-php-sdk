@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TableCompaction extends Model
 {
@@ -40,23 +40,30 @@ class TableCompaction extends Model
         'tableId' => 'tableId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->catalogId) {
             $res['catalogId'] = $this->catalogId;
         }
+
         if (null !== $this->cuUsage) {
             $res['cuUsage'] = $this->cuUsage;
         }
+
         if (null !== $this->lastCompactedFileTime) {
             $res['lastCompactedFileTime'] = $this->lastCompactedFileTime;
         }
+
         if (null !== $this->maxLevel0FileCount) {
             $res['maxLevel0FileCount'] = $this->maxLevel0FileCount;
         }
+
         if (null !== $this->tableId) {
             $res['tableId'] = $this->tableId;
         }
@@ -64,26 +71,30 @@ class TableCompaction extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TableCompaction
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['catalogId'])) {
             $model->catalogId = $map['catalogId'];
         }
+
         if (isset($map['cuUsage'])) {
             $model->cuUsage = $map['cuUsage'];
         }
+
         if (isset($map['lastCompactedFileTime'])) {
             $model->lastCompactedFileTime = $map['lastCompactedFileTime'];
         }
+
         if (isset($map['maxLevel0FileCount'])) {
             $model->maxLevel0FileCount = $map['maxLevel0FileCount'];
         }
+
         if (isset($map['tableId'])) {
             $model->tableId = $map['tableId'];
         }

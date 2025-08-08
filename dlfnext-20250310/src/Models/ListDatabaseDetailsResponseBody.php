@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDatabaseDetailsResponseBody extends Model
 {
@@ -14,8 +14,6 @@ class ListDatabaseDetailsResponseBody extends Model
     public $databaseDetails;
 
     /**
-     * @example E8ABEB1C3DB893D16576269017992F57
-     *
      * @var string
      */
     public $nextPageToken;
@@ -24,20 +22,28 @@ class ListDatabaseDetailsResponseBody extends Model
         'nextPageToken' => 'nextPageToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->databaseDetails)) {
+            Model::validateArray($this->databaseDetails);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->databaseDetails) {
-            $res['databaseDetails'] = [];
-            if (null !== $this->databaseDetails && \is_array($this->databaseDetails)) {
-                $n = 0;
-                foreach ($this->databaseDetails as $item) {
-                    $res['databaseDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->databaseDetails)) {
+                $res['databaseDetails'] = [];
+                $n1 = 0;
+                foreach ($this->databaseDetails as $item1) {
+                    $res['databaseDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->nextPageToken) {
             $res['nextPageToken'] = $this->nextPageToken;
         }
@@ -45,23 +51,25 @@ class ListDatabaseDetailsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDatabaseDetailsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['databaseDetails'])) {
             if (!empty($map['databaseDetails'])) {
                 $model->databaseDetails = [];
-                $n = 0;
-                foreach ($map['databaseDetails'] as $item) {
-                    $model->databaseDetails[$n++] = null !== $item ? Database::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['databaseDetails'] as $item1) {
+                    $model->databaseDetails[$n1] = Database::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['nextPageToken'])) {
             $model->nextPageToken = $map['nextPageToken'];
         }

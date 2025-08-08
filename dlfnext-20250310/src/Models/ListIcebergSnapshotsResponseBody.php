@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListIcebergSnapshotsResponseBody extends Model
 {
     /**
-     * @example E8ABEB1C3DB893D16576269017992F57
-     *
      * @var string
      */
     public $nextPageToken;
@@ -24,20 +22,28 @@ class ListIcebergSnapshotsResponseBody extends Model
         'snapshots' => 'snapshots',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->snapshots)) {
+            Model::validateArray($this->snapshots);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextPageToken) {
             $res['nextPageToken'] = $this->nextPageToken;
         }
+
         if (null !== $this->snapshots) {
-            $res['snapshots'] = [];
-            if (null !== $this->snapshots && \is_array($this->snapshots)) {
-                $n = 0;
-                foreach ($this->snapshots as $item) {
-                    $res['snapshots'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->snapshots)) {
+                $res['snapshots'] = [];
+                $n1 = 0;
+                foreach ($this->snapshots as $item1) {
+                    $res['snapshots'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -45,23 +51,25 @@ class ListIcebergSnapshotsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListIcebergSnapshotsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['nextPageToken'])) {
             $model->nextPageToken = $map['nextPageToken'];
         }
+
         if (isset($map['snapshots'])) {
             if (!empty($map['snapshots'])) {
                 $model->snapshots = [];
-                $n = 0;
-                foreach ($map['snapshots'] as $item) {
-                    $model->snapshots[$n++] = null !== $item ? IcebergSnapshot::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['snapshots'] as $item1) {
+                    $model->snapshots[$n1] = IcebergSnapshot::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

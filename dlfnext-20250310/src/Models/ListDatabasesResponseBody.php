@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDatabasesResponseBody extends Model
 {
@@ -14,8 +14,6 @@ class ListDatabasesResponseBody extends Model
     public $databases;
 
     /**
-     * @example E8ABEB1C3DB893D16576269017992F57
-     *
      * @var string
      */
     public $nextPageToken;
@@ -24,14 +22,28 @@ class ListDatabasesResponseBody extends Model
         'nextPageToken' => 'nextPageToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->databases)) {
+            Model::validateArray($this->databases);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->databases) {
-            $res['databases'] = $this->databases;
+            if (\is_array($this->databases)) {
+                $res['databases'] = [];
+                $n1 = 0;
+                foreach ($this->databases as $item1) {
+                    $res['databases'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->nextPageToken) {
             $res['nextPageToken'] = $this->nextPageToken;
         }
@@ -39,19 +51,25 @@ class ListDatabasesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDatabasesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['databases'])) {
             if (!empty($map['databases'])) {
-                $model->databases = $map['databases'];
+                $model->databases = [];
+                $n1 = 0;
+                foreach ($map['databases'] as $item1) {
+                    $model->databases[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['nextPageToken'])) {
             $model->nextPageToken = $map['nextPageToken'];
         }

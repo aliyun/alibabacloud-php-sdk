@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListIcebergNamespaceDetailsResponseBody extends Model
 {
@@ -14,8 +14,6 @@ class ListIcebergNamespaceDetailsResponseBody extends Model
     public $namespaceDetails;
 
     /**
-     * @example ""
-     *
      * @var string
      */
     public $nextPageToken;
@@ -24,20 +22,28 @@ class ListIcebergNamespaceDetailsResponseBody extends Model
         'nextPageToken' => 'nextPageToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->namespaceDetails)) {
+            Model::validateArray($this->namespaceDetails);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->namespaceDetails) {
-            $res['namespaceDetails'] = [];
-            if (null !== $this->namespaceDetails && \is_array($this->namespaceDetails)) {
-                $n = 0;
-                foreach ($this->namespaceDetails as $item) {
-                    $res['namespaceDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->namespaceDetails)) {
+                $res['namespaceDetails'] = [];
+                $n1 = 0;
+                foreach ($this->namespaceDetails as $item1) {
+                    $res['namespaceDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->nextPageToken) {
             $res['nextPageToken'] = $this->nextPageToken;
         }
@@ -45,23 +51,25 @@ class ListIcebergNamespaceDetailsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListIcebergNamespaceDetailsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['namespaceDetails'])) {
             if (!empty($map['namespaceDetails'])) {
                 $model->namespaceDetails = [];
-                $n = 0;
-                foreach ($map['namespaceDetails'] as $item) {
-                    $model->namespaceDetails[$n++] = null !== $item ? Namespace_::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['namespaceDetails'] as $item1) {
+                    $model->namespaceDetails[$n1] = Namespace_::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['nextPageToken'])) {
             $model->nextPageToken = $map['nextPageToken'];
         }

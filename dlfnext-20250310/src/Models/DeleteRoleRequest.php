@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteRoleRequest extends Model
 {
     /**
-     * @example acs:dlf::[accountId]:role/role_name
-     *
      * @var string
      */
     public $rolePrincipal;
@@ -18,9 +16,12 @@ class DeleteRoleRequest extends Model
         'rolePrincipal' => 'rolePrincipal',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rolePrincipal) {
@@ -30,11 +31,11 @@ class DeleteRoleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteRoleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

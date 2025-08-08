@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Schema extends Model
 {
@@ -40,67 +40,126 @@ class Schema extends Model
         'primaryKeys' => 'primaryKeys',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fields)) {
+            Model::validateArray($this->fields);
+        }
+        if (\is_array($this->options)) {
+            Model::validateArray($this->options);
+        }
+        if (\is_array($this->partitionKeys)) {
+            Model::validateArray($this->partitionKeys);
+        }
+        if (\is_array($this->primaryKeys)) {
+            Model::validateArray($this->primaryKeys);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->comment) {
             $res['comment'] = $this->comment;
         }
+
         if (null !== $this->fields) {
-            $res['fields'] = [];
-            if (null !== $this->fields && \is_array($this->fields)) {
-                $n = 0;
-                foreach ($this->fields as $item) {
-                    $res['fields'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fields)) {
+                $res['fields'] = [];
+                $n1 = 0;
+                foreach ($this->fields as $item1) {
+                    $res['fields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->options) {
-            $res['options'] = $this->options;
+            if (\is_array($this->options)) {
+                $res['options'] = [];
+                foreach ($this->options as $key1 => $value1) {
+                    $res['options'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->partitionKeys) {
-            $res['partitionKeys'] = $this->partitionKeys;
+            if (\is_array($this->partitionKeys)) {
+                $res['partitionKeys'] = [];
+                $n1 = 0;
+                foreach ($this->partitionKeys as $item1) {
+                    $res['partitionKeys'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->primaryKeys) {
-            $res['primaryKeys'] = $this->primaryKeys;
+            if (\is_array($this->primaryKeys)) {
+                $res['primaryKeys'] = [];
+                $n1 = 0;
+                foreach ($this->primaryKeys as $item1) {
+                    $res['primaryKeys'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Schema
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['comment'])) {
             $model->comment = $map['comment'];
         }
+
         if (isset($map['fields'])) {
             if (!empty($map['fields'])) {
                 $model->fields = [];
-                $n = 0;
-                foreach ($map['fields'] as $item) {
-                    $model->fields[$n++] = null !== $item ? DataField::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['fields'] as $item1) {
+                    $model->fields[$n1] = DataField::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['options'])) {
-            $model->options = $map['options'];
-        }
-        if (isset($map['partitionKeys'])) {
-            if (!empty($map['partitionKeys'])) {
-                $model->partitionKeys = $map['partitionKeys'];
+            if (!empty($map['options'])) {
+                $model->options = [];
+                foreach ($map['options'] as $key1 => $value1) {
+                    $model->options[$key1] = $value1;
+                }
             }
         }
+
+        if (isset($map['partitionKeys'])) {
+            if (!empty($map['partitionKeys'])) {
+                $model->partitionKeys = [];
+                $n1 = 0;
+                foreach ($map['partitionKeys'] as $item1) {
+                    $model->partitionKeys[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['primaryKeys'])) {
             if (!empty($map['primaryKeys'])) {
-                $model->primaryKeys = $map['primaryKeys'];
+                $model->primaryKeys = [];
+                $n1 = 0;
+                foreach ($map['primaryKeys'] as $item1) {
+                    $model->primaryKeys[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Identifier extends Model
 {
@@ -22,14 +22,18 @@ class Identifier extends Model
         'object' => 'object',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->database) {
             $res['database'] = $this->database;
         }
+
         if (null !== $this->object) {
             $res['object'] = $this->object;
         }
@@ -37,17 +41,18 @@ class Identifier extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Identifier
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['database'])) {
             $model->database = $map['database'];
         }
+
         if (isset($map['object'])) {
             $model->object = $map['object'];
         }

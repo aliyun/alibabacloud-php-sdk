@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetCatalogTokenResponseBody extends Model
 {
     /**
-     * @example 1749160909000
-     *
      * @var int
      */
     public $expiresAtMillis;
@@ -24,34 +22,52 @@ class GetCatalogTokenResponseBody extends Model
         'token' => 'token',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->token)) {
+            Model::validateArray($this->token);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expiresAtMillis) {
             $res['expiresAtMillis'] = $this->expiresAtMillis;
         }
+
         if (null !== $this->token) {
-            $res['token'] = $this->token;
+            if (\is_array($this->token)) {
+                $res['token'] = [];
+                foreach ($this->token as $key1 => $value1) {
+                    $res['token'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCatalogTokenResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['expiresAtMillis'])) {
             $model->expiresAtMillis = $map['expiresAtMillis'];
         }
+
         if (isset($map['token'])) {
-            $model->token = $map['token'];
+            if (!empty($map['token'])) {
+                $model->token = [];
+                foreach ($map['token'] as $key1 => $value1) {
+                    $model->token[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

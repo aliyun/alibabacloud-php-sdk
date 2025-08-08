@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IcebergTableMetadata extends Model
 {
@@ -34,70 +34,105 @@ class IcebergTableMetadata extends Model
         'properties' => 'properties',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->currentSnapshot) {
+            $this->currentSnapshot->validate();
+        }
+        if (\is_array($this->fields)) {
+            Model::validateArray($this->fields);
+        }
+        if (\is_array($this->partitionFields)) {
+            Model::validateArray($this->partitionFields);
+        }
+        if (\is_array($this->properties)) {
+            Model::validateArray($this->properties);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentSnapshot) {
-            $res['currentSnapshot'] = null !== $this->currentSnapshot ? $this->currentSnapshot->toMap() : null;
+            $res['currentSnapshot'] = null !== $this->currentSnapshot ? $this->currentSnapshot->toArray($noStream) : $this->currentSnapshot;
         }
+
         if (null !== $this->fields) {
-            $res['fields'] = [];
-            if (null !== $this->fields && \is_array($this->fields)) {
-                $n = 0;
-                foreach ($this->fields as $item) {
-                    $res['fields'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fields)) {
+                $res['fields'] = [];
+                $n1 = 0;
+                foreach ($this->fields as $item1) {
+                    $res['fields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->partitionFields) {
-            $res['partitionFields'] = [];
-            if (null !== $this->partitionFields && \is_array($this->partitionFields)) {
-                $n = 0;
-                foreach ($this->partitionFields as $item) {
-                    $res['partitionFields'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->partitionFields)) {
+                $res['partitionFields'] = [];
+                $n1 = 0;
+                foreach ($this->partitionFields as $item1) {
+                    $res['partitionFields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->properties) {
-            $res['properties'] = $this->properties;
+            if (\is_array($this->properties)) {
+                $res['properties'] = [];
+                foreach ($this->properties as $key1 => $value1) {
+                    $res['properties'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IcebergTableMetadata
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['currentSnapshot'])) {
             $model->currentSnapshot = IcebergSnapshot::fromMap($map['currentSnapshot']);
         }
+
         if (isset($map['fields'])) {
             if (!empty($map['fields'])) {
                 $model->fields = [];
-                $n = 0;
-                foreach ($map['fields'] as $item) {
-                    $model->fields[$n++] = null !== $item ? IcebergNestedField::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['fields'] as $item1) {
+                    $model->fields[$n1] = IcebergNestedField::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['partitionFields'])) {
             if (!empty($map['partitionFields'])) {
                 $model->partitionFields = [];
-                $n = 0;
-                foreach ($map['partitionFields'] as $item) {
-                    $model->partitionFields[$n++] = null !== $item ? IcebergPartitionField::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['partitionFields'] as $item1) {
+                    $model->partitionFields[$n1] = IcebergPartitionField::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['properties'])) {
-            $model->properties = $map['properties'];
+            if (!empty($map['properties'])) {
+                $model->properties = [];
+                foreach ($map['properties'] as $key1 => $value1) {
+                    $model->properties[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

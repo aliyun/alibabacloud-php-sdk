@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models\Permission;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class columns extends Model
 {
@@ -22,37 +22,72 @@ class columns extends Model
         'excludedColumnNames' => 'excludedColumnNames',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->columnNames)) {
+            Model::validateArray($this->columnNames);
+        }
+        if (\is_array($this->excludedColumnNames)) {
+            Model::validateArray($this->excludedColumnNames);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columnNames) {
-            $res['columnNames'] = $this->columnNames;
+            if (\is_array($this->columnNames)) {
+                $res['columnNames'] = [];
+                $n1 = 0;
+                foreach ($this->columnNames as $item1) {
+                    $res['columnNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->excludedColumnNames) {
-            $res['excludedColumnNames'] = $this->excludedColumnNames;
+            if (\is_array($this->excludedColumnNames)) {
+                $res['excludedColumnNames'] = [];
+                $n1 = 0;
+                foreach ($this->excludedColumnNames as $item1) {
+                    $res['excludedColumnNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return columns
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['columnNames'])) {
             if (!empty($map['columnNames'])) {
-                $model->columnNames = $map['columnNames'];
+                $model->columnNames = [];
+                $n1 = 0;
+                foreach ($map['columnNames'] as $item1) {
+                    $model->columnNames[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['excludedColumnNames'])) {
             if (!empty($map['excludedColumnNames'])) {
-                $model->excludedColumnNames = $map['excludedColumnNames'];
+                $model->excludedColumnNames = [];
+                $n1 = 0;
+                foreach ($map['excludedColumnNames'] as $item1) {
+                    $model->excludedColumnNames[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetCatalogSummaryTrendRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 2025-06-01
-     *
      * @var string
      */
     public $endDate;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 2025-05-01
-     *
      * @var string
      */
     public $startDate;
@@ -30,14 +22,18 @@ class GetCatalogSummaryTrendRequest extends Model
         'startDate' => 'startDate',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endDate) {
             $res['endDate'] = $this->endDate;
         }
+
         if (null !== $this->startDate) {
             $res['startDate'] = $this->startDate;
         }
@@ -45,17 +41,18 @@ class GetCatalogSummaryTrendRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCatalogSummaryTrendRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['endDate'])) {
             $model->endDate = $map['endDate'];
         }
+
         if (isset($map['startDate'])) {
             $model->startDate = $map['startDate'];
         }

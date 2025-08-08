@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class FullDataType extends Model
 {
@@ -40,62 +40,87 @@ class FullDataType extends Model
         'value' => 'value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->element) {
+            $this->element->validate();
+        }
+        if (\is_array($this->fields)) {
+            Model::validateArray($this->fields);
+        }
+        if (null !== $this->key) {
+            $this->key->validate();
+        }
+        if (null !== $this->value) {
+            $this->value->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->element) {
-            $res['element'] = null !== $this->element ? $this->element->toMap() : null;
+            $res['element'] = null !== $this->element ? $this->element->toArray($noStream) : $this->element;
         }
+
         if (null !== $this->fields) {
-            $res['fields'] = [];
-            if (null !== $this->fields && \is_array($this->fields)) {
-                $n = 0;
-                foreach ($this->fields as $item) {
-                    $res['fields'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fields)) {
+                $res['fields'] = [];
+                $n1 = 0;
+                foreach ($this->fields as $item1) {
+                    $res['fields'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->key) {
-            $res['key'] = null !== $this->key ? $this->key->toMap() : null;
+            $res['key'] = null !== $this->key ? $this->key->toArray($noStream) : $this->key;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->value) {
-            $res['value'] = null !== $this->value ? $this->value->toMap() : null;
+            $res['value'] = null !== $this->value ? $this->value->toArray($noStream) : $this->value;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FullDataType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['element'])) {
             $model->element = self::fromMap($map['element']);
         }
+
         if (isset($map['fields'])) {
             if (!empty($map['fields'])) {
                 $model->fields = [];
-                $n = 0;
-                foreach ($map['fields'] as $item) {
-                    $model->fields[$n++] = null !== $item ? DataField::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['fields'] as $item1) {
+                    $model->fields[$n1] = DataField::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['key'])) {
             $model->key = self::fromMap($map['key']);
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['value'])) {
             $model->value = self::fromMap($map['value']);
         }

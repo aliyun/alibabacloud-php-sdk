@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Move extends Model
 {
@@ -28,17 +28,22 @@ class Move extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fieldName) {
             $res['fieldName'] = $this->fieldName;
         }
+
         if (null !== $this->referenceFieldName) {
             $res['referenceFieldName'] = $this->referenceFieldName;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -46,20 +51,22 @@ class Move extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Move
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fieldName'])) {
             $model->fieldName = $map['fieldName'];
         }
+
         if (isset($map['referenceFieldName'])) {
             $model->referenceFieldName = $map['referenceFieldName'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

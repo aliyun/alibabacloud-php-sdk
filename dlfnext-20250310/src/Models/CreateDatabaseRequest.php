@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDatabaseRequest extends Model
 {
     /**
-     * @example database_name
-     *
      * @var string
      */
     public $name;
@@ -24,34 +22,52 @@ class CreateDatabaseRequest extends Model
         'options' => 'options',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->options)) {
+            Model::validateArray($this->options);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->options) {
-            $res['options'] = $this->options;
+            if (\is_array($this->options)) {
+                $res['options'] = [];
+                foreach ($this->options as $key1 => $value1) {
+                    $res['options'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDatabaseRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['options'])) {
-            $model->options = $map['options'];
+            if (!empty($map['options'])) {
+                $model->options = [];
+                foreach ($map['options'] as $key1 => $value1) {
+                    $model->options[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

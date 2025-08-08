@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListUsersRequest extends Model
 {
     /**
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example ""
-     *
      * @var string
      */
     public $pageToken;
 
     /**
-     * @example RAM_USER
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @example user_name
-     *
      * @var string
      */
     public $userName;
@@ -42,20 +34,26 @@ class ListUsersRequest extends Model
         'userName' => 'userName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
+
         if (null !== $this->pageToken) {
             $res['pageToken'] = $this->pageToken;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->userName) {
             $res['userName'] = $this->userName;
         }
@@ -63,23 +61,26 @@ class ListUsersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListUsersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
+
         if (isset($map['pageToken'])) {
             $model->pageToken = $map['pageToken'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['userName'])) {
             $model->userName = $map['userName'];
         }

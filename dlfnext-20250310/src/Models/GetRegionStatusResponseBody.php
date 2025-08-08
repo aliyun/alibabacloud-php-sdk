@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRegionStatusResponseBody extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $serviceRoleExists;
 
     /**
-     * @example READY
-     *
      * @var string
      */
     public $status;
@@ -26,14 +22,18 @@ class GetRegionStatusResponseBody extends Model
         'status' => 'status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serviceRoleExists) {
             $res['serviceRoleExists'] = $this->serviceRoleExists;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -41,17 +41,18 @@ class GetRegionStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRegionStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['serviceRoleExists'])) {
             $model->serviceRoleExists = $map['serviceRoleExists'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

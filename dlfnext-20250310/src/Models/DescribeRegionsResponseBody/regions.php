@@ -4,38 +4,26 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models\DescribeRegionsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class regions extends Model
 {
     /**
-     * @description The region description
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The region name
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The region show name
-     *
      * @var string
      */
     public $showName;
 
     /**
-     * @description The region type
-     *
-     * @example region
-     *
      * @var string
      */
     public $type;
@@ -46,20 +34,26 @@ class regions extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->showName) {
             $res['showName'] = $this->showName;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -67,23 +61,26 @@ class regions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return regions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['showName'])) {
             $model->showName = $map['showName'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

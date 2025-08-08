@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTablesResponseBody extends Model
 {
     /**
-     * @example E8ABEB1C3DB893D16576269017992F57
-     *
      * @var string
      */
     public $nextPageToken;
@@ -24,35 +22,55 @@ class ListTablesResponseBody extends Model
         'tables' => 'tables',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tables)) {
+            Model::validateArray($this->tables);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextPageToken) {
             $res['nextPageToken'] = $this->nextPageToken;
         }
+
         if (null !== $this->tables) {
-            $res['tables'] = $this->tables;
+            if (\is_array($this->tables)) {
+                $res['tables'] = [];
+                $n1 = 0;
+                foreach ($this->tables as $item1) {
+                    $res['tables'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTablesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['nextPageToken'])) {
             $model->nextPageToken = $map['nextPageToken'];
         }
+
         if (isset($map['tables'])) {
             if (!empty($map['tables'])) {
-                $model->tables = $map['tables'];
+                $model->tables = [];
+                $n1 = 0;
+                foreach ($map['tables'] as $item1) {
+                    $model->tables[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

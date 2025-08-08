@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\DlfNext\V20250310\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListIcebergTableDetailsResponseBody extends Model
 {
     /**
-     * @example ""
-     *
      * @var string
      */
     public $nextPageToken;
@@ -24,20 +22,28 @@ class ListIcebergTableDetailsResponseBody extends Model
         'tableDetails' => 'tableDetails',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tableDetails)) {
+            Model::validateArray($this->tableDetails);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextPageToken) {
             $res['nextPageToken'] = $this->nextPageToken;
         }
+
         if (null !== $this->tableDetails) {
-            $res['tableDetails'] = [];
-            if (null !== $this->tableDetails && \is_array($this->tableDetails)) {
-                $n = 0;
-                foreach ($this->tableDetails as $item) {
-                    $res['tableDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tableDetails)) {
+                $res['tableDetails'] = [];
+                $n1 = 0;
+                foreach ($this->tableDetails as $item1) {
+                    $res['tableDetails'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -45,23 +51,25 @@ class ListIcebergTableDetailsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListIcebergTableDetailsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['nextPageToken'])) {
             $model->nextPageToken = $map['nextPageToken'];
         }
+
         if (isset($map['tableDetails'])) {
             if (!empty($map['tableDetails'])) {
                 $model->tableDetails = [];
-                $n = 0;
-                foreach ($map['tableDetails'] as $item) {
-                    $model->tableDetails[$n++] = null !== $item ? IcebergTable::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['tableDetails'] as $item1) {
+                    $model->tableDetails[$n1] = IcebergTable::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
