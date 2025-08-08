@@ -19,6 +19,11 @@ class Toolset extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $generation;
+
+    /**
      * @var string
      */
     public $kind;
@@ -50,6 +55,7 @@ class Toolset extends Model
     protected $_name = [
         'createdTime' => 'createdTime',
         'description' => 'description',
+        'generation' => 'generation',
         'kind' => 'kind',
         'labels' => 'labels',
         'name' => 'name',
@@ -81,6 +87,10 @@ class Toolset extends Model
 
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+
+        if (null !== $this->generation) {
+            $res['generation'] = $this->generation;
         }
 
         if (null !== $this->kind) {
@@ -129,6 +139,10 @@ class Toolset extends Model
 
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+
+        if (isset($map['generation'])) {
+            $model->generation = $map['generation'];
         }
 
         if (isset($map['kind'])) {

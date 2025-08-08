@@ -25,6 +25,11 @@ class modelConfig extends Model
     public $prefix;
 
     /**
+     * @var bool
+     */
+    public $skipDownload;
+
+    /**
      * @var string
      */
     public $sourceType;
@@ -63,10 +68,21 @@ class modelConfig extends Model
      * @var string
      */
     public $syncStrategy;
+
+    /**
+     * @var bool
+     */
+    public $withPPU;
+
+    /**
+     * @var string
+     */
+    public $workingDir;
     protected $_name = [
         'framework' => 'framework',
         'multiModelConfig' => 'multiModelConfig',
         'prefix' => 'prefix',
+        'skipDownload' => 'skipDownload',
         'sourceType' => 'sourceType',
         'srcModelScopeModelID' => 'srcModelScopeModelID',
         'srcModelScopeModelRevision' => 'srcModelScopeModelRevision',
@@ -75,6 +91,8 @@ class modelConfig extends Model
         'srcOssPath' => 'srcOssPath',
         'srcOssRegion' => 'srcOssRegion',
         'syncStrategy' => 'syncStrategy',
+        'withPPU' => 'withPPU',
+        'workingDir' => 'workingDir',
     ];
 
     public function validate()
@@ -97,13 +115,18 @@ class modelConfig extends Model
                 $res['multiModelConfig'] = [];
                 $n1 = 0;
                 foreach ($this->multiModelConfig as $item1) {
-                    $res['multiModelConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['multiModelConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
 
         if (null !== $this->prefix) {
             $res['prefix'] = $this->prefix;
+        }
+
+        if (null !== $this->skipDownload) {
+            $res['skipDownload'] = $this->skipDownload;
         }
 
         if (null !== $this->sourceType) {
@@ -138,6 +161,14 @@ class modelConfig extends Model
             $res['syncStrategy'] = $this->syncStrategy;
         }
 
+        if (null !== $this->withPPU) {
+            $res['withPPU'] = $this->withPPU;
+        }
+
+        if (null !== $this->workingDir) {
+            $res['workingDir'] = $this->workingDir;
+        }
+
         return $res;
     }
 
@@ -158,13 +189,18 @@ class modelConfig extends Model
                 $model->multiModelConfig = [];
                 $n1 = 0;
                 foreach ($map['multiModelConfig'] as $item1) {
-                    $model->multiModelConfig[$n1++] = self::fromMap($item1);
+                    $model->multiModelConfig[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
 
         if (isset($map['prefix'])) {
             $model->prefix = $map['prefix'];
+        }
+
+        if (isset($map['skipDownload'])) {
+            $model->skipDownload = $map['skipDownload'];
         }
 
         if (isset($map['sourceType'])) {
@@ -197,6 +233,14 @@ class modelConfig extends Model
 
         if (isset($map['syncStrategy'])) {
             $model->syncStrategy = $map['syncStrategy'];
+        }
+
+        if (isset($map['withPPU'])) {
+            $model->withPPU = $map['withPPU'];
+        }
+
+        if (isset($map['workingDir'])) {
+            $model->workingDir = $map['workingDir'];
         }
 
         return $model;

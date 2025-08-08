@@ -85,7 +85,8 @@ class customContainerConfig extends Model
                 $res['command'] = [];
                 $n1 = 0;
                 foreach ($this->command as $item1) {
-                    $res['command'][$n1++] = $item1;
+                    $res['command'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,7 +96,8 @@ class customContainerConfig extends Model
                 $res['entrypoint'] = [];
                 $n1 = 0;
                 foreach ($this->entrypoint as $item1) {
-                    $res['entrypoint'][$n1++] = $item1;
+                    $res['entrypoint'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +142,8 @@ class customContainerConfig extends Model
                 $model->command = [];
                 $n1 = 0;
                 foreach ($map['command'] as $item1) {
-                    $model->command[$n1++] = $item1;
+                    $model->command[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -150,7 +153,8 @@ class customContainerConfig extends Model
                 $model->entrypoint = [];
                 $n1 = 0;
                 foreach ($map['entrypoint'] as $item1) {
-                    $model->entrypoint[$n1++] = $item1;
+                    $model->entrypoint[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

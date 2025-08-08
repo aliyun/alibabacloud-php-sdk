@@ -32,7 +32,8 @@ class InitializeConfig extends Model
                 $res['steps'] = [];
                 $n1 = 0;
                 foreach ($this->steps as $item1) {
-                    $res['steps'][$n1++] = $item1;
+                    $res['steps'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class InitializeConfig extends Model
                 $model->steps = [];
                 $n1 = 0;
                 foreach ($map['steps'] as $item1) {
-                    $model->steps[$n1++] = $item1;
+                    $model->steps[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

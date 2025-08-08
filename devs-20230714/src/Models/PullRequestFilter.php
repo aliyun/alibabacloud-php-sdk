@@ -52,7 +52,8 @@ class PullRequestFilter extends Model
                 $res['types'] = [];
                 $n1 = 0;
                 foreach ($this->types as $item1) {
-                    $res['types'][$n1++] = $item1;
+                    $res['types'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -81,7 +82,8 @@ class PullRequestFilter extends Model
                 $model->types = [];
                 $n1 = 0;
                 foreach ($map['types'] as $item1) {
-                    $model->types[$n1++] = $item1;
+                    $model->types[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

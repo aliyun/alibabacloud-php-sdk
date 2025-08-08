@@ -60,7 +60,8 @@ class DefaultBuilderConfig extends Model
                 $res['languages'] = [];
                 $n1 = 0;
                 foreach ($this->languages as $item1) {
-                    $res['languages'][$n1++] = $item1;
+                    $res['languages'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,7 +75,8 @@ class DefaultBuilderConfig extends Model
                 $res['steps'] = [];
                 $n1 = 0;
                 foreach ($this->steps as $item1) {
-                    $res['steps'][$n1++] = $item1;
+                    $res['steps'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,7 +101,8 @@ class DefaultBuilderConfig extends Model
                 $model->languages = [];
                 $n1 = 0;
                 foreach ($map['languages'] as $item1) {
-                    $model->languages[$n1++] = $item1;
+                    $model->languages[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -113,7 +116,8 @@ class DefaultBuilderConfig extends Model
                 $model->steps = [];
                 $n1 = 0;
                 foreach ($map['steps'] as $item1) {
-                    $model->steps[$n1++] = $item1;
+                    $model->steps[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

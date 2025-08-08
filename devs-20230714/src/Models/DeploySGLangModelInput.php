@@ -6,11 +6,14 @@ namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\concurrencyConfig;
+use AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\customContainerConfig;
+use AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\featureGates;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\gpuConfig;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\httpTrigger;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\logConfig;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\modelConfig;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\nasConfig;
+use AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\ossMountConfig;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\provisionConfig;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeploySGLangModelInput\vpcConfig;
 
@@ -32,6 +35,11 @@ class DeploySGLangModelInput extends Model
     public $cpu;
 
     /**
+     * @var customContainerConfig
+     */
+    public $customContainerConfig;
+
+    /**
      * @var string
      */
     public $description;
@@ -50,6 +58,11 @@ class DeploySGLangModelInput extends Model
      * @var mixed[]
      */
     public $environmentVariables;
+
+    /**
+     * @var featureGates
+     */
+    public $featureGates;
 
     /**
      * @var gpuConfig
@@ -102,6 +115,11 @@ class DeploySGLangModelInput extends Model
     public $originalName;
 
     /**
+     * @var ossMountConfig
+     */
+    public $ossMountConfig;
+
+    /**
      * @var string
      */
     public $projectName;
@@ -144,10 +162,12 @@ class DeploySGLangModelInput extends Model
         'accountID' => 'accountID',
         'concurrencyConfig' => 'concurrencyConfig',
         'cpu' => 'cpu',
+        'customContainerConfig' => 'customContainerConfig',
         'description' => 'description',
         'diskSize' => 'diskSize',
         'envName' => 'envName',
         'environmentVariables' => 'environmentVariables',
+        'featureGates' => 'featureGates',
         'gpuConfig' => 'gpuConfig',
         'httpTrigger' => 'httpTrigger',
         'imageName' => 'imageName',
@@ -158,6 +178,7 @@ class DeploySGLangModelInput extends Model
         'name' => 'name',
         'nasConfig' => 'nasConfig',
         'originalName' => 'originalName',
+        'ossMountConfig' => 'ossMountConfig',
         'projectName' => 'projectName',
         'provisionConfig' => 'provisionConfig',
         'region' => 'region',
@@ -173,8 +194,14 @@ class DeploySGLangModelInput extends Model
         if (null !== $this->concurrencyConfig) {
             $this->concurrencyConfig->validate();
         }
+        if (null !== $this->customContainerConfig) {
+            $this->customContainerConfig->validate();
+        }
         if (\is_array($this->environmentVariables)) {
             Model::validateArray($this->environmentVariables);
+        }
+        if (null !== $this->featureGates) {
+            $this->featureGates->validate();
         }
         if (null !== $this->gpuConfig) {
             $this->gpuConfig->validate();
@@ -190,6 +217,9 @@ class DeploySGLangModelInput extends Model
         }
         if (null !== $this->nasConfig) {
             $this->nasConfig->validate();
+        }
+        if (null !== $this->ossMountConfig) {
+            $this->ossMountConfig->validate();
         }
         if (null !== $this->provisionConfig) {
             $this->provisionConfig->validate();
@@ -215,6 +245,10 @@ class DeploySGLangModelInput extends Model
             $res['cpu'] = $this->cpu;
         }
 
+        if (null !== $this->customContainerConfig) {
+            $res['customContainerConfig'] = null !== $this->customContainerConfig ? $this->customContainerConfig->toArray($noStream) : $this->customContainerConfig;
+        }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -234,6 +268,10 @@ class DeploySGLangModelInput extends Model
                     $res['environmentVariables'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->featureGates) {
+            $res['featureGates'] = null !== $this->featureGates ? $this->featureGates->toArray($noStream) : $this->featureGates;
         }
 
         if (null !== $this->gpuConfig) {
@@ -274,6 +312,10 @@ class DeploySGLangModelInput extends Model
 
         if (null !== $this->originalName) {
             $res['originalName'] = $this->originalName;
+        }
+
+        if (null !== $this->ossMountConfig) {
+            $res['ossMountConfig'] = null !== $this->ossMountConfig ? $this->ossMountConfig->toArray($noStream) : $this->ossMountConfig;
         }
 
         if (null !== $this->projectName) {
@@ -331,6 +373,10 @@ class DeploySGLangModelInput extends Model
             $model->cpu = $map['cpu'];
         }
 
+        if (isset($map['customContainerConfig'])) {
+            $model->customContainerConfig = customContainerConfig::fromMap($map['customContainerConfig']);
+        }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
@@ -350,6 +396,10 @@ class DeploySGLangModelInput extends Model
                     $model->environmentVariables[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['featureGates'])) {
+            $model->featureGates = featureGates::fromMap($map['featureGates']);
         }
 
         if (isset($map['gpuConfig'])) {
@@ -390,6 +440,10 @@ class DeploySGLangModelInput extends Model
 
         if (isset($map['originalName'])) {
             $model->originalName = $map['originalName'];
+        }
+
+        if (isset($map['ossMountConfig'])) {
+            $model->ossMountConfig = ossMountConfig::fromMap($map['ossMountConfig']);
         }
 
         if (isset($map['projectName'])) {

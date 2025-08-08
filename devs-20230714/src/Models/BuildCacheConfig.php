@@ -50,7 +50,8 @@ class BuildCacheConfig extends Model
                 $res['paths'] = [];
                 $n1 = 0;
                 foreach ($this->paths as $item1) {
-                    $res['paths'][$n1++] = $item1;
+                    $res['paths'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -80,7 +81,8 @@ class BuildCacheConfig extends Model
                 $model->paths = [];
                 $n1 = 0;
                 foreach ($map['paths'] as $item1) {
-                    $model->paths[$n1++] = $item1;
+                    $model->paths[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

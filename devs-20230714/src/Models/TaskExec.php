@@ -61,7 +61,8 @@ class TaskExec extends Model
                 $res['runAfters'] = [];
                 $n1 = 0;
                 foreach ($this->runAfters as $item1) {
-                    $res['runAfters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['runAfters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class TaskExec extends Model
                 $model->runAfters = [];
                 $n1 = 0;
                 foreach ($map['runAfters'] as $item1) {
-                    $model->runAfters[$n1++] = RunAfter::fromMap($item1);
+                    $model->runAfters[$n1] = RunAfter::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeployCustomContainerInput\asyncInvokeConfig;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeployCustomContainerInput\concurrencyConfig;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeployCustomContainerInput\customContainerConfig;
+use AlibabaCloud\SDK\Devs\V20230714\Models\DeployCustomContainerInput\featureGates;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeployCustomContainerInput\gpuConfig;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeployCustomContainerInput\httpTrigger;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeployCustomContainerInput\logConfig;
@@ -63,6 +64,11 @@ class DeployCustomContainerInput extends Model
      * @var mixed[]
      */
     public $environmentVariables;
+
+    /**
+     * @var featureGates
+     */
+    public $featureGates;
 
     /**
      * @var gpuConfig
@@ -158,6 +164,7 @@ class DeployCustomContainerInput extends Model
         'diskSize' => 'diskSize',
         'envName' => 'envName',
         'environmentVariables' => 'environmentVariables',
+        'featureGates' => 'featureGates',
         'gpuConfig' => 'gpuConfig',
         'httpTrigger' => 'httpTrigger',
         'logConfig' => 'logConfig',
@@ -190,6 +197,9 @@ class DeployCustomContainerInput extends Model
         }
         if (\is_array($this->environmentVariables)) {
             Model::validateArray($this->environmentVariables);
+        }
+        if (null !== $this->featureGates) {
+            $this->featureGates->validate();
         }
         if (null !== $this->gpuConfig) {
             $this->gpuConfig->validate();
@@ -260,6 +270,10 @@ class DeployCustomContainerInput extends Model
                     $res['environmentVariables'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->featureGates) {
+            $res['featureGates'] = null !== $this->featureGates ? $this->featureGates->toArray($noStream) : $this->featureGates;
         }
 
         if (null !== $this->gpuConfig) {
@@ -380,6 +394,10 @@ class DeployCustomContainerInput extends Model
                     $model->environmentVariables[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['featureGates'])) {
+            $model->featureGates = featureGates::fromMap($map['featureGates']);
         }
 
         if (isset($map['gpuConfig'])) {

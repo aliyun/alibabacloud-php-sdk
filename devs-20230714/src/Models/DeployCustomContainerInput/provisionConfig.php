@@ -49,7 +49,8 @@ class provisionConfig extends Model
                 $res['scheduledActions'] = [];
                 $n1 = 0;
                 foreach ($this->scheduledActions as $item1) {
-                    $res['scheduledActions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['scheduledActions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class provisionConfig extends Model
                 $model->scheduledActions = [];
                 $n1 = 0;
                 foreach ($map['scheduledActions'] as $item1) {
-                    $model->scheduledActions[$n1++] = scheduledActions::fromMap($item1);
+                    $model->scheduledActions[$n1] = scheduledActions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -62,7 +62,8 @@ class TaskStatus extends Model
                 $res['executionDetails'] = [];
                 $n1 = 0;
                 foreach ($this->executionDetails as $item1) {
-                    $res['executionDetails'][$n1++] = $item1;
+                    $res['executionDetails'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -72,7 +73,8 @@ class TaskStatus extends Model
                 $res['invocations'] = [];
                 $n1 = 0;
                 foreach ($this->invocations as $item1) {
-                    $res['invocations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['invocations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -105,7 +107,8 @@ class TaskStatus extends Model
                 $model->executionDetails = [];
                 $n1 = 0;
                 foreach ($map['executionDetails'] as $item1) {
-                    $model->executionDetails[$n1++] = $item1;
+                    $model->executionDetails[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -115,7 +118,8 @@ class TaskStatus extends Model
                 $model->invocations = [];
                 $n1 = 0;
                 foreach ($map['invocations'] as $item1) {
-                    $model->invocations[$n1++] = TaskInvocation::fromMap($item1);
+                    $model->invocations[$n1] = TaskInvocation::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -44,7 +44,8 @@ class roleExtension extends Model
                 $res['authorities'] = [];
                 $n1 = 0;
                 foreach ($this->authorities as $item1) {
-                    $res['authorities'][$n1++] = $item1;
+                    $res['authorities'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -73,7 +74,8 @@ class roleExtension extends Model
                 $model->authorities = [];
                 $n1 = 0;
                 foreach ($map['authorities'] as $item1) {
-                    $model->authorities[$n1++] = $item1;
+                    $model->authorities[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

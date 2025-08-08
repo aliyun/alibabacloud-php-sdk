@@ -32,7 +32,8 @@ class ListPipelinesRequest extends Model
                 $res['labelSelector'] = [];
                 $n1 = 0;
                 foreach ($this->labelSelector as $item1) {
-                    $res['labelSelector'][$n1++] = $item1;
+                    $res['labelSelector'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class ListPipelinesRequest extends Model
                 $model->labelSelector = [];
                 $n1 = 0;
                 foreach ($map['labelSelector'] as $item1) {
-                    $model->labelSelector[$n1++] = $item1;
+                    $model->labelSelector[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -92,7 +92,8 @@ class TemplateParameterSchema extends Model
                 $res['enum'] = [];
                 $n1 = 0;
                 foreach ($this->enum as $item1) {
-                    $res['enum'][$n1++] = $item1;
+                    $res['enum'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -145,7 +146,8 @@ class TemplateParameterSchema extends Model
                 $model->enum = [];
                 $n1 = 0;
                 foreach ($map['enum'] as $item1) {
-                    $model->enum[$n1++] = $item1;
+                    $model->enum[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

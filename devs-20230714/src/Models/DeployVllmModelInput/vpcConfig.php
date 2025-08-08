@@ -48,7 +48,8 @@ class vpcConfig extends Model
                 $res['vSwitchIds'] = [];
                 $n1 = 0;
                 foreach ($this->vSwitchIds as $item1) {
-                    $res['vSwitchIds'][$n1++] = $item1;
+                    $res['vSwitchIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class vpcConfig extends Model
                 $model->vSwitchIds = [];
                 $n1 = 0;
                 foreach ($map['vSwitchIds'] as $item1) {
-                    $model->vSwitchIds[$n1++] = $item1;
+                    $model->vSwitchIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

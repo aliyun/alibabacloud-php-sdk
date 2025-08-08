@@ -11,6 +11,11 @@ class triggerConfig extends Model
     /**
      * @var string
      */
+    public $authConfig;
+
+    /**
+     * @var string
+     */
     public $authType;
 
     /**
@@ -28,6 +33,7 @@ class triggerConfig extends Model
      */
     public $methods;
     protected $_name = [
+        'authConfig' => 'authConfig',
         'authType' => 'authType',
         'disableURLInternet' => 'disableURLInternet',
         'dsableURLInternet' => 'dsableURLInternet',
@@ -45,6 +51,10 @@ class triggerConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->authConfig) {
+            $res['authConfig'] = $this->authConfig;
+        }
+
         if (null !== $this->authType) {
             $res['authType'] = $this->authType;
         }
@@ -62,7 +72,8 @@ class triggerConfig extends Model
                 $res['methods'] = [];
                 $n1 = 0;
                 foreach ($this->methods as $item1) {
-                    $res['methods'][$n1++] = $item1;
+                    $res['methods'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,6 +89,10 @@ class triggerConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['authConfig'])) {
+            $model->authConfig = $map['authConfig'];
+        }
+
         if (isset($map['authType'])) {
             $model->authType = $map['authType'];
         }
@@ -95,7 +110,8 @@ class triggerConfig extends Model
                 $model->methods = [];
                 $n1 = 0;
                 foreach ($map['methods'] as $item1) {
-                    $model->methods[$n1++] = $item1;
+                    $model->methods[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

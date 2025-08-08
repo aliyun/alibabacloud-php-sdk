@@ -80,7 +80,8 @@ class EnvironmentStatus extends Model
                 $res['servicesWithPendingChanges'] = [];
                 $n1 = 0;
                 foreach ($this->servicesWithPendingChanges as $item1) {
-                    $res['servicesWithPendingChanges'][$n1++] = $item1;
+                    $res['servicesWithPendingChanges'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +123,8 @@ class EnvironmentStatus extends Model
                 $model->servicesWithPendingChanges = [];
                 $n1 = 0;
                 foreach ($map['servicesWithPendingChanges'] as $item1) {
-                    $model->servicesWithPendingChanges[$n1++] = $item1;
+                    $model->servicesWithPendingChanges[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

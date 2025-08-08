@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class GitLabConfig extends Model
 {
     /**
+     * @var bool
+     */
+    public $isFixedIP;
+
+    /**
      * @var string
      */
     public $token;
@@ -18,6 +23,7 @@ class GitLabConfig extends Model
      */
     public $uri;
     protected $_name = [
+        'isFixedIP' => 'isFixedIP',
         'token' => 'token',
         'uri' => 'uri',
     ];
@@ -30,6 +36,10 @@ class GitLabConfig extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->isFixedIP) {
+            $res['isFixedIP'] = $this->isFixedIP;
+        }
+
         if (null !== $this->token) {
             $res['token'] = $this->token;
         }
@@ -49,6 +59,10 @@ class GitLabConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['isFixedIP'])) {
+            $model->isFixedIP = $map['isFixedIP'];
+        }
+
         if (isset($map['token'])) {
             $model->token = $map['token'];
         }

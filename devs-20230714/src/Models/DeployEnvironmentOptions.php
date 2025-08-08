@@ -32,7 +32,8 @@ class DeployEnvironmentOptions extends Model
                 $res['services'] = [];
                 $n1 = 0;
                 foreach ($this->services as $item1) {
-                    $res['services'][$n1++] = $item1;
+                    $res['services'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,7 +54,8 @@ class DeployEnvironmentOptions extends Model
                 $model->services = [];
                 $n1 = 0;
                 foreach ($map['services'] as $item1) {
-                    $model->services[$n1++] = $item1;
+                    $model->services[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

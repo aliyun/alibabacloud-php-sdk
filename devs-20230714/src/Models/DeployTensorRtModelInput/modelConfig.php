@@ -97,7 +97,8 @@ class modelConfig extends Model
                 $res['multiModelConfig'] = [];
                 $n1 = 0;
                 foreach ($this->multiModelConfig as $item1) {
-                    $res['multiModelConfig'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['multiModelConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +159,8 @@ class modelConfig extends Model
                 $model->multiModelConfig = [];
                 $n1 = 0;
                 foreach ($map['multiModelConfig'] as $item1) {
-                    $model->multiModelConfig[$n1++] = self::fromMap($item1);
+                    $model->multiModelConfig[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -48,7 +48,8 @@ class nasConfig extends Model
                 $res['mountPoints'] = [];
                 $n1 = 0;
                 foreach ($this->mountPoints as $item1) {
-                    $res['mountPoints'][$n1++] = $item1;
+                    $res['mountPoints'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -77,7 +78,8 @@ class nasConfig extends Model
                 $model->mountPoints = [];
                 $n1 = 0;
                 foreach ($map['mountPoints'] as $item1) {
-                    $model->mountPoints[$n1++] = $item1;
+                    $model->mountPoints[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

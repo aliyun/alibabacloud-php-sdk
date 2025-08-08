@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Devs\V20230714\Models\ToolsetStatus\outputs;
 
 class ToolsetStatus extends Model
 {
@@ -19,7 +20,7 @@ class ToolsetStatus extends Model
     public $observedTime;
 
     /**
-     * @var mixed[]
+     * @var outputs
      */
     public $outputs;
 
@@ -36,8 +37,8 @@ class ToolsetStatus extends Model
 
     public function validate()
     {
-        if (\is_array($this->outputs)) {
-            Model::validateArray($this->outputs);
+        if (null !== $this->outputs) {
+            $this->outputs->validate();
         }
         parent::validate();
     }
@@ -54,12 +55,7 @@ class ToolsetStatus extends Model
         }
 
         if (null !== $this->outputs) {
-            if (\is_array($this->outputs)) {
-                $res['outputs'] = [];
-                foreach ($this->outputs as $key1 => $value1) {
-                    $res['outputs'][$key1] = $value1;
-                }
-            }
+            $res['outputs'] = null !== $this->outputs ? $this->outputs->toArray($noStream) : $this->outputs;
         }
 
         if (null !== $this->phase) {
@@ -86,12 +82,7 @@ class ToolsetStatus extends Model
         }
 
         if (isset($map['outputs'])) {
-            if (!empty($map['outputs'])) {
-                $model->outputs = [];
-                foreach ($map['outputs'] as $key1 => $value1) {
-                    $model->outputs[$key1] = $value1;
-                }
-            }
+            $model->outputs = outputs::fromMap($map['outputs']);
         }
 
         if (isset($map['phase'])) {

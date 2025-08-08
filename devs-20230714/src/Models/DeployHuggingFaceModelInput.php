@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeployHuggingFaceModelInput\concurrencyConfig;
+use AlibabaCloud\SDK\Devs\V20230714\Models\DeployHuggingFaceModelInput\featureGates;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeployHuggingFaceModelInput\gpuConfig;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeployHuggingFaceModelInput\httpTrigger;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeployHuggingFaceModelInput\logConfig;
@@ -50,6 +51,11 @@ class DeployHuggingFaceModelInput extends Model
      * @var mixed[]
      */
     public $environmentVariables;
+
+    /**
+     * @var featureGates
+     */
+    public $featureGates;
 
     /**
      * @var gpuConfig
@@ -148,6 +154,7 @@ class DeployHuggingFaceModelInput extends Model
         'diskSize' => 'diskSize',
         'envName' => 'envName',
         'environmentVariables' => 'environmentVariables',
+        'featureGates' => 'featureGates',
         'gpuConfig' => 'gpuConfig',
         'httpTrigger' => 'httpTrigger',
         'imageName' => 'imageName',
@@ -175,6 +182,9 @@ class DeployHuggingFaceModelInput extends Model
         }
         if (\is_array($this->environmentVariables)) {
             Model::validateArray($this->environmentVariables);
+        }
+        if (null !== $this->featureGates) {
+            $this->featureGates->validate();
         }
         if (null !== $this->gpuConfig) {
             $this->gpuConfig->validate();
@@ -234,6 +244,10 @@ class DeployHuggingFaceModelInput extends Model
                     $res['environmentVariables'][$key1] = $value1;
                 }
             }
+        }
+
+        if (null !== $this->featureGates) {
+            $res['featureGates'] = null !== $this->featureGates ? $this->featureGates->toArray($noStream) : $this->featureGates;
         }
 
         if (null !== $this->gpuConfig) {
@@ -350,6 +364,10 @@ class DeployHuggingFaceModelInput extends Model
                     $model->environmentVariables[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['featureGates'])) {
+            $model->featureGates = featureGates::fromMap($map['featureGates']);
         }
 
         if (isset($map['gpuConfig'])) {
