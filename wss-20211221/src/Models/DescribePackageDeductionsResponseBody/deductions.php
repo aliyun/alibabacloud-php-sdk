@@ -36,6 +36,11 @@ class deductions extends Model
     /**
      * @var string
      */
+    public $groupResourceType;
+
+    /**
+     * @var string
+     */
     public $instanceId;
 
     /**
@@ -98,6 +103,7 @@ class deductions extends Model
         'desktopName' => 'DesktopName',
         'desktopType' => 'DesktopType',
         'endTime' => 'EndTime',
+        'groupResourceType' => 'GroupResourceType',
         'instanceId' => 'InstanceId',
         'instanceState' => 'InstanceState',
         'instanceType' => 'InstanceType',
@@ -138,6 +144,10 @@ class deductions extends Model
 
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+
+        if (null !== $this->groupResourceType) {
+            $res['GroupResourceType'] = $this->groupResourceType;
         }
 
         if (null !== $this->instanceId) {
@@ -217,6 +227,10 @@ class deductions extends Model
 
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+
+        if (isset($map['GroupResourceType'])) {
+            $model->groupResourceType = $map['GroupResourceType'];
         }
 
         if (isset($map['InstanceId'])) {
