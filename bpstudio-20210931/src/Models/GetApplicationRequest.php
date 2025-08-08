@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetApplicationRequest extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * This parameter is required.
-     *
-     * @example VVK605ZH00OA4MRT
-     *
      * @var string
      */
     public $applicationId;
 
     /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-acfmyjt3c5om3hi
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -32,14 +22,18 @@ class GetApplicationRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -47,17 +41,18 @@ class GetApplicationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetApplicationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPotentialFailZonesRequest extends Model
 {
     /**
-     * @description Specifies whether the value of this parameter is the ID of a disaster recovery set.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isPlanId;
 
     /**
-     * @description If you set IsPlanId to false, specify the ID of a disaster recovery application. If you set IsPlanId to true, specify the ID of a disaster recovery set.
-     *
-     * @example FS3ATPTOSC4SE1GG
-     *
      * @var string
      */
     public $objectId;
@@ -30,14 +22,18 @@ class GetPotentialFailZonesRequest extends Model
         'objectId' => 'ObjectId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isPlanId) {
             $res['IsPlanId'] = $this->isPlanId;
         }
+
         if (null !== $this->objectId) {
             $res['ObjectId'] = $this->objectId;
         }
@@ -45,17 +41,18 @@ class GetPotentialFailZonesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPotentialFailZonesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsPlanId'])) {
             $model->isPlanId = $map['IsPlanId'];
         }
+
         if (isset($map['ObjectId'])) {
             $model->objectId = $map['ObjectId'];
         }

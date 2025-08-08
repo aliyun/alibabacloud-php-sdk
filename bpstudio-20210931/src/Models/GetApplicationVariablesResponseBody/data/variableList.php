@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models\GetApplicationVariablesResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class variableList extends Model
 {
     /**
-     * @example ecs.c6.4xlarge
-     *
      * @var string
      */
     public $value;
 
     /**
-     * @example ${instance_type}
-     *
      * @var string
      */
     public $variable;
@@ -26,14 +22,18 @@ class variableList extends Model
         'variable' => 'Variable',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
+
         if (null !== $this->variable) {
             $res['Variable'] = $this->variable;
         }
@@ -41,17 +41,18 @@ class variableList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return variableList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
+
         if (isset($map['Variable'])) {
             $model->variable = $map['Variable'];
         }

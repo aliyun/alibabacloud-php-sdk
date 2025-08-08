@@ -4,43 +4,26 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models\ListFoCreatedAppsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The application ID.
-     *
-     * @example JIX9NEZUALGS46UI
-     *
      * @var string
      */
     public $applicationId;
 
     /**
-     * @description The URL of the error report.
-     *
-     * @example https://api.aliyun.com/troubleshoot?q=ServiceUnavailable&product=BPStudio&requestId=4CDA03A3-C652-1408-8ABD-7E652A7CBFB6
-     *
      * @var string
      */
     public $reportUrl;
 
     /**
-     * @description The state of the application.
-     *
-     * @example Deployed_Success
-     * Destroyed_Success
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The title.
-     *
-     * @example 容灾计划1
-     *
      * @var string
      */
     public $title;
@@ -51,20 +34,26 @@ class data extends Model
         'title' => 'Title',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
+
         if (null !== $this->reportUrl) {
             $res['ReportUrl'] = $this->reportUrl;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -72,23 +61,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
+
         if (isset($map['ReportUrl'])) {
             $model->reportUrl = $map['ReportUrl'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

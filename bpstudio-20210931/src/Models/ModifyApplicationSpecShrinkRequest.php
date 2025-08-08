@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyApplicationSpecShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 02S7UU41WKJL7ERR
-     *
      * @var string
      */
     public $applicationId;
@@ -26,14 +22,18 @@ class ModifyApplicationSpecShrinkRequest extends Model
         'instanceSpecShrink' => 'InstanceSpec',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
+
         if (null !== $this->instanceSpecShrink) {
             $res['InstanceSpec'] = $this->instanceSpecShrink;
         }
@@ -41,17 +41,18 @@ class ModifyApplicationSpecShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyApplicationSpecShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
+
         if (isset($map['InstanceSpec'])) {
             $model->instanceSpecShrink = $map['InstanceSpec'];
         }

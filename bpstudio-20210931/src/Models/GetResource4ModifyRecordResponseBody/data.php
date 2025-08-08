@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models\GetResource4ModifyRecordResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example {\\"InstanceId\\": \\"\\", \\"AttributeName\\": \\"drmCommand\\", \\"Id\\": 16800, \\"Desc\\": \\"test\\"}
-     *
      * @var string
      */
     public $attribute;
@@ -21,29 +19,21 @@ class data extends Model
     public $error;
 
     /**
-     * @example 1726645341000
-     *
      * @var string
      */
     public $modifyTime;
 
     /**
-     * @example rm-uf6308dyal1*****
-     *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @example Finish
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example rds
-     *
      * @var string
      */
     public $type;
@@ -56,26 +46,34 @@ class data extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attribute) {
             $res['Attribute'] = $this->attribute;
         }
+
         if (null !== $this->error) {
             $res['Error'] = $this->error;
         }
+
         if (null !== $this->modifyTime) {
             $res['ModifyTime'] = $this->modifyTime;
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -83,29 +81,34 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attribute'])) {
             $model->attribute = $map['Attribute'];
         }
+
         if (isset($map['Error'])) {
             $model->error = $map['Error'];
         }
+
         if (isset($map['ModifyTime'])) {
             $model->modifyTime = $map['ModifyTime'];
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

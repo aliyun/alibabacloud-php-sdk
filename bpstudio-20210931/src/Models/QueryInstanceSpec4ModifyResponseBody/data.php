@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models\QueryInstanceSpec4ModifyResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\BPStudio\V20210931\Models\QueryInstanceSpec4ModifyResponseBody\data\optionalValues;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -17,17 +17,24 @@ class data extends Model
         'optionalValues' => 'OptionalValues',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->optionalValues)) {
+            Model::validateArray($this->optionalValues);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->optionalValues) {
-            $res['OptionalValues'] = [];
-            if (null !== $this->optionalValues && \is_array($this->optionalValues)) {
-                $n = 0;
-                foreach ($this->optionalValues as $item) {
-                    $res['OptionalValues'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->optionalValues)) {
+                $res['OptionalValues'] = [];
+                $n1 = 0;
+                foreach ($this->optionalValues as $item1) {
+                    $res['OptionalValues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OptionalValues'])) {
             if (!empty($map['OptionalValues'])) {
                 $model->optionalValues = [];
-                $n = 0;
-                foreach ($map['OptionalValues'] as $item) {
-                    $model->optionalValues[$n++] = null !== $item ? optionalValues::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OptionalValues'] as $item1) {
+                    $model->optionalValues[$n1] = optionalValues::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

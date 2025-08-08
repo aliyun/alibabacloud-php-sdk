@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\BPStudio\V20210931\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetResult4QueryInstancePrice4ModifyRequest extends Model
 {
     /**
-     * @example 02S7UU41WKJL7ERR
-     *
      * @var string
      */
     public $applicationId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 58d5d8c5b5489150417a7cd6caa614bb
-     *
      * @var string
      */
     public $taskId;
@@ -28,14 +22,18 @@ class GetResult4QueryInstancePrice4ModifyRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -43,17 +41,18 @@ class GetResult4QueryInstancePrice4ModifyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResult4QueryInstancePrice4ModifyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
