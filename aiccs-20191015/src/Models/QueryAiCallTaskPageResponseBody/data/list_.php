@@ -24,7 +24,7 @@ class list_ extends Model
     public $callingCount;
 
     /**
-     * @var float
+     * @var string
      */
     public $completeRate;
 
@@ -44,7 +44,7 @@ class list_ extends Model
     public $dayCallCount;
 
     /**
-     * @var float
+     * @var string
      */
     public $dayConnectRate;
 
@@ -59,7 +59,7 @@ class list_ extends Model
     public $failedCount;
 
     /**
-     * @var float
+     * @var string
      */
     public $historyConnectRate;
 
