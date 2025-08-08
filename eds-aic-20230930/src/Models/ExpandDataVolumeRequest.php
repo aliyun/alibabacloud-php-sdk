@@ -26,11 +26,17 @@ class ExpandDataVolumeRequest extends Model
     /**
      * @var int
      */
+    public $phoneDataVolume;
+
+    /**
+     * @var int
+     */
     public $shareDataVolume;
     protected $_name = [
         'autoPay' => 'AutoPay',
         'bizRegionId' => 'BizRegionId',
         'nodeIds' => 'NodeIds',
+        'phoneDataVolume' => 'PhoneDataVolume',
         'shareDataVolume' => 'ShareDataVolume',
     ];
 
@@ -62,6 +68,10 @@ class ExpandDataVolumeRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->phoneDataVolume) {
+            $res['PhoneDataVolume'] = $this->phoneDataVolume;
         }
 
         if (null !== $this->shareDataVolume) {
@@ -96,6 +106,10 @@ class ExpandDataVolumeRequest extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['PhoneDataVolume'])) {
+            $model->phoneDataVolume = $map['PhoneDataVolume'];
         }
 
         if (isset($map['ShareDataVolume'])) {

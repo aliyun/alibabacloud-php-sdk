@@ -9,6 +9,16 @@ use AlibabaCloud\Dara\Model;
 class ChangeCloudPhoneNodeRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
+     * @var int
+     */
+    public $downBandwidthLimit;
+
+    /**
      * @var string
      */
     public $instanceType;
@@ -22,10 +32,24 @@ class ChangeCloudPhoneNodeRequest extends Model
      * @var int
      */
     public $phoneCount;
+
+    /**
+     * @var int
+     */
+    public $phoneDataVolume;
+
+    /**
+     * @var int
+     */
+    public $upBandwidthLimit;
     protected $_name = [
+        'autoPay' => 'AutoPay',
+        'downBandwidthLimit' => 'DownBandwidthLimit',
         'instanceType' => 'InstanceType',
         'nodeId' => 'NodeId',
         'phoneCount' => 'PhoneCount',
+        'phoneDataVolume' => 'PhoneDataVolume',
+        'upBandwidthLimit' => 'UpBandwidthLimit',
     ];
 
     public function validate()
@@ -36,6 +60,14 @@ class ChangeCloudPhoneNodeRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
+
+        if (null !== $this->downBandwidthLimit) {
+            $res['DownBandwidthLimit'] = $this->downBandwidthLimit;
+        }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
@@ -46,6 +78,14 @@ class ChangeCloudPhoneNodeRequest extends Model
 
         if (null !== $this->phoneCount) {
             $res['PhoneCount'] = $this->phoneCount;
+        }
+
+        if (null !== $this->phoneDataVolume) {
+            $res['PhoneDataVolume'] = $this->phoneDataVolume;
+        }
+
+        if (null !== $this->upBandwidthLimit) {
+            $res['UpBandwidthLimit'] = $this->upBandwidthLimit;
         }
 
         return $res;
@@ -59,6 +99,14 @@ class ChangeCloudPhoneNodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
+
+        if (isset($map['DownBandwidthLimit'])) {
+            $model->downBandwidthLimit = $map['DownBandwidthLimit'];
+        }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
@@ -69,6 +117,14 @@ class ChangeCloudPhoneNodeRequest extends Model
 
         if (isset($map['PhoneCount'])) {
             $model->phoneCount = $map['PhoneCount'];
+        }
+
+        if (isset($map['PhoneDataVolume'])) {
+            $model->phoneDataVolume = $map['PhoneDataVolume'];
+        }
+
+        if (isset($map['UpBandwidthLimit'])) {
+            $model->upBandwidthLimit = $map['UpBandwidthLimit'];
         }
 
         return $model;

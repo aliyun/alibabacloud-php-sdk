@@ -17,9 +17,15 @@ class ChangeCloudPhoneNodeResponseBody extends Model
     /**
      * @var string
      */
+    public $orderId;
+
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
         'nodeInfos' => 'NodeInfos',
+        'orderId' => 'OrderId',
         'requestId' => 'RequestId',
     ];
 
@@ -43,6 +49,10 @@ class ChangeCloudPhoneNodeResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
 
         if (null !== $this->requestId) {
@@ -69,6 +79,10 @@ class ChangeCloudPhoneNodeResponseBody extends Model
                     ++$n1;
                 }
             }
+        }
+
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
 
         if (isset($map['RequestId'])) {

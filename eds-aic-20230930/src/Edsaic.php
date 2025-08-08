@@ -108,6 +108,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallMonitorAgentRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\InstallMonitorAgentResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListPolicyGroupsResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyAndroidInstanceGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyAndroidInstanceGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyAndroidInstanceRequest;
@@ -153,10 +155,14 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\StartAndroidInstanceRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\StartAndroidInstanceResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\StopAndroidInstanceRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\StopAndroidInstanceResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UninstallAppRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UninstallAppResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UninstallMonitorAgentRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UninstallMonitorAgentResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateCustomImageNameRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateCustomImageNameResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\UpdateInstanceGroupImageRequest;
@@ -528,6 +534,14 @@ class Edsaic extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->downBandwidthLimit) {
+            @$query['DownBandwidthLimit'] = $request->downBandwidthLimit;
+        }
+
         if (null !== $request->instanceType) {
             @$query['InstanceType'] = $request->instanceType;
         }
@@ -538,6 +552,14 @@ class Edsaic extends OpenApiClient
 
         if (null !== $request->phoneCount) {
             @$query['PhoneCount'] = $request->phoneCount;
+        }
+
+        if (null !== $request->phoneDataVolume) {
+            @$query['PhoneDataVolume'] = $request->phoneDataVolume;
+        }
+
+        if (null !== $request->upBandwidthLimit) {
+            @$query['UpBandwidthLimit'] = $request->upBandwidthLimit;
         }
 
         $req = new OpenApiRequest([
@@ -3543,6 +3565,10 @@ class Edsaic extends OpenApiClient
             @$query['NodeIds'] = $request->nodeIds;
         }
 
+        if (null !== $request->phoneDataVolume) {
+            @$query['PhoneDataVolume'] = $request->phoneDataVolume;
+        }
+
         if (null !== $request->shareDataVolume) {
             @$query['ShareDataVolume'] = $request->shareDataVolume;
         }
@@ -4056,6 +4082,83 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listPolicyGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询资源标签.
+     *
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTagResources',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询资源标签.
+     *
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -5590,6 +5693,71 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * 给资源打标签.
+     *
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'TagResources',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 给资源打标签.
+     *
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * Uninstalls an app from multiple cloud phone instances.
      *
      * @remarks
@@ -5719,6 +5887,75 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->uninstallMonitorAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除资源标签.
+     *
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UntagResources',
+            'version' => '2023-09-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 删除资源标签.
+     *
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
     }
 
     /**

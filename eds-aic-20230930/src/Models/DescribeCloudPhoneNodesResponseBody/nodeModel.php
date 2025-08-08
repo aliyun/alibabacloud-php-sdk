@@ -19,6 +19,11 @@ class nodeModel extends Model
     /**
      * @var string
      */
+    public $bandwidthPackageStatus;
+
+    /**
+     * @var string
+     */
     public $bandwidthPackageType;
 
     /**
@@ -132,6 +137,7 @@ class nodeModel extends Model
     public $vSwitchId;
     protected $_name = [
         'bandwidthPackageId' => 'BandwidthPackageId',
+        'bandwidthPackageStatus' => 'BandwidthPackageStatus',
         'bandwidthPackageType' => 'BandwidthPackageType',
         'bizTags' => 'BizTags',
         'chargeType' => 'ChargeType',
@@ -176,6 +182,10 @@ class nodeModel extends Model
         $res = [];
         if (null !== $this->bandwidthPackageId) {
             $res['BandwidthPackageId'] = $this->bandwidthPackageId;
+        }
+
+        if (null !== $this->bandwidthPackageStatus) {
+            $res['BandwidthPackageStatus'] = $this->bandwidthPackageStatus;
         }
 
         if (null !== $this->bandwidthPackageType) {
@@ -297,6 +307,10 @@ class nodeModel extends Model
         $model = new self();
         if (isset($map['BandwidthPackageId'])) {
             $model->bandwidthPackageId = $map['BandwidthPackageId'];
+        }
+
+        if (isset($map['BandwidthPackageStatus'])) {
+            $model->bandwidthPackageStatus = $map['BandwidthPackageStatus'];
         }
 
         if (isset($map['BandwidthPackageType'])) {

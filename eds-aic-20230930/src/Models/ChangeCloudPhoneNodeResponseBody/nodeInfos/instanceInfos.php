@@ -12,8 +12,14 @@ class instanceInfos extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $phoneDataVolume;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'phoneDataVolume' => 'PhoneDataVolume',
     ];
 
     public function validate()
@@ -26,6 +32,10 @@ class instanceInfos extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->phoneDataVolume) {
+            $res['PhoneDataVolume'] = $this->phoneDataVolume;
         }
 
         return $res;
@@ -41,6 +51,10 @@ class instanceInfos extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['PhoneDataVolume'])) {
+            $model->phoneDataVolume = $map['PhoneDataVolume'];
         }
 
         return $model;

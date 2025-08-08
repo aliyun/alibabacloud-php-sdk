@@ -18,9 +18,15 @@ class nodeInfos extends Model
      * @var string
      */
     public $nodeId;
+
+    /**
+     * @var int
+     */
+    public $shareDataVolume;
     protected $_name = [
         'instanceInfos' => 'InstanceInfos',
         'nodeId' => 'NodeId',
+        'shareDataVolume' => 'ShareDataVolume',
     ];
 
     public function validate()
@@ -49,6 +55,10 @@ class nodeInfos extends Model
             $res['NodeId'] = $this->nodeId;
         }
 
+        if (null !== $this->shareDataVolume) {
+            $res['ShareDataVolume'] = $this->shareDataVolume;
+        }
+
         return $res;
     }
 
@@ -73,6 +83,10 @@ class nodeInfos extends Model
 
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
+        }
+
+        if (isset($map['ShareDataVolume'])) {
+            $model->shareDataVolume = $map['ShareDataVolume'];
         }
 
         return $model;
