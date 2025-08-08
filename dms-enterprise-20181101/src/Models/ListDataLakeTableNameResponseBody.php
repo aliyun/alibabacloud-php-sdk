@@ -4,48 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDataLakeTableNameResponseBody extends Model
 {
     /**
-     * @example UnknownError
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @example UnknownError
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example NesLoKLEdIZrKhDT7I2gS****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example C5B8E84B-42B6-4374-AD5A-6264E1753378
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -64,65 +52,95 @@ class ListDataLakeTableNameResponseBody extends Model
         'tableNameList' => 'TableNameList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tableNameList)) {
+            Model::validateArray($this->tableNameList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->tableNameList) {
-            $res['TableNameList'] = $this->tableNameList;
+            if (\is_array($this->tableNameList)) {
+                $res['TableNameList'] = [];
+                $n1 = 0;
+                foreach ($this->tableNameList as $item1) {
+                    $res['TableNameList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDataLakeTableNameResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['TableNameList'])) {
             if (!empty($map['TableNameList'])) {
-                $model->tableNameList = $map['TableNameList'];
+                $model->tableNameList = [];
+                $n1 = 0;
+                foreach ($map['TableNameList'] as $item1) {
+                    $model->tableNameList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

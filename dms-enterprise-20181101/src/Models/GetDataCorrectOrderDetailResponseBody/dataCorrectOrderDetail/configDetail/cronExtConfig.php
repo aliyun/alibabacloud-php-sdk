@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectOrderDetailResponseBody\dataCorrectOrderDetail\configDetail;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class cronExtConfig extends Model
 {
     /**
-     * @description The number of times defragmentation is performed. This parameter is valid only if the value of OptimizeTableAfterEveryClearTimes is greater than 0.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $currentClearTaskCount;
 
     /**
-     * @description Indicates whether the Periodically Optimize Table feature is enabled. Valid values:
-     *
-     *   **0** (default): The feature is disabled.
-     *   **A value greater than 0**: The feature is enabled. The value indicates the number of cleanups after which the system performs defragmentation.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $optimizeTableAfterEveryClearTimes;
@@ -33,14 +22,18 @@ class cronExtConfig extends Model
         'optimizeTableAfterEveryClearTimes' => 'OptimizeTableAfterEveryClearTimes',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentClearTaskCount) {
             $res['CurrentClearTaskCount'] = $this->currentClearTaskCount;
         }
+
         if (null !== $this->optimizeTableAfterEveryClearTimes) {
             $res['OptimizeTableAfterEveryClearTimes'] = $this->optimizeTableAfterEveryClearTimes;
         }
@@ -48,17 +41,18 @@ class cronExtConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cronExtConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentClearTaskCount'])) {
             $model->currentClearTaskCount = $map['CurrentClearTaskCount'];
         }
+
         if (isset($map['OptimizeTableAfterEveryClearTimes'])) {
             $model->optimizeTableAfterEveryClearTimes = $map['OptimizeTableAfterEveryClearTimes'];
         }

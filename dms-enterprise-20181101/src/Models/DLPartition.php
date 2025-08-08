@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DLPartition extends Model
 {
@@ -58,71 +58,119 @@ class DLPartition extends Model
         'values' => 'Values',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        if (null !== $this->sd) {
+            $this->sd->validate();
+        }
+        if (\is_array($this->values)) {
+            Model::validateArray($this->values);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->catalogName) {
             $res['CatalogName'] = $this->catalogName;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->lastAccessTime) {
             $res['LastAccessTime'] = $this->lastAccessTime;
         }
+
         if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
+            if (\is_array($this->parameters)) {
+                $res['Parameters'] = [];
+                foreach ($this->parameters as $key1 => $value1) {
+                    $res['Parameters'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->sd) {
-            $res['Sd'] = null !== $this->sd ? $this->sd->toMap() : null;
+            $res['Sd'] = null !== $this->sd ? $this->sd->toArray($noStream) : $this->sd;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
+
         if (null !== $this->values) {
-            $res['Values'] = $this->values;
+            if (\is_array($this->values)) {
+                $res['Values'] = [];
+                $n1 = 0;
+                foreach ($this->values as $item1) {
+                    $res['Values'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DLPartition
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CatalogName'])) {
             $model->catalogName = $map['CatalogName'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['LastAccessTime'])) {
             $model->lastAccessTime = $map['LastAccessTime'];
         }
+
         if (isset($map['Parameters'])) {
-            $model->parameters = $map['Parameters'];
+            if (!empty($map['Parameters'])) {
+                $model->parameters = [];
+                foreach ($map['Parameters'] as $key1 => $value1) {
+                    $model->parameters[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Sd'])) {
             $model->sd = DLStorageDescriptor::fromMap($map['Sd']);
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }
+
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
-                $model->values = $map['Values'];
+                $model->values = [];
+                $n1 = 0;
+                foreach ($map['Values'] as $item1) {
+                    $model->values[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

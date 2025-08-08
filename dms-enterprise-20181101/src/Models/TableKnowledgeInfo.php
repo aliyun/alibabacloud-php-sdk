@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TableKnowledgeInfo extends Model
 {
@@ -46,32 +46,44 @@ class TableKnowledgeInfo extends Model
         'tableName' => 'TableName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->columnList)) {
+            Model::validateArray($this->columnList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assetDescription) {
             $res['AssetDescription'] = $this->assetDescription;
         }
+
         if (null !== $this->assetModifiedGmt) {
             $res['AssetModifiedGmt'] = $this->assetModifiedGmt;
         }
+
         if (null !== $this->columnList) {
-            $res['ColumnList'] = [];
-            if (null !== $this->columnList && \is_array($this->columnList)) {
-                $n = 0;
-                foreach ($this->columnList as $item) {
-                    $res['ColumnList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->columnList)) {
+                $res['ColumnList'] = [];
+                $n1 = 0;
+                foreach ($this->columnList as $item1) {
+                    $res['ColumnList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -79,35 +91,41 @@ class TableKnowledgeInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TableKnowledgeInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetDescription'])) {
             $model->assetDescription = $map['AssetDescription'];
         }
+
         if (isset($map['AssetModifiedGmt'])) {
             $model->assetModifiedGmt = $map['AssetModifiedGmt'];
         }
+
         if (isset($map['ColumnList'])) {
             if (!empty($map['ColumnList'])) {
                 $model->columnList = [];
-                $n = 0;
-                foreach ($map['ColumnList'] as $item) {
-                    $model->columnList[$n++] = null !== $item ? ColumnKnowledgeInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ColumnList'] as $item1) {
+                    $model->columnList[$n1] = ColumnKnowledgeInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

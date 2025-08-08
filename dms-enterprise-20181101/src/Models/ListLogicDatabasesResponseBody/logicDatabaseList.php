@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLogicDatabasesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLogicDatabasesResponseBody\logicDatabaseList\logicDatabase;
-use AlibabaCloud\Tea\Model;
 
 class logicDatabaseList extends Model
 {
@@ -17,17 +17,24 @@ class logicDatabaseList extends Model
         'logicDatabase' => 'LogicDatabase',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->logicDatabase)) {
+            Model::validateArray($this->logicDatabase);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logicDatabase) {
-            $res['LogicDatabase'] = [];
-            if (null !== $this->logicDatabase && \is_array($this->logicDatabase)) {
-                $n = 0;
-                foreach ($this->logicDatabase as $item) {
-                    $res['LogicDatabase'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logicDatabase)) {
+                $res['LogicDatabase'] = [];
+                $n1 = 0;
+                foreach ($this->logicDatabase as $item1) {
+                    $res['LogicDatabase'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class logicDatabaseList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logicDatabaseList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogicDatabase'])) {
             if (!empty($map['LogicDatabase'])) {
                 $model->logicDatabase = [];
-                $n = 0;
-                foreach ($map['LogicDatabase'] as $item) {
-                    $model->logicDatabase[$n++] = null !== $item ? logicDatabase::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LogicDatabase'] as $item1) {
+                    $model->logicDatabase[$n1] = logicDatabase::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,71 +4,38 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCronClearOrderRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCronClearOrderRequest\param\cronClearItemList;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataCronClearOrderRequest\param\dbItemList;
-use AlibabaCloud\Tea\Model;
 
 class param extends Model
 {
     /**
-     * @description The reason for the data change.
-     *
-     * @example test
-     *
      * @var string
      */
     public $classify;
 
     /**
-     * @description The tables for which you want to clear historical data.
-     *
-     * This parameter is required.
-     *
      * @var cronClearItemList[]
      */
     public $cronClearItemList;
 
     /**
-     * @description The crontab expression that you can use to run the task at a specified time. For more information, see [Crontab expression](https://help.aliyun.com/document_detail/206581.html).
-     *
-     * This parameter is required.
-     *
-     * @example 0 0 2 * * ?
-     *
      * @var string
      */
     public $cronFormat;
 
     /**
-     * @description The databases for which you want to clear historical data.
-     *
-     * This parameter is required.
-     *
      * @var dbItemList[]
      */
     public $dbItemList;
 
     /**
-     * @description The amount of time taken to run the task. Unit: hours.
-     *
-     * >  If the **specifyDuration** parameter is set to **true**, this parameter is required.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $durationHour;
 
     /**
-     * @description Specifies whether to specify an end time for the task. Valid values:
-     *
-     *   **true**: specifies an end time for the task. The task is automatically suspended after this end time.
-     *   **false**: does not specify an end time for the task. The task is stopped after the historical data is cleared.
-     *
-     * This parameter is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $specifyDuration;
@@ -81,38 +48,54 @@ class param extends Model
         'specifyDuration' => 'specifyDuration',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->cronClearItemList)) {
+            Model::validateArray($this->cronClearItemList);
+        }
+        if (\is_array($this->dbItemList)) {
+            Model::validateArray($this->dbItemList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->classify) {
             $res['Classify'] = $this->classify;
         }
+
         if (null !== $this->cronClearItemList) {
-            $res['CronClearItemList'] = [];
-            if (null !== $this->cronClearItemList && \is_array($this->cronClearItemList)) {
-                $n = 0;
-                foreach ($this->cronClearItemList as $item) {
-                    $res['CronClearItemList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->cronClearItemList)) {
+                $res['CronClearItemList'] = [];
+                $n1 = 0;
+                foreach ($this->cronClearItemList as $item1) {
+                    $res['CronClearItemList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->cronFormat) {
             $res['CronFormat'] = $this->cronFormat;
         }
+
         if (null !== $this->dbItemList) {
-            $res['DbItemList'] = [];
-            if (null !== $this->dbItemList && \is_array($this->dbItemList)) {
-                $n = 0;
-                foreach ($this->dbItemList as $item) {
-                    $res['DbItemList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dbItemList)) {
+                $res['DbItemList'] = [];
+                $n1 = 0;
+                foreach ($this->dbItemList as $item1) {
+                    $res['DbItemList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->durationHour) {
             $res['DurationHour'] = $this->durationHour;
         }
+
         if (null !== $this->specifyDuration) {
             $res['specifyDuration'] = $this->specifyDuration;
         }
@@ -120,41 +103,48 @@ class param extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return param
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Classify'])) {
             $model->classify = $map['Classify'];
         }
+
         if (isset($map['CronClearItemList'])) {
             if (!empty($map['CronClearItemList'])) {
                 $model->cronClearItemList = [];
-                $n = 0;
-                foreach ($map['CronClearItemList'] as $item) {
-                    $model->cronClearItemList[$n++] = null !== $item ? cronClearItemList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CronClearItemList'] as $item1) {
+                    $model->cronClearItemList[$n1] = cronClearItemList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['CronFormat'])) {
             $model->cronFormat = $map['CronFormat'];
         }
+
         if (isset($map['DbItemList'])) {
             if (!empty($map['DbItemList'])) {
                 $model->dbItemList = [];
-                $n = 0;
-                foreach ($map['DbItemList'] as $item) {
-                    $model->dbItemList[$n++] = null !== $item ? dbItemList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DbItemList'] as $item1) {
+                    $model->dbItemList[$n1] = dbItemList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['DurationHour'])) {
             $model->durationHour = $map['DurationHour'];
         }
+
         if (isset($map['specifyDuration'])) {
             $model->specifyDuration = $map['specifyDuration'];
         }

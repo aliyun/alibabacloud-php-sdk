@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTableKnowledgeInfoRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $dbId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $tableName;
@@ -32,17 +28,22 @@ class GetTableKnowledgeInfoRequest extends Model
         'tableSchemaName' => 'TableSchemaName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
+
         if (null !== $this->tableSchemaName) {
             $res['TableSchemaName'] = $this->tableSchemaName;
         }
@@ -50,20 +51,22 @@ class GetTableKnowledgeInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTableKnowledgeInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }
+
         if (isset($map['TableSchemaName'])) {
             $model->tableSchemaName = $map['TableSchemaName'];
         }

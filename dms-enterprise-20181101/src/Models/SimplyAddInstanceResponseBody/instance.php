@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SimplyAddInstanceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instance extends Model
 {
     /**
-     * @example 192.168.XXX.XXX
-     *
      * @var string
      */
     public $host;
 
     /**
-     * @example 188****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 5432
-     *
      * @var string
      */
     public $port;
@@ -34,17 +28,22 @@ class instance extends Model
         'port' => 'Port',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
@@ -52,20 +51,22 @@ class instance extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instance
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }

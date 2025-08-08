@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDatabaseExportOrderDetailRequest extends Model
 {
     /**
-     * @description The ticket ID. You can call the [ListOrders](https://help.aliyun.com/document_detail/144643.html) operation to obtain the ticket ID.
-     *
-     * This parameter is required.
-     *
-     * @example 821****
-     *
      * @var int
      */
     public $orderId;
 
     /**
-     * @description The ID of the tenant.
-     *
-     * > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the "Manage DMS tenants" topic.
-     *
-     * @example 3***
-     *
      * @var int
      */
     public $tid;
@@ -34,14 +22,18 @@ class GetDatabaseExportOrderDetailRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -49,17 +41,18 @@ class GetDatabaseExportOrderDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDatabaseExportOrderDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

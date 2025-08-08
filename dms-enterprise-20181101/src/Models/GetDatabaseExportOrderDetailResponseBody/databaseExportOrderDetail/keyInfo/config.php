@@ -4,65 +4,39 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDatabaseExportOrderDetailResponseBody\databaseExportOrderDetail\keyInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDatabaseExportOrderDetailResponseBody\databaseExportOrderDetail\keyInfo\config\exportTypes;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDatabaseExportOrderDetailResponseBody\databaseExportOrderDetail\keyInfo\config\selectedTables;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDatabaseExportOrderDetailResponseBody\databaseExportOrderDetail\keyInfo\config\SQLExtOption;
-use AlibabaCloud\Tea\Model;
 
 class config extends Model
 {
     /**
-     * @description The database name.
-     *
-     * @example dmstest
-     *
      * @var string
      */
     public $dbName;
 
     /**
-     * @description The type of data that was exported. Valid values:
-     *
-     *   **DATA**: The data of the database was exported.
-     *   **STRUCT**: The schema of the database was exported.
-     *   **DATA_STRUCT**: The data and schema of the database were exported.
-     *
-     * @example DATA
-     *
      * @var string
      */
     public $exportContent;
 
     /**
-     * @description The type of schema that was exported.
-     *
      * @var exportTypes
      */
     public $exportTypes;
 
     /**
-     * @description The extension options of the SQL script.
-     *
      * @var SQLExtOption
      */
     public $SQLExtOption;
 
     /**
-     * @description The tables that were exported from the database.
-     *
      * @var selectedTables
      */
     public $selectedTables;
 
     /**
-     * @description The format in which the database was exported. Valid values:
-     *
-     *   **SQL**
-     *   **CSV**
-     *   **XLSX**
-     *
-     * @example SQL
-     *
      * @var string
      */
     public $targetOption;
@@ -75,26 +49,43 @@ class config extends Model
         'targetOption' => 'TargetOption',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->exportTypes) {
+            $this->exportTypes->validate();
+        }
+        if (null !== $this->SQLExtOption) {
+            $this->SQLExtOption->validate();
+        }
+        if (null !== $this->selectedTables) {
+            $this->selectedTables->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->exportContent) {
             $res['ExportContent'] = $this->exportContent;
         }
+
         if (null !== $this->exportTypes) {
-            $res['ExportTypes'] = null !== $this->exportTypes ? $this->exportTypes->toMap() : null;
+            $res['ExportTypes'] = null !== $this->exportTypes ? $this->exportTypes->toArray($noStream) : $this->exportTypes;
         }
+
         if (null !== $this->SQLExtOption) {
-            $res['SQLExtOption'] = null !== $this->SQLExtOption ? $this->SQLExtOption->toMap() : null;
+            $res['SQLExtOption'] = null !== $this->SQLExtOption ? $this->SQLExtOption->toArray($noStream) : $this->SQLExtOption;
         }
+
         if (null !== $this->selectedTables) {
-            $res['SelectedTables'] = null !== $this->selectedTables ? $this->selectedTables->toMap() : null;
+            $res['SelectedTables'] = null !== $this->selectedTables ? $this->selectedTables->toArray($noStream) : $this->selectedTables;
         }
+
         if (null !== $this->targetOption) {
             $res['TargetOption'] = $this->targetOption;
         }
@@ -102,29 +93,34 @@ class config extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return config
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['ExportContent'])) {
             $model->exportContent = $map['ExportContent'];
         }
+
         if (isset($map['ExportTypes'])) {
             $model->exportTypes = exportTypes::fromMap($map['ExportTypes']);
         }
+
         if (isset($map['SQLExtOption'])) {
             $model->SQLExtOption = SQLExtOption::fromMap($map['SQLExtOption']);
         }
+
         if (isset($map['SelectedTables'])) {
             $model->selectedTables = selectedTables::fromMap($map['SelectedTables']);
         }
+
         if (isset($map['TargetOption'])) {
             $model->targetOption = $map['TargetOption'];
         }

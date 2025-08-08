@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListStandardGroupsRequest extends Model
 {
     /**
-     * @description The ID of the tenant.
-     *
-     * @example 3***
-     *
      * @var int
      */
     public $tid;
@@ -20,9 +16,12 @@ class ListStandardGroupsRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tid) {
@@ -32,11 +31,11 @@ class ListStandardGroupsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListStandardGroupsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

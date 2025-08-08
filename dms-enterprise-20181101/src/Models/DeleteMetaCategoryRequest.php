@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteMetaCategoryRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 30000235594
-     *
      * @var int
      */
     public $categoryId;
 
     /**
-     * @example 3***
-     *
      * @var int
      */
     public $tid;
@@ -28,14 +22,18 @@ class DeleteMetaCategoryRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -43,17 +41,18 @@ class DeleteMetaCategoryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteMetaCategoryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

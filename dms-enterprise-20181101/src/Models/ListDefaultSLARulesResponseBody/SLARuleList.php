@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDefaultSLARulesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDefaultSLARulesResponseBody\SLARuleList\SLARule;
-use AlibabaCloud\Tea\Model;
 
 class SLARuleList extends Model
 {
@@ -17,17 +17,24 @@ class SLARuleList extends Model
         'SLARule' => 'SLARule',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->SLARule)) {
+            Model::validateArray($this->SLARule);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->SLARule) {
-            $res['SLARule'] = [];
-            if (null !== $this->SLARule && \is_array($this->SLARule)) {
-                $n = 0;
-                foreach ($this->SLARule as $item) {
-                    $res['SLARule'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->SLARule)) {
+                $res['SLARule'] = [];
+                $n1 = 0;
+                foreach ($this->SLARule as $item1) {
+                    $res['SLARule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class SLARuleList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SLARuleList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SLARule'])) {
             if (!empty($map['SLARule'])) {
                 $model->SLARule = [];
-                $n = 0;
-                foreach ($map['SLARule'] as $item) {
-                    $model->SLARule[$n++] = null !== $item ? SLARule::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SLARule'] as $item1) {
+                    $model->SLARule[$n1] = SLARule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDifyInstancesResponseBody\root;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -94,50 +94,66 @@ class data extends Model
         'zoneId' => 'ZoneId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appUuid) {
             $res['AppUuid'] = $this->appUuid;
         }
+
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
+
         if (null !== $this->edition) {
             $res['Edition'] = $this->edition;
         }
+
         if (null !== $this->enterpriseInternetUrl) {
             $res['EnterpriseInternetUrl'] = $this->enterpriseInternetUrl;
         }
+
         if (null !== $this->enterpriseIntranetUrl) {
             $res['EnterpriseIntranetUrl'] = $this->enterpriseIntranetUrl;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->internetUrl) {
             $res['InternetUrl'] = $this->internetUrl;
         }
+
         if (null !== $this->intranetUrl) {
             $res['IntranetUrl'] = $this->intranetUrl;
         }
+
         if (null !== $this->majorVersion) {
             $res['MajorVersion'] = $this->majorVersion;
         }
+
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -145,53 +161,66 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppUuid'])) {
             $model->appUuid = $map['AppUuid'];
         }
+
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
+
         if (isset($map['Edition'])) {
             $model->edition = $map['Edition'];
         }
+
         if (isset($map['EnterpriseInternetUrl'])) {
             $model->enterpriseInternetUrl = $map['EnterpriseInternetUrl'];
         }
+
         if (isset($map['EnterpriseIntranetUrl'])) {
             $model->enterpriseIntranetUrl = $map['EnterpriseIntranetUrl'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InternetUrl'])) {
             $model->internetUrl = $map['InternetUrl'];
         }
+
         if (isset($map['IntranetUrl'])) {
             $model->intranetUrl = $map['IntranetUrl'];
         }
+
         if (isset($map['MajorVersion'])) {
             $model->majorVersion = $map['MajorVersion'];
         }
+
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

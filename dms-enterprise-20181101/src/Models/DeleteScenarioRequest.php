@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteScenarioRequest extends Model
 {
     /**
-     * @description The ID of the business scenario.
-     *
-     * This parameter is required.
-     *
-     * @example 12***
-     *
      * @var int
      */
     public $scenarioId;
 
     /**
-     * @description The ID of the tenant.
-     *
-     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](https://help.aliyun.com/document_detail/181330.html) topic.
-     *
-     * @example 3***
-     *
      * @var int
      */
     public $tid;
@@ -34,14 +22,18 @@ class DeleteScenarioRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->scenarioId) {
             $res['ScenarioId'] = $this->scenarioId;
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -49,17 +41,18 @@ class DeleteScenarioRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteScenarioRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ScenarioId'])) {
             $model->scenarioId = $map['ScenarioId'];
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

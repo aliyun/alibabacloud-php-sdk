@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetStructSyncOrderDetailResponseBody\structSyncOrderDetail;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class targetVersionInfo extends Model
 {
     /**
-     * @description The version number.
-     *
-     * @example e179bbb8163dcdcfacda24858bedb4d8006ae2b8
-     *
      * @var string
      */
     public $versionId;
@@ -20,9 +16,12 @@ class targetVersionInfo extends Model
         'versionId' => 'VersionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->versionId) {
@@ -32,11 +31,11 @@ class targetVersionInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return targetVersionInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RedeployDifyInstanceRequest extends Model
 {
@@ -34,20 +34,26 @@ class RedeployDifyInstanceRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->dataRegion) {
             $res['DataRegion'] = $this->dataRegion;
         }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -55,23 +61,26 @@ class RedeployDifyInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RedeployDifyInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['DataRegion'])) {
             $model->dataRegion = $map['DataRegion'];
         }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

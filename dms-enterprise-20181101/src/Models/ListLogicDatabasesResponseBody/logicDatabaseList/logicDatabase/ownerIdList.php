@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLogicDatabasesResponseBody\logicDatabaseList\logicDatabase;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ownerIdList extends Model
 {
@@ -16,29 +16,47 @@ class ownerIdList extends Model
         'ownerIds' => 'OwnerIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ownerIds)) {
+            Model::validateArray($this->ownerIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerIds) {
-            $res['OwnerIds'] = $this->ownerIds;
+            if (\is_array($this->ownerIds)) {
+                $res['OwnerIds'] = [];
+                $n1 = 0;
+                foreach ($this->ownerIds as $item1) {
+                    $res['OwnerIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ownerIdList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerIds'])) {
             if (!empty($map['OwnerIds'])) {
-                $model->ownerIds = $map['OwnerIds'];
+                $model->ownerIds = [];
+                $n1 = 0;
+                foreach ($map['OwnerIds'] as $item1) {
+                    $model->ownerIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowConstantsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowConstantsResponseBody\dagConstants\dagConstant;
-use AlibabaCloud\Tea\Model;
 
 class dagConstants extends Model
 {
@@ -17,17 +17,24 @@ class dagConstants extends Model
         'dagConstant' => 'DagConstant',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dagConstant)) {
+            Model::validateArray($this->dagConstant);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dagConstant) {
-            $res['DagConstant'] = [];
-            if (null !== $this->dagConstant && \is_array($this->dagConstant)) {
-                $n = 0;
-                foreach ($this->dagConstant as $item) {
-                    $res['DagConstant'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dagConstant)) {
+                $res['DagConstant'] = [];
+                $n1 = 0;
+                foreach ($this->dagConstant as $item1) {
+                    $res['DagConstant'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class dagConstants extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dagConstants
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DagConstant'])) {
             if (!empty($map['DagConstant'])) {
                 $model->dagConstant = [];
-                $n = 0;
-                foreach ($map['DagConstant'] as $item) {
-                    $model->dagConstant[$n++] = null !== $item ? dagConstant::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DagConstant'] as $item1) {
+                    $model->dagConstant[$n1] = dagConstant::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLhTaskFlowAndScenarioResponseBody\scenarioDAGList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLhTaskFlowAndScenarioResponseBody\scenarioDAGList\scenarioDAG\dagList;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListLhTaskFlowAndScenarioResponseBody\scenarioDAGList\scenarioDAG\scenario;
-use AlibabaCloud\Tea\Model;
 
 class scenarioDAG extends Model
 {
     /**
-     * @description The list of task flows.
-     *
      * @var dagList
      */
     public $dagList;
 
     /**
-     * @description The information about the business scenario.
-     *
      * @var scenario
      */
     public $scenario;
@@ -28,32 +24,43 @@ class scenarioDAG extends Model
         'scenario' => 'Scenario',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->dagList) {
+            $this->dagList->validate();
+        }
+        if (null !== $this->scenario) {
+            $this->scenario->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dagList) {
-            $res['DagList'] = null !== $this->dagList ? $this->dagList->toMap() : null;
+            $res['DagList'] = null !== $this->dagList ? $this->dagList->toArray($noStream) : $this->dagList;
         }
+
         if (null !== $this->scenario) {
-            $res['Scenario'] = null !== $this->scenario ? $this->scenario->toMap() : null;
+            $res['Scenario'] = null !== $this->scenario ? $this->scenario->toArray($noStream) : $this->scenario;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return scenarioDAG
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DagList'])) {
             $model->dagList = dagList::fromMap($map['DagList']);
         }
+
         if (isset($map['Scenario'])) {
             $model->scenario = scenario::fromMap($map['Scenario']);
         }

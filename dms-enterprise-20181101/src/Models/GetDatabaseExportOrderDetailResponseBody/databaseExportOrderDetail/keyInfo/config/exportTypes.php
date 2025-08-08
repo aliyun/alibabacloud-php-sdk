@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDatabaseExportOrderDetailResponseBody\databaseExportOrderDetail\keyInfo\config;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class exportTypes extends Model
 {
@@ -16,29 +16,47 @@ class exportTypes extends Model
         'exportTypes' => 'ExportTypes',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->exportTypes)) {
+            Model::validateArray($this->exportTypes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exportTypes) {
-            $res['ExportTypes'] = $this->exportTypes;
+            if (\is_array($this->exportTypes)) {
+                $res['ExportTypes'] = [];
+                $n1 = 0;
+                foreach ($this->exportTypes as $item1) {
+                    $res['ExportTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return exportTypes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExportTypes'])) {
             if (!empty($map['ExportTypes'])) {
-                $model->exportTypes = $map['ExportTypes'];
+                $model->exportTypes = [];
+                $n1 = 0;
+                foreach ($map['ExportTypes'] as $item1) {
+                    $model->exportTypes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

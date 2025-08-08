@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDataLakeCatalogResponseBody extends Model
 {
@@ -14,29 +14,21 @@ class ListDataLakeCatalogResponseBody extends Model
     public $cataLogList;
 
     /**
-     * @example 400
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @example UnknownError
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @example E76DD2E7-EBAC-5724-B163-19AAC233F8F2
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -48,29 +40,40 @@ class ListDataLakeCatalogResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->cataLogList)) {
+            Model::validateArray($this->cataLogList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cataLogList) {
-            $res['CataLogList'] = [];
-            if (null !== $this->cataLogList && \is_array($this->cataLogList)) {
-                $n = 0;
-                foreach ($this->cataLogList as $item) {
-                    $res['CataLogList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->cataLogList)) {
+                $res['CataLogList'] = [];
+                $n1 = 0;
+                foreach ($this->cataLogList as $item1) {
+                    $res['CataLogList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -78,32 +81,37 @@ class ListDataLakeCatalogResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDataLakeCatalogResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CataLogList'])) {
             if (!empty($map['CataLogList'])) {
                 $model->cataLogList = [];
-                $n = 0;
-                foreach ($map['CataLogList'] as $item) {
-                    $model->cataLogList[$n++] = null !== $item ? DLCatalog::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CataLogList'] as $item1) {
+                    $model->cataLogList[$n1] = DLCatalog::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

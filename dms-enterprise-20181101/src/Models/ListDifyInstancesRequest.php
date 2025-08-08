@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDifyInstancesRequest extends Model
 {
@@ -34,20 +34,26 @@ class ListDifyInstancesRequest extends Model
         'nextToken' => 'NextToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->dataRegion) {
             $res['DataRegion'] = $this->dataRegion;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -55,23 +61,26 @@ class ListDifyInstancesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDifyInstancesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['DataRegion'])) {
             $model->dataRegion = $map['DataRegion'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

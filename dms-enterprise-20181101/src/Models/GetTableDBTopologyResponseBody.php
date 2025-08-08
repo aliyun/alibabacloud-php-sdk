@@ -4,50 +4,32 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetTableDBTopologyResponseBody\DBTopology;
-use AlibabaCloud\Tea\Model;
 
 class GetTableDBTopologyResponseBody extends Model
 {
     /**
-     * @description The topology of the data table.
-     *
      * @var DBTopology
      */
     public $DBTopology;
 
     /**
-     * @description The error code.
-     *
-     * @example UnknownError
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description The error message.
-     *
-     * @example UnknownError
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 853F7FD4-D922-4EFB-931C-D253EF159E06
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -59,23 +41,33 @@ class GetTableDBTopologyResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->DBTopology) {
+            $this->DBTopology->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBTopology) {
-            $res['DBTopology'] = null !== $this->DBTopology ? $this->DBTopology->toMap() : null;
+            $res['DBTopology'] = null !== $this->DBTopology ? $this->DBTopology->toArray($noStream) : $this->DBTopology;
         }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -83,26 +75,30 @@ class GetTableDBTopologyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTableDBTopologyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBTopology'])) {
             $model->DBTopology = DBTopology::fromMap($map['DBTopology']);
         }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetApprovalDetailResponseBody\approvalDetail;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetApprovalDetailResponseBody\approvalDetail\workflowNodes\workflowNode;
-use AlibabaCloud\Tea\Model;
 
 class workflowNodes extends Model
 {
@@ -17,17 +17,24 @@ class workflowNodes extends Model
         'workflowNode' => 'WorkflowNode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->workflowNode)) {
+            Model::validateArray($this->workflowNode);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->workflowNode) {
-            $res['WorkflowNode'] = [];
-            if (null !== $this->workflowNode && \is_array($this->workflowNode)) {
-                $n = 0;
-                foreach ($this->workflowNode as $item) {
-                    $res['WorkflowNode'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->workflowNode)) {
+                $res['WorkflowNode'] = [];
+                $n1 = 0;
+                foreach ($this->workflowNode as $item1) {
+                    $res['WorkflowNode'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class workflowNodes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return workflowNodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WorkflowNode'])) {
             if (!empty($map['WorkflowNode'])) {
                 $model->workflowNode = [];
-                $n = 0;
-                foreach ($map['WorkflowNode'] as $item) {
-                    $model->workflowNode[$n++] = null !== $item ? workflowNode::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['WorkflowNode'] as $item1) {
+                    $model->workflowNode[$n1] = workflowNode::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

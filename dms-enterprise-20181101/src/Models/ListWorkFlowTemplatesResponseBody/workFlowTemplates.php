@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkFlowTemplatesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListWorkFlowTemplatesResponseBody\workFlowTemplates\workFlowTemplate;
-use AlibabaCloud\Tea\Model;
 
 class workFlowTemplates extends Model
 {
@@ -17,17 +17,24 @@ class workFlowTemplates extends Model
         'workFlowTemplate' => 'WorkFlowTemplate',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->workFlowTemplate)) {
+            Model::validateArray($this->workFlowTemplate);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->workFlowTemplate) {
-            $res['WorkFlowTemplate'] = [];
-            if (null !== $this->workFlowTemplate && \is_array($this->workFlowTemplate)) {
-                $n = 0;
-                foreach ($this->workFlowTemplate as $item) {
-                    $res['WorkFlowTemplate'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->workFlowTemplate)) {
+                $res['WorkFlowTemplate'] = [];
+                $n1 = 0;
+                foreach ($this->workFlowTemplate as $item1) {
+                    $res['WorkFlowTemplate'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class workFlowTemplates extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return workFlowTemplates
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WorkFlowTemplate'])) {
             if (!empty($map['WorkFlowTemplate'])) {
                 $model->workFlowTemplate = [];
-                $n = 0;
-                foreach ($map['WorkFlowTemplate'] as $item) {
-                    $model->workFlowTemplate[$n++] = null !== $item ? workFlowTemplate::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['WorkFlowTemplate'] as $item1) {
+                    $model->workFlowTemplate[$n1] = workFlowTemplate::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

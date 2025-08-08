@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOpLogResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetOpLogResponseBody\opLogDetails\opLogDetail;
-use AlibabaCloud\Tea\Model;
 
 class opLogDetails extends Model
 {
@@ -17,17 +17,24 @@ class opLogDetails extends Model
         'opLogDetail' => 'OpLogDetail',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->opLogDetail)) {
+            Model::validateArray($this->opLogDetail);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->opLogDetail) {
-            $res['OpLogDetail'] = [];
-            if (null !== $this->opLogDetail && \is_array($this->opLogDetail)) {
-                $n = 0;
-                foreach ($this->opLogDetail as $item) {
-                    $res['OpLogDetail'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->opLogDetail)) {
+                $res['OpLogDetail'] = [];
+                $n1 = 0;
+                foreach ($this->opLogDetail as $item1) {
+                    $res['OpLogDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class opLogDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return opLogDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OpLogDetail'])) {
             if (!empty($map['OpLogDetail'])) {
                 $model->opLogDetail = [];
-                $n = 0;
-                foreach ($map['OpLogDetail'] as $item) {
-                    $model->opLogDetail[$n++] = null !== $item ? opLogDetail::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OpLogDetail'] as $item1) {
+                    $model->opLogDetail[$n1] = opLogDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

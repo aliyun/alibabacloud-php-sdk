@@ -4,47 +4,31 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataExportOrderRequest\pluginParam;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class watermark extends Model
 {
     /**
-     * @description The field into which the watermark is to be embedded.
-     *
-     * @example user_number
-     *
      * @var string
      */
     public $columnName;
 
     /**
-     * @description The information to be embedded as a watermark into data.
-     *
-     * @example test
-     *
      * @var string
      */
     public $dataWatermark;
 
     /**
-     * @description The information to be embedded as a watermark into files.
-     *
-     * @example test
-     *
      * @var string
      */
     public $fileWatermark;
 
     /**
-     * @description One or more primary keys or unique keys.
-     *
      * @var string[]
      */
     public $keys;
 
     /**
-     * @description The methods in which the watermark is embedded.
-     *
      * @var string[]
      */
     public $watermarkTypes;
@@ -56,55 +40,96 @@ class watermark extends Model
         'watermarkTypes' => 'WatermarkTypes',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->keys)) {
+            Model::validateArray($this->keys);
+        }
+        if (\is_array($this->watermarkTypes)) {
+            Model::validateArray($this->watermarkTypes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
         }
+
         if (null !== $this->dataWatermark) {
             $res['DataWatermark'] = $this->dataWatermark;
         }
+
         if (null !== $this->fileWatermark) {
             $res['FileWatermark'] = $this->fileWatermark;
         }
+
         if (null !== $this->keys) {
-            $res['Keys'] = $this->keys;
+            if (\is_array($this->keys)) {
+                $res['Keys'] = [];
+                $n1 = 0;
+                foreach ($this->keys as $item1) {
+                    $res['Keys'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->watermarkTypes) {
-            $res['WatermarkTypes'] = $this->watermarkTypes;
+            if (\is_array($this->watermarkTypes)) {
+                $res['WatermarkTypes'] = [];
+                $n1 = 0;
+                foreach ($this->watermarkTypes as $item1) {
+                    $res['WatermarkTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return watermark
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
         }
+
         if (isset($map['DataWatermark'])) {
             $model->dataWatermark = $map['DataWatermark'];
         }
+
         if (isset($map['FileWatermark'])) {
             $model->fileWatermark = $map['FileWatermark'];
         }
+
         if (isset($map['Keys'])) {
             if (!empty($map['Keys'])) {
-                $model->keys = $map['Keys'];
+                $model->keys = [];
+                $n1 = 0;
+                foreach ($map['Keys'] as $item1) {
+                    $model->keys[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['WatermarkTypes'])) {
             if (!empty($map['WatermarkTypes'])) {
-                $model->watermarkTypes = $map['WatermarkTypes'];
+                $model->watermarkTypes = [];
+                $n1 = 0;
+                foreach ($map['WatermarkTypes'] as $item1) {
+                    $model->watermarkTypes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

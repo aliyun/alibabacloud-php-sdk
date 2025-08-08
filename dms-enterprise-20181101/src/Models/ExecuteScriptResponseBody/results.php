@@ -4,47 +4,31 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ExecuteScriptResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class results extends Model
 {
     /**
-     * @description The fields that are queried after the SQL statement is executed.
-     *
      * @var string[]
      */
     public $columnNames;
 
     /**
-     * @description The error message that is returned if the SQL statement fails to be executed. For example, an error message is returned because the SQL statement is invalid.
-     *
-     * @example UnknownError
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The total number of entries that are returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $rowCount;
 
     /**
-     * @description The rows that are queried after the SQL statement is executed.
-     *
      * @var mixed[][]
      */
     public $rows;
 
     /**
-     * @description Indicates whether the SQL statement is executed.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -56,23 +40,55 @@ class results extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->columnNames)) {
+            Model::validateArray($this->columnNames);
+        }
+        if (\is_array($this->rows)) {
+            Model::validateArray($this->rows);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columnNames) {
-            $res['ColumnNames'] = $this->columnNames;
+            if (\is_array($this->columnNames)) {
+                $res['ColumnNames'] = [];
+                $n1 = 0;
+                foreach ($this->columnNames as $item1) {
+                    $res['ColumnNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->rowCount) {
             $res['RowCount'] = $this->rowCount;
         }
+
         if (null !== $this->rows) {
-            $res['Rows'] = $this->rows;
+            if (\is_array($this->rows)) {
+                $res['Rows'] = [];
+                $n1 = 0;
+                foreach ($this->rows as $item1) {
+                    if (\is_array($item1)) {
+                        $res['Rows'][$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['Rows'][$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -80,30 +96,49 @@ class results extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return results
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColumnNames'])) {
             if (!empty($map['ColumnNames'])) {
-                $model->columnNames = $map['ColumnNames'];
+                $model->columnNames = [];
+                $n1 = 0;
+                foreach ($map['ColumnNames'] as $item1) {
+                    $model->columnNames[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RowCount'])) {
             $model->rowCount = $map['RowCount'];
         }
+
         if (isset($map['Rows'])) {
             if (!empty($map['Rows'])) {
-                $model->rows = $map['Rows'];
+                $model->rows = [];
+                $n1 = 0;
+                foreach ($map['Rows'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->rows[$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->rows[$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDifyDefaultVpcRequest extends Model
 {
@@ -28,17 +28,22 @@ class DescribeDifyDefaultVpcRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->dataRegion) {
             $res['DataRegion'] = $this->dataRegion;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -46,20 +51,22 @@ class DescribeDifyDefaultVpcRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDifyDefaultVpcRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['DataRegion'])) {
             $model->dataRegion = $map['DataRegion'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

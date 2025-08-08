@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetApprovalDetailRequest extends Model
 {
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to obtain the tenant ID.
-     *
-     * @example 3***
-     *
      * @var int
      */
     public $tid;
 
     /**
-     * @description The ID of the approval process. You can call the [GetOrderBaseInfo](https://help.aliyun.com/document_detail/144642.html) operation to obtain the ID of the approval process.
-     *
-     * This parameter is required.
-     *
-     * @example 184****
-     *
      * @var int
      */
     public $workflowInstanceId;
@@ -32,14 +22,18 @@ class GetApprovalDetailRequest extends Model
         'workflowInstanceId' => 'WorkflowInstanceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
+
         if (null !== $this->workflowInstanceId) {
             $res['WorkflowInstanceId'] = $this->workflowInstanceId;
         }
@@ -47,17 +41,18 @@ class GetApprovalDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetApprovalDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }
+
         if (isset($map['WorkflowInstanceId'])) {
             $model->workflowInstanceId = $map['WorkflowInstanceId'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataImportSQLResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SQLDetail extends Model
 {
     /**
-     * @description The SQL script.
-     *
-     * @example insert into t1 values (1);
-     *
      * @var string
      */
     public $execSql;
@@ -20,9 +16,12 @@ class SQLDetail extends Model
         'execSql' => 'ExecSql',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->execSql) {
@@ -32,11 +31,11 @@ class SQLDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SQLDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

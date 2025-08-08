@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetClassificationTemplateRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 169****
-     *
      * @var int
      */
     public $instanceId;
 
     /**
-     * @example 23***
-     *
      * @var int
      */
     public $tid;
@@ -28,14 +22,18 @@ class GetClassificationTemplateRequest extends Model
         'tid' => 'Tid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -43,17 +41,18 @@ class GetClassificationTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetClassificationTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

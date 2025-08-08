@@ -4,39 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateSQLReviewOrderRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class param extends Model
 {
     /**
-     * @description The files to be reviewed. Multiple files can be reviewed at a time.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $attachmentKeyList;
 
     /**
-     * @description The ID of the database. You can call the [SearchDatabases](https://help.aliyun.com/document_detail/141876.html) operation to query the ID of the database.
-     *
-     * >  You can call this operation to query only physical databases. This operation is unavailable to query logical databases.
-     *
-     * This parameter is required.
-     *
-     * @example 123321
-     *
      * @var int
      */
     public $dbId;
 
     /**
-     * @description The name of the project.
-     *
-     * This parameter is required.
-     *
-     * @example SQL review for xxx
-     *
      * @var string
      */
     public $projectName;
@@ -46,17 +28,32 @@ class param extends Model
         'projectName' => 'ProjectName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->attachmentKeyList)) {
+            Model::validateArray($this->attachmentKeyList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attachmentKeyList) {
-            $res['AttachmentKeyList'] = $this->attachmentKeyList;
+            if (\is_array($this->attachmentKeyList)) {
+                $res['AttachmentKeyList'] = [];
+                $n1 = 0;
+                foreach ($this->attachmentKeyList as $item1) {
+                    $res['AttachmentKeyList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -64,22 +61,29 @@ class param extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return param
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttachmentKeyList'])) {
             if (!empty($map['AttachmentKeyList'])) {
-                $model->attachmentKeyList = $map['AttachmentKeyList'];
+                $model->attachmentKeyList = [];
+                $n1 = 0;
+                foreach ($map['AttachmentKeyList'] as $item1) {
+                    $model->attachmentKeyList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }

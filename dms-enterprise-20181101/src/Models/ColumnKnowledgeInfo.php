@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ColumnKnowledgeInfo extends Model
 {
@@ -46,26 +46,34 @@ class ColumnKnowledgeInfo extends Model
         'position' => 'Position',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assetDescription) {
             $res['AssetDescription'] = $this->assetDescription;
         }
+
         if (null !== $this->assetModifiedGmt) {
             $res['AssetModifiedGmt'] = $this->assetModifiedGmt;
         }
+
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
         }
+
         if (null !== $this->columnType) {
             $res['ColumnType'] = $this->columnType;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->position) {
             $res['Position'] = $this->position;
         }
@@ -73,29 +81,34 @@ class ColumnKnowledgeInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ColumnKnowledgeInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetDescription'])) {
             $model->assetDescription = $map['AssetDescription'];
         }
+
         if (isset($map['AssetModifiedGmt'])) {
             $model->assetModifiedGmt = $map['AssetModifiedGmt'];
         }
+
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
         }
+
         if (isset($map['ColumnType'])) {
             $model->columnType = $map['ColumnType'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Position'])) {
             $model->position = $map['Position'];
         }

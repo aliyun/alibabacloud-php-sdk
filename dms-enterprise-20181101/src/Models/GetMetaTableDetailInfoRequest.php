@@ -4,50 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMetaTableDetailInfoRequest extends Model
 {
     /**
-     * @description The GUID of the table in Data Management (DMS).
-     *
-     * >
-     *
-     *   You can call the [ListLogicTables](https://help.aliyun.com/document_detail/141875.html) operation with ReturnGuid set to true to query the GUIDs of logical tables in a specific logical database.
-     *
-     *   You can call the [ListTables](https://help.aliyun.com/document_detail/141878.html) operation with ReturnGuid set to true to query the GUIDs of tables in a specific physical database.
-     *
-     * This parameter is required.
-     *
-     * @example IDB_L_9032.db-test.yuyang_test
-     *
+     * @var string
+     */
+    public $realLoginUserUid;
+
+    /**
      * @var string
      */
     public $tableGuid;
 
     /**
-     * @description The ID of the tenant.
-     *
-     * > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the [View information about the current tenant](https://help.aliyun.com/document_detail/181330.html) section of the Manage DMS tenants topic.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $tid;
     protected $_name = [
+        'realLoginUserUid' => 'RealLoginUserUid',
         'tableGuid' => 'TableGuid',
         'tid' => 'Tid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->realLoginUserUid) {
+            $res['RealLoginUserUid'] = $this->realLoginUserUid;
+        }
+
         if (null !== $this->tableGuid) {
             $res['TableGuid'] = $this->tableGuid;
         }
+
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -55,17 +51,22 @@ class GetMetaTableDetailInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMetaTableDetailInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RealLoginUserUid'])) {
+            $model->realLoginUserUid = $map['RealLoginUserUid'];
+        }
+
         if (isset($map['TableGuid'])) {
             $model->tableGuid = $map['TableGuid'];
         }
+
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }

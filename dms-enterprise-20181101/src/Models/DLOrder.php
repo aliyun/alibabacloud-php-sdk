@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DLOrder extends Model
 {
@@ -22,14 +22,18 @@ class DLOrder extends Model
         'order' => 'Order',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->col) {
             $res['Col'] = $this->col;
         }
+
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
@@ -37,17 +41,18 @@ class DLOrder extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DLOrder
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Col'])) {
             $model->col = $map['Col'];
         }
+
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }

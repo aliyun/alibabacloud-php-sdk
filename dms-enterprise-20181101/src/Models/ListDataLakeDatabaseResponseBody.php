@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDataLakeDatabaseResponseBody extends Model
 {
@@ -14,15 +14,11 @@ class ListDataLakeDatabaseResponseBody extends Model
     public $databaseList;
 
     /**
-     * @example 400
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @example UnknownError
-     *
      * @var string
      */
     public $errorMessage;
@@ -38,15 +34,11 @@ class ListDataLakeDatabaseResponseBody extends Model
     public $nextToken;
 
     /**
-     * @example 4E1D2B4D-3E53-4ABC-999D-1D2520B3471A
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -60,35 +52,48 @@ class ListDataLakeDatabaseResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->databaseList)) {
+            Model::validateArray($this->databaseList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->databaseList) {
-            $res['DatabaseList'] = [];
-            if (null !== $this->databaseList && \is_array($this->databaseList)) {
-                $n = 0;
-                foreach ($this->databaseList as $item) {
-                    $res['DatabaseList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->databaseList)) {
+                $res['DatabaseList'] = [];
+                $n1 = 0;
+                foreach ($this->databaseList as $item1) {
+                    $res['DatabaseList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -96,38 +101,45 @@ class ListDataLakeDatabaseResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDataLakeDatabaseResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatabaseList'])) {
             if (!empty($map['DatabaseList'])) {
                 $model->databaseList = [];
-                $n = 0;
-                foreach ($map['DatabaseList'] as $item) {
-                    $model->databaseList[$n++] = null !== $item ? DLDatabase::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DatabaseList'] as $item1) {
+                    $model->databaseList[$n1] = DLDatabase::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

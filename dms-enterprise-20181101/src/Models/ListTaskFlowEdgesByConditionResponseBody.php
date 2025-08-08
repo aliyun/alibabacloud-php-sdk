@@ -4,53 +4,32 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowEdgesByConditionResponseBody\edges;
-use AlibabaCloud\Tea\Model;
 
 class ListTaskFlowEdgesByConditionResponseBody extends Model
 {
     /**
-     * @description The list of task flow edges.
-     *
      * @var edges
      */
     public $edges;
 
     /**
-     * @description The error code returned if the request failed.
-     *
-     * @example UnknownError
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
-     *
-     * @example UnknownError
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
-     *
-     * @example D86249CD-422F-5ACF-85BA-9187C986AE0B
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -62,23 +41,33 @@ class ListTaskFlowEdgesByConditionResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->edges) {
+            $this->edges->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->edges) {
-            $res['Edges'] = null !== $this->edges ? $this->edges->toMap() : null;
+            $res['Edges'] = null !== $this->edges ? $this->edges->toArray($noStream) : $this->edges;
         }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -86,26 +75,30 @@ class ListTaskFlowEdgesByConditionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTaskFlowEdgesByConditionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Edges'])) {
             $model->edges = edges::fromMap($map['Edges']);
         }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

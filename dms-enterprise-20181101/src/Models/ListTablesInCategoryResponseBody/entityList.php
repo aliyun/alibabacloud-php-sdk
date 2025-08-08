@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTablesInCategoryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\MetaCategoryTableEntity;
-use AlibabaCloud\Tea\Model;
 
 class entityList extends Model
 {
@@ -17,17 +17,24 @@ class entityList extends Model
         'metaCategoryTableEntity' => 'MetaCategoryTableEntity',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->metaCategoryTableEntity)) {
+            Model::validateArray($this->metaCategoryTableEntity);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metaCategoryTableEntity) {
-            $res['MetaCategoryTableEntity'] = [];
-            if (null !== $this->metaCategoryTableEntity && \is_array($this->metaCategoryTableEntity)) {
-                $n = 0;
-                foreach ($this->metaCategoryTableEntity as $item) {
-                    $res['MetaCategoryTableEntity'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->metaCategoryTableEntity)) {
+                $res['MetaCategoryTableEntity'] = [];
+                $n1 = 0;
+                foreach ($this->metaCategoryTableEntity as $item1) {
+                    $res['MetaCategoryTableEntity'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class entityList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return entityList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MetaCategoryTableEntity'])) {
             if (!empty($map['MetaCategoryTableEntity'])) {
                 $model->metaCategoryTableEntity = [];
-                $n = 0;
-                foreach ($map['MetaCategoryTableEntity'] as $item) {
-                    $model->metaCategoryTableEntity[$n++] = null !== $item ? MetaCategoryTableEntity::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MetaCategoryTableEntity'] as $item1) {
+                    $model->metaCategoryTableEntity[$n1] = MetaCategoryTableEntity::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnInfoResponseBody\sensitiveColumnList\sensitiveColumn\semiDesensitizationRuleList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class semiDesensitizationRule extends Model
 {
     /**
-     * @example 10***
-     *
      * @var int
      */
     public $ruleId;
 
     /**
-     * @example test01
-     *
      * @var string
      */
     public $ruleName;
@@ -26,14 +22,18 @@ class semiDesensitizationRule extends Model
         'ruleName' => 'RuleName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
@@ -41,17 +41,18 @@ class semiDesensitizationRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return semiDesensitizationRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }

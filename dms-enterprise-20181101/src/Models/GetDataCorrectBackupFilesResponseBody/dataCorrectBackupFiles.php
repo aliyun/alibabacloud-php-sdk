@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataCorrectBackupFilesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataCorrectBackupFiles extends Model
 {
@@ -16,29 +16,47 @@ class dataCorrectBackupFiles extends Model
         'fileUrl' => 'FileUrl',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fileUrl)) {
+            Model::validateArray($this->fileUrl);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileUrl) {
-            $res['FileUrl'] = $this->fileUrl;
+            if (\is_array($this->fileUrl)) {
+                $res['FileUrl'] = [];
+                $n1 = 0;
+                foreach ($this->fileUrl as $item1) {
+                    $res['FileUrl'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataCorrectBackupFiles
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileUrl'])) {
             if (!empty($map['FileUrl'])) {
-                $model->fileUrl = $map['FileUrl'];
+                $model->fileUrl = [];
+                $n1 = 0;
+                foreach ($map['FileUrl'] as $item1) {
+                    $model->fileUrl[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 
