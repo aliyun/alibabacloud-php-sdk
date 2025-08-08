@@ -31,9 +31,10 @@ class productItems extends Model
         if (null !== $this->productItem) {
             if (\is_array($this->productItem)) {
                 $res['ProductItem'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->productItem as $item1) {
-                    $res['ProductItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProductItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class productItems extends Model
         if (isset($map['ProductItem'])) {
             if (!empty($map['ProductItem'])) {
                 $model->productItem = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ProductItem'] as $item1) {
-                    $model->productItem[$n1++] = productItem::fromMap($item1);
+                    $model->productItem[$n1] = productItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

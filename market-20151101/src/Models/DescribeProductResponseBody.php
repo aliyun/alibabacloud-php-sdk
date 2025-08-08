@@ -15,103 +15,122 @@ class DescribeProductResponseBody extends Model
      * @var string
      */
     public $auditFailMsg;
+
     /**
      * @var string
      */
     public $auditStatus;
+
     /**
      * @var int
      */
     public $auditTime;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $frontCategoryId;
+
     /**
      * @var int
      */
     public $gmtCreated;
+
     /**
      * @var int
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $picUrl;
+
     /**
      * @var productExtras
      */
     public $productExtras;
+
     /**
      * @var productSkus
      */
     public $productSkus;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var float
      */
     public $score;
+
     /**
      * @var shopInfo
      */
     public $shopInfo;
+
     /**
      * @var string
      */
     public $shortDescription;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $supplierPk;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var int
      */
     public $useCount;
     protected $_name = [
-        'auditFailMsg'     => 'AuditFailMsg',
-        'auditStatus'      => 'AuditStatus',
-        'auditTime'        => 'AuditTime',
-        'code'             => 'Code',
-        'description'      => 'Description',
-        'frontCategoryId'  => 'FrontCategoryId',
-        'gmtCreated'       => 'GmtCreated',
-        'gmtModified'      => 'GmtModified',
-        'name'             => 'Name',
-        'picUrl'           => 'PicUrl',
-        'productExtras'    => 'ProductExtras',
-        'productSkus'      => 'ProductSkus',
-        'requestId'        => 'RequestId',
-        'score'            => 'Score',
-        'shopInfo'         => 'ShopInfo',
+        'auditFailMsg' => 'AuditFailMsg',
+        'auditStatus' => 'AuditStatus',
+        'auditTime' => 'AuditTime',
+        'code' => 'Code',
+        'description' => 'Description',
+        'frontCategoryId' => 'FrontCategoryId',
+        'gmtCreated' => 'GmtCreated',
+        'gmtModified' => 'GmtModified',
+        'name' => 'Name',
+        'picUrl' => 'PicUrl',
+        'productExtras' => 'ProductExtras',
+        'productSkus' => 'ProductSkus',
+        'requestId' => 'RequestId',
+        'score' => 'Score',
+        'shopInfo' => 'ShopInfo',
         'shortDescription' => 'ShortDescription',
-        'status'           => 'Status',
-        'supplierPk'       => 'SupplierPk',
-        'type'             => 'Type',
-        'useCount'         => 'UseCount',
+        'status' => 'Status',
+        'supplierPk' => 'SupplierPk',
+        'type' => 'Type',
+        'useCount' => 'UseCount',
     ];
 
     public function validate()

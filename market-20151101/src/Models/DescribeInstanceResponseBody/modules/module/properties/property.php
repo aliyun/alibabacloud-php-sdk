@@ -13,28 +13,32 @@ class property extends Model
      * @var string
      */
     public $displayUnit;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var propertyValues
      */
     public $propertyValues;
+
     /**
      * @var string
      */
     public $showType;
     protected $_name = [
-        'displayUnit'    => 'DisplayUnit',
-        'key'            => 'Key',
-        'name'           => 'Name',
+        'displayUnit' => 'DisplayUnit',
+        'key' => 'Key',
+        'name' => 'Name',
         'propertyValues' => 'PropertyValues',
-        'showType'       => 'ShowType',
+        'showType' => 'ShowType',
     ];
 
     public function validate()

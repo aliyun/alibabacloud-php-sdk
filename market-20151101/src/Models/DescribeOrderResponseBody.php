@@ -14,113 +14,134 @@ class DescribeOrderResponseBody extends Model
      * @var int
      */
     public $accountQuantity;
+
     /**
      * @var int
      */
     public $aliUid;
+
     /**
      * @var mixed[]
      */
     public $components;
+
     /**
      * @var float
      */
     public $couponPrice;
+
     /**
      * @var int
      */
     public $createdOn;
+
     /**
      * @var instanceIds
      */
     public $instanceIds;
+
     /**
      * @var int
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $orderStatus;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var float
      */
     public $originalPrice;
+
     /**
      * @var int
      */
     public $paidOn;
+
     /**
      * @var string
      */
     public $payStatus;
+
     /**
      * @var float
      */
     public $paymentPrice;
+
     /**
      * @var string
      */
     public $periodType;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $productName;
+
     /**
      * @var string
      */
     public $productSkuCode;
+
     /**
      * @var int
      */
     public $quantity;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $supplierCompanyName;
+
     /**
      * @var supplierTelephones
      */
     public $supplierTelephones;
+
     /**
      * @var float
      */
     public $totalPrice;
     protected $_name = [
-        'accountQuantity'     => 'AccountQuantity',
-        'aliUid'              => 'AliUid',
-        'components'          => 'Components',
-        'couponPrice'         => 'CouponPrice',
-        'createdOn'           => 'CreatedOn',
-        'instanceIds'         => 'InstanceIds',
-        'orderId'             => 'OrderId',
-        'orderStatus'         => 'OrderStatus',
-        'orderType'           => 'OrderType',
-        'originalPrice'       => 'OriginalPrice',
-        'paidOn'              => 'PaidOn',
-        'payStatus'           => 'PayStatus',
-        'paymentPrice'        => 'PaymentPrice',
-        'periodType'          => 'PeriodType',
-        'productCode'         => 'ProductCode',
-        'productName'         => 'ProductName',
-        'productSkuCode'      => 'ProductSkuCode',
-        'quantity'            => 'Quantity',
-        'requestId'           => 'RequestId',
+        'accountQuantity' => 'AccountQuantity',
+        'aliUid' => 'AliUid',
+        'components' => 'Components',
+        'couponPrice' => 'CouponPrice',
+        'createdOn' => 'CreatedOn',
+        'instanceIds' => 'InstanceIds',
+        'orderId' => 'OrderId',
+        'orderStatus' => 'OrderStatus',
+        'orderType' => 'OrderType',
+        'originalPrice' => 'OriginalPrice',
+        'paidOn' => 'PaidOn',
+        'payStatus' => 'PayStatus',
+        'paymentPrice' => 'PaymentPrice',
+        'periodType' => 'PeriodType',
+        'productCode' => 'ProductCode',
+        'productName' => 'ProductName',
+        'productSkuCode' => 'ProductSkuCode',
+        'quantity' => 'Quantity',
+        'requestId' => 'RequestId',
         'supplierCompanyName' => 'SupplierCompanyName',
-        'supplierTelephones'  => 'SupplierTelephones',
-        'totalPrice'          => 'TotalPrice',
+        'supplierTelephones' => 'SupplierTelephones',
+        'totalPrice' => 'TotalPrice',
     ];
 
     public function validate()

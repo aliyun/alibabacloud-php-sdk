@@ -12,18 +12,20 @@ class ResumeProjectRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'nodeId'     => 'NodeId',
-        'remark'     => 'Remark',
+        'nodeId' => 'NodeId',
+        'remark' => 'Remark',
     ];
 
     public function validate()

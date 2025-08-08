@@ -12,12 +12,13 @@ class orderPeriod extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $periodType;
     protected $_name = [
-        'name'       => 'Name',
+        'name' => 'Name',
         'periodType' => 'PeriodType',
     ];
 

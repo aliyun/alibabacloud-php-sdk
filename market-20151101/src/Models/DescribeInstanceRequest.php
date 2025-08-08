@@ -12,18 +12,20 @@ class DescribeInstanceRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var int
      */
     public $ownerId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'orderType'  => 'OrderType',
-        'ownerId'    => 'OwnerId',
+        'orderType' => 'OrderType',
+        'ownerId' => 'OwnerId',
     ];
 
     public function validate()

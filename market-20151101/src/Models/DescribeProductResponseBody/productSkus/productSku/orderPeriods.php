@@ -31,9 +31,10 @@ class orderPeriods extends Model
         if (null !== $this->orderPeriod) {
             if (\is_array($this->orderPeriod)) {
                 $res['OrderPeriod'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->orderPeriod as $item1) {
-                    $res['OrderPeriod'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OrderPeriod'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class orderPeriods extends Model
         if (isset($map['OrderPeriod'])) {
             if (!empty($map['OrderPeriod'])) {
                 $model->orderPeriod = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['OrderPeriod'] as $item1) {
-                    $model->orderPeriod[$n1++] = orderPeriod::fromMap($item1);
+                    $model->orderPeriod[$n1] = orderPeriod::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

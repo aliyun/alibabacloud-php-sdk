@@ -12,28 +12,32 @@ class AutoRenewInstanceRequest extends Model
      * @var string
      */
     public $autoRenewCycle;
+
     /**
      * @var int
      */
     public $autoRenewDuration;
+
     /**
      * @var int
      */
     public $orderBizId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'autoRenewCycle'    => 'AutoRenewCycle',
+        'autoRenewCycle' => 'AutoRenewCycle',
         'autoRenewDuration' => 'AutoRenewDuration',
-        'orderBizId'        => 'OrderBizId',
-        'ownerId'           => 'OwnerId',
-        'type'              => 'Type',
+        'orderBizId' => 'OrderBizId',
+        'ownerId' => 'OwnerId',
+        'type' => 'Type',
     ];
 
     public function validate()

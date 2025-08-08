@@ -12,27 +12,31 @@ class DescribeInstancesRequest extends Model
      * @var string
      */
     public $codes;
+
     /**
      * @var string
      */
     public $exceptCodes;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $productType;
     protected $_name = [
-        'codes'       => 'Codes',
+        'codes' => 'Codes',
         'exceptCodes' => 'ExceptCodes',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'productType' => 'ProductType',
     ];
 

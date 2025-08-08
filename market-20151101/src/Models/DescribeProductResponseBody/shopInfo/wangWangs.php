@@ -31,9 +31,10 @@ class wangWangs extends Model
         if (null !== $this->wangWang) {
             if (\is_array($this->wangWang)) {
                 $res['WangWang'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->wangWang as $item1) {
-                    $res['WangWang'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['WangWang'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class wangWangs extends Model
         if (isset($map['WangWang'])) {
             if (!empty($map['WangWang'])) {
                 $model->wangWang = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['WangWang'] as $item1) {
-                    $model->wangWang[$n1++] = wangWang::fromMap($item1);
+                    $model->wangWang[$n1] = wangWang::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

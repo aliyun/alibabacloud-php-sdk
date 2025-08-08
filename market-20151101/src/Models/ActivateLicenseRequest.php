@@ -12,13 +12,14 @@ class ActivateLicenseRequest extends Model
      * @var string
      */
     public $identification;
+
     /**
      * @var string
      */
     public $licenseCode;
     protected $_name = [
         'identification' => 'Identification',
-        'licenseCode'    => 'LicenseCode',
+        'licenseCode' => 'LicenseCode',
     ];
 
     public function validate()

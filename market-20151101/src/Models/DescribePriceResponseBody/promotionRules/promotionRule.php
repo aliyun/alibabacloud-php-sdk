@@ -12,18 +12,20 @@ class promotionRule extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'name'   => 'Name',
+        'name' => 'Name',
         'ruleId' => 'RuleId',
-        'title'  => 'Title',
+        'title' => 'Title',
     ];
 
     public function validate()

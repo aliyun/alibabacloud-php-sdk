@@ -13,27 +13,31 @@ class DescribeDistributionProductsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var results[]
      */
     public $results;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'results'    => 'Results',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'results' => 'Results',
         'totalCount' => 'TotalCount',
     ];
 
@@ -63,9 +67,10 @@ class DescribeDistributionProductsResponseBody extends Model
         if (null !== $this->results) {
             if (\is_array($this->results)) {
                 $res['Results'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->results as $item1) {
-                    $res['Results'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Results'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,9 +105,10 @@ class DescribeDistributionProductsResponseBody extends Model
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Results'] as $item1) {
-                    $model->results[$n1++] = results::fromMap($item1);
+                    $model->results[$n1] = results::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -13,18 +13,20 @@ class CreateOrderResponseBody extends Model
      * @var instanceIds
      */
     public $instanceIds;
+
     /**
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'instanceIds' => 'InstanceIds',
-        'orderId'     => 'OrderId',
-        'requestId'   => 'RequestId',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

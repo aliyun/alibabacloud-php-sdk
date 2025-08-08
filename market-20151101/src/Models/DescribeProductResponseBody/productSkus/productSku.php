@@ -14,37 +14,43 @@ class productSku extends Model
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $constraints;
+
     /**
      * @var bool
      */
     public $hidden;
+
     /**
      * @var modules
      */
     public $modules;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var orderPeriods
      */
     public $orderPeriods;
     protected $_name = [
-        'chargeType'   => 'ChargeType',
-        'code'         => 'Code',
-        'constraints'  => 'Constraints',
-        'hidden'       => 'Hidden',
-        'modules'      => 'Modules',
-        'name'         => 'Name',
+        'chargeType' => 'ChargeType',
+        'code' => 'Code',
+        'constraints' => 'Constraints',
+        'hidden' => 'Hidden',
+        'modules' => 'Modules',
+        'name' => 'Name',
         'orderPeriods' => 'OrderPeriods',
     ];
 

@@ -14,68 +14,80 @@ class DescribePriceResponseBody extends Model
      * @var coupons
      */
     public $coupons;
+
     /**
      * @var string
      */
     public $currency;
+
     /**
      * @var bool
      */
     public $cuxiao;
+
     /**
      * @var string
      */
     public $cycle;
+
     /**
      * @var float
      */
     public $discountPrice;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var string
      */
     public $expressionCode;
+
     /**
      * @var string
      */
     public $expressionMessage;
+
     /**
      * @var string
      */
     public $infoTitle;
+
     /**
      * @var float
      */
     public $originalPrice;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var promotionRules
      */
     public $promotionRules;
+
     /**
      * @var float
      */
     public $tradePrice;
     protected $_name = [
-        'coupons'           => 'Coupons',
-        'currency'          => 'Currency',
-        'cuxiao'            => 'Cuxiao',
-        'cycle'             => 'Cycle',
-        'discountPrice'     => 'DiscountPrice',
-        'duration'          => 'Duration',
-        'expressionCode'    => 'ExpressionCode',
+        'coupons' => 'Coupons',
+        'currency' => 'Currency',
+        'cuxiao' => 'Cuxiao',
+        'cycle' => 'Cycle',
+        'discountPrice' => 'DiscountPrice',
+        'duration' => 'Duration',
+        'expressionCode' => 'ExpressionCode',
         'expressionMessage' => 'ExpressionMessage',
-        'infoTitle'         => 'InfoTitle',
-        'originalPrice'     => 'OriginalPrice',
-        'productCode'       => 'ProductCode',
-        'promotionRules'    => 'PromotionRules',
-        'tradePrice'        => 'TradePrice',
+        'infoTitle' => 'InfoTitle',
+        'originalPrice' => 'OriginalPrice',
+        'productCode' => 'ProductCode',
+        'promotionRules' => 'PromotionRules',
+        'tradePrice' => 'TradePrice',
     ];
 
     public function validate()

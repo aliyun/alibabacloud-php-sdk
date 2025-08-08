@@ -12,33 +12,38 @@ class coupon extends Model
      * @var float
      */
     public $canPromFee;
+
     /**
      * @var string
      */
     public $couponDesc;
+
     /**
      * @var string
      */
     public $couponName;
+
     /**
      * @var string
      */
     public $couponOptionCode;
+
     /**
      * @var string
      */
     public $couponOptionNo;
+
     /**
      * @var bool
      */
     public $isSelected;
     protected $_name = [
-        'canPromFee'       => 'CanPromFee',
-        'couponDesc'       => 'CouponDesc',
-        'couponName'       => 'CouponName',
+        'canPromFee' => 'CanPromFee',
+        'couponDesc' => 'CouponDesc',
+        'couponName' => 'CouponName',
         'couponOptionCode' => 'CouponOptionCode',
-        'couponOptionNo'   => 'CouponOptionNo',
-        'isSelected'       => 'IsSelected',
+        'couponOptionNo' => 'CouponOptionNo',
+        'isSelected' => 'IsSelected',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class DescribeApiMeteringRequest extends Model
      * @var int
      */
     public $pageNum;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var int
      */
     public $type;
     protected $_name = [
-        'pageNum'     => 'pageNum',
+        'pageNum' => 'pageNum',
         'productCode' => 'productCode',
-        'type'        => 'type',
+        'type' => 'type',
     ];
 
     public function validate()

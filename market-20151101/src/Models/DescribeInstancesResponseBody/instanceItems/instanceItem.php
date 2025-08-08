@@ -12,88 +12,104 @@ class instanceItem extends Model
      * @var string
      */
     public $apiJson;
+
     /**
      * @var string
      */
     public $appJson;
+
     /**
      * @var int
      */
     public $beganOn;
+
     /**
      * @var int
      */
     public $createdOn;
+
     /**
      * @var int
      */
     public $endOn;
+
     /**
      * @var string
      */
     public $extendJson;
+
     /**
      * @var string
      */
     public $hostJson;
+
     /**
      * @var string
      */
     public $idaasJson;
+
     /**
      * @var string
      */
     public $imageJson;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $productName;
+
     /**
      * @var string
      */
     public $productSkuCode;
+
     /**
      * @var string
      */
     public $productType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $supplierName;
     protected $_name = [
-        'apiJson'        => 'ApiJson',
-        'appJson'        => 'AppJson',
-        'beganOn'        => 'BeganOn',
-        'createdOn'      => 'CreatedOn',
-        'endOn'          => 'EndOn',
-        'extendJson'     => 'ExtendJson',
-        'hostJson'       => 'HostJson',
-        'idaasJson'      => 'IdaasJson',
-        'imageJson'      => 'ImageJson',
-        'instanceId'     => 'InstanceId',
-        'orderId'        => 'OrderId',
-        'productCode'    => 'ProductCode',
-        'productName'    => 'ProductName',
+        'apiJson' => 'ApiJson',
+        'appJson' => 'AppJson',
+        'beganOn' => 'BeganOn',
+        'createdOn' => 'CreatedOn',
+        'endOn' => 'EndOn',
+        'extendJson' => 'ExtendJson',
+        'hostJson' => 'HostJson',
+        'idaasJson' => 'IdaasJson',
+        'imageJson' => 'ImageJson',
+        'instanceId' => 'InstanceId',
+        'orderId' => 'OrderId',
+        'productCode' => 'ProductCode',
+        'productName' => 'ProductName',
         'productSkuCode' => 'ProductSkuCode',
-        'productType'    => 'ProductType',
-        'status'         => 'Status',
-        'supplierName'   => 'SupplierName',
+        'productType' => 'ProductType',
+        'status' => 'Status',
+        'supplierName' => 'SupplierName',
     ];
 
     public function validate()

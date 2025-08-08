@@ -12,26 +12,30 @@ class result extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $operator;
+
     /**
      * @var string
      */
     public $operatorName;
+
     /**
      * @var string
      */
     public $operatorRole;
     protected $_name = [
-        'content'      => 'Content',
-        'gmtCreate'    => 'GmtCreate',
-        'operator'     => 'Operator',
+        'content' => 'Content',
+        'gmtCreate' => 'GmtCreate',
+        'operator' => 'Operator',
         'operatorName' => 'OperatorName',
         'operatorRole' => 'OperatorRole',
     ];

@@ -12,73 +12,86 @@ class results extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $firstCategoryName;
+
     /**
      * @var string
      */
     public $imageUrl;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $price;
+
     /**
      * @var string
      */
     public $score;
+
     /**
      * @var string
      */
     public $secondCategoryName;
+
     /**
      * @var string
      */
     public $shortDescription;
+
     /**
      * @var string
      */
     public $submissionRadio;
+
     /**
      * @var string
      */
     public $supplierName;
+
     /**
      * @var string
      */
     public $supplierUId;
+
     /**
      * @var string
      */
     public $tradeCount;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $userCommentCount;
     protected $_name = [
-        'code'               => 'Code',
-        'firstCategoryName'  => 'FirstCategoryName',
-        'imageUrl'           => 'ImageUrl',
-        'name'               => 'Name',
-        'price'              => 'Price',
-        'score'              => 'Score',
+        'code' => 'Code',
+        'firstCategoryName' => 'FirstCategoryName',
+        'imageUrl' => 'ImageUrl',
+        'name' => 'Name',
+        'price' => 'Price',
+        'score' => 'Score',
         'secondCategoryName' => 'SecondCategoryName',
-        'shortDescription'   => 'ShortDescription',
-        'submissionRadio'    => 'SubmissionRadio',
-        'supplierName'       => 'SupplierName',
-        'supplierUId'        => 'SupplierUId',
-        'tradeCount'         => 'TradeCount',
-        'type'               => 'Type',
-        'userCommentCount'   => 'UserCommentCount',
+        'shortDescription' => 'ShortDescription',
+        'submissionRadio' => 'SubmissionRadio',
+        'supplierName' => 'SupplierName',
+        'supplierUId' => 'SupplierUId',
+        'tradeCount' => 'TradeCount',
+        'type' => 'Type',
+        'userCommentCount' => 'UserCommentCount',
     ];
 
     public function validate()

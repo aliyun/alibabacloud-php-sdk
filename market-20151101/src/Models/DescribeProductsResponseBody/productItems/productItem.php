@@ -12,83 +12,98 @@ class productItem extends Model
      * @var int
      */
     public $categoryId;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $deliveryDate;
+
     /**
      * @var string
      */
     public $deliveryWay;
+
     /**
      * @var string
      */
     public $imageUrl;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $operationSystem;
+
     /**
      * @var string
      */
     public $priceInfo;
+
     /**
      * @var string
      */
     public $score;
+
     /**
      * @var string
      */
     public $shortDescription;
+
     /**
      * @var string
      */
     public $suggestedPrice;
+
     /**
      * @var int
      */
     public $supplierId;
+
     /**
      * @var string
      */
     public $supplierName;
+
     /**
      * @var string
      */
     public $tags;
+
     /**
      * @var string
      */
     public $targetUrl;
+
     /**
      * @var string
      */
     public $warrantyDate;
     protected $_name = [
-        'categoryId'       => 'CategoryId',
-        'code'             => 'Code',
-        'deliveryDate'     => 'DeliveryDate',
-        'deliveryWay'      => 'DeliveryWay',
-        'imageUrl'         => 'ImageUrl',
-        'name'             => 'Name',
-        'operationSystem'  => 'OperationSystem',
-        'priceInfo'        => 'PriceInfo',
-        'score'            => 'Score',
+        'categoryId' => 'CategoryId',
+        'code' => 'Code',
+        'deliveryDate' => 'DeliveryDate',
+        'deliveryWay' => 'DeliveryWay',
+        'imageUrl' => 'ImageUrl',
+        'name' => 'Name',
+        'operationSystem' => 'OperationSystem',
+        'priceInfo' => 'PriceInfo',
+        'score' => 'Score',
         'shortDescription' => 'ShortDescription',
-        'suggestedPrice'   => 'SuggestedPrice',
-        'supplierId'       => 'SupplierId',
-        'supplierName'     => 'SupplierName',
-        'tags'             => 'Tags',
-        'targetUrl'        => 'TargetUrl',
-        'warrantyDate'     => 'WarrantyDate',
+        'suggestedPrice' => 'SuggestedPrice',
+        'supplierId' => 'SupplierId',
+        'supplierName' => 'SupplierName',
+        'tags' => 'Tags',
+        'targetUrl' => 'TargetUrl',
+        'warrantyDate' => 'WarrantyDate',
     ];
 
     public function validate()

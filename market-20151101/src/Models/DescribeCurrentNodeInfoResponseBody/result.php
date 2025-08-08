@@ -12,83 +12,98 @@ class result extends Model
      * @var bool
      */
     public $allowRollbackNode;
+
     /**
      * @var bool
      */
     public $autoFinishNode;
+
     /**
      * @var int
      */
     public $finalStepNo;
+
     /**
      * @var int
      */
     public $gmtExpired;
+
     /**
      * @var int
      */
     public $gmtFinished;
+
     /**
      * @var int
      */
     public $gmtStart;
+
     /**
      * @var bool
      */
     public $needAttachment;
+
     /**
      * @var int
      */
     public $nextNodeId;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $nodeStatus;
+
     /**
      * @var string
      */
     public $operatorRole;
+
     /**
      * @var int
      */
     public $parentNodeId;
+
     /**
      * @var int
      */
     public $previousNodeId;
+
     /**
      * @var int
      */
     public $stepNo;
+
     /**
      * @var string
      */
     public $templateForm;
     protected $_name = [
         'allowRollbackNode' => 'AllowRollbackNode',
-        'autoFinishNode'    => 'AutoFinishNode',
-        'finalStepNo'       => 'FinalStepNo',
-        'gmtExpired'        => 'GmtExpired',
-        'gmtFinished'       => 'GmtFinished',
-        'gmtStart'          => 'GmtStart',
-        'needAttachment'    => 'NeedAttachment',
-        'nextNodeId'        => 'NextNodeId',
-        'nodeId'            => 'NodeId',
-        'nodeName'          => 'NodeName',
-        'nodeStatus'        => 'NodeStatus',
-        'operatorRole'      => 'OperatorRole',
-        'parentNodeId'      => 'ParentNodeId',
-        'previousNodeId'    => 'PreviousNodeId',
-        'stepNo'            => 'StepNo',
-        'templateForm'      => 'TemplateForm',
+        'autoFinishNode' => 'AutoFinishNode',
+        'finalStepNo' => 'FinalStepNo',
+        'gmtExpired' => 'GmtExpired',
+        'gmtFinished' => 'GmtFinished',
+        'gmtStart' => 'GmtStart',
+        'needAttachment' => 'NeedAttachment',
+        'nextNodeId' => 'NextNodeId',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'nodeStatus' => 'NodeStatus',
+        'operatorRole' => 'OperatorRole',
+        'parentNodeId' => 'ParentNodeId',
+        'previousNodeId' => 'PreviousNodeId',
+        'stepNo' => 'StepNo',
+        'templateForm' => 'TemplateForm',
     ];
 
     public function validate()

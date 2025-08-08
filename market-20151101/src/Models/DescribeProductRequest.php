@@ -12,17 +12,19 @@ class DescribeProductRequest extends Model
      * @var string
      */
     public $aliUid;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var bool
      */
     public $queryDraft;
     protected $_name = [
-        'aliUid'     => 'AliUid',
-        'code'       => 'Code',
+        'aliUid' => 'AliUid',
+        'code' => 'Code',
         'queryDraft' => 'QueryDraft',
     ];
 

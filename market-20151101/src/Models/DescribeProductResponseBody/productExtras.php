@@ -31,9 +31,10 @@ class productExtras extends Model
         if (null !== $this->productExtra) {
             if (\is_array($this->productExtra)) {
                 $res['ProductExtra'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->productExtra as $item1) {
-                    $res['ProductExtra'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProductExtra'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class productExtras extends Model
         if (isset($map['ProductExtra'])) {
             if (!empty($map['ProductExtra'])) {
                 $model->productExtra = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ProductExtra'] as $item1) {
-                    $model->productExtra[$n1++] = productExtra::fromMap($item1);
+                    $model->productExtra[$n1] = productExtra::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

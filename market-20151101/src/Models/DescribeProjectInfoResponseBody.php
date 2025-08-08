@@ -13,18 +13,20 @@ class DescribeProjectInfoResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var result
      */
     public $result;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
     public function validate()

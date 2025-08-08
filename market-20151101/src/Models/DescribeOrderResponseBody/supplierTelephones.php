@@ -30,9 +30,10 @@ class supplierTelephones extends Model
         if (null !== $this->telephone) {
             if (\is_array($this->telephone)) {
                 $res['Telephone'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->telephone as $item1) {
-                    $res['Telephone'][$n1++] = $item1;
+                    $res['Telephone'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,9 +52,10 @@ class supplierTelephones extends Model
         if (isset($map['Telephone'])) {
             if (!empty($map['Telephone'])) {
                 $model->telephone = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Telephone'] as $item1) {
-                    $model->telephone[$n1++] = $item1;
+                    $model->telephone[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

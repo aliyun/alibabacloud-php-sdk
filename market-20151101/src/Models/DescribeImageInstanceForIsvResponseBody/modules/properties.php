@@ -13,28 +13,32 @@ class properties extends Model
      * @var string
      */
     public $displayUnit;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var propertyValues[]
      */
     public $propertyValues;
+
     /**
      * @var string
      */
     public $showType;
     protected $_name = [
-        'displayUnit'    => 'DisplayUnit',
-        'key'            => 'Key',
-        'name'           => 'Name',
+        'displayUnit' => 'DisplayUnit',
+        'key' => 'Key',
+        'name' => 'Name',
         'propertyValues' => 'PropertyValues',
-        'showType'       => 'ShowType',
+        'showType' => 'ShowType',
     ];
 
     public function validate()
@@ -63,9 +67,10 @@ class properties extends Model
         if (null !== $this->propertyValues) {
             if (\is_array($this->propertyValues)) {
                 $res['PropertyValues'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->propertyValues as $item1) {
-                    $res['PropertyValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PropertyValues'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -100,9 +105,10 @@ class properties extends Model
         if (isset($map['PropertyValues'])) {
             if (!empty($map['PropertyValues'])) {
                 $model->propertyValues = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['PropertyValues'] as $item1) {
-                    $model->propertyValues[$n1++] = propertyValues::fromMap($item1);
+                    $model->propertyValues[$n1] = propertyValues::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

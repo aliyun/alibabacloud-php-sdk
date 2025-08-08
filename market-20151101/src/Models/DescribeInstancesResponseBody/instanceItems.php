@@ -31,9 +31,10 @@ class instanceItems extends Model
         if (null !== $this->instanceItem) {
             if (\is_array($this->instanceItem)) {
                 $res['InstanceItem'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->instanceItem as $item1) {
-                    $res['InstanceItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['InstanceItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class instanceItems extends Model
         if (isset($map['InstanceItem'])) {
             if (!empty($map['InstanceItem'])) {
                 $model->instanceItem = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['InstanceItem'] as $item1) {
-                    $model->instanceItem[$n1++] = instanceItem::fromMap($item1);
+                    $model->instanceItem[$n1] = instanceItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

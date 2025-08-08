@@ -13,28 +13,32 @@ class DescribeProductsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var productItems
      */
     public $productItems;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'productItems' => 'ProductItems',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

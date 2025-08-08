@@ -13,28 +13,32 @@ class CrossAccountVerifyTokenResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var result
      */
     public $result;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
     public function validate()

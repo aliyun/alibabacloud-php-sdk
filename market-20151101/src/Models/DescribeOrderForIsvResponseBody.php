@@ -12,103 +12,122 @@ class DescribeOrderForIsvResponseBody extends Model
      * @var int
      */
     public $accountQuantity;
+
     /**
      * @var int
      */
     public $aliUid;
+
     /**
      * @var mixed
      */
     public $components;
+
     /**
      * @var float
      */
     public $couponPrice;
+
     /**
      * @var int
      */
     public $createdOn;
+
     /**
      * @var string[]
      */
     public $instanceIds;
+
     /**
      * @var int
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $orderStatus;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var float
      */
     public $originalPrice;
+
     /**
      * @var int
      */
     public $paidOn;
+
     /**
      * @var string
      */
     public $payStatus;
+
     /**
      * @var float
      */
     public $paymentPrice;
+
     /**
      * @var string
      */
     public $periodType;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $productName;
+
     /**
      * @var string
      */
     public $productSkuCode;
+
     /**
      * @var int
      */
     public $quantity;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var float
      */
     public $totalPrice;
     protected $_name = [
         'accountQuantity' => 'AccountQuantity',
-        'aliUid'          => 'AliUid',
-        'components'      => 'Components',
-        'couponPrice'     => 'CouponPrice',
-        'createdOn'       => 'CreatedOn',
-        'instanceIds'     => 'InstanceIds',
-        'orderId'         => 'OrderId',
-        'orderStatus'     => 'OrderStatus',
-        'orderType'       => 'OrderType',
-        'originalPrice'   => 'OriginalPrice',
-        'paidOn'          => 'PaidOn',
-        'payStatus'       => 'PayStatus',
-        'paymentPrice'    => 'PaymentPrice',
-        'periodType'      => 'PeriodType',
-        'productCode'     => 'ProductCode',
-        'productName'     => 'ProductName',
-        'productSkuCode'  => 'ProductSkuCode',
-        'quantity'        => 'Quantity',
-        'requestId'       => 'RequestId',
-        'totalPrice'      => 'TotalPrice',
+        'aliUid' => 'AliUid',
+        'components' => 'Components',
+        'couponPrice' => 'CouponPrice',
+        'createdOn' => 'CreatedOn',
+        'instanceIds' => 'InstanceIds',
+        'orderId' => 'OrderId',
+        'orderStatus' => 'OrderStatus',
+        'orderType' => 'OrderType',
+        'originalPrice' => 'OriginalPrice',
+        'paidOn' => 'PaidOn',
+        'payStatus' => 'PayStatus',
+        'paymentPrice' => 'PaymentPrice',
+        'periodType' => 'PeriodType',
+        'productCode' => 'ProductCode',
+        'productName' => 'ProductName',
+        'productSkuCode' => 'ProductSkuCode',
+        'quantity' => 'Quantity',
+        'requestId' => 'RequestId',
+        'totalPrice' => 'TotalPrice',
     ];
 
     public function validate()
@@ -145,9 +164,10 @@ class DescribeOrderForIsvResponseBody extends Model
         if (null !== $this->instanceIds) {
             if (\is_array($this->instanceIds)) {
                 $res['InstanceIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->instanceIds as $item1) {
-                    $res['InstanceIds'][$n1++] = $item1;
+                    $res['InstanceIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -242,9 +262,10 @@ class DescribeOrderForIsvResponseBody extends Model
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
                 $model->instanceIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['InstanceIds'] as $item1) {
-                    $model->instanceIds[$n1++] = $item1;
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -12,23 +12,26 @@ class extendInfo extends Model
      * @var int
      */
     public $accountQuantity;
+
     /**
      * @var int
      */
     public $aliUid;
+
     /**
      * @var string
      */
     public $email;
+
     /**
      * @var string
      */
     public $mobile;
     protected $_name = [
         'accountQuantity' => 'AccountQuantity',
-        'aliUid'          => 'AliUid',
-        'email'           => 'Email',
-        'mobile'          => 'Mobile',
+        'aliUid' => 'AliUid',
+        'email' => 'Email',
+        'mobile' => 'Mobile',
     ];
 
     public function validate()

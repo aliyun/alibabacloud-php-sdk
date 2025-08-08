@@ -12,27 +12,31 @@ class productExtra extends Model
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $label;
+
     /**
      * @var int
      */
     public $order;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $values;
     protected $_name = [
-        'key'    => 'Key',
-        'label'  => 'Label',
-        'order'  => 'Order',
-        'type'   => 'Type',
+        'key' => 'Key',
+        'label' => 'Label',
+        'order' => 'Order',
+        'type' => 'Type',
         'values' => 'Values',
     ];
 

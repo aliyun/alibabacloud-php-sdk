@@ -31,9 +31,10 @@ class productSkus extends Model
         if (null !== $this->productSku) {
             if (\is_array($this->productSku)) {
                 $res['ProductSku'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->productSku as $item1) {
-                    $res['ProductSku'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ProductSku'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class productSkus extends Model
         if (isset($map['ProductSku'])) {
             if (!empty($map['ProductSku'])) {
                 $model->productSku = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ProductSku'] as $item1) {
-                    $model->productSku[$n1++] = productSku::fromMap($item1);
+                    $model->productSku[$n1] = productSku::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

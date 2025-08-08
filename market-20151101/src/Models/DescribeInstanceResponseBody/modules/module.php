@@ -13,22 +13,25 @@ class module extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var properties
      */
     public $properties;
     protected $_name = [
-        'code'       => 'Code',
-        'id'         => 'Id',
-        'name'       => 'Name',
+        'code' => 'Code',
+        'id' => 'Id',
+        'name' => 'Name',
         'properties' => 'Properties',
     ];
 

@@ -12,38 +12,44 @@ class result extends Model
      * @var int
      */
     public $aliyunPk;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $productName;
+
     /**
      * @var int
      */
     public $totalCapacity;
+
     /**
      * @var int
      */
     public $totalQuota;
+
     /**
      * @var int
      */
     public $totalUsage;
+
     /**
      * @var string
      */
     public $unit;
     protected $_name = [
-        'aliyunPk'      => 'AliyunPk',
-        'productCode'   => 'ProductCode',
-        'productName'   => 'ProductName',
+        'aliyunPk' => 'AliyunPk',
+        'productCode' => 'ProductCode',
+        'productName' => 'ProductName',
         'totalCapacity' => 'TotalCapacity',
-        'totalQuota'    => 'TotalQuota',
-        'totalUsage'    => 'TotalUsage',
-        'unit'          => 'Unit',
+        'totalQuota' => 'TotalQuota',
+        'totalUsage' => 'TotalUsage',
+        'unit' => 'Unit',
     ];
 
     public function validate()

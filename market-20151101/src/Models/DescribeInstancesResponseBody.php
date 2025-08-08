@@ -13,28 +13,32 @@ class DescribeInstancesResponseBody extends Model
      * @var instanceItems
      */
     public $instanceItems;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'instanceItems' => 'InstanceItems',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'requestId'     => 'RequestId',
-        'totalCount'    => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

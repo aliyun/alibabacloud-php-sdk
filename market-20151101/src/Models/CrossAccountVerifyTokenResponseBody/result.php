@@ -12,23 +12,26 @@ class result extends Model
      * @var string[]
      */
     public $authRoles;
+
     /**
      * @var int
      */
     public $authTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $uid;
     protected $_name = [
         'authRoles' => 'AuthRoles',
-        'authTime'  => 'AuthTime',
-        'name'      => 'Name',
-        'uid'       => 'Uid',
+        'authTime' => 'AuthTime',
+        'name' => 'Name',
+        'uid' => 'Uid',
     ];
 
     public function validate()
@@ -45,9 +48,10 @@ class result extends Model
         if (null !== $this->authRoles) {
             if (\is_array($this->authRoles)) {
                 $res['AuthRoles'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->authRoles as $item1) {
-                    $res['AuthRoles'][$n1++] = $item1;
+                    $res['AuthRoles'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,9 +82,10 @@ class result extends Model
         if (isset($map['AuthRoles'])) {
             if (!empty($map['AuthRoles'])) {
                 $model->authRoles = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['AuthRoles'] as $item1) {
-                    $model->authRoles[$n1++] = $item1;
+                    $model->authRoles[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

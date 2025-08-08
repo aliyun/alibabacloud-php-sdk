@@ -12,12 +12,13 @@ class licenseAttribute extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'code'  => 'Code',
+        'code' => 'Code',
         'value' => 'Value',
     ];
 

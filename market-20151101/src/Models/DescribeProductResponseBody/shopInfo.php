@@ -14,28 +14,32 @@ class shopInfo extends Model
      * @var string
      */
     public $emails;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var telephones
      */
     public $telephones;
+
     /**
      * @var wangWangs
      */
     public $wangWangs;
     protected $_name = [
-        'emails'     => 'Emails',
-        'id'         => 'Id',
-        'name'       => 'Name',
+        'emails' => 'Emails',
+        'id' => 'Id',
+        'name' => 'Name',
         'telephones' => 'Telephones',
-        'wangWangs'  => 'WangWangs',
+        'wangWangs' => 'WangWangs',
     ];
 
     public function validate()

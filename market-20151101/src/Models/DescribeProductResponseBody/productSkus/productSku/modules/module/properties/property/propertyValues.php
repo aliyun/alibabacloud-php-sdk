@@ -31,9 +31,10 @@ class propertyValues extends Model
         if (null !== $this->propertyValue) {
             if (\is_array($this->propertyValue)) {
                 $res['PropertyValue'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->propertyValue as $item1) {
-                    $res['PropertyValue'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PropertyValue'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class propertyValues extends Model
         if (isset($map['PropertyValue'])) {
             if (!empty($map['PropertyValue'])) {
                 $model->propertyValue = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['PropertyValue'] as $item1) {
-                    $model->propertyValue[$n1++] = propertyValue::fromMap($item1);
+                    $model->propertyValue[$n1] = propertyValue::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

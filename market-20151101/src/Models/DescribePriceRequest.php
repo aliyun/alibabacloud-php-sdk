@@ -12,6 +12,7 @@ class DescribePriceRequest extends Model
      * @var string
      */
     public $commodity;
+
     /**
      * @var string
      */

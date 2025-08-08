@@ -13,53 +13,62 @@ class DescribeApiMeteringResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var bool
      */
     public $fatal;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var result[]
      */
     public $result;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'code'       => 'Code',
-        'count'      => 'Count',
-        'fatal'      => 'Fatal',
-        'message'    => 'Message',
+        'code' => 'Code',
+        'count' => 'Count',
+        'fatal' => 'Fatal',
+        'message' => 'Message',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'result'     => 'Result',
-        'success'    => 'Success',
-        'version'    => 'Version',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'result' => 'Result',
+        'success' => 'Success',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -104,9 +113,10 @@ class DescribeApiMeteringResponseBody extends Model
         if (null !== $this->result) {
             if (\is_array($this->result)) {
                 $res['Result'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->result as $item1) {
-                    $res['Result'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Result'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -161,9 +171,10 @@ class DescribeApiMeteringResponseBody extends Model
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Result'] as $item1) {
-                    $model->result[$n1++] = result::fromMap($item1);
+                    $model->result[$n1] = result::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

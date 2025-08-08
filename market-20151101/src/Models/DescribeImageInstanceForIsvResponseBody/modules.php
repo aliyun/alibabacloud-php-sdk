@@ -13,22 +13,25 @@ class modules extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var properties[]
      */
     public $properties;
     protected $_name = [
-        'code'       => 'Code',
-        'id'         => 'Id',
-        'name'       => 'Name',
+        'code' => 'Code',
+        'id' => 'Id',
+        'name' => 'Name',
         'properties' => 'Properties',
     ];
 
@@ -58,9 +61,10 @@ class modules extends Model
         if (null !== $this->properties) {
             if (\is_array($this->properties)) {
                 $res['Properties'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->properties as $item1) {
-                    $res['Properties'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Properties'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,9 +95,10 @@ class modules extends Model
         if (isset($map['Properties'])) {
             if (!empty($map['Properties'])) {
                 $model->properties = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Properties'] as $item1) {
-                    $model->properties[$n1++] = properties::fromMap($item1);
+                    $model->properties[$n1] = properties::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

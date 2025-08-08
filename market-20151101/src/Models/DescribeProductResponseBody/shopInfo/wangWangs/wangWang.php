@@ -12,12 +12,13 @@ class wangWang extends Model
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'remark'   => 'Remark',
+        'remark' => 'Remark',
         'userName' => 'UserName',
     ];
 

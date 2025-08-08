@@ -30,9 +30,10 @@ class DescribeDistributionProductsLinkRequest extends Model
         if (null !== $this->codes) {
             if (\is_array($this->codes)) {
                 $res['Codes'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->codes as $item1) {
-                    $res['Codes'][$n1++] = $item1;
+                    $res['Codes'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,9 +52,10 @@ class DescribeDistributionProductsLinkRequest extends Model
         if (isset($map['Codes'])) {
             if (!empty($map['Codes'])) {
                 $model->codes = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Codes'] as $item1) {
-                    $model->codes[$n1++] = $item1;
+                    $model->codes[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

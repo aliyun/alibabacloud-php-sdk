@@ -31,9 +31,10 @@ class extendArray extends Model
         if (null !== $this->licenseAttribute) {
             if (\is_array($this->licenseAttribute)) {
                 $res['LicenseAttribute'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->licenseAttribute as $item1) {
-                    $res['LicenseAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LicenseAttribute'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class extendArray extends Model
         if (isset($map['LicenseAttribute'])) {
             if (!empty($map['LicenseAttribute'])) {
                 $model->licenseAttribute = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['LicenseAttribute'] as $item1) {
-                    $model->licenseAttribute[$n1++] = licenseAttribute::fromMap($item1);
+                    $model->licenseAttribute[$n1] = licenseAttribute::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

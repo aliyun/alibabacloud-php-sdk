@@ -12,38 +12,44 @@ class propertyValues extends Model
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $max;
+
     /**
      * @var string
      */
     public $min;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $step;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
         'displayName' => 'DisplayName',
-        'max'         => 'Max',
-        'min'         => 'Min',
-        'remark'      => 'Remark',
-        'step'        => 'Step',
-        'type'        => 'Type',
-        'value'       => 'Value',
+        'max' => 'Max',
+        'min' => 'Min',
+        'remark' => 'Remark',
+        'step' => 'Step',
+        'type' => 'Type',
+        'value' => 'Value',
     ];
 
     public function validate()

@@ -12,22 +12,25 @@ class FinishCurrentProjectNodeRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $templateForm;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'nodeId'       => 'NodeId',
-        'remark'       => 'Remark',
+        'instanceId' => 'InstanceId',
+        'nodeId' => 'NodeId',
+        'remark' => 'Remark',
         'templateForm' => 'TemplateForm',
     ];
 

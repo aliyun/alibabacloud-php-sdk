@@ -12,12 +12,13 @@ class DescribeImageInstanceForIsvRequest extends Model
      * @var int
      */
     public $customerPk;
+
     /**
      * @var string
      */
     public $ecsInstanceId;
     protected $_name = [
-        'customerPk'    => 'CustomerPk',
+        'customerPk' => 'CustomerPk',
         'ecsInstanceId' => 'EcsInstanceId',
     ];
 

@@ -12,13 +12,14 @@ class DescribeProjectMessagesRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageIndex;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'pageIndex'  => 'PageIndex',
+        'pageIndex' => 'PageIndex',
     ];
 
     public function validate()

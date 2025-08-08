@@ -13,12 +13,13 @@ class DescribeLicenseResponseBody extends Model
      * @var license
      */
     public $license;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'license'   => 'License',
+        'license' => 'License',
         'requestId' => 'RequestId',
     ];
 

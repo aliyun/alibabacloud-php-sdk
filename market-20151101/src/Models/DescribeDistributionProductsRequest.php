@@ -13,18 +13,20 @@ class DescribeDistributionProductsRequest extends Model
      * @var filter[]
      */
     public $filter;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'filter'     => 'Filter',
+        'filter' => 'Filter',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
@@ -41,9 +43,10 @@ class DescribeDistributionProductsRequest extends Model
         if (null !== $this->filter) {
             if (\is_array($this->filter)) {
                 $res['Filter'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->filter as $item1) {
-                    $res['Filter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Filter'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -70,9 +73,10 @@ class DescribeDistributionProductsRequest extends Model
         if (isset($map['Filter'])) {
             if (!empty($map['Filter'])) {
                 $model->filter = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Filter'] as $item1) {
-                    $model->filter[$n1++] = filter::fromMap($item1);
+                    $model->filter[$n1] = filter::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

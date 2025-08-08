@@ -12,32 +12,37 @@ class CreateOrderRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $commodity;
+
     /**
      * @var string
      */
     public $orderSouce;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $paymentType;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'commodity'   => 'Commodity',
-        'orderSouce'  => 'OrderSouce',
-        'orderType'   => 'OrderType',
-        'ownerId'     => 'OwnerId',
+        'commodity' => 'Commodity',
+        'orderSouce' => 'OrderSouce',
+        'orderType' => 'OrderType',
+        'ownerId' => 'OwnerId',
         'paymentType' => 'PaymentType',
     ];
 

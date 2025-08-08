@@ -12,78 +12,92 @@ class result extends Model
      * @var string
      */
     public $attachmentToken;
+
     /**
      * @var string
      */
     public $attachmentType;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $fileLink;
+
     /**
      * @var int
      */
     public $fileLinkGmtExpired;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var int
      */
     public $fileSize;
+
     /**
      * @var string
      */
     public $fileSuffix;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var int
      */
     public $operator;
+
     /**
      * @var string
      */
     public $operatorName;
+
     /**
      * @var string
      */
     public $operatorRole;
+
     /**
      * @var int
      */
     public $stepNo;
     protected $_name = [
-        'attachmentToken'    => 'AttachmentToken',
-        'attachmentType'     => 'AttachmentType',
-        'content'            => 'Content',
-        'fileLink'           => 'FileLink',
+        'attachmentToken' => 'AttachmentToken',
+        'attachmentType' => 'AttachmentType',
+        'content' => 'Content',
+        'fileLink' => 'FileLink',
         'fileLinkGmtExpired' => 'FileLinkGmtExpired',
-        'fileName'           => 'FileName',
-        'fileSize'           => 'FileSize',
-        'fileSuffix'         => 'FileSuffix',
-        'gmtCreate'          => 'GmtCreate',
-        'nodeId'             => 'NodeId',
-        'nodeName'           => 'NodeName',
-        'operator'           => 'Operator',
-        'operatorName'       => 'OperatorName',
-        'operatorRole'       => 'OperatorRole',
-        'stepNo'             => 'StepNo',
+        'fileName' => 'FileName',
+        'fileSize' => 'FileSize',
+        'fileSuffix' => 'FileSuffix',
+        'gmtCreate' => 'GmtCreate',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'operator' => 'Operator',
+        'operatorName' => 'OperatorName',
+        'operatorRole' => 'OperatorRole',
+        'stepNo' => 'StepNo',
     ];
 
     public function validate()

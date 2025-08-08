@@ -31,9 +31,10 @@ class promotionRules extends Model
         if (null !== $this->promotionRule) {
             if (\is_array($this->promotionRule)) {
                 $res['PromotionRule'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->promotionRule as $item1) {
-                    $res['PromotionRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PromotionRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class promotionRules extends Model
         if (isset($map['PromotionRule'])) {
             if (!empty($map['PromotionRule'])) {
                 $model->promotionRule = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['PromotionRule'] as $item1) {
-                    $model->promotionRule[$n1++] = promotionRule::fromMap($item1);
+                    $model->promotionRule[$n1] = promotionRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

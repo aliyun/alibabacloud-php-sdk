@@ -9,6 +9,8 @@ use AlibabaCloud\SDK\Market\V20151101\Models\ActivateLicenseRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\ActivateLicenseResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\AutoRenewInstanceRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\AutoRenewInstanceResponse;
+use AlibabaCloud\SDK\Market\V20151101\Models\ConfirmNotificationRequest;
+use AlibabaCloud\SDK\Market\V20151101\Models\ConfirmNotificationResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\CreateOrderRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\CreateOrderResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\CrossAccountVerifyTokenRequest;
@@ -22,6 +24,8 @@ use AlibabaCloud\SDK\Market\V20151101\Models\DescribeDistributionProductsLinkRes
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeDistributionProductsLinkShrinkRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeDistributionProductsRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeDistributionProductsResponse;
+use AlibabaCloud\SDK\Market\V20151101\Models\DescribeFailedNotificationsRequest;
+use AlibabaCloud\SDK\Market\V20151101\Models\DescribeFailedNotificationsResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeImageInstanceForIsvRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeImageInstanceForIsvResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstanceForIsvRequest;
@@ -30,6 +34,8 @@ use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstanceRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstanceResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstancesRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstancesResponse;
+use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInvoiceForIsvRequest;
+use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInvoiceForIsvResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeLicenseRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeLicenseResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeOrderForIsvRequest;
@@ -54,6 +60,8 @@ use AlibabaCloud\SDK\Market\V20151101\Models\DescribeProjectOperateLogsRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeProjectOperateLogsResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\FinishCurrentProjectNodeRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\FinishCurrentProjectNodeResponse;
+use AlibabaCloud\SDK\Market\V20151101\Models\ModifyInvoiceForIsvRequest;
+use AlibabaCloud\SDK\Market\V20151101\Models\ModifyInvoiceForIsvResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\PauseProjectRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\PauseProjectResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\PushMeteringDataRequest;
@@ -73,30 +81,30 @@ class Market extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-hangzhou'           => 'market.aliyuncs.com',
-            'ap-northeast-1'        => 'market.ap-southeast-1.aliyuncs.com',
-            'ap-south-1'            => 'market.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-2'        => 'market.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-3'        => 'market.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-5'        => 'market.ap-southeast-1.aliyuncs.com',
-            'cn-beijing'            => 'market.aliyuncs.com',
-            'cn-chengdu'            => 'market.aliyuncs.com',
-            'cn-hongkong'           => 'market.aliyuncs.com',
-            'cn-huhehaote'          => 'market.aliyuncs.com',
-            'cn-qingdao'            => 'market.aliyuncs.com',
-            'cn-shanghai'           => 'market.aliyuncs.com',
-            'cn-shenzhen'           => 'market.aliyuncs.com',
-            'cn-zhangjiakou'        => 'market.aliyuncs.com',
-            'eu-central-1'          => 'market.ap-southeast-1.aliyuncs.com',
-            'eu-west-1'             => 'market.ap-southeast-1.aliyuncs.com',
-            'me-east-1'             => 'market.ap-southeast-1.aliyuncs.com',
-            'us-east-1'             => 'market.ap-southeast-1.aliyuncs.com',
-            'us-west-1'             => 'market.ap-southeast-1.aliyuncs.com',
-            'cn-hangzhou-finance'   => 'market.aliyuncs.com',
+        $this->_endpointMap = [
+            'cn-hangzhou' => 'market.aliyuncs.com',
+            'ap-northeast-1' => 'market.ap-southeast-1.aliyuncs.com',
+            'ap-south-1' => 'market.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-2' => 'market.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'market.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-5' => 'market.ap-southeast-1.aliyuncs.com',
+            'cn-beijing' => 'market.aliyuncs.com',
+            'cn-chengdu' => 'market.aliyuncs.com',
+            'cn-hongkong' => 'market.aliyuncs.com',
+            'cn-huhehaote' => 'market.aliyuncs.com',
+            'cn-qingdao' => 'market.aliyuncs.com',
+            'cn-shanghai' => 'market.aliyuncs.com',
+            'cn-shenzhen' => 'market.aliyuncs.com',
+            'cn-zhangjiakou' => 'market.aliyuncs.com',
+            'eu-central-1' => 'market.ap-southeast-1.aliyuncs.com',
+            'eu-west-1' => 'market.ap-southeast-1.aliyuncs.com',
+            'me-east-1' => 'market.ap-southeast-1.aliyuncs.com',
+            'us-east-1' => 'market.ap-southeast-1.aliyuncs.com',
+            'us-west-1' => 'market.ap-southeast-1.aliyuncs.com',
+            'cn-hangzhou-finance' => 'market.aliyuncs.com',
             'cn-shenzhen-finance-1' => 'market.aliyuncs.com',
             'cn-shanghai-finance-1' => 'market.aliyuncs.com',
-            'cn-north-2-gov-1'      => 'market.aliyuncs.com',
+            'cn-north-2-gov-1' => 'market.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('market', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -131,6 +139,7 @@ class Market extends OpenApiClient
      *
      * @param request - ActivateLicenseRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ActivateLicenseResponse
      *
      * @param ActivateLicenseRequest $request
@@ -154,27 +163,25 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ActivateLicense',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ActivateLicense',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ActivateLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ActivateLicenseResponse::fromMap($this->execute($params, $req, $runtime));
+        return ActivateLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 增加STS支持
      *
      * @param request - ActivateLicenseRequest
+     *
      * @returns ActivateLicenseResponse
      *
      * @param ActivateLicenseRequest $request
@@ -191,6 +198,7 @@ class Market extends OpenApiClient
     /**
      * @param request - AutoRenewInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AutoRenewInstanceResponse
      *
      * @param AutoRenewInstanceRequest $request
@@ -226,25 +234,23 @@ class Market extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AutoRenewInstance',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AutoRenewInstance',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AutoRenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AutoRenewInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return AutoRenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - AutoRenewInstanceRequest
+     *
      * @returns AutoRenewInstanceResponse
      *
      * @param AutoRenewInstanceRequest $request
@@ -259,8 +265,66 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 确认查收订阅通知.
+     *
+     * @param request - ConfirmNotificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConfirmNotificationResponse
+     *
+     * @param ConfirmNotificationRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ConfirmNotificationResponse
+     */
+    public function confirmNotificationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->notificationRequestId) {
+            @$query['NotificationRequestId'] = $request->notificationRequestId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ConfirmNotification',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ConfirmNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 确认查收订阅通知.
+     *
+     * @param request - ConfirmNotificationRequest
+     *
+     * @returns ConfirmNotificationResponse
+     *
+     * @param ConfirmNotificationRequest $request
+     *
+     * @return ConfirmNotificationResponse
+     */
+    public function confirmNotification($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->confirmNotificationWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - CreateOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateOrderResponse
      *
      * @param CreateOrderRequest $request
@@ -300,25 +364,23 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateOrder',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateOrder',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - CreateOrderRequest
+     *
      * @returns CreateOrderResponse
      *
      * @param CreateOrderRequest $request
@@ -335,6 +397,7 @@ class Market extends OpenApiClient
     /**
      * @param request - CrossAccountVerifyTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CrossAccountVerifyTokenResponse
      *
      * @param CrossAccountVerifyTokenRequest $request
@@ -354,25 +417,23 @@ class Market extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CrossAccountVerifyToken',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CrossAccountVerifyToken',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CrossAccountVerifyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CrossAccountVerifyTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return CrossAccountVerifyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - CrossAccountVerifyTokenRequest
+     *
      * @returns CrossAccountVerifyTokenResponse
      *
      * @param CrossAccountVerifyTokenRequest $request
@@ -391,6 +452,7 @@ class Market extends OpenApiClient
      *
      * @param request - DescribeApiMeteringRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApiMeteringResponse
      *
      * @param DescribeApiMeteringRequest $request
@@ -402,31 +464,29 @@ class Market extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApiMetering',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApiMetering',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeApiMeteringResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeApiMeteringResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeApiMeteringResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 查询API用量.
      *
      * @param request - DescribeApiMeteringRequest
+     *
      * @returns DescribeApiMeteringResponse
      *
      * @param DescribeApiMeteringRequest $request
@@ -443,6 +503,7 @@ class Market extends OpenApiClient
     /**
      * @param request - DescribeCurrentNodeInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCurrentNodeInfoResponse
      *
      * @param DescribeCurrentNodeInfoRequest $request
@@ -462,25 +523,23 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCurrentNodeInfo',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCurrentNodeInfo',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeCurrentNodeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeCurrentNodeInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeCurrentNodeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeCurrentNodeInfoRequest
+     *
      * @returns DescribeCurrentNodeInfoResponse
      *
      * @param DescribeCurrentNodeInfoRequest $request
@@ -499,6 +558,7 @@ class Market extends OpenApiClient
      *
      * @param request - DescribeDistributionProductsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDistributionProductsResponse
      *
      * @param DescribeDistributionProductsRequest $request
@@ -510,31 +570,29 @@ class Market extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDistributionProducts',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDistributionProducts',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDistributionProductsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDistributionProductsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDistributionProductsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 分页获取推广商品
      *
      * @param request - DescribeDistributionProductsRequest
+     *
      * @returns DescribeDistributionProductsResponse
      *
      * @param DescribeDistributionProductsRequest $request
@@ -553,6 +611,7 @@ class Market extends OpenApiClient
      *
      * @param tmpReq - DescribeDistributionProductsLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDistributionProductsLinkResponse
      *
      * @param DescribeDistributionProductsLinkRequest $tmpReq
@@ -578,27 +637,25 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDistributionProductsLink',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDistributionProductsLink',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeDistributionProductsLinkResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDistributionProductsLinkResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDistributionProductsLinkResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取并生成推广商品-链接.
      *
      * @param request - DescribeDistributionProductsLinkRequest
+     *
      * @returns DescribeDistributionProductsLinkResponse
      *
      * @param DescribeDistributionProductsLinkRequest $request
@@ -613,10 +670,72 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 查询订阅通知失败列表.
+     *
+     * @param request - DescribeFailedNotificationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFailedNotificationsResponse
+     *
+     * @param DescribeFailedNotificationsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeFailedNotificationsResponse
+     */
+    public function describeFailedNotificationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeFailedNotifications',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeFailedNotificationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询订阅通知失败列表.
+     *
+     * @param request - DescribeFailedNotificationsRequest
+     *
+     * @returns DescribeFailedNotificationsResponse
+     *
+     * @param DescribeFailedNotificationsRequest $request
+     *
+     * @return DescribeFailedNotificationsResponse
+     */
+    public function describeFailedNotifications($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFailedNotificationsWithOptions($request, $runtime);
+    }
+
+    /**
      * 服务商侧查询镜像实例信息.
      *
      * @param request - DescribeImageInstanceForIsvRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeImageInstanceForIsvResponse
      *
      * @param DescribeImageInstanceForIsvRequest $request
@@ -640,27 +759,25 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeImageInstanceForIsv',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeImageInstanceForIsv',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeImageInstanceForIsvResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeImageInstanceForIsvResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeImageInstanceForIsvResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 服务商侧查询镜像实例信息.
      *
      * @param request - DescribeImageInstanceForIsvRequest
+     *
      * @returns DescribeImageInstanceForIsvResponse
      *
      * @param DescribeImageInstanceForIsvRequest $request
@@ -677,6 +794,7 @@ class Market extends OpenApiClient
     /**
      * @param request - DescribeInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeInstanceResponse
      *
      * @param DescribeInstanceRequest $request
@@ -704,25 +822,23 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstance',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstance',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeInstanceRequest
+     *
      * @returns DescribeInstanceResponse
      *
      * @param DescribeInstanceRequest $request
@@ -741,6 +857,7 @@ class Market extends OpenApiClient
      *
      * @param request - DescribeInstanceForIsvRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeInstanceForIsvResponse
      *
      * @param DescribeInstanceForIsvRequest $request
@@ -760,27 +877,25 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstanceForIsv',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstanceForIsv',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstanceForIsvResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceForIsvResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceForIsvResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 服务商侧查询实例信息.
      *
      * @param request - DescribeInstanceForIsvRequest
+     *
      * @returns DescribeInstanceForIsvResponse
      *
      * @param DescribeInstanceForIsvRequest $request
@@ -797,6 +912,7 @@ class Market extends OpenApiClient
     /**
      * @param request - DescribeInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeInstancesResponse
      *
      * @param DescribeInstancesRequest $request
@@ -832,25 +948,23 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstances',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstances',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeInstancesRequest
+     *
      * @returns DescribeInstancesResponse
      *
      * @param DescribeInstancesRequest $request
@@ -865,10 +979,104 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 查询供应商下的发票信息.
+     *
+     * @param request - DescribeInvoiceForIsvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInvoiceForIsvResponse
+     *
+     * @param DescribeInvoiceForIsvRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeInvoiceForIsvResponse
+     */
+    public function describeInvoiceForIsvWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->createTimeEnd) {
+            @$query['CreateTimeEnd'] = $request->createTimeEnd;
+        }
+
+        if (null !== $request->createTimeStart) {
+            @$query['CreateTimeStart'] = $request->createTimeStart;
+        }
+
+        if (null !== $request->invoiceId) {
+            @$query['InvoiceId'] = $request->invoiceId;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageIndex) {
+            @$query['PageIndex'] = $request->pageIndex;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInvoiceForIsv',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return DescribeInvoiceForIsvResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询供应商下的发票信息.
+     *
+     * @param request - DescribeInvoiceForIsvRequest
+     *
+     * @returns DescribeInvoiceForIsvResponse
+     *
+     * @param DescribeInvoiceForIsvRequest $request
+     *
+     * @return DescribeInvoiceForIsvResponse
+     */
+    public function describeInvoiceForIsv($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInvoiceForIsvWithOptions($request, $runtime);
+    }
+
+    /**
      * 获取License.
      *
      * @param request - DescribeLicenseRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeLicenseResponse
      *
      * @param DescribeLicenseRequest $request
@@ -888,27 +1096,25 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLicense',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLicense',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeLicenseResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 获取License.
      *
      * @param request - DescribeLicenseRequest
+     *
      * @returns DescribeLicenseResponse
      *
      * @param DescribeLicenseRequest $request
@@ -925,6 +1131,7 @@ class Market extends OpenApiClient
     /**
      * @param request - DescribeOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeOrderResponse
      *
      * @param DescribeOrderRequest $request
@@ -944,25 +1151,23 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOrder',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOrder',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeOrderRequest
+     *
      * @returns DescribeOrderResponse
      *
      * @param DescribeOrderRequest $request
@@ -981,6 +1186,7 @@ class Market extends OpenApiClient
      *
      * @param request - DescribeOrderForIsvRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeOrderForIsvResponse
      *
      * @param DescribeOrderForIsvRequest $request
@@ -1000,27 +1206,25 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOrderForIsv',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOrderForIsv',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeOrderForIsvResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeOrderForIsvResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeOrderForIsvResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 服务商侧查询订单详情.
      *
      * @param request - DescribeOrderForIsvRequest
+     *
      * @returns DescribeOrderForIsvResponse
      *
      * @param DescribeOrderForIsvRequest $request
@@ -1037,6 +1241,7 @@ class Market extends OpenApiClient
     /**
      * @param request - DescribePriceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePriceResponse
      *
      * @param DescribePriceRequest $request
@@ -1060,25 +1265,23 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePrice',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePrice',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribePriceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePriceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePriceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribePriceRequest
+     *
      * @returns DescribePriceResponse
      *
      * @param DescribePriceRequest $request
@@ -1095,6 +1298,7 @@ class Market extends OpenApiClient
     /**
      * @param request - DescribeProductRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeProductResponse
      *
      * @param DescribeProductRequest $request
@@ -1122,25 +1326,23 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeProduct',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeProduct',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeProductResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeProductResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeProductRequest
+     *
      * @returns DescribeProductResponse
      *
      * @param DescribeProductRequest $request
@@ -1157,6 +1359,7 @@ class Market extends OpenApiClient
     /**
      * @param request - DescribeProductsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeProductsResponse
      *
      * @param DescribeProductsRequest $request
@@ -1188,25 +1391,23 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeProducts',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeProducts',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeProductsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeProductsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeProductsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeProductsRequest
+     *
      * @returns DescribeProductsResponse
      *
      * @param DescribeProductsRequest $request
@@ -1223,6 +1424,7 @@ class Market extends OpenApiClient
     /**
      * @param request - DescribeProjectAttachmentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeProjectAttachmentsResponse
      *
      * @param DescribeProjectAttachmentsRequest $request
@@ -1242,25 +1444,23 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeProjectAttachments',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeProjectAttachments',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeProjectAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeProjectAttachmentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeProjectAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeProjectAttachmentsRequest
+     *
      * @returns DescribeProjectAttachmentsResponse
      *
      * @param DescribeProjectAttachmentsRequest $request
@@ -1277,6 +1477,7 @@ class Market extends OpenApiClient
     /**
      * @param request - DescribeProjectInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeProjectInfoResponse
      *
      * @param DescribeProjectInfoRequest $request
@@ -1296,25 +1497,23 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeProjectInfo',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeProjectInfo',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeProjectInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeProjectInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeProjectInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeProjectInfoRequest
+     *
      * @returns DescribeProjectInfoResponse
      *
      * @param DescribeProjectInfoRequest $request
@@ -1331,6 +1530,7 @@ class Market extends OpenApiClient
     /**
      * @param request - DescribeProjectMessagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeProjectMessagesResponse
      *
      * @param DescribeProjectMessagesRequest $request
@@ -1354,25 +1554,23 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeProjectMessages',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeProjectMessages',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeProjectMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeProjectMessagesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeProjectMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeProjectMessagesRequest
+     *
      * @returns DescribeProjectMessagesResponse
      *
      * @param DescribeProjectMessagesRequest $request
@@ -1391,6 +1589,7 @@ class Market extends OpenApiClient
      *
      * @param request - DescribeProjectNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeProjectNodesResponse
      *
      * @param DescribeProjectNodesRequest $request
@@ -1410,27 +1609,25 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeProjectNodes',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeProjectNodes',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeProjectNodesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeProjectNodesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeProjectNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @remarks
      *
      * @param request - DescribeProjectNodesRequest
+     *
      * @returns DescribeProjectNodesResponse
      *
      * @param DescribeProjectNodesRequest $request
@@ -1447,6 +1644,7 @@ class Market extends OpenApiClient
     /**
      * @param request - DescribeProjectOperateLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeProjectOperateLogsResponse
      *
      * @param DescribeProjectOperateLogsRequest $request
@@ -1466,25 +1664,23 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeProjectOperateLogs',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeProjectOperateLogs',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeProjectOperateLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeProjectOperateLogsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeProjectOperateLogsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - DescribeProjectOperateLogsRequest
+     *
      * @returns DescribeProjectOperateLogsResponse
      *
      * @param DescribeProjectOperateLogsRequest $request
@@ -1501,6 +1697,7 @@ class Market extends OpenApiClient
     /**
      * @param request - FinishCurrentProjectNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns FinishCurrentProjectNodeResponse
      *
      * @param FinishCurrentProjectNodeRequest $request
@@ -1532,25 +1729,23 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'FinishCurrentProjectNode',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'FinishCurrentProjectNode',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return FinishCurrentProjectNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return FinishCurrentProjectNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return FinishCurrentProjectNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - FinishCurrentProjectNodeRequest
+     *
      * @returns FinishCurrentProjectNodeResponse
      *
      * @param FinishCurrentProjectNodeRequest $request
@@ -1565,8 +1760,86 @@ class Market extends OpenApiClient
     }
 
     /**
+     * 发票受理接口.
+     *
+     * @param request - ModifyInvoiceForIsvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyInvoiceForIsvResponse
+     *
+     * @param ModifyInvoiceForIsvRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyInvoiceForIsvResponse
+     */
+    public function modifyInvoiceForIsvWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->checkNotice) {
+            @$query['CheckNotice'] = $request->checkNotice;
+        }
+
+        if (null !== $request->electronUrl) {
+            @$query['ElectronUrl'] = $request->electronUrl;
+        }
+
+        if (null !== $request->invoiceId) {
+            @$query['InvoiceId'] = $request->invoiceId;
+        }
+
+        if (null !== $request->number) {
+            @$query['Number'] = $request->number;
+        }
+
+        if (null !== $request->operateType) {
+            @$query['OperateType'] = $request->operateType;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyInvoiceForIsv',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ModifyInvoiceForIsvResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 发票受理接口.
+     *
+     * @param request - ModifyInvoiceForIsvRequest
+     *
+     * @returns ModifyInvoiceForIsvResponse
+     *
+     * @param ModifyInvoiceForIsvRequest $request
+     *
+     * @return ModifyInvoiceForIsvResponse
+     */
+    public function modifyInvoiceForIsv($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInvoiceForIsvWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - PauseProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PauseProjectResponse
      *
      * @param PauseProjectRequest $request
@@ -1594,25 +1867,23 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PauseProject',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PauseProject',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PauseProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PauseProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return PauseProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - PauseProjectRequest
+     *
      * @returns PauseProjectResponse
      *
      * @param PauseProjectRequest $request
@@ -1629,6 +1900,7 @@ class Market extends OpenApiClient
     /**
      * @param request - PushMeteringDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PushMeteringDataResponse
      *
      * @param PushMeteringDataRequest $request
@@ -1648,25 +1920,23 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PushMeteringData',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PushMeteringData',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return PushMeteringDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PushMeteringDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return PushMeteringDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - PushMeteringDataRequest
+     *
      * @returns PushMeteringDataResponse
      *
      * @param PushMeteringDataRequest $request
@@ -1683,6 +1953,7 @@ class Market extends OpenApiClient
     /**
      * @param request - ResumeProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ResumeProjectResponse
      *
      * @param ResumeProjectRequest $request
@@ -1710,25 +1981,23 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResumeProject',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResumeProject',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ResumeProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResumeProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResumeProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - ResumeProjectRequest
+     *
      * @returns ResumeProjectResponse
      *
      * @param ResumeProjectRequest $request
@@ -1745,6 +2014,7 @@ class Market extends OpenApiClient
     /**
      * @param request - RollbackCurrentProjectNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RollbackCurrentProjectNodeResponse
      *
      * @param RollbackCurrentProjectNodeRequest $request
@@ -1772,25 +2042,23 @@ class Market extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RollbackCurrentProjectNode',
-            'version'     => '2015-11-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RollbackCurrentProjectNode',
+            'version' => '2015-11-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RollbackCurrentProjectNodeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RollbackCurrentProjectNodeResponse::fromMap($this->execute($params, $req, $runtime));
+        return RollbackCurrentProjectNodeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * @param request - RollbackCurrentProjectNodeRequest
+     *
      * @returns RollbackCurrentProjectNodeResponse
      *
      * @param RollbackCurrentProjectNodeRequest $request

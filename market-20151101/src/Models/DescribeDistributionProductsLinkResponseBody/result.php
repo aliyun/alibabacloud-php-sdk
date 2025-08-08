@@ -12,10 +12,12 @@ class result extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class result extends Model
     protected $_name = [
         'code' => 'Code',
         'name' => 'Name',
-        'url'  => 'Url',
+        'url' => 'Url',
     ];
 
     public function validate()

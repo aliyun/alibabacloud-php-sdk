@@ -12,18 +12,20 @@ class FinishCurrentProjectNodeResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $result;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
-        'success'   => 'Success',
+        'result' => 'Result',
+        'success' => 'Success',
     ];
 
     public function validate()

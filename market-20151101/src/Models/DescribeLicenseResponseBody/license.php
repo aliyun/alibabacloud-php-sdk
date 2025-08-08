@@ -14,63 +14,74 @@ class license extends Model
      * @var string
      */
     public $activateTime;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var extendArray
      */
     public $extendArray;
+
     /**
      * @var extendInfo
      */
     public $extendInfo;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $licenseCode;
+
     /**
      * @var string
      */
     public $licenseStatus;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $productName;
+
     /**
      * @var string
      */
     public $productSkuId;
+
     /**
      * @var string
      */
     public $supplierName;
     protected $_name = [
-        'activateTime'  => 'ActivateTime',
-        'createTime'    => 'CreateTime',
-        'expiredTime'   => 'ExpiredTime',
-        'extendArray'   => 'ExtendArray',
-        'extendInfo'    => 'ExtendInfo',
-        'instanceId'    => 'InstanceId',
-        'licenseCode'   => 'LicenseCode',
+        'activateTime' => 'ActivateTime',
+        'createTime' => 'CreateTime',
+        'expiredTime' => 'ExpiredTime',
+        'extendArray' => 'ExtendArray',
+        'extendInfo' => 'ExtendInfo',
+        'instanceId' => 'InstanceId',
+        'licenseCode' => 'LicenseCode',
         'licenseStatus' => 'LicenseStatus',
-        'productCode'   => 'ProductCode',
-        'productName'   => 'ProductName',
-        'productSkuId'  => 'ProductSkuId',
-        'supplierName'  => 'SupplierName',
+        'productCode' => 'ProductCode',
+        'productName' => 'ProductName',
+        'productSkuId' => 'ProductSkuId',
+        'supplierName' => 'SupplierName',
     ];
 
     public function validate()

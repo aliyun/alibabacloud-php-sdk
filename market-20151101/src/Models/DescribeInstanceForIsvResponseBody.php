@@ -13,113 +13,134 @@ class DescribeInstanceForIsvResponseBody extends Model
      * @var string
      */
     public $activeAddress;
+
     /**
      * @var string
      */
     public $appJson;
+
     /**
      * @var string
      */
     public $autoRenewal;
+
     /**
      * @var int
      */
     public $beganOn;
+
     /**
      * @var string
      */
     public $componentJson;
+
     /**
      * @var int
      */
     public $createdOn;
+
     /**
      * @var int
      */
     public $endOn;
+
     /**
      * @var string
      */
     public $extendJson;
+
     /**
      * @var string
      */
     public $hostJson;
+
     /**
      * @var string
      */
     public $imageJson;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var bool
      */
     public $isTrial;
+
     /**
      * @var string
      */
     public $licenseCode;
+
     /**
      * @var int
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $productName;
+
     /**
      * @var string
      */
     public $productSkuCode;
+
     /**
      * @var string
      */
     public $productType;
+
     /**
      * @var relationalData
      */
     public $relationalData;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $supplierName;
     protected $_name = [
-        'activeAddress'  => 'ActiveAddress',
-        'appJson'        => 'AppJson',
-        'autoRenewal'    => 'AutoRenewal',
-        'beganOn'        => 'BeganOn',
-        'componentJson'  => 'ComponentJson',
-        'createdOn'      => 'CreatedOn',
-        'endOn'          => 'EndOn',
-        'extendJson'     => 'ExtendJson',
-        'hostJson'       => 'HostJson',
-        'imageJson'      => 'ImageJson',
-        'instanceId'     => 'InstanceId',
-        'isTrial'        => 'IsTrial',
-        'licenseCode'    => 'LicenseCode',
-        'orderId'        => 'OrderId',
-        'productCode'    => 'ProductCode',
-        'productName'    => 'ProductName',
+        'activeAddress' => 'ActiveAddress',
+        'appJson' => 'AppJson',
+        'autoRenewal' => 'AutoRenewal',
+        'beganOn' => 'BeganOn',
+        'componentJson' => 'ComponentJson',
+        'createdOn' => 'CreatedOn',
+        'endOn' => 'EndOn',
+        'extendJson' => 'ExtendJson',
+        'hostJson' => 'HostJson',
+        'imageJson' => 'ImageJson',
+        'instanceId' => 'InstanceId',
+        'isTrial' => 'IsTrial',
+        'licenseCode' => 'LicenseCode',
+        'orderId' => 'OrderId',
+        'productCode' => 'ProductCode',
+        'productName' => 'ProductName',
         'productSkuCode' => 'ProductSkuCode',
-        'productType'    => 'ProductType',
+        'productType' => 'ProductType',
         'relationalData' => 'RelationalData',
-        'requestId'      => 'RequestId',
-        'status'         => 'Status',
-        'supplierName'   => 'SupplierName',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'supplierName' => 'SupplierName',
     ];
 
     public function validate()

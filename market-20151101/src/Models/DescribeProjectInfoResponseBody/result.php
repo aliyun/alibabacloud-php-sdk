@@ -12,88 +12,104 @@ class result extends Model
      * @var int
      */
     public $currentStepNo;
+
     /**
      * @var int
      */
     public $customerAliUid;
+
     /**
      * @var int
      */
     public $finalStepNo;
+
     /**
      * @var string
      */
     public $finishType;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $gmtExpired;
+
     /**
      * @var int
      */
     public $gmtFinished;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $productName;
+
     /**
      * @var string
      */
     public $productSkuCode;
+
     /**
      * @var string
      */
     public $productSkuName;
+
     /**
      * @var string
      */
     public $projectStatus;
+
     /**
      * @var int
      */
     public $supplierAliUid;
+
     /**
      * @var int
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateType;
     protected $_name = [
-        'currentStepNo'  => 'CurrentStepNo',
+        'currentStepNo' => 'CurrentStepNo',
         'customerAliUid' => 'CustomerAliUid',
-        'finalStepNo'    => 'FinalStepNo',
-        'finishType'     => 'FinishType',
-        'gmtCreate'      => 'GmtCreate',
-        'gmtExpired'     => 'GmtExpired',
-        'gmtFinished'    => 'GmtFinished',
-        'instanceId'     => 'InstanceId',
-        'orderId'        => 'OrderId',
-        'productCode'    => 'ProductCode',
-        'productName'    => 'ProductName',
+        'finalStepNo' => 'FinalStepNo',
+        'finishType' => 'FinishType',
+        'gmtCreate' => 'GmtCreate',
+        'gmtExpired' => 'GmtExpired',
+        'gmtFinished' => 'GmtFinished',
+        'instanceId' => 'InstanceId',
+        'orderId' => 'OrderId',
+        'productCode' => 'ProductCode',
+        'productName' => 'ProductName',
         'productSkuCode' => 'ProductSkuCode',
         'productSkuName' => 'ProductSkuName',
-        'projectStatus'  => 'ProjectStatus',
+        'projectStatus' => 'ProjectStatus',
         'supplierAliUid' => 'SupplierAliUid',
-        'templateId'     => 'TemplateId',
-        'templateType'   => 'TemplateType',
+        'templateId' => 'TemplateId',
+        'templateType' => 'TemplateType',
     ];
 
     public function validate()
