@@ -52,6 +52,9 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\RemoveImageRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\RemoveImageResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\SynchronizeAppRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\SynchronizeAppResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\SynchronizeAppShrinkRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UnTagResourcesRequest;
@@ -1408,6 +1411,73 @@ class EhpcInstant extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 应用跨地域同步.
+     *
+     * @param tmpReq - SynchronizeAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SynchronizeAppResponse
+     *
+     * @param SynchronizeAppRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SynchronizeAppResponse
+     */
+    public function synchronizeAppWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SynchronizeAppShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->targetRegionIds) {
+            $request->targetRegionIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->targetRegionIds, 'TargetRegionIds', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->targetRegionIdsShrink) {
+            @$query['TargetRegionIds'] = $request->targetRegionIdsShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SynchronizeApp',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return SynchronizeAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 应用跨地域同步.
+     *
+     * @param request - SynchronizeAppRequest
+     *
+     * @returns SynchronizeAppResponse
+     *
+     * @param SynchronizeAppRequest $request
+     *
+     * @return SynchronizeAppResponse
+     */
+    public function synchronizeApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->synchronizeAppWithOptions($request, $runtime);
     }
 
     /**
