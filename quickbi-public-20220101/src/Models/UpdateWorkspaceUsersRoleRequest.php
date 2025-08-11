@@ -4,45 +4,21 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateWorkspaceUsersRoleRequest extends Model
 {
     /**
-     * @description Preset space role ID, existing roles will be overwritten. Value range:
-     * - 25: Space Administrator
-     * - 26: Space Developer
-     * - 27: Space Analyst
-     * - 30: Space Viewer
-     *
-     * This parameter is required.
-     *
-     * @example 25
-     *
      * @var int
      */
     public $roleId;
 
     /**
-     * @description User ID. This is the UserID for Quick BI, not the UID for Alibaba Cloud.
-     *
-     * - Supports batch parameters, separate user IDs with a comma (,).
-     *
-     * This parameter is required.
-     *
-     * @example 136516262323****,124498444445****
-     *
      * @var string
      */
     public $userIds;
 
     /**
-     * @description Workspace ID.
-     *
-     * This parameter is required.
-     *
-     * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
-     *
      * @var string
      */
     public $workspaceId;
@@ -52,17 +28,22 @@ class UpdateWorkspaceUsersRoleRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
         }
+
         if (null !== $this->userIds) {
             $res['UserIds'] = $this->userIds;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -70,20 +51,22 @@ class UpdateWorkspaceUsersRoleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateWorkspaceUsersRoleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];
         }
+
         if (isset($map['UserIds'])) {
             $model->userIds = $map['UserIds'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

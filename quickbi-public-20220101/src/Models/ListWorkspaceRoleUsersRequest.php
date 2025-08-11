@@ -4,65 +4,31 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListWorkspaceRoleUsersRequest extends Model
 {
     /**
-     * @description Keyword for the user\\"s nickname.
-     *
-     * @example test
-     *
      * @var string
      */
     public $keyword;
 
     /**
-     * @description Current page number for pagination:
-     *
-     * - Starting value: 1
-     * - Default value: 1
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNum;
 
     /**
-     * @description Number of items per page for pagination:
-     *
-     * - Default value: 10
-     * - Maximum value: 1000
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description Workspace role ID, including predefined roles and custom roles:
-     *
-     * - 25: Workspace Administrator (predefined role)
-     * - 26: Developer (predefined role)
-     * - 27: Analyst (predefined role)
-     * - 30: Viewer (predefined role)
-     * - Custom roles: The corresponding role ID for custom roles
-     *
-     * This parameter is required.
-     *
-     * @example 25
-     *
      * @var int
      */
     public $roleId;
 
     /**
-     * @description The ID of the workspace. This parameter is optional. If you do not set this parameter, the roles of all workspaces are returned.
-     *
-     * @example 726bee5a-****-43e1-9a8e-b550f0120f35
-     *
      * @var string
      */
     public $workspaceId;
@@ -74,23 +40,30 @@ class ListWorkspaceRoleUsersRequest extends Model
         'workspaceId' => 'WorkspaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -98,26 +71,30 @@ class ListWorkspaceRoleUsersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListWorkspaceRoleUsersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

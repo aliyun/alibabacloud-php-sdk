@@ -4,43 +4,27 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListOrganizationRolesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListOrganizationRolesResponseBody\result\authConfigList;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @description List of role permission configurations.
-     *
      * @var authConfigList[]
      */
     public $authConfigList;
 
     /**
-     * @description Whether it is a predefined role. Possible values:
-     * - true: Yes
-     * - false: No
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isSystemRole;
 
     /**
-     * @description Role ID.
-     *
-     * @example 111111111
-     *
      * @var int
      */
     public $roleId;
 
     /**
-     * @description Role name.
-     *
-     * @example Organization Admin
-     *
      * @var string
      */
     public $roleName;
@@ -51,26 +35,36 @@ class result extends Model
         'roleName' => 'RoleName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->authConfigList)) {
+            Model::validateArray($this->authConfigList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authConfigList) {
-            $res['AuthConfigList'] = [];
-            if (null !== $this->authConfigList && \is_array($this->authConfigList)) {
-                $n = 0;
-                foreach ($this->authConfigList as $item) {
-                    $res['AuthConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->authConfigList)) {
+                $res['AuthConfigList'] = [];
+                $n1 = 0;
+                foreach ($this->authConfigList as $item1) {
+                    $res['AuthConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->isSystemRole) {
             $res['IsSystemRole'] = $this->isSystemRole;
         }
+
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
         }
+
         if (null !== $this->roleName) {
             $res['RoleName'] = $this->roleName;
         }
@@ -78,29 +72,33 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthConfigList'])) {
             if (!empty($map['AuthConfigList'])) {
                 $model->authConfigList = [];
-                $n = 0;
-                foreach ($map['AuthConfigList'] as $item) {
-                    $model->authConfigList[$n++] = null !== $item ? authConfigList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AuthConfigList'] as $item1) {
+                    $model->authConfigList[$n1] = authConfigList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['IsSystemRole'])) {
             $model->isSystemRole = $map['IsSystemRole'];
         }
+
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];
         }
+
         if (isset($map['RoleName'])) {
             $model->roleName = $map['RoleName'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\BatchAddFeishuUsersResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\BatchAddFeishuUsersResponseBody\result\failResults\failInfos;
-use AlibabaCloud\Tea\Model;
 
 class failResults extends Model
 {
@@ -17,17 +17,24 @@ class failResults extends Model
         'failInfos' => 'FailInfos',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->failInfos)) {
+            Model::validateArray($this->failInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failInfos) {
-            $res['FailInfos'] = [];
-            if (null !== $this->failInfos && \is_array($this->failInfos)) {
-                $n = 0;
-                foreach ($this->failInfos as $item) {
-                    $res['FailInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->failInfos)) {
+                $res['FailInfos'] = [];
+                $n1 = 0;
+                foreach ($this->failInfos as $item1) {
+                    $res['FailInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class failResults extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failResults
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailInfos'])) {
             if (!empty($map['FailInfos'])) {
                 $model->failInfos = [];
-                $n = 0;
-                foreach ($map['FailInfos'] as $item) {
-                    $model->failInfos[$n++] = null !== $item ? failInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FailInfos'] as $item1) {
+                    $model->failInfos[$n1] = failInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

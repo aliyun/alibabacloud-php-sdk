@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryReadableResourcesListByUserIdRequest extends Model
 {
     /**
-     * @description Quick BI the user ID.
-     *
-     * This parameter is required.
-     *
-     * @example de4bc5f9429141cc8091cdd1c15b****
-     *
      * @var string
      */
     public $userId;
@@ -22,9 +16,12 @@ class QueryReadableResourcesListByUserIdRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userId) {
@@ -34,11 +31,11 @@ class QueryReadableResourcesListByUserIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryReadableResourcesListByUserIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

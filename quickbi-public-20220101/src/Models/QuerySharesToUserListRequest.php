@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QuerySharesToUserListRequest extends Model
 {
     /**
-     * @description The ID of the user. The user ID is the UserID of the Quick BI, not the UID of Alibaba Cloud.
-     *
-     * This parameter is required.
-     *
-     * @example 46e53****5ba4b679ee22e2a2927****
-     *
      * @var string
      */
     public $userId;
@@ -22,9 +16,12 @@ class QuerySharesToUserListRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userId) {
@@ -34,11 +31,11 @@ class QuerySharesToUserListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QuerySharesToUserListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

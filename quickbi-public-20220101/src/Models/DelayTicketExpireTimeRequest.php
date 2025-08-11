@@ -4,31 +4,16 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DelayTicketExpireTimeRequest extends Model
 {
     /**
-     * @description The time to postpone.
-     *
-     *   Unit: minutes. Valid values: 0 to 240. Unit: minutes. Valid values: 4 hours.
-     *   Expired bills cannot be extended.
-     *
-     * This parameter is required.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $expireTime;
 
     /**
-     * @description The value of the third-party embedded ticket, that is, the accessTicket value in the URL.
-     *
-     * This parameter is required.
-     *
-     * @example 040e6f79d33444838e*****c7206c070
-     *
      * @var string
      */
     public $ticket;
@@ -37,14 +22,18 @@ class DelayTicketExpireTimeRequest extends Model
         'ticket' => 'Ticket',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
+
         if (null !== $this->ticket) {
             $res['Ticket'] = $this->ticket;
         }
@@ -52,17 +41,18 @@ class DelayTicketExpireTimeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DelayTicketExpireTimeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
+
         if (isset($map['Ticket'])) {
             $model->ticket = $map['Ticket'];
         }

@@ -4,41 +4,21 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateUserGroupRequest extends Model
 {
     /**
-     * @description The description of the user group.
-     *
-     *   Format verification: Maximum length 255
-     *   Special format verification: Chinese and English digits_ \\ / | () ] [
-     *
-     * @example Description
-     *
      * @var string
      */
     public $userGroupDescription;
 
     /**
-     * @description The ID of the user group.
-     *
-     * This parameter is required.
-     *
-     * @example f5eeb52e-d9c2-4a8b-80e3-47ab55c2****
-     *
      * @var string
      */
     public $userGroupId;
 
     /**
-     * @description The name of the user group.
-     *
-     *   Format verification: Maximum length 255
-     *   Special format verification: Chinese and English digits_ \\ / | () ] [
-     *
-     * @example pop0001
-     *
      * @var string
      */
     public $userGroupName;
@@ -48,17 +28,22 @@ class UpdateUserGroupRequest extends Model
         'userGroupName' => 'UserGroupName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userGroupDescription) {
             $res['UserGroupDescription'] = $this->userGroupDescription;
         }
+
         if (null !== $this->userGroupId) {
             $res['UserGroupId'] = $this->userGroupId;
         }
+
         if (null !== $this->userGroupName) {
             $res['UserGroupName'] = $this->userGroupName;
         }
@@ -66,20 +51,22 @@ class UpdateUserGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateUserGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserGroupDescription'])) {
             $model->userGroupDescription = $map['UserGroupDescription'];
         }
+
         if (isset($map['UserGroupId'])) {
             $model->userGroupId = $map['UserGroupId'];
         }
+
         if (isset($map['UserGroupName'])) {
             $model->userGroupName = $map['UserGroupName'];
         }

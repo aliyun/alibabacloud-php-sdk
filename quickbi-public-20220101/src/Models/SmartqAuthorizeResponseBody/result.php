@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqAuthorizeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description Reason for failure.
-     *
-     * @example INVALID_FILE_FORMAT
-     *
      * @var string
      */
     public $detailMessage;
 
     /**
-     * @description Q&A resource ID.
-     *
-     * @example 617277C****************ABA47E31
-     *
      * @var string
      */
     public $llmCube;
 
     /**
-     * @description Analysis theme ID.
-     *
-     * @example 617277C****************ABA47E31
-     *
      * @var string
      */
     public $llmCubeTheme;
 
     /**
-     * @description User ID.
-     *
-     * @example 617277C****************ABA47E31
-     *
      * @var string
      */
     public $userId;
@@ -50,20 +34,26 @@ class result extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->detailMessage) {
             $res['DetailMessage'] = $this->detailMessage;
         }
+
         if (null !== $this->llmCube) {
             $res['LlmCube'] = $this->llmCube;
         }
+
         if (null !== $this->llmCubeTheme) {
             $res['LlmCubeTheme'] = $this->llmCubeTheme;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -71,23 +61,26 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DetailMessage'])) {
             $model->detailMessage = $map['DetailMessage'];
         }
+
         if (isset($map['LlmCube'])) {
             $model->llmCube = $map['LlmCube'];
         }
+
         if (isset($map['LlmCubeTheme'])) {
             $model->llmCubeTheme = $map['LlmCubeTheme'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

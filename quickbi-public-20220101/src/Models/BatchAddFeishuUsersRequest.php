@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchAddFeishuUsersRequest extends Model
 {
@@ -14,29 +14,21 @@ class BatchAddFeishuUsersRequest extends Model
     public $feishuUsers;
 
     /**
-     * @example False
-     *
      * @var bool
      */
     public $isAdmin;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $isAuthAdmin;
 
     /**
-     * @example "0d5fb19b-5555-41f0-99da-1248fc27ca51,0f868dd6_68dd_4d13_8422_c5dca3bd4b61"
-     *
      * @var string
      */
     public $userGroupIds;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $userType;
@@ -48,23 +40,30 @@ class BatchAddFeishuUsersRequest extends Model
         'userType' => 'UserType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->feishuUsers) {
             $res['FeishuUsers'] = $this->feishuUsers;
         }
+
         if (null !== $this->isAdmin) {
             $res['IsAdmin'] = $this->isAdmin;
         }
+
         if (null !== $this->isAuthAdmin) {
             $res['IsAuthAdmin'] = $this->isAuthAdmin;
         }
+
         if (null !== $this->userGroupIds) {
             $res['UserGroupIds'] = $this->userGroupIds;
         }
+
         if (null !== $this->userType) {
             $res['UserType'] = $this->userType;
         }
@@ -72,26 +71,30 @@ class BatchAddFeishuUsersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchAddFeishuUsersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FeishuUsers'])) {
             $model->feishuUsers = $map['FeishuUsers'];
         }
+
         if (isset($map['IsAdmin'])) {
             $model->isAdmin = $map['IsAdmin'];
         }
+
         if (isset($map['IsAuthAdmin'])) {
             $model->isAuthAdmin = $map['IsAuthAdmin'];
         }
+
         if (isset($map['UserGroupIds'])) {
             $model->userGroupIds = $map['UserGroupIds'];
         }
+
         if (isset($map['UserType'])) {
             $model->userType = $map['UserType'];
         }

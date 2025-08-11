@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqQueryAbilityResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class metaType extends Model
 {
     /**
-     * @description Column tuple name.
-     *
-     * @example Polar***STPS
-     *
      * @var string
      */
     public $key;
@@ -23,10 +19,6 @@ class metaType extends Model
     public $type;
 
     /**
-     * @description Column tuple type.
-     *
-     * @example string
-     *
      * @var string
      */
     public $value;
@@ -36,17 +28,22 @@ class metaType extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -54,20 +51,22 @@ class metaType extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metaType
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

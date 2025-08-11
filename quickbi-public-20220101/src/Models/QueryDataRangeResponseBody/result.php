@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataRangeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataRangeResponseBody\result\apiCopilotLlmCubeModels;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataRangeResponseBody\result\apiCopilotThemeModels;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @description Array of LlmCube resources.
-     *
      * @var apiCopilotLlmCubeModels[]
      */
     public $apiCopilotLlmCubeModels;
 
     /**
-     * @description Array of analysis themes.
-     *
      * @var apiCopilotThemeModels[]
      */
     public $apiCopilotThemeModels;
@@ -28,26 +24,38 @@ class result extends Model
         'apiCopilotThemeModels' => 'ApiCopilotThemeModels',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->apiCopilotLlmCubeModels)) {
+            Model::validateArray($this->apiCopilotLlmCubeModels);
+        }
+        if (\is_array($this->apiCopilotThemeModels)) {
+            Model::validateArray($this->apiCopilotThemeModels);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiCopilotLlmCubeModels) {
-            $res['ApiCopilotLlmCubeModels'] = [];
-            if (null !== $this->apiCopilotLlmCubeModels && \is_array($this->apiCopilotLlmCubeModels)) {
-                $n = 0;
-                foreach ($this->apiCopilotLlmCubeModels as $item) {
-                    $res['ApiCopilotLlmCubeModels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->apiCopilotLlmCubeModels)) {
+                $res['ApiCopilotLlmCubeModels'] = [];
+                $n1 = 0;
+                foreach ($this->apiCopilotLlmCubeModels as $item1) {
+                    $res['ApiCopilotLlmCubeModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->apiCopilotThemeModels) {
-            $res['ApiCopilotThemeModels'] = [];
-            if (null !== $this->apiCopilotThemeModels && \is_array($this->apiCopilotThemeModels)) {
-                $n = 0;
-                foreach ($this->apiCopilotThemeModels as $item) {
-                    $res['ApiCopilotThemeModels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->apiCopilotThemeModels)) {
+                $res['ApiCopilotThemeModels'] = [];
+                $n1 = 0;
+                foreach ($this->apiCopilotThemeModels as $item1) {
+                    $res['ApiCopilotThemeModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -55,29 +63,32 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiCopilotLlmCubeModels'])) {
             if (!empty($map['ApiCopilotLlmCubeModels'])) {
                 $model->apiCopilotLlmCubeModels = [];
-                $n = 0;
-                foreach ($map['ApiCopilotLlmCubeModels'] as $item) {
-                    $model->apiCopilotLlmCubeModels[$n++] = null !== $item ? apiCopilotLlmCubeModels::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ApiCopilotLlmCubeModels'] as $item1) {
+                    $model->apiCopilotLlmCubeModels[$n1] = apiCopilotLlmCubeModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ApiCopilotThemeModels'])) {
             if (!empty($map['ApiCopilotThemeModels'])) {
                 $model->apiCopilotThemeModels = [];
-                $n = 0;
-                foreach ($map['ApiCopilotThemeModels'] as $item) {
-                    $model->apiCopilotThemeModels[$n++] = null !== $item ? apiCopilotThemeModels::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ApiCopilotThemeModels'] as $item1) {
+                    $model->apiCopilotThemeModels[$n1] = apiCopilotThemeModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

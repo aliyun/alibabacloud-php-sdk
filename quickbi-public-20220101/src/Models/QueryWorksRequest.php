@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryWorksRequest extends Model
 {
     /**
-     * @description Report ID
-     *
-     * This parameter is required.
-     *
-     * @example abcd****
-     *
      * @var string
      */
     public $worksId;
@@ -22,9 +16,12 @@ class QueryWorksRequest extends Model
         'worksId' => 'WorksId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->worksId) {
@@ -34,11 +31,11 @@ class QueryWorksRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryWorksRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

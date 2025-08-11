@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListPortalMenuAuthorizationRequest extends Model
 {
     /**
-     * @description The ID of the BI portal.
-     *
-     * This parameter is required.
-     *
-     * @example 0d173abb53e84c8ca7495429163b****
-     *
      * @var string
      */
     public $dataPortalId;
@@ -22,9 +16,12 @@ class ListPortalMenuAuthorizationRequest extends Model
         'dataPortalId' => 'DataPortalId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataPortalId) {
@@ -34,11 +31,11 @@ class ListPortalMenuAuthorizationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPortalMenuAuthorizationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

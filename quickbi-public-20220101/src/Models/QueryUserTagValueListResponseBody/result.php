@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryUserTagValueListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description Tag ID.
-     *
-     * @example pop_001
-     *
      * @var string
      */
     public $tagId;
 
     /**
-     * @description Tag name.
-     *
-     * @example Position
-     *
      * @var string
      */
     public $tagName;
 
     /**
-     * @description The value of the tag.
-     *
-     * @example Supervisor
-     *
      * @var string
      */
     public $tagValue;
@@ -40,17 +28,22 @@ class result extends Model
         'tagValue' => 'TagValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagId) {
             $res['TagId'] = $this->tagId;
         }
+
         if (null !== $this->tagName) {
             $res['TagName'] = $this->tagName;
         }
+
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
         }
@@ -58,20 +51,22 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagId'])) {
             $model->tagId = $map['TagId'];
         }
+
         if (isset($map['TagName'])) {
             $model->tagName = $map['TagName'];
         }
+
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
         }

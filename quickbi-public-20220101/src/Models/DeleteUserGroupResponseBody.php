@@ -4,39 +4,21 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteUserGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example F2775AB6-DE99-5FA6-86A4-72EA0A8AFEE3
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The execution result of the interface is returned. Valid values:
-     *
-     *   true: The request was successful.
-     *   false: The request fails.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $result;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   true: The request was successful.
-     *   false: The request failed.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -46,17 +28,22 @@ class DeleteUserGroupResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -64,20 +51,22 @@ class DeleteUserGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteUserGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

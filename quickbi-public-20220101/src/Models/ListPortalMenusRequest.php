@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListPortalMenusRequest extends Model
 {
     /**
-     * @description The ID of the BI portal.
-     *
-     * This parameter is required.
-     *
-     * @example 0d173abb53e84c8ca7495429163b****
-     *
      * @var string
      */
     public $dataPortalId;
 
     /**
-     * @description The user ID in the Quick BI. When passed in, the list displays only the menus that the user has permissions on.
-     *
-     * @example 1234567***
-     *
      * @var string
      */
     public $userId;
@@ -32,14 +22,18 @@ class ListPortalMenusRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataPortalId) {
             $res['DataPortalId'] = $this->dataPortalId;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -47,17 +41,18 @@ class ListPortalMenusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPortalMenusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataPortalId'])) {
             $model->dataPortalId = $map['DataPortalId'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

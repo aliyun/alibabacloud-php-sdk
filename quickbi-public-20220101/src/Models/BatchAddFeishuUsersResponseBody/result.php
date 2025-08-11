@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\BatchAddFeishuUsersResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\BatchAddFeishuUsersResponseBody\result\failResults;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @example 10
-     *
      * @var int
      */
     public $failCount;
@@ -22,8 +20,6 @@ class result extends Model
     public $failResults;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $okCount;
@@ -33,23 +29,32 @@ class result extends Model
         'okCount' => 'OkCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->failResults)) {
+            Model::validateArray($this->failResults);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failCount) {
             $res['FailCount'] = $this->failCount;
         }
+
         if (null !== $this->failResults) {
-            $res['FailResults'] = [];
-            if (null !== $this->failResults && \is_array($this->failResults)) {
-                $n = 0;
-                foreach ($this->failResults as $item) {
-                    $res['FailResults'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->failResults)) {
+                $res['FailResults'] = [];
+                $n1 = 0;
+                foreach ($this->failResults as $item1) {
+                    $res['FailResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->okCount) {
             $res['OkCount'] = $this->okCount;
         }
@@ -57,26 +62,29 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailCount'])) {
             $model->failCount = $map['FailCount'];
         }
+
         if (isset($map['FailResults'])) {
             if (!empty($map['FailResults'])) {
                 $model->failResults = [];
-                $n = 0;
-                foreach ($map['FailResults'] as $item) {
-                    $model->failResults[$n++] = null !== $item ? failResults::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FailResults'] as $item1) {
+                    $model->failResults[$n1] = failResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['OkCount'])) {
             $model->okCount = $map['OkCount'];
         }

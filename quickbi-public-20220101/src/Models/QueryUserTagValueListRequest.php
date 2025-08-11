@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryUserTagValueListRequest extends Model
 {
     /**
-     * @description This UserID refers to the Quick BI UserID, not the Alibaba Cloud UID.
-     *
-     * This parameter is required.
-     *
-     * @example fe67f61a35a94b7da1a34ba174a7****
-     *
      * @var string
      */
     public $userId;
@@ -22,9 +16,12 @@ class QueryUserTagValueListRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userId) {
@@ -34,11 +31,11 @@ class QueryUserTagValueListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryUserTagValueListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

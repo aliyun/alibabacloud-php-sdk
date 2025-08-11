@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ManualRunMailTaskResponseBody extends Model
 {
     /**
-     * @description Request ID.
-     *
-     * @example a4d1a221d-41za1-****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the execution was successful.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $result;
 
     /**
-     * @description Indicates whether the request was successful. Value range:
-     * - true: The request succeeded
-     * - false: The request failed
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -42,17 +28,22 @@ class ManualRunMailTaskResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -60,20 +51,22 @@ class ManualRunMailTaskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ManualRunMailTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

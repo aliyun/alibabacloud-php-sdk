@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddWorkspaceUsersResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description Number of users that failed to be added.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $failure;
 
     /**
-     * @description Reasons for the failures.
-     *
-     * @example {"2046274934845893" : "AE0150010001: This user already exists.", "1213444447906552" : "AE0150010001: This user already exists."}
-     *
      * @var mixed[]
      */
     public $failureDetail;
 
     /**
-     * @description Number of users that were added successfully.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $success;
 
     /**
-     * @description Total number of users being added.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $total;
@@ -50,20 +34,34 @@ class result extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->failureDetail)) {
+            Model::validateArray($this->failureDetail);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failure) {
             $res['Failure'] = $this->failure;
         }
+
         if (null !== $this->failureDetail) {
-            $res['FailureDetail'] = $this->failureDetail;
+            if (\is_array($this->failureDetail)) {
+                $res['FailureDetail'] = [];
+                foreach ($this->failureDetail as $key1 => $value1) {
+                    $res['FailureDetail'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -71,23 +69,31 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Failure'])) {
             $model->failure = $map['Failure'];
         }
+
         if (isset($map['FailureDetail'])) {
-            $model->failureDetail = $map['FailureDetail'];
+            if (!empty($map['FailureDetail'])) {
+                $model->failureDetail = [];
+                foreach ($map['FailureDetail'] as $key1 => $value1) {
+                    $model->failureDetail[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

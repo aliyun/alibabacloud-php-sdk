@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataServiceListResponseBody\result\data\content;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filter extends Model
 {
     /**
-     * @description Combined conditions.
-     *
      * @var mixed[][]
      */
     public $filters;
 
     /**
-     * @description Logical relationship between multiple SQL text keywords.
-     *
-     * - **or**: or
-     * - **and**: and
-     *
-     * @example and
-     *
      * @var string
      */
     public $logicalOperator;
 
     /**
-     * @description Type.
-     *
-     * - basic: basic
-     * - combined: complex
-     *
-     * @example basic
-     *
      * @var string
      */
     public $type;
@@ -44,17 +28,37 @@ class filter extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->filters)) {
+            Model::validateArray($this->filters);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filters) {
-            $res['Filters'] = $this->filters;
+            if (\is_array($this->filters)) {
+                $res['Filters'] = [];
+                $n1 = 0;
+                foreach ($this->filters as $item1) {
+                    if (\is_array($item1)) {
+                        $res['Filters'][$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['Filters'][$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->logicalOperator) {
             $res['LogicalOperator'] = $this->logicalOperator;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -62,22 +66,34 @@ class filter extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
-                $model->filters = $map['Filters'];
+                $model->filters = [];
+                $n1 = 0;
+                foreach ($map['Filters'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->filters[$n1] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->filters[$n1][$key2] = $value2;
+                        }
+                    }
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['LogicalOperator'])) {
             $model->logicalOperator = $map['LogicalOperator'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
