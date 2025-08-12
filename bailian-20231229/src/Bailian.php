@@ -43,6 +43,10 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteMemoryNodeResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeleteMemoryResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DeletePromptTemplateResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\DescribeFileResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetAlipayTransferStatusRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetAlipayTransferStatusResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetAlipayUrlRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\GetAlipayUrlResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetIndexJobStatusResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\GetMemoryNodeResponse;
@@ -1584,6 +1588,136 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->describeFileWithOptions($WorkspaceId, $FileId, $headers, $runtime);
+    }
+
+    /**
+     * 查询支付宝打赏状态
+     *
+     * @param request - GetAlipayTransferStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAlipayTransferStatusResponse
+     *
+     * @param GetAlipayTransferStatusRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetAlipayTransferStatusResponse
+     */
+    public function getAlipayTransferStatusWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->code) {
+            @$query['code'] = $request->code;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspace_id'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAlipayTransferStatus',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/alipay/transfer/status',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAlipayTransferStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 查询支付宝打赏状态
+     *
+     * @param request - GetAlipayTransferStatusRequest
+     *
+     * @returns GetAlipayTransferStatusResponse
+     *
+     * @param GetAlipayTransferStatusRequest $request
+     *
+     * @return GetAlipayTransferStatusResponse
+     */
+    public function getAlipayTransferStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAlipayTransferStatusWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 支付宝打赏链接.
+     *
+     * @param request - GetAlipayUrlRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAlipayUrlResponse
+     *
+     * @param GetAlipayUrlRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetAlipayUrlResponse
+     */
+    public function getAlipayUrlWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['app_id'] = $request->appId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['workspace_id'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAlipayUrl',
+            'version' => '2023-12-29',
+            'protocol' => 'HTTPS',
+            'pathname' => '/openapi/alipay/transfer/url',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+
+        return GetAlipayUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 支付宝打赏链接.
+     *
+     * @param request - GetAlipayUrlRequest
+     *
+     * @returns GetAlipayUrlResponse
+     *
+     * @param GetAlipayUrlRequest $request
+     *
+     * @return GetAlipayUrlResponse
+     */
+    public function getAlipayUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAlipayUrlWithOptions($request, $headers, $runtime);
     }
 
     /**
