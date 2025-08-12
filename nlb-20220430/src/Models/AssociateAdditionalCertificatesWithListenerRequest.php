@@ -56,7 +56,8 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
                 $res['AdditionalCertificateIds'] = [];
                 $n1 = 0;
                 foreach ($this->additionalCertificateIds as $item1) {
-                    $res['AdditionalCertificateIds'][$n1++] = $item1;
+                    $res['AdditionalCertificateIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -93,7 +94,8 @@ class AssociateAdditionalCertificatesWithListenerRequest extends Model
                 $model->additionalCertificateIds = [];
                 $n1 = 0;
                 foreach ($map['AdditionalCertificateIds'] as $item1) {
-                    $model->additionalCertificateIds[$n1++] = $item1;
+                    $model->additionalCertificateIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -5,28 +5,34 @@
 namespace AlibabaCloud\SDK\Nlb\V20220430\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Nlb\V20220430\Models\DescribeRegionsResponseBody\regions;
+use AlibabaCloud\SDK\Nlb\V20220430\Models\ListAsynJobsResponseBody\jobs;
 
-class DescribeRegionsResponseBody extends Model
+class ListAsynJobsResponseBody extends Model
 {
     /**
-     * @var regions[]
+     * @var jobs[]
      */
-    public $regions;
+    public $jobs;
 
     /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $totalCount;
     protected $_name = [
-        'regions' => 'Regions',
+        'jobs' => 'Jobs',
         'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
-        if (\is_array($this->regions)) {
-            Model::validateArray($this->regions);
+        if (\is_array($this->jobs)) {
+            Model::validateArray($this->jobs);
         }
         parent::validate();
     }
@@ -34,12 +40,12 @@ class DescribeRegionsResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->regions) {
-            if (\is_array($this->regions)) {
-                $res['Regions'] = [];
+        if (null !== $this->jobs) {
+            if (\is_array($this->jobs)) {
+                $res['Jobs'] = [];
                 $n1 = 0;
-                foreach ($this->regions as $item1) {
-                    $res['Regions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                foreach ($this->jobs as $item1) {
+                    $res['Jobs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                     ++$n1;
                 }
             }
@@ -47,6 +53,10 @@ class DescribeRegionsResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -60,12 +70,12 @@ class DescribeRegionsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Regions'])) {
-            if (!empty($map['Regions'])) {
-                $model->regions = [];
+        if (isset($map['Jobs'])) {
+            if (!empty($map['Jobs'])) {
+                $model->jobs = [];
                 $n1 = 0;
-                foreach ($map['Regions'] as $item1) {
-                    $model->regions[$n1] = regions::fromMap($item1);
+                foreach ($map['Jobs'] as $item1) {
+                    $model->jobs[$n1] = jobs::fromMap($item1);
                     ++$n1;
                 }
             }
@@ -73,6 +83,10 @@ class DescribeRegionsResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

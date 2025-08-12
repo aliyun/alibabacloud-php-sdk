@@ -49,7 +49,8 @@ class serverGroupInfos extends Model
                 $res['NonNormalServers'] = [];
                 $n1 = 0;
                 foreach ($this->nonNormalServers as $item1) {
-                    $res['NonNormalServers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['NonNormalServers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,7 +79,8 @@ class serverGroupInfos extends Model
                 $model->nonNormalServers = [];
                 $n1 = 0;
                 foreach ($map['NonNormalServers'] as $item1) {
-                    $model->nonNormalServers[$n1++] = nonNormalServers::fromMap($item1);
+                    $model->nonNormalServers[$n1] = nonNormalServers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

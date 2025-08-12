@@ -149,7 +149,8 @@ class UpdateListenerAttributeRequest extends Model
                 $res['CaCertificateIds'] = [];
                 $n1 = 0;
                 foreach ($this->caCertificateIds as $item1) {
-                    $res['CaCertificateIds'][$n1++] = $item1;
+                    $res['CaCertificateIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -163,7 +164,8 @@ class UpdateListenerAttributeRequest extends Model
                 $res['CertificateIds'] = [];
                 $n1 = 0;
                 foreach ($this->certificateIds as $item1) {
-                    $res['CertificateIds'][$n1++] = $item1;
+                    $res['CertificateIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -244,7 +246,8 @@ class UpdateListenerAttributeRequest extends Model
                 $model->caCertificateIds = [];
                 $n1 = 0;
                 foreach ($map['CaCertificateIds'] as $item1) {
-                    $model->caCertificateIds[$n1++] = $item1;
+                    $model->caCertificateIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -258,7 +261,8 @@ class UpdateListenerAttributeRequest extends Model
                 $model->certificateIds = [];
                 $n1 = 0;
                 foreach ($map['CertificateIds'] as $item1) {
-                    $model->certificateIds[$n1++] = $item1;
+                    $model->certificateIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

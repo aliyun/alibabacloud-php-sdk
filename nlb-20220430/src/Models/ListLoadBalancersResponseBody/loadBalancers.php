@@ -242,7 +242,8 @@ class loadBalancers extends Model
                 $res['OperationLocks'] = [];
                 $n1 = 0;
                 foreach ($this->operationLocks as $item1) {
-                    $res['OperationLocks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['OperationLocks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -260,7 +261,8 @@ class loadBalancers extends Model
                 $res['SecurityGroupIds'] = [];
                 $n1 = 0;
                 foreach ($this->securityGroupIds as $item1) {
-                    $res['SecurityGroupIds'][$n1++] = $item1;
+                    $res['SecurityGroupIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -270,7 +272,8 @@ class loadBalancers extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -284,7 +287,8 @@ class loadBalancers extends Model
                 $res['ZoneMappings'] = [];
                 $n1 = 0;
                 foreach ($this->zoneMappings as $item1) {
-                    $res['ZoneMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ZoneMappings'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -365,7 +369,8 @@ class loadBalancers extends Model
                 $model->operationLocks = [];
                 $n1 = 0;
                 foreach ($map['OperationLocks'] as $item1) {
-                    $model->operationLocks[$n1++] = operationLocks::fromMap($item1);
+                    $model->operationLocks[$n1] = operationLocks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -383,7 +388,8 @@ class loadBalancers extends Model
                 $model->securityGroupIds = [];
                 $n1 = 0;
                 foreach ($map['SecurityGroupIds'] as $item1) {
-                    $model->securityGroupIds[$n1++] = $item1;
+                    $model->securityGroupIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -393,7 +399,8 @@ class loadBalancers extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
@@ -407,7 +414,8 @@ class loadBalancers extends Model
                 $model->zoneMappings = [];
                 $n1 = 0;
                 foreach ($map['ZoneMappings'] as $item1) {
-                    $model->zoneMappings[$n1++] = zoneMappings::fromMap($item1);
+                    $model->zoneMappings[$n1] = zoneMappings::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

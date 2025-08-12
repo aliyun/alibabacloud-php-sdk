@@ -81,7 +81,8 @@ class ListServerGroupServersRequest extends Model
                 $res['ServerIds'] = [];
                 $n1 = 0;
                 foreach ($this->serverIds as $item1) {
-                    $res['ServerIds'][$n1++] = $item1;
+                    $res['ServerIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,7 +92,8 @@ class ListServerGroupServersRequest extends Model
                 $res['ServerIps'] = [];
                 $n1 = 0;
                 foreach ($this->serverIps as $item1) {
-                    $res['ServerIps'][$n1++] = $item1;
+                    $res['ServerIps'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -128,7 +130,8 @@ class ListServerGroupServersRequest extends Model
                 $model->serverIds = [];
                 $n1 = 0;
                 foreach ($map['ServerIds'] as $item1) {
-                    $model->serverIds[$n1++] = $item1;
+                    $model->serverIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,7 +141,8 @@ class ListServerGroupServersRequest extends Model
                 $model->serverIps = [];
                 $n1 = 0;
                 foreach ($map['ServerIps'] as $item1) {
-                    $model->serverIps[$n1++] = $item1;
+                    $model->serverIps[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

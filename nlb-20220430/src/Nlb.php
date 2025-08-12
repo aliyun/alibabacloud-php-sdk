@@ -52,6 +52,8 @@ use AlibabaCloud\SDK\Nlb\V20220430\Models\GetListenerHealthStatusRequest;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\GetListenerHealthStatusResponse;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\GetLoadBalancerAttributeRequest;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\GetLoadBalancerAttributeResponse;
+use AlibabaCloud\SDK\Nlb\V20220430\Models\ListAsynJobsRequest;
+use AlibabaCloud\SDK\Nlb\V20220430\Models\ListAsynJobsResponse;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\ListListenerCertificatesRequest;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\ListListenerCertificatesResponse;
 use AlibabaCloud\SDK\Nlb\V20220430\Models\ListListenersRequest;
@@ -198,11 +200,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AddServersToServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddServersToServerGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddServersToServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -279,11 +278,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AssociateAdditionalCertificatesWithListenerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AssociateAdditionalCertificatesWithListenerResponse::fromMap($this->execute($params, $req, $runtime));
+        return AssociateAdditionalCertificatesWithListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -360,11 +356,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AttachCommonBandwidthPackageToLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachCommonBandwidthPackageToLoadBalancerResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachCommonBandwidthPackageToLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -439,11 +432,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CancelShiftLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelShiftLoadBalancerZonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelShiftLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -596,11 +586,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateListenerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateListenerResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -721,11 +708,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateLoadBalancerResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -815,11 +799,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSecurityPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -943,11 +924,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateServerGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1020,11 +998,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteListenerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteListenerResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1092,11 +1067,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteLoadBalancerResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1164,11 +1136,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteSecurityPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1239,11 +1208,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteServerGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1302,11 +1268,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeHdMonitorRegionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeHdMonitorRegionConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeHdMonitorRegionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1372,11 +1335,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1444,11 +1404,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeZonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1520,11 +1477,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DetachCommonBandwidthPackageFromLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachCommonBandwidthPackageFromLoadBalancerResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachCommonBandwidthPackageFromLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1592,11 +1546,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisableLoadBalancerIpv6InternetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableLoadBalancerIpv6InternetResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableLoadBalancerIpv6InternetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1673,11 +1624,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisassociateAdditionalCertificatesWithListenerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisassociateAdditionalCertificatesWithListenerResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisassociateAdditionalCertificatesWithListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1750,11 +1698,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnableLoadBalancerIpv6InternetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableLoadBalancerIpv6InternetResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableLoadBalancerIpv6InternetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1814,11 +1759,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetJobStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1886,11 +1828,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetListenerAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1950,11 +1889,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetListenerHealthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetListenerHealthStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetListenerHealthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2022,11 +1958,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetLoadBalancerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetLoadBalancerAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetLoadBalancerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2045,6 +1978,63 @@ class Nlb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getLoadBalancerAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the results of multiple asynchronous operations performed on a Network Load Balancer (NLB) instance.
+     *
+     * @param request - ListAsynJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAsynJobsResponse
+     *
+     * @param ListAsynJobsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListAsynJobsResponse
+     */
+    public function listAsynJobsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->jobIds) {
+            @$query['JobIds'] = $request->jobIds;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListAsynJobs',
+            'version' => '2022-04-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+
+        return ListAsynJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the results of multiple asynchronous operations performed on a Network Load Balancer (NLB) instance.
+     *
+     * @param request - ListAsynJobsRequest
+     *
+     * @returns ListAsynJobsResponse
+     *
+     * @param ListAsynJobsRequest $request
+     *
+     * @return ListAsynJobsResponse
+     */
+    public function listAsynJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAsynJobsWithOptions($request, $runtime);
     }
 
     /**
@@ -2102,11 +2092,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListListenerCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListListenerCertificatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListListenerCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2190,11 +2177,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListListenersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListListenersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListListenersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2310,11 +2294,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListLoadBalancersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2396,11 +2377,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSecurityPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2476,11 +2454,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListServerGroupServersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListServerGroupServersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListServerGroupServersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2570,11 +2545,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListServerGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2630,11 +2602,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSystemSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSystemSecurityPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSystemSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2713,11 +2682,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2797,11 +2763,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return LoadBalancerJoinSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return LoadBalancerJoinSecurityGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return LoadBalancerJoinSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2886,11 +2849,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return LoadBalancerLeaveSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return LoadBalancerLeaveSecurityGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return LoadBalancerLeaveSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2963,11 +2923,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MoveResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3039,11 +2996,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RemoveServersFromServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveServersFromServerGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveServersFromServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3110,11 +3064,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return SetHdMonitorRegionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetHdMonitorRegionConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetHdMonitorRegionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3185,11 +3136,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartListenerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartListenerResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3264,11 +3212,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StartShiftLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartShiftLoadBalancerZonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartShiftLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3339,11 +3284,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return StopListenerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopListenerResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopListenerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3422,11 +3364,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3509,11 +3448,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3643,11 +3579,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateListenerAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3730,11 +3663,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateLoadBalancerAddressTypeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateLoadBalancerAddressTypeConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateLoadBalancerAddressTypeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3821,11 +3751,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateLoadBalancerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateLoadBalancerAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateLoadBalancerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3912,11 +3839,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateLoadBalancerProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateLoadBalancerProtectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateLoadBalancerProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4000,11 +3924,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateLoadBalancerZonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4093,11 +4014,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateSecurityPolicyAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSecurityPolicyAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSecurityPolicyAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4192,11 +4110,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateServerGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateServerGroupAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateServerGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4277,11 +4192,8 @@ class Nlb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateServerGroupServersAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateServerGroupServersAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateServerGroupServersAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

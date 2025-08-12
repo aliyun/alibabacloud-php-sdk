@@ -75,7 +75,8 @@ class zoneMappings extends Model
                 $res['Ipv4LocalAddresses'] = [];
                 $n1 = 0;
                 foreach ($this->ipv4LocalAddresses as $item1) {
-                    $res['Ipv4LocalAddresses'][$n1++] = $item1;
+                    $res['Ipv4LocalAddresses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -89,7 +90,8 @@ class zoneMappings extends Model
                 $res['Ipv6LocalAddresses'] = [];
                 $n1 = 0;
                 foreach ($this->ipv6LocalAddresses as $item1) {
-                    $res['Ipv6LocalAddresses'][$n1++] = $item1;
+                    $res['Ipv6LocalAddresses'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -126,7 +128,8 @@ class zoneMappings extends Model
                 $model->ipv4LocalAddresses = [];
                 $n1 = 0;
                 foreach ($map['Ipv4LocalAddresses'] as $item1) {
-                    $model->ipv4LocalAddresses[$n1++] = $item1;
+                    $model->ipv4LocalAddresses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -140,7 +143,8 @@ class zoneMappings extends Model
                 $model->ipv6LocalAddresses = [];
                 $n1 = 0;
                 foreach ($map['Ipv6LocalAddresses'] as $item1) {
-                    $model->ipv6LocalAddresses[$n1++] = $item1;
+                    $model->ipv6LocalAddresses[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

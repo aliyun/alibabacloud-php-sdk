@@ -73,7 +73,8 @@ class AddServersToServerGroupRequest extends Model
                 $res['Servers'] = [];
                 $n1 = 0;
                 foreach ($this->servers as $item1) {
-                    $res['Servers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Servers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -110,7 +111,8 @@ class AddServersToServerGroupRequest extends Model
                 $model->servers = [];
                 $n1 = 0;
                 foreach ($map['Servers'] as $item1) {
-                    $model->servers[$n1++] = servers::fromMap($item1);
+                    $model->servers[$n1] = servers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

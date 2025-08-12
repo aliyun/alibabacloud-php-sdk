@@ -184,7 +184,8 @@ class serverGroups extends Model
                 $res['RelatedLoadBalancerIds'] = [];
                 $n1 = 0;
                 foreach ($this->relatedLoadBalancerIds as $item1) {
-                    $res['RelatedLoadBalancerIds'][$n1++] = $item1;
+                    $res['RelatedLoadBalancerIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -222,7 +223,8 @@ class serverGroups extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -283,7 +285,8 @@ class serverGroups extends Model
                 $model->relatedLoadBalancerIds = [];
                 $n1 = 0;
                 foreach ($map['RelatedLoadBalancerIds'] as $item1) {
-                    $model->relatedLoadBalancerIds[$n1++] = $item1;
+                    $model->relatedLoadBalancerIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -321,7 +324,8 @@ class serverGroups extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

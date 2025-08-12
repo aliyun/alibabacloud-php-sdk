@@ -57,7 +57,8 @@ class GetListenerHealthStatusResponseBody extends Model
                 $res['ListenerHealthStatus'] = [];
                 $n1 = 0;
                 foreach ($this->listenerHealthStatus as $item1) {
-                    $res['ListenerHealthStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['ListenerHealthStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class GetListenerHealthStatusResponseBody extends Model
                 $model->listenerHealthStatus = [];
                 $n1 = 0;
                 foreach ($map['ListenerHealthStatus'] as $item1) {
-                    $model->listenerHealthStatus[$n1++] = listenerHealthStatus::fromMap($item1);
+                    $model->listenerHealthStatus[$n1] = listenerHealthStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

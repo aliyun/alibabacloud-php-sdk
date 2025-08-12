@@ -71,7 +71,8 @@ class UpdateSecurityPolicyAttributeRequest extends Model
                 $res['Ciphers'] = [];
                 $n1 = 0;
                 foreach ($this->ciphers as $item1) {
-                    $res['Ciphers'][$n1++] = $item1;
+                    $res['Ciphers'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class UpdateSecurityPolicyAttributeRequest extends Model
                 $res['TlsVersions'] = [];
                 $n1 = 0;
                 foreach ($this->tlsVersions as $item1) {
-                    $res['TlsVersions'][$n1++] = $item1;
+                    $res['TlsVersions'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -122,7 +124,8 @@ class UpdateSecurityPolicyAttributeRequest extends Model
                 $model->ciphers = [];
                 $n1 = 0;
                 foreach ($map['Ciphers'] as $item1) {
-                    $model->ciphers[$n1++] = $item1;
+                    $model->ciphers[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,7 +155,8 @@ class UpdateSecurityPolicyAttributeRequest extends Model
                 $model->tlsVersions = [];
                 $n1 = 0;
                 foreach ($map['TlsVersions'] as $item1) {
-                    $model->tlsVersions[$n1++] = $item1;
+                    $model->tlsVersions[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

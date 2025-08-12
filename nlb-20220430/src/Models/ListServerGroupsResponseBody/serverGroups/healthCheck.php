@@ -130,7 +130,8 @@ class healthCheck extends Model
                 $res['HealthCheckHttpCode'] = [];
                 $n1 = 0;
                 foreach ($this->healthCheckHttpCode as $item1) {
-                    $res['HealthCheckHttpCode'][$n1++] = $item1;
+                    $res['HealthCheckHttpCode'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -203,7 +204,8 @@ class healthCheck extends Model
                 $model->healthCheckHttpCode = [];
                 $n1 = 0;
                 foreach ($map['HealthCheckHttpCode'] as $item1) {
-                    $model->healthCheckHttpCode[$n1++] = $item1;
+                    $model->healthCheckHttpCode[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

@@ -57,7 +57,8 @@ class ListListenersResponseBody extends Model
                 $res['Listeners'] = [];
                 $n1 = 0;
                 foreach ($this->listeners as $item1) {
-                    $res['Listeners'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Listeners'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -94,7 +95,8 @@ class ListListenersResponseBody extends Model
                 $model->listeners = [];
                 $n1 = 0;
                 foreach ($map['Listeners'] as $item1) {
-                    $model->listeners[$n1++] = listeners::fromMap($item1);
+                    $model->listeners[$n1] = listeners::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

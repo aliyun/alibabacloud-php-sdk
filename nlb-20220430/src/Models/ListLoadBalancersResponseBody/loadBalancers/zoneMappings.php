@@ -51,7 +51,8 @@ class zoneMappings extends Model
                 $res['LoadBalancerAddresses'] = [];
                 $n1 = 0;
                 foreach ($this->loadBalancerAddresses as $item1) {
-                    $res['LoadBalancerAddresses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['LoadBalancerAddresses'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -84,7 +85,8 @@ class zoneMappings extends Model
                 $model->loadBalancerAddresses = [];
                 $n1 = 0;
                 foreach ($map['LoadBalancerAddresses'] as $item1) {
-                    $model->loadBalancerAddresses[$n1++] = loadBalancerAddresses::fromMap($item1);
+                    $model->loadBalancerAddresses[$n1] = loadBalancerAddresses::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

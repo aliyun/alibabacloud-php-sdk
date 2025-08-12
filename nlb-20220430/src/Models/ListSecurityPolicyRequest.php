@@ -91,7 +91,8 @@ class ListSecurityPolicyRequest extends Model
                 $res['SecurityPolicyIds'] = [];
                 $n1 = 0;
                 foreach ($this->securityPolicyIds as $item1) {
-                    $res['SecurityPolicyIds'][$n1++] = $item1;
+                    $res['SecurityPolicyIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -101,7 +102,8 @@ class ListSecurityPolicyRequest extends Model
                 $res['SecurityPolicyNames'] = [];
                 $n1 = 0;
                 foreach ($this->securityPolicyNames as $item1) {
-                    $res['SecurityPolicyNames'][$n1++] = $item1;
+                    $res['SecurityPolicyNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -111,7 +113,8 @@ class ListSecurityPolicyRequest extends Model
                 $res['Tag'] = [];
                 $n1 = 0;
                 foreach ($this->tag as $item1) {
-                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,7 +151,8 @@ class ListSecurityPolicyRequest extends Model
                 $model->securityPolicyIds = [];
                 $n1 = 0;
                 foreach ($map['SecurityPolicyIds'] as $item1) {
-                    $model->securityPolicyIds[$n1++] = $item1;
+                    $model->securityPolicyIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,7 +162,8 @@ class ListSecurityPolicyRequest extends Model
                 $model->securityPolicyNames = [];
                 $n1 = 0;
                 foreach ($map['SecurityPolicyNames'] as $item1) {
-                    $model->securityPolicyNames[$n1++] = $item1;
+                    $model->securityPolicyNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -168,7 +173,8 @@ class ListSecurityPolicyRequest extends Model
                 $model->tag = [];
                 $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = tag::fromMap($item1);
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

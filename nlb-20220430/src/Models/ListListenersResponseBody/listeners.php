@@ -183,7 +183,8 @@ class listeners extends Model
                 $res['CaCertificateIds'] = [];
                 $n1 = 0;
                 foreach ($this->caCertificateIds as $item1) {
-                    $res['CaCertificateIds'][$n1++] = $item1;
+                    $res['CaCertificateIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -197,7 +198,8 @@ class listeners extends Model
                 $res['CertificateIds'] = [];
                 $n1 = 0;
                 foreach ($this->certificateIds as $item1) {
-                    $res['CertificateIds'][$n1++] = $item1;
+                    $res['CertificateIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -275,7 +277,8 @@ class listeners extends Model
                 $res['Tags'] = [];
                 $n1 = 0;
                 foreach ($this->tags as $item1) {
-                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -304,7 +307,8 @@ class listeners extends Model
                 $model->caCertificateIds = [];
                 $n1 = 0;
                 foreach ($map['CaCertificateIds'] as $item1) {
-                    $model->caCertificateIds[$n1++] = $item1;
+                    $model->caCertificateIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -318,7 +322,8 @@ class listeners extends Model
                 $model->certificateIds = [];
                 $n1 = 0;
                 foreach ($map['CertificateIds'] as $item1) {
-                    $model->certificateIds[$n1++] = $item1;
+                    $model->certificateIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -396,7 +401,8 @@ class listeners extends Model
                 $model->tags = [];
                 $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = tags::fromMap($item1);
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
