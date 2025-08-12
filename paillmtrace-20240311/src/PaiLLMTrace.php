@@ -866,6 +866,10 @@ class PaiLLMTrace extends OpenApiClient
             @$query['PageSize'] = $request->pageSize;
         }
 
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
         if (null !== $request->sortBy) {
             @$query['SortBy'] = $request->sortBy;
         }

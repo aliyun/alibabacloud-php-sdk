@@ -82,6 +82,11 @@ class ListTracesDatasRequest extends Model
     /**
      * @var string
      */
+    public $sessionId;
+
+    /**
+     * @var string
+     */
     public $sortBy;
 
     /**
@@ -123,6 +128,7 @@ class ListTracesDatasRequest extends Model
         'ownerSubId' => 'OwnerSubId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'sessionId' => 'SessionId',
         'sortBy' => 'SortBy',
         'sortOrder' => 'SortOrder',
         'spanIds' => 'SpanIds',
@@ -209,6 +215,10 @@ class ListTracesDatasRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->sessionId) {
+            $res['SessionId'] = $this->sessionId;
         }
 
         if (null !== $this->sortBy) {
@@ -321,6 +331,10 @@ class ListTracesDatasRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['SessionId'])) {
+            $model->sessionId = $map['SessionId'];
         }
 
         if (isset($map['SortBy'])) {

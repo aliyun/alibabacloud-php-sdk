@@ -81,6 +81,11 @@ class ListTracesDatasShrinkRequest extends Model
     /**
      * @var string
      */
+    public $sessionId;
+
+    /**
+     * @var string
+     */
     public $sortBy;
 
     /**
@@ -122,6 +127,7 @@ class ListTracesDatasShrinkRequest extends Model
         'ownerSubId' => 'OwnerSubId',
         'pageNumber' => 'PageNumber',
         'pageSize' => 'PageSize',
+        'sessionId' => 'SessionId',
         'sortBy' => 'SortBy',
         'sortOrder' => 'SortOrder',
         'spanIdsShrink' => 'SpanIds',
@@ -192,6 +198,10 @@ class ListTracesDatasShrinkRequest extends Model
 
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->sessionId) {
+            $res['SessionId'] = $this->sessionId;
         }
 
         if (null !== $this->sortBy) {
@@ -283,6 +293,10 @@ class ListTracesDatasShrinkRequest extends Model
 
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['SessionId'])) {
+            $model->sessionId = $map['SessionId'];
         }
 
         if (isset($map['SortBy'])) {
