@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\NotificationStrategy;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\NotificationStrategy\escalationSetting\customChannels;
-use AlibabaCloud\Tea\Model;
 
 class escalationSetting extends Model
 {
@@ -39,42 +39,52 @@ class escalationSetting extends Model
      */
     public $retriggerMin;
     protected $_name = [
-        'autoResolveMin'  => 'AutoResolveMin',
-        'customChannels'  => 'CustomChannels',
+        'autoResolveMin' => 'AutoResolveMin',
+        'customChannels' => 'CustomChannels',
         'escalationLevel' => 'EscalationLevel',
-        'escalationUuid'  => 'EscalationUuid',
-        'range'           => 'Range',
-        'retriggerMin'    => 'RetriggerMin',
+        'escalationUuid' => 'EscalationUuid',
+        'range' => 'Range',
+        'retriggerMin' => 'RetriggerMin',
     ];
 
     public function validate()
     {
+        if (\is_array($this->customChannels)) {
+            Model::validateArray($this->customChannels);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoResolveMin) {
             $res['AutoResolveMin'] = $this->autoResolveMin;
         }
+
         if (null !== $this->customChannels) {
-            $res['CustomChannels'] = [];
-            if (null !== $this->customChannels && \is_array($this->customChannels)) {
-                $n = 0;
-                foreach ($this->customChannels as $item) {
-                    $res['CustomChannels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->customChannels)) {
+                $res['CustomChannels'] = [];
+                $n1 = 0;
+                foreach ($this->customChannels as $item1) {
+                    $res['CustomChannels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->escalationLevel) {
             $res['EscalationLevel'] = $this->escalationLevel;
         }
+
         if (null !== $this->escalationUuid) {
             $res['EscalationUuid'] = $this->escalationUuid;
         }
+
         if (null !== $this->range) {
             $res['Range'] = $this->range;
         }
+
         if (null !== $this->retriggerMin) {
             $res['RetriggerMin'] = $this->retriggerMin;
         }
@@ -82,35 +92,41 @@ class escalationSetting extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return escalationSetting
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoResolveMin'])) {
             $model->autoResolveMin = $map['AutoResolveMin'];
         }
+
         if (isset($map['CustomChannels'])) {
             if (!empty($map['CustomChannels'])) {
                 $model->customChannels = [];
-                $n                     = 0;
-                foreach ($map['CustomChannels'] as $item) {
-                    $model->customChannels[$n++] = null !== $item ? customChannels::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CustomChannels'] as $item1) {
+                    $model->customChannels[$n1] = customChannels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['EscalationLevel'])) {
             $model->escalationLevel = $map['EscalationLevel'];
         }
+
         if (isset($map['EscalationUuid'])) {
             $model->escalationUuid = $map['EscalationUuid'];
         }
+
         if (isset($map['Range'])) {
             $model->range = $map['Range'];
         }
+
         if (isset($map['RetriggerMin'])) {
             $model->retriggerMin = $map['RetriggerMin'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleTemplateAttributeResponseBody\resource;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleTemplateAttributeResponseBody\resource\alertTemplates\alertTemplate;
-use AlibabaCloud\Tea\Model;
 
 class alertTemplates extends Model
 {
@@ -19,17 +19,22 @@ class alertTemplates extends Model
 
     public function validate()
     {
+        if (\is_array($this->alertTemplate)) {
+            Model::validateArray($this->alertTemplate);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertTemplate) {
-            $res['AlertTemplate'] = [];
-            if (null !== $this->alertTemplate && \is_array($this->alertTemplate)) {
-                $n = 0;
-                foreach ($this->alertTemplate as $item) {
-                    $res['AlertTemplate'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->alertTemplate)) {
+                $res['AlertTemplate'] = [];
+                $n1 = 0;
+                foreach ($this->alertTemplate as $item1) {
+                    $res['AlertTemplate'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class alertTemplates extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return alertTemplates
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertTemplate'])) {
             if (!empty($map['AlertTemplate'])) {
                 $model->alertTemplate = [];
-                $n                    = 0;
-                foreach ($map['AlertTemplate'] as $item) {
-                    $model->alertTemplate[$n++] = null !== $item ? alertTemplate::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AlertTemplate'] as $item1) {
+                    $model->alertTemplate[$n1] = alertTemplate::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

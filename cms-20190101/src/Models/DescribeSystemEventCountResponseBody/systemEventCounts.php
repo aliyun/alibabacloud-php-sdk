@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSystemEventCountResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSystemEventCountResponseBody\systemEventCounts\systemEventCount;
-use AlibabaCloud\Tea\Model;
 
 class systemEventCounts extends Model
 {
@@ -19,17 +19,22 @@ class systemEventCounts extends Model
 
     public function validate()
     {
+        if (\is_array($this->systemEventCount)) {
+            Model::validateArray($this->systemEventCount);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->systemEventCount) {
-            $res['SystemEventCount'] = [];
-            if (null !== $this->systemEventCount && \is_array($this->systemEventCount)) {
-                $n = 0;
-                foreach ($this->systemEventCount as $item) {
-                    $res['SystemEventCount'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->systemEventCount)) {
+                $res['SystemEventCount'] = [];
+                $n1 = 0;
+                foreach ($this->systemEventCount as $item1) {
+                    $res['SystemEventCount'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class systemEventCounts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return systemEventCounts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SystemEventCount'])) {
             if (!empty($map['SystemEventCount'])) {
                 $model->systemEventCount = [];
-                $n                       = 0;
-                foreach ($map['SystemEventCount'] as $item) {
-                    $model->systemEventCount[$n++] = null !== $item ? systemEventCount::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SystemEventCount'] as $item1) {
+                    $model->systemEventCount[$n1] = systemEventCount::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

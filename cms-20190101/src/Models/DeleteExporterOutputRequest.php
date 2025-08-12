@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteExporterOutputRequest extends Model
 {
     /**
-     * @description The name of the configuration set.
-     *
-     * This parameter is required.
-     * @example testName
-     *
      * @var string
      */
     public $destName;
@@ -29,14 +24,16 @@ class DeleteExporterOutputRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destName) {
             $res['DestName'] = $this->destName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -44,17 +41,18 @@ class DeleteExporterOutputRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteExporterOutputRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestName'])) {
             $model->destName = $map['DestName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

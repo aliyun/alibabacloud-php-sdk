@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeProductsOfActiveMetricRuleResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeProductsOfActiveMetricRuleResponseBody\allProductInitMetricRuleList\allProductInitMetricRule;
-use AlibabaCloud\Tea\Model;
 
 class allProductInitMetricRuleList extends Model
 {
@@ -19,17 +19,22 @@ class allProductInitMetricRuleList extends Model
 
     public function validate()
     {
+        if (\is_array($this->allProductInitMetricRule)) {
+            Model::validateArray($this->allProductInitMetricRule);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allProductInitMetricRule) {
-            $res['AllProductInitMetricRule'] = [];
-            if (null !== $this->allProductInitMetricRule && \is_array($this->allProductInitMetricRule)) {
-                $n = 0;
-                foreach ($this->allProductInitMetricRule as $item) {
-                    $res['AllProductInitMetricRule'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->allProductInitMetricRule)) {
+                $res['AllProductInitMetricRule'] = [];
+                $n1 = 0;
+                foreach ($this->allProductInitMetricRule as $item1) {
+                    $res['AllProductInitMetricRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class allProductInitMetricRuleList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return allProductInitMetricRuleList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllProductInitMetricRule'])) {
             if (!empty($map['AllProductInitMetricRule'])) {
                 $model->allProductInitMetricRule = [];
-                $n                               = 0;
-                foreach ($map['AllProductInitMetricRule'] as $item) {
-                    $model->allProductInitMetricRule[$n++] = null !== $item ? allProductInitMetricRule::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AllProductInitMetricRule'] as $item1) {
+                    $model->allProductInitMetricRule[$n1] = allProductInitMetricRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

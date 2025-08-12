@@ -4,54 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\PutEventRuleTargetsResponseBody\failedContactParameters;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class contactParameter extends Model
 {
     /**
-     * @description The name of the alert contact group.
-     *
      * @var string
      */
     public $contactGroupName;
 
     /**
-     * @description The ID of the recipient.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The alert notification methods. Valid values:
-     *
-     * 4: Alert notifications are sent by using DingTalk and emails.
-     * @example 3
-     *
      * @var string
      */
     public $level;
     protected $_name = [
         'contactGroupName' => 'ContactGroupName',
-        'id'               => 'Id',
-        'level'            => 'Level',
+        'id' => 'Id',
+        'level' => 'Level',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactGroupName) {
             $res['ContactGroupName'] = $this->contactGroupName;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
@@ -59,20 +51,22 @@ class contactParameter extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contactParameter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactGroupName'])) {
             $model->contactGroupName = $map['ContactGroupName'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }

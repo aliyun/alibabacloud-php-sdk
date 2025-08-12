@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\CreateSiteMonitorResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateSiteMonitorResponseBody\data\attachAlertResult;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The result that is returned after you associate the existing alert rule with the site monitoring task.
-     *
      * @var attachAlertResult
      */
     public $attachAlertResult;
@@ -21,23 +19,27 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->attachAlertResult) {
+            $this->attachAlertResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attachAlertResult) {
-            $res['AttachAlertResult'] = null !== $this->attachAlertResult ? $this->attachAlertResult->toMap() : null;
+            $res['AttachAlertResult'] = null !== $this->attachAlertResult ? $this->attachAlertResult->toArray($noStream) : $this->attachAlertResult;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

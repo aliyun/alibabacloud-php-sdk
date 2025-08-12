@@ -4,63 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\PutMonitorGroupDynamicRuleRequest\groupRules;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filters extends Model
 {
     /**
-     * @description The method that is used to filter instances. Valid values of N: 1 to 3. Valid values:
-     *
-     *   contains: contains
-     *   notContains: does not contain
-     *   startWith: starts with a prefix
-     *   endWith: ends with a suffix
-     *
-     * This parameter is required.
-     * @example contains
-     *
      * @var string
      */
     public $function;
 
     /**
-     * @description The name of the field based on which instances are filtered. Valid values of N: 1 to 3.
-     *
-     * This parameter is required.
-     * @example hostName
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The value to be matched with the specified field. Valid values of N: 1 to 3.
-     *
-     * This parameter is required.
-     * @example nginx
-     *
      * @var string
      */
     public $value;
     protected $_name = [
         'function' => 'Function',
-        'name'     => 'Name',
-        'value'    => 'Value',
+        'name' => 'Name',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->function) {
             $res['Function'] = $this->function;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -68,20 +51,22 @@ class filters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Function'])) {
             $model->function = $map['Function'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

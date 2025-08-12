@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class browserHosts extends Model
 {
@@ -18,29 +18,45 @@ class browserHosts extends Model
 
     public function validate()
     {
+        if (\is_array($this->browserHosts)) {
+            Model::validateArray($this->browserHosts);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->browserHosts) {
-            $res['browser_hosts'] = $this->browserHosts;
+            if (\is_array($this->browserHosts)) {
+                $res['browser_hosts'] = [];
+                $n1 = 0;
+                foreach ($this->browserHosts as $item1) {
+                    $res['browser_hosts'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return browserHosts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['browser_hosts'])) {
             if (!empty($map['browser_hosts'])) {
-                $model->browserHosts = $map['browser_hosts'];
+                $model->browserHosts = [];
+                $n1 = 0;
+                foreach ($map['browser_hosts'] as $item1) {
+                    $model->browserHosts[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

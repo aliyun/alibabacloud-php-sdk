@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteHybridMonitorNamespaceRequest extends Model
 {
     /**
-     * @description The name of the namespace.
-     *
-     * This parameter is required.
-     * @example aliyun
-     *
      * @var string
      */
     public $namespace;
@@ -24,19 +19,21 @@ class DeleteHybridMonitorNamespaceRequest extends Model
     public $regionId;
     protected $_name = [
         'namespace' => 'Namespace',
-        'regionId'  => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -44,17 +41,18 @@ class DeleteHybridMonitorNamespaceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteHybridMonitorNamespaceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

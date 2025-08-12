@@ -4,15 +4,12 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutResourceMetricRulesRequest\rules;
-use AlibabaCloud\Tea\Model;
 
 class PutResourceMetricRulesRequest extends Model
 {
     /**
-     * @description The threshold-triggered alert rules.
-     *
-     * This parameter is required.
      * @var rules[]
      */
     public $rules;
@@ -22,17 +19,22 @@ class PutResourceMetricRulesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->rules)) {
+            Model::validateArray($this->rules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rules) {
-            $res['Rules'] = [];
-            if (null !== $this->rules && \is_array($this->rules)) {
-                $n = 0;
-                foreach ($this->rules as $item) {
-                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->rules)) {
+                $res['Rules'] = [];
+                $n1 = 0;
+                foreach ($this->rules as $item1) {
+                    $res['Rules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -40,20 +42,21 @@ class PutResourceMetricRulesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PutResourceMetricRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n            = 0;
-                foreach ($map['Rules'] as $item) {
-                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Rules'] as $item1) {
+                    $model->rules[$n1] = rules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

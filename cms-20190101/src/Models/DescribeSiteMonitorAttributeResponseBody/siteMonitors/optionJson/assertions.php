@@ -4,12 +4,12 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class assertions extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\assertions\assertions[]
+     * @var assertions\assertions[]
      */
     public $assertions;
     protected $_name = [
@@ -18,17 +18,22 @@ class assertions extends Model
 
     public function validate()
     {
+        if (\is_array($this->assertions)) {
+            Model::validateArray($this->assertions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assertions) {
-            $res['assertions'] = [];
-            if (null !== $this->assertions && \is_array($this->assertions)) {
-                $n = 0;
-                foreach ($this->assertions as $item) {
-                    $res['assertions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->assertions)) {
+                $res['assertions'] = [];
+                $n1 = 0;
+                foreach ($this->assertions as $item1) {
+                    $res['assertions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -36,20 +41,21 @@ class assertions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return assertions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['assertions'])) {
             if (!empty($map['assertions'])) {
                 $model->assertions = [];
-                $n                 = 0;
-                foreach ($map['assertions'] as $item) {
-                    $model->assertions[$n++] = null !== $item ? \AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\assertions\assertions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['assertions'] as $item1) {
+                    $model->assertions[$n1] = assertions\assertions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

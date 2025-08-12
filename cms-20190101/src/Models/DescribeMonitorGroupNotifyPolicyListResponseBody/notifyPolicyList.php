@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorGroupNotifyPolicyListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorGroupNotifyPolicyListResponseBody\notifyPolicyList\notifyPolicy;
-use AlibabaCloud\Tea\Model;
 
 class notifyPolicyList extends Model
 {
@@ -19,17 +19,22 @@ class notifyPolicyList extends Model
 
     public function validate()
     {
+        if (\is_array($this->notifyPolicy)) {
+            Model::validateArray($this->notifyPolicy);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->notifyPolicy) {
-            $res['NotifyPolicy'] = [];
-            if (null !== $this->notifyPolicy && \is_array($this->notifyPolicy)) {
-                $n = 0;
-                foreach ($this->notifyPolicy as $item) {
-                    $res['NotifyPolicy'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->notifyPolicy)) {
+                $res['NotifyPolicy'] = [];
+                $n1 = 0;
+                foreach ($this->notifyPolicy as $item1) {
+                    $res['NotifyPolicy'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class notifyPolicyList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return notifyPolicyList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NotifyPolicy'])) {
             if (!empty($map['NotifyPolicy'])) {
                 $model->notifyPolicy = [];
-                $n                   = 0;
-                foreach ($map['NotifyPolicy'] as $item) {
-                    $model->notifyPolicy[$n++] = null !== $item ? notifyPolicy::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NotifyPolicy'] as $item1) {
+                    $model->notifyPolicy[$n1] = notifyPolicy::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,47 +4,47 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\ApplyMetricRuleTemplateResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ApplyMetricRuleTemplateResponseBody\resource\alertResults;
-use AlibabaCloud\Tea\Model;
 
 class resource extends Model
 {
     /**
-     * @description The details of the generated alert rule.
-     *
      * @var alertResults[]
      */
     public $alertResults;
 
     /**
-     * @description The ID of the application group.
-     *
-     * @example 123456
-     *
      * @var int
      */
     public $groupId;
     protected $_name = [
         'alertResults' => 'AlertResults',
-        'groupId'      => 'GroupId',
+        'groupId' => 'GroupId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->alertResults)) {
+            Model::validateArray($this->alertResults);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertResults) {
-            $res['AlertResults'] = [];
-            if (null !== $this->alertResults && \is_array($this->alertResults)) {
-                $n = 0;
-                foreach ($this->alertResults as $item) {
-                    $res['AlertResults'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->alertResults)) {
+                $res['AlertResults'] = [];
+                $n1 = 0;
+                foreach ($this->alertResults as $item1) {
+                    $res['AlertResults'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -52,23 +52,25 @@ class resource extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertResults'])) {
             if (!empty($map['AlertResults'])) {
                 $model->alertResults = [];
-                $n                   = 0;
-                foreach ($map['AlertResults'] as $item) {
-                    $model->alertResults[$n++] = null !== $item ? alertResults::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AlertResults'] as $item1) {
+                    $model->alertResults[$n1] = alertResults::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }

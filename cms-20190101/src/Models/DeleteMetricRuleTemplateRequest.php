@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteMetricRuleTemplateRequest extends Model
 {
@@ -14,29 +14,26 @@ class DeleteMetricRuleTemplateRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the alert template.
-     *
-     * This parameter is required.
-     * @example 123****
-     *
      * @var string
      */
     public $templateId;
     protected $_name = [
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
         'templateId' => 'TemplateId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -44,17 +41,18 @@ class DeleteMetricRuleTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteMetricRuleTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

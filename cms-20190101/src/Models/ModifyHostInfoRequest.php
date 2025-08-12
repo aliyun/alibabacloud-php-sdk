@@ -4,25 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyHostInfoRequest extends Model
 {
     /**
-     * @description The name of the host.
-     *
-     * @example portalHost
-     *
      * @var string
      */
     public $hostName;
 
     /**
-     * @description The ID of the instance. Only hosts not on Alibaba Cloud are supported.
-     *
-     * This parameter is required.
-     * @example host-R_NSWNV****
-     *
      * @var string
      */
     public $instanceId;
@@ -32,24 +23,27 @@ class ModifyHostInfoRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'hostName'   => 'HostName',
+        'hostName' => 'HostName',
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hostName) {
             $res['HostName'] = $this->hostName;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -57,20 +51,22 @@ class ModifyHostInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyHostInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HostName'])) {
             $model->hostName = $map['HostName'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -4,59 +4,59 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeUnhealthyHostAvailabilityResponseBody\unhealthyList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeUnhealthyHostAvailabilityResponseBody\unhealthyList\nodeTaskInstance\instanceList;
-use AlibabaCloud\Tea\Model;
 
 class nodeTaskInstance extends Model
 {
     /**
-     * @description The ID of the availability monitoring task.
-     *
-     * @example 123456
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The unhealthy instances that are detected by the availability monitoring task.
-     *
      * @var instanceList
      */
     public $instanceList;
     protected $_name = [
-        'id'           => 'Id',
+        'id' => 'Id',
         'instanceList' => 'InstanceList',
     ];
 
     public function validate()
     {
+        if (null !== $this->instanceList) {
+            $this->instanceList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->instanceList) {
-            $res['InstanceList'] = null !== $this->instanceList ? $this->instanceList->toMap() : null;
+            $res['InstanceList'] = null !== $this->instanceList ? $this->instanceList->toArray($noStream) : $this->instanceList;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodeTaskInstance
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['InstanceList'])) {
             $model->instanceList = instanceList::fromMap($map['InstanceList']);
         }

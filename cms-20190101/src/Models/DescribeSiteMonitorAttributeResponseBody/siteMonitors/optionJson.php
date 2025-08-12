@@ -4,17 +4,20 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\assertions;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\authInfo;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\blockedUrlList;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\browserHeaders;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\browserHosts;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\browserInfo;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\configVariables;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\expectExistString;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\expectNonExistString;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\quicTarget;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\steps;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\trafficHijackElementBlacklist;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\trafficHijackElementWhitelist;
-use AlibabaCloud\Tea\Model;
 
 class optionJson extends Model
 {
@@ -24,25 +27,14 @@ class optionJson extends Model
     public $assertions;
 
     /**
-     * @description The number of retries after a DNS failure occurred.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $attempts;
 
     /**
-     * @description Indicates whether the security authentication feature is enabled. Valid values:
-     *
-     *   0: The feature is disabled.
-     *   1: The feature is enabled.
-     *
-     * @example 1
-     *
-     * @var int
+     * @var authInfo
      */
-    public $authentication;
+    public $authInfo;
 
     /**
      * @var blockedUrlList
@@ -65,91 +57,56 @@ class optionJson extends Model
     public $browserInfo;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $browserInsecure;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $browserTaskVersion;
 
     /**
-     * @description The cookie of the HTTP request.
-     *
-     * @example lang=en
-     *
+     * @var configVariables
+     */
+    public $configVariables;
+
+    /**
      * @var string
      */
     public $cookie;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $diagnosisMtr;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $diagnosisPing;
 
     /**
-     * @example www.taobao.com:www.taobao.com.danuoyi.tbcache.com
-     *
      * @var string
      */
     public $dnsHijackWhitelist;
 
     /**
-     * @description The relationship between the list of expected aliases or IP addresses and the list of DNS results. Valid values:
-     *
-     *   IN_DNS: The list of expected values is a subset of the list of DNS results.
-     *   DNS_IN: The list of DNS results is a subset of the list of expected values.
-     *   EQUAL: The list of DNS results is the same as the list of expected values.
-     *   ANY: The list of DNS results intersects with the list of expected values.
-     *
-     * @example IN_DNS
-     *
      * @var string
      */
     public $dnsMatchRule;
 
     /**
-     * @description The IP address of the DNS server.
-     *
-     * >  This parameter is returned only if the TaskType parameter is set to DNS.
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $dnsServer;
 
     /**
-     * @description The type of the DNS record. This parameter is returned only if the TaskType parameter is set to DNS. Valid values:
-     *
-     *   A (default): a record that specifies an IP address related to the specified host name or domain name.
-     *   CNAME: a record that maps multiple domain names to a domain name.
-     *   NS: a record that specifies a DNS server used to parse domain names.
-     *   MX: a record that links domain names to the address of a mail server.
-     *   TXT: a record that stores the text information of host name or domain names. The text must be 1 to 512 bytes in length. The TXT record serves as a Sender Policy Framework (SPF) record to fight against spam.
-     *
-     * @example A
-     *
      * @var string
      */
     public $dnsType;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $emptyMessage;
@@ -165,33 +122,24 @@ class optionJson extends Model
     public $expectNonExistString;
 
     /**
-     * @description The domain name or alias to be parsed.
-     *
-     * >  This parameter is returned only if the TaskType parameter is set to DNS.
-     * @example dns_server
-     *
      * @var string
      */
     public $expectValue;
 
     /**
-     * @description The packet loss rate.
-     *
-     * >  This parameter is returned only if the TaskType parameter is set to PING.
-     * @example 0.4
-     *
      * @var float
      */
     public $failureRate;
 
     /**
-     * @description The header of the HTTP request.
-     *
-     * @example testKey:testValue
-     *
      * @var string
      */
     public $header;
+
+    /**
+     * @var int
+     */
+    public $hops;
 
     /**
      * @var string
@@ -204,179 +152,101 @@ class optionJson extends Model
     public $hostBindingType;
 
     /**
-     * @description The HTTP request method. Valid values:
-     *
-     *   get
-     *   post
-     *   head
-     *
-     * @example get
-     *
      * @var string
      */
     public $httpMethod;
 
     /**
-     * @description ip_network indicates the network type of the task. Valid values: v4, v6, and auto. Default value: v4.
-     *
-     * @example v4
-     *
+     * @var int
+     */
+    public $icmpTimeoutMillis;
+
+    /**
      * @var string
      */
     public $ipNetwork;
 
     /**
-     * @example true
-     *
      * @var string
      */
     public $isBase64Encode;
 
     /**
-     * @description Indicates whether the alert rule is included. Valid values:
-     *
-     *   0: The alert rule is included.
-     *   1: The alert rule is excluded.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $matchRule;
 
     /**
-     * @example tlsv1.2
-     *
      * @var string
      */
     public $minTlsVersion;
 
     /**
-     * @description The password of the SMTP, POP3, or FTP protocol.
-     *
-     * @example 123****
-     *
      * @var string
      */
     public $password;
 
     /**
-     * @description The heartbeat of the PING protocol.
-     *
-     * @example 29
-     *
      * @var int
      */
     public $pingNum;
 
     /**
-     * @example 80
-     *
      * @var int
      */
     public $pingPort;
 
     /**
-     * @description The PING protocol type. Valid values:
-     *
-     *   icmp
-     *   tcp
-     *   udp
-     *
-     * @example icmp,tcp,udp
-     *
      * @var string
      */
     public $pingType;
 
     /**
-     * @description The port number of the TCP, UDP, SMTP, or POP3 protocol.
-     *
-     * @example 110
-     *
      * @var int
      */
     public $port;
 
     /**
-     * @description The protocol that is used to send the request.
-     *
-     * @example TCP
-     *
      * @var string
      */
     public $protocol;
 
     /**
-     * @description Indicates whether the Quick UDP Internet Connections (QUIC) protocol is used for browser detection. Valid values: true false Default value: false.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $quicEnabled;
 
     /**
-     * @description The sites for which the QUIC protocol is forcibly used.
-     *
      * @var quicTarget
      */
     public $quicTarget;
 
     /**
-     * @description The content of the HTTP request.
-     *
-     * @example aa=bb
-     *
      * @var string
      */
     public $requestContent;
 
     /**
-     * @description The format of the HTTP request. Valid values:
-     *
-     *   hex: hexadecimal
-     *   txt: text
-     *
-     * @example txt
-     *
      * @var string
      */
     public $requestFormat;
 
     /**
-     * @description The response to the HTTP request.
-     *
-     * @example txt
-     *
      * @var string
      */
     public $responseContent;
 
     /**
-     * @description The format of the HTTP response. Valid values:
-     *
-     *   hex: hexadecimal
-     *   txt: text
-     *
-     * @example txt
-     *
      * @var string
      */
     public $responseFormat;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $retryDelay;
 
     /**
-     * @description 是否开启页面截图
-     *
-     * @example false
-     *
      * @var bool
      */
     public $screenShot;
@@ -387,20 +257,29 @@ class optionJson extends Model
     public $scrollEnd;
 
     /**
-     * @example false
-     *
+     * @var steps
+     */
+    public $steps;
+
+    /**
      * @var bool
      */
     public $strictMode;
 
     /**
-     * @description The timeout period. Unit: milliseconds.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $timeOut;
+
+    /**
+     * @var string
+     */
+    public $traceRegion;
+
+    /**
+     * @var string
+     */
+    public $traceType;
 
     /**
      * @var trafficHijackElementBlacklist
@@ -408,8 +287,6 @@ class optionJson extends Model
     public $trafficHijackElementBlacklist;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $trafficHijackElementCount;
@@ -420,231 +297,345 @@ class optionJson extends Model
     public $trafficHijackElementWhitelist;
 
     /**
-     * @description The username of the FTP, SMTP, or POP3 protocol.
-     *
-     * @example testUser
-     *
      * @var string
      */
     public $username;
 
     /**
-     * @example 3
-     *
      * @var int
      */
     public $waitTimeAfterCompletion;
     protected $_name = [
-        'assertions'                    => 'assertions',
-        'attempts'                      => 'attempts',
-        'authentication'                => 'authentication',
-        'blockedUrlList'                => 'blocked_url_list',
-        'browserHeaders'                => 'browser_headers',
-        'browserHosts'                  => 'browser_hosts',
-        'browserInfo'                   => 'browser_info',
-        'browserInsecure'               => 'browser_insecure',
-        'browserTaskVersion'            => 'browser_task_version',
-        'cookie'                        => 'cookie',
-        'diagnosisMtr'                  => 'diagnosis_mtr',
-        'diagnosisPing'                 => 'diagnosis_ping',
-        'dnsHijackWhitelist'            => 'dns_hijack_whitelist',
-        'dnsMatchRule'                  => 'dns_match_rule',
-        'dnsServer'                     => 'dns_server',
-        'dnsType'                       => 'dns_type',
-        'emptyMessage'                  => 'empty_message',
-        'expectExistString'             => 'expect_exist_string',
-        'expectNonExistString'          => 'expect_non_exist_string',
-        'expectValue'                   => 'expect_value',
-        'failureRate'                   => 'failure_rate',
-        'header'                        => 'header',
-        'hostBinding'                   => 'host_binding',
-        'hostBindingType'               => 'host_binding_type',
-        'httpMethod'                    => 'http_method',
-        'ipNetwork'                     => 'ip_network',
-        'isBase64Encode'                => 'isBase64Encode',
-        'matchRule'                     => 'match_rule',
-        'minTlsVersion'                 => 'min_tls_version',
-        'password'                      => 'password',
-        'pingNum'                       => 'ping_num',
-        'pingPort'                      => 'ping_port',
-        'pingType'                      => 'ping_type',
-        'port'                          => 'port',
-        'protocol'                      => 'protocol',
-        'quicEnabled'                   => 'quic_enabled',
-        'quicTarget'                    => 'quic_target',
-        'requestContent'                => 'request_content',
-        'requestFormat'                 => 'request_format',
-        'responseContent'               => 'response_content',
-        'responseFormat'                => 'response_format',
-        'retryDelay'                    => 'retry_delay',
-        'screenShot'                    => 'screen_shot',
-        'scrollEnd'                     => 'scroll_end',
-        'strictMode'                    => 'strict_mode',
-        'timeOut'                       => 'time_out',
+        'assertions' => 'assertions',
+        'attempts' => 'attempts',
+        'authInfo' => 'auth_info',
+        'blockedUrlList' => 'blocked_url_list',
+        'browserHeaders' => 'browser_headers',
+        'browserHosts' => 'browser_hosts',
+        'browserInfo' => 'browser_info',
+        'browserInsecure' => 'browser_insecure',
+        'browserTaskVersion' => 'browser_task_version',
+        'configVariables' => 'config_variables',
+        'cookie' => 'cookie',
+        'diagnosisMtr' => 'diagnosis_mtr',
+        'diagnosisPing' => 'diagnosis_ping',
+        'dnsHijackWhitelist' => 'dns_hijack_whitelist',
+        'dnsMatchRule' => 'dns_match_rule',
+        'dnsServer' => 'dns_server',
+        'dnsType' => 'dns_type',
+        'emptyMessage' => 'empty_message',
+        'expectExistString' => 'expect_exist_string',
+        'expectNonExistString' => 'expect_non_exist_string',
+        'expectValue' => 'expect_value',
+        'failureRate' => 'failure_rate',
+        'header' => 'header',
+        'hops' => 'hops',
+        'hostBinding' => 'host_binding',
+        'hostBindingType' => 'host_binding_type',
+        'httpMethod' => 'http_method',
+        'icmpTimeoutMillis' => 'icmp_timeout_millis',
+        'ipNetwork' => 'ip_network',
+        'isBase64Encode' => 'isBase64Encode',
+        'matchRule' => 'match_rule',
+        'minTlsVersion' => 'min_tls_version',
+        'password' => 'password',
+        'pingNum' => 'ping_num',
+        'pingPort' => 'ping_port',
+        'pingType' => 'ping_type',
+        'port' => 'port',
+        'protocol' => 'protocol',
+        'quicEnabled' => 'quic_enabled',
+        'quicTarget' => 'quic_target',
+        'requestContent' => 'request_content',
+        'requestFormat' => 'request_format',
+        'responseContent' => 'response_content',
+        'responseFormat' => 'response_format',
+        'retryDelay' => 'retry_delay',
+        'screenShot' => 'screen_shot',
+        'scrollEnd' => 'scroll_end',
+        'steps' => 'steps',
+        'strictMode' => 'strict_mode',
+        'timeOut' => 'time_out',
+        'traceRegion' => 'trace_region',
+        'traceType' => 'trace_type',
         'trafficHijackElementBlacklist' => 'traffic_hijack_element_blacklist',
-        'trafficHijackElementCount'     => 'traffic_hijack_element_count',
+        'trafficHijackElementCount' => 'traffic_hijack_element_count',
         'trafficHijackElementWhitelist' => 'traffic_hijack_element_whitelist',
-        'username'                      => 'username',
-        'waitTimeAfterCompletion'       => 'waitTime_after_completion',
+        'username' => 'username',
+        'waitTimeAfterCompletion' => 'waitTime_after_completion',
     ];
 
     public function validate()
     {
+        if (null !== $this->assertions) {
+            $this->assertions->validate();
+        }
+        if (null !== $this->authInfo) {
+            $this->authInfo->validate();
+        }
+        if (null !== $this->blockedUrlList) {
+            $this->blockedUrlList->validate();
+        }
+        if (null !== $this->browserHeaders) {
+            $this->browserHeaders->validate();
+        }
+        if (null !== $this->browserHosts) {
+            $this->browserHosts->validate();
+        }
+        if (null !== $this->browserInfo) {
+            $this->browserInfo->validate();
+        }
+        if (null !== $this->configVariables) {
+            $this->configVariables->validate();
+        }
+        if (null !== $this->expectExistString) {
+            $this->expectExistString->validate();
+        }
+        if (null !== $this->expectNonExistString) {
+            $this->expectNonExistString->validate();
+        }
+        if (null !== $this->quicTarget) {
+            $this->quicTarget->validate();
+        }
+        if (null !== $this->steps) {
+            $this->steps->validate();
+        }
+        if (null !== $this->trafficHijackElementBlacklist) {
+            $this->trafficHijackElementBlacklist->validate();
+        }
+        if (null !== $this->trafficHijackElementWhitelist) {
+            $this->trafficHijackElementWhitelist->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assertions) {
-            $res['assertions'] = null !== $this->assertions ? $this->assertions->toMap() : null;
+            $res['assertions'] = null !== $this->assertions ? $this->assertions->toArray($noStream) : $this->assertions;
         }
+
         if (null !== $this->attempts) {
             $res['attempts'] = $this->attempts;
         }
-        if (null !== $this->authentication) {
-            $res['authentication'] = $this->authentication;
+
+        if (null !== $this->authInfo) {
+            $res['auth_info'] = null !== $this->authInfo ? $this->authInfo->toArray($noStream) : $this->authInfo;
         }
+
         if (null !== $this->blockedUrlList) {
-            $res['blocked_url_list'] = null !== $this->blockedUrlList ? $this->blockedUrlList->toMap() : null;
+            $res['blocked_url_list'] = null !== $this->blockedUrlList ? $this->blockedUrlList->toArray($noStream) : $this->blockedUrlList;
         }
+
         if (null !== $this->browserHeaders) {
-            $res['browser_headers'] = null !== $this->browserHeaders ? $this->browserHeaders->toMap() : null;
+            $res['browser_headers'] = null !== $this->browserHeaders ? $this->browserHeaders->toArray($noStream) : $this->browserHeaders;
         }
+
         if (null !== $this->browserHosts) {
-            $res['browser_hosts'] = null !== $this->browserHosts ? $this->browserHosts->toMap() : null;
+            $res['browser_hosts'] = null !== $this->browserHosts ? $this->browserHosts->toArray($noStream) : $this->browserHosts;
         }
+
         if (null !== $this->browserInfo) {
-            $res['browser_info'] = null !== $this->browserInfo ? $this->browserInfo->toMap() : null;
+            $res['browser_info'] = null !== $this->browserInfo ? $this->browserInfo->toArray($noStream) : $this->browserInfo;
         }
+
         if (null !== $this->browserInsecure) {
             $res['browser_insecure'] = $this->browserInsecure;
         }
+
         if (null !== $this->browserTaskVersion) {
             $res['browser_task_version'] = $this->browserTaskVersion;
         }
+
+        if (null !== $this->configVariables) {
+            $res['config_variables'] = null !== $this->configVariables ? $this->configVariables->toArray($noStream) : $this->configVariables;
+        }
+
         if (null !== $this->cookie) {
             $res['cookie'] = $this->cookie;
         }
+
         if (null !== $this->diagnosisMtr) {
             $res['diagnosis_mtr'] = $this->diagnosisMtr;
         }
+
         if (null !== $this->diagnosisPing) {
             $res['diagnosis_ping'] = $this->diagnosisPing;
         }
+
         if (null !== $this->dnsHijackWhitelist) {
             $res['dns_hijack_whitelist'] = $this->dnsHijackWhitelist;
         }
+
         if (null !== $this->dnsMatchRule) {
             $res['dns_match_rule'] = $this->dnsMatchRule;
         }
+
         if (null !== $this->dnsServer) {
             $res['dns_server'] = $this->dnsServer;
         }
+
         if (null !== $this->dnsType) {
             $res['dns_type'] = $this->dnsType;
         }
+
         if (null !== $this->emptyMessage) {
             $res['empty_message'] = $this->emptyMessage;
         }
+
         if (null !== $this->expectExistString) {
-            $res['expect_exist_string'] = null !== $this->expectExistString ? $this->expectExistString->toMap() : null;
+            $res['expect_exist_string'] = null !== $this->expectExistString ? $this->expectExistString->toArray($noStream) : $this->expectExistString;
         }
+
         if (null !== $this->expectNonExistString) {
-            $res['expect_non_exist_string'] = null !== $this->expectNonExistString ? $this->expectNonExistString->toMap() : null;
+            $res['expect_non_exist_string'] = null !== $this->expectNonExistString ? $this->expectNonExistString->toArray($noStream) : $this->expectNonExistString;
         }
+
         if (null !== $this->expectValue) {
             $res['expect_value'] = $this->expectValue;
         }
+
         if (null !== $this->failureRate) {
             $res['failure_rate'] = $this->failureRate;
         }
+
         if (null !== $this->header) {
             $res['header'] = $this->header;
         }
+
+        if (null !== $this->hops) {
+            $res['hops'] = $this->hops;
+        }
+
         if (null !== $this->hostBinding) {
             $res['host_binding'] = $this->hostBinding;
         }
+
         if (null !== $this->hostBindingType) {
             $res['host_binding_type'] = $this->hostBindingType;
         }
+
         if (null !== $this->httpMethod) {
             $res['http_method'] = $this->httpMethod;
         }
+
+        if (null !== $this->icmpTimeoutMillis) {
+            $res['icmp_timeout_millis'] = $this->icmpTimeoutMillis;
+        }
+
         if (null !== $this->ipNetwork) {
             $res['ip_network'] = $this->ipNetwork;
         }
+
         if (null !== $this->isBase64Encode) {
             $res['isBase64Encode'] = $this->isBase64Encode;
         }
+
         if (null !== $this->matchRule) {
             $res['match_rule'] = $this->matchRule;
         }
+
         if (null !== $this->minTlsVersion) {
             $res['min_tls_version'] = $this->minTlsVersion;
         }
+
         if (null !== $this->password) {
             $res['password'] = $this->password;
         }
+
         if (null !== $this->pingNum) {
             $res['ping_num'] = $this->pingNum;
         }
+
         if (null !== $this->pingPort) {
             $res['ping_port'] = $this->pingPort;
         }
+
         if (null !== $this->pingType) {
             $res['ping_type'] = $this->pingType;
         }
+
         if (null !== $this->port) {
             $res['port'] = $this->port;
         }
+
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
         }
+
         if (null !== $this->quicEnabled) {
             $res['quic_enabled'] = $this->quicEnabled;
         }
+
         if (null !== $this->quicTarget) {
-            $res['quic_target'] = null !== $this->quicTarget ? $this->quicTarget->toMap() : null;
+            $res['quic_target'] = null !== $this->quicTarget ? $this->quicTarget->toArray($noStream) : $this->quicTarget;
         }
+
         if (null !== $this->requestContent) {
             $res['request_content'] = $this->requestContent;
         }
+
         if (null !== $this->requestFormat) {
             $res['request_format'] = $this->requestFormat;
         }
+
         if (null !== $this->responseContent) {
             $res['response_content'] = $this->responseContent;
         }
+
         if (null !== $this->responseFormat) {
             $res['response_format'] = $this->responseFormat;
         }
+
         if (null !== $this->retryDelay) {
             $res['retry_delay'] = $this->retryDelay;
         }
+
         if (null !== $this->screenShot) {
             $res['screen_shot'] = $this->screenShot;
         }
+
         if (null !== $this->scrollEnd) {
             $res['scroll_end'] = $this->scrollEnd;
         }
+
+        if (null !== $this->steps) {
+            $res['steps'] = null !== $this->steps ? $this->steps->toArray($noStream) : $this->steps;
+        }
+
         if (null !== $this->strictMode) {
             $res['strict_mode'] = $this->strictMode;
         }
+
         if (null !== $this->timeOut) {
             $res['time_out'] = $this->timeOut;
         }
-        if (null !== $this->trafficHijackElementBlacklist) {
-            $res['traffic_hijack_element_blacklist'] = null !== $this->trafficHijackElementBlacklist ? $this->trafficHijackElementBlacklist->toMap() : null;
+
+        if (null !== $this->traceRegion) {
+            $res['trace_region'] = $this->traceRegion;
         }
+
+        if (null !== $this->traceType) {
+            $res['trace_type'] = $this->traceType;
+        }
+
+        if (null !== $this->trafficHijackElementBlacklist) {
+            $res['traffic_hijack_element_blacklist'] = null !== $this->trafficHijackElementBlacklist ? $this->trafficHijackElementBlacklist->toArray($noStream) : $this->trafficHijackElementBlacklist;
+        }
+
         if (null !== $this->trafficHijackElementCount) {
             $res['traffic_hijack_element_count'] = $this->trafficHijackElementCount;
         }
+
         if (null !== $this->trafficHijackElementWhitelist) {
-            $res['traffic_hijack_element_whitelist'] = null !== $this->trafficHijackElementWhitelist ? $this->trafficHijackElementWhitelist->toMap() : null;
+            $res['traffic_hijack_element_whitelist'] = null !== $this->trafficHijackElementWhitelist ? $this->trafficHijackElementWhitelist->toArray($noStream) : $this->trafficHijackElementWhitelist;
         }
+
         if (null !== $this->username) {
             $res['username'] = $this->username;
         }
+
         if (null !== $this->waitTimeAfterCompletion) {
             $res['waitTime_after_completion'] = $this->waitTimeAfterCompletion;
         }
@@ -652,164 +643,238 @@ class optionJson extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return optionJson
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['assertions'])) {
             $model->assertions = assertions::fromMap($map['assertions']);
         }
+
         if (isset($map['attempts'])) {
             $model->attempts = $map['attempts'];
         }
-        if (isset($map['authentication'])) {
-            $model->authentication = $map['authentication'];
+
+        if (isset($map['auth_info'])) {
+            $model->authInfo = authInfo::fromMap($map['auth_info']);
         }
+
         if (isset($map['blocked_url_list'])) {
             $model->blockedUrlList = blockedUrlList::fromMap($map['blocked_url_list']);
         }
+
         if (isset($map['browser_headers'])) {
             $model->browserHeaders = browserHeaders::fromMap($map['browser_headers']);
         }
+
         if (isset($map['browser_hosts'])) {
             $model->browserHosts = browserHosts::fromMap($map['browser_hosts']);
         }
+
         if (isset($map['browser_info'])) {
             $model->browserInfo = browserInfo::fromMap($map['browser_info']);
         }
+
         if (isset($map['browser_insecure'])) {
             $model->browserInsecure = $map['browser_insecure'];
         }
+
         if (isset($map['browser_task_version'])) {
             $model->browserTaskVersion = $map['browser_task_version'];
         }
+
+        if (isset($map['config_variables'])) {
+            $model->configVariables = configVariables::fromMap($map['config_variables']);
+        }
+
         if (isset($map['cookie'])) {
             $model->cookie = $map['cookie'];
         }
+
         if (isset($map['diagnosis_mtr'])) {
             $model->diagnosisMtr = $map['diagnosis_mtr'];
         }
+
         if (isset($map['diagnosis_ping'])) {
             $model->diagnosisPing = $map['diagnosis_ping'];
         }
+
         if (isset($map['dns_hijack_whitelist'])) {
             $model->dnsHijackWhitelist = $map['dns_hijack_whitelist'];
         }
+
         if (isset($map['dns_match_rule'])) {
             $model->dnsMatchRule = $map['dns_match_rule'];
         }
+
         if (isset($map['dns_server'])) {
             $model->dnsServer = $map['dns_server'];
         }
+
         if (isset($map['dns_type'])) {
             $model->dnsType = $map['dns_type'];
         }
+
         if (isset($map['empty_message'])) {
             $model->emptyMessage = $map['empty_message'];
         }
+
         if (isset($map['expect_exist_string'])) {
             $model->expectExistString = expectExistString::fromMap($map['expect_exist_string']);
         }
+
         if (isset($map['expect_non_exist_string'])) {
             $model->expectNonExistString = expectNonExistString::fromMap($map['expect_non_exist_string']);
         }
+
         if (isset($map['expect_value'])) {
             $model->expectValue = $map['expect_value'];
         }
+
         if (isset($map['failure_rate'])) {
             $model->failureRate = $map['failure_rate'];
         }
+
         if (isset($map['header'])) {
             $model->header = $map['header'];
         }
+
+        if (isset($map['hops'])) {
+            $model->hops = $map['hops'];
+        }
+
         if (isset($map['host_binding'])) {
             $model->hostBinding = $map['host_binding'];
         }
+
         if (isset($map['host_binding_type'])) {
             $model->hostBindingType = $map['host_binding_type'];
         }
+
         if (isset($map['http_method'])) {
             $model->httpMethod = $map['http_method'];
         }
+
+        if (isset($map['icmp_timeout_millis'])) {
+            $model->icmpTimeoutMillis = $map['icmp_timeout_millis'];
+        }
+
         if (isset($map['ip_network'])) {
             $model->ipNetwork = $map['ip_network'];
         }
+
         if (isset($map['isBase64Encode'])) {
             $model->isBase64Encode = $map['isBase64Encode'];
         }
+
         if (isset($map['match_rule'])) {
             $model->matchRule = $map['match_rule'];
         }
+
         if (isset($map['min_tls_version'])) {
             $model->minTlsVersion = $map['min_tls_version'];
         }
+
         if (isset($map['password'])) {
             $model->password = $map['password'];
         }
+
         if (isset($map['ping_num'])) {
             $model->pingNum = $map['ping_num'];
         }
+
         if (isset($map['ping_port'])) {
             $model->pingPort = $map['ping_port'];
         }
+
         if (isset($map['ping_type'])) {
             $model->pingType = $map['ping_type'];
         }
+
         if (isset($map['port'])) {
             $model->port = $map['port'];
         }
+
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
         }
+
         if (isset($map['quic_enabled'])) {
             $model->quicEnabled = $map['quic_enabled'];
         }
+
         if (isset($map['quic_target'])) {
             $model->quicTarget = quicTarget::fromMap($map['quic_target']);
         }
+
         if (isset($map['request_content'])) {
             $model->requestContent = $map['request_content'];
         }
+
         if (isset($map['request_format'])) {
             $model->requestFormat = $map['request_format'];
         }
+
         if (isset($map['response_content'])) {
             $model->responseContent = $map['response_content'];
         }
+
         if (isset($map['response_format'])) {
             $model->responseFormat = $map['response_format'];
         }
+
         if (isset($map['retry_delay'])) {
             $model->retryDelay = $map['retry_delay'];
         }
+
         if (isset($map['screen_shot'])) {
             $model->screenShot = $map['screen_shot'];
         }
+
         if (isset($map['scroll_end'])) {
             $model->scrollEnd = $map['scroll_end'];
         }
+
+        if (isset($map['steps'])) {
+            $model->steps = steps::fromMap($map['steps']);
+        }
+
         if (isset($map['strict_mode'])) {
             $model->strictMode = $map['strict_mode'];
         }
+
         if (isset($map['time_out'])) {
             $model->timeOut = $map['time_out'];
         }
+
+        if (isset($map['trace_region'])) {
+            $model->traceRegion = $map['trace_region'];
+        }
+
+        if (isset($map['trace_type'])) {
+            $model->traceType = $map['trace_type'];
+        }
+
         if (isset($map['traffic_hijack_element_blacklist'])) {
             $model->trafficHijackElementBlacklist = trafficHijackElementBlacklist::fromMap($map['traffic_hijack_element_blacklist']);
         }
+
         if (isset($map['traffic_hijack_element_count'])) {
             $model->trafficHijackElementCount = $map['traffic_hijack_element_count'];
         }
+
         if (isset($map['traffic_hijack_element_whitelist'])) {
             $model->trafficHijackElementWhitelist = trafficHijackElementWhitelist::fromMap($map['traffic_hijack_element_whitelist']);
         }
+
         if (isset($map['username'])) {
             $model->username = $map['username'];
         }
+
         if (isset($map['waitTime_after_completion'])) {
             $model->waitTimeAfterCompletion = $map['waitTime_after_completion'];
         }

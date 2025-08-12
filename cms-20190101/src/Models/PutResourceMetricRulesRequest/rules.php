@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\PutResourceMetricRulesRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutResourceMetricRulesRequest\rules\escalations;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutResourceMetricRulesRequest\rules\labels;
-use AlibabaCloud\Tea\Model;
 
 class rules extends Model
 {
@@ -16,230 +16,179 @@ class rules extends Model
     public $escalations;
 
     /**
-     * @description The alert contact groups. The alert notifications are sent to the alert contacts in the alert contact group.
-     *
-     * This parameter is required.
-     * @example ECS_Group
-     *
      * @var string
      */
     public $contactGroups;
 
     /**
-     * @description The time period during which the alert rule is effective.
-     *
-     * Valid values of N: 1 to 500.
-     * @example 00:00-23:59
-     *
      * @var string
      */
     public $effectiveInterval;
 
     /**
-     * @description The subject of the alert notification email.
-     *
-     * Valid values of N: 1 to 500.
      * @var string
      */
     public $emailSubject;
 
     /**
-     * @description The interval at which alerts are triggered based on the alert rule.
-     *
-     * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-     * @example 60
-     *
      * @var string
      */
     public $interval;
 
     /**
-     * @description If the metric meets the specified condition in the alert rule and CloudMonitor sends an alert notification, the tag is also written to the metric and displayed in the alert notification.
-     *
      * @var labels[]
      */
     public $labels;
 
     /**
-     * @description The metric name.
-     *
-     * For information about how to query the name of a metric, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-     * @example cpu_total
-     *
      * @var string
      */
     public $metricName;
 
     /**
-     * @description The namespace of the cloud service.
-     *
-     * This parameter is required.
-     * @example acs_ecs_dashboard
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The method that is used to handle alerts when no monitoring data is found. Valid values:
-     *
-     *   KEEP_LAST_STATE (default): No operation is performed.
-     *   INSUFFICIENT_DATA: An alert whose content is "Insufficient data" is triggered.
-     *   OK: The status is considered normal.
-     *
-     * Valid values of N: 1 to 500.
-     * @example KEEP_LAST_STATE
-     *
      * @var string
      */
     public $noDataPolicy;
 
     /**
-     * @description The time period during which the alert rule is ineffective.
-     *
-     * Valid values of N: 1 to 500.
-     * @example 00:00-06:00
-     *
      * @var string
      */
     public $noEffectiveInterval;
 
     /**
-     * @description The statistical period of the metric.
-     *
-     * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-     * @example 60
-     *
      * @var string
      */
     public $period;
 
     /**
-     * @description The information about the resource. Example: `[{"instanceId":"i-uf6j91r34rnwawoo****"}]` or `[{"userId":"100931896542****"}]`.
-     *
-     * This parameter is required.
-     * @example [{"instanceId":"i-uf6j91r34rnwawoo****"}]
-     *
      * @var string
      */
     public $resources;
 
     /**
-     * @description The ID of the alert rule.
-     *
-     * This parameter is required.
-     * @example a151cd6023eacee2f0978e03863cc1697c89508****
-     *
      * @var string
      */
     public $ruleId;
 
     /**
-     * @description The name of the alert rule.
-     *
-     * This parameter is required.
-     * @example test123
-     *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @description The mute period during which new alert notifications are not sent even if the trigger conditions are met.
-     *
-     * >  If an alert is not cleared after the mute period ends, CloudMonitor resends an alert notification.
-     * @example 86400
-     *
      * @var int
      */
     public $silenceTime;
 
     /**
-     * @description The callback URL to which a POST request is sent when an alert is triggered based on the alert rule.
-     *
-     * Valid values of N: 1 to 500.
-     * @example https://alert.aliyun.com.com:8080/callback
-     *
      * @var string
      */
     public $webhook;
     protected $_name = [
-        'escalations'         => 'Escalations',
-        'contactGroups'       => 'ContactGroups',
-        'effectiveInterval'   => 'EffectiveInterval',
-        'emailSubject'        => 'EmailSubject',
-        'interval'            => 'Interval',
-        'labels'              => 'Labels',
-        'metricName'          => 'MetricName',
-        'namespace'           => 'Namespace',
-        'noDataPolicy'        => 'NoDataPolicy',
+        'escalations' => 'Escalations',
+        'contactGroups' => 'ContactGroups',
+        'effectiveInterval' => 'EffectiveInterval',
+        'emailSubject' => 'EmailSubject',
+        'interval' => 'Interval',
+        'labels' => 'Labels',
+        'metricName' => 'MetricName',
+        'namespace' => 'Namespace',
+        'noDataPolicy' => 'NoDataPolicy',
         'noEffectiveInterval' => 'NoEffectiveInterval',
-        'period'              => 'Period',
-        'resources'           => 'Resources',
-        'ruleId'              => 'RuleId',
-        'ruleName'            => 'RuleName',
-        'silenceTime'         => 'SilenceTime',
-        'webhook'             => 'Webhook',
+        'period' => 'Period',
+        'resources' => 'Resources',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'silenceTime' => 'SilenceTime',
+        'webhook' => 'Webhook',
     ];
 
     public function validate()
     {
+        if (null !== $this->escalations) {
+            $this->escalations->validate();
+        }
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->escalations) {
-            $res['Escalations'] = null !== $this->escalations ? $this->escalations->toMap() : null;
+            $res['Escalations'] = null !== $this->escalations ? $this->escalations->toArray($noStream) : $this->escalations;
         }
+
         if (null !== $this->contactGroups) {
             $res['ContactGroups'] = $this->contactGroups;
         }
+
         if (null !== $this->effectiveInterval) {
             $res['EffectiveInterval'] = $this->effectiveInterval;
         }
+
         if (null !== $this->emailSubject) {
             $res['EmailSubject'] = $this->emailSubject;
         }
+
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
+
         if (null !== $this->labels) {
-            $res['Labels'] = [];
-            if (null !== $this->labels && \is_array($this->labels)) {
-                $n = 0;
-                foreach ($this->labels as $item) {
-                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                $n1 = 0;
+                foreach ($this->labels as $item1) {
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->noDataPolicy) {
             $res['NoDataPolicy'] = $this->noDataPolicy;
         }
+
         if (null !== $this->noEffectiveInterval) {
             $res['NoEffectiveInterval'] = $this->noEffectiveInterval;
         }
+
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+
         if (null !== $this->resources) {
             $res['Resources'] = $this->resources;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
+
         if (null !== $this->silenceTime) {
             $res['SilenceTime'] = $this->silenceTime;
         }
+
         if (null !== $this->webhook) {
             $res['Webhook'] = $this->webhook;
         }
@@ -247,65 +196,81 @@ class rules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Escalations'])) {
             $model->escalations = escalations::fromMap($map['Escalations']);
         }
+
         if (isset($map['ContactGroups'])) {
             $model->contactGroups = $map['ContactGroups'];
         }
+
         if (isset($map['EffectiveInterval'])) {
             $model->effectiveInterval = $map['EffectiveInterval'];
         }
+
         if (isset($map['EmailSubject'])) {
             $model->emailSubject = $map['EmailSubject'];
         }
+
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
+
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n             = 0;
-                foreach ($map['Labels'] as $item) {
-                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Labels'] as $item1) {
+                    $model->labels[$n1] = labels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['NoDataPolicy'])) {
             $model->noDataPolicy = $map['NoDataPolicy'];
         }
+
         if (isset($map['NoEffectiveInterval'])) {
             $model->noEffectiveInterval = $map['NoEffectiveInterval'];
         }
+
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+
         if (isset($map['Resources'])) {
             $model->resources = $map['Resources'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
+
         if (isset($map['SilenceTime'])) {
             $model->silenceTime = $map['SilenceTime'];
         }
+
         if (isset($map['Webhook'])) {
             $model->webhook = $map['Webhook'];
         }

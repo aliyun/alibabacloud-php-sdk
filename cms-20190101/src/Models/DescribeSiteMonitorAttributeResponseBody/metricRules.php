@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\metricRules\metricRule;
-use AlibabaCloud\Tea\Model;
 
 class metricRules extends Model
 {
@@ -19,17 +19,22 @@ class metricRules extends Model
 
     public function validate()
     {
+        if (\is_array($this->metricRule)) {
+            Model::validateArray($this->metricRule);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metricRule) {
-            $res['MetricRule'] = [];
-            if (null !== $this->metricRule && \is_array($this->metricRule)) {
-                $n = 0;
-                foreach ($this->metricRule as $item) {
-                    $res['MetricRule'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->metricRule)) {
+                $res['MetricRule'] = [];
+                $n1 = 0;
+                foreach ($this->metricRule as $item1) {
+                    $res['MetricRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class metricRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metricRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MetricRule'])) {
             if (!empty($map['MetricRule'])) {
                 $model->metricRule = [];
-                $n                 = 0;
-                foreach ($map['MetricRule'] as $item) {
-                    $model->metricRule[$n++] = null !== $item ? metricRule::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MetricRule'] as $item1) {
+                    $model->metricRule[$n1] = metricRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DeleteMonitorGroupResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteMonitorGroupResponseBody\group\contactGroups;
-use AlibabaCloud\Tea\Model;
 
 class group extends Model
 {
     /**
-     * @description The alert groups that receive alert notifications for the application group.
-     *
      * @var contactGroups
      */
     public $contactGroups;
 
     /**
-     * @description The name of the application group.
-     *
-     * @example ECS_test
-     *
      * @var string
      */
     public $groupName;
     protected $_name = [
         'contactGroups' => 'ContactGroups',
-        'groupName'     => 'GroupName',
+        'groupName' => 'GroupName',
     ];
 
     public function validate()
     {
+        if (null !== $this->contactGroups) {
+            $this->contactGroups->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactGroups) {
-            $res['ContactGroups'] = null !== $this->contactGroups ? $this->contactGroups->toMap() : null;
+            $res['ContactGroups'] = null !== $this->contactGroups ? $this->contactGroups->toArray($noStream) : $this->contactGroups;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
@@ -46,17 +45,18 @@ class group extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return group
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactGroups'])) {
             $model->contactGroups = contactGroups::fromMap($map['ContactGroups']);
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }

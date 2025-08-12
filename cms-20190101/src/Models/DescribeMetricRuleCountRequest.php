@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeMetricRuleCountRequest extends Model
 {
     /**
-     * @description The metric name. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-     *
-     * @example cpu_total
-     *
      * @var string
      */
     public $metricName;
 
     /**
-     * @description The namespace of the cloud service. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-     *
-     * @example acs_ecs_dashboard
-     *
      * @var string
      */
     public $namespace;
@@ -32,23 +24,26 @@ class DescribeMetricRuleCountRequest extends Model
     public $regionId;
     protected $_name = [
         'metricName' => 'MetricName',
-        'namespace'  => 'Namespace',
-        'regionId'   => 'RegionId',
+        'namespace' => 'Namespace',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -56,20 +51,22 @@ class DescribeMetricRuleCountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeMetricRuleCountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

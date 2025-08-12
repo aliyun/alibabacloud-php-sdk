@@ -4,70 +4,56 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHybridMonitorSLSGroupResponseBody\list_;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SLSGroupConfig extends Model
 {
     /**
-     * @description The Logstore.
-     *
-     * @example Logstore-aliyun-all
-     *
      * @var string
      */
     public $SLSLogstore;
 
     /**
-     * @description The Simple Log Service project.
-     *
-     * @example aliyun-project
-     *
      * @var string
      */
     public $SLSProject;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $SLSRegion;
 
     /**
-     * @description The member ID.
-     *
-     **Description** This parameter is returned when you call the operation by using an administrative account.
-     *
-     * @example 120886317861****
-     *
      * @var string
      */
     public $SLSUserId;
     protected $_name = [
         'SLSLogstore' => 'SLSLogstore',
-        'SLSProject'  => 'SLSProject',
-        'SLSRegion'   => 'SLSRegion',
-        'SLSUserId'   => 'SLSUserId',
+        'SLSProject' => 'SLSProject',
+        'SLSRegion' => 'SLSRegion',
+        'SLSUserId' => 'SLSUserId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->SLSLogstore) {
             $res['SLSLogstore'] = $this->SLSLogstore;
         }
+
         if (null !== $this->SLSProject) {
             $res['SLSProject'] = $this->SLSProject;
         }
+
         if (null !== $this->SLSRegion) {
             $res['SLSRegion'] = $this->SLSRegion;
         }
+
         if (null !== $this->SLSUserId) {
             $res['SLSUserId'] = $this->SLSUserId;
         }
@@ -75,23 +61,26 @@ class SLSGroupConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SLSGroupConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SLSLogstore'])) {
             $model->SLSLogstore = $map['SLSLogstore'];
         }
+
         if (isset($map['SLSProject'])) {
             $model->SLSProject = $map['SLSProject'];
         }
+
         if (isset($map['SLSRegion'])) {
             $model->SLSRegion = $map['SLSRegion'];
         }
+
         if (isset($map['SLSUserId'])) {
             $model->SLSUserId = $map['SLSUserId'];
         }

@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\PutHybridMonitorMetricDataResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class errorDetail extends Model
 {
     /**
-     * @description The error message of the invalid parameter.
-     *
-     * @example label name :123 not match [a-zA-Z_][a-zA-Z0-9_]*
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description The position of the error message in the array.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $index;
     protected $_name = [
         'errorMessage' => 'ErrorMessage',
-        'index'        => 'Index',
+        'index' => 'Index',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
@@ -47,17 +41,18 @@ class errorDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return errorDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }

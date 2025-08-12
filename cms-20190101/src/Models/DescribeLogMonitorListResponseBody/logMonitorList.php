@@ -4,143 +4,117 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeLogMonitorListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeLogMonitorListResponseBody\logMonitorList\valueFilter;
-use AlibabaCloud\Tea\Model;
 
 class logMonitorList extends Model
 {
     /**
-     * @description The time when the log monitoring metric was created.
-     *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
-     * @example 1577766395000
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description The ID of the application group.
-     *
-     * @example 12345
-     *
      * @var int
      */
     public $groupId;
 
     /**
-     * @description The ID returned by Log Service.
-     *
-     * @example 12345
-     *
      * @var int
      */
     public $logId;
 
     /**
-     * @description The name of the log monitoring metric. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-     *
-     * @example cpu_total
-     *
      * @var string
      */
     public $metricName;
 
     /**
-     * @description The name of the Log Service Logstore.
-     *
-     * @example testSlS****
-     *
      * @var string
      */
     public $slsLogstore;
 
     /**
-     * @description The name of the Log Service project.
-     *
-     * @example sls-project-test****
-     *
      * @var string
      */
     public $slsProject;
 
     /**
-     * @description The ID of the region where the Log Service Logstore resides.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $slsRegionId;
 
     /**
-     * @description The condition that is used to filter logs. The ValueFilter and ValueFilterRelation parameters are used in pair. The filter condition is equivalent to the WHERE clause in SQL statements.
-     *
-     * If no filter condition is specified, all logs are processed. Assume that logs contain the Level field, which may be set to Error. If you need to calculate the number of times that logs of the Error level appear every minute, you can set the filter condition to Level=Error and count the number of logs that meet this condition.
      * @var valueFilter[]
      */
     public $valueFilter;
 
     /**
-     * @description The logical operator that is used between log filter conditions. The ValueFilter and ValueFilterRelation parameters are used in pair. Valid values:
-     *
-     *   and
-     *   or
-     *
-     * @example and
-     *
      * @var string
      */
     public $valueFilterRelation;
     protected $_name = [
-        'gmtCreate'           => 'GmtCreate',
-        'groupId'             => 'GroupId',
-        'logId'               => 'LogId',
-        'metricName'          => 'MetricName',
-        'slsLogstore'         => 'SlsLogstore',
-        'slsProject'          => 'SlsProject',
-        'slsRegionId'         => 'SlsRegionId',
-        'valueFilter'         => 'ValueFilter',
+        'gmtCreate' => 'GmtCreate',
+        'groupId' => 'GroupId',
+        'logId' => 'LogId',
+        'metricName' => 'MetricName',
+        'slsLogstore' => 'SlsLogstore',
+        'slsProject' => 'SlsProject',
+        'slsRegionId' => 'SlsRegionId',
+        'valueFilter' => 'ValueFilter',
         'valueFilterRelation' => 'ValueFilterRelation',
     ];
 
     public function validate()
     {
+        if (\is_array($this->valueFilter)) {
+            Model::validateArray($this->valueFilter);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->logId) {
             $res['LogId'] = $this->logId;
         }
+
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
+
         if (null !== $this->slsLogstore) {
             $res['SlsLogstore'] = $this->slsLogstore;
         }
+
         if (null !== $this->slsProject) {
             $res['SlsProject'] = $this->slsProject;
         }
+
         if (null !== $this->slsRegionId) {
             $res['SlsRegionId'] = $this->slsRegionId;
         }
+
         if (null !== $this->valueFilter) {
-            $res['ValueFilter'] = [];
-            if (null !== $this->valueFilter && \is_array($this->valueFilter)) {
-                $n = 0;
-                foreach ($this->valueFilter as $item) {
-                    $res['ValueFilter'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->valueFilter)) {
+                $res['ValueFilter'] = [];
+                $n1 = 0;
+                foreach ($this->valueFilter as $item1) {
+                    $res['ValueFilter'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->valueFilterRelation) {
             $res['ValueFilterRelation'] = $this->valueFilterRelation;
         }
@@ -148,44 +122,53 @@ class logMonitorList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logMonitorList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['LogId'])) {
             $model->logId = $map['LogId'];
         }
+
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
+
         if (isset($map['SlsLogstore'])) {
             $model->slsLogstore = $map['SlsLogstore'];
         }
+
         if (isset($map['SlsProject'])) {
             $model->slsProject = $map['SlsProject'];
         }
+
         if (isset($map['SlsRegionId'])) {
             $model->slsRegionId = $map['SlsRegionId'];
         }
+
         if (isset($map['ValueFilter'])) {
             if (!empty($map['ValueFilter'])) {
                 $model->valueFilter = [];
-                $n                  = 0;
-                foreach ($map['ValueFilter'] as $item) {
-                    $model->valueFilter[$n++] = null !== $item ? valueFilter::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ValueFilter'] as $item1) {
+                    $model->valueFilter[$n1] = valueFilter::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ValueFilterRelation'])) {
             $model->valueFilterRelation = $map['ValueFilterRelation'];
         }

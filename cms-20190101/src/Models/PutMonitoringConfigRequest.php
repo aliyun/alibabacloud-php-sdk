@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PutMonitoringConfigRequest extends Model
 {
     /**
-     * @description This parameter is deprecated.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoInstall;
 
     /**
-     * @description Specifies whether to automatically install the CloudMonitor agent on new ECS instances. Valid values:
-     *
-     *   true (default): The CloudMonitor agent is automatically installed on new ECS instances.
-     *   false: The CloudMonitor agent is not automatically installed on new ECS instances.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableInstallAgentNewECS;
@@ -34,24 +23,27 @@ class PutMonitoringConfigRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'autoInstall'              => 'AutoInstall',
+        'autoInstall' => 'AutoInstall',
         'enableInstallAgentNewECS' => 'EnableInstallAgentNewECS',
-        'regionId'                 => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoInstall) {
             $res['AutoInstall'] = $this->autoInstall;
         }
+
         if (null !== $this->enableInstallAgentNewECS) {
             $res['EnableInstallAgentNewECS'] = $this->enableInstallAgentNewECS;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -59,20 +51,22 @@ class PutMonitoringConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PutMonitoringConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoInstall'])) {
             $model->autoInstall = $map['AutoInstall'];
         }
+
         if (isset($map['EnableInstallAgentNewECS'])) {
             $model->enableInstallAgentNewECS = $map['EnableInstallAgentNewECS'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

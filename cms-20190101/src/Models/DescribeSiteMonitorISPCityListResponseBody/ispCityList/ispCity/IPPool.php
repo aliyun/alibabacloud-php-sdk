@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorISPCityListResponseBody\ispCityList\ispCity;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IPPool extends Model
 {
@@ -18,29 +18,45 @@ class IPPool extends Model
 
     public function validate()
     {
+        if (\is_array($this->IPPool)) {
+            Model::validateArray($this->IPPool);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->IPPool) {
-            $res['IPPool'] = $this->IPPool;
+            if (\is_array($this->IPPool)) {
+                $res['IPPool'] = [];
+                $n1 = 0;
+                foreach ($this->IPPool as $item1) {
+                    $res['IPPool'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IPPool
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IPPool'])) {
             if (!empty($map['IPPool'])) {
-                $model->IPPool = $map['IPPool'];
+                $model->IPPool = [];
+                $n1 = 0;
+                foreach ($map['IPPool'] as $item1) {
+                    $model->IPPool[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

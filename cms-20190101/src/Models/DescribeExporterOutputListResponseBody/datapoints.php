@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeExporterOutputListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeExporterOutputListResponseBody\datapoints\datapoint;
-use AlibabaCloud\Tea\Model;
 
 class datapoints extends Model
 {
@@ -19,17 +19,22 @@ class datapoints extends Model
 
     public function validate()
     {
+        if (\is_array($this->datapoint)) {
+            Model::validateArray($this->datapoint);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datapoint) {
-            $res['Datapoint'] = [];
-            if (null !== $this->datapoint && \is_array($this->datapoint)) {
-                $n = 0;
-                foreach ($this->datapoint as $item) {
-                    $res['Datapoint'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->datapoint)) {
+                $res['Datapoint'] = [];
+                $n1 = 0;
+                foreach ($this->datapoint as $item1) {
+                    $res['Datapoint'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class datapoints extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return datapoints
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Datapoint'])) {
             if (!empty($map['Datapoint'])) {
                 $model->datapoint = [];
-                $n                = 0;
-                foreach ($map['Datapoint'] as $item) {
-                    $model->datapoint[$n++] = null !== $item ? datapoint::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Datapoint'] as $item1) {
+                    $model->datapoint[$n1] = datapoint::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

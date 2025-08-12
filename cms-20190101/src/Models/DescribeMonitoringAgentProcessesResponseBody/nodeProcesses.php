@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitoringAgentProcessesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitoringAgentProcessesResponseBody\nodeProcesses\nodeProcess;
-use AlibabaCloud\Tea\Model;
 
 class nodeProcesses extends Model
 {
@@ -19,17 +19,22 @@ class nodeProcesses extends Model
 
     public function validate()
     {
+        if (\is_array($this->nodeProcess)) {
+            Model::validateArray($this->nodeProcess);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeProcess) {
-            $res['NodeProcess'] = [];
-            if (null !== $this->nodeProcess && \is_array($this->nodeProcess)) {
-                $n = 0;
-                foreach ($this->nodeProcess as $item) {
-                    $res['NodeProcess'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodeProcess)) {
+                $res['NodeProcess'] = [];
+                $n1 = 0;
+                foreach ($this->nodeProcess as $item1) {
+                    $res['NodeProcess'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class nodeProcesses extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodeProcesses
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeProcess'])) {
             if (!empty($map['NodeProcess'])) {
                 $model->nodeProcess = [];
-                $n                  = 0;
-                foreach ($map['NodeProcess'] as $item) {
-                    $model->nodeProcess[$n++] = null !== $item ? nodeProcess::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NodeProcess'] as $item1) {
+                    $model->nodeProcess[$n1] = nodeProcess::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

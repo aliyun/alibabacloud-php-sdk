@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\MigrationJob;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\MigrationJob\source\rule;
 use AlibabaCloud\SDK\Cms\V20190101\Models\MigrationJob\source\targets;
-use AlibabaCloud\Tea\Model;
 
 class source extends Model
 {
@@ -20,26 +20,35 @@ class source extends Model
      */
     public $targets;
     protected $_name = [
-        'rule'    => 'Rule',
+        'rule' => 'Rule',
         'targets' => 'Targets',
     ];
 
     public function validate()
     {
+        if (null !== $this->rule) {
+            $this->rule->validate();
+        }
+        if (\is_array($this->targets)) {
+            Model::validateArray($this->targets);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rule) {
-            $res['Rule'] = null !== $this->rule ? $this->rule->toMap() : null;
+            $res['Rule'] = null !== $this->rule ? $this->rule->toArray($noStream) : $this->rule;
         }
+
         if (null !== $this->targets) {
-            $res['Targets'] = [];
-            if (null !== $this->targets && \is_array($this->targets)) {
-                $n = 0;
-                foreach ($this->targets as $item) {
-                    $res['Targets'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->targets)) {
+                $res['Targets'] = [];
+                $n1 = 0;
+                foreach ($this->targets as $item1) {
+                    $res['Targets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -47,23 +56,25 @@ class source extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return source
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Rule'])) {
             $model->rule = rule::fromMap($map['Rule']);
         }
+
         if (isset($map['Targets'])) {
             if (!empty($map['Targets'])) {
                 $model->targets = [];
-                $n              = 0;
-                foreach ($map['Targets'] as $item) {
-                    $model->targets[$n++] = null !== $item ? targets::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Targets'] as $item1) {
+                    $model->targets[$n1] = targets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,71 +4,66 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PutContactGroupRequest extends Model
 {
     /**
-     * @description The name of the alert contact group.
-     *
-     * This parameter is required.
-     * @example ECS_Group
-     *
      * @var string
      */
     public $contactGroupName;
 
     /**
-     * @example Alice
-     *
      * @var string[]
      */
     public $contactNames;
 
     /**
-     * @description The description of the alert contact group.
-     *
-     * @example ECS_Alert_Group
-     *
      * @var string
      */
     public $describe;
 
     /**
-     * @description Specifies whether to enable the weekly report subscription feature. Valid values:
-     *
-     *   true: The weekly report subscription feature is enabled.
-     *   false: The weekly report subscription feature is disabled.
-     *
-     * >  You can enable the weekly report subscription only for an Alibaba Cloud account that has at least five Elastic Compute Service (ECS) instances.
-     * @example true
-     *
      * @var bool
      */
     public $enableSubscribed;
     protected $_name = [
         'contactGroupName' => 'ContactGroupName',
-        'contactNames'     => 'ContactNames',
-        'describe'         => 'Describe',
+        'contactNames' => 'ContactNames',
+        'describe' => 'Describe',
         'enableSubscribed' => 'EnableSubscribed',
     ];
 
     public function validate()
     {
+        if (\is_array($this->contactNames)) {
+            Model::validateArray($this->contactNames);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactGroupName) {
             $res['ContactGroupName'] = $this->contactGroupName;
         }
+
         if (null !== $this->contactNames) {
-            $res['ContactNames'] = $this->contactNames;
+            if (\is_array($this->contactNames)) {
+                $res['ContactNames'] = [];
+                $n1 = 0;
+                foreach ($this->contactNames as $item1) {
+                    $res['ContactNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->describe) {
             $res['Describe'] = $this->describe;
         }
+
         if (null !== $this->enableSubscribed) {
             $res['EnableSubscribed'] = $this->enableSubscribed;
         }
@@ -76,25 +71,33 @@ class PutContactGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PutContactGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactGroupName'])) {
             $model->contactGroupName = $map['ContactGroupName'];
         }
+
         if (isset($map['ContactNames'])) {
             if (!empty($map['ContactNames'])) {
-                $model->contactNames = $map['ContactNames'];
+                $model->contactNames = [];
+                $n1 = 0;
+                foreach ($map['ContactNames'] as $item1) {
+                    $model->contactNames[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Describe'])) {
             $model->describe = $map['Describe'];
         }
+
         if (isset($map['EnableSubscribed'])) {
             $model->enableSubscribed = $map['EnableSubscribed'];
         }

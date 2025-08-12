@@ -4,97 +4,80 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHostAvailabilityListResponseBody\taskList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeHostAvailabilityListResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
-     *
-     * >  The status code 200 indicates that the request was successful.
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The error message.
-     *
-     * @example The specified resource is not found.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The request ID.
-     *
-     * @example 4A288E86-45C3-4858-9DB0-6D85B10BD92A
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description The details of the availability monitoring tasks.
-     *
      * @var taskList
      */
     public $taskList;
 
     /**
-     * @description The total number of returned entries.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
-        'taskList'  => 'TaskList',
-        'total'     => 'Total',
+        'success' => 'Success',
+        'taskList' => 'TaskList',
+        'total' => 'Total',
     ];
 
     public function validate()
     {
+        if (null !== $this->taskList) {
+            $this->taskList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->taskList) {
-            $res['TaskList'] = null !== $this->taskList ? $this->taskList->toMap() : null;
+            $res['TaskList'] = null !== $this->taskList ? $this->taskList->toArray($noStream) : $this->taskList;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -102,29 +85,34 @@ class DescribeHostAvailabilityListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeHostAvailabilityListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['TaskList'])) {
             $model->taskList = taskList::fromMap($map['TaskList']);
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

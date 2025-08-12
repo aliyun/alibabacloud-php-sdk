@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeMetricRuleTargetsRequest extends Model
 {
@@ -14,29 +14,26 @@ class DescribeMetricRuleTargetsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the alert rule.
-     *
-     * This parameter is required.
-     * @example ae06917_75a8c43178ab66****
-     *
      * @var string
      */
     public $ruleId;
     protected $_name = [
         'regionId' => 'RegionId',
-        'ruleId'   => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -44,17 +41,18 @@ class DescribeMetricRuleTargetsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeMetricRuleTargetsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

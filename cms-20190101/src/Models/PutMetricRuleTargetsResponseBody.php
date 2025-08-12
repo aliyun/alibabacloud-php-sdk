@@ -4,84 +4,70 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutMetricRuleTargetsResponseBody\failData;
-use AlibabaCloud\Tea\Model;
 
 class PutMetricRuleTargetsResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
-     *
-     * >  The status code 200 indicates that the request was successful.
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The failed data.
-     *
      * @var failData
      */
     public $failData;
 
     /**
-     * @description The error message returned.
-     *
-     * @example The request processing has failed due to some unknown error.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The request ID.
-     *
-     * @example 6A569B0D-9055-58AF-9E82-BAEAF95C0FD5
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   true: The request was successful.
-     *   false: The request failed.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'failData'  => 'FailData',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'failData' => 'FailData',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (null !== $this->failData) {
+            $this->failData->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->failData) {
-            $res['FailData'] = null !== $this->failData ? $this->failData->toMap() : null;
+            $res['FailData'] = null !== $this->failData ? $this->failData->toArray($noStream) : $this->failData;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -89,26 +75,30 @@ class PutMetricRuleTargetsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PutMetricRuleTargetsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['FailData'])) {
             $model->failData = failData::fromMap($map['FailData']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

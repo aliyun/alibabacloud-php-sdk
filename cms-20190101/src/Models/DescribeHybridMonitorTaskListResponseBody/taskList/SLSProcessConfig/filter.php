@@ -4,50 +4,47 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHybridMonitorTaskListResponseBody\taskList\SLSProcessConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHybridMonitorTaskListResponseBody\taskList\SLSProcessConfig\filter\filters;
-use AlibabaCloud\Tea\Model;
 
 class filter extends Model
 {
     /**
-     * @description The conditions that are used to filter logs imported from Log Service.
-     *
      * @var filters[]
      */
     public $filters;
 
     /**
-     * @description The relationship between multiple filter conditions. Valid values:
-     *
-     *   and (default): Logs are processed only if all filter conditions are met.
-     *   or: Logs are processed if one of the filter conditions is met.
-     *
-     * @example and
-     *
      * @var string
      */
     public $relation;
     protected $_name = [
-        'filters'  => 'Filters',
+        'filters' => 'Filters',
         'relation' => 'Relation',
     ];
 
     public function validate()
     {
+        if (\is_array($this->filters)) {
+            Model::validateArray($this->filters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filters) {
-            $res['Filters'] = [];
-            if (null !== $this->filters && \is_array($this->filters)) {
-                $n = 0;
-                foreach ($this->filters as $item) {
-                    $res['Filters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->filters)) {
+                $res['Filters'] = [];
+                $n1 = 0;
+                foreach ($this->filters as $item1) {
+                    $res['Filters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->relation) {
             $res['Relation'] = $this->relation;
         }
@@ -55,23 +52,25 @@ class filter extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n              = 0;
-                foreach ($map['Filters'] as $item) {
-                    $model->filters[$n++] = null !== $item ? filters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Filters'] as $item1) {
+                    $model->filters[$n1] = filters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Relation'])) {
             $model->relation = $map['Relation'];
         }

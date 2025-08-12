@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeAlertHistoryListResponseBody\alarmHistoryList\alarmHistory;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class contacts extends Model
 {
@@ -18,29 +18,45 @@ class contacts extends Model
 
     public function validate()
     {
+        if (\is_array($this->contact)) {
+            Model::validateArray($this->contact);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contact) {
-            $res['Contact'] = $this->contact;
+            if (\is_array($this->contact)) {
+                $res['Contact'] = [];
+                $n1 = 0;
+                foreach ($this->contact as $item1) {
+                    $res['Contact'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contacts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Contact'])) {
             if (!empty($map['Contact'])) {
-                $model->contact = $map['Contact'];
+                $model->contact = [];
+                $n1 = 0;
+                foreach ($map['Contact'] as $item1) {
+                    $model->contact[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

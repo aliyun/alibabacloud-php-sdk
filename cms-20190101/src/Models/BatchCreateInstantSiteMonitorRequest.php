@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\BatchCreateInstantSiteMonitorRequest\taskList;
-use AlibabaCloud\Tea\Model;
 
 class BatchCreateInstantSiteMonitorRequest extends Model
 {
@@ -15,9 +15,6 @@ class BatchCreateInstantSiteMonitorRequest extends Model
     public $regionId;
 
     /**
-     * @description The site monitoring tasks.
-     *
-     * This parameter is required.
      * @var taskList[]
      */
     public $taskList;
@@ -28,20 +25,26 @@ class BatchCreateInstantSiteMonitorRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->taskList)) {
+            Model::validateArray($this->taskList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->taskList) {
-            $res['TaskList'] = [];
-            if (null !== $this->taskList && \is_array($this->taskList)) {
-                $n = 0;
-                foreach ($this->taskList as $item) {
-                    $res['TaskList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskList)) {
+                $res['TaskList'] = [];
+                $n1 = 0;
+                foreach ($this->taskList as $item1) {
+                    $res['TaskList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -49,23 +52,25 @@ class BatchCreateInstantSiteMonitorRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchCreateInstantSiteMonitorRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TaskList'])) {
             if (!empty($map['TaskList'])) {
                 $model->taskList = [];
-                $n               = 0;
-                foreach ($map['TaskList'] as $item) {
-                    $model->taskList[$n++] = null !== $item ? taskList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TaskList'] as $item1) {
+                    $model->taskList[$n1] = taskList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

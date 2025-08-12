@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\MigrationJob\source;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\MigrationJob\source\rule\keywordFilter;
 use AlibabaCloud\SDK\Cms\V20190101\Models\MigrationJob\source\rule\primaryFilters;
-use AlibabaCloud\Tea\Model;
 
 class rule extends Model
 {
@@ -25,30 +25,40 @@ class rule extends Model
      */
     public $primaryFilters;
     protected $_name = [
-        'keywordFilter'  => 'KeywordFilter',
-        'name'           => 'Name',
+        'keywordFilter' => 'KeywordFilter',
+        'name' => 'Name',
         'primaryFilters' => 'PrimaryFilters',
     ];
 
     public function validate()
     {
+        if (null !== $this->keywordFilter) {
+            $this->keywordFilter->validate();
+        }
+        if (\is_array($this->primaryFilters)) {
+            Model::validateArray($this->primaryFilters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keywordFilter) {
-            $res['KeywordFilter'] = null !== $this->keywordFilter ? $this->keywordFilter->toMap() : null;
+            $res['KeywordFilter'] = null !== $this->keywordFilter ? $this->keywordFilter->toArray($noStream) : $this->keywordFilter;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->primaryFilters) {
-            $res['PrimaryFilters'] = [];
-            if (null !== $this->primaryFilters && \is_array($this->primaryFilters)) {
-                $n = 0;
-                foreach ($this->primaryFilters as $item) {
-                    $res['PrimaryFilters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->primaryFilters)) {
+                $res['PrimaryFilters'] = [];
+                $n1 = 0;
+                foreach ($this->primaryFilters as $item1) {
+                    $res['PrimaryFilters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -56,26 +66,29 @@ class rule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeywordFilter'])) {
             $model->keywordFilter = keywordFilter::fromMap($map['KeywordFilter']);
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['PrimaryFilters'])) {
             if (!empty($map['PrimaryFilters'])) {
                 $model->primaryFilters = [];
-                $n                     = 0;
-                foreach ($map['PrimaryFilters'] as $item) {
-                    $model->primaryFilters[$n++] = null !== $item ? primaryFilters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PrimaryFilters'] as $item1) {
+                    $model->primaryFilters[$n1] = primaryFilters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

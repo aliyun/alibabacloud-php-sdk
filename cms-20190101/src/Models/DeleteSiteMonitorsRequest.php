@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSiteMonitorsRequest extends Model
 {
     /**
-     * @description Specifies whether to delete the alert rules configured for the site monitoring tasks. Valid values:
-     *
-     *   true (default value)
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isDeleteAlarms;
@@ -26,33 +19,31 @@ class DeleteSiteMonitorsRequest extends Model
     public $regionId;
 
     /**
-     * @description The IDs of the site monitoring tasks that you want to delete. Separate multiple task IDs with commas (,).
-     *
-     * This parameter is required.
-     * @example 01adacc2-ece5-41b6-afa2-3143ab5d****,43bd1ead-514f-4524-813e-228ce091****
-     *
      * @var string
      */
     public $taskIds;
     protected $_name = [
         'isDeleteAlarms' => 'IsDeleteAlarms',
-        'regionId'       => 'RegionId',
-        'taskIds'        => 'TaskIds',
+        'regionId' => 'RegionId',
+        'taskIds' => 'TaskIds',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isDeleteAlarms) {
             $res['IsDeleteAlarms'] = $this->isDeleteAlarms;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->taskIds) {
             $res['TaskIds'] = $this->taskIds;
         }
@@ -60,20 +51,22 @@ class DeleteSiteMonitorsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSiteMonitorsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsDeleteAlarms'])) {
             $model->isDeleteAlarms = $map['IsDeleteAlarms'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TaskIds'])) {
             $model->taskIds = $map['TaskIds'];
         }

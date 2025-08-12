@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeMetricRuleBlackListRequest extends Model
 {
     /**
-     * @description The ID of the blacklist policy.
-     *
-     * @example ecs
-     *
      * @var string
      */
     public $category;
@@ -23,69 +19,36 @@ class DescribeMetricRuleBlackListRequest extends Model
     public $ids;
 
     /**
-     * @description The IDs of the instances in the blacklist policy.
-     *
-     * Valid values of N: 0 to 10.
      * @var string[]
      */
     public $instanceIds;
 
     /**
-     * @description The status of the blacklist policy. Valid values:
-     *
-     *   true: The blacklist policy is enabled.
-     *   false: The blacklist policy is disabled.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isEnable;
 
     /**
-     * @description The name of the blacklist policy.
-     *
-     * This parameter supports fuzzy match.
-     * @example Blacklist-01
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The timestamp when the blacklist policy expired.
-     *
-     * Unit: milliseconds.
-     * @example acs_ecs_dashboard
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The HTTP status code.
-     *
-     * >  The status code 200 indicates that the call was successful.
-     * @example DESC
-     *
      * @var int
      */
     public $order;
 
     /**
-     * @description The name of the metric.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The categories of the Alibaba Cloud service. For example, ApsaraDB for Redis includes the following categories: ApsaraDB for Redis (standard architecture), ApsaraDB for Redis (cluster architecture), and ApsaraDB for Redis (read/write splitting architecture). In this case, the valid values of this parameter for ApsaraDB for Redis include `kvstore_standard`, `kvstore_sharding`, and `kvstore_splitrw`.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $pageSize;
@@ -96,67 +59,91 @@ class DescribeMetricRuleBlackListRequest extends Model
     public $regionId;
 
     /**
-     * @description The effective scope of the blacklist policy. Valid values:
-     *
-     *   USER: The blacklist policy takes effect only within the current Alibaba Cloud account.
-     *   GROUP: The blacklist policy takes effect only within the specified application group.
-     *
-     * @example USER
-     *
      * @var string
      */
     public $scopeType;
     protected $_name = [
-        'category'    => 'Category',
-        'ids'         => 'Ids',
+        'category' => 'Category',
+        'ids' => 'Ids',
         'instanceIds' => 'InstanceIds',
-        'isEnable'    => 'IsEnable',
-        'name'        => 'Name',
-        'namespace'   => 'Namespace',
-        'order'       => 'Order',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'scopeType'   => 'ScopeType',
+        'isEnable' => 'IsEnable',
+        'name' => 'Name',
+        'namespace' => 'Namespace',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'scopeType' => 'ScopeType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ids)) {
+            Model::validateArray($this->ids);
+        }
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->ids) {
-            $res['Ids'] = $this->ids;
+            if (\is_array($this->ids)) {
+                $res['Ids'] = [];
+                $n1 = 0;
+                foreach ($this->ids as $item1) {
+                    $res['Ids'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->isEnable) {
             $res['IsEnable'] = $this->isEnable;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->scopeType) {
             $res['ScopeType'] = $this->scopeType;
         }
@@ -164,48 +151,68 @@ class DescribeMetricRuleBlackListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeMetricRuleBlackListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['Ids'])) {
             if (!empty($map['Ids'])) {
-                $model->ids = $map['Ids'];
+                $model->ids = [];
+                $n1 = 0;
+                foreach ($map['Ids'] as $item1) {
+                    $model->ids[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
+                $model->instanceIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['IsEnable'])) {
             $model->isEnable = $map['IsEnable'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ScopeType'])) {
             $model->scopeType = $map['ScopeType'];
         }

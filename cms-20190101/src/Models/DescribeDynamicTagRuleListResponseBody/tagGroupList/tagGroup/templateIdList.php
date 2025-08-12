@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeDynamicTagRuleListResponseBody\tagGroupList\tagGroup;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class templateIdList extends Model
 {
@@ -18,29 +18,45 @@ class templateIdList extends Model
 
     public function validate()
     {
+        if (\is_array($this->templateIdList)) {
+            Model::validateArray($this->templateIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->templateIdList) {
-            $res['TemplateIdList'] = $this->templateIdList;
+            if (\is_array($this->templateIdList)) {
+                $res['TemplateIdList'] = [];
+                $n1 = 0;
+                foreach ($this->templateIdList as $item1) {
+                    $res['TemplateIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return templateIdList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TemplateIdList'])) {
             if (!empty($map['TemplateIdList'])) {
-                $model->templateIdList = $map['TemplateIdList'];
+                $model->templateIdList = [];
+                $n1 = 0;
+                foreach ($map['TemplateIdList'] as $item1) {
+                    $model->templateIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

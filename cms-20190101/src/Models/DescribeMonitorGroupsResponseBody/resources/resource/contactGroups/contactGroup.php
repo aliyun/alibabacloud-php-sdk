@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorGroupsResponseBody\resources\resource\contactGroups;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class contactGroup extends Model
 {
     /**
-     * @description The name of the alert contact group.
-     *
-     * @example CloudMonitor
-     *
      * @var string
      */
     public $name;
@@ -22,9 +18,10 @@ class contactGroup extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
@@ -34,11 +31,11 @@ class contactGroup extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contactGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

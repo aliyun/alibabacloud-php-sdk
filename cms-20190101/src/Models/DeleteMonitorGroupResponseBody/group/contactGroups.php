@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DeleteMonitorGroupResponseBody\group;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteMonitorGroupResponseBody\group\contactGroups\contactGroup;
-use AlibabaCloud\Tea\Model;
 
 class contactGroups extends Model
 {
@@ -19,17 +19,22 @@ class contactGroups extends Model
 
     public function validate()
     {
+        if (\is_array($this->contactGroup)) {
+            Model::validateArray($this->contactGroup);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactGroup) {
-            $res['ContactGroup'] = [];
-            if (null !== $this->contactGroup && \is_array($this->contactGroup)) {
-                $n = 0;
-                foreach ($this->contactGroup as $item) {
-                    $res['ContactGroup'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->contactGroup)) {
+                $res['ContactGroup'] = [];
+                $n1 = 0;
+                foreach ($this->contactGroup as $item1) {
+                    $res['ContactGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class contactGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contactGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactGroup'])) {
             if (!empty($map['ContactGroup'])) {
                 $model->contactGroup = [];
-                $n                   = 0;
-                foreach ($map['ContactGroup'] as $item) {
-                    $model->contactGroup[$n++] = null !== $item ? contactGroup::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ContactGroup'] as $item1) {
+                    $model->contactGroup[$n1] = contactGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

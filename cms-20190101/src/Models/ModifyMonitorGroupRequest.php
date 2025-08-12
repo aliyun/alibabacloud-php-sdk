@@ -4,34 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyMonitorGroupRequest extends Model
 {
     /**
-     * @description The alert groups that can receive alert notifications for the application group.
-     *
-     * @example alarm_ecs_group
-     *
      * @var string
      */
     public $contactGroups;
 
     /**
-     * @description The ID of the application group.
-     *
-     * This parameter is required.
-     * @example 123456
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The name of the application group.
-     *
-     * @example ecs_group
-     *
      * @var string
      */
     public $groupName;
@@ -42,27 +29,31 @@ class ModifyMonitorGroupRequest extends Model
     public $regionId;
     protected $_name = [
         'contactGroups' => 'ContactGroups',
-        'groupId'       => 'GroupId',
-        'groupName'     => 'GroupName',
-        'regionId'      => 'RegionId',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactGroups) {
             $res['ContactGroups'] = $this->contactGroups;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -70,23 +61,26 @@ class ModifyMonitorGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyMonitorGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactGroups'])) {
             $model->contactGroups = $map['ContactGroups'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\PutEventRuleTargetsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class mnsParameters extends Model
 {
     /**
-     * @description The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
-     *
-     * @example 3
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The name of the SMQ queue. Valid values of N: 1 to 5.
-     *
-     * @example queue1
-     *
      * @var string
      */
     public $queue;
 
     /**
-     * @description The region for SMQ. Valid values of N: 1 to 5.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @description The SMQ topic.
-     *
-     * @example topic_sample
-     *
      * @var string
      */
     public $topic;
     protected $_name = [
-        'id'     => 'Id',
-        'queue'  => 'Queue',
+        'id' => 'Id',
+        'queue' => 'Queue',
         'region' => 'Region',
-        'topic'  => 'Topic',
+        'topic' => 'Topic',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->queue) {
             $res['Queue'] = $this->queue;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->topic) {
             $res['Topic'] = $this->topic;
         }
@@ -73,23 +61,26 @@ class mnsParameters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mnsParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Queue'])) {
             $model->queue = $map['Queue'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['Topic'])) {
             $model->topic = $map['Topic'];
         }

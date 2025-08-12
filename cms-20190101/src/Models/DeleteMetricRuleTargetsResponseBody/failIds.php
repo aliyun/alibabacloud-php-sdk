@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DeleteMetricRuleTargetsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteMetricRuleTargetsResponseBody\failIds\targetIds;
-use AlibabaCloud\Tea\Model;
 
 class failIds extends Model
 {
     /**
-     * @description The IDs of the resources that failed to be deleted.
-     *
      * @var targetIds
      */
     public $targetIds;
@@ -21,23 +19,27 @@ class failIds extends Model
 
     public function validate()
     {
+        if (null !== $this->targetIds) {
+            $this->targetIds->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->targetIds) {
-            $res['TargetIds'] = null !== $this->targetIds ? $this->targetIds->toMap() : null;
+            $res['TargetIds'] = null !== $this->targetIds ? $this->targetIds->toArray($noStream) : $this->targetIds;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failIds
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,59 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateMetricRuleResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to overwrite existing resources. Valid values:
-     *
-     *   true: The resources submitted this time overwrite the previously associated resources.
-     *   false: The resources submitted this time do not overwrite the previously associated resources. The associated resources after submission include the previously associated resources and the resources submitted this time.
-     *
-     * @example false
-     *
      * @var string
      */
     public $overwrite;
 
     /**
-     * @description The resources that are associated with the alert rule. Set the value to a JSON array.
-     *
-     * This parameter is required.
-     * @example [{"instanceId":"i-a2d5q7pm3f9yr29e****"}]
-     *
      * @var string
      */
     public $resources;
 
     /**
-     * @description The ID of the alert rule.
-     *
-     * @example i-2ze3w55tr2rcpejpcfap_59c96b85-0339-4f35-ba66-ae4e34d3****
-     *
      * @var string
      */
     public $ruleId;
     protected $_name = [
         'overwrite' => 'Overwrite',
         'resources' => 'Resources',
-        'ruleId'    => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->overwrite) {
             $res['Overwrite'] = $this->overwrite;
         }
+
         if (null !== $this->resources) {
             $res['Resources'] = $this->resources;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -64,20 +51,22 @@ class CreateMetricRuleResourcesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateMetricRuleResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Overwrite'])) {
             $model->overwrite = $map['Overwrite'];
         }
+
         if (isset($map['Resources'])) {
             $model->resources = $map['Resources'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

@@ -4,143 +4,194 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\PutEventRuleRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class eventPattern extends Model
 {
     /**
-     * @description The keyword that is used to filter events. If the content of an event contains the specified keyword, an alert is automatically triggered.
-     *
-     * @example Stopping
-     *
      * @var string
      */
     public $customFilters;
 
     /**
-     * @example Exception
-     *
      * @var string[]
      */
     public $eventTypeList;
 
     /**
-     * @example CRITICAL
-     *
      * @var string[]
      */
     public $levelList;
 
     /**
-     * @example Agent_Status_Stopped
-     *
      * @var string[]
      */
     public $nameList;
 
     /**
-     * @description The type of the cloud service. Valid values of N: 1 to 50.
-     *
-     * This parameter is required.
-     * @example ecs
-     *
      * @var string
      */
     public $product;
 
     /**
-     * @description The SQL condition that is used to filter events. If the content of an event meets the specified SQL condition, an alert is automatically triggered.
-     *
-     * >  The syntax of SQL event filtering is consistent with the query syntax of Log Service.
-     * @example 192.168.XX.XX and Executed
-     *
      * @var string
      */
     public $SQLFilter;
 
     /**
-     * @example Failed
-     *
      * @var string[]
      */
     public $statusList;
     protected $_name = [
         'customFilters' => 'CustomFilters',
         'eventTypeList' => 'EventTypeList',
-        'levelList'     => 'LevelList',
-        'nameList'      => 'NameList',
-        'product'       => 'Product',
-        'SQLFilter'     => 'SQLFilter',
-        'statusList'    => 'StatusList',
+        'levelList' => 'LevelList',
+        'nameList' => 'NameList',
+        'product' => 'Product',
+        'SQLFilter' => 'SQLFilter',
+        'statusList' => 'StatusList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->eventTypeList)) {
+            Model::validateArray($this->eventTypeList);
+        }
+        if (\is_array($this->levelList)) {
+            Model::validateArray($this->levelList);
+        }
+        if (\is_array($this->nameList)) {
+            Model::validateArray($this->nameList);
+        }
+        if (\is_array($this->statusList)) {
+            Model::validateArray($this->statusList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customFilters) {
             $res['CustomFilters'] = $this->customFilters;
         }
+
         if (null !== $this->eventTypeList) {
-            $res['EventTypeList'] = $this->eventTypeList;
+            if (\is_array($this->eventTypeList)) {
+                $res['EventTypeList'] = [];
+                $n1 = 0;
+                foreach ($this->eventTypeList as $item1) {
+                    $res['EventTypeList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->levelList) {
-            $res['LevelList'] = $this->levelList;
+            if (\is_array($this->levelList)) {
+                $res['LevelList'] = [];
+                $n1 = 0;
+                foreach ($this->levelList as $item1) {
+                    $res['LevelList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->nameList) {
-            $res['NameList'] = $this->nameList;
+            if (\is_array($this->nameList)) {
+                $res['NameList'] = [];
+                $n1 = 0;
+                foreach ($this->nameList as $item1) {
+                    $res['NameList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->product) {
             $res['Product'] = $this->product;
         }
+
         if (null !== $this->SQLFilter) {
             $res['SQLFilter'] = $this->SQLFilter;
         }
+
         if (null !== $this->statusList) {
-            $res['StatusList'] = $this->statusList;
+            if (\is_array($this->statusList)) {
+                $res['StatusList'] = [];
+                $n1 = 0;
+                foreach ($this->statusList as $item1) {
+                    $res['StatusList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return eventPattern
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomFilters'])) {
             $model->customFilters = $map['CustomFilters'];
         }
+
         if (isset($map['EventTypeList'])) {
             if (!empty($map['EventTypeList'])) {
-                $model->eventTypeList = $map['EventTypeList'];
+                $model->eventTypeList = [];
+                $n1 = 0;
+                foreach ($map['EventTypeList'] as $item1) {
+                    $model->eventTypeList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['LevelList'])) {
             if (!empty($map['LevelList'])) {
-                $model->levelList = $map['LevelList'];
+                $model->levelList = [];
+                $n1 = 0;
+                foreach ($map['LevelList'] as $item1) {
+                    $model->levelList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['NameList'])) {
             if (!empty($map['NameList'])) {
-                $model->nameList = $map['NameList'];
+                $model->nameList = [];
+                $n1 = 0;
+                foreach ($map['NameList'] as $item1) {
+                    $model->nameList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Product'])) {
             $model->product = $map['Product'];
         }
+
         if (isset($map['SQLFilter'])) {
             $model->SQLFilter = $map['SQLFilter'];
         }
+
         if (isset($map['StatusList'])) {
             if (!empty($map['StatusList'])) {
-                $model->statusList = $map['StatusList'];
+                $model->statusList = [];
+                $n1 = 0;
+                foreach ($map['StatusList'] as $item1) {
+                    $model->statusList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,96 +4,84 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeActiveMetricRuleListResponseBody\alertList;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeActiveMetricRuleListResponseBody\datapoints;
-use AlibabaCloud\Tea\Model;
 
 class DescribeActiveMetricRuleListResponseBody extends Model
 {
     /**
-     * @description The details of the alert rules. The result is in the same structure as that returned by the DescribeMetricRuleList operation.
-     *
      * @var alertList
      */
     public $alertList;
 
     /**
-     * @description The HTTP status code.
-     *
-     * >  The status code 200 indicates that the request was successful.
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The details of the alert rules.
-     *
      * @var datapoints
      */
     public $datapoints;
 
     /**
-     * @description The returned message.
-     *
-     * @example The Request is not authorization.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The request ID.
-     *
-     * @example F82E6667-7811-4BA0-842F-5B2DC42BBAAD
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'alertList'  => 'AlertList',
-        'code'       => 'Code',
+        'alertList' => 'AlertList',
+        'code' => 'Code',
         'datapoints' => 'Datapoints',
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
     {
+        if (null !== $this->alertList) {
+            $this->alertList->validate();
+        }
+        if (null !== $this->datapoints) {
+            $this->datapoints->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertList) {
-            $res['AlertList'] = null !== $this->alertList ? $this->alertList->toMap() : null;
+            $res['AlertList'] = null !== $this->alertList ? $this->alertList->toArray($noStream) : $this->alertList;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->datapoints) {
-            $res['Datapoints'] = null !== $this->datapoints ? $this->datapoints->toMap() : null;
+            $res['Datapoints'] = null !== $this->datapoints ? $this->datapoints->toArray($noStream) : $this->datapoints;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -101,29 +89,34 @@ class DescribeActiveMetricRuleListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeActiveMetricRuleListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertList'])) {
             $model->alertList = alertList::fromMap($map['AlertList']);
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Datapoints'])) {
             $model->datapoints = datapoints::fromMap($map['Datapoints']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeEventRuleListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeEventRuleListResponseBody\eventRules\eventRule;
-use AlibabaCloud\Tea\Model;
 
 class eventRules extends Model
 {
@@ -19,17 +19,22 @@ class eventRules extends Model
 
     public function validate()
     {
+        if (\is_array($this->eventRule)) {
+            Model::validateArray($this->eventRule);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventRule) {
-            $res['EventRule'] = [];
-            if (null !== $this->eventRule && \is_array($this->eventRule)) {
-                $n = 0;
-                foreach ($this->eventRule as $item) {
-                    $res['EventRule'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->eventRule)) {
+                $res['EventRule'] = [];
+                $n1 = 0;
+                foreach ($this->eventRule as $item1) {
+                    $res['EventRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class eventRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return eventRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventRule'])) {
             if (!empty($map['EventRule'])) {
                 $model->eventRule = [];
-                $n                = 0;
-                foreach ($map['EventRule'] as $item) {
-                    $model->eventRule[$n++] = null !== $item ? eventRule::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EventRule'] as $item1) {
+                    $model->eventRule[$n1] = eventRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

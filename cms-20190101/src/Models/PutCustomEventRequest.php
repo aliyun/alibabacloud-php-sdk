@@ -4,15 +4,12 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutCustomEventRequest\eventInfo;
-use AlibabaCloud\Tea\Model;
 
 class PutCustomEventRequest extends Model
 {
     /**
-     * @description The event details.
-     *
-     * This parameter is required.
      * @var eventInfo[]
      */
     public $eventInfo;
@@ -23,25 +20,31 @@ class PutCustomEventRequest extends Model
     public $regionId;
     protected $_name = [
         'eventInfo' => 'EventInfo',
-        'regionId'  => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->eventInfo)) {
+            Model::validateArray($this->eventInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventInfo) {
-            $res['EventInfo'] = [];
-            if (null !== $this->eventInfo && \is_array($this->eventInfo)) {
-                $n = 0;
-                foreach ($this->eventInfo as $item) {
-                    $res['EventInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->eventInfo)) {
+                $res['EventInfo'] = [];
+                $n1 = 0;
+                foreach ($this->eventInfo as $item1) {
+                    $res['EventInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,23 +52,25 @@ class PutCustomEventRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PutCustomEventRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventInfo'])) {
             if (!empty($map['EventInfo'])) {
                 $model->eventInfo = [];
-                $n                = 0;
-                foreach ($map['EventInfo'] as $item) {
-                    $model->eventInfo[$n++] = null !== $item ? eventInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EventInfo'] as $item1) {
+                    $model->eventInfo[$n1] = eventInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleTemplateListResponseBody\templates\template;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleTemplateListResponseBody\templates\template\applyHistories\applyHistory;
-use AlibabaCloud\Tea\Model;
 
 class applyHistories extends Model
 {
@@ -19,17 +19,22 @@ class applyHistories extends Model
 
     public function validate()
     {
+        if (\is_array($this->applyHistory)) {
+            Model::validateArray($this->applyHistory);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applyHistory) {
-            $res['ApplyHistory'] = [];
-            if (null !== $this->applyHistory && \is_array($this->applyHistory)) {
-                $n = 0;
-                foreach ($this->applyHistory as $item) {
-                    $res['ApplyHistory'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->applyHistory)) {
+                $res['ApplyHistory'] = [];
+                $n1 = 0;
+                foreach ($this->applyHistory as $item1) {
+                    $res['ApplyHistory'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class applyHistories extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return applyHistories
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplyHistory'])) {
             if (!empty($map['ApplyHistory'])) {
                 $model->applyHistory = [];
-                $n                   = 0;
-                foreach ($map['ApplyHistory'] as $item) {
-                    $model->applyHistory[$n++] = null !== $item ? applyHistory::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ApplyHistory'] as $item1) {
+                    $model->applyHistory[$n1] = applyHistory::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHybridMonitorDataListResponseBody\timeSeries;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class labels extends Model
 {
     /**
-     * @description The tag key.
-     *
-     * @example instanceId
-     *
      * @var string
      */
     public $k;
 
     /**
-     * @description The tag value.
-     *
-     * @example i-rj99xc6cptkk64ml****
-     *
      * @var string
      */
     public $v;
@@ -32,14 +24,16 @@ class labels extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->k) {
             $res['K'] = $this->k;
         }
+
         if (null !== $this->v) {
             $res['V'] = $this->v;
         }
@@ -47,17 +41,18 @@ class labels extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return labels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['K'])) {
             $model->k = $map['K'];
         }
+
         if (isset($map['V'])) {
             $model->v = $map['V'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitoringAgentStatusesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitoringAgentStatusesResponseBody\nodeStatusList\nodeStatus;
-use AlibabaCloud\Tea\Model;
 
 class nodeStatusList extends Model
 {
@@ -19,17 +19,22 @@ class nodeStatusList extends Model
 
     public function validate()
     {
+        if (\is_array($this->nodeStatus)) {
+            Model::validateArray($this->nodeStatus);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeStatus) {
-            $res['NodeStatus'] = [];
-            if (null !== $this->nodeStatus && \is_array($this->nodeStatus)) {
-                $n = 0;
-                foreach ($this->nodeStatus as $item) {
-                    $res['NodeStatus'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodeStatus)) {
+                $res['NodeStatus'] = [];
+                $n1 = 0;
+                foreach ($this->nodeStatus as $item1) {
+                    $res['NodeStatus'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class nodeStatusList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodeStatusList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeStatus'])) {
             if (!empty($map['NodeStatus'])) {
                 $model->nodeStatus = [];
-                $n                 = 0;
-                foreach ($map['NodeStatus'] as $item) {
-                    $model->nodeStatus[$n++] = null !== $item ? nodeStatus::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NodeStatus'] as $item1) {
+                    $model->nodeStatus[$n1] = nodeStatus::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

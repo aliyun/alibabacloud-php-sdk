@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHostAvailabilityListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHostAvailabilityListResponseBody\taskList\nodeTaskConfig;
-use AlibabaCloud\Tea\Model;
 
 class taskList extends Model
 {
@@ -19,17 +19,22 @@ class taskList extends Model
 
     public function validate()
     {
+        if (\is_array($this->nodeTaskConfig)) {
+            Model::validateArray($this->nodeTaskConfig);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeTaskConfig) {
-            $res['NodeTaskConfig'] = [];
-            if (null !== $this->nodeTaskConfig && \is_array($this->nodeTaskConfig)) {
-                $n = 0;
-                foreach ($this->nodeTaskConfig as $item) {
-                    $res['NodeTaskConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodeTaskConfig)) {
+                $res['NodeTaskConfig'] = [];
+                $n1 = 0;
+                foreach ($this->nodeTaskConfig as $item1) {
+                    $res['NodeTaskConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class taskList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return taskList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeTaskConfig'])) {
             if (!empty($map['NodeTaskConfig'])) {
                 $model->nodeTaskConfig = [];
-                $n                     = 0;
-                foreach ($map['NodeTaskConfig'] as $item) {
-                    $model->nodeTaskConfig[$n++] = null !== $item ? nodeTaskConfig::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NodeTaskConfig'] as $item1) {
+                    $model->nodeTaskConfig[$n1] = nodeTaskConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

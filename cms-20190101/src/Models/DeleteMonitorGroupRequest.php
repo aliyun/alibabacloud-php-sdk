@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteMonitorGroupRequest extends Model
 {
     /**
-     * @description The ID of the application group.
-     *
-     * This parameter is required.
-     * @example 123456
-     *
      * @var int
      */
     public $groupId;
@@ -23,20 +18,22 @@ class DeleteMonitorGroupRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'groupId'  => 'GroupId',
+        'groupId' => 'GroupId',
         'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -44,17 +41,18 @@ class DeleteMonitorGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteMonitorGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

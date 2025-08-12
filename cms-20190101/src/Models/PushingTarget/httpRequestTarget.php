@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\PushingTarget;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PushingTarget\httpRequestTarget\headers;
-use AlibabaCloud\Tea\Model;
 
 class httpRequestTarget extends Model
 {
@@ -17,7 +17,17 @@ class httpRequestTarget extends Model
     /**
      * @var string
      */
+    public $encryptSignatureKey;
+
+    /**
+     * @var string
+     */
     public $encryptString;
+
+    /**
+     * @var string
+     */
+    public $encryptTimestampKey;
 
     /**
      * @var headers[]
@@ -34,38 +44,57 @@ class httpRequestTarget extends Model
      */
     public $url;
     protected $_name = [
-        'contentType'   => 'ContentType',
+        'contentType' => 'ContentType',
+        'encryptSignatureKey' => 'EncryptSignatureKey',
         'encryptString' => 'EncryptString',
-        'headers'       => 'Headers',
-        'method'        => 'Method',
-        'url'           => 'Url',
+        'encryptTimestampKey' => 'EncryptTimestampKey',
+        'headers' => 'Headers',
+        'method' => 'Method',
+        'url' => 'Url',
     ];
 
     public function validate()
     {
+        if (\is_array($this->headers)) {
+            Model::validateArray($this->headers);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contentType) {
             $res['ContentType'] = $this->contentType;
         }
+
+        if (null !== $this->encryptSignatureKey) {
+            $res['EncryptSignatureKey'] = $this->encryptSignatureKey;
+        }
+
         if (null !== $this->encryptString) {
             $res['EncryptString'] = $this->encryptString;
         }
+
+        if (null !== $this->encryptTimestampKey) {
+            $res['EncryptTimestampKey'] = $this->encryptTimestampKey;
+        }
+
         if (null !== $this->headers) {
-            $res['Headers'] = [];
-            if (null !== $this->headers && \is_array($this->headers)) {
-                $n = 0;
-                foreach ($this->headers as $item) {
-                    $res['Headers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->headers)) {
+                $res['Headers'] = [];
+                $n1 = 0;
+                foreach ($this->headers as $item1) {
+                    $res['Headers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->method) {
             $res['Method'] = $this->method;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -73,32 +102,45 @@ class httpRequestTarget extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return httpRequestTarget
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContentType'])) {
             $model->contentType = $map['ContentType'];
         }
+
+        if (isset($map['EncryptSignatureKey'])) {
+            $model->encryptSignatureKey = $map['EncryptSignatureKey'];
+        }
+
         if (isset($map['EncryptString'])) {
             $model->encryptString = $map['EncryptString'];
         }
+
+        if (isset($map['EncryptTimestampKey'])) {
+            $model->encryptTimestampKey = $map['EncryptTimestampKey'];
+        }
+
         if (isset($map['Headers'])) {
             if (!empty($map['Headers'])) {
                 $model->headers = [];
-                $n              = 0;
-                foreach ($map['Headers'] as $item) {
-                    $model->headers[$n++] = null !== $item ? headers::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Headers'] as $item1) {
+                    $model->headers[$n1] = headers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

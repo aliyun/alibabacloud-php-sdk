@@ -4,104 +4,86 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateMonitorGroupByResourceGroupIdRequest extends Model
 {
     /**
-     * @description The alert contact groups. The alert notifications of the application group are sent to the alert contacts that belong to the specified alert contact groups.
-     *
-     * This parameter is required.
-     * @example ECS_Group
-     *
      * @var string[]
      */
     public $contactGroupList;
 
     /**
-     * @description Specifies whether the CloudMonitor agent is automatically installed for the application group. CloudMonitor determines whether to automatically install the CloudMonitor agent for the hosts in an application group based on the value of this parameter. Valid values:
-     *
-     *   true: The CloudMonitor agent is automatically installed.
-     *   false (default): The CloudMonitor agent is not automatically installed.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableInstallAgent;
 
     /**
-     * @description Specifies whether the application group automatically subscribes to event notifications. If events whose severity level is critical or warning occur on resources in an application group, CloudMonitor sends alert notifications. Valid values:
-     *
-     *   true: The application group automatically subscribes to event notifications.
-     *   false (default): The application group does not automatically subscribe to event notifications.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableSubscribeEvent;
 
     /**
-     * @description The ID of the region where the resource group resides.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
-     *
-     * This parameter is required.
-     * @example rg-acfmw3ty5y7****
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The name of the resource group.
-     *
-     * This parameter is required.
-     * @example CloudMonitor
-     *
      * @var string
      */
     public $resourceGroupName;
     protected $_name = [
-        'contactGroupList'     => 'ContactGroupList',
-        'enableInstallAgent'   => 'EnableInstallAgent',
+        'contactGroupList' => 'ContactGroupList',
+        'enableInstallAgent' => 'EnableInstallAgent',
         'enableSubscribeEvent' => 'EnableSubscribeEvent',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'resourceGroupName'    => 'ResourceGroupName',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceGroupName' => 'ResourceGroupName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->contactGroupList)) {
+            Model::validateArray($this->contactGroupList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactGroupList) {
-            $res['ContactGroupList'] = $this->contactGroupList;
+            if (\is_array($this->contactGroupList)) {
+                $res['ContactGroupList'] = [];
+                $n1 = 0;
+                foreach ($this->contactGroupList as $item1) {
+                    $res['ContactGroupList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->enableInstallAgent) {
             $res['EnableInstallAgent'] = $this->enableInstallAgent;
         }
+
         if (null !== $this->enableSubscribeEvent) {
             $res['EnableSubscribeEvent'] = $this->enableSubscribeEvent;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->resourceGroupName) {
             $res['ResourceGroupName'] = $this->resourceGroupName;
         }
@@ -109,31 +91,41 @@ class CreateMonitorGroupByResourceGroupIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateMonitorGroupByResourceGroupIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactGroupList'])) {
             if (!empty($map['ContactGroupList'])) {
-                $model->contactGroupList = $map['ContactGroupList'];
+                $model->contactGroupList = [];
+                $n1 = 0;
+                foreach ($map['ContactGroupList'] as $item1) {
+                    $model->contactGroupList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['EnableInstallAgent'])) {
             $model->enableInstallAgent = $map['EnableInstallAgent'];
         }
+
         if (isset($map['EnableSubscribeEvent'])) {
             $model->enableSubscribeEvent = $map['EnableSubscribeEvent'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['ResourceGroupName'])) {
             $model->resourceGroupName = $map['ResourceGroupName'];
         }

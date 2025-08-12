@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteMetricRuleResourcesRequest extends Model
 {
     /**
-     * @description The resources that are associated with the alert rule.
-     *
-     * This parameter is required.
-     * @example [{"instanceId":"i-uf6hm9lnlzsarrc7****"}]
-     *
      * @var string
      */
     public $resources;
 
     /**
-     * @description The ID of the alert rule.
-     *
-     * This parameter is required.
-     * @example rr-bp18017n6iolv****
-     *
      * @var string
      */
     public $ruleId;
     protected $_name = [
         'resources' => 'Resources',
-        'ruleId'    => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resources) {
             $res['Resources'] = $this->resources;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -49,17 +41,18 @@ class DeleteMetricRuleResourcesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteMetricRuleResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Resources'])) {
             $model->resources = $map['Resources'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteMetricRuleTargetsRequest extends Model
 {
@@ -14,67 +14,77 @@ class DeleteMetricRuleTargetsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the alert rule.
-     *
-     * This parameter is required.
-     * @example ruleId-xxxxxx
-     *
      * @var string
      */
     public $ruleId;
 
     /**
-     * @description The resource IDs.
-     *
-     * This parameter is required.
-     * @example 12345
-     *
      * @var string[]
      */
     public $targetIds;
     protected $_name = [
-        'regionId'  => 'RegionId',
-        'ruleId'    => 'RuleId',
+        'regionId' => 'RegionId',
+        'ruleId' => 'RuleId',
         'targetIds' => 'TargetIds',
     ];
 
     public function validate()
     {
+        if (\is_array($this->targetIds)) {
+            Model::validateArray($this->targetIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
+
         if (null !== $this->targetIds) {
-            $res['TargetIds'] = $this->targetIds;
+            if (\is_array($this->targetIds)) {
+                $res['TargetIds'] = [];
+                $n1 = 0;
+                foreach ($this->targetIds as $item1) {
+                    $res['TargetIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteMetricRuleTargetsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
+
         if (isset($map['TargetIds'])) {
             if (!empty($map['TargetIds'])) {
-                $model->targetIds = $map['TargetIds'];
+                $model->targetIds = [];
+                $n1 = 0;
+                foreach ($map['TargetIds'] as $item1) {
+                    $model->targetIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

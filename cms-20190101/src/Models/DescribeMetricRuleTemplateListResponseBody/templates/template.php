@@ -4,107 +4,90 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleTemplateListResponseBody\templates;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleTemplateListResponseBody\templates\template\applyHistories;
-use AlibabaCloud\Tea\Model;
 
 class template extends Model
 {
     /**
-     * @description The history of applying the alert templates to application groups.
-     *
      * @var applyHistories
      */
     public $applyHistories;
 
     /**
-     * @description The description of the alert template.
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The timestamp when the alert template was created.
-     *
-     * Unit: milliseconds.
-     * @example 1646018798000
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description The timestamp when the alert template was modified.
-     *
-     * Unit: milliseconds.
-     * @example 1646054798000
-     *
      * @var int
      */
     public $gmtModified;
 
     /**
-     * @description The name of the alert template.
-     *
-     * @example ECS_Template1
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The version of the alert template.
-     *
-     * Default value: 0.
-     * @example 0
-     *
      * @var int
      */
     public $restVersion;
 
     /**
-     * @description The ID of the alert template.
-     *
-     * @example 70****
-     *
      * @var int
      */
     public $templateId;
     protected $_name = [
         'applyHistories' => 'ApplyHistories',
-        'description'    => 'Description',
-        'gmtCreate'      => 'GmtCreate',
-        'gmtModified'    => 'GmtModified',
-        'name'           => 'Name',
-        'restVersion'    => 'RestVersion',
-        'templateId'     => 'TemplateId',
+        'description' => 'Description',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'name' => 'Name',
+        'restVersion' => 'RestVersion',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
     {
+        if (null !== $this->applyHistories) {
+            $this->applyHistories->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applyHistories) {
-            $res['ApplyHistories'] = null !== $this->applyHistories ? $this->applyHistories->toMap() : null;
+            $res['ApplyHistories'] = null !== $this->applyHistories ? $this->applyHistories->toArray($noStream) : $this->applyHistories;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
+
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->restVersion) {
             $res['RestVersion'] = $this->restVersion;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -112,32 +95,38 @@ class template extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return template
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplyHistories'])) {
             $model->applyHistories = applyHistories::fromMap($map['ApplyHistories']);
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
+
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RestVersion'])) {
             $model->restVersion = $map['RestVersion'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

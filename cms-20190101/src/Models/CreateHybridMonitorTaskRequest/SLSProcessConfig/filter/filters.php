@@ -4,64 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\CreateHybridMonitorTaskRequest\SLSProcessConfig\filter;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filters extends Model
 {
     /**
-     * @description The method that is used to filter logs imported from Simple Log Service. Valid values:
-     *
-     *   `contain`: contains
-     *   `notContain`: does not contain
-     *   `>`: greater than
-     *   `<`: less than
-     *   `=`: equal to
-     *   `! =`: not equal to
-     *   `>=`: greater than or equal to
-     *   `<=`: less than or equal to
-     *
-     * @example =
-     *
      * @var string
      */
     public $operator;
 
     /**
-     * @description The name of the key that is used to filter logs imported from Simple Log Service.
-     *
-     * @example code
-     *
      * @var string
      */
     public $SLSKeyName;
 
     /**
-     * @description The value of the key that is used to filter logs imported from Simple Log Service.
-     *
-     * @example 200
-     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'operator'   => 'Operator',
+        'operator' => 'Operator',
         'SLSKeyName' => 'SLSKeyName',
-        'value'      => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
+
         if (null !== $this->SLSKeyName) {
             $res['SLSKeyName'] = $this->SLSKeyName;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -69,20 +51,22 @@ class filters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
+
         if (isset($map['SLSKeyName'])) {
             $model->SLSKeyName = $map['SLSKeyName'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

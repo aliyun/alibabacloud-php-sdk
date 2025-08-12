@@ -4,63 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAlertingMetricRuleResourcesRequest extends Model
 {
     /**
-     * @description Queries the alerts that were triggered before the specified time. Timestamps in milliseconds are supported.
-     *
-     * @example 1698827400000
-     *
      * @var string
      */
     public $alertBeforeTime;
 
     /**
-     * @description The dimensions that specify the resources whose monitoring data you want to query.
-     *
-     * @example {\\"userId\\":\\"120886317861****\\",\\"region\\":\\"cn-huhehaote\\",\\"queue\\":\\"test-0128\\"}
-     *
      * @var string
      */
     public $dimensions;
 
     /**
-     * @description The ID of the application group. For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
-     *
-     * @example 7671****
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The namespace of the cloud service.
-     *
-     * For more information about the namespaces of cloud services, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-     * @example acs_mns_new
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The page number.
-     *
-     * Default value: 1.
-     * @example 1
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @description The number of entries per page.
-     *
-     * Default value: 10.
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -71,52 +44,56 @@ class DescribeAlertingMetricRuleResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the alert rule. For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
-     *
-     * @example putNewAlarm_user_7e78d765-0e3e-4671-ba6d-7ce39108****
-     *
      * @var string
      */
     public $ruleId;
     protected $_name = [
         'alertBeforeTime' => 'AlertBeforeTime',
-        'dimensions'      => 'Dimensions',
-        'groupId'         => 'GroupId',
-        'namespace'       => 'Namespace',
-        'page'            => 'Page',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
-        'ruleId'          => 'RuleId',
+        'dimensions' => 'Dimensions',
+        'groupId' => 'GroupId',
+        'namespace' => 'Namespace',
+        'page' => 'Page',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertBeforeTime) {
             $res['AlertBeforeTime'] = $this->alertBeforeTime;
         }
+
         if (null !== $this->dimensions) {
             $res['Dimensions'] = $this->dimensions;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -124,35 +101,42 @@ class DescribeAlertingMetricRuleResourcesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAlertingMetricRuleResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertBeforeTime'])) {
             $model->alertBeforeTime = $map['AlertBeforeTime'];
         }
+
         if (isset($map['Dimensions'])) {
             $model->dimensions = $map['Dimensions'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteEventRulesRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example rule1
-     *
      * @var string[]
      */
     public $ruleNames;
@@ -22,29 +18,45 @@ class DeleteEventRulesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->ruleNames)) {
+            Model::validateArray($this->ruleNames);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ruleNames) {
-            $res['RuleNames'] = $this->ruleNames;
+            if (\is_array($this->ruleNames)) {
+                $res['RuleNames'] = [];
+                $n1 = 0;
+                foreach ($this->ruleNames as $item1) {
+                    $res['RuleNames'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteEventRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RuleNames'])) {
             if (!empty($map['RuleNames'])) {
-                $model->ruleNames = $map['RuleNames'];
+                $model->ruleNames = [];
+                $n1 = 0;
+                foreach ($map['RuleNames'] as $item1) {
+                    $model->ruleNames[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

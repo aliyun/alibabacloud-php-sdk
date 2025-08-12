@@ -4,90 +4,77 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHybridMonitorDataListResponseBody\timeSeries;
-use AlibabaCloud\Tea\Model;
 
 class DescribeHybridMonitorDataListResponseBody extends Model
 {
     /**
-     * @description The response code.
-     *
-     * >  The status code 200 indicates that the request was successful.
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The returned message.
-     *
-     * @example end timestamp must not be before start time.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The request ID.
-     *
-     * @example C240412F-3F5F-50E2-ACEC-DE808EF9C4BE
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var string
      */
     public $success;
 
     /**
-     * @description The returned monitoring data.
-     *
      * @var timeSeries[]
      */
     public $timeSeries;
     protected $_name = [
-        'code'       => 'Code',
-        'message'    => 'Message',
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'code' => 'Code',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'timeSeries' => 'TimeSeries',
     ];
 
     public function validate()
     {
+        if (\is_array($this->timeSeries)) {
+            Model::validateArray($this->timeSeries);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->timeSeries) {
-            $res['TimeSeries'] = [];
-            if (null !== $this->timeSeries && \is_array($this->timeSeries)) {
-                $n = 0;
-                foreach ($this->timeSeries as $item) {
-                    $res['TimeSeries'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->timeSeries)) {
+                $res['TimeSeries'] = [];
+                $n1 = 0;
+                foreach ($this->timeSeries as $item1) {
+                    $res['TimeSeries'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -95,32 +82,37 @@ class DescribeHybridMonitorDataListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeHybridMonitorDataListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['TimeSeries'])) {
             if (!empty($map['TimeSeries'])) {
                 $model->timeSeries = [];
-                $n                 = 0;
-                foreach ($map['TimeSeries'] as $item) {
-                    $model->timeSeries[$n++] = null !== $item ? timeSeries::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TimeSeries'] as $item1) {
+                    $model->timeSeries[$n1] = timeSeries::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\customSchedule;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class days extends Model
 {
@@ -18,29 +18,45 @@ class days extends Model
 
     public function validate()
     {
+        if (\is_array($this->days)) {
+            Model::validateArray($this->days);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->days) {
-            $res['days'] = $this->days;
+            if (\is_array($this->days)) {
+                $res['days'] = [];
+                $n1 = 0;
+                foreach ($this->days as $item1) {
+                    $res['days'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return days
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['days'])) {
             if (!empty($map['days'])) {
-                $model->days = $map['days'];
+                $model->days = [];
+                $n1 = 0;
+                foreach ($map['days'] as $item1) {
+                    $model->days[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

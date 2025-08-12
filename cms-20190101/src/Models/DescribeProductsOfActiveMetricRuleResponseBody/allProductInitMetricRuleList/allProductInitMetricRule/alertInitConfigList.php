@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeProductsOfActiveMetricRuleResponseBody\allProductInitMetricRuleList\allProductInitMetricRule;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeProductsOfActiveMetricRuleResponseBody\allProductInitMetricRuleList\allProductInitMetricRule\alertInitConfigList\alertInitConfig;
-use AlibabaCloud\Tea\Model;
 
 class alertInitConfigList extends Model
 {
@@ -19,17 +19,22 @@ class alertInitConfigList extends Model
 
     public function validate()
     {
+        if (\is_array($this->alertInitConfig)) {
+            Model::validateArray($this->alertInitConfig);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertInitConfig) {
-            $res['AlertInitConfig'] = [];
-            if (null !== $this->alertInitConfig && \is_array($this->alertInitConfig)) {
-                $n = 0;
-                foreach ($this->alertInitConfig as $item) {
-                    $res['AlertInitConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->alertInitConfig)) {
+                $res['AlertInitConfig'] = [];
+                $n1 = 0;
+                foreach ($this->alertInitConfig as $item1) {
+                    $res['AlertInitConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class alertInitConfigList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return alertInitConfigList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertInitConfig'])) {
             if (!empty($map['AlertInitConfig'])) {
                 $model->alertInitConfig = [];
-                $n                      = 0;
-                foreach ($map['AlertInitConfig'] as $item) {
-                    $model->alertInitConfig[$n++] = null !== $item ? alertInitConfig::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AlertInitConfig'] as $item1) {
+                    $model->alertInitConfig[$n1] = alertInitConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

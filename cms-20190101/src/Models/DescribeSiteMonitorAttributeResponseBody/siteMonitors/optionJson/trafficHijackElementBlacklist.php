@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class trafficHijackElementBlacklist extends Model
 {
@@ -18,29 +18,45 @@ class trafficHijackElementBlacklist extends Model
 
     public function validate()
     {
+        if (\is_array($this->trafficHijackElementBlacklist)) {
+            Model::validateArray($this->trafficHijackElementBlacklist);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->trafficHijackElementBlacklist) {
-            $res['traffic_hijack_element_blacklist'] = $this->trafficHijackElementBlacklist;
+            if (\is_array($this->trafficHijackElementBlacklist)) {
+                $res['traffic_hijack_element_blacklist'] = [];
+                $n1 = 0;
+                foreach ($this->trafficHijackElementBlacklist as $item1) {
+                    $res['traffic_hijack_element_blacklist'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return trafficHijackElementBlacklist
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['traffic_hijack_element_blacklist'])) {
             if (!empty($map['traffic_hijack_element_blacklist'])) {
-                $model->trafficHijackElementBlacklist = $map['traffic_hijack_element_blacklist'];
+                $model->trafficHijackElementBlacklist = [];
+                $n1 = 0;
+                foreach ($map['traffic_hijack_element_blacklist'] as $item1) {
+                    $model->trafficHijackElementBlacklist[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

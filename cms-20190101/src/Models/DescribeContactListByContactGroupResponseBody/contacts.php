@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeContactListByContactGroupResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeContactListByContactGroupResponseBody\contacts\contact;
-use AlibabaCloud\Tea\Model;
 
 class contacts extends Model
 {
@@ -19,17 +19,22 @@ class contacts extends Model
 
     public function validate()
     {
+        if (\is_array($this->contact)) {
+            Model::validateArray($this->contact);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contact) {
-            $res['Contact'] = [];
-            if (null !== $this->contact && \is_array($this->contact)) {
-                $n = 0;
-                foreach ($this->contact as $item) {
-                    $res['Contact'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->contact)) {
+                $res['Contact'] = [];
+                $n1 = 0;
+                foreach ($this->contact as $item1) {
+                    $res['Contact'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class contacts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contacts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Contact'])) {
             if (!empty($map['Contact'])) {
                 $model->contact = [];
-                $n              = 0;
-                foreach ($map['Contact'] as $item) {
-                    $model->contact[$n++] = null !== $item ? contact::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Contact'] as $item1) {
+                    $model->contact[$n1] = contact::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

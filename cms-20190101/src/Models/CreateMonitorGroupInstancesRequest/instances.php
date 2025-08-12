@@ -4,72 +4,56 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\CreateMonitorGroupInstancesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instances extends Model
 {
     /**
-     * @description The abbreviation of the Alibaba Cloud service name.
-     *
-     * This parameter is required.
-     * @example ecs
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     * @example i-2ze26xj5wwy12****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The instance name.
-     *
-     * This parameter is required.
-     * @example test-instance-ecs
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The region ID of the instance.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'category'     => 'Category',
-        'instanceId'   => 'InstanceId',
+        'category' => 'Category',
+        'instanceId' => 'InstanceId',
         'instanceName' => 'InstanceName',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -77,23 +61,26 @@ class instances extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instances
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

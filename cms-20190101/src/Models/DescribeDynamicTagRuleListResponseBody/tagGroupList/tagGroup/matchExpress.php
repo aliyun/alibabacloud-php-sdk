@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeDynamicTagRuleListResponseBody\tagGroupList\tagGroup;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeDynamicTagRuleListResponseBody\tagGroupList\tagGroup\matchExpress\matchExpress;
 
 class matchExpress extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Cms\V20190101\Models\DescribeDynamicTagRuleListResponseBody\tagGroupList\tagGroup\matchExpress\matchExpress[]
+     * @var matchExpress[]
      */
     public $matchExpress;
     protected $_name = [
@@ -18,17 +19,22 @@ class matchExpress extends Model
 
     public function validate()
     {
+        if (\is_array($this->matchExpress)) {
+            Model::validateArray($this->matchExpress);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->matchExpress) {
-            $res['MatchExpress'] = [];
-            if (null !== $this->matchExpress && \is_array($this->matchExpress)) {
-                $n = 0;
-                foreach ($this->matchExpress as $item) {
-                    $res['MatchExpress'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->matchExpress)) {
+                $res['MatchExpress'] = [];
+                $n1 = 0;
+                foreach ($this->matchExpress as $item1) {
+                    $res['MatchExpress'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -36,20 +42,21 @@ class matchExpress extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return matchExpress
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MatchExpress'])) {
             if (!empty($map['MatchExpress'])) {
                 $model->matchExpress = [];
-                $n                   = 0;
-                foreach ($map['MatchExpress'] as $item) {
-                    $model->matchExpress[$n++] = null !== $item ? \AlibabaCloud\SDK\Cms\V20190101\Models\DescribeDynamicTagRuleListResponseBody\tagGroupList\tagGroup\matchExpress\matchExpress::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MatchExpress'] as $item1) {
+                    $model->matchExpress[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeCustomEventAttributeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeCustomEventAttributeResponseBody\customEvents\customEvent;
-use AlibabaCloud\Tea\Model;
 
 class customEvents extends Model
 {
@@ -19,17 +19,22 @@ class customEvents extends Model
 
     public function validate()
     {
+        if (\is_array($this->customEvent)) {
+            Model::validateArray($this->customEvent);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customEvent) {
-            $res['CustomEvent'] = [];
-            if (null !== $this->customEvent && \is_array($this->customEvent)) {
-                $n = 0;
-                foreach ($this->customEvent as $item) {
-                    $res['CustomEvent'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->customEvent)) {
+                $res['CustomEvent'] = [];
+                $n1 = 0;
+                foreach ($this->customEvent as $item1) {
+                    $res['CustomEvent'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class customEvents extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customEvents
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomEvent'])) {
             if (!empty($map['CustomEvent'])) {
                 $model->customEvent = [];
-                $n                  = 0;
-                foreach ($map['CustomEvent'] as $item) {
-                    $model->customEvent[$n++] = null !== $item ? customEvent::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CustomEvent'] as $item1) {
+                    $model->customEvent[$n1] = customEvent::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

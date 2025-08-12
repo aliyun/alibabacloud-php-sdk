@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\PutResourceMetricRulesRequest\rules\escalations;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class warn extends Model
 {
@@ -39,35 +39,41 @@ class warn extends Model
     public $times;
     protected $_name = [
         'comparisonOperator' => 'ComparisonOperator',
-        'n'                  => 'N',
-        'preCondition'       => 'PreCondition',
-        'statistics'         => 'Statistics',
-        'threshold'          => 'Threshold',
-        'times'              => 'Times',
+        'n' => 'N',
+        'preCondition' => 'PreCondition',
+        'statistics' => 'Statistics',
+        'threshold' => 'Threshold',
+        'times' => 'Times',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->comparisonOperator) {
             $res['ComparisonOperator'] = $this->comparisonOperator;
         }
+
         if (null !== $this->n) {
             $res['N'] = $this->n;
         }
+
         if (null !== $this->preCondition) {
             $res['PreCondition'] = $this->preCondition;
         }
+
         if (null !== $this->statistics) {
             $res['Statistics'] = $this->statistics;
         }
+
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
         }
+
         if (null !== $this->times) {
             $res['Times'] = $this->times;
         }
@@ -75,29 +81,34 @@ class warn extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return warn
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ComparisonOperator'])) {
             $model->comparisonOperator = $map['ComparisonOperator'];
         }
+
         if (isset($map['N'])) {
             $model->n = $map['N'];
         }
+
         if (isset($map['PreCondition'])) {
             $model->preCondition = $map['PreCondition'];
         }
+
         if (isset($map['Statistics'])) {
             $model->statistics = $map['Statistics'];
         }
+
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];
         }
+
         if (isset($map['Times'])) {
             $model->times = $map['Times'];
         }

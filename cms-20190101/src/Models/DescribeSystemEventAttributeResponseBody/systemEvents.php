@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSystemEventAttributeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSystemEventAttributeResponseBody\systemEvents\systemEvent;
-use AlibabaCloud\Tea\Model;
 
 class systemEvents extends Model
 {
@@ -19,17 +19,22 @@ class systemEvents extends Model
 
     public function validate()
     {
+        if (\is_array($this->systemEvent)) {
+            Model::validateArray($this->systemEvent);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->systemEvent) {
-            $res['SystemEvent'] = [];
-            if (null !== $this->systemEvent && \is_array($this->systemEvent)) {
-                $n = 0;
-                foreach ($this->systemEvent as $item) {
-                    $res['SystemEvent'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->systemEvent)) {
+                $res['SystemEvent'] = [];
+                $n1 = 0;
+                foreach ($this->systemEvent as $item1) {
+                    $res['SystemEvent'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class systemEvents extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return systemEvents
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SystemEvent'])) {
             if (!empty($map['SystemEvent'])) {
                 $model->systemEvent = [];
-                $n                  = 0;
-                foreach ($map['SystemEvent'] as $item) {
-                    $model->systemEvent[$n++] = null !== $item ? systemEvent::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SystemEvent'] as $item1) {
+                    $model->systemEvent[$n1] = systemEvent::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

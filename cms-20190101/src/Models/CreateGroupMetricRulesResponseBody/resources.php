@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\CreateGroupMetricRulesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateGroupMetricRulesResponseBody\resources\alertResult;
-use AlibabaCloud\Tea\Model;
 
 class resources extends Model
 {
@@ -19,17 +19,22 @@ class resources extends Model
 
     public function validate()
     {
+        if (\is_array($this->alertResult)) {
+            Model::validateArray($this->alertResult);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertResult) {
-            $res['AlertResult'] = [];
-            if (null !== $this->alertResult && \is_array($this->alertResult)) {
-                $n = 0;
-                foreach ($this->alertResult as $item) {
-                    $res['AlertResult'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->alertResult)) {
+                $res['AlertResult'] = [];
+                $n1 = 0;
+                foreach ($this->alertResult as $item1) {
+                    $res['AlertResult'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class resources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertResult'])) {
             if (!empty($map['AlertResult'])) {
                 $model->alertResult = [];
-                $n                  = 0;
-                foreach ($map['AlertResult'] as $item) {
-                    $model->alertResult[$n++] = null !== $item ? alertResult::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AlertResult'] as $item1) {
+                    $model->alertResult[$n1] = alertResult::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

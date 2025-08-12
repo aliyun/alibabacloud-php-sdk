@@ -4,109 +4,94 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeContactGroupListResponseBody\contactGroupList;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeContactGroupListResponseBody\contactGroups;
-use AlibabaCloud\Tea\Model;
 
 class DescribeContactGroupListResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
-     *
-     * >  The status code 200 indicates that the call was successful.
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The information about alert groups that were queried.
-     *
      * @var contactGroupList
      */
     public $contactGroupList;
 
     /**
-     * @description The names of alert groups.
-     *
      * @var contactGroups
      */
     public $contactGroups;
 
     /**
-     * @description The returned message.
-     *
-     * @example The Request is not authorization.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 916EE694-03C2-47B6-85EE-5054E3C168D3
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
-     *
-     *   true: The call was successful.
-     *   false: The call failed.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description The total number of the returned entries.
-     *
-     * @example 22
-     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'code'             => 'Code',
+        'code' => 'Code',
         'contactGroupList' => 'ContactGroupList',
-        'contactGroups'    => 'ContactGroups',
-        'message'          => 'Message',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
-        'total'            => 'Total',
+        'contactGroups' => 'ContactGroups',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'total' => 'Total',
     ];
 
     public function validate()
     {
+        if (null !== $this->contactGroupList) {
+            $this->contactGroupList->validate();
+        }
+        if (null !== $this->contactGroups) {
+            $this->contactGroups->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->contactGroupList) {
-            $res['ContactGroupList'] = null !== $this->contactGroupList ? $this->contactGroupList->toMap() : null;
+            $res['ContactGroupList'] = null !== $this->contactGroupList ? $this->contactGroupList->toArray($noStream) : $this->contactGroupList;
         }
+
         if (null !== $this->contactGroups) {
-            $res['ContactGroups'] = null !== $this->contactGroups ? $this->contactGroups->toMap() : null;
+            $res['ContactGroups'] = null !== $this->contactGroups ? $this->contactGroups->toArray($noStream) : $this->contactGroups;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -114,32 +99,38 @@ class DescribeContactGroupListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeContactGroupListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['ContactGroupList'])) {
             $model->contactGroupList = contactGroupList::fromMap($map['ContactGroupList']);
         }
+
         if (isset($map['ContactGroups'])) {
             $model->contactGroups = contactGroups::fromMap($map['ContactGroups']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

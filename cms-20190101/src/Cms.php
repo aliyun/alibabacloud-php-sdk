@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Cms\V20190101\Models\AddTagsRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\AddTagsResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ApplyMetricRuleTemplateRequest;
@@ -288,7 +287,6 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyMonitorGroupRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyMonitorGroupResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ModifySiteMonitorRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ModifySiteMonitorResponse;
-use AlibabaCloud\SDK\Cms\V20190101\Models\OpenCmsServiceResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutContactGroupRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutContactGroupResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutContactRequest;
@@ -332,11 +330,10 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\SendDryRunSystemEventRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\SendDryRunSystemEventResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\UninstallMonitoringAgentRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\UninstallMonitoringAgentResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Cms extends OpenApiClient
 {
@@ -361,62 +358,76 @@ class Cms extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Adds tags to an application group.
-     *  *
-     * @description This topic provides an example on how to add a tag to an application group whose ID is `7301****`. In this example, the key of the tag is `key1` and the value of the tag is `value1`.
-     *  *
-     * @param AddTagsRequest $request AddTagsRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Adds tags to an application group.
      *
-     * @return AddTagsResponse AddTagsResponse
+     * @remarks
+     * This topic provides an example on how to add a tag to an application group whose ID is `7301****`. In this example, the key of the tag is `key1` and the value of the tag is `value1`.
+     *
+     * @param request - AddTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddTagsResponse
+     *
+     * @param AddTagsRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return AddTagsResponse
      */
     public function addTagsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupIds)) {
-            $query['GroupIds'] = $request->groupIds;
+        if (null !== $request->groupIds) {
+            @$query['GroupIds'] = $request->groupIds;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddTags',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddTags',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return AddTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds tags to an application group.
-     *  *
-     * @description This topic provides an example on how to add a tag to an application group whose ID is `7301****`. In this example, the key of the tag is `key1` and the value of the tag is `value1`.
-     *  *
-     * @param AddTagsRequest $request AddTagsRequest
+     * Adds tags to an application group.
      *
-     * @return AddTagsResponse AddTagsResponse
+     * @remarks
+     * This topic provides an example on how to add a tag to an application group whose ID is `7301****`. In this example, the key of the tag is `key1` and the value of the tag is `value1`.
+     *
+     * @param request - AddTagsRequest
+     *
+     * @returns AddTagsResponse
+     *
+     * @param AddTagsRequest $request
+     *
+     * @return AddTagsResponse
      */
     public function addTags($request)
     {
@@ -426,72 +437,92 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Applies an alert template to an application group to generate an alert rule.
-     *  *
-     * @description In this example, the `700****` alert template is applied to the `123456` application group. For the generated alert rule, the ID is `applyTemplate8ab74c6b-9f27-47ab-8841-de01dc08****`, and the name is `test123`.
-     *  *
-     * @param ApplyMetricRuleTemplateRequest $request ApplyMetricRuleTemplateRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Applies an alert template to an application group to generate an alert rule.
      *
-     * @return ApplyMetricRuleTemplateResponse ApplyMetricRuleTemplateResponse
+     * @remarks
+     * In this example, the `700****` alert template is applied to the `123456` application group. For the generated alert rule, the ID is `applyTemplate8ab74c6b-9f27-47ab-8841-de01dc08****`, and the name is `test123`.
+     *
+     * @param request - ApplyMetricRuleTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ApplyMetricRuleTemplateResponse
+     *
+     * @param ApplyMetricRuleTemplateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ApplyMetricRuleTemplateResponse
      */
     public function applyMetricRuleTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appendMode)) {
-            $query['AppendMode'] = $request->appendMode;
+        if (null !== $request->appendMode) {
+            @$query['AppendMode'] = $request->appendMode;
         }
-        if (!Utils::isUnset($request->applyMode)) {
-            $query['ApplyMode'] = $request->applyMode;
+
+        if (null !== $request->applyMode) {
+            @$query['ApplyMode'] = $request->applyMode;
         }
-        if (!Utils::isUnset($request->enableEndTime)) {
-            $query['EnableEndTime'] = $request->enableEndTime;
+
+        if (null !== $request->enableEndTime) {
+            @$query['EnableEndTime'] = $request->enableEndTime;
         }
-        if (!Utils::isUnset($request->enableStartTime)) {
-            $query['EnableStartTime'] = $request->enableStartTime;
+
+        if (null !== $request->enableStartTime) {
+            @$query['EnableStartTime'] = $request->enableStartTime;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->notifyLevel)) {
-            $query['NotifyLevel'] = $request->notifyLevel;
+
+        if (null !== $request->notifyLevel) {
+            @$query['NotifyLevel'] = $request->notifyLevel;
         }
-        if (!Utils::isUnset($request->silenceTime)) {
-            $query['SilenceTime'] = $request->silenceTime;
+
+        if (null !== $request->silenceTime) {
+            @$query['SilenceTime'] = $request->silenceTime;
         }
-        if (!Utils::isUnset($request->templateIds)) {
-            $query['TemplateIds'] = $request->templateIds;
+
+        if (null !== $request->templateIds) {
+            @$query['TemplateIds'] = $request->templateIds;
         }
-        if (!Utils::isUnset($request->webhook)) {
-            $query['Webhook'] = $request->webhook;
+
+        if (null !== $request->webhook) {
+            @$query['Webhook'] = $request->webhook;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ApplyMetricRuleTemplate',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ApplyMetricRuleTemplate',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ApplyMetricRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Applies an alert template to an application group to generate an alert rule.
-     *  *
-     * @description In this example, the `700****` alert template is applied to the `123456` application group. For the generated alert rule, the ID is `applyTemplate8ab74c6b-9f27-47ab-8841-de01dc08****`, and the name is `test123`.
-     *  *
-     * @param ApplyMetricRuleTemplateRequest $request ApplyMetricRuleTemplateRequest
+     * Applies an alert template to an application group to generate an alert rule.
      *
-     * @return ApplyMetricRuleTemplateResponse ApplyMetricRuleTemplateResponse
+     * @remarks
+     * In this example, the `700****` alert template is applied to the `123456` application group. For the generated alert rule, the ID is `applyTemplate8ab74c6b-9f27-47ab-8841-de01dc08****`, and the name is `test123`.
+     *
+     * @param request - ApplyMetricRuleTemplateRequest
+     *
+     * @returns ApplyMetricRuleTemplateResponse
+     *
+     * @param ApplyMetricRuleTemplateRequest $request
+     *
+     * @return ApplyMetricRuleTemplateResponse
      */
     public function applyMetricRuleTemplate($request)
     {
@@ -501,48 +532,60 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates site monitoring tasks.
-     *  *
-     * @description This topic provides an example on how to create a site monitoring task named `HangZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTP`. The returned result shows that the site monitoring task is created. The name of the site monitoring task is `HangZhou_ECS1` and the task ID is `679fbe4f-b80b-4706-91b2-5427b43e****`.
-     *  *
-     * @param BatchCreateInstantSiteMonitorRequest $request BatchCreateInstantSiteMonitorRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Creates site monitoring tasks.
      *
-     * @return BatchCreateInstantSiteMonitorResponse BatchCreateInstantSiteMonitorResponse
+     * @remarks
+     * This topic provides an example on how to create a site monitoring task named `HangZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTP`. The returned result shows that the site monitoring task is created. The name of the site monitoring task is `HangZhou_ECS1` and the task ID is `679fbe4f-b80b-4706-91b2-5427b43e****`.
+     *
+     * @param request - BatchCreateInstantSiteMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchCreateInstantSiteMonitorResponse
+     *
+     * @param BatchCreateInstantSiteMonitorRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return BatchCreateInstantSiteMonitorResponse
      */
     public function batchCreateInstantSiteMonitorWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->taskList)) {
-            $query['TaskList'] = $request->taskList;
+        if (null !== $request->taskList) {
+            @$query['TaskList'] = $request->taskList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchCreateInstantSiteMonitor',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchCreateInstantSiteMonitor',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchCreateInstantSiteMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates site monitoring tasks.
-     *  *
-     * @description This topic provides an example on how to create a site monitoring task named `HangZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTP`. The returned result shows that the site monitoring task is created. The name of the site monitoring task is `HangZhou_ECS1` and the task ID is `679fbe4f-b80b-4706-91b2-5427b43e****`.
-     *  *
-     * @param BatchCreateInstantSiteMonitorRequest $request BatchCreateInstantSiteMonitorRequest
+     * Creates site monitoring tasks.
      *
-     * @return BatchCreateInstantSiteMonitorResponse BatchCreateInstantSiteMonitorResponse
+     * @remarks
+     * This topic provides an example on how to create a site monitoring task named `HangZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTP`. The returned result shows that the site monitoring task is created. The name of the site monitoring task is `HangZhou_ECS1` and the task ID is `679fbe4f-b80b-4706-91b2-5427b43e****`.
+     *
+     * @param request - BatchCreateInstantSiteMonitorRequest
+     *
+     * @returns BatchCreateInstantSiteMonitorResponse
+     *
+     * @param BatchCreateInstantSiteMonitorRequest $request
+     *
+     * @return BatchCreateInstantSiteMonitorResponse
      */
     public function batchCreateInstantSiteMonitor($request)
     {
@@ -552,71 +595,88 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Exports the monitoring data that is defined in the Cursor operation.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Exports the monitoring data that is defined in the Cursor operation.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * The `Cursor` information is returned by calling the [Cursor](https://help.aliyun.com/document_detail/2330730.html) operation.
      * ### [](#)Description
      * This topic provides an example on how to export the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The `Cursor` information is specified. A maximum of 1,000 data entries can be returned in each response.
-     *  *
-     * @param BatchExportRequest $tmpReq  BatchExportRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchExportResponse BatchExportResponse
+     * @param tmpReq - BatchExportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchExportResponse
+     *
+     * @param BatchExportRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return BatchExportResponse
      */
     public function batchExportWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BatchExportShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->measurements)) {
-            $request->measurementsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->measurements, 'Measurements', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->measurements) {
+            $request->measurementsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->measurements, 'Measurements', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->cursor)) {
-            $body['Cursor'] = $request->cursor;
+        if (null !== $request->cursor) {
+            @$body['Cursor'] = $request->cursor;
         }
-        if (!Utils::isUnset($request->length)) {
-            $body['Length'] = $request->length;
+
+        if (null !== $request->length) {
+            @$body['Length'] = $request->length;
         }
-        if (!Utils::isUnset($request->measurementsShrink)) {
-            $body['Measurements'] = $request->measurementsShrink;
+
+        if (null !== $request->measurementsShrink) {
+            @$body['Measurements'] = $request->measurementsShrink;
         }
-        if (!Utils::isUnset($request->metric)) {
-            $body['Metric'] = $request->metric;
+
+        if (null !== $request->metric) {
+            @$body['Metric'] = $request->metric;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $body['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$body['Namespace'] = $request->namespace;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BatchExport',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchExport',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return BatchExportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Exports the monitoring data that is defined in the Cursor operation.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Exports the monitoring data that is defined in the Cursor operation.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * The `Cursor` information is returned by calling the [Cursor](https://help.aliyun.com/document_detail/2330730.html) operation.
      * ### [](#)Description
      * This topic provides an example on how to export the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The `Cursor` information is specified. A maximum of 1,000 data entries can be returned in each response.
-     *  *
-     * @param BatchExportRequest $request BatchExportRequest
      *
-     * @return BatchExportResponse BatchExportResponse
+     * @param request - BatchExportRequest
+     *
+     * @returns BatchExportResponse
+     *
+     * @param BatchExportRequest $request
+     *
+     * @return BatchExportResponse
      */
     public function batchExport($request)
     {
@@ -626,71 +686,90 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates an application group based on the tags of cloud resources.
-     *  *
-     * @description This operation is available for Elastic Compute Service (ECS), ApsaraDB RDS, and Server Load Balancer (SLB).
-     * This topic provides an example to show how to create an application group for resources whose tag key is `ecs_instance`. In this example, the alert contact group of the application group is `ECS_Group`.
-     *  *
-     * @param CreateDynamicTagGroupRequest $request CreateDynamicTagGroupRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Creates an application group based on the tags of cloud resources.
      *
-     * @return CreateDynamicTagGroupResponse CreateDynamicTagGroupResponse
+     * @remarks
+     * This operation is available for Elastic Compute Service (ECS), ApsaraDB RDS, and Server Load Balancer (SLB).
+     * This topic provides an example to show how to create an application group for resources whose tag key is `ecs_instance`. In this example, the alert contact group of the application group is `ECS_Group`.
+     *
+     * @param request - CreateDynamicTagGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDynamicTagGroupResponse
+     *
+     * @param CreateDynamicTagGroupRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDynamicTagGroupResponse
      */
     public function createDynamicTagGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactGroupList)) {
-            $query['ContactGroupList'] = $request->contactGroupList;
+        if (null !== $request->contactGroupList) {
+            @$query['ContactGroupList'] = $request->contactGroupList;
         }
-        if (!Utils::isUnset($request->enableInstallAgent)) {
-            $query['EnableInstallAgent'] = $request->enableInstallAgent;
+
+        if (null !== $request->enableInstallAgent) {
+            @$query['EnableInstallAgent'] = $request->enableInstallAgent;
         }
-        if (!Utils::isUnset($request->enableSubscribeEvent)) {
-            $query['EnableSubscribeEvent'] = $request->enableSubscribeEvent;
+
+        if (null !== $request->enableSubscribeEvent) {
+            @$query['EnableSubscribeEvent'] = $request->enableSubscribeEvent;
         }
-        if (!Utils::isUnset($request->matchExpress)) {
-            $query['MatchExpress'] = $request->matchExpress;
+
+        if (null !== $request->matchExpress) {
+            @$query['MatchExpress'] = $request->matchExpress;
         }
-        if (!Utils::isUnset($request->matchExpressFilterRelation)) {
-            $query['MatchExpressFilterRelation'] = $request->matchExpressFilterRelation;
+
+        if (null !== $request->matchExpressFilterRelation) {
+            @$query['MatchExpressFilterRelation'] = $request->matchExpressFilterRelation;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
-        if (!Utils::isUnset($request->tagRegionId)) {
-            $query['TagRegionId'] = $request->tagRegionId;
+
+        if (null !== $request->tagRegionId) {
+            @$query['TagRegionId'] = $request->tagRegionId;
         }
-        if (!Utils::isUnset($request->templateIdList)) {
-            $query['TemplateIdList'] = $request->templateIdList;
+
+        if (null !== $request->templateIdList) {
+            @$query['TemplateIdList'] = $request->templateIdList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDynamicTagGroup',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDynamicTagGroup',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateDynamicTagGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an application group based on the tags of cloud resources.
-     *  *
-     * @description This operation is available for Elastic Compute Service (ECS), ApsaraDB RDS, and Server Load Balancer (SLB).
-     * This topic provides an example to show how to create an application group for resources whose tag key is `ecs_instance`. In this example, the alert contact group of the application group is `ECS_Group`.
-     *  *
-     * @param CreateDynamicTagGroupRequest $request CreateDynamicTagGroupRequest
+     * Creates an application group based on the tags of cloud resources.
      *
-     * @return CreateDynamicTagGroupResponse CreateDynamicTagGroupResponse
+     * @remarks
+     * This operation is available for Elastic Compute Service (ECS), ApsaraDB RDS, and Server Load Balancer (SLB).
+     * This topic provides an example to show how to create an application group for resources whose tag key is `ecs_instance`. In this example, the alert contact group of the application group is `ECS_Group`.
+     *
+     * @param request - CreateDynamicTagGroupRequest
+     *
+     * @returns CreateDynamicTagGroupResponse
+     *
+     * @param CreateDynamicTagGroupRequest $request
+     *
+     * @return CreateDynamicTagGroupResponse
      */
     public function createDynamicTagGroup($request)
     {
@@ -700,51 +779,64 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates one or more alert rules for a specified application group.
-     *  *
-     * @description This topic provides an example to show how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `123456` application group. The ID of the alert rule is `456789`. The name of the alert rule is `ECS_Rule1`. The alert level is `Critical`. The statistical method is `Average`. The comparison operator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The response shows that the alert rule named `ECS_Rule1` is created.
-     *  *
-     * @param CreateGroupMetricRulesRequest $request CreateGroupMetricRulesRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Creates one or more alert rules for a specified application group.
      *
-     * @return CreateGroupMetricRulesResponse CreateGroupMetricRulesResponse
+     * @remarks
+     * This topic provides an example to show how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `123456` application group. The ID of the alert rule is `456789`. The name of the alert rule is `ECS_Rule1`. The alert level is `Critical`. The statistical method is `Average`. The comparison operator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The response shows that the alert rule named `ECS_Rule1` is created.
+     *
+     * @param request - CreateGroupMetricRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGroupMetricRulesResponse
+     *
+     * @param CreateGroupMetricRulesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateGroupMetricRulesResponse
      */
     public function createGroupMetricRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->groupMetricRules)) {
-            $query['GroupMetricRules'] = $request->groupMetricRules;
+
+        if (null !== $request->groupMetricRules) {
+            @$query['GroupMetricRules'] = $request->groupMetricRules;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateGroupMetricRules',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateGroupMetricRules',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateGroupMetricRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates one or more alert rules for a specified application group.
-     *  *
-     * @description This topic provides an example to show how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `123456` application group. The ID of the alert rule is `456789`. The name of the alert rule is `ECS_Rule1`. The alert level is `Critical`. The statistical method is `Average`. The comparison operator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The response shows that the alert rule named `ECS_Rule1` is created.
-     *  *
-     * @param CreateGroupMetricRulesRequest $request CreateGroupMetricRulesRequest
+     * Creates one or more alert rules for a specified application group.
      *
-     * @return CreateGroupMetricRulesResponse CreateGroupMetricRulesResponse
+     * @remarks
+     * This topic provides an example to show how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `123456` application group. The ID of the alert rule is `456789`. The name of the alert rule is `ECS_Rule1`. The alert level is `Critical`. The statistical method is `Average`. The comparison operator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The response shows that the alert rule named `ECS_Rule1` is created.
+     *
+     * @param request - CreateGroupMetricRulesRequest
+     *
+     * @returns CreateGroupMetricRulesResponse
+     *
+     * @param CreateGroupMetricRulesRequest $request
+     *
+     * @return CreateGroupMetricRulesResponse
      */
     public function createGroupMetricRules($request)
     {
@@ -754,56 +846,70 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates a process monitoring task for an application group.
-     *  *
-     * @param CreateGroupMonitoringAgentProcessRequest $request CreateGroupMonitoringAgentProcessRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Creates a process monitoring task for an application group.
      *
-     * @return CreateGroupMonitoringAgentProcessResponse CreateGroupMonitoringAgentProcessResponse
+     * @param request - CreateGroupMonitoringAgentProcessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateGroupMonitoringAgentProcessResponse
+     *
+     * @param CreateGroupMonitoringAgentProcessRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return CreateGroupMonitoringAgentProcessResponse
      */
     public function createGroupMonitoringAgentProcessWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertConfig)) {
-            $query['AlertConfig'] = $request->alertConfig;
+        if (null !== $request->alertConfig) {
+            @$query['AlertConfig'] = $request->alertConfig;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->matchExpress)) {
-            $query['MatchExpress'] = $request->matchExpress;
+
+        if (null !== $request->matchExpress) {
+            @$query['MatchExpress'] = $request->matchExpress;
         }
-        if (!Utils::isUnset($request->matchExpressFilterRelation)) {
-            $query['MatchExpressFilterRelation'] = $request->matchExpressFilterRelation;
+
+        if (null !== $request->matchExpressFilterRelation) {
+            @$query['MatchExpressFilterRelation'] = $request->matchExpressFilterRelation;
         }
-        if (!Utils::isUnset($request->processName)) {
-            $query['ProcessName'] = $request->processName;
+
+        if (null !== $request->processName) {
+            @$query['ProcessName'] = $request->processName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateGroupMonitoringAgentProcess',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateGroupMonitoringAgentProcess',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateGroupMonitoringAgentProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a process monitoring task for an application group.
-     *  *
-     * @param CreateGroupMonitoringAgentProcessRequest $request CreateGroupMonitoringAgentProcessRequest
+     * Creates a process monitoring task for an application group.
      *
-     * @return CreateGroupMonitoringAgentProcessResponse CreateGroupMonitoringAgentProcessResponse
+     * @param request - CreateGroupMonitoringAgentProcessRequest
+     *
+     * @returns CreateGroupMonitoringAgentProcessResponse
+     *
+     * @param CreateGroupMonitoringAgentProcessRequest $request
+     *
+     * @return CreateGroupMonitoringAgentProcessResponse
      */
     public function createGroupMonitoringAgentProcess($request)
     {
@@ -813,72 +919,92 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates an availability monitoring task.
-     *  *
-     * @description This topic provides an example on how to create an availability monitoring task named `task1` in an application group named `123456`. The TaskType parameter of the task is set to `HTTP`. After you start the task, the system sends alerts by using the specified email address and DingTalk chatbot.
-     *  *
-     * @param CreateHostAvailabilityRequest $request CreateHostAvailabilityRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Creates an availability monitoring task.
      *
-     * @return CreateHostAvailabilityResponse CreateHostAvailabilityResponse
+     * @remarks
+     * This topic provides an example on how to create an availability monitoring task named `task1` in an application group named `123456`. The TaskType parameter of the task is set to `HTTP`. After you start the task, the system sends alerts by using the specified email address and DingTalk chatbot.
+     *
+     * @param request - CreateHostAvailabilityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateHostAvailabilityResponse
+     *
+     * @param CreateHostAvailabilityRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateHostAvailabilityResponse
      */
     public function createHostAvailabilityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertConfigEscalationList)) {
-            $query['AlertConfigEscalationList'] = $request->alertConfigEscalationList;
+        if (null !== $request->alertConfigEscalationList) {
+            @$query['AlertConfigEscalationList'] = $request->alertConfigEscalationList;
         }
-        if (!Utils::isUnset($request->alertConfigTargetList)) {
-            $query['AlertConfigTargetList'] = $request->alertConfigTargetList;
+
+        if (null !== $request->alertConfigTargetList) {
+            @$query['AlertConfigTargetList'] = $request->alertConfigTargetList;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->instanceList)) {
-            $query['InstanceList'] = $request->instanceList;
+
+        if (null !== $request->instanceList) {
+            @$query['InstanceList'] = $request->instanceList;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->taskScope)) {
-            $query['TaskScope'] = $request->taskScope;
+
+        if (null !== $request->taskScope) {
+            @$query['TaskScope'] = $request->taskScope;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
-        if (!Utils::isUnset($request->alertConfig)) {
-            $query['AlertConfig'] = $request->alertConfig;
+
+        if (null !== $request->alertConfig) {
+            @$query['AlertConfig'] = $request->alertConfig;
         }
-        if (!Utils::isUnset($request->taskOption)) {
-            $query['TaskOption'] = $request->taskOption;
+
+        if (null !== $request->taskOption) {
+            @$query['TaskOption'] = $request->taskOption;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateHostAvailability',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateHostAvailability',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateHostAvailabilityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an availability monitoring task.
-     *  *
-     * @description This topic provides an example on how to create an availability monitoring task named `task1` in an application group named `123456`. The TaskType parameter of the task is set to `HTTP`. After you start the task, the system sends alerts by using the specified email address and DingTalk chatbot.
-     *  *
-     * @param CreateHostAvailabilityRequest $request CreateHostAvailabilityRequest
+     * Creates an availability monitoring task.
      *
-     * @return CreateHostAvailabilityResponse CreateHostAvailabilityResponse
+     * @remarks
+     * This topic provides an example on how to create an availability monitoring task named `task1` in an application group named `123456`. The TaskType parameter of the task is set to `HTTP`. After you start the task, the system sends alerts by using the specified email address and DingTalk chatbot.
+     *
+     * @param request - CreateHostAvailabilityRequest
+     *
+     * @returns CreateHostAvailabilityResponse
+     *
+     * @param CreateHostAvailabilityRequest $request
+     *
+     * @return CreateHostAvailabilityResponse
      */
     public function createHostAvailability($request)
     {
@@ -888,66 +1014,82 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates a namespace.
-     *  *
-     * @description # [](#)Prerequisites
-     * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-     * # [](#)Description
-     * This topic provides an example on how to create a namespace named `aliyun`. In this example, the data retention period of the namespace is set to `cms.s1.3xlarge`. The returned result indicates that the namespace is created.
-     *  *
-     * @param CreateHybridMonitorNamespaceRequest $request CreateHybridMonitorNamespaceRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Creates a namespace.
      *
-     * @return CreateHybridMonitorNamespaceResponse CreateHybridMonitorNamespaceResponse
+     * @remarks
+     * ## [](#)Prerequisites
+     * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+     * ## [](#)Operation description
+     * This topic provides an example on how to create a namespace named `aliyun`. In this example, the data retention period of the namespace is set to `cms.s1.3xlarge`. The returned result indicates that the namespace is created.
+     *
+     * @param request - CreateHybridMonitorNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateHybridMonitorNamespaceResponse
+     *
+     * @param CreateHybridMonitorNamespaceRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateHybridMonitorNamespaceResponse
      */
     public function createHybridMonitorNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->namespaceRegion)) {
-            $query['NamespaceRegion'] = $request->namespaceRegion;
+
+        if (null !== $request->namespaceRegion) {
+            @$query['NamespaceRegion'] = $request->namespaceRegion;
         }
-        if (!Utils::isUnset($request->namespaceType)) {
-            $query['NamespaceType'] = $request->namespaceType;
+
+        if (null !== $request->namespaceType) {
+            @$query['NamespaceType'] = $request->namespaceType;
         }
-        if (!Utils::isUnset($request->spec)) {
-            $query['Spec'] = $request->spec;
+
+        if (null !== $request->spec) {
+            @$query['Spec'] = $request->spec;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateHybridMonitorNamespace',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateHybridMonitorNamespace',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateHybridMonitorNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a namespace.
-     *  *
-     * @description # [](#)Prerequisites
-     * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-     * # [](#)Description
-     * This topic provides an example on how to create a namespace named `aliyun`. In this example, the data retention period of the namespace is set to `cms.s1.3xlarge`. The returned result indicates that the namespace is created.
-     *  *
-     * @param CreateHybridMonitorNamespaceRequest $request CreateHybridMonitorNamespaceRequest
+     * Creates a namespace.
      *
-     * @return CreateHybridMonitorNamespaceResponse CreateHybridMonitorNamespaceResponse
+     * @remarks
+     * ## [](#)Prerequisites
+     * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+     * ## [](#)Operation description
+     * This topic provides an example on how to create a namespace named `aliyun`. In this example, the data retention period of the namespace is set to `cms.s1.3xlarge`. The returned result indicates that the namespace is created.
+     *
+     * @param request - CreateHybridMonitorNamespaceRequest
+     *
+     * @returns CreateHybridMonitorNamespaceResponse
+     *
+     * @param CreateHybridMonitorNamespaceRequest $request
+     *
+     * @return CreateHybridMonitorNamespaceResponse
      */
     public function createHybridMonitorNamespace($request)
     {
@@ -957,60 +1099,74 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Logstore group of Hybrid Cloud Monitoring.
-     *  *
-     * @description ## [](#)Prerequisites
-     * Simple Log Service is activated. A project and a Logstore are created in Simple Log Service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/54604.html).
-     * ## [](#)Description
-     * This topic provides an example on how to create a Logstore group named `Logstore_test`. The region ID is `cn-hangzhou`. The project is `aliyun-project`. The Logstore is `Logstore-ECS`. The response shows that the Logstore group is created.
-     *  *
-     * @param CreateHybridMonitorSLSGroupRequest $request CreateHybridMonitorSLSGroupRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Creates a Logstore group of Hybrid Cloud Monitoring.
      *
-     * @return CreateHybridMonitorSLSGroupResponse CreateHybridMonitorSLSGroupResponse
+     * @remarks
+     * ### [](#)Prerequisites
+     * Simple Log Service is activated. A project and a Logstore are created in Simple Log Service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/54604.html).
+     * ### [](#)Operation description
+     * This topic provides an example on how to create a Logstore group named `Logstore_test`. The region ID is `cn-hangzhou`. The project is `aliyun-project`. The Logstore is `Logstore-ECS`. The response shows that the Logstore group is created.
+     *
+     * @param request - CreateHybridMonitorSLSGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateHybridMonitorSLSGroupResponse
+     *
+     * @param CreateHybridMonitorSLSGroupRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateHybridMonitorSLSGroupResponse
      */
     public function createHybridMonitorSLSGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->SLSGroupConfig)) {
-            $query['SLSGroupConfig'] = $request->SLSGroupConfig;
+        if (null !== $request->SLSGroupConfig) {
+            @$query['SLSGroupConfig'] = $request->SLSGroupConfig;
         }
-        if (!Utils::isUnset($request->SLSGroupDescription)) {
-            $query['SLSGroupDescription'] = $request->SLSGroupDescription;
+
+        if (null !== $request->SLSGroupDescription) {
+            @$query['SLSGroupDescription'] = $request->SLSGroupDescription;
         }
-        if (!Utils::isUnset($request->SLSGroupName)) {
-            $query['SLSGroupName'] = $request->SLSGroupName;
+
+        if (null !== $request->SLSGroupName) {
+            @$query['SLSGroupName'] = $request->SLSGroupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateHybridMonitorSLSGroup',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateHybridMonitorSLSGroup',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateHybridMonitorSLSGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a Logstore group of Hybrid Cloud Monitoring.
-     *  *
-     * @description ## [](#)Prerequisites
-     * Simple Log Service is activated. A project and a Logstore are created in Simple Log Service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/54604.html).
-     * ## [](#)Description
-     * This topic provides an example on how to create a Logstore group named `Logstore_test`. The region ID is `cn-hangzhou`. The project is `aliyun-project`. The Logstore is `Logstore-ECS`. The response shows that the Logstore group is created.
-     *  *
-     * @param CreateHybridMonitorSLSGroupRequest $request CreateHybridMonitorSLSGroupRequest
+     * Creates a Logstore group of Hybrid Cloud Monitoring.
      *
-     * @return CreateHybridMonitorSLSGroupResponse CreateHybridMonitorSLSGroupResponse
+     * @remarks
+     * ### [](#)Prerequisites
+     * Simple Log Service is activated. A project and a Logstore are created in Simple Log Service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/54604.html).
+     * ### [](#)Operation description
+     * This topic provides an example on how to create a Logstore group named `Logstore_test`. The region ID is `cn-hangzhou`. The project is `aliyun-project`. The Logstore is `Logstore-ECS`. The response shows that the Logstore group is created.
+     *
+     * @param request - CreateHybridMonitorSLSGroupRequest
+     *
+     * @returns CreateHybridMonitorSLSGroupResponse
+     *
+     * @param CreateHybridMonitorSLSGroupRequest $request
+     *
+     * @return CreateHybridMonitorSLSGroupResponse
      */
     public function createHybridMonitorSLSGroup($request)
     {
@@ -1020,92 +1176,116 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates a metric import task for an Alibaba Cloud service or creates a metric for logs imported from Simple Log Service.
-     *  *
-     * @description # [](#)Prerequisites
+     * Creates a metric import task for an Alibaba Cloud service or creates a metric for logs imported from Simple Log Service.
+     *
+     * @remarks
+     * # [](#)Prerequisites
      * *   Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
      * *   If you want to create a metric for logs imported from Simple Log Service, make sure that you have activated Simple Log Service and created a project and a Logstore. For more information, see [Getting Started](https://help.aliyun.com/document_detail/54604.html).
      * # [](#)Description
      * This topic provides an example on how to create a metric import task named `aliyun_task` for Elastic Compute Service (ECS). The task imports the `cpu_total` metric to the `aliyun` namespace. The response shows that the metric import task is created.
-     *  *
-     * @param CreateHybridMonitorTaskRequest $request CreateHybridMonitorTaskRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHybridMonitorTaskResponse CreateHybridMonitorTaskResponse
+     * @param request - CreateHybridMonitorTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateHybridMonitorTaskResponse
+     *
+     * @param CreateHybridMonitorTaskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateHybridMonitorTaskResponse
      */
     public function createHybridMonitorTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->attachLabels)) {
-            $query['AttachLabels'] = $request->attachLabels;
+        if (null !== $request->attachLabels) {
+            @$query['AttachLabels'] = $request->attachLabels;
         }
-        if (!Utils::isUnset($request->cloudAccessId)) {
-            $query['CloudAccessId'] = $request->cloudAccessId;
+
+        if (null !== $request->cloudAccessId) {
+            @$query['CloudAccessId'] = $request->cloudAccessId;
         }
-        if (!Utils::isUnset($request->collectInterval)) {
-            $query['CollectInterval'] = $request->collectInterval;
+
+        if (null !== $request->collectInterval) {
+            @$query['CollectInterval'] = $request->collectInterval;
         }
-        if (!Utils::isUnset($request->collectTargetType)) {
-            $query['CollectTargetType'] = $request->collectTargetType;
+
+        if (null !== $request->collectTargetType) {
+            @$query['CollectTargetType'] = $request->collectTargetType;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->SLSProcessConfig)) {
-            $query['SLSProcessConfig'] = $request->SLSProcessConfig;
+
+        if (null !== $request->SLSProcessConfig) {
+            @$query['SLSProcessConfig'] = $request->SLSProcessConfig;
         }
-        if (!Utils::isUnset($request->targetUserId)) {
-            $query['TargetUserId'] = $request->targetUserId;
+
+        if (null !== $request->targetUserId) {
+            @$query['TargetUserId'] = $request->targetUserId;
         }
-        if (!Utils::isUnset($request->targetUserIdList)) {
-            $query['TargetUserIdList'] = $request->targetUserIdList;
+
+        if (null !== $request->targetUserIdList) {
+            @$query['TargetUserIdList'] = $request->targetUserIdList;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
-        if (!Utils::isUnset($request->YARMConfig)) {
-            $query['YARMConfig'] = $request->YARMConfig;
+
+        if (null !== $request->YARMConfig) {
+            @$query['YARMConfig'] = $request->YARMConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateHybridMonitorTask',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateHybridMonitorTask',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateHybridMonitorTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a metric import task for an Alibaba Cloud service or creates a metric for logs imported from Simple Log Service.
-     *  *
-     * @description # [](#)Prerequisites
+     * Creates a metric import task for an Alibaba Cloud service or creates a metric for logs imported from Simple Log Service.
+     *
+     * @remarks
+     * # [](#)Prerequisites
      * *   Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
      * *   If you want to create a metric for logs imported from Simple Log Service, make sure that you have activated Simple Log Service and created a project and a Logstore. For more information, see [Getting Started](https://help.aliyun.com/document_detail/54604.html).
      * # [](#)Description
      * This topic provides an example on how to create a metric import task named `aliyun_task` for Elastic Compute Service (ECS). The task imports the `cpu_total` metric to the `aliyun` namespace. The response shows that the metric import task is created.
-     *  *
-     * @param CreateHybridMonitorTaskRequest $request CreateHybridMonitorTaskRequest
      *
-     * @return CreateHybridMonitorTaskResponse CreateHybridMonitorTaskResponse
+     * @param request - CreateHybridMonitorTaskRequest
+     *
+     * @returns CreateHybridMonitorTaskResponse
+     *
+     * @param CreateHybridMonitorTaskRequest $request
+     *
+     * @return CreateHybridMonitorTaskResponse
      */
     public function createHybridMonitorTask($request)
     {
@@ -1115,65 +1295,82 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates an instant test task.
-     *  *
-     * @description You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
-     * This topic provides an example to show how to create an instant test task. The name of the task is `task1`. The tested address is `http://www.aliyun.com`. The test type is `HTTP`. The number of detection points is `1`.
-     *  *
-     * @param CreateInstantSiteMonitorRequest $request CreateInstantSiteMonitorRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Creates an instant test task.
      *
-     * @return CreateInstantSiteMonitorResponse CreateInstantSiteMonitorResponse
+     * @remarks
+     * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
+     * This topic provides an example to show how to create an instant test task. The name of the task is `task1`. The tested address is `http://www.aliyun.com`. The test type is `HTTP`. The number of detection points is `1`.
+     *
+     * @param request - CreateInstantSiteMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstantSiteMonitorResponse
+     *
+     * @param CreateInstantSiteMonitorRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateInstantSiteMonitorResponse
      */
     public function createInstantSiteMonitorWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->address)) {
-            $query['Address'] = $request->address;
+        if (null !== $request->address) {
+            @$query['Address'] = $request->address;
         }
-        if (!Utils::isUnset($request->ispCities)) {
-            $query['IspCities'] = $request->ispCities;
+
+        if (null !== $request->ispCities) {
+            @$query['IspCities'] = $request->ispCities;
         }
-        if (!Utils::isUnset($request->optionsJson)) {
-            $query['OptionsJson'] = $request->optionsJson;
+
+        if (null !== $request->optionsJson) {
+            @$query['OptionsJson'] = $request->optionsJson;
         }
-        if (!Utils::isUnset($request->randomIspCity)) {
-            $query['RandomIspCity'] = $request->randomIspCity;
+
+        if (null !== $request->randomIspCity) {
+            @$query['RandomIspCity'] = $request->randomIspCity;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateInstantSiteMonitor',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateInstantSiteMonitor',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateInstantSiteMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an instant test task.
-     *  *
-     * @description You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
-     * This topic provides an example to show how to create an instant test task. The name of the task is `task1`. The tested address is `http://www.aliyun.com`. The test type is `HTTP`. The number of detection points is `1`.
-     *  *
-     * @param CreateInstantSiteMonitorRequest $request CreateInstantSiteMonitorRequest
+     * Creates an instant test task.
      *
-     * @return CreateInstantSiteMonitorResponse CreateInstantSiteMonitorResponse
+     * @remarks
+     * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
+     * This topic provides an example to show how to create an instant test task. The name of the task is `task1`. The tested address is `http://www.aliyun.com`. The test type is `HTTP`. The number of detection points is `1`.
+     *
+     * @param request - CreateInstantSiteMonitorRequest
+     *
+     * @returns CreateInstantSiteMonitorResponse
+     *
+     * @param CreateInstantSiteMonitorRequest $request
+     *
+     * @return CreateInstantSiteMonitorResponse
      */
     public function createInstantSiteMonitor($request)
     {
@@ -1183,79 +1380,100 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates a blacklist policy.
-     *  *
-     * @description ### Background information
+     * Creates a blacklist policy.
+     *
+     * @remarks
+     * ### Background information
      * *   CloudMonitor blocks alert notifications based on the blacklist policies that take effect. To block alert notifications when the value of a metric that belongs to a cloud service reaches the threshold that you specified, add the metric to a blacklist policy.
      * *   CloudMonitor allows you to create blacklist policies only based on threshold metrics. You cannot create blacklist policies based on system events. For more information about the cloud services and the thresholds of the metrics that are supported by CloudMonitor, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-     *  *
-     * @param CreateMetricRuleBlackListRequest $request CreateMetricRuleBlackListRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMetricRuleBlackListResponse CreateMetricRuleBlackListResponse
+     * @param request - CreateMetricRuleBlackListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMetricRuleBlackListResponse
+     *
+     * @param CreateMetricRuleBlackListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateMetricRuleBlackListResponse
      */
     public function createMetricRuleBlackListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->effectiveTime)) {
-            $query['EffectiveTime'] = $request->effectiveTime;
+
+        if (null !== $request->effectiveTime) {
+            @$query['EffectiveTime'] = $request->effectiveTime;
         }
-        if (!Utils::isUnset($request->enableEndTime)) {
-            $query['EnableEndTime'] = $request->enableEndTime;
+
+        if (null !== $request->enableEndTime) {
+            @$query['EnableEndTime'] = $request->enableEndTime;
         }
-        if (!Utils::isUnset($request->enableStartTime)) {
-            $query['EnableStartTime'] = $request->enableStartTime;
+
+        if (null !== $request->enableStartTime) {
+            @$query['EnableStartTime'] = $request->enableStartTime;
         }
-        if (!Utils::isUnset($request->instances)) {
-            $query['Instances'] = $request->instances;
+
+        if (null !== $request->instances) {
+            @$query['Instances'] = $request->instances;
         }
-        if (!Utils::isUnset($request->metrics)) {
-            $query['Metrics'] = $request->metrics;
+
+        if (null !== $request->metrics) {
+            @$query['Metrics'] = $request->metrics;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->scopeType)) {
-            $query['ScopeType'] = $request->scopeType;
+
+        if (null !== $request->scopeType) {
+            @$query['ScopeType'] = $request->scopeType;
         }
-        if (!Utils::isUnset($request->scopeValue)) {
-            $query['ScopeValue'] = $request->scopeValue;
+
+        if (null !== $request->scopeValue) {
+            @$query['ScopeValue'] = $request->scopeValue;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMetricRuleBlackList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMetricRuleBlackList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMetricRuleBlackListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a blacklist policy.
-     *  *
-     * @description ### Background information
+     * Creates a blacklist policy.
+     *
+     * @remarks
+     * ### Background information
      * *   CloudMonitor blocks alert notifications based on the blacklist policies that take effect. To block alert notifications when the value of a metric that belongs to a cloud service reaches the threshold that you specified, add the metric to a blacklist policy.
      * *   CloudMonitor allows you to create blacklist policies only based on threshold metrics. You cannot create blacklist policies based on system events. For more information about the cloud services and the thresholds of the metrics that are supported by CloudMonitor, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-     *  *
-     * @param CreateMetricRuleBlackListRequest $request CreateMetricRuleBlackListRequest
      *
-     * @return CreateMetricRuleBlackListResponse CreateMetricRuleBlackListResponse
+     * @param request - CreateMetricRuleBlackListRequest
+     *
+     * @returns CreateMetricRuleBlackListResponse
+     *
+     * @param CreateMetricRuleBlackListRequest $request
+     *
+     * @return CreateMetricRuleBlackListResponse
      */
     public function createMetricRuleBlackList($request)
     {
@@ -1265,50 +1483,62 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Associates resources with an alert rule.
-     *  *
-     * @param CreateMetricRuleResourcesRequest $request CreateMetricRuleResourcesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Associates resources with an alert rule.
      *
-     * @return CreateMetricRuleResourcesResponse CreateMetricRuleResourcesResponse
+     * @param request - CreateMetricRuleResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMetricRuleResourcesResponse
+     *
+     * @param CreateMetricRuleResourcesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateMetricRuleResourcesResponse
      */
     public function createMetricRuleResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->overwrite)) {
-            $query['Overwrite'] = $request->overwrite;
+        if (null !== $request->overwrite) {
+            @$query['Overwrite'] = $request->overwrite;
         }
-        if (!Utils::isUnset($request->resources)) {
-            $query['Resources'] = $request->resources;
+
+        if (null !== $request->resources) {
+            @$query['Resources'] = $request->resources;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMetricRuleResources',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMetricRuleResources',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMetricRuleResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Associates resources with an alert rule.
-     *  *
-     * @param CreateMetricRuleResourcesRequest $request CreateMetricRuleResourcesRequest
+     * Associates resources with an alert rule.
      *
-     * @return CreateMetricRuleResourcesResponse CreateMetricRuleResourcesResponse
+     * @param request - CreateMetricRuleResourcesRequest
+     *
+     * @returns CreateMetricRuleResourcesResponse
+     *
+     * @param CreateMetricRuleResourcesRequest $request
+     *
+     * @return CreateMetricRuleResourcesResponse
      */
     public function createMetricRuleResources($request)
     {
@@ -1318,50 +1548,62 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates an alert template.
-     *  *
-     * @param CreateMetricRuleTemplateRequest $request CreateMetricRuleTemplateRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Creates an alert template.
      *
-     * @return CreateMetricRuleTemplateResponse CreateMetricRuleTemplateResponse
+     * @param request - CreateMetricRuleTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMetricRuleTemplateResponse
+     *
+     * @param CreateMetricRuleTemplateRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateMetricRuleTemplateResponse
      */
     public function createMetricRuleTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertTemplates)) {
-            $query['AlertTemplates'] = $request->alertTemplates;
+        if (null !== $request->alertTemplates) {
+            @$query['AlertTemplates'] = $request->alertTemplates;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMetricRuleTemplate',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMetricRuleTemplate',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMetricRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an alert template.
-     *  *
-     * @param CreateMetricRuleTemplateRequest $request CreateMetricRuleTemplateRequest
+     * Creates an alert template.
      *
-     * @return CreateMetricRuleTemplateResponse CreateMetricRuleTemplateResponse
+     * @param request - CreateMetricRuleTemplateRequest
+     *
+     * @returns CreateMetricRuleTemplateResponse
+     *
+     * @param CreateMetricRuleTemplateRequest $request
+     *
+     * @return CreateMetricRuleTemplateResponse
      */
     public function createMetricRuleTemplate($request)
     {
@@ -1371,50 +1613,62 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates a task to monitor a process.
-     *  *
-     * @param CreateMonitorAgentProcessRequest $request CreateMonitorAgentProcessRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Creates a task to monitor a process.
      *
-     * @return CreateMonitorAgentProcessResponse CreateMonitorAgentProcessResponse
+     * @param request - CreateMonitorAgentProcessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMonitorAgentProcessResponse
+     *
+     * @param CreateMonitorAgentProcessRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateMonitorAgentProcessResponse
      */
     public function createMonitorAgentProcessWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->processName)) {
-            $query['ProcessName'] = $request->processName;
+
+        if (null !== $request->processName) {
+            @$query['ProcessName'] = $request->processName;
         }
-        if (!Utils::isUnset($request->processUser)) {
-            $query['ProcessUser'] = $request->processUser;
+
+        if (null !== $request->processUser) {
+            @$query['ProcessUser'] = $request->processUser;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMonitorAgentProcess',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMonitorAgentProcess',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMonitorAgentProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a task to monitor a process.
-     *  *
-     * @param CreateMonitorAgentProcessRequest $request CreateMonitorAgentProcessRequest
+     * Creates a task to monitor a process.
      *
-     * @return CreateMonitorAgentProcessResponse CreateMonitorAgentProcessResponse
+     * @param request - CreateMonitorAgentProcessRequest
+     *
+     * @returns CreateMonitorAgentProcessResponse
+     *
+     * @param CreateMonitorAgentProcessRequest $request
+     *
+     * @return CreateMonitorAgentProcessResponse
      */
     public function createMonitorAgentProcess($request)
     {
@@ -1424,51 +1678,64 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates an application group.
-     *  *
-     * @description In this example, an application group named `ECS_Group` is created.
-     *  *
-     * @param CreateMonitorGroupRequest $request CreateMonitorGroupRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Creates an application group.
      *
-     * @return CreateMonitorGroupResponse CreateMonitorGroupResponse
+     * @remarks
+     * In this example, an application group named `ECS_Group` is created.
+     *
+     * @param request - CreateMonitorGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMonitorGroupResponse
+     *
+     * @param CreateMonitorGroupRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateMonitorGroupResponse
      */
     public function createMonitorGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactGroups)) {
-            $query['ContactGroups'] = $request->contactGroups;
+        if (null !== $request->contactGroups) {
+            @$query['ContactGroups'] = $request->contactGroups;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMonitorGroup',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMonitorGroup',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMonitorGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an application group.
-     *  *
-     * @description In this example, an application group named `ECS_Group` is created.
-     *  *
-     * @param CreateMonitorGroupRequest $request CreateMonitorGroupRequest
+     * Creates an application group.
      *
-     * @return CreateMonitorGroupResponse CreateMonitorGroupResponse
+     * @remarks
+     * In this example, an application group named `ECS_Group` is created.
+     *
+     * @param request - CreateMonitorGroupRequest
+     *
+     * @returns CreateMonitorGroupResponse
+     *
+     * @param CreateMonitorGroupRequest $request
+     *
+     * @return CreateMonitorGroupResponse
      */
     public function createMonitorGroup($request)
     {
@@ -1478,63 +1745,80 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates an application group by using a resource group.
-     *  *
-     * @description This topic provides an example on how to create an application group by using the resource group `CloudMonitor` and the alert contact group `ECS_Group`. The region ID of the resource group is `cn-hangzhou`.
-     *  *
-     * @param CreateMonitorGroupByResourceGroupIdRequest $request CreateMonitorGroupByResourceGroupIdRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * Creates an application group by using a resource group.
      *
-     * @return CreateMonitorGroupByResourceGroupIdResponse CreateMonitorGroupByResourceGroupIdResponse
+     * @remarks
+     * This topic provides an example on how to create an application group by using the resource group `CloudMonitor` and the alert contact group `ECS_Group`. The region ID of the resource group is `cn-hangzhou`.
+     *
+     * @param request - CreateMonitorGroupByResourceGroupIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMonitorGroupByResourceGroupIdResponse
+     *
+     * @param CreateMonitorGroupByResourceGroupIdRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return CreateMonitorGroupByResourceGroupIdResponse
      */
     public function createMonitorGroupByResourceGroupIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactGroupList)) {
-            $query['ContactGroupList'] = $request->contactGroupList;
+        if (null !== $request->contactGroupList) {
+            @$query['ContactGroupList'] = $request->contactGroupList;
         }
-        if (!Utils::isUnset($request->enableInstallAgent)) {
-            $query['EnableInstallAgent'] = $request->enableInstallAgent;
+
+        if (null !== $request->enableInstallAgent) {
+            @$query['EnableInstallAgent'] = $request->enableInstallAgent;
         }
-        if (!Utils::isUnset($request->enableSubscribeEvent)) {
-            $query['EnableSubscribeEvent'] = $request->enableSubscribeEvent;
+
+        if (null !== $request->enableSubscribeEvent) {
+            @$query['EnableSubscribeEvent'] = $request->enableSubscribeEvent;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceGroupName)) {
-            $query['ResourceGroupName'] = $request->resourceGroupName;
+
+        if (null !== $request->resourceGroupName) {
+            @$query['ResourceGroupName'] = $request->resourceGroupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMonitorGroupByResourceGroupId',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMonitorGroupByResourceGroupId',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMonitorGroupByResourceGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an application group by using a resource group.
-     *  *
-     * @description This topic provides an example on how to create an application group by using the resource group `CloudMonitor` and the alert contact group `ECS_Group`. The region ID of the resource group is `cn-hangzhou`.
-     *  *
-     * @param CreateMonitorGroupByResourceGroupIdRequest $request CreateMonitorGroupByResourceGroupIdRequest
+     * Creates an application group by using a resource group.
      *
-     * @return CreateMonitorGroupByResourceGroupIdResponse CreateMonitorGroupByResourceGroupIdResponse
+     * @remarks
+     * This topic provides an example on how to create an application group by using the resource group `CloudMonitor` and the alert contact group `ECS_Group`. The region ID of the resource group is `cn-hangzhou`.
+     *
+     * @param request - CreateMonitorGroupByResourceGroupIdRequest
+     *
+     * @returns CreateMonitorGroupByResourceGroupIdResponse
+     *
+     * @param CreateMonitorGroupByResourceGroupIdRequest $request
+     *
+     * @return CreateMonitorGroupByResourceGroupIdResponse
      */
     public function createMonitorGroupByResourceGroupId($request)
     {
@@ -1544,53 +1828,66 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Adds resources to an application group.
-     *  *
-     * @description You can add a maximum of 1,000 instances to an application group at a time. You can add a maximum of 3,000 instances of an Alibaba Cloud service to an application group. The total number of instances that you can add to an application group is unlimited.
-     * In this example, an Elastic Compute Service (ECS) instance in the `China (Hangzhou)` region is added to the `3607****` application group. The instance ID is `i-2ze26xj5wwy12****` and the instance name is `test-instance-ecs`.
-     *  *
-     * @param CreateMonitorGroupInstancesRequest $request CreateMonitorGroupInstancesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Adds resources to an application group.
      *
-     * @return CreateMonitorGroupInstancesResponse CreateMonitorGroupInstancesResponse
+     * @remarks
+     * You can add a maximum of 1,000 instances to an application group at a time. You can add a maximum of 3,000 instances of an Alibaba Cloud service to an application group. The total number of instances that you can add to an application group is unlimited.
+     * In this example, an Elastic Compute Service (ECS) instance in the `China (Hangzhou)` region is added to the `3607****` application group. The instance ID is `i-2ze26xj5wwy12****` and the instance name is `test-instance-ecs`.
+     *
+     * @param request - CreateMonitorGroupInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMonitorGroupInstancesResponse
+     *
+     * @param CreateMonitorGroupInstancesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateMonitorGroupInstancesResponse
      */
     public function createMonitorGroupInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->instances)) {
-            $query['Instances'] = $request->instances;
+
+        if (null !== $request->instances) {
+            @$query['Instances'] = $request->instances;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMonitorGroupInstances',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMonitorGroupInstances',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMonitorGroupInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds resources to an application group.
-     *  *
-     * @description You can add a maximum of 1,000 instances to an application group at a time. You can add a maximum of 3,000 instances of an Alibaba Cloud service to an application group. The total number of instances that you can add to an application group is unlimited.
-     * In this example, an Elastic Compute Service (ECS) instance in the `China (Hangzhou)` region is added to the `3607****` application group. The instance ID is `i-2ze26xj5wwy12****` and the instance name is `test-instance-ecs`.
-     *  *
-     * @param CreateMonitorGroupInstancesRequest $request CreateMonitorGroupInstancesRequest
+     * Adds resources to an application group.
      *
-     * @return CreateMonitorGroupInstancesResponse CreateMonitorGroupInstancesResponse
+     * @remarks
+     * You can add a maximum of 1,000 instances to an application group at a time. You can add a maximum of 3,000 instances of an Alibaba Cloud service to an application group. The total number of instances that you can add to an application group is unlimited.
+     * In this example, an Elastic Compute Service (ECS) instance in the `China (Hangzhou)` region is added to the `3607****` application group. The instance ID is `i-2ze26xj5wwy12****` and the instance name is `test-instance-ecs`.
+     *
+     * @param request - CreateMonitorGroupInstancesRequest
+     *
+     * @returns CreateMonitorGroupInstancesResponse
+     *
+     * @param CreateMonitorGroupInstancesRequest $request
+     *
+     * @return CreateMonitorGroupInstancesResponse
      */
     public function createMonitorGroupInstances($request)
     {
@@ -1600,59 +1897,74 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates a policy to pause alert notifications for an application group.
-     *  *
-     * @description If the policy is valid, no alert notifications are sent for the application group.
-     * This topic describes how to create the `PauseNotify` policy to pause alert notifications for the `7301****` application group. The StartTime parameter is set to `1622949300000` and the EndTime parameter is set to `1623208500000`. This indicates that the policy is valid from `2021-06-06 11:15:00 UTC+8` to `2021-06-09 11:15:00 UTC+8`.
-     *  *
-     * @param CreateMonitorGroupNotifyPolicyRequest $request CreateMonitorGroupNotifyPolicyRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Creates a policy to pause alert notifications for an application group.
      *
-     * @return CreateMonitorGroupNotifyPolicyResponse CreateMonitorGroupNotifyPolicyResponse
+     * @remarks
+     * If the policy is valid, no alert notifications are sent for the application group.
+     * This topic describes how to create a `PauseNotify` policy to pause alert notifications for the `7301****` application group. The StartTime parameter is set to `1622949300000` and the EndTime parameter is set to `1623208500000`. This indicates that the policy is valid from `2021-06-06 11:15:00 UTC+8` to `2021-06-09 11:15:00 UTC+8`.
+     *
+     * @param request - CreateMonitorGroupNotifyPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMonitorGroupNotifyPolicyResponse
+     *
+     * @param CreateMonitorGroupNotifyPolicyRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreateMonitorGroupNotifyPolicyResponse
      */
     public function createMonitorGroupNotifyPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMonitorGroupNotifyPolicy',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMonitorGroupNotifyPolicy',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMonitorGroupNotifyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a policy to pause alert notifications for an application group.
-     *  *
-     * @description If the policy is valid, no alert notifications are sent for the application group.
-     * This topic describes how to create the `PauseNotify` policy to pause alert notifications for the `7301****` application group. The StartTime parameter is set to `1622949300000` and the EndTime parameter is set to `1623208500000`. This indicates that the policy is valid from `2021-06-06 11:15:00 UTC+8` to `2021-06-09 11:15:00 UTC+8`.
-     *  *
-     * @param CreateMonitorGroupNotifyPolicyRequest $request CreateMonitorGroupNotifyPolicyRequest
+     * Creates a policy to pause alert notifications for an application group.
      *
-     * @return CreateMonitorGroupNotifyPolicyResponse CreateMonitorGroupNotifyPolicyResponse
+     * @remarks
+     * If the policy is valid, no alert notifications are sent for the application group.
+     * This topic describes how to create a `PauseNotify` policy to pause alert notifications for the `7301****` application group. The StartTime parameter is set to `1622949300000` and the EndTime parameter is set to `1623208500000`. This indicates that the policy is valid from `2021-06-06 11:15:00 UTC+8` to `2021-06-09 11:15:00 UTC+8`.
+     *
+     * @param request - CreateMonitorGroupNotifyPolicyRequest
+     *
+     * @returns CreateMonitorGroupNotifyPolicyResponse
+     *
+     * @param CreateMonitorGroupNotifyPolicyRequest $request
+     *
+     * @return CreateMonitorGroupNotifyPolicyResponse
      */
     public function createMonitorGroupNotifyPolicy($request)
     {
@@ -1662,50 +1974,62 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates a task to monitor a specified process.
-     *  *
-     * @param CreateMonitoringAgentProcessRequest $request CreateMonitoringAgentProcessRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Creates a task to monitor a process.
      *
-     * @return CreateMonitoringAgentProcessResponse CreateMonitoringAgentProcessResponse
+     * @param request - CreateMonitoringAgentProcessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateMonitoringAgentProcessResponse
+     *
+     * @param CreateMonitoringAgentProcessRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateMonitoringAgentProcessResponse
      */
     public function createMonitoringAgentProcessWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->processName)) {
-            $query['ProcessName'] = $request->processName;
+
+        if (null !== $request->processName) {
+            @$query['ProcessName'] = $request->processName;
         }
-        if (!Utils::isUnset($request->processUser)) {
-            $query['ProcessUser'] = $request->processUser;
+
+        if (null !== $request->processUser) {
+            @$query['ProcessUser'] = $request->processUser;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMonitoringAgentProcess',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMonitoringAgentProcess',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateMonitoringAgentProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a task to monitor a specified process.
-     *  *
-     * @param CreateMonitoringAgentProcessRequest $request CreateMonitoringAgentProcessRequest
+     * Creates a task to monitor a process.
      *
-     * @return CreateMonitoringAgentProcessResponse CreateMonitoringAgentProcessResponse
+     * @param request - CreateMonitoringAgentProcessRequest
+     *
+     * @returns CreateMonitoringAgentProcessResponse
+     *
+     * @param CreateMonitoringAgentProcessRequest $request
+     *
+     * @return CreateMonitoringAgentProcessResponse
      */
     public function createMonitoringAgentProcess($request)
     {
@@ -1715,72 +2039,92 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates a site monitoring task.
-     *  *
-     * @description This topic provides an example on how to create a site monitoring task named `HanZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTPS`.
-     *  *
-     * @param CreateSiteMonitorRequest $request CreateSiteMonitorRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates a site monitoring task.
      *
-     * @return CreateSiteMonitorResponse CreateSiteMonitorResponse
+     * @remarks
+     * This topic provides an example on how to create a site monitoring task named `HanZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTPS`.
+     *
+     * @param request - CreateSiteMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateSiteMonitorResponse
+     *
+     * @param CreateSiteMonitorRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateSiteMonitorResponse
      */
     public function createSiteMonitorWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->address)) {
-            $query['Address'] = $request->address;
+        if (null !== $request->address) {
+            @$query['Address'] = $request->address;
         }
-        if (!Utils::isUnset($request->alertIds)) {
-            $query['AlertIds'] = $request->alertIds;
+
+        if (null !== $request->alertIds) {
+            @$query['AlertIds'] = $request->alertIds;
         }
-        if (!Utils::isUnset($request->customSchedule)) {
-            $query['CustomSchedule'] = $request->customSchedule;
+
+        if (null !== $request->customSchedule) {
+            @$query['CustomSchedule'] = $request->customSchedule;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ispCities)) {
-            $query['IspCities'] = $request->ispCities;
+
+        if (null !== $request->ispCities) {
+            @$query['IspCities'] = $request->ispCities;
         }
-        if (!Utils::isUnset($request->optionsJson)) {
-            $query['OptionsJson'] = $request->optionsJson;
+
+        if (null !== $request->optionsJson) {
+            @$query['OptionsJson'] = $request->optionsJson;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
-        if (!Utils::isUnset($request->vpcConfig)) {
-            $query['VpcConfig'] = $request->vpcConfig;
+
+        if (null !== $request->vpcConfig) {
+            @$query['VpcConfig'] = $request->vpcConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSiteMonitor',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSiteMonitor',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CreateSiteMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a site monitoring task.
-     *  *
-     * @description This topic provides an example on how to create a site monitoring task named `HanZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTPS`.
-     *  *
-     * @param CreateSiteMonitorRequest $request CreateSiteMonitorRequest
+     * Creates a site monitoring task.
      *
-     * @return CreateSiteMonitorResponse CreateSiteMonitorResponse
+     * @remarks
+     * This topic provides an example on how to create a site monitoring task named `HanZhou_ECS1`. The URL that is monitored by the task is `https://www.aliyun.com` and the type of the task is `HTTPS`.
+     *
+     * @param request - CreateSiteMonitorRequest
+     *
+     * @returns CreateSiteMonitorResponse
+     *
+     * @param CreateSiteMonitorRequest $request
+     *
+     * @return CreateSiteMonitorResponse
      */
     public function createSiteMonitor($request)
     {
@@ -1790,78 +2134,96 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Defines the range of monitoring data that you want to export. The Cursor information is returned. When you call the BatchExport operation for the first time, you must specify the Cursor information.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Defines the range of monitoring data that you want to export. The Cursor information is returned. When you call the BatchExport operation for the first time, you must specify the Cursor information.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
      * ### [](#)Background information
      * You can call this operation to obtain the Cursor information and then call the [BatchExport](https://help.aliyun.com/document_detail/2329847.html) operation to export the monitoring data.
      * ### [](#)Description
      * This topic provides an example on how to define the monitoring data of a specified metric for a specified cloud service. In this example, the namespace of the cloud service is set to `acs_ecs_dashboard`, the metric is set to `cpu_idle`, the start time is set to `1641627000000`, and the end time is set to `1641645000000`. The number of idle CPU cores on your Elastic Compute Service (ECS) instances is measured every 60 seconds from 15:30:00, January 8, 2022 to 20:30:00, January 8, 2022. The `Cursor` information is returned.
-     *  *
-     * @param CursorRequest  $tmpReq  CursorRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return CursorResponse CursorResponse
+     * @param tmpReq - CursorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CursorResponse
+     *
+     * @param CursorRequest  $tmpReq
+     * @param RuntimeOptions $runtime
+     *
+     * @return CursorResponse
      */
     public function cursorWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CursorShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->matchers)) {
-            $request->matchersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->matchers, 'Matchers', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->matchers) {
+            $request->matchersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->matchers, 'Matchers', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->matchersShrink)) {
-            $body['Matchers'] = $request->matchersShrink;
+
+        if (null !== $request->matchersShrink) {
+            @$body['Matchers'] = $request->matchersShrink;
         }
-        if (!Utils::isUnset($request->metric)) {
-            $body['Metric'] = $request->metric;
+
+        if (null !== $request->metric) {
+            @$body['Metric'] = $request->metric;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $body['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$body['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->period)) {
-            $body['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$body['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'Cursor',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Cursor',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return CursorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Defines the range of monitoring data that you want to export. The Cursor information is returned. When you call the BatchExport operation for the first time, you must specify the Cursor information.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Defines the range of monitoring data that you want to export. The Cursor information is returned. When you call the BatchExport operation for the first time, you must specify the Cursor information.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
      * ### [](#)Background information
      * You can call this operation to obtain the Cursor information and then call the [BatchExport](https://help.aliyun.com/document_detail/2329847.html) operation to export the monitoring data.
      * ### [](#)Description
      * This topic provides an example on how to define the monitoring data of a specified metric for a specified cloud service. In this example, the namespace of the cloud service is set to `acs_ecs_dashboard`, the metric is set to `cpu_idle`, the start time is set to `1641627000000`, and the end time is set to `1641645000000`. The number of idle CPU cores on your Elastic Compute Service (ECS) instances is measured every 60 seconds from 15:30:00, January 8, 2022 to 20:30:00, January 8, 2022. The `Cursor` information is returned.
-     *  *
-     * @param CursorRequest $request CursorRequest
      *
-     * @return CursorResponse CursorResponse
+     * @param request - CursorRequest
+     *
+     * @returns CursorResponse
+     *
+     * @param CursorRequest $request
+     *
+     * @return CursorResponse
      */
     public function cursor($request)
     {
@@ -1871,44 +2233,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an alert contact.
-     *  *
-     * @param DeleteContactRequest $request DeleteContactRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes an alert contact.
      *
-     * @return DeleteContactResponse DeleteContactResponse
+     * @param request - DeleteContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteContactResponse
+     *
+     * @param DeleteContactRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteContactResponse
      */
     public function deleteContactWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactName)) {
-            $query['ContactName'] = $request->contactName;
+        if (null !== $request->contactName) {
+            @$query['ContactName'] = $request->contactName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteContact',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteContact',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteContactResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an alert contact.
-     *  *
-     * @param DeleteContactRequest $request DeleteContactRequest
+     * Deletes an alert contact.
      *
-     * @return DeleteContactResponse DeleteContactResponse
+     * @param request - DeleteContactRequest
+     *
+     * @returns DeleteContactResponse
+     *
+     * @param DeleteContactRequest $request
+     *
+     * @return DeleteContactResponse
      */
     public function deleteContact($request)
     {
@@ -1918,44 +2290,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an alert group.
-     *  *
-     * @param DeleteContactGroupRequest $request DeleteContactGroupRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes an alert contact group.
      *
-     * @return DeleteContactGroupResponse DeleteContactGroupResponse
+     * @param request - DeleteContactGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteContactGroupResponse
+     *
+     * @param DeleteContactGroupRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteContactGroupResponse
      */
     public function deleteContactGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactGroupName)) {
-            $query['ContactGroupName'] = $request->contactGroupName;
+        if (null !== $request->contactGroupName) {
+            @$query['ContactGroupName'] = $request->contactGroupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteContactGroup',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteContactGroup',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an alert group.
-     *  *
-     * @param DeleteContactGroupRequest $request DeleteContactGroupRequest
+     * Deletes an alert contact group.
      *
-     * @return DeleteContactGroupResponse DeleteContactGroupResponse
+     * @param request - DeleteContactGroupRequest
+     *
+     * @returns DeleteContactGroupResponse
+     *
+     * @param DeleteContactGroupRequest $request
+     *
+     * @return DeleteContactGroupResponse
      */
     public function deleteContactGroup($request)
     {
@@ -1965,53 +2347,66 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the reported monitoring data of a metric.
-     *  *
-     * @param DeleteCustomMetricRequest $request DeleteCustomMetricRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes the reported monitoring data of a metric.
      *
-     * @return DeleteCustomMetricResponse DeleteCustomMetricResponse
+     * @param request - DeleteCustomMetricRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteCustomMetricResponse
+     *
+     * @param DeleteCustomMetricRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteCustomMetricResponse
      */
     public function deleteCustomMetricWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->md5)) {
-            $query['Md5'] = $request->md5;
+
+        if (null !== $request->md5) {
+            @$query['Md5'] = $request->md5;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->UUID)) {
-            $query['UUID'] = $request->UUID;
+
+        if (null !== $request->UUID) {
+            @$query['UUID'] = $request->UUID;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCustomMetric',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCustomMetric',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteCustomMetricResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the reported monitoring data of a metric.
-     *  *
-     * @param DeleteCustomMetricRequest $request DeleteCustomMetricRequest
+     * Deletes the reported monitoring data of a metric.
      *
-     * @return DeleteCustomMetricResponse DeleteCustomMetricResponse
+     * @param request - DeleteCustomMetricRequest
+     *
+     * @returns DeleteCustomMetricResponse
+     *
+     * @param DeleteCustomMetricRequest $request
+     *
+     * @return DeleteCustomMetricResponse
      */
     public function deleteCustomMetric($request)
     {
@@ -2021,44 +2416,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a tag rule.
-     *  *
-     * @param DeleteDynamicTagGroupRequest $request DeleteDynamicTagGroupRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Deletes a tag rule.
      *
-     * @return DeleteDynamicTagGroupResponse DeleteDynamicTagGroupResponse
+     * @param request - DeleteDynamicTagGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDynamicTagGroupResponse
+     *
+     * @param DeleteDynamicTagGroupRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteDynamicTagGroupResponse
      */
     public function deleteDynamicTagGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dynamicTagRuleId)) {
-            $query['DynamicTagRuleId'] = $request->dynamicTagRuleId;
+        if (null !== $request->dynamicTagRuleId) {
+            @$query['DynamicTagRuleId'] = $request->dynamicTagRuleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDynamicTagGroup',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDynamicTagGroup',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteDynamicTagGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a tag rule.
-     *  *
-     * @param DeleteDynamicTagGroupRequest $request DeleteDynamicTagGroupRequest
+     * Deletes a tag rule.
      *
-     * @return DeleteDynamicTagGroupResponse DeleteDynamicTagGroupResponse
+     * @param request - DeleteDynamicTagGroupRequest
+     *
+     * @returns DeleteDynamicTagGroupResponse
+     *
+     * @param DeleteDynamicTagGroupRequest $request
+     *
+     * @return DeleteDynamicTagGroupResponse
      */
     public function deleteDynamicTagGroup($request)
     {
@@ -2068,47 +2473,58 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the push channels of an event-triggered alert rule.
-     *  *
-     * @param DeleteEventRuleTargetsRequest $request DeleteEventRuleTargetsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Deletes the push channels of an event-triggered alert rule.
      *
-     * @return DeleteEventRuleTargetsResponse DeleteEventRuleTargetsResponse
+     * @param request - DeleteEventRuleTargetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEventRuleTargetsResponse
+     *
+     * @param DeleteEventRuleTargetsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteEventRuleTargetsResponse
      */
     public function deleteEventRuleTargetsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ids)) {
-            $query['Ids'] = $request->ids;
+        if (null !== $request->ids) {
+            @$query['Ids'] = $request->ids;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteEventRuleTargets',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteEventRuleTargets',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteEventRuleTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the push channels of an event-triggered alert rule.
-     *  *
-     * @param DeleteEventRuleTargetsRequest $request DeleteEventRuleTargetsRequest
+     * Deletes the push channels of an event-triggered alert rule.
      *
-     * @return DeleteEventRuleTargetsResponse DeleteEventRuleTargetsResponse
+     * @param request - DeleteEventRuleTargetsRequest
+     *
+     * @returns DeleteEventRuleTargetsResponse
+     *
+     * @param DeleteEventRuleTargetsRequest $request
+     *
+     * @return DeleteEventRuleTargetsResponse
      */
     public function deleteEventRuleTargets($request)
     {
@@ -2118,44 +2534,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more event-triggered alert rules.
-     *  *
-     * @param DeleteEventRulesRequest $request DeleteEventRulesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Deletes event-triggered alert rules.
      *
-     * @return DeleteEventRulesResponse DeleteEventRulesResponse
+     * @param request - DeleteEventRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEventRulesResponse
+     *
+     * @param DeleteEventRulesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteEventRulesResponse
      */
     public function deleteEventRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ruleNames)) {
-            $query['RuleNames'] = $request->ruleNames;
+        if (null !== $request->ruleNames) {
+            @$query['RuleNames'] = $request->ruleNames;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteEventRules',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteEventRules',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteEventRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes one or more event-triggered alert rules.
-     *  *
-     * @param DeleteEventRulesRequest $request DeleteEventRulesRequest
+     * Deletes event-triggered alert rules.
      *
-     * @return DeleteEventRulesResponse DeleteEventRulesResponse
+     * @param request - DeleteEventRulesRequest
+     *
+     * @returns DeleteEventRulesResponse
+     *
+     * @param DeleteEventRulesRequest $request
+     *
+     * @return DeleteEventRulesResponse
      */
     public function deleteEventRules($request)
     {
@@ -2165,44 +2591,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a configuration set that is used to export monitoring data.
-     *  *
-     * @param DeleteExporterOutputRequest $request DeleteExporterOutputRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Deletes a configuration set that is used to export monitoring data.
      *
-     * @return DeleteExporterOutputResponse DeleteExporterOutputResponse
+     * @param request - DeleteExporterOutputRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteExporterOutputResponse
+     *
+     * @param DeleteExporterOutputRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteExporterOutputResponse
      */
     public function deleteExporterOutputWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->destName)) {
-            $query['DestName'] = $request->destName;
+        if (null !== $request->destName) {
+            @$query['DestName'] = $request->destName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteExporterOutput',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteExporterOutput',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteExporterOutputResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a configuration set that is used to export monitoring data.
-     *  *
-     * @param DeleteExporterOutputRequest $request DeleteExporterOutputRequest
+     * Deletes a configuration set that is used to export monitoring data.
      *
-     * @return DeleteExporterOutputResponse DeleteExporterOutputResponse
+     * @param request - DeleteExporterOutputRequest
+     *
+     * @returns DeleteExporterOutputResponse
+     *
+     * @param DeleteExporterOutputRequest $request
+     *
+     * @return DeleteExporterOutputResponse
      */
     public function deleteExporterOutput($request)
     {
@@ -2212,44 +2648,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a data export rule.
-     *  *
-     * @param DeleteExporterRuleRequest $request DeleteExporterRuleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes a data export rule.
      *
-     * @return DeleteExporterRuleResponse DeleteExporterRuleResponse
+     * @param request - DeleteExporterRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteExporterRuleResponse
+     *
+     * @param DeleteExporterRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteExporterRuleResponse
      */
     public function deleteExporterRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteExporterRule',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteExporterRule',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteExporterRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a data export rule.
-     *  *
-     * @param DeleteExporterRuleRequest $request DeleteExporterRuleRequest
+     * Deletes a data export rule.
      *
-     * @return DeleteExporterRuleResponse DeleteExporterRuleResponse
+     * @param request - DeleteExporterRuleRequest
+     *
+     * @returns DeleteExporterRuleResponse
+     *
+     * @param DeleteExporterRuleRequest $request
+     *
+     * @return DeleteExporterRuleResponse
      */
     public function deleteExporterRule($request)
     {
@@ -2259,47 +2705,58 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a process monitoring task for an application group.
-     *  *
-     * @param DeleteGroupMonitoringAgentProcessRequest $request DeleteGroupMonitoringAgentProcessRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Deletes a process monitoring task for an application group.
      *
-     * @return DeleteGroupMonitoringAgentProcessResponse DeleteGroupMonitoringAgentProcessResponse
+     * @param request - DeleteGroupMonitoringAgentProcessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGroupMonitoringAgentProcessResponse
+     *
+     * @param DeleteGroupMonitoringAgentProcessRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DeleteGroupMonitoringAgentProcessResponse
      */
     public function deleteGroupMonitoringAgentProcessWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteGroupMonitoringAgentProcess',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteGroupMonitoringAgentProcess',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteGroupMonitoringAgentProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a process monitoring task for an application group.
-     *  *
-     * @param DeleteGroupMonitoringAgentProcessRequest $request DeleteGroupMonitoringAgentProcessRequest
+     * Deletes a process monitoring task for an application group.
      *
-     * @return DeleteGroupMonitoringAgentProcessResponse DeleteGroupMonitoringAgentProcessResponse
+     * @param request - DeleteGroupMonitoringAgentProcessRequest
+     *
+     * @returns DeleteGroupMonitoringAgentProcessResponse
+     *
+     * @param DeleteGroupMonitoringAgentProcessRequest $request
+     *
+     * @return DeleteGroupMonitoringAgentProcessResponse
      */
     public function deleteGroupMonitoringAgentProcess($request)
     {
@@ -2309,44 +2766,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more availability monitoring tasks.
-     *  *
-     * @param DeleteHostAvailabilityRequest $request DeleteHostAvailabilityRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Deletes availability monitoring tasks.
      *
-     * @return DeleteHostAvailabilityResponse DeleteHostAvailabilityResponse
+     * @param request - DeleteHostAvailabilityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteHostAvailabilityResponse
+     *
+     * @param DeleteHostAvailabilityRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteHostAvailabilityResponse
      */
     public function deleteHostAvailabilityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteHostAvailability',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteHostAvailability',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteHostAvailabilityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes one or more availability monitoring tasks.
-     *  *
-     * @param DeleteHostAvailabilityRequest $request DeleteHostAvailabilityRequest
+     * Deletes availability monitoring tasks.
      *
-     * @return DeleteHostAvailabilityResponse DeleteHostAvailabilityResponse
+     * @param request - DeleteHostAvailabilityRequest
+     *
+     * @returns DeleteHostAvailabilityResponse
+     *
+     * @param DeleteHostAvailabilityRequest $request
+     *
+     * @return DeleteHostAvailabilityResponse
      */
     public function deleteHostAvailability($request)
     {
@@ -2356,50 +2823,62 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a namespace.
-     *  *
-     * @description > If a metric import task is created for metrics in a namespace, you cannot delete the namespace unless you delete the task first.
-     * This topic provides an example on how to delete a namespace named `aliyun`. The response shows that the namespace is deleted.
-     *  *
-     * @param DeleteHybridMonitorNamespaceRequest $request DeleteHybridMonitorNamespaceRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Deletes a namespace.
      *
-     * @return DeleteHybridMonitorNamespaceResponse DeleteHybridMonitorNamespaceResponse
+     * @remarks
+     * > If a metric import task is created for metrics in a namespace, you cannot delete the namespace unless you delete the task first.
+     * This topic provides an example on how to delete a namespace named `aliyun`. The response shows that the namespace is deleted.
+     *
+     * @param request - DeleteHybridMonitorNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteHybridMonitorNamespaceResponse
+     *
+     * @param DeleteHybridMonitorNamespaceRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteHybridMonitorNamespaceResponse
      */
     public function deleteHybridMonitorNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteHybridMonitorNamespace',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteHybridMonitorNamespace',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteHybridMonitorNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a namespace.
-     *  *
-     * @description > If a metric import task is created for metrics in a namespace, you cannot delete the namespace unless you delete the task first.
-     * This topic provides an example on how to delete a namespace named `aliyun`. The response shows that the namespace is deleted.
-     *  *
-     * @param DeleteHybridMonitorNamespaceRequest $request DeleteHybridMonitorNamespaceRequest
+     * Deletes a namespace.
      *
-     * @return DeleteHybridMonitorNamespaceResponse DeleteHybridMonitorNamespaceResponse
+     * @remarks
+     * > If a metric import task is created for metrics in a namespace, you cannot delete the namespace unless you delete the task first.
+     * This topic provides an example on how to delete a namespace named `aliyun`. The response shows that the namespace is deleted.
+     *
+     * @param request - DeleteHybridMonitorNamespaceRequest
+     *
+     * @returns DeleteHybridMonitorNamespaceResponse
+     *
+     * @param DeleteHybridMonitorNamespaceRequest $request
+     *
+     * @return DeleteHybridMonitorNamespaceResponse
      */
     public function deleteHybridMonitorNamespace($request)
     {
@@ -2409,48 +2888,60 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a Logstore group.
-     *  *
-     * @description This topic provides an example on how to delete a Logstore group named `Logstore_test`. The response shows that the Logstore group is deleted.
-     *  *
-     * @param DeleteHybridMonitorSLSGroupRequest $request DeleteHybridMonitorSLSGroupRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Deletes a Logstore group.
      *
-     * @return DeleteHybridMonitorSLSGroupResponse DeleteHybridMonitorSLSGroupResponse
+     * @remarks
+     * This topic provides an example on how to delete a Logstore group named `Logstore_test`. The response shows that the Logstore group is deleted.
+     *
+     * @param request - DeleteHybridMonitorSLSGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteHybridMonitorSLSGroupResponse
+     *
+     * @param DeleteHybridMonitorSLSGroupRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteHybridMonitorSLSGroupResponse
      */
     public function deleteHybridMonitorSLSGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->SLSGroupName)) {
-            $query['SLSGroupName'] = $request->SLSGroupName;
+        if (null !== $request->SLSGroupName) {
+            @$query['SLSGroupName'] = $request->SLSGroupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteHybridMonitorSLSGroup',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteHybridMonitorSLSGroup',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteHybridMonitorSLSGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a Logstore group.
-     *  *
-     * @description This topic provides an example on how to delete a Logstore group named `Logstore_test`. The response shows that the Logstore group is deleted.
-     *  *
-     * @param DeleteHybridMonitorSLSGroupRequest $request DeleteHybridMonitorSLSGroupRequest
+     * Deletes a Logstore group.
      *
-     * @return DeleteHybridMonitorSLSGroupResponse DeleteHybridMonitorSLSGroupResponse
+     * @remarks
+     * This topic provides an example on how to delete a Logstore group named `Logstore_test`. The response shows that the Logstore group is deleted.
+     *
+     * @param request - DeleteHybridMonitorSLSGroupRequest
+     *
+     * @returns DeleteHybridMonitorSLSGroupResponse
+     *
+     * @param DeleteHybridMonitorSLSGroupRequest $request
+     *
+     * @return DeleteHybridMonitorSLSGroupResponse
      */
     public function deleteHybridMonitorSLSGroup($request)
     {
@@ -2460,54 +2951,68 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a metric import task for Alibaba Cloud services or a metric for the logs that are imported from Log Service.
-     *  *
-     * @description This topic provides an example on how to delete a metric import task whose ID is `36****`. The returned result indicates that the metric import task is deleted.
-     *  *
-     * @param DeleteHybridMonitorTaskRequest $request DeleteHybridMonitorTaskRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Deletes a metric import task for Alibaba Cloud services or a metric for the logs that are imported from Log Service.
      *
-     * @return DeleteHybridMonitorTaskResponse DeleteHybridMonitorTaskResponse
+     * @remarks
+     * This topic provides an example on how to delete a metric import task whose ID is `36****`. The returned result indicates that the metric import task is deleted.
+     *
+     * @param request - DeleteHybridMonitorTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteHybridMonitorTaskResponse
+     *
+     * @param DeleteHybridMonitorTaskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteHybridMonitorTaskResponse
      */
     public function deleteHybridMonitorTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->targetUserId)) {
-            $query['TargetUserId'] = $request->targetUserId;
+
+        if (null !== $request->targetUserId) {
+            @$query['TargetUserId'] = $request->targetUserId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteHybridMonitorTask',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteHybridMonitorTask',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteHybridMonitorTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a metric import task for Alibaba Cloud services or a metric for the logs that are imported from Log Service.
-     *  *
-     * @description This topic provides an example on how to delete a metric import task whose ID is `36****`. The returned result indicates that the metric import task is deleted.
-     *  *
-     * @param DeleteHybridMonitorTaskRequest $request DeleteHybridMonitorTaskRequest
+     * Deletes a metric import task for Alibaba Cloud services or a metric for the logs that are imported from Log Service.
      *
-     * @return DeleteHybridMonitorTaskResponse DeleteHybridMonitorTaskResponse
+     * @remarks
+     * This topic provides an example on how to delete a metric import task whose ID is `36****`. The returned result indicates that the metric import task is deleted.
+     *
+     * @param request - DeleteHybridMonitorTaskRequest
+     *
+     * @returns DeleteHybridMonitorTaskResponse
+     *
+     * @param DeleteHybridMonitorTaskRequest $request
+     *
+     * @return DeleteHybridMonitorTaskResponse
      */
     public function deleteHybridMonitorTask($request)
     {
@@ -2517,44 +3022,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a log monitoring metric.
-     *  *
-     * @param DeleteLogMonitorRequest $request DeleteLogMonitorRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Deletes a log monitoring metric.
      *
-     * @return DeleteLogMonitorResponse DeleteLogMonitorResponse
+     * @param request - DeleteLogMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteLogMonitorResponse
+     *
+     * @param DeleteLogMonitorRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteLogMonitorResponse
      */
     public function deleteLogMonitorWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->logId)) {
-            $query['LogId'] = $request->logId;
+        if (null !== $request->logId) {
+            @$query['LogId'] = $request->logId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteLogMonitor',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteLogMonitor',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteLogMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a log monitoring metric.
-     *  *
-     * @param DeleteLogMonitorRequest $request DeleteLogMonitorRequest
+     * Deletes a log monitoring metric.
      *
-     * @return DeleteLogMonitorResponse DeleteLogMonitorResponse
+     * @param request - DeleteLogMonitorRequest
+     *
+     * @returns DeleteLogMonitorResponse
+     *
+     * @param DeleteLogMonitorRequest $request
+     *
+     * @return DeleteLogMonitorResponse
      */
     public function deleteLogMonitor($request)
     {
@@ -2564,44 +3079,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes multiple blacklist policies at a time.
-     *  *
-     * @param DeleteMetricRuleBlackListRequest $request DeleteMetricRuleBlackListRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Deletes multiple blacklist policies at a time.
      *
-     * @return DeleteMetricRuleBlackListResponse DeleteMetricRuleBlackListResponse
+     * @param request - DeleteMetricRuleBlackListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMetricRuleBlackListResponse
+     *
+     * @param DeleteMetricRuleBlackListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteMetricRuleBlackListResponse
      */
     public function deleteMetricRuleBlackListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMetricRuleBlackList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMetricRuleBlackList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteMetricRuleBlackListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes multiple blacklist policies at a time.
-     *  *
-     * @param DeleteMetricRuleBlackListRequest $request DeleteMetricRuleBlackListRequest
+     * Deletes multiple blacklist policies at a time.
      *
-     * @return DeleteMetricRuleBlackListResponse DeleteMetricRuleBlackListResponse
+     * @param request - DeleteMetricRuleBlackListRequest
+     *
+     * @returns DeleteMetricRuleBlackListResponse
+     *
+     * @param DeleteMetricRuleBlackListRequest $request
+     *
+     * @return DeleteMetricRuleBlackListResponse
      */
     public function deleteMetricRuleBlackList($request)
     {
@@ -2611,47 +3136,58 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Disassociates resources from an alert rule.
-     *  *
-     * @param DeleteMetricRuleResourcesRequest $request DeleteMetricRuleResourcesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Disassociates resources from an alert rule.
      *
-     * @return DeleteMetricRuleResourcesResponse DeleteMetricRuleResourcesResponse
+     * @param request - DeleteMetricRuleResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMetricRuleResourcesResponse
+     *
+     * @param DeleteMetricRuleResourcesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteMetricRuleResourcesResponse
      */
     public function deleteMetricRuleResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resources)) {
-            $query['Resources'] = $request->resources;
+        if (null !== $request->resources) {
+            @$query['Resources'] = $request->resources;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMetricRuleResources',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMetricRuleResources',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteMetricRuleResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Disassociates resources from an alert rule.
-     *  *
-     * @param DeleteMetricRuleResourcesRequest $request DeleteMetricRuleResourcesRequest
+     * Disassociates resources from an alert rule.
      *
-     * @return DeleteMetricRuleResourcesResponse DeleteMetricRuleResourcesResponse
+     * @param request - DeleteMetricRuleResourcesRequest
+     *
+     * @returns DeleteMetricRuleResourcesResponse
+     *
+     * @param DeleteMetricRuleResourcesRequest $request
+     *
+     * @return DeleteMetricRuleResourcesResponse
      */
     public function deleteMetricRuleResources($request)
     {
@@ -2661,47 +3197,58 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Delete the push channels of an alert rule.
-     *  *
-     * @param DeleteMetricRuleTargetsRequest $request DeleteMetricRuleTargetsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Delete the push channels of an alert rule.
      *
-     * @return DeleteMetricRuleTargetsResponse DeleteMetricRuleTargetsResponse
+     * @param request - DeleteMetricRuleTargetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMetricRuleTargetsResponse
+     *
+     * @param DeleteMetricRuleTargetsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteMetricRuleTargetsResponse
      */
     public function deleteMetricRuleTargetsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->targetIds)) {
-            $query['TargetIds'] = $request->targetIds;
+
+        if (null !== $request->targetIds) {
+            @$query['TargetIds'] = $request->targetIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMetricRuleTargets',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMetricRuleTargets',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteMetricRuleTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Delete the push channels of an alert rule.
-     *  *
-     * @param DeleteMetricRuleTargetsRequest $request DeleteMetricRuleTargetsRequest
+     * Delete the push channels of an alert rule.
      *
-     * @return DeleteMetricRuleTargetsResponse DeleteMetricRuleTargetsResponse
+     * @param request - DeleteMetricRuleTargetsRequest
+     *
+     * @returns DeleteMetricRuleTargetsResponse
+     *
+     * @param DeleteMetricRuleTargetsRequest $request
+     *
+     * @return DeleteMetricRuleTargetsResponse
      */
     public function deleteMetricRuleTargets($request)
     {
@@ -2711,44 +3258,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an alert template.
-     *  *
-     * @param DeleteMetricRuleTemplateRequest $request DeleteMetricRuleTemplateRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Deletes an alert template.
      *
-     * @return DeleteMetricRuleTemplateResponse DeleteMetricRuleTemplateResponse
+     * @param request - DeleteMetricRuleTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMetricRuleTemplateResponse
+     *
+     * @param DeleteMetricRuleTemplateRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteMetricRuleTemplateResponse
      */
     public function deleteMetricRuleTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMetricRuleTemplate',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMetricRuleTemplate',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteMetricRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an alert template.
-     *  *
-     * @param DeleteMetricRuleTemplateRequest $request DeleteMetricRuleTemplateRequest
+     * Deletes an alert template.
      *
-     * @return DeleteMetricRuleTemplateResponse DeleteMetricRuleTemplateResponse
+     * @param request - DeleteMetricRuleTemplateRequest
+     *
+     * @returns DeleteMetricRuleTemplateResponse
+     *
+     * @param DeleteMetricRuleTemplateRequest $request
+     *
+     * @return DeleteMetricRuleTemplateResponse
      */
     public function deleteMetricRuleTemplate($request)
     {
@@ -2758,44 +3315,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more alert rules.
-     *  *
-     * @param DeleteMetricRulesRequest $request DeleteMetricRulesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes one or more alert rules.
      *
-     * @return DeleteMetricRulesResponse DeleteMetricRulesResponse
+     * @param request - DeleteMetricRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMetricRulesResponse
+     *
+     * @param DeleteMetricRulesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteMetricRulesResponse
      */
     public function deleteMetricRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMetricRules',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMetricRules',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteMetricRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes one or more alert rules.
-     *  *
-     * @param DeleteMetricRulesRequest $request DeleteMetricRulesRequest
+     * Deletes one or more alert rules.
      *
-     * @return DeleteMetricRulesResponse DeleteMetricRulesResponse
+     * @param request - DeleteMetricRulesRequest
+     *
+     * @returns DeleteMetricRulesResponse
+     *
+     * @param DeleteMetricRulesRequest $request
+     *
+     * @return DeleteMetricRulesResponse
      */
     public function deleteMetricRules($request)
     {
@@ -2805,44 +3372,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an application group.
-     *  *
-     * @param DeleteMonitorGroupRequest $request DeleteMonitorGroupRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes an application group.
      *
-     * @return DeleteMonitorGroupResponse DeleteMonitorGroupResponse
+     * @param request - DeleteMonitorGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMonitorGroupResponse
+     *
+     * @param DeleteMonitorGroupRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteMonitorGroupResponse
      */
     public function deleteMonitorGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMonitorGroup',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMonitorGroup',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteMonitorGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an application group.
-     *  *
-     * @param DeleteMonitorGroupRequest $request DeleteMonitorGroupRequest
+     * Deletes an application group.
      *
-     * @return DeleteMonitorGroupResponse DeleteMonitorGroupResponse
+     * @param request - DeleteMonitorGroupRequest
+     *
+     * @returns DeleteMonitorGroupResponse
+     *
+     * @param DeleteMonitorGroupRequest $request
+     *
+     * @return DeleteMonitorGroupResponse
      */
     public function deleteMonitorGroup($request)
     {
@@ -2852,47 +3429,58 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a rule that is used to dynamically add instances of a service that meet the rule to an application group.
-     *  *
-     * @param DeleteMonitorGroupDynamicRuleRequest $request DeleteMonitorGroupDynamicRuleRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Deletes a rule that is used to dynamically add the instances of a service to an application group.
      *
-     * @return DeleteMonitorGroupDynamicRuleResponse DeleteMonitorGroupDynamicRuleResponse
+     * @param request - DeleteMonitorGroupDynamicRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMonitorGroupDynamicRuleResponse
+     *
+     * @param DeleteMonitorGroupDynamicRuleRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteMonitorGroupDynamicRuleResponse
      */
     public function deleteMonitorGroupDynamicRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMonitorGroupDynamicRule',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMonitorGroupDynamicRule',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteMonitorGroupDynamicRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a rule that is used to dynamically add instances of a service that meet the rule to an application group.
-     *  *
-     * @param DeleteMonitorGroupDynamicRuleRequest $request DeleteMonitorGroupDynamicRuleRequest
+     * Deletes a rule that is used to dynamically add the instances of a service to an application group.
      *
-     * @return DeleteMonitorGroupDynamicRuleResponse DeleteMonitorGroupDynamicRuleResponse
+     * @param request - DeleteMonitorGroupDynamicRuleRequest
+     *
+     * @returns DeleteMonitorGroupDynamicRuleResponse
+     *
+     * @param DeleteMonitorGroupDynamicRuleRequest $request
+     *
+     * @return DeleteMonitorGroupDynamicRuleResponse
      */
     public function deleteMonitorGroupDynamicRule($request)
     {
@@ -2902,50 +3490,62 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Removes instances from an application group.
-     *  *
-     * @param DeleteMonitorGroupInstancesRequest $request DeleteMonitorGroupInstancesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Removes instances from an application group.
      *
-     * @return DeleteMonitorGroupInstancesResponse DeleteMonitorGroupInstancesResponse
+     * @param request - DeleteMonitorGroupInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMonitorGroupInstancesResponse
+     *
+     * @param DeleteMonitorGroupInstancesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteMonitorGroupInstancesResponse
      */
     public function deleteMonitorGroupInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->instanceIdList)) {
-            $query['InstanceIdList'] = $request->instanceIdList;
+
+        if (null !== $request->instanceIdList) {
+            @$query['InstanceIdList'] = $request->instanceIdList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMonitorGroupInstances',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMonitorGroupInstances',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteMonitorGroupInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes instances from an application group.
-     *  *
-     * @param DeleteMonitorGroupInstancesRequest $request DeleteMonitorGroupInstancesRequest
+     * Removes instances from an application group.
      *
-     * @return DeleteMonitorGroupInstancesResponse DeleteMonitorGroupInstancesResponse
+     * @param request - DeleteMonitorGroupInstancesRequest
+     *
+     * @returns DeleteMonitorGroupInstancesResponse
+     *
+     * @param DeleteMonitorGroupInstancesRequest $request
+     *
+     * @return DeleteMonitorGroupInstancesResponse
      */
     public function deleteMonitorGroupInstances($request)
     {
@@ -2955,47 +3555,58 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a policy that is used to pause alert notifications for an application group.
-     *  *
-     * @param DeleteMonitorGroupNotifyPolicyRequest $request DeleteMonitorGroupNotifyPolicyRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Deletes a policy that is used to pause alert notifications for an application group.
      *
-     * @return DeleteMonitorGroupNotifyPolicyResponse DeleteMonitorGroupNotifyPolicyResponse
+     * @param request - DeleteMonitorGroupNotifyPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMonitorGroupNotifyPolicyResponse
+     *
+     * @param DeleteMonitorGroupNotifyPolicyRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteMonitorGroupNotifyPolicyResponse
      */
     public function deleteMonitorGroupNotifyPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMonitorGroupNotifyPolicy',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMonitorGroupNotifyPolicy',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteMonitorGroupNotifyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a policy that is used to pause alert notifications for an application group.
-     *  *
-     * @param DeleteMonitorGroupNotifyPolicyRequest $request DeleteMonitorGroupNotifyPolicyRequest
+     * Deletes a policy that is used to pause alert notifications for an application group.
      *
-     * @return DeleteMonitorGroupNotifyPolicyResponse DeleteMonitorGroupNotifyPolicyResponse
+     * @param request - DeleteMonitorGroupNotifyPolicyRequest
+     *
+     * @returns DeleteMonitorGroupNotifyPolicyResponse
+     *
+     * @param DeleteMonitorGroupNotifyPolicyRequest $request
+     *
+     * @return DeleteMonitorGroupNotifyPolicyResponse
      */
     public function deleteMonitorGroupNotifyPolicy($request)
     {
@@ -3005,50 +3616,62 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Disables monitoring on a process.
-     *  *
-     * @param DeleteMonitoringAgentProcessRequest $request DeleteMonitoringAgentProcessRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Disables monitoring on a process.
      *
-     * @return DeleteMonitoringAgentProcessResponse DeleteMonitoringAgentProcessResponse
+     * @param request - DeleteMonitoringAgentProcessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteMonitoringAgentProcessResponse
+     *
+     * @param DeleteMonitoringAgentProcessRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteMonitoringAgentProcessResponse
      */
     public function deleteMonitoringAgentProcessWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->processId)) {
-            $query['ProcessId'] = $request->processId;
+
+        if (null !== $request->processId) {
+            @$query['ProcessId'] = $request->processId;
         }
-        if (!Utils::isUnset($request->processName)) {
-            $query['ProcessName'] = $request->processName;
+
+        if (null !== $request->processName) {
+            @$query['ProcessName'] = $request->processName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMonitoringAgentProcess',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMonitoringAgentProcess',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteMonitoringAgentProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables monitoring on a process.
-     *  *
-     * @param DeleteMonitoringAgentProcessRequest $request DeleteMonitoringAgentProcessRequest
+     * Disables monitoring on a process.
      *
-     * @return DeleteMonitoringAgentProcessResponse DeleteMonitoringAgentProcessResponse
+     * @param request - DeleteMonitoringAgentProcessRequest
+     *
+     * @returns DeleteMonitoringAgentProcessResponse
+     *
+     * @param DeleteMonitoringAgentProcessRequest $request
+     *
+     * @return DeleteMonitoringAgentProcessResponse
      */
     public function deleteMonitoringAgentProcess($request)
     {
@@ -3058,47 +3681,58 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more site monitoring tasks.
-     *  *
-     * @param DeleteSiteMonitorsRequest $request DeleteSiteMonitorsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes one or more site monitoring tasks.
      *
-     * @return DeleteSiteMonitorsResponse DeleteSiteMonitorsResponse
+     * @param request - DeleteSiteMonitorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteSiteMonitorsResponse
+     *
+     * @param DeleteSiteMonitorsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteSiteMonitorsResponse
      */
     public function deleteSiteMonitorsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->isDeleteAlarms)) {
-            $query['IsDeleteAlarms'] = $request->isDeleteAlarms;
+        if (null !== $request->isDeleteAlarms) {
+            @$query['IsDeleteAlarms'] = $request->isDeleteAlarms;
         }
-        if (!Utils::isUnset($request->taskIds)) {
-            $query['TaskIds'] = $request->taskIds;
+
+        if (null !== $request->taskIds) {
+            @$query['TaskIds'] = $request->taskIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSiteMonitors',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSiteMonitors',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DeleteSiteMonitorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes one or more site monitoring tasks.
-     *  *
-     * @param DeleteSiteMonitorsRequest $request DeleteSiteMonitorsRequest
+     * Deletes one or more site monitoring tasks.
      *
-     * @return DeleteSiteMonitorsResponse DeleteSiteMonitorsResponse
+     * @param request - DeleteSiteMonitorsRequest
+     *
+     * @returns DeleteSiteMonitorsResponse
+     *
+     * @param DeleteSiteMonitorsRequest $request
+     *
+     * @return DeleteSiteMonitorsResponse
      */
     public function deleteSiteMonitors($request)
     {
@@ -3108,44 +3742,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of initiative alert rules.
-     *  *
-     * @param DescribeActiveMetricRuleListRequest $request DescribeActiveMetricRuleListRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the details of initiative alert rules.
      *
-     * @return DescribeActiveMetricRuleListResponse DescribeActiveMetricRuleListResponse
+     * @param request - DescribeActiveMetricRuleListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeActiveMetricRuleListResponse
+     *
+     * @param DescribeActiveMetricRuleListRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeActiveMetricRuleListResponse
      */
     public function describeActiveMetricRuleListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->product)) {
-            $query['Product'] = $request->product;
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeActiveMetricRuleList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeActiveMetricRuleList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeActiveMetricRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of initiative alert rules.
-     *  *
-     * @param DescribeActiveMetricRuleListRequest $request DescribeActiveMetricRuleListRequest
+     * Queries the details of initiative alert rules.
      *
-     * @return DescribeActiveMetricRuleListResponse DescribeActiveMetricRuleListResponse
+     * @param request - DescribeActiveMetricRuleListRequest
+     *
+     * @returns DescribeActiveMetricRuleListResponse
+     *
+     * @param DescribeActiveMetricRuleListRequest $request
+     *
+     * @return DescribeActiveMetricRuleListResponse
      */
     public function describeActiveMetricRuleList($request)
     {
@@ -3155,89 +3799,109 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * Queries historical alerts.
+     *
+     * @remarks
+     * This API operation is no longer maintained. We recommend that you call the [DescribeAlertLogList](https://help.aliyun.com/document_detail/201087.html) operation.
+     *
      * @deprecated openAPI DescribeAlertHistoryList is deprecated, please use Cms::2019-01-01::DescribeAlertLogList instead
-     *  *
-     * @summary Queries historical alerts.
-     *  *
-     * @description This API operation is no longer maintained. We recommend that you call the [DescribeAlertLogList](https://help.aliyun.com/document_detail/201087.html) operation.
-     *  *
-     * Deprecated
      *
-     * @param DescribeAlertHistoryListRequest $request DescribeAlertHistoryListRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeAlertHistoryListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeAlertHistoryListResponse DescribeAlertHistoryListResponse
+     * @returns DescribeAlertHistoryListResponse
+     *
+     * @param DescribeAlertHistoryListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeAlertHistoryListResponse
      */
     public function describeAlertHistoryListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ascending)) {
-            $query['Ascending'] = $request->ascending;
+        if (null !== $request->ascending) {
+            @$query['Ascending'] = $request->ascending;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->state)) {
-            $query['State'] = $request->state;
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAlertHistoryList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAlertHistoryList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAlertHistoryListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * Queries historical alerts.
+     *
+     * @remarks
+     * This API operation is no longer maintained. We recommend that you call the [DescribeAlertLogList](https://help.aliyun.com/document_detail/201087.html) operation.
+     *
      * @deprecated openAPI DescribeAlertHistoryList is deprecated, please use Cms::2019-01-01::DescribeAlertLogList instead
-     *  *
-     * @summary Queries historical alerts.
-     *  *
-     * @description This API operation is no longer maintained. We recommend that you call the [DescribeAlertLogList](https://help.aliyun.com/document_detail/201087.html) operation.
-     *  *
-     * Deprecated
      *
-     * @param DescribeAlertHistoryListRequest $request DescribeAlertHistoryListRequest
+     * @param request - DescribeAlertHistoryListRequest
      *
-     * @return DescribeAlertHistoryListResponse DescribeAlertHistoryListResponse
+     * @returns DescribeAlertHistoryListResponse
+     *
+     * @param DescribeAlertHistoryListRequest $request
+     *
+     * @return DescribeAlertHistoryListResponse
      */
     public function describeAlertHistoryList($request)
     {
@@ -3247,101 +3911,130 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics of alert logs.
-     *  *
-     * @description Queries the statistics of alert logs.
-     * This topic provides an example on how to query the statistics of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
-     *  *
-     * @param DescribeAlertLogCountRequest $request DescribeAlertLogCountRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics of alert logs.
      *
-     * @return DescribeAlertLogCountResponse DescribeAlertLogCountResponse
+     * @remarks
+     * Queries the statistics of alert logs.
+     * This topic provides an example on how to query the statistics of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
+     *
+     * @param request - DescribeAlertLogCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAlertLogCountResponse
+     *
+     * @param DescribeAlertLogCountRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeAlertLogCountResponse
      */
     public function describeAlertLogCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactGroup)) {
-            $query['ContactGroup'] = $request->contactGroup;
+        if (null !== $request->contactGroup) {
+            @$query['ContactGroup'] = $request->contactGroup;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
+
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->groupBy)) {
-            $query['GroupBy'] = $request->groupBy;
+
+        if (null !== $request->groupBy) {
+            @$query['GroupBy'] = $request->groupBy;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->lastMin)) {
-            $query['LastMin'] = $request->lastMin;
+
+        if (null !== $request->lastMin) {
+            @$query['LastMin'] = $request->lastMin;
         }
-        if (!Utils::isUnset($request->level)) {
-            $query['Level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->product)) {
-            $query['Product'] = $request->product;
+
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->sendStatus)) {
-            $query['SendStatus'] = $request->sendStatus;
+
+        if (null !== $request->sendStatus) {
+            @$query['SendStatus'] = $request->sendStatus;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAlertLogCount',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAlertLogCount',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAlertLogCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the statistics of alert logs.
-     *  *
-     * @description Queries the statistics of alert logs.
-     * This topic provides an example on how to query the statistics of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
-     *  *
-     * @param DescribeAlertLogCountRequest $request DescribeAlertLogCountRequest
+     * Queries the statistics of alert logs.
      *
-     * @return DescribeAlertLogCountResponse DescribeAlertLogCountResponse
+     * @remarks
+     * Queries the statistics of alert logs.
+     * This topic provides an example on how to query the statistics of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
+     *
+     * @param request - DescribeAlertLogCountRequest
+     *
+     * @returns DescribeAlertLogCountResponse
+     *
+     * @param DescribeAlertLogCountRequest $request
+     *
+     * @return DescribeAlertLogCountResponse
      */
     public function describeAlertLogCount($request)
     {
@@ -3351,99 +4044,128 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of alert logs that are generated during each interval within a period of time.
-     *  *
-     * @description This topic provides an example on how to query the number of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
-     *  *
-     * @param DescribeAlertLogHistogramRequest $request DescribeAlertLogHistogramRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the number of alert logs that are generated during each interval within a period of time.
      *
-     * @return DescribeAlertLogHistogramResponse DescribeAlertLogHistogramResponse
+     * @remarks
+     * This topic provides an example on how to query the number of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
+     *
+     * @param request - DescribeAlertLogHistogramRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAlertLogHistogramResponse
+     *
+     * @param DescribeAlertLogHistogramRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeAlertLogHistogramResponse
      */
     public function describeAlertLogHistogramWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactGroup)) {
-            $query['ContactGroup'] = $request->contactGroup;
+        if (null !== $request->contactGroup) {
+            @$query['ContactGroup'] = $request->contactGroup;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
+
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->groupBy)) {
-            $query['GroupBy'] = $request->groupBy;
+
+        if (null !== $request->groupBy) {
+            @$query['GroupBy'] = $request->groupBy;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->lastMin)) {
-            $query['LastMin'] = $request->lastMin;
+
+        if (null !== $request->lastMin) {
+            @$query['LastMin'] = $request->lastMin;
         }
-        if (!Utils::isUnset($request->level)) {
-            $query['Level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->product)) {
-            $query['Product'] = $request->product;
+
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->sendStatus)) {
-            $query['SendStatus'] = $request->sendStatus;
+
+        if (null !== $request->sendStatus) {
+            @$query['SendStatus'] = $request->sendStatus;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAlertLogHistogram',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAlertLogHistogram',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAlertLogHistogramResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of alert logs that are generated during each interval within a period of time.
-     *  *
-     * @description This topic provides an example on how to query the number of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
-     *  *
-     * @param DescribeAlertLogHistogramRequest $request DescribeAlertLogHistogramRequest
+     * Queries the number of alert logs that are generated during each interval within a period of time.
      *
-     * @return DescribeAlertLogHistogramResponse DescribeAlertLogHistogramResponse
+     * @remarks
+     * This topic provides an example on how to query the number of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
+     *
+     * @param request - DescribeAlertLogHistogramRequest
+     *
+     * @returns DescribeAlertLogHistogramResponse
+     *
+     * @param DescribeAlertLogHistogramRequest $request
+     *
+     * @return DescribeAlertLogHistogramResponse
      */
     public function describeAlertLogHistogram($request)
     {
@@ -3453,101 +4175,130 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries alert logs.
-     *  *
-     * @description You can call the operation to query only the alert logs within the last year.
-     * This topic provides an example to show how to query the alert logs of Elastic Compute Service (ECS) based on the `product` dimension.
-     *  *
-     * @param DescribeAlertLogListRequest $request DescribeAlertLogListRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries alert logs.
      *
-     * @return DescribeAlertLogListResponse DescribeAlertLogListResponse
+     * @remarks
+     * You can call the operation to query only the alert logs within the last year.
+     * This topic provides an example to show how to query the alert logs of Elastic Compute Service (ECS) based on the `product` dimension.
+     *
+     * @param request - DescribeAlertLogListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAlertLogListResponse
+     *
+     * @param DescribeAlertLogListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeAlertLogListResponse
      */
     public function describeAlertLogListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactGroup)) {
-            $query['ContactGroup'] = $request->contactGroup;
+        if (null !== $request->contactGroup) {
+            @$query['ContactGroup'] = $request->contactGroup;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
+
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->groupBy)) {
-            $query['GroupBy'] = $request->groupBy;
+
+        if (null !== $request->groupBy) {
+            @$query['GroupBy'] = $request->groupBy;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->lastMin)) {
-            $query['LastMin'] = $request->lastMin;
+
+        if (null !== $request->lastMin) {
+            @$query['LastMin'] = $request->lastMin;
         }
-        if (!Utils::isUnset($request->level)) {
-            $query['Level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->product)) {
-            $query['Product'] = $request->product;
+
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->sendStatus)) {
-            $query['SendStatus'] = $request->sendStatus;
+
+        if (null !== $request->sendStatus) {
+            @$query['SendStatus'] = $request->sendStatus;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAlertLogList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAlertLogList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAlertLogListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries alert logs.
-     *  *
-     * @description You can call the operation to query only the alert logs within the last year.
-     * This topic provides an example to show how to query the alert logs of Elastic Compute Service (ECS) based on the `product` dimension.
-     *  *
-     * @param DescribeAlertLogListRequest $request DescribeAlertLogListRequest
+     * Queries alert logs.
      *
-     * @return DescribeAlertLogListResponse DescribeAlertLogListResponse
+     * @remarks
+     * You can call the operation to query only the alert logs within the last year.
+     * This topic provides an example to show how to query the alert logs of Elastic Compute Service (ECS) based on the `product` dimension.
+     *
+     * @param request - DescribeAlertLogListRequest
+     *
+     * @returns DescribeAlertLogListResponse
+     *
+     * @param DescribeAlertLogListRequest $request
+     *
+     * @return DescribeAlertLogListResponse
      */
     public function describeAlertLogList($request)
     {
@@ -3557,41 +4308,50 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the resources for which active alerts are triggered based on an alert rule.
-     *  *
-     * @param DescribeAlertingMetricRuleResourcesRequest $request DescribeAlertingMetricRuleResourcesRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * Queries the resources for which active alerts are triggered based on an alert rule.
      *
-     * @return DescribeAlertingMetricRuleResourcesResponse DescribeAlertingMetricRuleResourcesResponse
+     * @param request - DescribeAlertingMetricRuleResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeAlertingMetricRuleResourcesResponse
+     *
+     * @param DescribeAlertingMetricRuleResourcesRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeAlertingMetricRuleResourcesResponse
      */
     public function describeAlertingMetricRuleResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAlertingMetricRuleResources',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAlertingMetricRuleResources',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeAlertingMetricRuleResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the resources for which active alerts are triggered based on an alert rule.
-     *  *
-     * @param DescribeAlertingMetricRuleResourcesRequest $request DescribeAlertingMetricRuleResourcesRequest
+     * Queries the resources for which active alerts are triggered based on an alert rule.
      *
-     * @return DescribeAlertingMetricRuleResourcesResponse DescribeAlertingMetricRuleResourcesResponse
+     * @param request - DescribeAlertingMetricRuleResourcesRequest
+     *
+     * @returns DescribeAlertingMetricRuleResourcesResponse
+     *
+     * @param DescribeAlertingMetricRuleResourcesRequest $request
+     *
+     * @return DescribeAlertingMetricRuleResourcesResponse
      */
     public function describeAlertingMetricRuleResources($request)
     {
@@ -3601,47 +4361,58 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries alert groups.
-     *  *
-     * @param DescribeContactGroupListRequest $request DescribeContactGroupListRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries alert groups.
      *
-     * @return DescribeContactGroupListResponse DescribeContactGroupListResponse
+     * @param request - DescribeContactGroupListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeContactGroupListResponse
+     *
+     * @param DescribeContactGroupListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeContactGroupListResponse
      */
     public function describeContactGroupListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeContactGroupList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeContactGroupList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeContactGroupListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries alert groups.
-     *  *
-     * @param DescribeContactGroupListRequest $request DescribeContactGroupListRequest
+     * Queries alert groups.
      *
-     * @return DescribeContactGroupListResponse DescribeContactGroupListResponse
+     * @param request - DescribeContactGroupListRequest
+     *
+     * @returns DescribeContactGroupListResponse
+     *
+     * @param DescribeContactGroupListRequest $request
+     *
+     * @return DescribeContactGroupListResponse
      */
     public function describeContactGroupList($request)
     {
@@ -3651,56 +4422,70 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries alert contacts.
-     *  *
-     * @param DescribeContactListRequest $request DescribeContactListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries alert contacts.
      *
-     * @return DescribeContactListResponse DescribeContactListResponse
+     * @param request - DescribeContactListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeContactListResponse
+     *
+     * @param DescribeContactListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeContactListResponse
      */
     public function describeContactListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->chanelType)) {
-            $query['ChanelType'] = $request->chanelType;
+        if (null !== $request->chanelType) {
+            @$query['ChanelType'] = $request->chanelType;
         }
-        if (!Utils::isUnset($request->chanelValue)) {
-            $query['ChanelValue'] = $request->chanelValue;
+
+        if (null !== $request->chanelValue) {
+            @$query['ChanelValue'] = $request->chanelValue;
         }
-        if (!Utils::isUnset($request->contactName)) {
-            $query['ContactName'] = $request->contactName;
+
+        if (null !== $request->contactName) {
+            @$query['ContactName'] = $request->contactName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeContactList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeContactList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeContactListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries alert contacts.
-     *  *
-     * @param DescribeContactListRequest $request DescribeContactListRequest
+     * Queries alert contacts.
      *
-     * @return DescribeContactListResponse DescribeContactListResponse
+     * @param request - DescribeContactListRequest
+     *
+     * @returns DescribeContactListResponse
+     *
+     * @param DescribeContactListRequest $request
+     *
+     * @return DescribeContactListResponse
      */
     public function describeContactList($request)
     {
@@ -3710,44 +4495,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the alert contacts in an alert contact group.
-     *  *
-     * @param DescribeContactListByContactGroupRequest $request DescribeContactListByContactGroupRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Queries the alert contacts in an alert contact group.
      *
-     * @return DescribeContactListByContactGroupResponse DescribeContactListByContactGroupResponse
+     * @param request - DescribeContactListByContactGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeContactListByContactGroupResponse
+     *
+     * @param DescribeContactListByContactGroupRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeContactListByContactGroupResponse
      */
     public function describeContactListByContactGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactGroupName)) {
-            $query['ContactGroupName'] = $request->contactGroupName;
+        if (null !== $request->contactGroupName) {
+            @$query['ContactGroupName'] = $request->contactGroupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeContactListByContactGroup',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeContactListByContactGroup',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeContactListByContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the alert contacts in an alert contact group.
-     *  *
-     * @param DescribeContactListByContactGroupRequest $request DescribeContactListByContactGroupRequest
+     * Queries the alert contacts in an alert contact group.
      *
-     * @return DescribeContactListByContactGroupResponse DescribeContactListByContactGroupResponse
+     * @param request - DescribeContactListByContactGroupRequest
+     *
+     * @returns DescribeContactListByContactGroupResponse
+     *
+     * @param DescribeContactListByContactGroupRequest $request
+     *
+     * @return DescribeContactListByContactGroupResponse
      */
     public function describeContactListByContactGroup($request)
     {
@@ -3757,65 +4552,82 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a custom event that occurred in a specified time period.
-     *  *
-     * @param DescribeCustomEventAttributeRequest $request DescribeCustomEventAttributeRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a custom event.
      *
-     * @return DescribeCustomEventAttributeResponse DescribeCustomEventAttributeResponse
+     * @param request - DescribeCustomEventAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCustomEventAttributeResponse
+     *
+     * @param DescribeCustomEventAttributeRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeCustomEventAttributeResponse
      */
     public function describeCustomEventAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventId)) {
-            $query['EventId'] = $request->eventId;
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchKeywords)) {
-            $query['SearchKeywords'] = $request->searchKeywords;
+
+        if (null !== $request->searchKeywords) {
+            @$query['SearchKeywords'] = $request->searchKeywords;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCustomEventAttribute',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCustomEventAttribute',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCustomEventAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a custom event that occurred in a specified time period.
-     *  *
-     * @param DescribeCustomEventAttributeRequest $request DescribeCustomEventAttributeRequest
+     * Queries the details of a custom event.
      *
-     * @return DescribeCustomEventAttributeResponse DescribeCustomEventAttributeResponse
+     * @param request - DescribeCustomEventAttributeRequest
+     *
+     * @returns DescribeCustomEventAttributeResponse
+     *
+     * @param DescribeCustomEventAttributeRequest $request
+     *
+     * @return DescribeCustomEventAttributeResponse
      */
     public function describeCustomEventAttribute($request)
     {
@@ -3825,63 +4637,80 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of times that a custom event occurred in a specified time period.
-     *  *
-     * @description >  This operation counts the number of times that a custom event occurred for each service.
-     *  *
-     * @param DescribeCustomEventCountRequest $request DescribeCustomEventCountRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the number of times that a custom event occurred within a period of time.
      *
-     * @return DescribeCustomEventCountResponse DescribeCustomEventCountResponse
+     * @remarks
+     * >  This operation queries the number of times that a custom event occurred for each service.
+     *
+     * @param request - DescribeCustomEventCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCustomEventCountResponse
+     *
+     * @param DescribeCustomEventCountRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeCustomEventCountResponse
      */
     public function describeCustomEventCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventId)) {
-            $query['EventId'] = $request->eventId;
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->searchKeywords)) {
-            $query['SearchKeywords'] = $request->searchKeywords;
+
+        if (null !== $request->searchKeywords) {
+            @$query['SearchKeywords'] = $request->searchKeywords;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCustomEventCount',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCustomEventCount',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCustomEventCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of times that a custom event occurred in a specified time period.
-     *  *
-     * @description >  This operation counts the number of times that a custom event occurred for each service.
-     *  *
-     * @param DescribeCustomEventCountRequest $request DescribeCustomEventCountRequest
+     * Queries the number of times that a custom event occurred within a period of time.
      *
-     * @return DescribeCustomEventCountResponse DescribeCustomEventCountResponse
+     * @remarks
+     * >  This operation queries the number of times that a custom event occurred for each service.
+     *
+     * @param request - DescribeCustomEventCountRequest
+     *
+     * @returns DescribeCustomEventCountResponse
+     *
+     * @param DescribeCustomEventCountRequest $request
+     *
+     * @return DescribeCustomEventCountResponse
      */
     public function describeCustomEventCount($request)
     {
@@ -3891,62 +4720,78 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of times that a custom event occurred during each interval of a time period.
-     *  *
-     * @param DescribeCustomEventHistogramRequest $request DescribeCustomEventHistogramRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the number of times that a custom event occurred during each interval within a period of time.
      *
-     * @return DescribeCustomEventHistogramResponse DescribeCustomEventHistogramResponse
+     * @param request - DescribeCustomEventHistogramRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCustomEventHistogramResponse
+     *
+     * @param DescribeCustomEventHistogramRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeCustomEventHistogramResponse
      */
     public function describeCustomEventHistogramWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventId)) {
-            $query['EventId'] = $request->eventId;
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->level)) {
-            $query['Level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->searchKeywords)) {
-            $query['SearchKeywords'] = $request->searchKeywords;
+
+        if (null !== $request->searchKeywords) {
+            @$query['SearchKeywords'] = $request->searchKeywords;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCustomEventHistogram',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCustomEventHistogram',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCustomEventHistogramResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of times that a custom event occurred during each interval of a time period.
-     *  *
-     * @param DescribeCustomEventHistogramRequest $request DescribeCustomEventHistogramRequest
+     * Queries the number of times that a custom event occurred during each interval within a period of time.
      *
-     * @return DescribeCustomEventHistogramResponse DescribeCustomEventHistogramResponse
+     * @param request - DescribeCustomEventHistogramRequest
+     *
+     * @returns DescribeCustomEventHistogramResponse
+     *
+     * @param DescribeCustomEventHistogramRequest $request
+     *
+     * @return DescribeCustomEventHistogramResponse
      */
     public function describeCustomEventHistogram($request)
     {
@@ -3956,63 +4801,80 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the reported monitoring data.
-     *  *
-     * @description >  You can call the DescribeMetricList operation to query the metrics of cloud services. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
-     *  *
-     * @param DescribeCustomMetricListRequest $request DescribeCustomMetricListRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the reported monitoring data.
      *
-     * @return DescribeCustomMetricListResponse DescribeCustomMetricListResponse
+     * @remarks
+     * >  You can call the DescribeMetricList operation to query the metrics of cloud services. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
+     *
+     * @param request - DescribeCustomMetricListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCustomMetricListResponse
+     *
+     * @param DescribeCustomMetricListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeCustomMetricListResponse
      */
     public function describeCustomMetricListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dimension)) {
-            $query['Dimension'] = $request->dimension;
+        if (null !== $request->dimension) {
+            @$query['Dimension'] = $request->dimension;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->md5)) {
-            $query['Md5'] = $request->md5;
+
+        if (null !== $request->md5) {
+            @$query['Md5'] = $request->md5;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCustomMetricList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCustomMetricList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeCustomMetricListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the reported monitoring data.
-     *  *
-     * @description >  You can call the DescribeMetricList operation to query the metrics of cloud services. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
-     *  *
-     * @param DescribeCustomMetricListRequest $request DescribeCustomMetricListRequest
+     * Queries the reported monitoring data.
      *
-     * @return DescribeCustomMetricListResponse DescribeCustomMetricListResponse
+     * @remarks
+     * >  You can call the DescribeMetricList operation to query the metrics of cloud services. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html).
+     *
+     * @param request - DescribeCustomMetricListRequest
+     *
+     * @returns DescribeCustomMetricListResponse
+     *
+     * @param DescribeCustomMetricListRequest $request
+     *
+     * @return DescribeCustomMetricListResponse
      */
     public function describeCustomMetricList($request)
     {
@@ -4022,63 +4884,80 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries tag rules.
-     *  *
-     * @description This topic provides an example to show how to query tag rules that are related to `tagkey1`. The sample responses indicate that two tag rules are found. The rule IDs are `1536df65-a719-429d-8813-73cc40d7****` and `56e8cebb-b3d7-4a91-9880-78a8c84f****`.
-     *  *
-     * @param DescribeDynamicTagRuleListRequest $request DescribeDynamicTagRuleListRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries tag rules.
      *
-     * @return DescribeDynamicTagRuleListResponse DescribeDynamicTagRuleListResponse
+     * @remarks
+     * This topic provides an example to show how to query tag rules that are related to `tagkey1`. The sample responses indicate that two tag rules are found. The rule IDs are `1536df65-a719-429d-8813-73cc40d7****` and `56e8cebb-b3d7-4a91-9880-78a8c84f****`.
+     *
+     * @param request - DescribeDynamicTagRuleListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDynamicTagRuleListResponse
+     *
+     * @param DescribeDynamicTagRuleListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDynamicTagRuleListResponse
      */
     public function describeDynamicTagRuleListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dynamicTagRuleId)) {
-            $query['DynamicTagRuleId'] = $request->dynamicTagRuleId;
+        if (null !== $request->dynamicTagRuleId) {
+            @$query['DynamicTagRuleId'] = $request->dynamicTagRuleId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
-        if (!Utils::isUnset($request->tagRegionId)) {
-            $query['TagRegionId'] = $request->tagRegionId;
+
+        if (null !== $request->tagRegionId) {
+            @$query['TagRegionId'] = $request->tagRegionId;
         }
-        if (!Utils::isUnset($request->tagValue)) {
-            $query['TagValue'] = $request->tagValue;
+
+        if (null !== $request->tagValue) {
+            @$query['TagValue'] = $request->tagValue;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDynamicTagRuleList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDynamicTagRuleList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeDynamicTagRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries tag rules.
-     *  *
-     * @description This topic provides an example to show how to query tag rules that are related to `tagkey1`. The sample responses indicate that two tag rules are found. The rule IDs are `1536df65-a719-429d-8813-73cc40d7****` and `56e8cebb-b3d7-4a91-9880-78a8c84f****`.
-     *  *
-     * @param DescribeDynamicTagRuleListRequest $request DescribeDynamicTagRuleListRequest
+     * Queries tag rules.
      *
-     * @return DescribeDynamicTagRuleListResponse DescribeDynamicTagRuleListResponse
+     * @remarks
+     * This topic provides an example to show how to query tag rules that are related to `tagkey1`. The sample responses indicate that two tag rules are found. The rule IDs are `1536df65-a719-429d-8813-73cc40d7****` and `56e8cebb-b3d7-4a91-9880-78a8c84f****`.
+     *
+     * @param request - DescribeDynamicTagRuleListRequest
+     *
+     * @returns DescribeDynamicTagRuleListResponse
+     *
+     * @param DescribeDynamicTagRuleListRequest $request
+     *
+     * @return DescribeDynamicTagRuleListResponse
      */
     public function describeDynamicTagRuleList($request)
     {
@@ -4088,51 +4967,64 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an event-triggered alert rule.
-     *  *
-     * @description This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
-     *  *
-     * @param DescribeEventRuleAttributeRequest $request DescribeEventRuleAttributeRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an event-triggered alert rule.
      *
-     * @return DescribeEventRuleAttributeResponse DescribeEventRuleAttributeResponse
+     * @remarks
+     * This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
+     *
+     * @param request - DescribeEventRuleAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventRuleAttributeResponse
+     *
+     * @param DescribeEventRuleAttributeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeEventRuleAttributeResponse
      */
     public function describeEventRuleAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->silenceTime)) {
-            $query['SilenceTime'] = $request->silenceTime;
+
+        if (null !== $request->silenceTime) {
+            @$query['SilenceTime'] = $request->silenceTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventRuleAttribute',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventRuleAttribute',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEventRuleAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an event-triggered alert rule.
-     *  *
-     * @description This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
-     *  *
-     * @param DescribeEventRuleAttributeRequest $request DescribeEventRuleAttributeRequest
+     * Queries the details of an event-triggered alert rule.
      *
-     * @return DescribeEventRuleAttributeResponse DescribeEventRuleAttributeResponse
+     * @remarks
+     * This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
+     *
+     * @param request - DescribeEventRuleAttributeRequest
+     *
+     * @returns DescribeEventRuleAttributeResponse
+     *
+     * @param DescribeEventRuleAttributeRequest $request
+     *
+     * @return DescribeEventRuleAttributeResponse
      */
     public function describeEventRuleAttribute($request)
     {
@@ -4142,56 +5034,70 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries event-triggered alert rules.
-     *  *
-     * @param DescribeEventRuleListRequest $request DescribeEventRuleListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries event-triggered alert rules.
      *
-     * @return DescribeEventRuleListResponse DescribeEventRuleListResponse
+     * @param request - DescribeEventRuleListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventRuleListResponse
+     *
+     * @param DescribeEventRuleListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeEventRuleListResponse
      */
     public function describeEventRuleListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->isEnable)) {
-            $query['IsEnable'] = $request->isEnable;
+
+        if (null !== $request->isEnable) {
+            @$query['IsEnable'] = $request->isEnable;
         }
-        if (!Utils::isUnset($request->namePrefix)) {
-            $query['NamePrefix'] = $request->namePrefix;
+
+        if (null !== $request->namePrefix) {
+            @$query['NamePrefix'] = $request->namePrefix;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventRuleList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventRuleList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEventRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries event-triggered alert rules.
-     *  *
-     * @param DescribeEventRuleListRequest $request DescribeEventRuleListRequest
+     * Queries event-triggered alert rules.
      *
-     * @return DescribeEventRuleListResponse DescribeEventRuleListResponse
+     * @param request - DescribeEventRuleListRequest
+     *
+     * @returns DescribeEventRuleListResponse
+     *
+     * @param DescribeEventRuleListRequest $request
+     *
+     * @return DescribeEventRuleListResponse
      */
     public function describeEventRuleList($request)
     {
@@ -4201,48 +5107,60 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries event-triggered alert rules.
-     *  *
-     * @description This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
-     *  *
-     * @param DescribeEventRuleTargetListRequest $request DescribeEventRuleTargetListRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries event-triggered alert rules.
      *
-     * @return DescribeEventRuleTargetListResponse DescribeEventRuleTargetListResponse
+     * @remarks
+     * This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
+     *
+     * @param request - DescribeEventRuleTargetListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeEventRuleTargetListResponse
+     *
+     * @param DescribeEventRuleTargetListRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeEventRuleTargetListResponse
      */
     public function describeEventRuleTargetListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEventRuleTargetList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEventRuleTargetList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeEventRuleTargetListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries event-triggered alert rules.
-     *  *
-     * @description This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
-     *  *
-     * @param DescribeEventRuleTargetListRequest $request DescribeEventRuleTargetListRequest
+     * Queries event-triggered alert rules.
      *
-     * @return DescribeEventRuleTargetListResponse DescribeEventRuleTargetListResponse
+     * @remarks
+     * This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
+     *
+     * @param request - DescribeEventRuleTargetListRequest
+     *
+     * @returns DescribeEventRuleTargetListResponse
+     *
+     * @param DescribeEventRuleTargetListRequest $request
+     *
+     * @return DescribeEventRuleTargetListResponse
      */
     public function describeEventRuleTargetList($request)
     {
@@ -4252,47 +5170,58 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries configuration sets that are used to export monitoring data.
-     *  *
-     * @param DescribeExporterOutputListRequest $request DescribeExporterOutputListRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries configuration sets that are used to export monitoring data.
      *
-     * @return DescribeExporterOutputListResponse DescribeExporterOutputListResponse
+     * @param request - DescribeExporterOutputListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeExporterOutputListResponse
+     *
+     * @param DescribeExporterOutputListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeExporterOutputListResponse
      */
     public function describeExporterOutputListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExporterOutputList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExporterOutputList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeExporterOutputListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries configuration sets that are used to export monitoring data.
-     *  *
-     * @param DescribeExporterOutputListRequest $request DescribeExporterOutputListRequest
+     * Queries configuration sets that are used to export monitoring data.
      *
-     * @return DescribeExporterOutputListResponse DescribeExporterOutputListResponse
+     * @param request - DescribeExporterOutputListRequest
+     *
+     * @returns DescribeExporterOutputListResponse
+     *
+     * @param DescribeExporterOutputListRequest $request
+     *
+     * @return DescribeExporterOutputListResponse
      */
     public function describeExporterOutputList($request)
     {
@@ -4302,47 +5231,58 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries data export rules.
-     *  *
-     * @param DescribeExporterRuleListRequest $request DescribeExporterRuleListRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries data export rules.
      *
-     * @return DescribeExporterRuleListResponse DescribeExporterRuleListResponse
+     * @param request - DescribeExporterRuleListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeExporterRuleListResponse
+     *
+     * @param DescribeExporterRuleListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeExporterRuleListResponse
      */
     public function describeExporterRuleListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExporterRuleList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExporterRuleList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeExporterRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries data export rules.
-     *  *
-     * @param DescribeExporterRuleListRequest $request DescribeExporterRuleListRequest
+     * Queries data export rules.
      *
-     * @return DescribeExporterRuleListResponse DescribeExporterRuleListResponse
+     * @param request - DescribeExporterRuleListRequest
+     *
+     * @returns DescribeExporterRuleListResponse
+     *
+     * @param DescribeExporterRuleListRequest $request
+     *
+     * @return DescribeExporterRuleListResponse
      */
     public function describeExporterRuleList($request)
     {
@@ -4352,57 +5292,72 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the process monitoring tasks for an application group.
-     *  *
-     * @description You can create a process monitoring task to monitor all or the specified Elastic Compute Service (ECS) instances in an application group and configure alert rules for the process monitoring task.
-     *  *
-     * @param DescribeGroupMonitoringAgentProcessRequest $request DescribeGroupMonitoringAgentProcessRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * Queries the process monitoring tasks for an application group.
      *
-     * @return DescribeGroupMonitoringAgentProcessResponse DescribeGroupMonitoringAgentProcessResponse
+     * @remarks
+     * You can create a process monitoring task to monitor all or the specified Elastic Compute Service (ECS) instances in an application group and configure alert rules for the process monitoring task.
+     *
+     * @param request - DescribeGroupMonitoringAgentProcessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGroupMonitoringAgentProcessResponse
+     *
+     * @param DescribeGroupMonitoringAgentProcessRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeGroupMonitoringAgentProcessResponse
      */
     public function describeGroupMonitoringAgentProcessWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->processName)) {
-            $query['ProcessName'] = $request->processName;
+
+        if (null !== $request->processName) {
+            @$query['ProcessName'] = $request->processName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGroupMonitoringAgentProcess',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGroupMonitoringAgentProcess',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeGroupMonitoringAgentProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the process monitoring tasks for an application group.
-     *  *
-     * @description You can create a process monitoring task to monitor all or the specified Elastic Compute Service (ECS) instances in an application group and configure alert rules for the process monitoring task.
-     *  *
-     * @param DescribeGroupMonitoringAgentProcessRequest $request DescribeGroupMonitoringAgentProcessRequest
+     * Queries the process monitoring tasks for an application group.
      *
-     * @return DescribeGroupMonitoringAgentProcessResponse DescribeGroupMonitoringAgentProcessResponse
+     * @remarks
+     * You can create a process monitoring task to monitor all or the specified Elastic Compute Service (ECS) instances in an application group and configure alert rules for the process monitoring task.
+     *
+     * @param request - DescribeGroupMonitoringAgentProcessRequest
+     *
+     * @returns DescribeGroupMonitoringAgentProcessResponse
+     *
+     * @param DescribeGroupMonitoringAgentProcessRequest $request
+     *
+     * @return DescribeGroupMonitoringAgentProcessResponse
      */
     public function describeGroupMonitoringAgentProcess($request)
     {
@@ -4412,63 +5367,80 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries availability monitoring tasks.
-     *  *
-     * @description This topic provides an example to show how to query all the availability monitoring tasks of your Alibaba Cloud account. The sample responses indicate that the account has one availability monitoring task named `ecs_instance`.
-     *  *
-     * @param DescribeHostAvailabilityListRequest $request DescribeHostAvailabilityListRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries availability monitoring tasks.
      *
-     * @return DescribeHostAvailabilityListResponse DescribeHostAvailabilityListResponse
+     * @remarks
+     * This topic provides an example to show how to query all the availability monitoring tasks of your Alibaba Cloud account. The sample responses indicate that the account has one availability monitoring task named `ecs_instance`.
+     *
+     * @param request - DescribeHostAvailabilityListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHostAvailabilityListResponse
+     *
+     * @param DescribeHostAvailabilityListRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeHostAvailabilityListResponse
      */
     public function describeHostAvailabilityListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->ids)) {
-            $query['Ids'] = $request->ids;
+
+        if (null !== $request->ids) {
+            @$query['Ids'] = $request->ids;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHostAvailabilityList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHostAvailabilityList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeHostAvailabilityListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries availability monitoring tasks.
-     *  *
-     * @description This topic provides an example to show how to query all the availability monitoring tasks of your Alibaba Cloud account. The sample responses indicate that the account has one availability monitoring task named `ecs_instance`.
-     *  *
-     * @param DescribeHostAvailabilityListRequest $request DescribeHostAvailabilityListRequest
+     * Queries availability monitoring tasks.
      *
-     * @return DescribeHostAvailabilityListResponse DescribeHostAvailabilityListResponse
+     * @remarks
+     * This topic provides an example to show how to query all the availability monitoring tasks of your Alibaba Cloud account. The sample responses indicate that the account has one availability monitoring task named `ecs_instance`.
+     *
+     * @param request - DescribeHostAvailabilityListRequest
+     *
+     * @returns DescribeHostAvailabilityListResponse
+     *
+     * @param DescribeHostAvailabilityListRequest $request
+     *
+     * @return DescribeHostAvailabilityListResponse
      */
     public function describeHostAvailabilityList($request)
     {
@@ -4478,70 +5450,86 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the monitoring data in a namespace.
-     *  *
-     * @description # [](#)Prerequisites
-     * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-     * # [](#)Limits
-     * The size of monitoring data that is returned in each call cannot exceed 1.5 MB. If the returned data reaches the upper limit, the query fails. You must reset the query conditions.
-     * # [](#)Description
-     * This topic provides an example to show how to query the monitoring data of the `AliyunEcs_cpu_total` metric in the `default-aliyun` namespace from `1653804865` (14:14:25 on May 29, 2022) to `1653805225` (14:20:25 on May 29, 2022).
-     *  *
-     * @param DescribeHybridMonitorDataListRequest $request DescribeHybridMonitorDataListRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the monitoring data in a namespace.
      *
-     * @return DescribeHybridMonitorDataListResponse DescribeHybridMonitorDataListResponse
+     * @remarks
+     * ## [](#)Prerequisites
+     * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+     * ## [](#)Limits
+     * The size of monitoring data that is returned in each call cannot exceed 1.5 MB. If the returned data reaches the upper limit, the query fails. You must reset the query conditions.
+     * ## [](#)Operation description
+     * This topic provides an example to show how to query the monitoring data of the `AliyunEcs_cpu_total` metric in the `default-aliyun` namespace from `1653804865` (14:14:25 on May 29, 2022) to `1653805225` (14:20:25 on May 29, 2022).
+     *
+     * @param request - DescribeHybridMonitorDataListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHybridMonitorDataListResponse
+     *
+     * @param DescribeHybridMonitorDataListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeHybridMonitorDataListResponse
      */
     public function describeHybridMonitorDataListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->end)) {
-            $query['End'] = $request->end;
+        if (null !== $request->end) {
+            @$query['End'] = $request->end;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->promSQL)) {
-            $query['PromSQL'] = $request->promSQL;
+
+        if (null !== $request->promSQL) {
+            @$query['PromSQL'] = $request->promSQL;
         }
-        if (!Utils::isUnset($request->start)) {
-            $query['Start'] = $request->start;
+
+        if (null !== $request->start) {
+            @$query['Start'] = $request->start;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHybridMonitorDataList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHybridMonitorDataList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeHybridMonitorDataListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the monitoring data in a namespace.
-     *  *
-     * @description # [](#)Prerequisites
-     * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-     * # [](#)Limits
-     * The size of monitoring data that is returned in each call cannot exceed 1.5 MB. If the returned data reaches the upper limit, the query fails. You must reset the query conditions.
-     * # [](#)Description
-     * This topic provides an example to show how to query the monitoring data of the `AliyunEcs_cpu_total` metric in the `default-aliyun` namespace from `1653804865` (14:14:25 on May 29, 2022) to `1653805225` (14:20:25 on May 29, 2022).
-     *  *
-     * @param DescribeHybridMonitorDataListRequest $request DescribeHybridMonitorDataListRequest
+     * Queries the monitoring data in a namespace.
      *
-     * @return DescribeHybridMonitorDataListResponse DescribeHybridMonitorDataListResponse
+     * @remarks
+     * ## [](#)Prerequisites
+     * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+     * ## [](#)Limits
+     * The size of monitoring data that is returned in each call cannot exceed 1.5 MB. If the returned data reaches the upper limit, the query fails. You must reset the query conditions.
+     * ## [](#)Operation description
+     * This topic provides an example to show how to query the monitoring data of the `AliyunEcs_cpu_total` metric in the `default-aliyun` namespace from `1653804865` (14:14:25 on May 29, 2022) to `1653805225` (14:20:25 on May 29, 2022).
+     *
+     * @param request - DescribeHybridMonitorDataListRequest
+     *
+     * @returns DescribeHybridMonitorDataListResponse
+     *
+     * @param DescribeHybridMonitorDataListRequest $request
+     *
+     * @return DescribeHybridMonitorDataListResponse
      */
     public function describeHybridMonitorDataList($request)
     {
@@ -4551,60 +5539,76 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries namespaces and the details of the related metric import tasks.
-     *  *
-     * @description In this example, all namespaces within the current account are queried. The response shows that the current account has only one namespace named `aliyun-test`.
-     *  *
-     * @param DescribeHybridMonitorNamespaceListRequest $request DescribeHybridMonitorNamespaceListRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Queries namespaces and the details of the related metric import tasks.
      *
-     * @return DescribeHybridMonitorNamespaceListResponse DescribeHybridMonitorNamespaceListResponse
+     * @remarks
+     * In this example, all namespaces within the current account are queried. The response shows that the current account has only one namespace named `aliyun-test`.
+     *
+     * @param request - DescribeHybridMonitorNamespaceListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHybridMonitorNamespaceListResponse
+     *
+     * @param DescribeHybridMonitorNamespaceListRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeHybridMonitorNamespaceListResponse
      */
     public function describeHybridMonitorNamespaceListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->showTaskStatistic)) {
-            $query['ShowTaskStatistic'] = $request->showTaskStatistic;
+
+        if (null !== $request->showTaskStatistic) {
+            @$query['ShowTaskStatistic'] = $request->showTaskStatistic;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHybridMonitorNamespaceList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHybridMonitorNamespaceList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeHybridMonitorNamespaceListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries namespaces and the details of the related metric import tasks.
-     *  *
-     * @description In this example, all namespaces within the current account are queried. The response shows that the current account has only one namespace named `aliyun-test`.
-     *  *
-     * @param DescribeHybridMonitorNamespaceListRequest $request DescribeHybridMonitorNamespaceListRequest
+     * Queries namespaces and the details of the related metric import tasks.
      *
-     * @return DescribeHybridMonitorNamespaceListResponse DescribeHybridMonitorNamespaceListResponse
+     * @remarks
+     * In this example, all namespaces within the current account are queried. The response shows that the current account has only one namespace named `aliyun-test`.
+     *
+     * @param request - DescribeHybridMonitorNamespaceListRequest
+     *
+     * @returns DescribeHybridMonitorNamespaceListResponse
+     *
+     * @param DescribeHybridMonitorNamespaceListRequest $request
+     *
+     * @return DescribeHybridMonitorNamespaceListResponse
      */
     public function describeHybridMonitorNamespaceList($request)
     {
@@ -4614,57 +5618,72 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries Logstore groups.
-     *  *
-     * @description In this example, all Logstore groups within the current account are queried. The response shows that the current account has two Logstore groups: `Logstore_test` and `Logstore_aliyun`.
-     *  *
-     * @param DescribeHybridMonitorSLSGroupRequest $request DescribeHybridMonitorSLSGroupRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries Logstore groups.
      *
-     * @return DescribeHybridMonitorSLSGroupResponse DescribeHybridMonitorSLSGroupResponse
+     * @remarks
+     * In this example, all Logstore groups within the current account are queried. The response shows that the current account has two Logstore groups: `Logstore_test` and `Logstore_aliyun`.
+     *
+     * @param request - DescribeHybridMonitorSLSGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHybridMonitorSLSGroupResponse
+     *
+     * @param DescribeHybridMonitorSLSGroupRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeHybridMonitorSLSGroupResponse
      */
     public function describeHybridMonitorSLSGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->SLSGroupName)) {
-            $query['SLSGroupName'] = $request->SLSGroupName;
+
+        if (null !== $request->SLSGroupName) {
+            @$query['SLSGroupName'] = $request->SLSGroupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHybridMonitorSLSGroup',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHybridMonitorSLSGroup',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeHybridMonitorSLSGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries Logstore groups.
-     *  *
-     * @description In this example, all Logstore groups within the current account are queried. The response shows that the current account has two Logstore groups: `Logstore_test` and `Logstore_aliyun`.
-     *  *
-     * @param DescribeHybridMonitorSLSGroupRequest $request DescribeHybridMonitorSLSGroupRequest
+     * Queries Logstore groups.
      *
-     * @return DescribeHybridMonitorSLSGroupResponse DescribeHybridMonitorSLSGroupResponse
+     * @remarks
+     * In this example, all Logstore groups within the current account are queried. The response shows that the current account has two Logstore groups: `Logstore_test` and `Logstore_aliyun`.
+     *
+     * @param request - DescribeHybridMonitorSLSGroupRequest
+     *
+     * @returns DescribeHybridMonitorSLSGroupResponse
+     *
+     * @param DescribeHybridMonitorSLSGroupRequest $request
+     *
+     * @return DescribeHybridMonitorSLSGroupResponse
      */
     public function describeHybridMonitorSLSGroup($request)
     {
@@ -4674,72 +5693,92 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries metric import tasks.
-     *  *
-     * @description This topic provides an example on how to query all metric import tasks that belong to the current Alibaba Cloud account. The returned result indicates that the current account has only one metric import task. The metric import task is named `aliyun_task`.
-     *  *
-     * @param DescribeHybridMonitorTaskListRequest $request DescribeHybridMonitorTaskListRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries metric import tasks.
      *
-     * @return DescribeHybridMonitorTaskListResponse DescribeHybridMonitorTaskListResponse
+     * @remarks
+     * This topic provides an example on how to query all metric import tasks that belong to the current Alibaba Cloud account. The returned result indicates that the current account has only one metric import task. The metric import task is named `aliyun_task`.
+     *
+     * @param request - DescribeHybridMonitorTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeHybridMonitorTaskListResponse
+     *
+     * @param DescribeHybridMonitorTaskListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeHybridMonitorTaskListResponse
      */
     public function describeHybridMonitorTaskListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->includeAliyunTask)) {
-            $query['IncludeAliyunTask'] = $request->includeAliyunTask;
+
+        if (null !== $request->includeAliyunTask) {
+            @$query['IncludeAliyunTask'] = $request->includeAliyunTask;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->targetUserId)) {
-            $query['TargetUserId'] = $request->targetUserId;
+
+        if (null !== $request->targetUserId) {
+            @$query['TargetUserId'] = $request->targetUserId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHybridMonitorTaskList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHybridMonitorTaskList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeHybridMonitorTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries metric import tasks.
-     *  *
-     * @description This topic provides an example on how to query all metric import tasks that belong to the current Alibaba Cloud account. The returned result indicates that the current account has only one metric import task. The metric import task is named `aliyun_task`.
-     *  *
-     * @param DescribeHybridMonitorTaskListRequest $request DescribeHybridMonitorTaskListRequest
+     * Queries metric import tasks.
      *
-     * @return DescribeHybridMonitorTaskListResponse DescribeHybridMonitorTaskListResponse
+     * @remarks
+     * This topic provides an example on how to query all metric import tasks that belong to the current Alibaba Cloud account. The returned result indicates that the current account has only one metric import task. The metric import task is named `aliyun_task`.
+     *
+     * @param request - DescribeHybridMonitorTaskListRequest
+     *
+     * @returns DescribeHybridMonitorTaskListResponse
+     *
+     * @param DescribeHybridMonitorTaskListRequest $request
+     *
+     * @return DescribeHybridMonitorTaskListResponse
      */
     public function describeHybridMonitorTaskList($request)
     {
@@ -4749,41 +5788,50 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a log monitoring metric.
-     *  *
-     * @param DescribeLogMonitorAttributeRequest $request DescribeLogMonitorAttributeRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a log monitoring metric.
      *
-     * @return DescribeLogMonitorAttributeResponse DescribeLogMonitorAttributeResponse
+     * @param request - DescribeLogMonitorAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLogMonitorAttributeResponse
+     *
+     * @param DescribeLogMonitorAttributeRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeLogMonitorAttributeResponse
      */
     public function describeLogMonitorAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLogMonitorAttribute',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLogMonitorAttribute',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeLogMonitorAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a log monitoring metric.
-     *  *
-     * @param DescribeLogMonitorAttributeRequest $request DescribeLogMonitorAttributeRequest
+     * Queries the details of a log monitoring metric.
      *
-     * @return DescribeLogMonitorAttributeResponse DescribeLogMonitorAttributeResponse
+     * @param request - DescribeLogMonitorAttributeRequest
+     *
+     * @returns DescribeLogMonitorAttributeResponse
+     *
+     * @param DescribeLogMonitorAttributeRequest $request
+     *
+     * @return DescribeLogMonitorAttributeResponse
      */
     public function describeLogMonitorAttribute($request)
     {
@@ -4793,53 +5841,66 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries log monitoring metrics.
-     *  *
-     * @param DescribeLogMonitorListRequest $request DescribeLogMonitorListRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries log monitoring metrics.
      *
-     * @return DescribeLogMonitorListResponse DescribeLogMonitorListResponse
+     * @param request - DescribeLogMonitorListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeLogMonitorListResponse
+     *
+     * @param DescribeLogMonitorListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeLogMonitorListResponse
      */
     public function describeLogMonitorListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchValue)) {
-            $query['SearchValue'] = $request->searchValue;
+
+        if (null !== $request->searchValue) {
+            @$query['SearchValue'] = $request->searchValue;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLogMonitorList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLogMonitorList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeLogMonitorListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries log monitoring metrics.
-     *  *
-     * @param DescribeLogMonitorListRequest $request DescribeLogMonitorListRequest
+     * Queries log monitoring metrics.
      *
-     * @return DescribeLogMonitorListResponse DescribeLogMonitorListResponse
+     * @param request - DescribeLogMonitorListRequest
+     *
+     * @returns DescribeLogMonitorListResponse
+     *
+     * @param DescribeLogMonitorListRequest $request
+     *
+     * @return DescribeLogMonitorListResponse
      */
     public function describeLogMonitorList($request)
     {
@@ -4849,77 +5910,98 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the monitoring data of a metric for a specified cloud service.
-     *  *
-     * @description ### [](#)Limits
-     * Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
+     * Queries the monitoring data of a metric for a cloud service.
+     *
+     * @remarks
+     * ### [](#)Limits
+     * *   The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. If the free quota is used up, you are automatically charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+     * *   Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
      * ### [](#)Description
      * >  Different from [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html), the DescribeMetricData operation provides statistical features. You can set the Dimension parameter to `{"instanceId": "i-abcdefgh12****"}` to aggregate all data of your Alibaba Cloud account.
-     * This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`.
-     *  *
-     * @param DescribeMetricDataRequest $request DescribeMetricDataRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * This topic provides an example on how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`.
      *
-     * @return DescribeMetricDataResponse DescribeMetricDataResponse
+     * @param request - DescribeMetricDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMetricDataResponse
+     *
+     * @param DescribeMetricDataRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeMetricDataResponse
      */
     public function describeMetricDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dimensions)) {
-            $query['Dimensions'] = $request->dimensions;
+        if (null !== $request->dimensions) {
+            @$query['Dimensions'] = $request->dimensions;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->express)) {
-            $query['Express'] = $request->express;
+
+        if (null !== $request->express) {
+            @$query['Express'] = $request->express;
         }
-        if (!Utils::isUnset($request->length)) {
-            $query['Length'] = $request->length;
+
+        if (null !== $request->length) {
+            @$query['Length'] = $request->length;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMetricData',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMetricData',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the monitoring data of a metric for a specified cloud service.
-     *  *
-     * @description ### [](#)Limits
-     * Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
+     * Queries the monitoring data of a metric for a cloud service.
+     *
+     * @remarks
+     * ### [](#)Limits
+     * *   The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. If the free quota is used up, you are automatically charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+     * *   Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
      * ### [](#)Description
      * >  Different from [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html), the DescribeMetricData operation provides statistical features. You can set the Dimension parameter to `{"instanceId": "i-abcdefgh12****"}` to aggregate all data of your Alibaba Cloud account.
-     * This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`.
-     *  *
-     * @param DescribeMetricDataRequest $request DescribeMetricDataRequest
+     * This topic provides an example on how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`.
      *
-     * @return DescribeMetricDataResponse DescribeMetricDataResponse
+     * @param request - DescribeMetricDataRequest
+     *
+     * @returns DescribeMetricDataResponse
+     *
+     * @param DescribeMetricDataRequest $request
+     *
+     * @return DescribeMetricDataResponse
      */
     public function describeMetricData($request)
     {
@@ -4929,90 +6011,112 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the latest monitoring data of a metric.
-     *  *
-     * @description ### [](#)Limits
-     * Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
+     * Queries the latest monitoring data of a metric.
+     *
+     * @remarks
+     * ### [](#)Limits
+     * *   The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+     * *   Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
      * >  If `Throttling.User` or `Request was denied due to user flow control` is returned when you call an API operation, the API operation is throttled. For more information about how to handle the issue, see [How do I handle the throttling of a query API?](https://help.aliyun.com/document_detail/2615031.html)
      * ### [](#)Precautions
      * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
-     * *   If the value of the `Period` parameter is less than 60 seconds, the storage duration is seven days.
-     * *   If the value of the `Period` parameter is 60 seconds, the storage duration is 31 days.
-     * *   If the value of the `Period` parameter is 300 seconds, the storage duration is 91 days.
-     * ### [](#)Description
+     * *   The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
+     * *   The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
+     * *   The storage duration is 91 days if the value of the `Period` parameter is greater than or equal to 300 seconds.
+     * ### [](#)Operation description
      * This topic provides an example on how to query the latest monitoring data of the `CPUUtilization` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `123456789876****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
-     *  *
-     * @param DescribeMetricLastRequest $request DescribeMetricLastRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMetricLastResponse DescribeMetricLastResponse
+     * @param request - DescribeMetricLastRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMetricLastResponse
+     *
+     * @param DescribeMetricLastRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeMetricLastResponse
      */
     public function describeMetricLastWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dimensions)) {
-            $query['Dimensions'] = $request->dimensions;
+        if (null !== $request->dimensions) {
+            @$query['Dimensions'] = $request->dimensions;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->express)) {
-            $query['Express'] = $request->express;
+
+        if (null !== $request->express) {
+            @$query['Express'] = $request->express;
         }
-        if (!Utils::isUnset($request->length)) {
-            $query['Length'] = $request->length;
+
+        if (null !== $request->length) {
+            @$query['Length'] = $request->length;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMetricLast',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMetricLast',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMetricLastResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the latest monitoring data of a metric.
-     *  *
-     * @description ### [](#)Limits
-     * Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
+     * Queries the latest monitoring data of a metric.
+     *
+     * @remarks
+     * ### [](#)Limits
+     * *   The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+     * *   Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
      * >  If `Throttling.User` or `Request was denied due to user flow control` is returned when you call an API operation, the API operation is throttled. For more information about how to handle the issue, see [How do I handle the throttling of a query API?](https://help.aliyun.com/document_detail/2615031.html)
      * ### [](#)Precautions
      * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
-     * *   If the value of the `Period` parameter is less than 60 seconds, the storage duration is seven days.
-     * *   If the value of the `Period` parameter is 60 seconds, the storage duration is 31 days.
-     * *   If the value of the `Period` parameter is 300 seconds, the storage duration is 91 days.
-     * ### [](#)Description
+     * *   The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
+     * *   The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
+     * *   The storage duration is 91 days if the value of the `Period` parameter is greater than or equal to 300 seconds.
+     * ### [](#)Operation description
      * This topic provides an example on how to query the latest monitoring data of the `CPUUtilization` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `123456789876****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
-     *  *
-     * @param DescribeMetricLastRequest $request DescribeMetricLastRequest
      *
-     * @return DescribeMetricLastResponse DescribeMetricLastResponse
+     * @param request - DescribeMetricLastRequest
+     *
+     * @returns DescribeMetricLastResponse
+     *
+     * @param DescribeMetricLastRequest $request
+     *
+     * @return DescribeMetricLastResponse
      */
     public function describeMetricLast($request)
     {
@@ -5022,76 +6126,96 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the monitoring data of a metric for a specified cloud service.
-     *  *
-     * @description ## Limits
+     * Queries the monitoring data of a metric for a specified cloud service.
+     *
+     * @remarks
+     * ## Limits
      * Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
      * >This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `120886317861****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
-     *  *
-     * @param DescribeMetricListRequest $request DescribeMetricListRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMetricListResponse DescribeMetricListResponse
+     * @param request - DescribeMetricListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMetricListResponse
+     *
+     * @param DescribeMetricListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeMetricListResponse
      */
     public function describeMetricListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dimensions)) {
-            $query['Dimensions'] = $request->dimensions;
+        if (null !== $request->dimensions) {
+            @$query['Dimensions'] = $request->dimensions;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->express)) {
-            $query['Express'] = $request->express;
+
+        if (null !== $request->express) {
+            @$query['Express'] = $request->express;
         }
-        if (!Utils::isUnset($request->length)) {
-            $query['Length'] = $request->length;
+
+        if (null !== $request->length) {
+            @$query['Length'] = $request->length;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMetricList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMetricList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMetricListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the monitoring data of a metric for a specified cloud service.
-     *  *
-     * @description ## Limits
+     * Queries the monitoring data of a metric for a specified cloud service.
+     *
+     * @remarks
+     * ## Limits
      * Each API operation can be called up to 50 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
      * >This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The returned result indicates that the monitoring data for the instance `i-abcdefgh12****` of the account `120886317861****` is queried at an interval of 60 seconds. The maximum, minimum, and average values of the metric are 100, 93.1, and 99.52.
-     *  *
-     * @param DescribeMetricListRequest $request DescribeMetricListRequest
      *
-     * @return DescribeMetricListResponse DescribeMetricListResponse
+     * @param request - DescribeMetricListRequest
+     *
+     * @returns DescribeMetricListResponse
+     *
+     * @param DescribeMetricListRequest $request
+     *
+     * @return DescribeMetricListResponse
      */
     public function describeMetricList($request)
     {
@@ -5101,60 +6225,76 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of metrics that are supported in CloudMonitor.
-     *  *
-     * @description This operation is used together with DescribeMetricList and DescribeMetricLast. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [DescribeMetricLast](https://help.aliyun.com/document_detail/51939.html).
-     *  *
-     * @param DescribeMetricMetaListRequest $request DescribeMetricMetaListRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the details of metrics that are supported in CloudMonitor.
      *
-     * @return DescribeMetricMetaListResponse DescribeMetricMetaListResponse
+     * @remarks
+     * This operation is used together with DescribeMetricList and DescribeMetricLast. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [DescribeMetricLast](https://help.aliyun.com/document_detail/51939.html).
+     *
+     * @param request - DescribeMetricMetaListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMetricMetaListResponse
+     *
+     * @param DescribeMetricMetaListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeMetricMetaListResponse
      */
     public function describeMetricMetaListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->labels)) {
-            $query['Labels'] = $request->labels;
+        if (null !== $request->labels) {
+            @$query['Labels'] = $request->labels;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMetricMetaList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMetricMetaList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMetricMetaListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of metrics that are supported in CloudMonitor.
-     *  *
-     * @description This operation is used together with DescribeMetricList and DescribeMetricLast. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [DescribeMetricLast](https://help.aliyun.com/document_detail/51939.html).
-     *  *
-     * @param DescribeMetricMetaListRequest $request DescribeMetricMetaListRequest
+     * Queries the details of metrics that are supported in CloudMonitor.
      *
-     * @return DescribeMetricMetaListResponse DescribeMetricMetaListResponse
+     * @remarks
+     * This operation is used together with DescribeMetricList and DescribeMetricLast. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [DescribeMetricLast](https://help.aliyun.com/document_detail/51939.html).
+     *
+     * @param request - DescribeMetricMetaListRequest
+     *
+     * @returns DescribeMetricMetaListResponse
+     *
+     * @param DescribeMetricMetaListRequest $request
+     *
+     * @return DescribeMetricMetaListResponse
      */
     public function describeMetricMetaList($request)
     {
@@ -5164,67 +6304,86 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricRuleBlackListRequest $request DescribeMetricRuleBlackListRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeMetricRuleBlackListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeMetricRuleBlackListResponse DescribeMetricRuleBlackListResponse
+     * @returns DescribeMetricRuleBlackListResponse
+     *
+     * @param DescribeMetricRuleBlackListRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeMetricRuleBlackListResponse
      */
     public function describeMetricRuleBlackListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->ids)) {
-            $query['Ids'] = $request->ids;
+
+        if (null !== $request->ids) {
+            @$query['Ids'] = $request->ids;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->isEnable)) {
-            $query['IsEnable'] = $request->isEnable;
+
+        if (null !== $request->isEnable) {
+            @$query['IsEnable'] = $request->isEnable;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->scopeType)) {
-            $query['ScopeType'] = $request->scopeType;
+
+        if (null !== $request->scopeType) {
+            @$query['ScopeType'] = $request->scopeType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMetricRuleBlackList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMetricRuleBlackList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMetricRuleBlackListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeMetricRuleBlackListRequest $request DescribeMetricRuleBlackListRequest
+     * @param request - DescribeMetricRuleBlackListRequest
      *
-     * @return DescribeMetricRuleBlackListResponse DescribeMetricRuleBlackListResponse
+     * @returns DescribeMetricRuleBlackListResponse
+     *
+     * @param DescribeMetricRuleBlackListRequest $request
+     *
+     * @return DescribeMetricRuleBlackListResponse
      */
     public function describeMetricRuleBlackList($request)
     {
@@ -5234,41 +6393,50 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of alert rules in each state.
-     *  *
-     * @param DescribeMetricRuleCountRequest $request DescribeMetricRuleCountRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the number of alert rules in each state.
      *
-     * @return DescribeMetricRuleCountResponse DescribeMetricRuleCountResponse
+     * @param request - DescribeMetricRuleCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMetricRuleCountResponse
+     *
+     * @param DescribeMetricRuleCountRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeMetricRuleCountResponse
      */
     public function describeMetricRuleCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMetricRuleCount',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMetricRuleCount',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMetricRuleCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of alert rules in each state.
-     *  *
-     * @param DescribeMetricRuleCountRequest $request DescribeMetricRuleCountRequest
+     * Queries the number of alert rules in each state.
      *
-     * @return DescribeMetricRuleCountResponse DescribeMetricRuleCountResponse
+     * @param request - DescribeMetricRuleCountRequest
+     *
+     * @returns DescribeMetricRuleCountResponse
+     *
+     * @param DescribeMetricRuleCountRequest $request
+     *
+     * @return DescribeMetricRuleCountResponse
      */
     public function describeMetricRuleCount($request)
     {
@@ -5278,75 +6446,96 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries alert rules.
-     *  *
-     * @description This topic provides an example on how to query all alert rules within your Alibaba Cloud account. The returned result shows that only one alert rule is found. The name of the alert rule is `Rule_01` and the ID is `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
-     *  *
-     * @param DescribeMetricRuleListRequest $request DescribeMetricRuleListRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries alert rules.
      *
-     * @return DescribeMetricRuleListResponse DescribeMetricRuleListResponse
+     * @remarks
+     * This topic provides an example on how to query all alert rules within your Alibaba Cloud account. The returned result shows that only one alert rule is found. The name of the alert rule is `Rule_01` and the ID is `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
+     *
+     * @param request - DescribeMetricRuleListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMetricRuleListResponse
+     *
+     * @param DescribeMetricRuleListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeMetricRuleListResponse
      */
     public function describeMetricRuleListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertState)) {
-            $query['AlertState'] = $request->alertState;
+        if (null !== $request->alertState) {
+            @$query['AlertState'] = $request->alertState;
         }
-        if (!Utils::isUnset($request->dimensions)) {
-            $query['Dimensions'] = $request->dimensions;
+
+        if (null !== $request->dimensions) {
+            @$query['Dimensions'] = $request->dimensions;
         }
-        if (!Utils::isUnset($request->enableState)) {
-            $query['EnableState'] = $request->enableState;
+
+        if (null !== $request->enableState) {
+            @$query['EnableState'] = $request->enableState;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->ruleIds)) {
-            $query['RuleIds'] = $request->ruleIds;
+
+        if (null !== $request->ruleIds) {
+            @$query['RuleIds'] = $request->ruleIds;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMetricRuleList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMetricRuleList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMetricRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries alert rules.
-     *  *
-     * @description This topic provides an example on how to query all alert rules within your Alibaba Cloud account. The returned result shows that only one alert rule is found. The name of the alert rule is `Rule_01` and the ID is `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
-     *  *
-     * @param DescribeMetricRuleListRequest $request DescribeMetricRuleListRequest
+     * Queries alert rules.
      *
-     * @return DescribeMetricRuleListResponse DescribeMetricRuleListResponse
+     * @remarks
+     * This topic provides an example on how to query all alert rules within your Alibaba Cloud account. The returned result shows that only one alert rule is found. The name of the alert rule is `Rule_01` and the ID is `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
+     *
+     * @param request - DescribeMetricRuleListRequest
+     *
+     * @returns DescribeMetricRuleListResponse
+     *
+     * @param DescribeMetricRuleListRequest $request
+     *
+     * @return DescribeMetricRuleListResponse
      */
     public function describeMetricRuleList($request)
     {
@@ -5356,52 +6545,64 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the resources that are associated with a specified alert rule.
-     *  *
-     * @description ## Limit
+     * Queries the resources that are associated with a specified alert rule.
+     *
+     * @remarks
+     * ## Limit
      * This operation supports only Message Service (MNS) resources.
      * >This topic provides an example on how to query the resources that are associated with an alert rule whose ID is `ae06917_75a8c43178ab66****`.
-     *  *
-     * @param DescribeMetricRuleTargetsRequest $request DescribeMetricRuleTargetsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMetricRuleTargetsResponse DescribeMetricRuleTargetsResponse
+     * @param request - DescribeMetricRuleTargetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMetricRuleTargetsResponse
+     *
+     * @param DescribeMetricRuleTargetsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeMetricRuleTargetsResponse
      */
     public function describeMetricRuleTargetsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMetricRuleTargets',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMetricRuleTargets',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMetricRuleTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the resources that are associated with a specified alert rule.
-     *  *
-     * @description ## Limit
+     * Queries the resources that are associated with a specified alert rule.
+     *
+     * @remarks
+     * ## Limit
      * This operation supports only Message Service (MNS) resources.
      * >This topic provides an example on how to query the resources that are associated with an alert rule whose ID is `ae06917_75a8c43178ab66****`.
-     *  *
-     * @param DescribeMetricRuleTargetsRequest $request DescribeMetricRuleTargetsRequest
      *
-     * @return DescribeMetricRuleTargetsResponse DescribeMetricRuleTargetsResponse
+     * @param request - DescribeMetricRuleTargetsRequest
+     *
+     * @returns DescribeMetricRuleTargetsResponse
+     *
+     * @param DescribeMetricRuleTargetsRequest $request
+     *
+     * @return DescribeMetricRuleTargetsResponse
      */
     public function describeMetricRuleTargets($request)
     {
@@ -5411,51 +6612,64 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an alert template.
-     *  *
-     * @description This topic provides an example on how to query the details of an alert template whose ID is `70****`.
-     *  *
-     * @param DescribeMetricRuleTemplateAttributeRequest $request DescribeMetricRuleTemplateAttributeRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an alert template.
      *
-     * @return DescribeMetricRuleTemplateAttributeResponse DescribeMetricRuleTemplateAttributeResponse
+     * @remarks
+     * This topic provides an example on how to query the details of an alert template whose ID is `70****`.
+     *
+     * @param request - DescribeMetricRuleTemplateAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMetricRuleTemplateAttributeResponse
+     *
+     * @param DescribeMetricRuleTemplateAttributeRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeMetricRuleTemplateAttributeResponse
      */
     public function describeMetricRuleTemplateAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMetricRuleTemplateAttribute',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMetricRuleTemplateAttribute',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMetricRuleTemplateAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an alert template.
-     *  *
-     * @description This topic provides an example on how to query the details of an alert template whose ID is `70****`.
-     *  *
-     * @param DescribeMetricRuleTemplateAttributeRequest $request DescribeMetricRuleTemplateAttributeRequest
+     * Queries the details of an alert template.
      *
-     * @return DescribeMetricRuleTemplateAttributeResponse DescribeMetricRuleTemplateAttributeResponse
+     * @remarks
+     * This topic provides an example on how to query the details of an alert template whose ID is `70****`.
+     *
+     * @param request - DescribeMetricRuleTemplateAttributeRequest
+     *
+     * @returns DescribeMetricRuleTemplateAttributeResponse
+     *
+     * @param DescribeMetricRuleTemplateAttributeRequest $request
+     *
+     * @return DescribeMetricRuleTemplateAttributeResponse
      */
     public function describeMetricRuleTemplateAttribute($request)
     {
@@ -5465,69 +6679,88 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries alert templates.
-     *  *
-     * @description This topic provides an example on how to query alert templates. In this example, the following alert templates are returned in the response: `ECS_Template1` and `ECS_Template2`.
-     *  *
-     * @param DescribeMetricRuleTemplateListRequest $request DescribeMetricRuleTemplateListRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries alert templates.
      *
-     * @return DescribeMetricRuleTemplateListResponse DescribeMetricRuleTemplateListResponse
+     * @remarks
+     * This topic provides an example on how to query alert templates. In this example, the following alert templates are returned in the response: `ECS_Template1` and `ECS_Template2`.
+     *
+     * @param request - DescribeMetricRuleTemplateListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMetricRuleTemplateListResponse
+     *
+     * @param DescribeMetricRuleTemplateListRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeMetricRuleTemplateListResponse
      */
     public function describeMetricRuleTemplateListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->history)) {
-            $query['History'] = $request->history;
+        if (null !== $request->history) {
+            @$query['History'] = $request->history;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->order)) {
-            $query['Order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMetricRuleTemplateList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMetricRuleTemplateList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMetricRuleTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries alert templates.
-     *  *
-     * @description This topic provides an example on how to query alert templates. In this example, the following alert templates are returned in the response: `ECS_Template1` and `ECS_Template2`.
-     *  *
-     * @param DescribeMetricRuleTemplateListRequest $request DescribeMetricRuleTemplateListRequest
+     * Queries alert templates.
      *
-     * @return DescribeMetricRuleTemplateListResponse DescribeMetricRuleTemplateListResponse
+     * @remarks
+     * This topic provides an example on how to query alert templates. In this example, the following alert templates are returned in the response: `ECS_Template1` and `ECS_Template2`.
+     *
+     * @param request - DescribeMetricRuleTemplateListRequest
+     *
+     * @returns DescribeMetricRuleTemplateListResponse
+     *
+     * @param DescribeMetricRuleTemplateListRequest $request
+     *
+     * @return DescribeMetricRuleTemplateListResponse
      */
     public function describeMetricRuleTemplateList($request)
     {
@@ -5537,91 +6770,114 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the latest monitoring data of a metric for a cloud service. The data can be sorted by a specified order.
-     *  *
-     * @description ### [](#)Limits
-     * Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
+     * Queries the latest monitoring data of a metric for a cloud service. The data can be sorted by a specified order.
+     *
+     * @remarks
+     * ### [](#)Limits
+     * *   The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+     * *   Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
      * ### [](#)Precautions
      * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
-     * *   If the value of the `Period` parameter is less than 60 seconds, the storage duration is seven days.
-     * *   If the value of the `Period` parameter is 60 seconds, the storage duration is 31 days.
-     * *   If the value of the `Period` parameter is 300 seconds, the storage duration is 91 days.
-     * ### [](#)Description
-     * This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric in the last 60 seconds for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The monitoring data is sorted in the descending order based on the `Average` field.
-     *  *
-     * @param DescribeMetricTopRequest $request DescribeMetricTopRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * *   The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
+     * *   The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
+     * *   The storage duration is 91 days if the value of the `Period` is greater than or equal to 300 seconds.
+     * ### [](#)Operation description
+     * This topic provides an example on how to query the monitoring data of the `cpu_idle` metric in the last 60 seconds for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The monitoring data is sorted in descending order based on the `Average` field.
      *
-     * @return DescribeMetricTopResponse DescribeMetricTopResponse
+     * @param request - DescribeMetricTopRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMetricTopResponse
+     *
+     * @param DescribeMetricTopRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeMetricTopResponse
      */
     public function describeMetricTopWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dimensions)) {
-            $query['Dimensions'] = $request->dimensions;
+        if (null !== $request->dimensions) {
+            @$query['Dimensions'] = $request->dimensions;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->express)) {
-            $query['Express'] = $request->express;
+
+        if (null !== $request->express) {
+            @$query['Express'] = $request->express;
         }
-        if (!Utils::isUnset($request->length)) {
-            $query['Length'] = $request->length;
+
+        if (null !== $request->length) {
+            @$query['Length'] = $request->length;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->orderDesc)) {
-            $query['OrderDesc'] = $request->orderDesc;
+
+        if (null !== $request->orderDesc) {
+            @$query['OrderDesc'] = $request->orderDesc;
         }
-        if (!Utils::isUnset($request->orderby)) {
-            $query['Orderby'] = $request->orderby;
+
+        if (null !== $request->orderby) {
+            @$query['Orderby'] = $request->orderby;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMetricTop',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMetricTop',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMetricTopResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the latest monitoring data of a metric for a cloud service. The data can be sorted by a specified order.
-     *  *
-     * @description ### [](#)Limits
-     * Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the RAM users within the account share the quota.
+     * Queries the latest monitoring data of a metric for a cloud service. The data can be sorted by a specified order.
+     *
+     * @remarks
+     * ### [](#)Limits
+     * *   The total free quota is 1 million calls per month for the DescribeMetricLast, DescribeMetricList, DescribeMetricData, and DescribeMetricTop operations. If the free quota is used up and CloudMonitor Basic (pay-as-you-go) is not activated, these API operations can no longer be called as expected. If you have activated CloudMonitor Basic (pay-as-you-go), these API operations can still be called even if the free quota is used up. After the free quota is used up, you are charged for the excess usage based on the pay-as-you-go billing method. For more information about how to activate CloudMonitor Basic (pay-as-you-go), see [Enable the pay-as-you-go billing method](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.6c8f3481IbSHgG\\&commodityCode=cms_basic_public_cn\\&from_biz_channel=help_bill).
+     * *   Each API operation can be called up to 10 times per second. An Alibaba Cloud account and the Resource Access Management (RAM) users within the account share the quota.
      * ### [](#)Precautions
      * The storage duration of the monitoring data of each cloud service is related to the `Period` parameter (statistical period). A larger value of the `Period` parameter indicates that the monitoring data is distributed in a larger time range and the storage duration of the monitoring data is longer. The following list describes the specific relationships:
-     * *   If the value of the `Period` parameter is less than 60 seconds, the storage duration is seven days.
-     * *   If the value of the `Period` parameter is 60 seconds, the storage duration is 31 days.
-     * *   If the value of the `Period` parameter is 300 seconds, the storage duration is 91 days.
-     * ### [](#)Description
-     * This topic provides an example to show how to query the monitoring data of the `cpu_idle` metric in the last 60 seconds for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The monitoring data is sorted in the descending order based on the `Average` field.
-     *  *
-     * @param DescribeMetricTopRequest $request DescribeMetricTopRequest
+     * *   The storage duration is 7 days if the value of the `Period` parameter is less than 60 seconds.
+     * *   The storage duration is 31 days if the value of the `Period` parameter is 60 seconds.
+     * *   The storage duration is 91 days if the value of the `Period` is greater than or equal to 300 seconds.
+     * ### [](#)Operation description
+     * This topic provides an example on how to query the monitoring data of the `cpu_idle` metric in the last 60 seconds for Elastic Compute Service (ECS). The namespace of ECS is `acs_ecs_dashboard`. The monitoring data is sorted in descending order based on the `Average` field.
      *
-     * @return DescribeMetricTopResponse DescribeMetricTopResponse
+     * @param request - DescribeMetricTopRequest
+     *
+     * @returns DescribeMetricTopResponse
+     *
+     * @param DescribeMetricTopRequest $request
+     *
+     * @return DescribeMetricTopResponse
      */
     public function describeMetricTop($request)
     {
@@ -5631,44 +6887,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the cloud services to which the resources in an application group belong and the number of resources that belong to each cloud service in the application group.
-     *  *
-     * @param DescribeMonitorGroupCategoriesRequest $request DescribeMonitorGroupCategoriesRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the cloud services to which the resources in an application group belong and the number of resources that belong to each cloud service in the application group.
      *
-     * @return DescribeMonitorGroupCategoriesResponse DescribeMonitorGroupCategoriesResponse
+     * @param request - DescribeMonitorGroupCategoriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMonitorGroupCategoriesResponse
+     *
+     * @param DescribeMonitorGroupCategoriesRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeMonitorGroupCategoriesResponse
      */
     public function describeMonitorGroupCategoriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMonitorGroupCategories',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMonitorGroupCategories',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMonitorGroupCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the cloud services to which the resources in an application group belong and the number of resources that belong to each cloud service in the application group.
-     *  *
-     * @param DescribeMonitorGroupCategoriesRequest $request DescribeMonitorGroupCategoriesRequest
+     * Queries the cloud services to which the resources in an application group belong and the number of resources that belong to each cloud service in the application group.
      *
-     * @return DescribeMonitorGroupCategoriesResponse DescribeMonitorGroupCategoriesResponse
+     * @param request - DescribeMonitorGroupCategoriesRequest
+     *
+     * @returns DescribeMonitorGroupCategoriesResponse
+     *
+     * @param DescribeMonitorGroupCategoriesRequest $request
+     *
+     * @return DescribeMonitorGroupCategoriesResponse
      */
     public function describeMonitorGroupCategories($request)
     {
@@ -5678,44 +6944,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the dynamic rules of an application group.
-     *  *
-     * @param DescribeMonitorGroupDynamicRulesRequest $request DescribeMonitorGroupDynamicRulesRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Queries the dynamic rules of an application group.
      *
-     * @return DescribeMonitorGroupDynamicRulesResponse DescribeMonitorGroupDynamicRulesResponse
+     * @param request - DescribeMonitorGroupDynamicRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMonitorGroupDynamicRulesResponse
+     *
+     * @param DescribeMonitorGroupDynamicRulesRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeMonitorGroupDynamicRulesResponse
      */
     public function describeMonitorGroupDynamicRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMonitorGroupDynamicRules',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMonitorGroupDynamicRules',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMonitorGroupDynamicRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the dynamic rules of an application group.
-     *  *
-     * @param DescribeMonitorGroupDynamicRulesRequest $request DescribeMonitorGroupDynamicRulesRequest
+     * Queries the dynamic rules of an application group.
      *
-     * @return DescribeMonitorGroupDynamicRulesResponse DescribeMonitorGroupDynamicRulesResponse
+     * @param request - DescribeMonitorGroupDynamicRulesRequest
+     *
+     * @returns DescribeMonitorGroupDynamicRulesResponse
+     *
+     * @param DescribeMonitorGroupDynamicRulesRequest $request
+     *
+     * @return DescribeMonitorGroupDynamicRulesResponse
      */
     public function describeMonitorGroupDynamicRules($request)
     {
@@ -5725,62 +7001,78 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of the resources in an application group.
-     *  *
-     * @param DescribeMonitorGroupInstanceAttributeRequest $request DescribeMonitorGroupInstanceAttributeRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * Queries the details of the resources in an application group.
      *
-     * @return DescribeMonitorGroupInstanceAttributeResponse DescribeMonitorGroupInstanceAttributeResponse
+     * @param request - DescribeMonitorGroupInstanceAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMonitorGroupInstanceAttributeResponse
+     *
+     * @param DescribeMonitorGroupInstanceAttributeRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeMonitorGroupInstanceAttributeResponse
      */
     public function describeMonitorGroupInstanceAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->total)) {
-            $query['Total'] = $request->total;
+
+        if (null !== $request->total) {
+            @$query['Total'] = $request->total;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMonitorGroupInstanceAttribute',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMonitorGroupInstanceAttribute',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMonitorGroupInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of the resources in an application group.
-     *  *
-     * @param DescribeMonitorGroupInstanceAttributeRequest $request DescribeMonitorGroupInstanceAttributeRequest
+     * Queries the details of the resources in an application group.
      *
-     * @return DescribeMonitorGroupInstanceAttributeResponse DescribeMonitorGroupInstanceAttributeResponse
+     * @param request - DescribeMonitorGroupInstanceAttributeRequest
+     *
+     * @returns DescribeMonitorGroupInstanceAttributeResponse
+     *
+     * @param DescribeMonitorGroupInstanceAttributeRequest $request
+     *
+     * @return DescribeMonitorGroupInstanceAttributeResponse
      */
     public function describeMonitorGroupInstanceAttribute($request)
     {
@@ -5790,59 +7082,74 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the resources in an application group.
-     *  *
-     * @param DescribeMonitorGroupInstancesRequest $request DescribeMonitorGroupInstancesRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the resources in an application group.
      *
-     * @return DescribeMonitorGroupInstancesResponse DescribeMonitorGroupInstancesResponse
+     * @param request - DescribeMonitorGroupInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMonitorGroupInstancesResponse
+     *
+     * @param DescribeMonitorGroupInstancesRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeMonitorGroupInstancesResponse
      */
     public function describeMonitorGroupInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMonitorGroupInstances',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMonitorGroupInstances',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMonitorGroupInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the resources in an application group.
-     *  *
-     * @param DescribeMonitorGroupInstancesRequest $request DescribeMonitorGroupInstancesRequest
+     * Queries the resources in an application group.
      *
-     * @return DescribeMonitorGroupInstancesResponse DescribeMonitorGroupInstancesResponse
+     * @param request - DescribeMonitorGroupInstancesRequest
+     *
+     * @returns DescribeMonitorGroupInstancesResponse
+     *
+     * @param DescribeMonitorGroupInstancesRequest $request
+     *
+     * @return DescribeMonitorGroupInstancesResponse
      */
     public function describeMonitorGroupInstances($request)
     {
@@ -5852,53 +7159,66 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the policies that are used to pause alert notifications for an application group.
-     *  *
-     * @param DescribeMonitorGroupNotifyPolicyListRequest $request DescribeMonitorGroupNotifyPolicyListRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * Queries the policies that are used to pause alert notifications for an application group.
      *
-     * @return DescribeMonitorGroupNotifyPolicyListResponse DescribeMonitorGroupNotifyPolicyListResponse
+     * @param request - DescribeMonitorGroupNotifyPolicyListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMonitorGroupNotifyPolicyListResponse
+     *
+     * @param DescribeMonitorGroupNotifyPolicyListRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DescribeMonitorGroupNotifyPolicyListResponse
      */
     public function describeMonitorGroupNotifyPolicyListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->policyType)) {
-            $query['PolicyType'] = $request->policyType;
+
+        if (null !== $request->policyType) {
+            @$query['PolicyType'] = $request->policyType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMonitorGroupNotifyPolicyList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMonitorGroupNotifyPolicyList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMonitorGroupNotifyPolicyListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the policies that are used to pause alert notifications for an application group.
-     *  *
-     * @param DescribeMonitorGroupNotifyPolicyListRequest $request DescribeMonitorGroupNotifyPolicyListRequest
+     * Queries the policies that are used to pause alert notifications for an application group.
      *
-     * @return DescribeMonitorGroupNotifyPolicyListResponse DescribeMonitorGroupNotifyPolicyListResponse
+     * @param request - DescribeMonitorGroupNotifyPolicyListRequest
+     *
+     * @returns DescribeMonitorGroupNotifyPolicyListResponse
+     *
+     * @param DescribeMonitorGroupNotifyPolicyListRequest $request
+     *
+     * @return DescribeMonitorGroupNotifyPolicyListResponse
      */
     public function describeMonitorGroupNotifyPolicyList($request)
     {
@@ -5908,87 +7228,112 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries application groups.
-     *  *
-     * @description This topic provides an example of how to query the application groups of the current account. The response shows that the current account has two application groups: `testGroup124` and `test123`.
-     *  *
-     * @param DescribeMonitorGroupsRequest $request DescribeMonitorGroupsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries application groups.
      *
-     * @return DescribeMonitorGroupsResponse DescribeMonitorGroupsResponse
+     * @remarks
+     * This topic provides an example of how to query the application groups of the current account. The response shows that the current account has two application groups: `testGroup124` and `test123`.
+     *
+     * @param request - DescribeMonitorGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMonitorGroupsResponse
+     *
+     * @param DescribeMonitorGroupsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeMonitorGroupsResponse
      */
     public function describeMonitorGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dynamicTagRuleId)) {
-            $query['DynamicTagRuleId'] = $request->dynamicTagRuleId;
+        if (null !== $request->dynamicTagRuleId) {
+            @$query['DynamicTagRuleId'] = $request->dynamicTagRuleId;
         }
-        if (!Utils::isUnset($request->groupFounderTagKey)) {
-            $query['GroupFounderTagKey'] = $request->groupFounderTagKey;
+
+        if (null !== $request->groupFounderTagKey) {
+            @$query['GroupFounderTagKey'] = $request->groupFounderTagKey;
         }
-        if (!Utils::isUnset($request->groupFounderTagValue)) {
-            $query['GroupFounderTagValue'] = $request->groupFounderTagValue;
+
+        if (null !== $request->groupFounderTagValue) {
+            @$query['GroupFounderTagValue'] = $request->groupFounderTagValue;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->includeTemplateHistory)) {
-            $query['IncludeTemplateHistory'] = $request->includeTemplateHistory;
+
+        if (null !== $request->includeTemplateHistory) {
+            @$query['IncludeTemplateHistory'] = $request->includeTemplateHistory;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->selectContactGroups)) {
-            $query['SelectContactGroups'] = $request->selectContactGroups;
+
+        if (null !== $request->selectContactGroups) {
+            @$query['SelectContactGroups'] = $request->selectContactGroups;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->types)) {
-            $query['Types'] = $request->types;
+
+        if (null !== $request->types) {
+            @$query['Types'] = $request->types;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMonitorGroups',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMonitorGroups',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMonitorGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries application groups.
-     *  *
-     * @description This topic provides an example of how to query the application groups of the current account. The response shows that the current account has two application groups: `testGroup124` and `test123`.
-     *  *
-     * @param DescribeMonitorGroupsRequest $request DescribeMonitorGroupsRequest
+     * Queries application groups.
      *
-     * @return DescribeMonitorGroupsResponse DescribeMonitorGroupsResponse
+     * @remarks
+     * This topic provides an example of how to query the application groups of the current account. The response shows that the current account has two application groups: `testGroup124` and `test123`.
+     *
+     * @param request - DescribeMonitorGroupsRequest
+     *
+     * @returns DescribeMonitorGroupsResponse
+     *
+     * @param DescribeMonitorGroupsRequest $request
+     *
+     * @return DescribeMonitorGroupsResponse
      */
     public function describeMonitorGroups($request)
     {
@@ -5998,44 +7343,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the resource quotas of CloudMonitor.
-     *  *
-     * @param DescribeMonitorResourceQuotaAttributeRequest $request DescribeMonitorResourceQuotaAttributeRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * Queries the resource quotas of CloudMonitor.
      *
-     * @return DescribeMonitorResourceQuotaAttributeResponse DescribeMonitorResourceQuotaAttributeResponse
+     * @param request - DescribeMonitorResourceQuotaAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMonitorResourceQuotaAttributeResponse
+     *
+     * @param DescribeMonitorResourceQuotaAttributeRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeMonitorResourceQuotaAttributeResponse
      */
     public function describeMonitorResourceQuotaAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->showUsed)) {
-            $query['ShowUsed'] = $request->showUsed;
+        if (null !== $request->showUsed) {
+            @$query['ShowUsed'] = $request->showUsed;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMonitorResourceQuotaAttribute',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMonitorResourceQuotaAttribute',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMonitorResourceQuotaAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the resource quotas of CloudMonitor.
-     *  *
-     * @param DescribeMonitorResourceQuotaAttributeRequest $request DescribeMonitorResourceQuotaAttributeRequest
+     * Queries the resource quotas of CloudMonitor.
      *
-     * @return DescribeMonitorResourceQuotaAttributeResponse DescribeMonitorResourceQuotaAttributeResponse
+     * @param request - DescribeMonitorResourceQuotaAttributeRequest
+     *
+     * @returns DescribeMonitorResourceQuotaAttributeResponse
+     *
+     * @param DescribeMonitorResourceQuotaAttributeRequest $request
+     *
+     * @return DescribeMonitorResourceQuotaAttributeResponse
      */
     public function describeMonitorResourceQuotaAttribute($request)
     {
@@ -6045,38 +7400,47 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the AccessKey ID and AccessKey secret that are required to install the CloudMonitor agent on a third-party host.
-     *  *
-     * @param DescribeMonitoringAgentAccessKeyRequest $request DescribeMonitoringAgentAccessKeyRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Queries the AccessKey ID and AccessKey secret that are required to install the CloudMonitor agent on a third-party host.
      *
-     * @return DescribeMonitoringAgentAccessKeyResponse DescribeMonitoringAgentAccessKeyResponse
+     * @param request - DescribeMonitoringAgentAccessKeyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMonitoringAgentAccessKeyResponse
+     *
+     * @param DescribeMonitoringAgentAccessKeyRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeMonitoringAgentAccessKeyResponse
      */
     public function describeMonitoringAgentAccessKeyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $req    = new OpenApiRequest([]);
+        $request->validate();
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeMonitoringAgentAccessKey',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMonitoringAgentAccessKey',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMonitoringAgentAccessKeyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the AccessKey ID and AccessKey secret that are required to install the CloudMonitor agent on a third-party host.
-     *  *
-     * @param DescribeMonitoringAgentAccessKeyRequest $request DescribeMonitoringAgentAccessKeyRequest
+     * Queries the AccessKey ID and AccessKey secret that are required to install the CloudMonitor agent on a third-party host.
      *
-     * @return DescribeMonitoringAgentAccessKeyResponse DescribeMonitoringAgentAccessKeyResponse
+     * @param request - DescribeMonitoringAgentAccessKeyRequest
+     *
+     * @returns DescribeMonitoringAgentAccessKeyResponse
+     *
+     * @param DescribeMonitoringAgentAccessKeyRequest $request
+     *
+     * @return DescribeMonitoringAgentAccessKeyResponse
      */
     public function describeMonitoringAgentAccessKey($request)
     {
@@ -6086,34 +7450,47 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitoringAgentConfigRequest $request DescribeMonitoringAgentConfigRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the configurations of the CloudMonitor agent.
      *
-     * @return DescribeMonitoringAgentConfigResponse DescribeMonitoringAgentConfigResponse
+     * @param request - DescribeMonitoringAgentConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMonitoringAgentConfigResponse
+     *
+     * @param DescribeMonitoringAgentConfigRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeMonitoringAgentConfigResponse
      */
     public function describeMonitoringAgentConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $req    = new OpenApiRequest([]);
+        $request->validate();
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeMonitoringAgentConfig',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMonitoringAgentConfig',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMonitoringAgentConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeMonitoringAgentConfigRequest $request DescribeMonitoringAgentConfigRequest
+     * Queries the configurations of the CloudMonitor agent.
      *
-     * @return DescribeMonitoringAgentConfigResponse DescribeMonitoringAgentConfigResponse
+     * @param request - DescribeMonitoringAgentConfigRequest
+     *
+     * @returns DescribeMonitoringAgentConfigResponse
+     *
+     * @param DescribeMonitoringAgentConfigRequest $request
+     *
+     * @return DescribeMonitoringAgentConfigResponse
      */
     public function describeMonitoringAgentConfig($request)
     {
@@ -6123,71 +7500,90 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries all hosts within the current Alibaba Cloud account, including hosts on which the CloudMonitor agent is installed and uninstalled.
-     *  *
-     * @param DescribeMonitoringAgentHostsRequest $request DescribeMonitoringAgentHostsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries all hosts within the current Alibaba Cloud account, including hosts on which the CloudMonitor agent is installed and uninstalled.
      *
-     * @return DescribeMonitoringAgentHostsResponse DescribeMonitoringAgentHostsResponse
+     * @param request - DescribeMonitoringAgentHostsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMonitoringAgentHostsResponse
+     *
+     * @param DescribeMonitoringAgentHostsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeMonitoringAgentHostsResponse
      */
     public function describeMonitoringAgentHostsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunHost)) {
-            $query['AliyunHost'] = $request->aliyunHost;
+        if (null !== $request->aliyunHost) {
+            @$query['AliyunHost'] = $request->aliyunHost;
         }
-        if (!Utils::isUnset($request->hostName)) {
-            $query['HostName'] = $request->hostName;
+
+        if (null !== $request->hostName) {
+            @$query['HostName'] = $request->hostName;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->instanceRegionId)) {
-            $query['InstanceRegionId'] = $request->instanceRegionId;
+
+        if (null !== $request->instanceRegionId) {
+            @$query['InstanceRegionId'] = $request->instanceRegionId;
         }
-        if (!Utils::isUnset($request->keyWord)) {
-            $query['KeyWord'] = $request->keyWord;
+
+        if (null !== $request->keyWord) {
+            @$query['KeyWord'] = $request->keyWord;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->serialNumbers)) {
-            $query['SerialNumbers'] = $request->serialNumbers;
+
+        if (null !== $request->serialNumbers) {
+            @$query['SerialNumbers'] = $request->serialNumbers;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->sysomStatus)) {
-            $query['SysomStatus'] = $request->sysomStatus;
+
+        if (null !== $request->sysomStatus) {
+            @$query['SysomStatus'] = $request->sysomStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMonitoringAgentHosts',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMonitoringAgentHosts',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMonitoringAgentHostsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all hosts within the current Alibaba Cloud account, including hosts on which the CloudMonitor agent is installed and uninstalled.
-     *  *
-     * @param DescribeMonitoringAgentHostsRequest $request DescribeMonitoringAgentHostsRequest
+     * Queries all hosts within the current Alibaba Cloud account, including hosts on which the CloudMonitor agent is installed and uninstalled.
      *
-     * @return DescribeMonitoringAgentHostsResponse DescribeMonitoringAgentHostsResponse
+     * @param request - DescribeMonitoringAgentHostsRequest
+     *
+     * @returns DescribeMonitoringAgentHostsResponse
+     *
+     * @param DescribeMonitoringAgentHostsRequest $request
+     *
+     * @return DescribeMonitoringAgentHostsResponse
      */
     public function describeMonitoringAgentHosts($request)
     {
@@ -6197,46 +7593,58 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @description >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
+     * @remarks
+     * >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
      * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
-     *  *
-     * @param DescribeMonitoringAgentProcessesRequest $request DescribeMonitoringAgentProcessesRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMonitoringAgentProcessesResponse DescribeMonitoringAgentProcessesResponse
+     * @param request - DescribeMonitoringAgentProcessesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMonitoringAgentProcessesResponse
+     *
+     * @param DescribeMonitoringAgentProcessesRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeMonitoringAgentProcessesResponse
      */
     public function describeMonitoringAgentProcessesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMonitoringAgentProcesses',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMonitoringAgentProcesses',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMonitoringAgentProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @description >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
+     * @remarks
+     * >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](https://help.aliyun.com/document_detail/114951.html~).
      * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
-     *  *
-     * @param DescribeMonitoringAgentProcessesRequest $request DescribeMonitoringAgentProcessesRequest
      *
-     * @return DescribeMonitoringAgentProcessesResponse DescribeMonitoringAgentProcessesResponse
+     * @param request - DescribeMonitoringAgentProcessesRequest
+     *
+     * @returns DescribeMonitoringAgentProcessesResponse
+     *
+     * @param DescribeMonitoringAgentProcessesRequest $request
+     *
+     * @return DescribeMonitoringAgentProcessesResponse
      */
     public function describeMonitoringAgentProcesses($request)
     {
@@ -6246,51 +7654,64 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of the CloudMonitor agent.
-     *  *
-     * @description This topic describes how to query the status of the CloudMonitor agent that is installed on the `i-hp3dunahluwajv6f****` instance. The result indicates that the CloudMonitor agent is in the `running` state.
-     *  *
-     * @param DescribeMonitoringAgentStatusesRequest $request DescribeMonitoringAgentStatusesRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries the status of the CloudMonitor agent.
      *
-     * @return DescribeMonitoringAgentStatusesResponse DescribeMonitoringAgentStatusesResponse
+     * @remarks
+     * This topic describes how to query the status of the CloudMonitor agent that is installed on the `i-hp3dunahluwajv6f****` instance. The result indicates that the CloudMonitor agent is in the `running` state.
+     *
+     * @param request - DescribeMonitoringAgentStatusesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMonitoringAgentStatusesResponse
+     *
+     * @param DescribeMonitoringAgentStatusesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeMonitoringAgentStatusesResponse
      */
     public function describeMonitoringAgentStatusesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->hostAvailabilityTaskId)) {
-            $query['HostAvailabilityTaskId'] = $request->hostAvailabilityTaskId;
+        if (null !== $request->hostAvailabilityTaskId) {
+            @$query['HostAvailabilityTaskId'] = $request->hostAvailabilityTaskId;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMonitoringAgentStatuses',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMonitoringAgentStatuses',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMonitoringAgentStatusesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status of the CloudMonitor agent.
-     *  *
-     * @description This topic describes how to query the status of the CloudMonitor agent that is installed on the `i-hp3dunahluwajv6f****` instance. The result indicates that the CloudMonitor agent is in the `running` state.
-     *  *
-     * @param DescribeMonitoringAgentStatusesRequest $request DescribeMonitoringAgentStatusesRequest
+     * Queries the status of the CloudMonitor agent.
      *
-     * @return DescribeMonitoringAgentStatusesResponse DescribeMonitoringAgentStatusesResponse
+     * @remarks
+     * This topic describes how to query the status of the CloudMonitor agent that is installed on the `i-hp3dunahluwajv6f****` instance. The result indicates that the CloudMonitor agent is in the `running` state.
+     *
+     * @param request - DescribeMonitoringAgentStatusesRequest
+     *
+     * @returns DescribeMonitoringAgentStatusesResponse
+     *
+     * @param DescribeMonitoringAgentStatusesRequest $request
+     *
+     * @return DescribeMonitoringAgentStatusesResponse
      */
     public function describeMonitoringAgentStatuses($request)
     {
@@ -6300,34 +7721,47 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitoringConfigRequest $request DescribeMonitoringConfigRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the global configurations of the CloudMonitor agent.
      *
-     * @return DescribeMonitoringConfigResponse DescribeMonitoringConfigResponse
+     * @param request - DescribeMonitoringConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeMonitoringConfigResponse
+     *
+     * @param DescribeMonitoringConfigRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeMonitoringConfigResponse
      */
     public function describeMonitoringConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $req    = new OpenApiRequest([]);
+        $request->validate();
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeMonitoringConfig',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMonitoringConfig',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeMonitoringConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeMonitoringConfigRequest $request DescribeMonitoringConfigRequest
+     * Queries the global configurations of the CloudMonitor agent.
      *
-     * @return DescribeMonitoringConfigResponse DescribeMonitoringConfigResponse
+     * @param request - DescribeMonitoringConfigRequest
+     *
+     * @returns DescribeMonitoringConfigResponse
+     *
+     * @param DescribeMonitoringConfigRequest $request
+     *
+     * @return DescribeMonitoringConfigResponse
      */
     public function describeMonitoringConfig($request)
     {
@@ -6337,44 +7771,60 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @description >  If a tag is attached to multiple cloud resources in the region, the key of the tag is returned only once.
-     *  *
-     * @param DescribeProductResourceTagKeyListRequest $request DescribeProductResourceTagKeyListRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Queries the keys of all tags that are attached to cloud resources in a region.
      *
-     * @return DescribeProductResourceTagKeyListResponse DescribeProductResourceTagKeyListResponse
+     * @remarks
+     * >  If a tag is attached to multiple cloud resources in the region, the key of the tag is returned only once.
+     *
+     * @param request - DescribeProductResourceTagKeyListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeProductResourceTagKeyListResponse
+     *
+     * @param DescribeProductResourceTagKeyListRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeProductResourceTagKeyListResponse
      */
     public function describeProductResourceTagKeyListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeProductResourceTagKeyList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeProductResourceTagKeyList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeProductResourceTagKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @description >  If a tag is attached to multiple cloud resources in the region, the key of the tag is returned only once.
-     *  *
-     * @param DescribeProductResourceTagKeyListRequest $request DescribeProductResourceTagKeyListRequest
+     * Queries the keys of all tags that are attached to cloud resources in a region.
      *
-     * @return DescribeProductResourceTagKeyListResponse DescribeProductResourceTagKeyListResponse
+     * @remarks
+     * >  If a tag is attached to multiple cloud resources in the region, the key of the tag is returned only once.
+     *
+     * @param request - DescribeProductResourceTagKeyListRequest
+     *
+     * @returns DescribeProductResourceTagKeyListResponse
+     *
+     * @param DescribeProductResourceTagKeyListRequest $request
+     *
+     * @return DescribeProductResourceTagKeyListResponse
      */
     public function describeProductResourceTagKeyList($request)
     {
@@ -6384,38 +7834,47 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the cloud services for which the initiative alert feature is enabled.
-     *  *
-     * @param DescribeProductsOfActiveMetricRuleRequest $request DescribeProductsOfActiveMetricRuleRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Queries the cloud services for which the initiative alert feature is enabled.
      *
-     * @return DescribeProductsOfActiveMetricRuleResponse DescribeProductsOfActiveMetricRuleResponse
+     * @param request - DescribeProductsOfActiveMetricRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeProductsOfActiveMetricRuleResponse
+     *
+     * @param DescribeProductsOfActiveMetricRuleRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeProductsOfActiveMetricRuleResponse
      */
     public function describeProductsOfActiveMetricRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $req    = new OpenApiRequest([]);
+        $request->validate();
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeProductsOfActiveMetricRule',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeProductsOfActiveMetricRule',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeProductsOfActiveMetricRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the cloud services for which the initiative alert feature is enabled.
-     *  *
-     * @param DescribeProductsOfActiveMetricRuleRequest $request DescribeProductsOfActiveMetricRuleRequest
+     * Queries the cloud services for which the initiative alert feature is enabled.
      *
-     * @return DescribeProductsOfActiveMetricRuleResponse DescribeProductsOfActiveMetricRuleResponse
+     * @param request - DescribeProductsOfActiveMetricRuleRequest
+     *
+     * @returns DescribeProductsOfActiveMetricRuleResponse
+     *
+     * @param DescribeProductsOfActiveMetricRuleRequest $request
+     *
+     * @return DescribeProductsOfActiveMetricRuleResponse
      */
     public function describeProductsOfActiveMetricRule($request)
     {
@@ -6425,54 +7884,68 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about monitored services in CloudMonitor.
-     *  *
-     * @description The information obtained by this operation includes the service description, namespace, and tags.
-     *  *
-     * @param DescribeProjectMetaRequest $request DescribeProjectMetaRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the information about monitored services in CloudMonitor.
      *
-     * @return DescribeProjectMetaResponse DescribeProjectMetaResponse
+     * @remarks
+     * The information obtained by this operation includes the service description, namespace, and tags.
+     *
+     * @param request - DescribeProjectMetaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeProjectMetaResponse
+     *
+     * @param DescribeProjectMetaRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeProjectMetaResponse
      */
     public function describeProjectMetaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->labels)) {
-            $query['Labels'] = $request->labels;
+        if (null !== $request->labels) {
+            @$query['Labels'] = $request->labels;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeProjectMeta',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeProjectMeta',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeProjectMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about monitored services in CloudMonitor.
-     *  *
-     * @description The information obtained by this operation includes the service description, namespace, and tags.
-     *  *
-     * @param DescribeProjectMetaRequest $request DescribeProjectMetaRequest
+     * Queries the information about monitored services in CloudMonitor.
      *
-     * @return DescribeProjectMetaResponse DescribeProjectMetaResponse
+     * @remarks
+     * The information obtained by this operation includes the service description, namespace, and tags.
+     *
+     * @param request - DescribeProjectMetaRequest
+     *
+     * @returns DescribeProjectMetaResponse
+     *
+     * @param DescribeProjectMetaRequest $request
+     *
+     * @return DescribeProjectMetaResponse
      */
     public function describeProjectMeta($request)
     {
@@ -6482,51 +7955,64 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a site monitoring task.
-     *  *
-     * @description This topic provides an example on how to query the details of a site monitoring task whose ID is `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The returned result indicates that the task name is `test123`, the URL that is monitored by the task is `https://aliyun.com`, and the name of the carrier is `Alibaba`.
-     *  *
-     * @param DescribeSiteMonitorAttributeRequest $request DescribeSiteMonitorAttributeRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a site monitoring task.
      *
-     * @return DescribeSiteMonitorAttributeResponse DescribeSiteMonitorAttributeResponse
+     * @remarks
+     * This topic provides an example on how to query the details of a site monitoring task whose ID is `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The returned result indicates that the task name is `test123`, the URL that is monitored by the task is `https://aliyun.com`, and the name of the carrier is `Alibaba`.
+     *
+     * @param request - DescribeSiteMonitorAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSiteMonitorAttributeResponse
+     *
+     * @param DescribeSiteMonitorAttributeRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeSiteMonitorAttributeResponse
      */
     public function describeSiteMonitorAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->includeAlert)) {
-            $query['IncludeAlert'] = $request->includeAlert;
+        if (null !== $request->includeAlert) {
+            @$query['IncludeAlert'] = $request->includeAlert;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSiteMonitorAttribute',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSiteMonitorAttribute',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSiteMonitorAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a site monitoring task.
-     *  *
-     * @description This topic provides an example on how to query the details of a site monitoring task whose ID is `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The returned result indicates that the task name is `test123`, the URL that is monitored by the task is `https://aliyun.com`, and the name of the carrier is `Alibaba`.
-     *  *
-     * @param DescribeSiteMonitorAttributeRequest $request DescribeSiteMonitorAttributeRequest
+     * Queries the details of a site monitoring task.
      *
-     * @return DescribeSiteMonitorAttributeResponse DescribeSiteMonitorAttributeResponse
+     * @remarks
+     * This topic provides an example on how to query the details of a site monitoring task whose ID is `cc641dff-c19d-45f3-ad0a-818a0c4f****`. The returned result indicates that the task name is `test123`, the URL that is monitored by the task is `https://aliyun.com`, and the name of the carrier is `Alibaba`.
+     *
+     * @param request - DescribeSiteMonitorAttributeRequest
+     *
+     * @returns DescribeSiteMonitorAttributeResponse
+     *
+     * @param DescribeSiteMonitorAttributeRequest $request
+     *
+     * @return DescribeSiteMonitorAttributeResponse
      */
     public function describeSiteMonitorAttribute($request)
     {
@@ -6536,65 +8022,82 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the fine-grained monitoring data of a site monitoring task.
-     *  *
-     * @param DescribeSiteMonitorDataRequest $request DescribeSiteMonitorDataRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the fine-grained monitoring data of a site monitoring task.
      *
-     * @return DescribeSiteMonitorDataResponse DescribeSiteMonitorDataResponse
+     * @param request - DescribeSiteMonitorDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSiteMonitorDataResponse
+     *
+     * @param DescribeSiteMonitorDataRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeSiteMonitorDataResponse
      */
     public function describeSiteMonitorDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->length)) {
-            $query['Length'] = $request->length;
+
+        if (null !== $request->length) {
+            @$query['Length'] = $request->length;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSiteMonitorData',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSiteMonitorData',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSiteMonitorDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the fine-grained monitoring data of a site monitoring task.
-     *  *
-     * @param DescribeSiteMonitorDataRequest $request DescribeSiteMonitorDataRequest
+     * Queries the fine-grained monitoring data of a site monitoring task.
      *
-     * @return DescribeSiteMonitorDataResponse DescribeSiteMonitorDataResponse
+     * @param request - DescribeSiteMonitorDataRequest
+     *
+     * @returns DescribeSiteMonitorDataResponse
+     *
+     * @param DescribeSiteMonitorDataRequest $request
+     *
+     * @return DescribeSiteMonitorDataResponse
      */
     public function describeSiteMonitorData($request)
     {
@@ -6604,60 +8107,76 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the detection points that are provided by carriers.
-     *  *
-     * @description This topic provides an example on how to query the detection points that are provided by China Unicom in Guiyang.
-     *  *
-     * @param DescribeSiteMonitorISPCityListRequest $request DescribeSiteMonitorISPCityListRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the detection points that are provided by carriers.
      *
-     * @return DescribeSiteMonitorISPCityListResponse DescribeSiteMonitorISPCityListResponse
+     * @remarks
+     * This topic provides an example on how to query the detection points that are provided by China Unicom in Guiyang.
+     *
+     * @param request - DescribeSiteMonitorISPCityListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSiteMonitorISPCityListResponse
+     *
+     * @param DescribeSiteMonitorISPCityListRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeSiteMonitorISPCityListResponse
      */
     public function describeSiteMonitorISPCityListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->city)) {
-            $query['City'] = $request->city;
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
         }
-        if (!Utils::isUnset($request->IPV4)) {
-            $query['IPV4'] = $request->IPV4;
+
+        if (null !== $request->IPV4) {
+            @$query['IPV4'] = $request->IPV4;
         }
-        if (!Utils::isUnset($request->IPV6)) {
-            $query['IPV6'] = $request->IPV6;
+
+        if (null !== $request->IPV6) {
+            @$query['IPV6'] = $request->IPV6;
         }
-        if (!Utils::isUnset($request->isp)) {
-            $query['Isp'] = $request->isp;
+
+        if (null !== $request->isp) {
+            @$query['Isp'] = $request->isp;
         }
-        if (!Utils::isUnset($request->viewAll)) {
-            $query['ViewAll'] = $request->viewAll;
+
+        if (null !== $request->viewAll) {
+            @$query['ViewAll'] = $request->viewAll;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSiteMonitorISPCityList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSiteMonitorISPCityList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSiteMonitorISPCityListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the detection points that are provided by carriers.
-     *  *
-     * @description This topic provides an example on how to query the detection points that are provided by China Unicom in Guiyang.
-     *  *
-     * @param DescribeSiteMonitorISPCityListRequest $request DescribeSiteMonitorISPCityListRequest
+     * Queries the detection points that are provided by carriers.
      *
-     * @return DescribeSiteMonitorISPCityListResponse DescribeSiteMonitorISPCityListResponse
+     * @remarks
+     * This topic provides an example on how to query the detection points that are provided by China Unicom in Guiyang.
+     *
+     * @param request - DescribeSiteMonitorISPCityListRequest
+     *
+     * @returns DescribeSiteMonitorISPCityListResponse
+     *
+     * @param DescribeSiteMonitorISPCityListRequest $request
+     *
+     * @return DescribeSiteMonitorISPCityListResponse
      */
     public function describeSiteMonitorISPCityList($request)
     {
@@ -6667,63 +8186,84 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries site monitoring tasks.
-     *  *
-     * @description This topic provides an example on how to query all the site monitoring tasks of your Alibaba Cloud account. In this example, the returned result indicates that the Alibaba Cloud account has one site monitoring task named `HanZhou_ECS2`.
-     *  *
-     * @param DescribeSiteMonitorListRequest $request DescribeSiteMonitorListRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries site monitoring tasks.
      *
-     * @return DescribeSiteMonitorListResponse DescribeSiteMonitorListResponse
+     * @remarks
+     * This topic provides an example on how to query all the site monitoring tasks of your Alibaba Cloud account. In this example, the returned result indicates that the Alibaba Cloud account has one site monitoring task named `HanZhou_ECS2`.
+     *
+     * @param request - DescribeSiteMonitorListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSiteMonitorListResponse
+     *
+     * @param DescribeSiteMonitorListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeSiteMonitorListResponse
      */
     public function describeSiteMonitorListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+        if (null !== $request->agentGroup) {
+            @$query['AgentGroup'] = $request->agentGroup;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->taskState)) {
-            $query['TaskState'] = $request->taskState;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskState) {
+            @$query['TaskState'] = $request->taskState;
         }
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSiteMonitorList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSiteMonitorList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSiteMonitorListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries site monitoring tasks.
-     *  *
-     * @description This topic provides an example on how to query all the site monitoring tasks of your Alibaba Cloud account. In this example, the returned result indicates that the Alibaba Cloud account has one site monitoring task named `HanZhou_ECS2`.
-     *  *
-     * @param DescribeSiteMonitorListRequest $request DescribeSiteMonitorListRequest
+     * Queries site monitoring tasks.
      *
-     * @return DescribeSiteMonitorListResponse DescribeSiteMonitorListResponse
+     * @remarks
+     * This topic provides an example on how to query all the site monitoring tasks of your Alibaba Cloud account. In this example, the returned result indicates that the Alibaba Cloud account has one site monitoring task named `HanZhou_ECS2`.
+     *
+     * @param request - DescribeSiteMonitorListRequest
+     *
+     * @returns DescribeSiteMonitorListResponse
+     *
+     * @param DescribeSiteMonitorListRequest $request
+     *
+     * @return DescribeSiteMonitorListResponse
      */
     public function describeSiteMonitorList($request)
     {
@@ -6733,83 +8273,106 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the logs of one or more instant test tasks.
-     *  *
-     * @description You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
-     * This topic provides an example to show how to query the logs of an instant test task whose ID is `afa5c3ce-f944-4363-9edb-ce919a29****`.
-     *  *
-     * @param DescribeSiteMonitorLogRequest $request DescribeSiteMonitorLogRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the logs of one or more instant test tasks.
      *
-     * @return DescribeSiteMonitorLogResponse DescribeSiteMonitorLogResponse
+     * @remarks
+     * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
+     * This topic provides an example to show how to query the logs of an instant test task whose ID is `afa5c3ce-f944-4363-9edb-ce919a29****`.
+     *
+     * @param request - DescribeSiteMonitorLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSiteMonitorLogResponse
+     *
+     * @param DescribeSiteMonitorLogRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeSiteMonitorLogResponse
      */
     public function describeSiteMonitorLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->browser)) {
-            $query['Browser'] = $request->browser;
+        if (null !== $request->browser) {
+            @$query['Browser'] = $request->browser;
         }
-        if (!Utils::isUnset($request->browserInfo)) {
-            $query['BrowserInfo'] = $request->browserInfo;
+
+        if (null !== $request->browserInfo) {
+            @$query['BrowserInfo'] = $request->browserInfo;
         }
-        if (!Utils::isUnset($request->city)) {
-            $query['City'] = $request->city;
+
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
         }
-        if (!Utils::isUnset($request->device)) {
-            $query['Device'] = $request->device;
+
+        if (null !== $request->device) {
+            @$query['Device'] = $request->device;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->filter)) {
-            $query['Filter'] = $request->filter;
+
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
         }
-        if (!Utils::isUnset($request->isp)) {
-            $query['Isp'] = $request->isp;
+
+        if (null !== $request->isp) {
+            @$query['Isp'] = $request->isp;
         }
-        if (!Utils::isUnset($request->length)) {
-            $query['Length'] = $request->length;
+
+        if (null !== $request->length) {
+            @$query['Length'] = $request->length;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->taskIds)) {
-            $query['TaskIds'] = $request->taskIds;
+
+        if (null !== $request->taskIds) {
+            @$query['TaskIds'] = $request->taskIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSiteMonitorLog',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSiteMonitorLog',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSiteMonitorLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the logs of one or more instant test tasks.
-     *  *
-     * @description You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
-     * This topic provides an example to show how to query the logs of an instant test task whose ID is `afa5c3ce-f944-4363-9edb-ce919a29****`.
-     *  *
-     * @param DescribeSiteMonitorLogRequest $request DescribeSiteMonitorLogRequest
+     * Queries the logs of one or more instant test tasks.
      *
-     * @return DescribeSiteMonitorLogResponse DescribeSiteMonitorLogResponse
+     * @remarks
+     * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
+     * This topic provides an example to show how to query the logs of an instant test task whose ID is `afa5c3ce-f944-4363-9edb-ce919a29****`.
+     *
+     * @param request - DescribeSiteMonitorLogRequest
+     *
+     * @returns DescribeSiteMonitorLogResponse
+     *
+     * @param DescribeSiteMonitorLogRequest $request
+     *
+     * @return DescribeSiteMonitorLogResponse
      */
     public function describeSiteMonitorLog($request)
     {
@@ -6819,38 +8382,47 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the quotas and version of site monitoring.
-     *  *
-     * @param DescribeSiteMonitorQuotaRequest $request DescribeSiteMonitorQuotaRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the quotas and version of site monitoring.
      *
-     * @return DescribeSiteMonitorQuotaResponse DescribeSiteMonitorQuotaResponse
+     * @param request - DescribeSiteMonitorQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSiteMonitorQuotaResponse
+     *
+     * @param DescribeSiteMonitorQuotaRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeSiteMonitorQuotaResponse
      */
     public function describeSiteMonitorQuotaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $req    = new OpenApiRequest([]);
+        $request->validate();
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeSiteMonitorQuota',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSiteMonitorQuota',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSiteMonitorQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the quotas and version of site monitoring.
-     *  *
-     * @param DescribeSiteMonitorQuotaRequest $request DescribeSiteMonitorQuotaRequest
+     * Queries the quotas and version of site monitoring.
      *
-     * @return DescribeSiteMonitorQuotaResponse DescribeSiteMonitorQuotaResponse
+     * @param request - DescribeSiteMonitorQuotaRequest
+     *
+     * @returns DescribeSiteMonitorQuotaResponse
+     *
+     * @param DescribeSiteMonitorQuotaRequest $request
+     *
+     * @return DescribeSiteMonitorQuotaResponse
      */
     public function describeSiteMonitorQuota($request)
     {
@@ -6860,57 +8432,72 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics of a specified metric for a specified site monitoring task.
-     *  *
-     * @description This topic provides an example on how to query the statistics of the `Availability` metric for a site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The result indicates that the availability rate of the site is `100%`.
-     *  *
-     * @param DescribeSiteMonitorStatisticsRequest $request DescribeSiteMonitorStatisticsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics of a specified metric for a specified site monitoring task.
      *
-     * @return DescribeSiteMonitorStatisticsResponse DescribeSiteMonitorStatisticsResponse
+     * @remarks
+     * This topic provides an example on how to query the statistics of the `Availability` metric for a site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The result indicates that the availability rate of the site is `100%`.
+     *
+     * @param request - DescribeSiteMonitorStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSiteMonitorStatisticsResponse
+     *
+     * @param DescribeSiteMonitorStatisticsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeSiteMonitorStatisticsResponse
      */
     public function describeSiteMonitorStatisticsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->timeRange)) {
-            $query['TimeRange'] = $request->timeRange;
+
+        if (null !== $request->timeRange) {
+            @$query['TimeRange'] = $request->timeRange;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSiteMonitorStatistics',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSiteMonitorStatistics',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSiteMonitorStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the statistics of a specified metric for a specified site monitoring task.
-     *  *
-     * @description This topic provides an example on how to query the statistics of the `Availability` metric for a site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The result indicates that the availability rate of the site is `100%`.
-     *  *
-     * @param DescribeSiteMonitorStatisticsRequest $request DescribeSiteMonitorStatisticsRequest
+     * Queries the statistics of a specified metric for a specified site monitoring task.
      *
-     * @return DescribeSiteMonitorStatisticsResponse DescribeSiteMonitorStatisticsResponse
+     * @remarks
+     * This topic provides an example on how to query the statistics of the `Availability` metric for a site monitoring task whose ID is `ef4cdc8b-9dc7-43e7-810e-f950e56c****`. The result indicates that the availability rate of the site is `100%`.
+     *
+     * @param request - DescribeSiteMonitorStatisticsRequest
+     *
+     * @returns DescribeSiteMonitorStatisticsResponse
+     *
+     * @param DescribeSiteMonitorStatisticsRequest $request
+     *
+     * @return DescribeSiteMonitorStatisticsResponse
      */
     public function describeSiteMonitorStatistics($request)
     {
@@ -6920,65 +8507,82 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary 查询拨测探测节点列表
-     *  *
-     * @param DescribeSyntheticProbeListRequest $request DescribeSyntheticProbeListRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 查询拨测探测节点列表.
      *
-     * @return DescribeSyntheticProbeListResponse DescribeSyntheticProbeListResponse
+     * @param request - DescribeSyntheticProbeListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSyntheticProbeListResponse
+     *
+     * @param DescribeSyntheticProbeListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeSyntheticProbeListResponse
      */
     public function describeSyntheticProbeListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->city)) {
-            $query['City'] = $request->city;
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
         }
-        if (!Utils::isUnset($request->idcProbe)) {
-            $query['IdcProbe'] = $request->idcProbe;
+
+        if (null !== $request->idcProbe) {
+            @$query['IdcProbe'] = $request->idcProbe;
         }
-        if (!Utils::isUnset($request->ipv4)) {
-            $query['Ipv4'] = $request->ipv4;
+
+        if (null !== $request->ipv4) {
+            @$query['Ipv4'] = $request->ipv4;
         }
-        if (!Utils::isUnset($request->ipv6)) {
-            $query['Ipv6'] = $request->ipv6;
+
+        if (null !== $request->ipv6) {
+            @$query['Ipv6'] = $request->ipv6;
         }
-        if (!Utils::isUnset($request->isp)) {
-            $query['Isp'] = $request->isp;
+
+        if (null !== $request->isp) {
+            @$query['Isp'] = $request->isp;
         }
-        if (!Utils::isUnset($request->lmProbe)) {
-            $query['LmProbe'] = $request->lmProbe;
+
+        if (null !== $request->lmProbe) {
+            @$query['LmProbe'] = $request->lmProbe;
         }
-        if (!Utils::isUnset($request->mbProbe)) {
-            $query['MbProbe'] = $request->mbProbe;
+
+        if (null !== $request->mbProbe) {
+            @$query['MbProbe'] = $request->mbProbe;
         }
-        if (!Utils::isUnset($request->viewAll)) {
-            $query['ViewAll'] = $request->viewAll;
+
+        if (null !== $request->viewAll) {
+            @$query['ViewAll'] = $request->viewAll;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSyntheticProbeList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSyntheticProbeList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSyntheticProbeListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询拨测探测节点列表
-     *  *
-     * @param DescribeSyntheticProbeListRequest $request DescribeSyntheticProbeListRequest
+     * 查询拨测探测节点列表.
      *
-     * @return DescribeSyntheticProbeListResponse DescribeSyntheticProbeListResponse
+     * @param request - DescribeSyntheticProbeListRequest
+     *
+     * @returns DescribeSyntheticProbeListResponse
+     *
+     * @param DescribeSyntheticProbeListRequest $request
+     *
+     * @return DescribeSyntheticProbeListResponse
      */
     public function describeSyntheticProbeList($request)
     {
@@ -6988,74 +8592,94 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a system event.
-     *  *
-     * @param DescribeSystemEventAttributeRequest $request DescribeSystemEventAttributeRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a system event.
      *
-     * @return DescribeSystemEventAttributeResponse DescribeSystemEventAttributeResponse
+     * @param request - DescribeSystemEventAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSystemEventAttributeResponse
+     *
+     * @param DescribeSystemEventAttributeRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeSystemEventAttributeResponse
      */
     public function describeSystemEventAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
+
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->level)) {
-            $query['Level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->product)) {
-            $query['Product'] = $request->product;
+
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
         }
-        if (!Utils::isUnset($request->searchKeywords)) {
-            $query['SearchKeywords'] = $request->searchKeywords;
+
+        if (null !== $request->searchKeywords) {
+            @$query['SearchKeywords'] = $request->searchKeywords;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSystemEventAttribute',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSystemEventAttribute',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSystemEventAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a system event.
-     *  *
-     * @param DescribeSystemEventAttributeRequest $request DescribeSystemEventAttributeRequest
+     * Queries the details of a system event.
      *
-     * @return DescribeSystemEventAttributeResponse DescribeSystemEventAttributeResponse
+     * @param request - DescribeSystemEventAttributeRequest
+     *
+     * @returns DescribeSystemEventAttributeResponse
+     *
+     * @param DescribeSystemEventAttributeRequest $request
+     *
+     * @return DescribeSystemEventAttributeResponse
      */
     public function describeSystemEventAttribute($request)
     {
@@ -7065,78 +8689,98 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of times that a system event of a cloud service has occurred.
-     *  *
-     * @description ### [](#)Background information
+     * Queries the number of times that a system event of a cloud service has occurred.
+     *
+     * @remarks
+     * ### [](#)Background information
      * You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the cloud services supported by CloudMonitor and their system events.
      * ### [](#)Description
      * This topic provides an example on how to query the number of times that a system event of `Elastic Compute Service (ECS)` has occurred. The returned result shows that the specified system event has occurred three times.
-     *  *
-     * @param DescribeSystemEventCountRequest $request DescribeSystemEventCountRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSystemEventCountResponse DescribeSystemEventCountResponse
+     * @param request - DescribeSystemEventCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSystemEventCountResponse
+     *
+     * @param DescribeSystemEventCountRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeSystemEventCountResponse
      */
     public function describeSystemEventCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
+
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->level)) {
-            $query['Level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->product)) {
-            $query['Product'] = $request->product;
+
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
         }
-        if (!Utils::isUnset($request->searchKeywords)) {
-            $query['SearchKeywords'] = $request->searchKeywords;
+
+        if (null !== $request->searchKeywords) {
+            @$query['SearchKeywords'] = $request->searchKeywords;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSystemEventCount',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSystemEventCount',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSystemEventCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of times that a system event of a cloud service has occurred.
-     *  *
-     * @description ### [](#)Background information
+     * Queries the number of times that a system event of a cloud service has occurred.
+     *
+     * @remarks
+     * ### [](#)Background information
      * You can call the [DescribeSystemEventMetaList](https://help.aliyun.com/document_detail/114972.html) operation to query the cloud services supported by CloudMonitor and their system events.
      * ### [](#)Description
      * This topic provides an example on how to query the number of times that a system event of `Elastic Compute Service (ECS)` has occurred. The returned result shows that the specified system event has occurred three times.
-     *  *
-     * @param DescribeSystemEventCountRequest $request DescribeSystemEventCountRequest
      *
-     * @return DescribeSystemEventCountResponse DescribeSystemEventCountResponse
+     * @param request - DescribeSystemEventCountRequest
+     *
+     * @returns DescribeSystemEventCountResponse
+     *
+     * @param DescribeSystemEventCountRequest $request
+     *
+     * @return DescribeSystemEventCountResponse
      */
     public function describeSystemEventCount($request)
     {
@@ -7146,68 +8790,86 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of times a system event occurred during each interval within a period of time.
-     *  *
-     * @param DescribeSystemEventHistogramRequest $request DescribeSystemEventHistogramRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the number of times a system event occurred during each interval within a period of time.
      *
-     * @return DescribeSystemEventHistogramResponse DescribeSystemEventHistogramResponse
+     * @param request - DescribeSystemEventHistogramRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSystemEventHistogramResponse
+     *
+     * @param DescribeSystemEventHistogramRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeSystemEventHistogramResponse
      */
     public function describeSystemEventHistogramWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
+
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->level)) {
-            $query['Level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->product)) {
-            $query['Product'] = $request->product;
+
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
         }
-        if (!Utils::isUnset($request->searchKeywords)) {
-            $query['SearchKeywords'] = $request->searchKeywords;
+
+        if (null !== $request->searchKeywords) {
+            @$query['SearchKeywords'] = $request->searchKeywords;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSystemEventHistogram',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSystemEventHistogram',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSystemEventHistogramResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of times a system event occurred during each interval within a period of time.
-     *  *
-     * @param DescribeSystemEventHistogramRequest $request DescribeSystemEventHistogramRequest
+     * Queries the number of times a system event occurred during each interval within a period of time.
      *
-     * @return DescribeSystemEventHistogramResponse DescribeSystemEventHistogramResponse
+     * @param request - DescribeSystemEventHistogramRequest
+     *
+     * @returns DescribeSystemEventHistogramResponse
+     *
+     * @param DescribeSystemEventHistogramRequest $request
+     *
+     * @return DescribeSystemEventHistogramResponse
      */
     public function describeSystemEventHistogram($request)
     {
@@ -7217,34 +8879,47 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSystemEventMetaListRequest $request DescribeSystemEventMetaListRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the meta information about system events.
      *
-     * @return DescribeSystemEventMetaListResponse DescribeSystemEventMetaListResponse
+     * @param request - DescribeSystemEventMetaListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSystemEventMetaListResponse
+     *
+     * @param DescribeSystemEventMetaListRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeSystemEventMetaListResponse
      */
     public function describeSystemEventMetaListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $req    = new OpenApiRequest([]);
+        $request->validate();
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeSystemEventMetaList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSystemEventMetaList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeSystemEventMetaListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeSystemEventMetaListRequest $request DescribeSystemEventMetaListRequest
+     * Queries the meta information about system events.
      *
-     * @return DescribeSystemEventMetaListResponse DescribeSystemEventMetaListResponse
+     * @param request - DescribeSystemEventMetaListRequest
+     *
+     * @returns DescribeSystemEventMetaListResponse
+     *
+     * @param DescribeSystemEventMetaListRequest $request
+     *
+     * @return DescribeSystemEventMetaListResponse
      */
     public function describeSystemEventMetaList($request)
     {
@@ -7254,43 +8929,58 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagKeyListRequest $request DescribeTagKeyListRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries tag keys.
      *
-     * @return DescribeTagKeyListResponse DescribeTagKeyListResponse
+     * @param request - DescribeTagKeyListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTagKeyListResponse
+     *
+     * @param DescribeTagKeyListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeTagKeyListResponse
      */
     public function describeTagKeyListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTagKeyList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTagKeyList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeTagKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeTagKeyListRequest $request DescribeTagKeyListRequest
+     * Queries tag keys.
      *
-     * @return DescribeTagKeyListResponse DescribeTagKeyListResponse
+     * @param request - DescribeTagKeyListRequest
+     *
+     * @returns DescribeTagKeyListResponse
+     *
+     * @param DescribeTagKeyListRequest $request
+     *
+     * @return DescribeTagKeyListResponse
      */
     public function describeTagKeyList($request)
     {
@@ -7300,50 +8990,68 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @description This topic provides an example of how to query the tag values corresponding to `tagKey1`. The return results are `tagValue1` and `tagValue2`.
-     *  *
-     * @param DescribeTagValueListRequest $request DescribeTagValueListRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the tag values corresponding to a specified tag key.
      *
-     * @return DescribeTagValueListResponse DescribeTagValueListResponse
+     * @remarks
+     * This topic provides an example of how to query the tag values corresponding to `tagKey1`. The return results are `tagValue1` and `tagValue2`.
+     *
+     * @param request - DescribeTagValueListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeTagValueListResponse
+     *
+     * @param DescribeTagValueListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeTagValueListResponse
      */
     public function describeTagValueListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTagValueList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTagValueList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeTagValueListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @description This topic provides an example of how to query the tag values corresponding to `tagKey1`. The return results are `tagValue1` and `tagValue2`.
-     *  *
-     * @param DescribeTagValueListRequest $request DescribeTagValueListRequest
+     * Queries the tag values corresponding to a specified tag key.
      *
-     * @return DescribeTagValueListResponse DescribeTagValueListResponse
+     * @remarks
+     * This topic provides an example of how to query the tag values corresponding to `tagKey1`. The return results are `tagValue1` and `tagValue2`.
+     *
+     * @param request - DescribeTagValueListRequest
+     *
+     * @returns DescribeTagValueListResponse
+     *
+     * @param DescribeTagValueListRequest $request
+     *
+     * @return DescribeTagValueListResponse
      */
     public function describeTagValueList($request)
     {
@@ -7353,40 +9061,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeUnhealthyHostAvailabilityRequest $request DescribeUnhealthyHostAvailabilityRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Queries unhealthy instances detected by availability monitoring tasks.
      *
-     * @return DescribeUnhealthyHostAvailabilityResponse DescribeUnhealthyHostAvailabilityResponse
+     * @param request - DescribeUnhealthyHostAvailabilityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeUnhealthyHostAvailabilityResponse
+     *
+     * @param DescribeUnhealthyHostAvailabilityRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeUnhealthyHostAvailabilityResponse
      */
     public function describeUnhealthyHostAvailabilityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUnhealthyHostAvailability',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUnhealthyHostAvailability',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DescribeUnhealthyHostAvailabilityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeUnhealthyHostAvailabilityRequest $request DescribeUnhealthyHostAvailabilityRequest
+     * Queries unhealthy instances detected by availability monitoring tasks.
      *
-     * @return DescribeUnhealthyHostAvailabilityResponse DescribeUnhealthyHostAvailabilityResponse
+     * @param request - DescribeUnhealthyHostAvailabilityRequest
+     *
+     * @returns DescribeUnhealthyHostAvailabilityResponse
+     *
+     * @param DescribeUnhealthyHostAvailabilityRequest $request
+     *
+     * @return DescribeUnhealthyHostAvailabilityResponse
      */
     public function describeUnhealthyHostAvailability($request)
     {
@@ -7396,40 +9118,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DisableActiveMetricRuleRequest $request DisableActiveMetricRuleRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Disables the initiative alert feature for a cloud service.
      *
-     * @return DisableActiveMetricRuleResponse DisableActiveMetricRuleResponse
+     * @param request - DisableActiveMetricRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableActiveMetricRuleResponse
+     *
+     * @param DisableActiveMetricRuleRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DisableActiveMetricRuleResponse
      */
     public function disableActiveMetricRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->product)) {
-            $query['Product'] = $request->product;
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableActiveMetricRule',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableActiveMetricRule',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DisableActiveMetricRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DisableActiveMetricRuleRequest $request DisableActiveMetricRuleRequest
+     * Disables the initiative alert feature for a cloud service.
      *
-     * @return DisableActiveMetricRuleResponse DisableActiveMetricRuleResponse
+     * @param request - DisableActiveMetricRuleRequest
+     *
+     * @returns DisableActiveMetricRuleResponse
+     *
+     * @param DisableActiveMetricRuleRequest $request
+     *
+     * @return DisableActiveMetricRuleResponse
      */
     public function disableActiveMetricRule($request)
     {
@@ -7439,40 +9175,50 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DisableEventRulesRequest $request DisableEventRulesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - DisableEventRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DisableEventRulesResponse DisableEventRulesResponse
+     * @returns DisableEventRulesResponse
+     *
+     * @param DisableEventRulesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DisableEventRulesResponse
      */
     public function disableEventRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ruleNames)) {
-            $query['RuleNames'] = $request->ruleNames;
+        if (null !== $request->ruleNames) {
+            @$query['RuleNames'] = $request->ruleNames;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableEventRules',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableEventRules',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DisableEventRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DisableEventRulesRequest $request DisableEventRulesRequest
+     * @param request - DisableEventRulesRequest
      *
-     * @return DisableEventRulesResponse DisableEventRulesResponse
+     * @returns DisableEventRulesResponse
+     *
+     * @param DisableEventRulesRequest $request
+     *
+     * @return DisableEventRulesResponse
      */
     public function disableEventRules($request)
     {
@@ -7482,40 +9228,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DisableHostAvailabilityRequest $request DisableHostAvailabilityRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Disables availability monitoring tasks.
      *
-     * @return DisableHostAvailabilityResponse DisableHostAvailabilityResponse
+     * @param request - DisableHostAvailabilityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableHostAvailabilityResponse
+     *
+     * @param DisableHostAvailabilityRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DisableHostAvailabilityResponse
      */
     public function disableHostAvailabilityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableHostAvailability',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableHostAvailability',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DisableHostAvailabilityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DisableHostAvailabilityRequest $request DisableHostAvailabilityRequest
+     * Disables availability monitoring tasks.
      *
-     * @return DisableHostAvailabilityResponse DisableHostAvailabilityResponse
+     * @param request - DisableHostAvailabilityRequest
+     *
+     * @returns DisableHostAvailabilityResponse
+     *
+     * @param DisableHostAvailabilityRequest $request
+     *
+     * @return DisableHostAvailabilityResponse
      */
     public function disableHostAvailability($request)
     {
@@ -7525,44 +9285,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Disables alert rules.
-     *  *
-     * @param DisableMetricRulesRequest $request DisableMetricRulesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Disables alert rules.
      *
-     * @return DisableMetricRulesResponse DisableMetricRulesResponse
+     * @param request - DisableMetricRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableMetricRulesResponse
+     *
+     * @param DisableMetricRulesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DisableMetricRulesResponse
      */
     public function disableMetricRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableMetricRules',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableMetricRules',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DisableMetricRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables alert rules.
-     *  *
-     * @param DisableMetricRulesRequest $request DisableMetricRulesRequest
+     * Disables alert rules.
      *
-     * @return DisableMetricRulesResponse DisableMetricRulesResponse
+     * @param request - DisableMetricRulesRequest
+     *
+     * @returns DisableMetricRulesResponse
+     *
+     * @param DisableMetricRulesRequest $request
+     *
+     * @return DisableMetricRulesResponse
      */
     public function disableMetricRules($request)
     {
@@ -7572,44 +9342,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Disables site monitoring tasks.
-     *  *
-     * @param DisableSiteMonitorsRequest $request DisableSiteMonitorsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Disables site monitoring tasks.
      *
-     * @return DisableSiteMonitorsResponse DisableSiteMonitorsResponse
+     * @param request - DisableSiteMonitorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DisableSiteMonitorsResponse
+     *
+     * @param DisableSiteMonitorsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DisableSiteMonitorsResponse
      */
     public function disableSiteMonitorsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->taskIds)) {
-            $query['TaskIds'] = $request->taskIds;
+        if (null !== $request->taskIds) {
+            @$query['TaskIds'] = $request->taskIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableSiteMonitors',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableSiteMonitors',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return DisableSiteMonitorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables site monitoring tasks.
-     *  *
-     * @param DisableSiteMonitorsRequest $request DisableSiteMonitorsRequest
+     * Disables site monitoring tasks.
      *
-     * @return DisableSiteMonitorsResponse DisableSiteMonitorsResponse
+     * @param request - DisableSiteMonitorsRequest
+     *
+     * @returns DisableSiteMonitorsResponse
+     *
+     * @param DisableSiteMonitorsRequest $request
+     *
+     * @return DisableSiteMonitorsResponse
      */
     public function disableSiteMonitors($request)
     {
@@ -7619,40 +9399,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param EnableActiveMetricRuleRequest $request EnableActiveMetricRuleRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Enables the initiative alert feature for a cloud service.
      *
-     * @return EnableActiveMetricRuleResponse EnableActiveMetricRuleResponse
+     * @param request - EnableActiveMetricRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableActiveMetricRuleResponse
+     *
+     * @param EnableActiveMetricRuleRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return EnableActiveMetricRuleResponse
      */
     public function enableActiveMetricRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->product)) {
-            $query['Product'] = $request->product;
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableActiveMetricRule',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableActiveMetricRule',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EnableActiveMetricRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param EnableActiveMetricRuleRequest $request EnableActiveMetricRuleRequest
+     * Enables the initiative alert feature for a cloud service.
      *
-     * @return EnableActiveMetricRuleResponse EnableActiveMetricRuleResponse
+     * @param request - EnableActiveMetricRuleRequest
+     *
+     * @returns EnableActiveMetricRuleResponse
+     *
+     * @param EnableActiveMetricRuleRequest $request
+     *
+     * @return EnableActiveMetricRuleResponse
      */
     public function enableActiveMetricRule($request)
     {
@@ -7662,40 +9456,50 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param EnableEventRulesRequest $request EnableEventRulesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - EnableEventRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return EnableEventRulesResponse EnableEventRulesResponse
+     * @returns EnableEventRulesResponse
+     *
+     * @param EnableEventRulesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return EnableEventRulesResponse
      */
     public function enableEventRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ruleNames)) {
-            $query['RuleNames'] = $request->ruleNames;
+        if (null !== $request->ruleNames) {
+            @$query['RuleNames'] = $request->ruleNames;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableEventRules',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableEventRules',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EnableEventRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param EnableEventRulesRequest $request EnableEventRulesRequest
+     * @param request - EnableEventRulesRequest
      *
-     * @return EnableEventRulesResponse EnableEventRulesResponse
+     * @returns EnableEventRulesResponse
+     *
+     * @param EnableEventRulesRequest $request
+     *
+     * @return EnableEventRulesResponse
      */
     public function enableEventRules($request)
     {
@@ -7705,40 +9509,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param EnableHostAvailabilityRequest $request EnableHostAvailabilityRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Enables availability monitoring tasks.
      *
-     * @return EnableHostAvailabilityResponse EnableHostAvailabilityResponse
+     * @param request - EnableHostAvailabilityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableHostAvailabilityResponse
+     *
+     * @param EnableHostAvailabilityRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return EnableHostAvailabilityResponse
      */
     public function enableHostAvailabilityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableHostAvailability',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableHostAvailability',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EnableHostAvailabilityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param EnableHostAvailabilityRequest $request EnableHostAvailabilityRequest
+     * Enables availability monitoring tasks.
      *
-     * @return EnableHostAvailabilityResponse EnableHostAvailabilityResponse
+     * @param request - EnableHostAvailabilityRequest
+     *
+     * @returns EnableHostAvailabilityResponse
+     *
+     * @param EnableHostAvailabilityRequest $request
+     *
+     * @return EnableHostAvailabilityResponse
      */
     public function enableHostAvailability($request)
     {
@@ -7748,47 +9566,58 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables multiple blacklist policies at a time.
-     *  *
-     * @param EnableMetricRuleBlackListRequest $request EnableMetricRuleBlackListRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Enables or disables multiple blacklist policies at a time.
      *
-     * @return EnableMetricRuleBlackListResponse EnableMetricRuleBlackListResponse
+     * @param request - EnableMetricRuleBlackListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableMetricRuleBlackListResponse
+     *
+     * @param EnableMetricRuleBlackListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return EnableMetricRuleBlackListResponse
      */
     public function enableMetricRuleBlackListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->isEnable)) {
-            $query['IsEnable'] = $request->isEnable;
+
+        if (null !== $request->isEnable) {
+            @$query['IsEnable'] = $request->isEnable;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableMetricRuleBlackList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableMetricRuleBlackList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EnableMetricRuleBlackListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables or disables multiple blacklist policies at a time.
-     *  *
-     * @param EnableMetricRuleBlackListRequest $request EnableMetricRuleBlackListRequest
+     * Enables or disables multiple blacklist policies at a time.
      *
-     * @return EnableMetricRuleBlackListResponse EnableMetricRuleBlackListResponse
+     * @param request - EnableMetricRuleBlackListRequest
+     *
+     * @returns EnableMetricRuleBlackListResponse
+     *
+     * @param EnableMetricRuleBlackListRequest $request
+     *
+     * @return EnableMetricRuleBlackListResponse
      */
     public function enableMetricRuleBlackList($request)
     {
@@ -7798,44 +9627,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Enables one or more alert rules.
-     *  *
-     * @param EnableMetricRulesRequest $request EnableMetricRulesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Enables alert rules.
      *
-     * @return EnableMetricRulesResponse EnableMetricRulesResponse
+     * @param request - EnableMetricRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableMetricRulesResponse
+     *
+     * @param EnableMetricRulesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return EnableMetricRulesResponse
      */
     public function enableMetricRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableMetricRules',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableMetricRules',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EnableMetricRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables one or more alert rules.
-     *  *
-     * @param EnableMetricRulesRequest $request EnableMetricRulesRequest
+     * Enables alert rules.
      *
-     * @return EnableMetricRulesResponse EnableMetricRulesResponse
+     * @param request - EnableMetricRulesRequest
+     *
+     * @returns EnableMetricRulesResponse
+     *
+     * @param EnableMetricRulesRequest $request
+     *
+     * @return EnableMetricRulesResponse
      */
     public function enableMetricRules($request)
     {
@@ -7845,44 +9684,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Enables site monitoring tasks.
-     *  *
-     * @param EnableSiteMonitorsRequest $request EnableSiteMonitorsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Enables site monitoring tasks.
      *
-     * @return EnableSiteMonitorsResponse EnableSiteMonitorsResponse
+     * @param request - EnableSiteMonitorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns EnableSiteMonitorsResponse
+     *
+     * @param EnableSiteMonitorsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return EnableSiteMonitorsResponse
      */
     public function enableSiteMonitorsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->taskIds)) {
-            $query['TaskIds'] = $request->taskIds;
+        if (null !== $request->taskIds) {
+            @$query['TaskIds'] = $request->taskIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableSiteMonitors',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableSiteMonitors',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return EnableSiteMonitorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables site monitoring tasks.
-     *  *
-     * @param EnableSiteMonitorsRequest $request EnableSiteMonitorsRequest
+     * Enables site monitoring tasks.
      *
-     * @return EnableSiteMonitorsResponse EnableSiteMonitorsResponse
+     * @param request - EnableSiteMonitorsRequest
+     *
+     * @returns EnableSiteMonitorsResponse
+     *
+     * @param EnableSiteMonitorsRequest $request
+     *
+     * @return EnableSiteMonitorsResponse
      */
     public function enableSiteMonitors($request)
     {
@@ -7892,52 +9741,70 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @description ## Prerequisites
-     * The Cloud Assistant client is installed on an ECS instance. For more information about how to install the Cloud Assistant client, see [Overview](https://help.aliyun.com/document_detail/64601.html).
-     *  *
-     * @param InstallMonitoringAgentRequest $request InstallMonitoringAgentRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * InstallMonitoringAgent.
      *
-     * @return InstallMonitoringAgentResponse InstallMonitoringAgentResponse
+     * @remarks
+     * ## Prerequisites
+     * The Cloud Assistant client is installed on an ECS instance. For more information about how to install the Cloud Assistant client, see [Overview](https://help.aliyun.com/document_detail/64601.html).
+     *
+     * @param request - InstallMonitoringAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InstallMonitoringAgentResponse
+     *
+     * @param InstallMonitoringAgentRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return InstallMonitoringAgentResponse
      */
     public function installMonitoringAgentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->force)) {
-            $query['Force'] = $request->force;
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
         }
-        if (!Utils::isUnset($request->installCommand)) {
-            $query['InstallCommand'] = $request->installCommand;
+
+        if (null !== $request->installCommand) {
+            @$query['InstallCommand'] = $request->installCommand;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InstallMonitoringAgent',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InstallMonitoringAgent',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return InstallMonitoringAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @description ## Prerequisites
-     * The Cloud Assistant client is installed on an ECS instance. For more information about how to install the Cloud Assistant client, see [Overview](https://help.aliyun.com/document_detail/64601.html).
-     *  *
-     * @param InstallMonitoringAgentRequest $request InstallMonitoringAgentRequest
+     * InstallMonitoringAgent.
      *
-     * @return InstallMonitoringAgentResponse InstallMonitoringAgentResponse
+     * @remarks
+     * ## Prerequisites
+     * The Cloud Assistant client is installed on an ECS instance. For more information about how to install the Cloud Assistant client, see [Overview](https://help.aliyun.com/document_detail/64601.html).
+     *
+     * @param request - InstallMonitoringAgentRequest
+     *
+     * @returns InstallMonitoringAgentResponse
+     *
+     * @param InstallMonitoringAgentRequest $request
+     *
+     * @return InstallMonitoringAgentResponse
      */
     public function installMonitoringAgent($request)
     {
@@ -7947,49 +9814,62 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyGroupMonitoringAgentProcessRequest $request ModifyGroupMonitoringAgentProcessRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyGroupMonitoringAgentProcessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyGroupMonitoringAgentProcessResponse ModifyGroupMonitoringAgentProcessResponse
+     * @returns ModifyGroupMonitoringAgentProcessResponse
+     *
+     * @param ModifyGroupMonitoringAgentProcessRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ModifyGroupMonitoringAgentProcessResponse
      */
     public function modifyGroupMonitoringAgentProcessWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertConfig)) {
-            $query['AlertConfig'] = $request->alertConfig;
+        if (null !== $request->alertConfig) {
+            @$query['AlertConfig'] = $request->alertConfig;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->matchExpressFilterRelation)) {
-            $query['MatchExpressFilterRelation'] = $request->matchExpressFilterRelation;
+
+        if (null !== $request->matchExpressFilterRelation) {
+            @$query['MatchExpressFilterRelation'] = $request->matchExpressFilterRelation;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyGroupMonitoringAgentProcess',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyGroupMonitoringAgentProcess',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyGroupMonitoringAgentProcessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyGroupMonitoringAgentProcessRequest $request ModifyGroupMonitoringAgentProcessRequest
+     * @param request - ModifyGroupMonitoringAgentProcessRequest
      *
-     * @return ModifyGroupMonitoringAgentProcessResponse ModifyGroupMonitoringAgentProcessResponse
+     * @returns ModifyGroupMonitoringAgentProcessResponse
+     *
+     * @param ModifyGroupMonitoringAgentProcessRequest $request
+     *
+     * @return ModifyGroupMonitoringAgentProcessResponse
      */
     public function modifyGroupMonitoringAgentProcess($request)
     {
@@ -7999,72 +9879,92 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Modifies an availability monitoring task.
-     *  *
-     * @description This topic provides an example on how to change the name of an availability monitoring task named `12345` in an application group named `123456` to `task2`.
-     *  *
-     * @param ModifyHostAvailabilityRequest $request ModifyHostAvailabilityRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Modifies an availability monitoring task.
      *
-     * @return ModifyHostAvailabilityResponse ModifyHostAvailabilityResponse
+     * @remarks
+     * This topic provides an example on how to change the name of an availability monitoring task named `12345` in an application group named `123456` to `task2`.
+     *
+     * @param request - ModifyHostAvailabilityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyHostAvailabilityResponse
+     *
+     * @param ModifyHostAvailabilityRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyHostAvailabilityResponse
      */
     public function modifyHostAvailabilityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertConfigEscalationList)) {
-            $query['AlertConfigEscalationList'] = $request->alertConfigEscalationList;
+        if (null !== $request->alertConfigEscalationList) {
+            @$query['AlertConfigEscalationList'] = $request->alertConfigEscalationList;
         }
-        if (!Utils::isUnset($request->alertConfigTargetList)) {
-            $query['AlertConfigTargetList'] = $request->alertConfigTargetList;
+
+        if (null !== $request->alertConfigTargetList) {
+            @$query['AlertConfigTargetList'] = $request->alertConfigTargetList;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->instanceList)) {
-            $query['InstanceList'] = $request->instanceList;
+
+        if (null !== $request->instanceList) {
+            @$query['InstanceList'] = $request->instanceList;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->taskScope)) {
-            $query['TaskScope'] = $request->taskScope;
+
+        if (null !== $request->taskScope) {
+            @$query['TaskScope'] = $request->taskScope;
         }
-        if (!Utils::isUnset($request->alertConfig)) {
-            $query['AlertConfig'] = $request->alertConfig;
+
+        if (null !== $request->alertConfig) {
+            @$query['AlertConfig'] = $request->alertConfig;
         }
-        if (!Utils::isUnset($request->taskOption)) {
-            $query['TaskOption'] = $request->taskOption;
+
+        if (null !== $request->taskOption) {
+            @$query['TaskOption'] = $request->taskOption;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHostAvailability',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHostAvailability',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyHostAvailabilityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies an availability monitoring task.
-     *  *
-     * @description This topic provides an example on how to change the name of an availability monitoring task named `12345` in an application group named `123456` to `task2`.
-     *  *
-     * @param ModifyHostAvailabilityRequest $request ModifyHostAvailabilityRequest
+     * Modifies an availability monitoring task.
      *
-     * @return ModifyHostAvailabilityResponse ModifyHostAvailabilityResponse
+     * @remarks
+     * This topic provides an example on how to change the name of an availability monitoring task named `12345` in an application group named `123456` to `task2`.
+     *
+     * @param request - ModifyHostAvailabilityRequest
+     *
+     * @returns ModifyHostAvailabilityResponse
+     *
+     * @param ModifyHostAvailabilityRequest $request
+     *
+     * @return ModifyHostAvailabilityResponse
      */
     public function modifyHostAvailability($request)
     {
@@ -8074,47 +9974,58 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @description ****
-     *  *
-     * @param ModifyHostInfoRequest $request ModifyHostInfoRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @remarks
      *
-     * @return ModifyHostInfoResponse ModifyHostInfoResponse
+     * @param request - ModifyHostInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyHostInfoResponse
+     *
+     * @param ModifyHostInfoRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyHostInfoResponse
      */
     public function modifyHostInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->hostName)) {
-            $query['HostName'] = $request->hostName;
+        if (null !== $request->hostName) {
+            @$query['HostName'] = $request->hostName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHostInfo',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHostInfo',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyHostInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @description ****
-     *  *
-     * @param ModifyHostInfoRequest $request ModifyHostInfoRequest
+     * @remarks
      *
-     * @return ModifyHostInfoResponse ModifyHostInfoResponse
+     * @param request - ModifyHostInfoRequest
+     *
+     * @returns ModifyHostInfoResponse
+     *
+     * @param ModifyHostInfoRequest $request
+     *
+     * @return ModifyHostInfoResponse
      */
     public function modifyHostInfo($request)
     {
@@ -8124,54 +10035,68 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a namespace.
-     *  *
-     * @description This topic provides an example on how to change the data retention period of the `aliyun` namespace to `cms.s1.2xlarge`. The response shows that the namespace is modified.
-     *  *
-     * @param ModifyHybridMonitorNamespaceRequest $request ModifyHybridMonitorNamespaceRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Modifies a namespace.
      *
-     * @return ModifyHybridMonitorNamespaceResponse ModifyHybridMonitorNamespaceResponse
+     * @remarks
+     * This topic provides an example on how to change the data retention period of the `aliyun` namespace to `cms.s1.2xlarge`. The response shows that the namespace is modified.
+     *
+     * @param request - ModifyHybridMonitorNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyHybridMonitorNamespaceResponse
+     *
+     * @param ModifyHybridMonitorNamespaceRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyHybridMonitorNamespaceResponse
      */
     public function modifyHybridMonitorNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->spec)) {
-            $query['Spec'] = $request->spec;
+
+        if (null !== $request->spec) {
+            @$query['Spec'] = $request->spec;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHybridMonitorNamespace',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHybridMonitorNamespace',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyHybridMonitorNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a namespace.
-     *  *
-     * @description This topic provides an example on how to change the data retention period of the `aliyun` namespace to `cms.s1.2xlarge`. The response shows that the namespace is modified.
-     *  *
-     * @param ModifyHybridMonitorNamespaceRequest $request ModifyHybridMonitorNamespaceRequest
+     * Modifies a namespace.
      *
-     * @return ModifyHybridMonitorNamespaceResponse ModifyHybridMonitorNamespaceResponse
+     * @remarks
+     * This topic provides an example on how to change the data retention period of the `aliyun` namespace to `cms.s1.2xlarge`. The response shows that the namespace is modified.
+     *
+     * @param request - ModifyHybridMonitorNamespaceRequest
+     *
+     * @returns ModifyHybridMonitorNamespaceResponse
+     *
+     * @param ModifyHybridMonitorNamespaceRequest $request
+     *
+     * @return ModifyHybridMonitorNamespaceResponse
      */
     public function modifyHybridMonitorNamespace($request)
     {
@@ -8181,54 +10106,68 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a Logstore group.
-     *  *
-     * @description In this example, a Logstore group named `Logstore_test` is modified. The Logstore of the `aliyun-project` project in the `cn-hangzhou` region is changed to `Logstore-aliyun-all`. The response shows that the Logstore group is modified.
-     *  *
-     * @param ModifyHybridMonitorSLSGroupRequest $request ModifyHybridMonitorSLSGroupRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Modifies a Logstore group.
      *
-     * @return ModifyHybridMonitorSLSGroupResponse ModifyHybridMonitorSLSGroupResponse
+     * @remarks
+     * In this example, a Logstore group named `Logstore_test` is modified. The Logstore of the `aliyun-project` project in the `cn-hangzhou` region is changed to `Logstore-aliyun-all`. The response shows that the Logstore group is modified.
+     *
+     * @param request - ModifyHybridMonitorSLSGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyHybridMonitorSLSGroupResponse
+     *
+     * @param ModifyHybridMonitorSLSGroupRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyHybridMonitorSLSGroupResponse
      */
     public function modifyHybridMonitorSLSGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->SLSGroupConfig)) {
-            $query['SLSGroupConfig'] = $request->SLSGroupConfig;
+        if (null !== $request->SLSGroupConfig) {
+            @$query['SLSGroupConfig'] = $request->SLSGroupConfig;
         }
-        if (!Utils::isUnset($request->SLSGroupDescription)) {
-            $query['SLSGroupDescription'] = $request->SLSGroupDescription;
+
+        if (null !== $request->SLSGroupDescription) {
+            @$query['SLSGroupDescription'] = $request->SLSGroupDescription;
         }
-        if (!Utils::isUnset($request->SLSGroupName)) {
-            $query['SLSGroupName'] = $request->SLSGroupName;
+
+        if (null !== $request->SLSGroupName) {
+            @$query['SLSGroupName'] = $request->SLSGroupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHybridMonitorSLSGroup',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHybridMonitorSLSGroup',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyHybridMonitorSLSGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a Logstore group.
-     *  *
-     * @description In this example, a Logstore group named `Logstore_test` is modified. The Logstore of the `aliyun-project` project in the `cn-hangzhou` region is changed to `Logstore-aliyun-all`. The response shows that the Logstore group is modified.
-     *  *
-     * @param ModifyHybridMonitorSLSGroupRequest $request ModifyHybridMonitorSLSGroupRequest
+     * Modifies a Logstore group.
      *
-     * @return ModifyHybridMonitorSLSGroupResponse ModifyHybridMonitorSLSGroupResponse
+     * @remarks
+     * In this example, a Logstore group named `Logstore_test` is modified. The Logstore of the `aliyun-project` project in the `cn-hangzhou` region is changed to `Logstore-aliyun-all`. The response shows that the Logstore group is modified.
+     *
+     * @param request - ModifyHybridMonitorSLSGroupRequest
+     *
+     * @returns ModifyHybridMonitorSLSGroupResponse
+     *
+     * @param ModifyHybridMonitorSLSGroupRequest $request
+     *
+     * @return ModifyHybridMonitorSLSGroupResponse
      */
     public function modifyHybridMonitorSLSGroup($request)
     {
@@ -8238,63 +10177,80 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a metric for the logs that are imported from Log Service.
-     *  *
-     * @description This topic provides an example on how to change the collection period of a metric import task whose ID is `36****` to `15` seconds. The task is used to monitor the logs that are imported from Log Service. The returned result indicates that the metric is modified.
-     *  *
-     * @param ModifyHybridMonitorTaskRequest $request ModifyHybridMonitorTaskRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Modifies a metric for the logs that are imported from Log Service.
      *
-     * @return ModifyHybridMonitorTaskResponse ModifyHybridMonitorTaskResponse
+     * @remarks
+     * This topic provides an example on how to change the collection period of a metric import task whose ID is `36****` to `15` seconds. The task is used to monitor the logs that are imported from Log Service. The returned result indicates that the metric is modified.
+     *
+     * @param request - ModifyHybridMonitorTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyHybridMonitorTaskResponse
+     *
+     * @param ModifyHybridMonitorTaskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyHybridMonitorTaskResponse
      */
     public function modifyHybridMonitorTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->attachLabels)) {
-            $query['AttachLabels'] = $request->attachLabels;
+        if (null !== $request->attachLabels) {
+            @$query['AttachLabels'] = $request->attachLabels;
         }
-        if (!Utils::isUnset($request->collectInterval)) {
-            $query['CollectInterval'] = $request->collectInterval;
+
+        if (null !== $request->collectInterval) {
+            @$query['CollectInterval'] = $request->collectInterval;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->SLSProcessConfig)) {
-            $query['SLSProcessConfig'] = $request->SLSProcessConfig;
+
+        if (null !== $request->SLSProcessConfig) {
+            @$query['SLSProcessConfig'] = $request->SLSProcessConfig;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHybridMonitorTask',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHybridMonitorTask',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyHybridMonitorTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a metric for the logs that are imported from Log Service.
-     *  *
-     * @description This topic provides an example on how to change the collection period of a metric import task whose ID is `36****` to `15` seconds. The task is used to monitor the logs that are imported from Log Service. The returned result indicates that the metric is modified.
-     *  *
-     * @param ModifyHybridMonitorTaskRequest $request ModifyHybridMonitorTaskRequest
+     * Modifies a metric for the logs that are imported from Log Service.
      *
-     * @return ModifyHybridMonitorTaskResponse ModifyHybridMonitorTaskResponse
+     * @remarks
+     * This topic provides an example on how to change the collection period of a metric import task whose ID is `36****` to `15` seconds. The task is used to monitor the logs that are imported from Log Service. The returned result indicates that the metric is modified.
+     *
+     * @param request - ModifyHybridMonitorTaskRequest
+     *
+     * @returns ModifyHybridMonitorTaskResponse
+     *
+     * @param ModifyHybridMonitorTaskRequest $request
+     *
+     * @return ModifyHybridMonitorTaskResponse
      */
     public function modifyHybridMonitorTask($request)
     {
@@ -8304,74 +10260,94 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a blacklist policy.
-     *  *
-     * @param ModifyMetricRuleBlackListRequest $request ModifyMetricRuleBlackListRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Modifies a blacklist policy.
      *
-     * @return ModifyMetricRuleBlackListResponse ModifyMetricRuleBlackListResponse
+     * @param request - ModifyMetricRuleBlackListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyMetricRuleBlackListResponse
+     *
+     * @param ModifyMetricRuleBlackListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyMetricRuleBlackListResponse
      */
     public function modifyMetricRuleBlackListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->effectiveTime)) {
-            $query['EffectiveTime'] = $request->effectiveTime;
+
+        if (null !== $request->effectiveTime) {
+            @$query['EffectiveTime'] = $request->effectiveTime;
         }
-        if (!Utils::isUnset($request->enableEndTime)) {
-            $query['EnableEndTime'] = $request->enableEndTime;
+
+        if (null !== $request->enableEndTime) {
+            @$query['EnableEndTime'] = $request->enableEndTime;
         }
-        if (!Utils::isUnset($request->enableStartTime)) {
-            $query['EnableStartTime'] = $request->enableStartTime;
+
+        if (null !== $request->enableStartTime) {
+            @$query['EnableStartTime'] = $request->enableStartTime;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->instances)) {
-            $query['Instances'] = $request->instances;
+
+        if (null !== $request->instances) {
+            @$query['Instances'] = $request->instances;
         }
-        if (!Utils::isUnset($request->metrics)) {
-            $query['Metrics'] = $request->metrics;
+
+        if (null !== $request->metrics) {
+            @$query['Metrics'] = $request->metrics;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->scopeType)) {
-            $query['ScopeType'] = $request->scopeType;
+
+        if (null !== $request->scopeType) {
+            @$query['ScopeType'] = $request->scopeType;
         }
-        if (!Utils::isUnset($request->scopeValue)) {
-            $query['ScopeValue'] = $request->scopeValue;
+
+        if (null !== $request->scopeValue) {
+            @$query['ScopeValue'] = $request->scopeValue;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyMetricRuleBlackList',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyMetricRuleBlackList',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyMetricRuleBlackListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a blacklist policy.
-     *  *
-     * @param ModifyMetricRuleBlackListRequest $request ModifyMetricRuleBlackListRequest
+     * Modifies a blacklist policy.
      *
-     * @return ModifyMetricRuleBlackListResponse ModifyMetricRuleBlackListResponse
+     * @param request - ModifyMetricRuleBlackListRequest
+     *
+     * @returns ModifyMetricRuleBlackListResponse
+     *
+     * @param ModifyMetricRuleBlackListRequest $request
+     *
+     * @return ModifyMetricRuleBlackListResponse
      */
     public function modifyMetricRuleBlackList($request)
     {
@@ -8381,60 +10357,76 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Modifies an alert template.
-     *  *
-     * @description This topic provides an example on how to modify an alert template whose version is `1` and ID is `123456`. The alert level is changed to `Critical`. The statistical method is changed to `Average`. The alert threshold comparator is changed to `GreaterThanOrEqualToThreshold`. The alert threshold is changed to `90`. The number of alert retries is changed to `3`. The response shows that the alert template is modified.
-     *  *
-     * @param ModifyMetricRuleTemplateRequest $request ModifyMetricRuleTemplateRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Modifies an alert template.
      *
-     * @return ModifyMetricRuleTemplateResponse ModifyMetricRuleTemplateResponse
+     * @remarks
+     * This topic provides an example on how to modify an alert template whose version is `1` and ID is `123456`. The alert level is changed to `Critical`. The statistical method is changed to `Average`. The alert threshold comparator is changed to `GreaterThanOrEqualToThreshold`. The alert threshold is changed to `90`. The number of alert retries is changed to `3`. The response shows that the alert template is modified.
+     *
+     * @param request - ModifyMetricRuleTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyMetricRuleTemplateResponse
+     *
+     * @param ModifyMetricRuleTemplateRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyMetricRuleTemplateResponse
      */
     public function modifyMetricRuleTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->alertTemplates)) {
-            $query['AlertTemplates'] = $request->alertTemplates;
+        if (null !== $request->alertTemplates) {
+            @$query['AlertTemplates'] = $request->alertTemplates;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->restVersion)) {
-            $query['RestVersion'] = $request->restVersion;
+
+        if (null !== $request->restVersion) {
+            @$query['RestVersion'] = $request->restVersion;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyMetricRuleTemplate',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyMetricRuleTemplate',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyMetricRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies an alert template.
-     *  *
-     * @description This topic provides an example on how to modify an alert template whose version is `1` and ID is `123456`. The alert level is changed to `Critical`. The statistical method is changed to `Average`. The alert threshold comparator is changed to `GreaterThanOrEqualToThreshold`. The alert threshold is changed to `90`. The number of alert retries is changed to `3`. The response shows that the alert template is modified.
-     *  *
-     * @param ModifyMetricRuleTemplateRequest $request ModifyMetricRuleTemplateRequest
+     * Modifies an alert template.
      *
-     * @return ModifyMetricRuleTemplateResponse ModifyMetricRuleTemplateResponse
+     * @remarks
+     * This topic provides an example on how to modify an alert template whose version is `1` and ID is `123456`. The alert level is changed to `Critical`. The statistical method is changed to `Average`. The alert threshold comparator is changed to `GreaterThanOrEqualToThreshold`. The alert threshold is changed to `90`. The number of alert retries is changed to `3`. The response shows that the alert template is modified.
+     *
+     * @param request - ModifyMetricRuleTemplateRequest
+     *
+     * @returns ModifyMetricRuleTemplateResponse
+     *
+     * @param ModifyMetricRuleTemplateRequest $request
+     *
+     * @return ModifyMetricRuleTemplateResponse
      */
     public function modifyMetricRuleTemplate($request)
     {
@@ -8444,46 +10436,58 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyMonitorGroupRequest $request ModifyMonitorGroupRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyMonitorGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ModifyMonitorGroupResponse ModifyMonitorGroupResponse
+     * @returns ModifyMonitorGroupResponse
+     *
+     * @param ModifyMonitorGroupRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyMonitorGroupResponse
      */
     public function modifyMonitorGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactGroups)) {
-            $query['ContactGroups'] = $request->contactGroups;
+        if (null !== $request->contactGroups) {
+            @$query['ContactGroups'] = $request->contactGroups;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyMonitorGroup',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyMonitorGroup',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyMonitorGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyMonitorGroupRequest $request ModifyMonitorGroupRequest
+     * @param request - ModifyMonitorGroupRequest
      *
-     * @return ModifyMonitorGroupResponse ModifyMonitorGroupResponse
+     * @returns ModifyMonitorGroupResponse
+     *
+     * @param ModifyMonitorGroupRequest $request
+     *
+     * @return ModifyMonitorGroupResponse
      */
     public function modifyMonitorGroup($request)
     {
@@ -8493,43 +10497,58 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyMonitorGroupInstancesRequest $request ModifyMonitorGroupInstancesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * ModifyMonitorGroupInstances.
      *
-     * @return ModifyMonitorGroupInstancesResponse ModifyMonitorGroupInstancesResponse
+     * @param request - ModifyMonitorGroupInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyMonitorGroupInstancesResponse
+     *
+     * @param ModifyMonitorGroupInstancesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyMonitorGroupInstancesResponse
      */
     public function modifyMonitorGroupInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->instances)) {
-            $query['Instances'] = $request->instances;
+
+        if (null !== $request->instances) {
+            @$query['Instances'] = $request->instances;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyMonitorGroupInstances',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyMonitorGroupInstances',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifyMonitorGroupInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyMonitorGroupInstancesRequest $request ModifyMonitorGroupInstancesRequest
+     * ModifyMonitorGroupInstances.
      *
-     * @return ModifyMonitorGroupInstancesResponse ModifyMonitorGroupInstancesResponse
+     * @param request - ModifyMonitorGroupInstancesRequest
+     *
+     * @returns ModifyMonitorGroupInstancesResponse
+     *
+     * @param ModifyMonitorGroupInstancesRequest $request
+     *
+     * @return ModifyMonitorGroupInstancesResponse
      */
     public function modifyMonitorGroupInstances($request)
     {
@@ -8539,72 +10558,92 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a site monitoring task.
-     *  *
-     * @description The number of site monitoring tasks.
-     *  *
-     * @param ModifySiteMonitorRequest $request ModifySiteMonitorRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Modifies a site monitoring task.
      *
-     * @return ModifySiteMonitorResponse ModifySiteMonitorResponse
+     * @remarks
+     * The number of site monitoring tasks.
+     *
+     * @param request - ModifySiteMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifySiteMonitorResponse
+     *
+     * @param ModifySiteMonitorRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifySiteMonitorResponse
      */
     public function modifySiteMonitorWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->address)) {
-            $query['Address'] = $request->address;
+        if (null !== $request->address) {
+            @$query['Address'] = $request->address;
         }
-        if (!Utils::isUnset($request->alertIds)) {
-            $query['AlertIds'] = $request->alertIds;
+
+        if (null !== $request->alertIds) {
+            @$query['AlertIds'] = $request->alertIds;
         }
-        if (!Utils::isUnset($request->customSchedule)) {
-            $query['CustomSchedule'] = $request->customSchedule;
+
+        if (null !== $request->customSchedule) {
+            @$query['CustomSchedule'] = $request->customSchedule;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->intervalUnit)) {
-            $query['IntervalUnit'] = $request->intervalUnit;
+
+        if (null !== $request->intervalUnit) {
+            @$query['IntervalUnit'] = $request->intervalUnit;
         }
-        if (!Utils::isUnset($request->ispCities)) {
-            $query['IspCities'] = $request->ispCities;
+
+        if (null !== $request->ispCities) {
+            @$query['IspCities'] = $request->ispCities;
         }
-        if (!Utils::isUnset($request->optionsJson)) {
-            $query['OptionsJson'] = $request->optionsJson;
+
+        if (null !== $request->optionsJson) {
+            @$query['OptionsJson'] = $request->optionsJson;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifySiteMonitor',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifySiteMonitor',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return ModifySiteMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a site monitoring task.
-     *  *
-     * @description The number of site monitoring tasks.
-     *  *
-     * @param ModifySiteMonitorRequest $request ModifySiteMonitorRequest
+     * Modifies a site monitoring task.
      *
-     * @return ModifySiteMonitorResponse ModifySiteMonitorResponse
+     * @remarks
+     * The number of site monitoring tasks.
+     *
+     * @param request - ModifySiteMonitorRequest
+     *
+     * @returns ModifySiteMonitorResponse
+     *
+     * @param ModifySiteMonitorRequest $request
+     *
+     * @return ModifySiteMonitorResponse
      */
     public function modifySiteMonitor($request)
     {
@@ -8614,90 +10653,66 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI OpenCmsService is deprecated
-     *  *
-     * Deprecated
+     * Creates or modifies an alert contact.
      *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param request - PutContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return OpenCmsServiceResponse OpenCmsServiceResponse
-     */
-    public function openCmsServiceWithOptions($runtime)
-    {
-        $req    = new OpenApiRequest([]);
-        $params = new Params([
-            'action'      => 'OpenCmsService',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return OpenCmsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI OpenCmsService is deprecated
-     *  *
-     * Deprecated
+     * @returns PutContactResponse
      *
-     * @return OpenCmsServiceResponse OpenCmsServiceResponse
-     */
-    public function openCmsService()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->openCmsServiceWithOptions($runtime);
-    }
-
-    /**
-     * @param PutContactRequest $request PutContactRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param PutContactRequest $request
+     * @param RuntimeOptions    $runtime
      *
-     * @return PutContactResponse PutContactResponse
+     * @return PutContactResponse
      */
     public function putContactWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactName)) {
-            $query['ContactName'] = $request->contactName;
+        if (null !== $request->contactName) {
+            @$query['ContactName'] = $request->contactName;
         }
-        if (!Utils::isUnset($request->describe)) {
-            $query['Describe'] = $request->describe;
+
+        if (null !== $request->describe) {
+            @$query['Describe'] = $request->describe;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->channels)) {
-            $query['Channels'] = $request->channels;
+
+        if (null !== $request->channels) {
+            @$query['Channels'] = $request->channels;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutContact',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutContact',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutContactResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param PutContactRequest $request PutContactRequest
+     * Creates or modifies an alert contact.
      *
-     * @return PutContactResponse PutContactResponse
+     * @param request - PutContactRequest
+     *
+     * @returns PutContactResponse
+     *
+     * @param PutContactRequest $request
+     *
+     * @return PutContactResponse
      */
     public function putContact($request)
     {
@@ -8707,57 +10722,72 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary 添加或者修改报警联系人组
-     *  *
-     * @description This topic provides an example on how to create an alert contact group named `ECS_Group`.
-     *  *
-     * @param PutContactGroupRequest $request PutContactGroupRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Creates or modifies an alert contact group.
      *
-     * @return PutContactGroupResponse PutContactGroupResponse
+     * @remarks
+     * This topic provides an example on how to create an alert contact group named `ECS_Group`.
+     *
+     * @param request - PutContactGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutContactGroupResponse
+     *
+     * @param PutContactGroupRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return PutContactGroupResponse
      */
     public function putContactGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactGroupName)) {
-            $query['ContactGroupName'] = $request->contactGroupName;
+        if (null !== $request->contactGroupName) {
+            @$query['ContactGroupName'] = $request->contactGroupName;
         }
-        if (!Utils::isUnset($request->contactNames)) {
-            $query['ContactNames'] = $request->contactNames;
+
+        if (null !== $request->contactNames) {
+            @$query['ContactNames'] = $request->contactNames;
         }
-        if (!Utils::isUnset($request->describe)) {
-            $query['Describe'] = $request->describe;
+
+        if (null !== $request->describe) {
+            @$query['Describe'] = $request->describe;
         }
-        if (!Utils::isUnset($request->enableSubscribed)) {
-            $query['EnableSubscribed'] = $request->enableSubscribed;
+
+        if (null !== $request->enableSubscribed) {
+            @$query['EnableSubscribed'] = $request->enableSubscribed;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutContactGroup',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutContactGroup',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutContactGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加或者修改报警联系人组
-     *  *
-     * @description This topic provides an example on how to create an alert contact group named `ECS_Group`.
-     *  *
-     * @param PutContactGroupRequest $request PutContactGroupRequest
+     * Creates or modifies an alert contact group.
      *
-     * @return PutContactGroupResponse PutContactGroupResponse
+     * @remarks
+     * This topic provides an example on how to create an alert contact group named `ECS_Group`.
+     *
+     * @param request - PutContactGroupRequest
+     *
+     * @returns PutContactGroupResponse
+     *
+     * @param PutContactGroupRequest $request
+     *
+     * @return PutContactGroupResponse
      */
     public function putContactGroup($request)
     {
@@ -8767,44 +10797,54 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Reports custom events.
-     *  *
-     * @param PutCustomEventRequest $request PutCustomEventRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Reports custom events.
      *
-     * @return PutCustomEventResponse PutCustomEventResponse
+     * @param request - PutCustomEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutCustomEventResponse
+     *
+     * @param PutCustomEventRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return PutCustomEventResponse
      */
     public function putCustomEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eventInfo)) {
-            $query['EventInfo'] = $request->eventInfo;
+        if (null !== $request->eventInfo) {
+            @$query['EventInfo'] = $request->eventInfo;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutCustomEvent',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutCustomEvent',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutCustomEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Reports custom events.
-     *  *
-     * @param PutCustomEventRequest $request PutCustomEventRequest
+     * Reports custom events.
      *
-     * @return PutCustomEventResponse PutCustomEventResponse
+     * @param request - PutCustomEventRequest
+     *
+     * @returns PutCustomEventResponse
+     *
+     * @param PutCustomEventRequest $request
+     *
+     * @return PutCustomEventResponse
      */
     public function putCustomEvent($request)
     {
@@ -8814,74 +10854,96 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @description Before you call this operation, call the PutCustomEvent operation to report the monitoring data of the custom event. For more information, see [PutCustomEvent](https://help.aliyun.com/document_detail/115012.html).
-     *  *
-     * @param PutCustomEventRuleRequest $request PutCustomEventRuleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @remarks
+     * Before you call this operation, call the PutCustomEvent operation to report the monitoring data of the custom event. For more information, see [PutCustomEvent](https://help.aliyun.com/document_detail/115012.html).
      *
-     * @return PutCustomEventRuleResponse PutCustomEventRuleResponse
+     * @param request - PutCustomEventRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutCustomEventRuleResponse
+     *
+     * @param PutCustomEventRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return PutCustomEventRuleResponse
      */
     public function putCustomEventRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactGroups)) {
-            $query['ContactGroups'] = $request->contactGroups;
+        if (null !== $request->contactGroups) {
+            @$query['ContactGroups'] = $request->contactGroups;
         }
-        if (!Utils::isUnset($request->effectiveInterval)) {
-            $query['EffectiveInterval'] = $request->effectiveInterval;
+
+        if (null !== $request->effectiveInterval) {
+            @$query['EffectiveInterval'] = $request->effectiveInterval;
         }
-        if (!Utils::isUnset($request->emailSubject)) {
-            $query['EmailSubject'] = $request->emailSubject;
+
+        if (null !== $request->emailSubject) {
+            @$query['EmailSubject'] = $request->emailSubject;
         }
-        if (!Utils::isUnset($request->eventName)) {
-            $query['EventName'] = $request->eventName;
+
+        if (null !== $request->eventName) {
+            @$query['EventName'] = $request->eventName;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->level)) {
-            $query['Level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->threshold)) {
-            $query['Threshold'] = $request->threshold;
+
+        if (null !== $request->threshold) {
+            @$query['Threshold'] = $request->threshold;
         }
-        if (!Utils::isUnset($request->webhook)) {
-            $query['Webhook'] = $request->webhook;
+
+        if (null !== $request->webhook) {
+            @$query['Webhook'] = $request->webhook;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutCustomEventRule',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutCustomEventRule',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutCustomEventRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @description Before you call this operation, call the PutCustomEvent operation to report the monitoring data of the custom event. For more information, see [PutCustomEvent](https://help.aliyun.com/document_detail/115012.html).
-     *  *
-     * @param PutCustomEventRuleRequest $request PutCustomEventRuleRequest
+     * @remarks
+     * Before you call this operation, call the PutCustomEvent operation to report the monitoring data of the custom event. For more information, see [PutCustomEvent](https://help.aliyun.com/document_detail/115012.html).
      *
-     * @return PutCustomEventRuleResponse PutCustomEventRuleResponse
+     * @param request - PutCustomEventRuleRequest
+     *
+     * @returns PutCustomEventRuleResponse
+     *
+     * @param PutCustomEventRuleRequest $request
+     *
+     * @return PutCustomEventRuleResponse
      */
     public function putCustomEventRule($request)
     {
@@ -8891,44 +10953,60 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @description >  We recommend that you call the [PutHybridMonitorMetricData](https://help.aliyun.com/document_detail/383455.html) operation of Hybrid Cloud Monitoring to report monitoring data.
-     *  *
-     * @param PutCustomMetricRequest $request PutCustomMetricRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Reports monitoring data.
      *
-     * @return PutCustomMetricResponse PutCustomMetricResponse
+     * @remarks
+     * >  We recommend that you call the [PutHybridMonitorMetricData](https://help.aliyun.com/document_detail/383455.html) operation of Hybrid Cloud Monitoring to report monitoring data.
+     *
+     * @param request - PutCustomMetricRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutCustomMetricResponse
+     *
+     * @param PutCustomMetricRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return PutCustomMetricResponse
      */
     public function putCustomMetricWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->metricList)) {
-            $query['MetricList'] = $request->metricList;
+        if (null !== $request->metricList) {
+            @$query['MetricList'] = $request->metricList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutCustomMetric',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutCustomMetric',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutCustomMetricResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @description >  We recommend that you call the [PutHybridMonitorMetricData](https://help.aliyun.com/document_detail/383455.html) operation of Hybrid Cloud Monitoring to report monitoring data.
-     *  *
-     * @param PutCustomMetricRequest $request PutCustomMetricRequest
+     * Reports monitoring data.
      *
-     * @return PutCustomMetricResponse PutCustomMetricResponse
+     * @remarks
+     * >  We recommend that you call the [PutHybridMonitorMetricData](https://help.aliyun.com/document_detail/383455.html) operation of Hybrid Cloud Monitoring to report monitoring data.
+     *
+     * @param request - PutCustomMetricRequest
+     *
+     * @returns PutCustomMetricResponse
+     *
+     * @param PutCustomMetricRequest $request
+     *
+     * @return PutCustomMetricResponse
      */
     public function putCustomMetric($request)
     {
@@ -8938,89 +11016,120 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @description Before you call this operation, call the PutCustomMetric operation to report custom monitoring data. For more information, see [PutCustomMetric](https://help.aliyun.com/document_detail/115004.html).
-     *  *
-     * @param PutCustomMetricRuleRequest $request PutCustomMetricRuleRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates a custom alert rule.
      *
-     * @return PutCustomMetricRuleResponse PutCustomMetricRuleResponse
+     * @remarks
+     * Before you call this operation, call the PutCustomMetric operation to report custom monitoring data. For more information, see [PutCustomMetric](https://help.aliyun.com/document_detail/115004.html).
+     *
+     * @param request - PutCustomMetricRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutCustomMetricRuleResponse
+     *
+     * @param PutCustomMetricRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return PutCustomMetricRuleResponse
      */
     public function putCustomMetricRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->comparisonOperator)) {
-            $query['ComparisonOperator'] = $request->comparisonOperator;
+        if (null !== $request->comparisonOperator) {
+            @$query['ComparisonOperator'] = $request->comparisonOperator;
         }
-        if (!Utils::isUnset($request->contactGroups)) {
-            $query['ContactGroups'] = $request->contactGroups;
+
+        if (null !== $request->contactGroups) {
+            @$query['ContactGroups'] = $request->contactGroups;
         }
-        if (!Utils::isUnset($request->effectiveInterval)) {
-            $query['EffectiveInterval'] = $request->effectiveInterval;
+
+        if (null !== $request->effectiveInterval) {
+            @$query['EffectiveInterval'] = $request->effectiveInterval;
         }
-        if (!Utils::isUnset($request->emailSubject)) {
-            $query['EmailSubject'] = $request->emailSubject;
+
+        if (null !== $request->emailSubject) {
+            @$query['EmailSubject'] = $request->emailSubject;
         }
-        if (!Utils::isUnset($request->evaluationCount)) {
-            $query['EvaluationCount'] = $request->evaluationCount;
+
+        if (null !== $request->evaluationCount) {
+            @$query['EvaluationCount'] = $request->evaluationCount;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->level)) {
-            $query['Level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->resources)) {
-            $query['Resources'] = $request->resources;
+
+        if (null !== $request->resources) {
+            @$query['Resources'] = $request->resources;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->silenceTime)) {
-            $query['SilenceTime'] = $request->silenceTime;
+
+        if (null !== $request->silenceTime) {
+            @$query['SilenceTime'] = $request->silenceTime;
         }
-        if (!Utils::isUnset($request->statistics)) {
-            $query['Statistics'] = $request->statistics;
+
+        if (null !== $request->statistics) {
+            @$query['Statistics'] = $request->statistics;
         }
-        if (!Utils::isUnset($request->threshold)) {
-            $query['Threshold'] = $request->threshold;
+
+        if (null !== $request->threshold) {
+            @$query['Threshold'] = $request->threshold;
         }
-        if (!Utils::isUnset($request->webhook)) {
-            $query['Webhook'] = $request->webhook;
+
+        if (null !== $request->webhook) {
+            @$query['Webhook'] = $request->webhook;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutCustomMetricRule',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutCustomMetricRule',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutCustomMetricRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @description Before you call this operation, call the PutCustomMetric operation to report custom monitoring data. For more information, see [PutCustomMetric](https://help.aliyun.com/document_detail/115004.html).
-     *  *
-     * @param PutCustomMetricRuleRequest $request PutCustomMetricRuleRequest
+     * Creates a custom alert rule.
      *
-     * @return PutCustomMetricRuleResponse PutCustomMetricRuleResponse
+     * @remarks
+     * Before you call this operation, call the PutCustomMetric operation to report custom monitoring data. For more information, see [PutCustomMetric](https://help.aliyun.com/document_detail/115004.html).
+     *
+     * @param request - PutCustomMetricRuleRequest
+     *
+     * @returns PutCustomMetricRuleResponse
+     *
+     * @param PutCustomMetricRuleRequest $request
+     *
+     * @return PutCustomMetricRuleResponse
      */
     public function putCustomMetricRule($request)
     {
@@ -9030,68 +11139,86 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary 创建或者修改事件监控
-     *  *
-     * @description If the specified rule name does not exist, an event-triggered alert rule is created. If the specified rule name exists, the specified event-triggered alert rule is modified.
-     * In this example, the `myRuleName` alert rule is created for the `ecs` cloud service.
-     *  *
-     * @param PutEventRuleRequest $request PutEventRuleRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 创建或者修改事件监控.
      *
-     * @return PutEventRuleResponse PutEventRuleResponse
+     * @remarks
+     * If the specified rule name does not exist, an event-triggered alert rule is created. If the specified rule name exists, the specified event-triggered alert rule is modified.
+     * In this example, the `myRuleName` alert rule is created for the `ecs` cloud service.
+     *
+     * @param request - PutEventRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutEventRuleResponse
+     *
+     * @param PutEventRuleRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return PutEventRuleResponse
      */
     public function putEventRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->eventPattern)) {
-            $query['EventPattern'] = $request->eventPattern;
+
+        if (null !== $request->eventPattern) {
+            @$query['EventPattern'] = $request->eventPattern;
         }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
+
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->silenceTime)) {
-            $query['SilenceTime'] = $request->silenceTime;
+
+        if (null !== $request->silenceTime) {
+            @$query['SilenceTime'] = $request->silenceTime;
         }
-        if (!Utils::isUnset($request->state)) {
-            $query['State'] = $request->state;
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutEventRule',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutEventRule',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutEventRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建或者修改事件监控
-     *  *
-     * @description If the specified rule name does not exist, an event-triggered alert rule is created. If the specified rule name exists, the specified event-triggered alert rule is modified.
-     * In this example, the `myRuleName` alert rule is created for the `ecs` cloud service.
-     *  *
-     * @param PutEventRuleRequest $request PutEventRuleRequest
+     * 创建或者修改事件监控.
      *
-     * @return PutEventRuleResponse PutEventRuleResponse
+     * @remarks
+     * If the specified rule name does not exist, an event-triggered alert rule is created. If the specified rule name exists, the specified event-triggered alert rule is modified.
+     * In this example, the `myRuleName` alert rule is created for the `ecs` cloud service.
+     *
+     * @param request - PutEventRuleRequest
+     *
+     * @returns PutEventRuleResponse
+     *
+     * @param PutEventRuleRequest $request
+     *
+     * @return PutEventRuleResponse
      */
     public function putEventRule($request)
     {
@@ -9101,62 +11228,78 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Adds or modifies the push channels of an event-triggered alert rule.
-     *  *
-     * @param PutEventRuleTargetsRequest $request PutEventRuleTargetsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Adds or modifies the push channels of an event-triggered alert rule.
      *
-     * @return PutEventRuleTargetsResponse PutEventRuleTargetsResponse
+     * @param request - PutEventRuleTargetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutEventRuleTargetsResponse
+     *
+     * @param PutEventRuleTargetsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return PutEventRuleTargetsResponse
      */
     public function putEventRuleTargetsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->contactParameters)) {
-            $query['ContactParameters'] = $request->contactParameters;
+        if (null !== $request->contactParameters) {
+            @$query['ContactParameters'] = $request->contactParameters;
         }
-        if (!Utils::isUnset($request->fcParameters)) {
-            $query['FcParameters'] = $request->fcParameters;
+
+        if (null !== $request->fcParameters) {
+            @$query['FcParameters'] = $request->fcParameters;
         }
-        if (!Utils::isUnset($request->mnsParameters)) {
-            $query['MnsParameters'] = $request->mnsParameters;
+
+        if (null !== $request->mnsParameters) {
+            @$query['MnsParameters'] = $request->mnsParameters;
         }
-        if (!Utils::isUnset($request->openApiParameters)) {
-            $query['OpenApiParameters'] = $request->openApiParameters;
+
+        if (null !== $request->openApiParameters) {
+            @$query['OpenApiParameters'] = $request->openApiParameters;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->slsParameters)) {
-            $query['SlsParameters'] = $request->slsParameters;
+
+        if (null !== $request->slsParameters) {
+            @$query['SlsParameters'] = $request->slsParameters;
         }
-        if (!Utils::isUnset($request->webhookParameters)) {
-            $query['WebhookParameters'] = $request->webhookParameters;
+
+        if (null !== $request->webhookParameters) {
+            @$query['WebhookParameters'] = $request->webhookParameters;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutEventRuleTargets',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutEventRuleTargets',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutEventRuleTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds or modifies the push channels of an event-triggered alert rule.
-     *  *
-     * @param PutEventRuleTargetsRequest $request PutEventRuleTargetsRequest
+     * Adds or modifies the push channels of an event-triggered alert rule.
      *
-     * @return PutEventRuleTargetsResponse PutEventRuleTargetsResponse
+     * @param request - PutEventRuleTargetsRequest
+     *
+     * @returns PutEventRuleTargetsResponse
+     *
+     * @param PutEventRuleTargetsRequest $request
+     *
+     * @return PutEventRuleTargetsResponse
      */
     public function putEventRuleTargets($request)
     {
@@ -9166,57 +11309,72 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates or modifies a configuration set for exporting monitoring data.
-     *  *
-     * @description > The monitoring data can be exported only to Log Service. More services will be supported in the future.
-     *  *
-     * @param PutExporterOutputRequest $request PutExporterOutputRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates or modifies a configuration set for exporting monitoring data.
      *
-     * @return PutExporterOutputResponse PutExporterOutputResponse
+     * @remarks
+     * > The monitoring data can be exported only to Log Service. More services will be supported in the future.
+     *
+     * @param request - PutExporterOutputRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutExporterOutputResponse
+     *
+     * @param PutExporterOutputRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return PutExporterOutputResponse
      */
     public function putExporterOutputWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->configJson)) {
-            $query['ConfigJson'] = $request->configJson;
+        if (null !== $request->configJson) {
+            @$query['ConfigJson'] = $request->configJson;
         }
-        if (!Utils::isUnset($request->desc)) {
-            $query['Desc'] = $request->desc;
+
+        if (null !== $request->desc) {
+            @$query['Desc'] = $request->desc;
         }
-        if (!Utils::isUnset($request->destName)) {
-            $query['DestName'] = $request->destName;
+
+        if (null !== $request->destName) {
+            @$query['DestName'] = $request->destName;
         }
-        if (!Utils::isUnset($request->destType)) {
-            $query['DestType'] = $request->destType;
+
+        if (null !== $request->destType) {
+            @$query['DestType'] = $request->destType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutExporterOutput',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutExporterOutput',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutExporterOutputResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates or modifies a configuration set for exporting monitoring data.
-     *  *
-     * @description > The monitoring data can be exported only to Log Service. More services will be supported in the future.
-     *  *
-     * @param PutExporterOutputRequest $request PutExporterOutputRequest
+     * Creates or modifies a configuration set for exporting monitoring data.
      *
-     * @return PutExporterOutputResponse PutExporterOutputResponse
+     * @remarks
+     * > The monitoring data can be exported only to Log Service. More services will be supported in the future.
+     *
+     * @param request - PutExporterOutputRequest
+     *
+     * @returns PutExporterOutputResponse
+     *
+     * @param PutExporterOutputRequest $request
+     *
+     * @return PutExporterOutputResponse
      */
     public function putExporterOutput($request)
     {
@@ -9226,59 +11384,74 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates or modifies a data export rule.
-     *  *
-     * @param PutExporterRuleRequest $request PutExporterRuleRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Creates or modifies a data export rule.
      *
-     * @return PutExporterRuleResponse PutExporterRuleResponse
+     * @param request - PutExporterRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutExporterRuleResponse
+     *
+     * @param PutExporterRuleRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return PutExporterRuleResponse
      */
     public function putExporterRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->describe)) {
-            $query['Describe'] = $request->describe;
+        if (null !== $request->describe) {
+            @$query['Describe'] = $request->describe;
         }
-        if (!Utils::isUnset($request->dstNames)) {
-            $query['DstNames'] = $request->dstNames;
+
+        if (null !== $request->dstNames) {
+            @$query['DstNames'] = $request->dstNames;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->targetWindows)) {
-            $query['TargetWindows'] = $request->targetWindows;
+
+        if (null !== $request->targetWindows) {
+            @$query['TargetWindows'] = $request->targetWindows;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutExporterRule',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutExporterRule',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutExporterRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates or modifies a data export rule.
-     *  *
-     * @param PutExporterRuleRequest $request PutExporterRuleRequest
+     * Creates or modifies a data export rule.
      *
-     * @return PutExporterRuleResponse PutExporterRuleResponse
+     * @param request - PutExporterRuleRequest
+     *
+     * @returns PutExporterRuleResponse
+     *
+     * @param PutExporterRuleRequest $request
+     *
+     * @return PutExporterRuleResponse
      */
     public function putExporterRule($request)
     {
@@ -9288,105 +11461,136 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates or modifies an alert rule for an application group.
-     *  *
-     * @description This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `17285****` application group. The ID of the alert rule is `123456`. The name of the alert rule is `Rule_test`. The alert level is `Critical`. The statistical method is `Average`. The alert threshold comparator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The returned result shows that the alert rule is created and the alert rule ID is `123456`.
-     *  *
-     * @param PutGroupMetricRuleRequest $request PutGroupMetricRuleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Creates or modifies an alert rule for an application group.
      *
-     * @return PutGroupMetricRuleResponse PutGroupMetricRuleResponse
+     * @remarks
+     * This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `17285****` application group. The ID of the alert rule is `123456`. The name of the alert rule is `Rule_test`. The alert level is `Critical`. The statistical method is `Average`. The alert threshold comparator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The returned result shows that the alert rule is created and the alert rule ID is `123456`.
+     *
+     * @param request - PutGroupMetricRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutGroupMetricRuleResponse
+     *
+     * @param PutGroupMetricRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return PutGroupMetricRuleResponse
      */
     public function putGroupMetricRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->contactGroups)) {
-            $query['ContactGroups'] = $request->contactGroups;
+
+        if (null !== $request->contactGroups) {
+            @$query['ContactGroups'] = $request->contactGroups;
         }
-        if (!Utils::isUnset($request->dimensions)) {
-            $query['Dimensions'] = $request->dimensions;
+
+        if (null !== $request->dimensions) {
+            @$query['Dimensions'] = $request->dimensions;
         }
-        if (!Utils::isUnset($request->effectiveInterval)) {
-            $query['EffectiveInterval'] = $request->effectiveInterval;
+
+        if (null !== $request->effectiveInterval) {
+            @$query['EffectiveInterval'] = $request->effectiveInterval;
         }
-        if (!Utils::isUnset($request->emailSubject)) {
-            $query['EmailSubject'] = $request->emailSubject;
+
+        if (null !== $request->emailSubject) {
+            @$query['EmailSubject'] = $request->emailSubject;
         }
-        if (!Utils::isUnset($request->extraDimensionJson)) {
-            $query['ExtraDimensionJson'] = $request->extraDimensionJson;
+
+        if (null !== $request->extraDimensionJson) {
+            @$query['ExtraDimensionJson'] = $request->extraDimensionJson;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->labels)) {
-            $query['Labels'] = $request->labels;
+
+        if (null !== $request->labels) {
+            @$query['Labels'] = $request->labels;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->noDataPolicy)) {
-            $query['NoDataPolicy'] = $request->noDataPolicy;
+
+        if (null !== $request->noDataPolicy) {
+            @$query['NoDataPolicy'] = $request->noDataPolicy;
         }
-        if (!Utils::isUnset($request->noEffectiveInterval)) {
-            $query['NoEffectiveInterval'] = $request->noEffectiveInterval;
+
+        if (null !== $request->noEffectiveInterval) {
+            @$query['NoEffectiveInterval'] = $request->noEffectiveInterval;
         }
-        if (!Utils::isUnset($request->options)) {
-            $query['Options'] = $request->options;
+
+        if (null !== $request->options) {
+            @$query['Options'] = $request->options;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->silenceTime)) {
-            $query['SilenceTime'] = $request->silenceTime;
+
+        if (null !== $request->silenceTime) {
+            @$query['SilenceTime'] = $request->silenceTime;
         }
-        if (!Utils::isUnset($request->webhook)) {
-            $query['Webhook'] = $request->webhook;
+
+        if (null !== $request->webhook) {
+            @$query['Webhook'] = $request->webhook;
         }
-        if (!Utils::isUnset($request->escalations)) {
-            $query['Escalations'] = $request->escalations;
+
+        if (null !== $request->escalations) {
+            @$query['Escalations'] = $request->escalations;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutGroupMetricRule',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutGroupMetricRule',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutGroupMetricRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates or modifies an alert rule for an application group.
-     *  *
-     * @description This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `17285****` application group. The ID of the alert rule is `123456`. The name of the alert rule is `Rule_test`. The alert level is `Critical`. The statistical method is `Average`. The alert threshold comparator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The returned result shows that the alert rule is created and the alert rule ID is `123456`.
-     *  *
-     * @param PutGroupMetricRuleRequest $request PutGroupMetricRuleRequest
+     * Creates or modifies an alert rule for an application group.
      *
-     * @return PutGroupMetricRuleResponse PutGroupMetricRuleResponse
+     * @remarks
+     * This topic provides an example on how to create an alert rule for the `cpu_total` metric of Elastic Compute Service (ECS) in the `17285****` application group. The ID of the alert rule is `123456`. The name of the alert rule is `Rule_test`. The alert level is `Critical`. The statistical method is `Average`. The alert threshold comparator is `GreaterThanOrEqualToThreshold`. The alert threshold is `90`. The number of alert retries is `3`. The returned result shows that the alert rule is created and the alert rule ID is `123456`.
+     *
+     * @param request - PutGroupMetricRuleRequest
+     *
+     * @returns PutGroupMetricRuleResponse
+     *
+     * @param PutGroupMetricRuleRequest $request
+     *
+     * @return PutGroupMetricRuleResponse
      */
     public function putGroupMetricRule($request)
     {
@@ -9396,61 +11600,74 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Imports the monitoring data of a metric to a namespace of Hybrid Cloud Monitoring.
-     *  *
-     * @description # [](#)Prerequisites
-     * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-     * # [](#)Limits
-     * The size of the monitoring data that you import at a time must be less than or equal to 1 MB.
-     * # [](#)Description
-     * This topic provides an example on how to import the monitoring data of the `CPU_Usage` metric to the `default-aliyun` namespace of Hybrid Cloud Monitoring.
-     *  *
-     * @param PutHybridMonitorMetricDataRequest $request PutHybridMonitorMetricDataRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Imports the monitoring data of a metric to a namespace of Hybrid Cloud Monitoring.
      *
-     * @return PutHybridMonitorMetricDataResponse PutHybridMonitorMetricDataResponse
+     * @remarks
+     * ## [](#)Prerequisites
+     * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+     * ## [](#)Limits
+     * The size of the monitoring data that you import at a time must be less than or equal to 1 MB.
+     * ## [](#)Operation description
+     * This topic provides an example on how to import the monitoring data of the `CPU_Usage` metric to the `default-aliyun` namespace of Hybrid Cloud Monitoring.
+     *
+     * @param request - PutHybridMonitorMetricDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutHybridMonitorMetricDataResponse
+     *
+     * @param PutHybridMonitorMetricDataRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return PutHybridMonitorMetricDataResponse
      */
     public function putHybridMonitorMetricDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->metricList)) {
-            $query['MetricList'] = $request->metricList;
+        if (null !== $request->metricList) {
+            @$query['MetricList'] = $request->metricList;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutHybridMonitorMetricData',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutHybridMonitorMetricData',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutHybridMonitorMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Imports the monitoring data of a metric to a namespace of Hybrid Cloud Monitoring.
-     *  *
-     * @description # [](#)Prerequisites
-     * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
-     * # [](#)Limits
-     * The size of the monitoring data that you import at a time must be less than or equal to 1 MB.
-     * # [](#)Description
-     * This topic provides an example on how to import the monitoring data of the `CPU_Usage` metric to the `default-aliyun` namespace of Hybrid Cloud Monitoring.
-     *  *
-     * @param PutHybridMonitorMetricDataRequest $request PutHybridMonitorMetricDataRequest
+     * Imports the monitoring data of a metric to a namespace of Hybrid Cloud Monitoring.
      *
-     * @return PutHybridMonitorMetricDataResponse PutHybridMonitorMetricDataResponse
+     * @remarks
+     * ## [](#)Prerequisites
+     * Hybrid Cloud Monitoring is activated. For more information, see [Activate Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/250773.html).
+     * ## [](#)Limits
+     * The size of the monitoring data that you import at a time must be less than or equal to 1 MB.
+     * ## [](#)Operation description
+     * This topic provides an example on how to import the monitoring data of the `CPU_Usage` metric to the `default-aliyun` namespace of Hybrid Cloud Monitoring.
+     *
+     * @param request - PutHybridMonitorMetricDataRequest
+     *
+     * @returns PutHybridMonitorMetricDataResponse
+     *
+     * @param PutHybridMonitorMetricDataRequest $request
+     *
+     * @return PutHybridMonitorMetricDataResponse
      */
     public function putHybridMonitorMetricData($request)
     {
@@ -9460,84 +11677,108 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates or modifies a log monitoring metric.
-     *  *
-     * @description In the example of this topic, the `cpu_total` log monitoring metric is created. The response shows that the log monitoring metric is created and the metric ID is `16****`.
-     *  *
-     * @param PutLogMonitorRequest $request PutLogMonitorRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Creates or modifies a log monitoring metric.
      *
-     * @return PutLogMonitorResponse PutLogMonitorResponse
+     * @remarks
+     * In the example of this topic, the `cpu_total` log monitoring metric is created. The response shows that the log monitoring metric is created and the metric ID is `16****`.
+     *
+     * @param request - PutLogMonitorRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutLogMonitorResponse
+     *
+     * @param PutLogMonitorRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return PutLogMonitorResponse
      */
     public function putLogMonitorWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggregates)) {
-            $query['Aggregates'] = $request->aggregates;
+        if (null !== $request->aggregates) {
+            @$query['Aggregates'] = $request->aggregates;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->groupbys)) {
-            $query['Groupbys'] = $request->groupbys;
+
+        if (null !== $request->groupbys) {
+            @$query['Groupbys'] = $request->groupbys;
         }
-        if (!Utils::isUnset($request->logId)) {
-            $query['LogId'] = $request->logId;
+
+        if (null !== $request->logId) {
+            @$query['LogId'] = $request->logId;
         }
-        if (!Utils::isUnset($request->metricExpress)) {
-            $query['MetricExpress'] = $request->metricExpress;
+
+        if (null !== $request->metricExpress) {
+            @$query['MetricExpress'] = $request->metricExpress;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->slsLogstore)) {
-            $query['SlsLogstore'] = $request->slsLogstore;
+
+        if (null !== $request->slsLogstore) {
+            @$query['SlsLogstore'] = $request->slsLogstore;
         }
-        if (!Utils::isUnset($request->slsProject)) {
-            $query['SlsProject'] = $request->slsProject;
+
+        if (null !== $request->slsProject) {
+            @$query['SlsProject'] = $request->slsProject;
         }
-        if (!Utils::isUnset($request->slsRegionId)) {
-            $query['SlsRegionId'] = $request->slsRegionId;
+
+        if (null !== $request->slsRegionId) {
+            @$query['SlsRegionId'] = $request->slsRegionId;
         }
-        if (!Utils::isUnset($request->tumblingwindows)) {
-            $query['Tumblingwindows'] = $request->tumblingwindows;
+
+        if (null !== $request->tumblingwindows) {
+            @$query['Tumblingwindows'] = $request->tumblingwindows;
         }
-        if (!Utils::isUnset($request->unit)) {
-            $query['Unit'] = $request->unit;
+
+        if (null !== $request->unit) {
+            @$query['Unit'] = $request->unit;
         }
-        if (!Utils::isUnset($request->valueFilter)) {
-            $query['ValueFilter'] = $request->valueFilter;
+
+        if (null !== $request->valueFilter) {
+            @$query['ValueFilter'] = $request->valueFilter;
         }
-        if (!Utils::isUnset($request->valueFilterRelation)) {
-            $query['ValueFilterRelation'] = $request->valueFilterRelation;
+
+        if (null !== $request->valueFilterRelation) {
+            @$query['ValueFilterRelation'] = $request->valueFilterRelation;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutLogMonitor',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutLogMonitor',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutLogMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates or modifies a log monitoring metric.
-     *  *
-     * @description In the example of this topic, the `cpu_total` log monitoring metric is created. The response shows that the log monitoring metric is created and the metric ID is `16****`.
-     *  *
-     * @param PutLogMonitorRequest $request PutLogMonitorRequest
+     * Creates or modifies a log monitoring metric.
      *
-     * @return PutLogMonitorResponse PutLogMonitorResponse
+     * @remarks
+     * In the example of this topic, the `cpu_total` log monitoring metric is created. The response shows that the log monitoring metric is created and the metric ID is `16****`.
+     *
+     * @param request - PutLogMonitorRequest
+     *
+     * @returns PutLogMonitorResponse
+     *
+     * @param PutLogMonitorRequest $request
+     *
+     * @return PutLogMonitorResponse
      */
     public function putLogMonitor($request)
     {
@@ -9547,53 +11788,66 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Adds or modifies the push channels of an alert rule.
-     *  *
-     * @description # [](#)
-     * This topic provides an example on how to associate an alert rule with a resource. In this example, the alert rule is `ae06917_75a8c43178ab66****`, the resource is `acs:mns:cn-hangzhou:120886317861****:/queues/test/message`, and the ID of the resource for which alerts are triggered is `1`. The response indicates that the resource is associated with the specified alert rule.
-     *  *
-     * @param PutMetricRuleTargetsRequest $request PutMetricRuleTargetsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Adds or modifies the push channels of an alert rule.
      *
-     * @return PutMetricRuleTargetsResponse PutMetricRuleTargetsResponse
+     * @remarks
+     * # [](#)
+     * This topic provides an example on how to associate an alert rule with a resource. In this example, the alert rule is `ae06917_75a8c43178ab66****`, the resource is `acs:mns:cn-hangzhou:120886317861****:/queues/test/message`, and the ID of the resource for which alerts are triggered is `1`. The response indicates that the resource is associated with the specified alert rule.
+     *
+     * @param request - PutMetricRuleTargetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutMetricRuleTargetsResponse
+     *
+     * @param PutMetricRuleTargetsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return PutMetricRuleTargetsResponse
      */
     public function putMetricRuleTargetsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->targets)) {
-            $query['Targets'] = $request->targets;
+
+        if (null !== $request->targets) {
+            @$query['Targets'] = $request->targets;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutMetricRuleTargets',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutMetricRuleTargets',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutMetricRuleTargetsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds or modifies the push channels of an alert rule.
-     *  *
-     * @description # [](#)
-     * This topic provides an example on how to associate an alert rule with a resource. In this example, the alert rule is `ae06917_75a8c43178ab66****`, the resource is `acs:mns:cn-hangzhou:120886317861****:/queues/test/message`, and the ID of the resource for which alerts are triggered is `1`. The response indicates that the resource is associated with the specified alert rule.
-     *  *
-     * @param PutMetricRuleTargetsRequest $request PutMetricRuleTargetsRequest
+     * Adds or modifies the push channels of an alert rule.
      *
-     * @return PutMetricRuleTargetsResponse PutMetricRuleTargetsResponse
+     * @remarks
+     * # [](#)
+     * This topic provides an example on how to associate an alert rule with a resource. In this example, the alert rule is `ae06917_75a8c43178ab66****`, the resource is `acs:mns:cn-hangzhou:120886317861****:/queues/test/message`, and the ID of the resource for which alerts are triggered is `1`. The response indicates that the resource is associated with the specified alert rule.
+     *
+     * @param request - PutMetricRuleTargetsRequest
+     *
+     * @returns PutMetricRuleTargetsResponse
+     *
+     * @param PutMetricRuleTargetsRequest $request
+     *
+     * @return PutMetricRuleTargetsResponse
      */
     public function putMetricRuleTargets($request)
     {
@@ -9603,50 +11857,62 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates or modifies an alert rule to dynamically add instances that meet the rule to an application group.
-     *  *
-     * @param PutMonitorGroupDynamicRuleRequest $request PutMonitorGroupDynamicRuleRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Creates or modifies an alert rule to dynamically add instances that meet the rule to an application group.
      *
-     * @return PutMonitorGroupDynamicRuleResponse PutMonitorGroupDynamicRuleResponse
+     * @param request - PutMonitorGroupDynamicRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutMonitorGroupDynamicRuleResponse
+     *
+     * @param PutMonitorGroupDynamicRuleRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return PutMonitorGroupDynamicRuleResponse
      */
     public function putMonitorGroupDynamicRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->groupRules)) {
-            $query['GroupRules'] = $request->groupRules;
+
+        if (null !== $request->groupRules) {
+            @$query['GroupRules'] = $request->groupRules;
         }
-        if (!Utils::isUnset($request->isAsync)) {
-            $query['IsAsync'] = $request->isAsync;
+
+        if (null !== $request->isAsync) {
+            @$query['IsAsync'] = $request->isAsync;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutMonitorGroupDynamicRule',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutMonitorGroupDynamicRule',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutMonitorGroupDynamicRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates or modifies an alert rule to dynamically add instances that meet the rule to an application group.
-     *  *
-     * @param PutMonitorGroupDynamicRuleRequest $request PutMonitorGroupDynamicRuleRequest
+     * Creates or modifies an alert rule to dynamically add instances that meet the rule to an application group.
      *
-     * @return PutMonitorGroupDynamicRuleResponse PutMonitorGroupDynamicRuleResponse
+     * @param request - PutMonitorGroupDynamicRuleRequest
+     *
+     * @returns PutMonitorGroupDynamicRuleResponse
+     *
+     * @param PutMonitorGroupDynamicRuleRequest $request
+     *
+     * @return PutMonitorGroupDynamicRuleResponse
      */
     public function putMonitorGroupDynamicRule($request)
     {
@@ -9656,47 +11922,58 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Configures global settings for the CloudMonitor agent.
-     *  *
-     * @param PutMonitoringConfigRequest $request PutMonitoringConfigRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Configures global settings for the CloudMonitor agent.
      *
-     * @return PutMonitoringConfigResponse PutMonitoringConfigResponse
+     * @param request - PutMonitoringConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutMonitoringConfigResponse
+     *
+     * @param PutMonitoringConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return PutMonitoringConfigResponse
      */
     public function putMonitoringConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoInstall)) {
-            $query['AutoInstall'] = $request->autoInstall;
+        if (null !== $request->autoInstall) {
+            @$query['AutoInstall'] = $request->autoInstall;
         }
-        if (!Utils::isUnset($request->enableInstallAgentNewECS)) {
-            $query['EnableInstallAgentNewECS'] = $request->enableInstallAgentNewECS;
+
+        if (null !== $request->enableInstallAgentNewECS) {
+            @$query['EnableInstallAgentNewECS'] = $request->enableInstallAgentNewECS;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutMonitoringConfig',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutMonitoringConfig',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutMonitoringConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures global settings for the CloudMonitor agent.
-     *  *
-     * @param PutMonitoringConfigRequest $request PutMonitoringConfigRequest
+     * Configures global settings for the CloudMonitor agent.
      *
-     * @return PutMonitoringConfigResponse PutMonitoringConfigResponse
+     * @param request - PutMonitoringConfigRequest
+     *
+     * @returns PutMonitoringConfigResponse
+     *
+     * @param PutMonitoringConfigRequest $request
+     *
+     * @return PutMonitoringConfigResponse
      */
     public function putMonitoringConfig($request)
     {
@@ -9706,109 +11983,140 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Configures an alert rule.
-     *  *
-     * @description This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
-     * >  Statistics verification was added on August 15, 2024. Only the statistical value of the corresponding metric can be set for the Statistics parameter. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
-     *  *
-     * @param PutResourceMetricRuleRequest $tmpReq  PutResourceMetricRuleRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Configures an alert rule.
      *
-     * @return PutResourceMetricRuleResponse PutResourceMetricRuleResponse
+     * @remarks
+     * This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
+     * >  Statistics verification was added on August 15, 2024. Only the statistical value of the corresponding metric can be set for the Statistics parameter. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
+     *
+     * @param tmpReq - PutResourceMetricRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutResourceMetricRuleResponse
+     *
+     * @param PutResourceMetricRuleRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return PutResourceMetricRuleResponse
      */
     public function putResourceMetricRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new PutResourceMetricRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->compositeExpression)) {
-            $request->compositeExpressionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->compositeExpression, 'CompositeExpression', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->compositeExpression) {
+            $request->compositeExpressionShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->compositeExpression, 'CompositeExpression', 'json');
         }
-        if (!Utils::isUnset($tmpReq->prometheus)) {
-            $request->prometheusShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->prometheus, 'Prometheus', 'json');
+
+        if (null !== $tmpReq->prometheus) {
+            $request->prometheusShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->prometheus, 'Prometheus', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->compositeExpressionShrink)) {
-            $query['CompositeExpression'] = $request->compositeExpressionShrink;
+        if (null !== $request->compositeExpressionShrink) {
+            @$query['CompositeExpression'] = $request->compositeExpressionShrink;
         }
-        if (!Utils::isUnset($request->contactGroups)) {
-            $query['ContactGroups'] = $request->contactGroups;
+
+        if (null !== $request->contactGroups) {
+            @$query['ContactGroups'] = $request->contactGroups;
         }
-        if (!Utils::isUnset($request->effectiveInterval)) {
-            $query['EffectiveInterval'] = $request->effectiveInterval;
+
+        if (null !== $request->effectiveInterval) {
+            @$query['EffectiveInterval'] = $request->effectiveInterval;
         }
-        if (!Utils::isUnset($request->emailSubject)) {
-            $query['EmailSubject'] = $request->emailSubject;
+
+        if (null !== $request->emailSubject) {
+            @$query['EmailSubject'] = $request->emailSubject;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->labels)) {
-            $query['Labels'] = $request->labels;
+
+        if (null !== $request->labels) {
+            @$query['Labels'] = $request->labels;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
+
+        if (null !== $request->namespace) {
+            @$query['Namespace'] = $request->namespace;
         }
-        if (!Utils::isUnset($request->noDataPolicy)) {
-            $query['NoDataPolicy'] = $request->noDataPolicy;
+
+        if (null !== $request->noDataPolicy) {
+            @$query['NoDataPolicy'] = $request->noDataPolicy;
         }
-        if (!Utils::isUnset($request->noEffectiveInterval)) {
-            $query['NoEffectiveInterval'] = $request->noEffectiveInterval;
+
+        if (null !== $request->noEffectiveInterval) {
+            @$query['NoEffectiveInterval'] = $request->noEffectiveInterval;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->prometheusShrink)) {
-            $query['Prometheus'] = $request->prometheusShrink;
+
+        if (null !== $request->prometheusShrink) {
+            @$query['Prometheus'] = $request->prometheusShrink;
         }
-        if (!Utils::isUnset($request->resources)) {
-            $query['Resources'] = $request->resources;
+
+        if (null !== $request->resources) {
+            @$query['Resources'] = $request->resources;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->silenceTime)) {
-            $query['SilenceTime'] = $request->silenceTime;
+
+        if (null !== $request->silenceTime) {
+            @$query['SilenceTime'] = $request->silenceTime;
         }
-        if (!Utils::isUnset($request->webhook)) {
-            $query['Webhook'] = $request->webhook;
+
+        if (null !== $request->webhook) {
+            @$query['Webhook'] = $request->webhook;
         }
-        if (!Utils::isUnset($request->escalations)) {
-            $query['Escalations'] = $request->escalations;
+
+        if (null !== $request->escalations) {
+            @$query['Escalations'] = $request->escalations;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutResourceMetricRule',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutResourceMetricRule',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutResourceMetricRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures an alert rule.
-     *  *
-     * @description This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
-     * >  Statistics verification was added on August 15, 2024. Only the statistical value of the corresponding metric can be set for the Statistics parameter. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
-     *  *
-     * @param PutResourceMetricRuleRequest $request PutResourceMetricRuleRequest
+     * Configures an alert rule.
      *
-     * @return PutResourceMetricRuleResponse PutResourceMetricRuleResponse
+     * @remarks
+     * This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
+     * >  Statistics verification was added on August 15, 2024. Only the statistical value of the corresponding metric can be set for the Statistics parameter. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
+     *
+     * @param request - PutResourceMetricRuleRequest
+     *
+     * @returns PutResourceMetricRuleResponse
+     *
+     * @param PutResourceMetricRuleRequest $request
+     *
+     * @return PutResourceMetricRuleResponse
      */
     public function putResourceMetricRule($request)
     {
@@ -9818,50 +12126,62 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Creates multiple alert rules for the specified metric of a specified resource.
-     *  *
-     * @description This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
-     * >  Statistics verification was added on August 15, 2024. Only the statistical value of the corresponding metric can be set for the Statistics parameter. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
-     *  *
-     * @param PutResourceMetricRulesRequest $request PutResourceMetricRulesRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Creates multiple alert rules for the specified metric of a specified resource.
      *
-     * @return PutResourceMetricRulesResponse PutResourceMetricRulesResponse
+     * @remarks
+     * This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
+     * >  Statistics verification was added on August 15, 2024. Only the statistical value of the corresponding metric can be set for the Statistics parameter. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
+     *
+     * @param request - PutResourceMetricRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutResourceMetricRulesResponse
+     *
+     * @param PutResourceMetricRulesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return PutResourceMetricRulesResponse
      */
     public function putResourceMetricRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->rules)) {
-            $query['Rules'] = $request->rules;
+        if (null !== $request->rules) {
+            @$query['Rules'] = $request->rules;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PutResourceMetricRules',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PutResourceMetricRules',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return PutResourceMetricRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates multiple alert rules for the specified metric of a specified resource.
-     *  *
-     * @description This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
-     * >  Statistics verification was added on August 15, 2024. Only the statistical value of the corresponding metric can be set for the Statistics parameter. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
-     *  *
-     * @param PutResourceMetricRulesRequest $request PutResourceMetricRulesRequest
+     * Creates multiple alert rules for the specified metric of a specified resource.
      *
-     * @return PutResourceMetricRulesResponse PutResourceMetricRulesResponse
+     * @remarks
+     * This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
+     * >  Statistics verification was added on August 15, 2024. Only the statistical value of the corresponding metric can be set for the Statistics parameter. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
+     *
+     * @param request - PutResourceMetricRulesRequest
+     *
+     * @returns PutResourceMetricRulesResponse
+     *
+     * @param PutResourceMetricRulesRequest $request
+     *
+     * @return PutResourceMetricRulesResponse
      */
     public function putResourceMetricRules($request)
     {
@@ -9871,47 +12191,58 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @summary Deletes tags.
-     *  *
-     * @param RemoveTagsRequest $request RemoveTagsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Deletes tags.
      *
-     * @return RemoveTagsResponse RemoveTagsResponse
+     * @param request - RemoveTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RemoveTagsResponse
+     *
+     * @param RemoveTagsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return RemoveTagsResponse
      */
     public function removeTagsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupIds)) {
-            $query['GroupIds'] = $request->groupIds;
+        if (null !== $request->groupIds) {
+            @$query['GroupIds'] = $request->groupIds;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveTags',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveTags',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return RemoveTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes tags.
-     *  *
-     * @param RemoveTagsRequest $request RemoveTagsRequest
+     * Deletes tags.
      *
-     * @return RemoveTagsResponse RemoveTagsResponse
+     * @param request - RemoveTagsRequest
+     *
+     * @returns RemoveTagsResponse
+     *
+     * @param RemoveTagsRequest $request
+     *
+     * @return RemoveTagsResponse
      */
     public function removeTags($request)
     {
@@ -9921,53 +12252,72 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @description This operation is used to test whether a system event can be triggered as expected. You can call this operation to simulate a system event and check whether an expected response is returned after an alert is triggered by the system event.
-     *  *
-     * @param SendDryRunSystemEventRequest $request SendDryRunSystemEventRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Debugs a system event of an Alibaba Cloud service.
      *
-     * @return SendDryRunSystemEventResponse SendDryRunSystemEventResponse
+     * @remarks
+     * This operation is used to test whether a system event can be triggered as expected. You can call this operation to simulate a system event and check whether an expected response is returned after the system event triggers an alert.
+     *
+     * @param request - SendDryRunSystemEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendDryRunSystemEventResponse
+     *
+     * @param SendDryRunSystemEventRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SendDryRunSystemEventResponse
      */
     public function sendDryRunSystemEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eventContent)) {
-            $query['EventContent'] = $request->eventContent;
+        if (null !== $request->eventContent) {
+            @$query['EventContent'] = $request->eventContent;
         }
-        if (!Utils::isUnset($request->eventName)) {
-            $query['EventName'] = $request->eventName;
+
+        if (null !== $request->eventName) {
+            @$query['EventName'] = $request->eventName;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->product)) {
-            $query['Product'] = $request->product;
+
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SendDryRunSystemEvent',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendDryRunSystemEvent',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return SendDryRunSystemEventResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @description This operation is used to test whether a system event can be triggered as expected. You can call this operation to simulate a system event and check whether an expected response is returned after an alert is triggered by the system event.
-     *  *
-     * @param SendDryRunSystemEventRequest $request SendDryRunSystemEventRequest
+     * Debugs a system event of an Alibaba Cloud service.
      *
-     * @return SendDryRunSystemEventResponse SendDryRunSystemEventResponse
+     * @remarks
+     * This operation is used to test whether a system event can be triggered as expected. You can call this operation to simulate a system event and check whether an expected response is returned after the system event triggers an alert.
+     *
+     * @param request - SendDryRunSystemEventRequest
+     *
+     * @returns SendDryRunSystemEventResponse
+     *
+     * @param SendDryRunSystemEventRequest $request
+     *
+     * @return SendDryRunSystemEventResponse
      */
     public function sendDryRunSystemEvent($request)
     {
@@ -9977,44 +12327,60 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @description >  This API operation is not applicable to ECS instances. To uninstall the agent from an ECS instance, see [Install and uninstall the Cloud Monitor agent](https://help.aliyun.com/document_detail/183482.html).
-     *  *
-     * @param UninstallMonitoringAgentRequest $request UninstallMonitoringAgentRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Uninstalls the CloudMonitor agent from a third-party host.
      *
-     * @return UninstallMonitoringAgentResponse UninstallMonitoringAgentResponse
+     * @remarks
+     * >  This API operation is not applicable to Elastic Compute Service (ECS) instances. To uninstall the agent from an ECS instance, see [Install and uninstall the CloudMonitor agent](https://help.aliyun.com/document_detail/183482.html).
+     *
+     * @param request - UninstallMonitoringAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UninstallMonitoringAgentResponse
+     *
+     * @param UninstallMonitoringAgentRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UninstallMonitoringAgentResponse
      */
     public function uninstallMonitoringAgentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UninstallMonitoringAgent',
-            'version'     => '2019-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UninstallMonitoringAgent',
+            'version' => '2019-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
 
         return UninstallMonitoringAgentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @description >  This API operation is not applicable to ECS instances. To uninstall the agent from an ECS instance, see [Install and uninstall the Cloud Monitor agent](https://help.aliyun.com/document_detail/183482.html).
-     *  *
-     * @param UninstallMonitoringAgentRequest $request UninstallMonitoringAgentRequest
+     * Uninstalls the CloudMonitor agent from a third-party host.
      *
-     * @return UninstallMonitoringAgentResponse UninstallMonitoringAgentResponse
+     * @remarks
+     * >  This API operation is not applicable to Elastic Compute Service (ECS) instances. To uninstall the agent from an ECS instance, see [Install and uninstall the CloudMonitor agent](https://help.aliyun.com/document_detail/183482.html).
+     *
+     * @param request - UninstallMonitoringAgentRequest
+     *
+     * @returns UninstallMonitoringAgentResponse
+     *
+     * @param UninstallMonitoringAgentRequest $request
+     *
+     * @return UninstallMonitoringAgentResponse
      */
     public function uninstallMonitoringAgent($request)
     {

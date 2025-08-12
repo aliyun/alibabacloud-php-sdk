@@ -4,72 +4,56 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\PutCustomEventRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class eventInfo extends Model
 {
     /**
-     * @description The event content. Valid values of N: 1 to 50.
-     *
-     * This parameter is required.
-     * @example IOException
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description The event name. Valid values of N: 1 to 50.
-     *
-     * This parameter is required.
-     * @example myEvent
-     *
      * @var string
      */
     public $eventName;
 
     /**
-     * @description The ID of the application group. Valid values of N: 1 to 50.
-     *
-     * Default value: 0. This value indicates that the event to be reported does not belong to any application group.
-     * @example 123456
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The time when the event occurred.
-     *
-     * >  You can also specify a UNIX timestamp. Example: 1552199984000. Unit: milliseconds.
-     * @example 20171013T170923.456+0800
-     *
      * @var string
      */
     public $time;
     protected $_name = [
-        'content'   => 'Content',
+        'content' => 'Content',
         'eventName' => 'EventName',
-        'groupId'   => 'GroupId',
-        'time'      => 'Time',
+        'groupId' => 'GroupId',
+        'time' => 'Time',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->eventName) {
             $res['EventName'] = $this->eventName;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
@@ -77,23 +61,26 @@ class eventInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return eventInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['EventName'])) {
             $model->eventName = $map['EventName'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }

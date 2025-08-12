@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EnableSiteMonitorsRequest extends Model
 {
@@ -14,29 +14,26 @@ class EnableSiteMonitorsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the site monitoring task. Separate multiple IDs with commas (,).
-     *
-     * This parameter is required.
-     * @example 49f7b317-7645-4cc9-94fd-ea42e522****,49f7b317-7645-4cc9-94fd-ea42e522****
-     *
      * @var string
      */
     public $taskIds;
     protected $_name = [
         'regionId' => 'RegionId',
-        'taskIds'  => 'TaskIds',
+        'taskIds' => 'TaskIds',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->taskIds) {
             $res['TaskIds'] = $this->taskIds;
         }
@@ -44,17 +41,18 @@ class EnableSiteMonitorsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EnableSiteMonitorsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TaskIds'])) {
             $model->taskIds = $map['TaskIds'];
         }

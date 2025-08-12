@@ -4,57 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSystemEventHistogramResponseBody\systemEventHistograms;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class systemEventHistogram extends Model
 {
     /**
-     * @description The number of times the system event occurred.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description The end time.
-     *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     * @example 1552225753000
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The start time.
-     *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     * @example 1552225770000
-     *
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'count'     => 'Count',
-        'endTime'   => 'EndTime',
+        'count' => 'Count',
+        'endTime' => 'EndTime',
         'startTime' => 'StartTime',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -62,20 +51,22 @@ class systemEventHistogram extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return systemEventHistogram
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

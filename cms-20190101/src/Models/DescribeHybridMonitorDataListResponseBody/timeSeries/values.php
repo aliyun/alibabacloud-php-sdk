@@ -4,43 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHybridMonitorDataListResponseBody\timeSeries;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class values extends Model
 {
     /**
-     * @description The timestamp that indicates the time when the metric value is collected.
-     *
-     * Unit: seconds.
-     * @example 1653804865
-     *
      * @var string
      */
     public $ts;
 
     /**
-     * @description The metric value.
-     *
-     * @example 0.13
-     *
      * @var string
      */
     public $v;
     protected $_name = [
         'ts' => 'Ts',
-        'v'  => 'V',
+        'v' => 'V',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ts) {
             $res['Ts'] = $this->ts;
         }
+
         if (null !== $this->v) {
             $res['V'] = $this->v;
         }
@@ -48,17 +41,18 @@ class values extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return values
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ts'])) {
             $model->ts = $map['Ts'];
         }
+
         if (isset($map['V'])) {
             $model->v = $map['V'];
         }

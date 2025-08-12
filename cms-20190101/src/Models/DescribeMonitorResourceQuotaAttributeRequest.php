@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeMonitorResourceQuotaAttributeRequest extends Model
 {
@@ -14,13 +14,6 @@ class DescribeMonitorResourceQuotaAttributeRequest extends Model
     public $regionId;
 
     /**
-     * @description Specifies whether to return information about used quotas. Valid values:
-     *
-     *   true (default): yes
-     *   false: no
-     *
-     * @example true
-     *
      * @var bool
      */
     public $showUsed;
@@ -31,14 +24,16 @@ class DescribeMonitorResourceQuotaAttributeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->showUsed) {
             $res['ShowUsed'] = $this->showUsed;
         }
@@ -46,17 +41,18 @@ class DescribeMonitorResourceQuotaAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeMonitorResourceQuotaAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ShowUsed'])) {
             $model->showUsed = $map['ShowUsed'];
         }

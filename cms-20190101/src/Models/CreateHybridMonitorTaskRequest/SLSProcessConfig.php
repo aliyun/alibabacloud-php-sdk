@@ -4,82 +4,93 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\CreateHybridMonitorTaskRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateHybridMonitorTaskRequest\SLSProcessConfig\express;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateHybridMonitorTaskRequest\SLSProcessConfig\filter;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateHybridMonitorTaskRequest\SLSProcessConfig\groupBy;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateHybridMonitorTaskRequest\SLSProcessConfig\statistics;
-use AlibabaCloud\Tea\Model;
 
 class SLSProcessConfig extends Model
 {
     /**
-     * @description The extended fields that specify the results of basic operations performed on aggregation results.
-     *
      * @var express[]
      */
     public $express;
 
     /**
-     * @description The conditions that are used to filter logs imported from Simple Log Service.
-     *
      * @var filter
      */
     public $filter;
 
     /**
-     * @description The dimension based on which data is aggregated. This parameter is equivalent to the GROUP BY clause in SQL.
-     *
      * @var groupBy[]
      */
     public $groupBy;
 
     /**
-     * @description The method that is used to aggregate logs imported from Simple Log Service.
-     *
      * @var statistics[]
      */
     public $statistics;
     protected $_name = [
-        'express'    => 'Express',
-        'filter'     => 'Filter',
-        'groupBy'    => 'GroupBy',
+        'express' => 'Express',
+        'filter' => 'Filter',
+        'groupBy' => 'GroupBy',
         'statistics' => 'Statistics',
     ];
 
     public function validate()
     {
+        if (\is_array($this->express)) {
+            Model::validateArray($this->express);
+        }
+        if (null !== $this->filter) {
+            $this->filter->validate();
+        }
+        if (\is_array($this->groupBy)) {
+            Model::validateArray($this->groupBy);
+        }
+        if (\is_array($this->statistics)) {
+            Model::validateArray($this->statistics);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->express) {
-            $res['Express'] = [];
-            if (null !== $this->express && \is_array($this->express)) {
-                $n = 0;
-                foreach ($this->express as $item) {
-                    $res['Express'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->express)) {
+                $res['Express'] = [];
+                $n1 = 0;
+                foreach ($this->express as $item1) {
+                    $res['Express'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->filter) {
-            $res['Filter'] = null !== $this->filter ? $this->filter->toMap() : null;
+            $res['Filter'] = null !== $this->filter ? $this->filter->toArray($noStream) : $this->filter;
         }
+
         if (null !== $this->groupBy) {
-            $res['GroupBy'] = [];
-            if (null !== $this->groupBy && \is_array($this->groupBy)) {
-                $n = 0;
-                foreach ($this->groupBy as $item) {
-                    $res['GroupBy'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->groupBy)) {
+                $res['GroupBy'] = [];
+                $n1 = 0;
+                foreach ($this->groupBy as $item1) {
+                    $res['GroupBy'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->statistics) {
-            $res['Statistics'] = [];
-            if (null !== $this->statistics && \is_array($this->statistics)) {
-                $n = 0;
-                foreach ($this->statistics as $item) {
-                    $res['Statistics'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->statistics)) {
+                $res['Statistics'] = [];
+                $n1 = 0;
+                foreach ($this->statistics as $item1) {
+                    $res['Statistics'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -87,41 +98,47 @@ class SLSProcessConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SLSProcessConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Express'])) {
             if (!empty($map['Express'])) {
                 $model->express = [];
-                $n              = 0;
-                foreach ($map['Express'] as $item) {
-                    $model->express[$n++] = null !== $item ? express::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Express'] as $item1) {
+                    $model->express[$n1] = express::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Filter'])) {
             $model->filter = filter::fromMap($map['Filter']);
         }
+
         if (isset($map['GroupBy'])) {
             if (!empty($map['GroupBy'])) {
                 $model->groupBy = [];
-                $n              = 0;
-                foreach ($map['GroupBy'] as $item) {
-                    $model->groupBy[$n++] = null !== $item ? groupBy::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['GroupBy'] as $item1) {
+                    $model->groupBy[$n1] = groupBy::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Statistics'])) {
             if (!empty($map['Statistics'])) {
                 $model->statistics = [];
-                $n                 = 0;
-                foreach ($map['Statistics'] as $item) {
-                    $model->statistics[$n++] = null !== $item ? statistics::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Statistics'] as $item1) {
+                    $model->statistics[$n1] = statistics::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

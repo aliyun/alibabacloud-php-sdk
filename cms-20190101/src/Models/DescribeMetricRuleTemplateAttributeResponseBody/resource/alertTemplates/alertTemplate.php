@@ -4,135 +4,124 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleTemplateAttributeResponseBody\resource\alertTemplates;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleTemplateAttributeResponseBody\resource\alertTemplates\alertTemplate\escalations;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleTemplateAttributeResponseBody\resource\alertTemplates\alertTemplate\labels;
-use AlibabaCloud\Tea\Model;
 
 class alertTemplate extends Model
 {
     /**
-     * @description The abbreviation of the Alibaba Cloud service name.
-     *
-     * @example ecs
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description The threshold and the alert level.
-     *
      * @var escalations
      */
     public $escalations;
 
     /**
-     * @description The tags of the alert template.
-     *
      * @var labels
      */
     public $labels;
 
     /**
-     * @description The metric name.
-     *
-     * @example cpu_total
-     *
      * @var string
      */
     public $metricName;
 
     /**
-     * @description The namespace of the Alibaba Cloud service.
-     *
-     * @example acs_ecs_dashboard
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The method that is used to handle alerts when no monitoring data is found. Valid values:
-     *
-     *   KEEP_LAST_STATE (default): No operation is performed.
-     *   INSUFFICIENT_DATA: An alert whose content is "Insufficient data" is triggered.
-     *   OK: The status is considered normal.
-     *
-     * @example KEEP_LAST_STATE
-     *
      * @var string
      */
     public $noDataPolicy;
 
     /**
-     * @description The name of the alert rule.
-     *
-     * @example ECS_Rule
-     *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @description The dimension of the alert. It is an extended field.
-     *
-     * @example {"disk":"/"}
-     *
      * @var string
      */
     public $selector;
 
     /**
-     * @description The callback URL to which a request is sent when an alert is triggered.
-     *
-     * @example https://www.aliyun.com
-     *
+     * @var int
+     */
+    public $silenceTime;
+
+    /**
      * @var string
      */
     public $webhook;
     protected $_name = [
-        'category'     => 'Category',
-        'escalations'  => 'Escalations',
-        'labels'       => 'Labels',
-        'metricName'   => 'MetricName',
-        'namespace'    => 'Namespace',
+        'category' => 'Category',
+        'escalations' => 'Escalations',
+        'labels' => 'Labels',
+        'metricName' => 'MetricName',
+        'namespace' => 'Namespace',
         'noDataPolicy' => 'NoDataPolicy',
-        'ruleName'     => 'RuleName',
-        'selector'     => 'Selector',
-        'webhook'      => 'Webhook',
+        'ruleName' => 'RuleName',
+        'selector' => 'Selector',
+        'silenceTime' => 'SilenceTime',
+        'webhook' => 'Webhook',
     ];
 
     public function validate()
     {
+        if (null !== $this->escalations) {
+            $this->escalations->validate();
+        }
+        if (null !== $this->labels) {
+            $this->labels->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->escalations) {
-            $res['Escalations'] = null !== $this->escalations ? $this->escalations->toMap() : null;
+            $res['Escalations'] = null !== $this->escalations ? $this->escalations->toArray($noStream) : $this->escalations;
         }
+
         if (null !== $this->labels) {
-            $res['Labels'] = null !== $this->labels ? $this->labels->toMap() : null;
+            $res['Labels'] = null !== $this->labels ? $this->labels->toArray($noStream) : $this->labels;
         }
+
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->noDataPolicy) {
             $res['NoDataPolicy'] = $this->noDataPolicy;
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
+
         if (null !== $this->selector) {
             $res['Selector'] = $this->selector;
         }
+
+        if (null !== $this->silenceTime) {
+            $res['SilenceTime'] = $this->silenceTime;
+        }
+
         if (null !== $this->webhook) {
             $res['Webhook'] = $this->webhook;
         }
@@ -140,38 +129,50 @@ class alertTemplate extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return alertTemplate
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['Escalations'])) {
             $model->escalations = escalations::fromMap($map['Escalations']);
         }
+
         if (isset($map['Labels'])) {
             $model->labels = labels::fromMap($map['Labels']);
         }
+
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['NoDataPolicy'])) {
             $model->noDataPolicy = $map['NoDataPolicy'];
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
+
         if (isset($map['Selector'])) {
             $model->selector = $map['Selector'];
         }
+
+        if (isset($map['SilenceTime'])) {
+            $model->silenceTime = $map['SilenceTime'];
+        }
+
         if (isset($map['Webhook'])) {
             $model->webhook = $map['Webhook'];
         }

@@ -4,17 +4,12 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateGroupMetricRulesRequest\groupMetricRules;
-use AlibabaCloud\Tea\Model;
 
 class CreateGroupMetricRulesRequest extends Model
 {
     /**
-     * @description The ID of the application group.
-     *
-     * This parameter is required.
-     * @example 123456
-     *
      * @var int
      */
     public $groupId;
@@ -29,30 +24,37 @@ class CreateGroupMetricRulesRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'groupId'          => 'GroupId',
+        'groupId' => 'GroupId',
         'groupMetricRules' => 'GroupMetricRules',
-        'regionId'         => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->groupMetricRules)) {
+            Model::validateArray($this->groupMetricRules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->groupMetricRules) {
-            $res['GroupMetricRules'] = [];
-            if (null !== $this->groupMetricRules && \is_array($this->groupMetricRules)) {
-                $n = 0;
-                foreach ($this->groupMetricRules as $item) {
-                    $res['GroupMetricRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->groupMetricRules)) {
+                $res['GroupMetricRules'] = [];
+                $n1 = 0;
+                foreach ($this->groupMetricRules as $item1) {
+                    $res['GroupMetricRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -60,26 +62,29 @@ class CreateGroupMetricRulesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateGroupMetricRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['GroupMetricRules'])) {
             if (!empty($map['GroupMetricRules'])) {
                 $model->groupMetricRules = [];
-                $n                       = 0;
-                foreach ($map['GroupMetricRules'] as $item) {
-                    $model->groupMetricRules[$n++] = null !== $item ? groupMetricRules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['GroupMetricRules'] as $item1) {
+                    $model->groupMetricRules[$n1] = groupMetricRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

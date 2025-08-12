@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSiteMonitorListRequest extends Model
 {
     /**
-     * @description The keyword to be matched.
-     *
-     * >  You can search for tasks by name or address. Fuzzy search is supported.
-     * @example site
-     *
+     * @var string
+     */
+    public $agentGroup;
+
+    /**
      * @var string
      */
     public $keyword;
 
     /**
-     * @description The page number. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $page;
 
     /**
-     * @description The number of entries per page. Default value: 10.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -42,69 +34,66 @@ class DescribeSiteMonitorListRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the site monitoring task.
-     *
-     * @example a1ecd34a-8157-44d9-b060-14950837****
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description The task status. Valid values:
-     *
-     *   1: The task is enabled.
-     *   2: The task is disabled.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $taskState;
 
     /**
-     * @description The protocol that is used by the site monitoring task. Valid values: HTTP, PING, TCP, UDP, DNS, SMTP, POP3, and FTP.
-     *
-     * @example HTTP
-     *
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'keyword'   => 'Keyword',
-        'page'      => 'Page',
-        'pageSize'  => 'PageSize',
-        'regionId'  => 'RegionId',
-        'taskId'    => 'TaskId',
+        'agentGroup' => 'AgentGroup',
+        'keyword' => 'Keyword',
+        'page' => 'Page',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'taskId' => 'TaskId',
         'taskState' => 'TaskState',
-        'taskType'  => 'TaskType',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->agentGroup) {
+            $res['AgentGroup'] = $this->agentGroup;
+        }
+
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->taskState) {
             $res['TaskState'] = $this->taskState;
         }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
@@ -112,32 +101,42 @@ class DescribeSiteMonitorListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSiteMonitorListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentGroup'])) {
+            $model->agentGroup = $map['AgentGroup'];
+        }
+
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TaskState'])) {
             $model->taskState = $map['TaskState'];
         }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }

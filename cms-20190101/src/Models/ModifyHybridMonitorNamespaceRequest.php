@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyHybridMonitorNamespaceRequest extends Model
 {
     /**
-     * @description The description of the namespace.
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the namespace.
-     *
-     * This parameter is required.
-     * @example aliyun
-     *
      * @var string
      */
     public $namespace;
@@ -31,44 +24,36 @@ class ModifyHybridMonitorNamespaceRequest extends Model
     public $regionId;
 
     /**
-     * @description The data retention period. Valid values:
-     *
-     *   cms.s1.large: Data is stored for 15 days.
-     *   cms.s1.xlarge: Data is stored for 32 days.
-     *   cms.s1.2xlarge: Data is stored for 63 days.
-     *   cms.s1.3xlarge: Data is stored for 93 days.
-     *   cms.s1.6xlarge: Data is stored for 185 days.
-     *   cms.s1.12xlarge: Data is stored for 376 days.
-     *
-     * For information about the pricing for different retention periods, see the **Pricing** section in [Billing of the dashboard feature](https://help.aliyun.com/document_detail/223532.html).
-     * @example cms.s1.2xlarge
-     *
      * @var string
      */
     public $spec;
     protected $_name = [
         'description' => 'Description',
-        'namespace'   => 'Namespace',
-        'regionId'    => 'RegionId',
-        'spec'        => 'Spec',
+        'namespace' => 'Namespace',
+        'regionId' => 'RegionId',
+        'spec' => 'Spec',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
         }
@@ -76,23 +61,26 @@ class ModifyHybridMonitorNamespaceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyHybridMonitorNamespaceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
         }

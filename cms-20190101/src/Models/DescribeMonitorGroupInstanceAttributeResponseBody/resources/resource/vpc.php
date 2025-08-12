@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorGroupInstanceAttributeResponseBody\resources\resource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class vpc extends Model
 {
     /**
-     * @description The VPC ID.
-     *
-     * @example vpc-2zew7etgiceg21****
-     *
      * @var string
      */
     public $vpcInstanceId;
 
     /**
-     * @description The vSwitch ID.
-     *
-     * @example vsw-2ze36seq79n992****
-     *
      * @var string
      */
     public $vswitchInstanceId;
     protected $_name = [
-        'vpcInstanceId'     => 'VpcInstanceId',
+        'vpcInstanceId' => 'VpcInstanceId',
         'vswitchInstanceId' => 'VswitchInstanceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vpcInstanceId) {
             $res['VpcInstanceId'] = $this->vpcInstanceId;
         }
+
         if (null !== $this->vswitchInstanceId) {
             $res['VswitchInstanceId'] = $this->vswitchInstanceId;
         }
@@ -47,17 +41,18 @@ class vpc extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vpc
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VpcInstanceId'])) {
             $model->vpcInstanceId = $map['VpcInstanceId'];
         }
+
         if (isset($map['VswitchInstanceId'])) {
             $model->vswitchInstanceId = $map['VswitchInstanceId'];
         }

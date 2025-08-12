@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\PutMetricRuleTargetsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutMetricRuleTargetsResponseBody\failData\targets;
-use AlibabaCloud\Tea\Model;
 
 class failData extends Model
 {
     /**
-     * @description The information about the resources for which alerts are triggered.
-     *
      * @var targets
      */
     public $targets;
@@ -21,23 +19,27 @@ class failData extends Model
 
     public function validate()
     {
+        if (null !== $this->targets) {
+            $this->targets->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->targets) {
-            $res['Targets'] = null !== $this->targets ? $this->targets->toMap() : null;
+            $res['Targets'] = null !== $this->targets ? $this->targets->toArray($noStream) : $this->targets;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

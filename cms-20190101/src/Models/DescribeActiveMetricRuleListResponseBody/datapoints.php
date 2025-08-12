@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeActiveMetricRuleListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeActiveMetricRuleListResponseBody\datapoints\alarm;
-use AlibabaCloud\Tea\Model;
 
 class datapoints extends Model
 {
@@ -19,17 +19,22 @@ class datapoints extends Model
 
     public function validate()
     {
+        if (\is_array($this->alarm)) {
+            Model::validateArray($this->alarm);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alarm) {
-            $res['Alarm'] = [];
-            if (null !== $this->alarm && \is_array($this->alarm)) {
-                $n = 0;
-                foreach ($this->alarm as $item) {
-                    $res['Alarm'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->alarm)) {
+                $res['Alarm'] = [];
+                $n1 = 0;
+                foreach ($this->alarm as $item1) {
+                    $res['Alarm'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class datapoints extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return datapoints
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Alarm'])) {
             if (!empty($map['Alarm'])) {
                 $model->alarm = [];
-                $n            = 0;
-                foreach ($map['Alarm'] as $item) {
-                    $model->alarm[$n++] = null !== $item ? alarm::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Alarm'] as $item1) {
+                    $model->alarm[$n1] = alarm::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

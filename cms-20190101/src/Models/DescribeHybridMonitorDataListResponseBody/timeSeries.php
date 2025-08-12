@@ -4,65 +4,68 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHybridMonitorDataListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHybridMonitorDataListResponseBody\timeSeries\labels;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHybridMonitorDataListResponseBody\timeSeries\values;
-use AlibabaCloud\Tea\Model;
 
 class timeSeries extends Model
 {
     /**
-     * @description The tags of the time dimension.
-     *
      * @var labels[]
      */
     public $labels;
 
     /**
-     * @description The metric name.
-     *
-     * @example AliyunEcs_cpu_total
-     *
      * @var string
      */
     public $metricName;
 
     /**
-     * @description The metric values that are collected at different timestamps.
-     *
      * @var values[]
      */
     public $values;
     protected $_name = [
-        'labels'     => 'Labels',
+        'labels' => 'Labels',
         'metricName' => 'MetricName',
-        'values'     => 'Values',
+        'values' => 'Values',
     ];
 
     public function validate()
     {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        if (\is_array($this->values)) {
+            Model::validateArray($this->values);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->labels) {
-            $res['Labels'] = [];
-            if (null !== $this->labels && \is_array($this->labels)) {
-                $n = 0;
-                foreach ($this->labels as $item) {
-                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                $n1 = 0;
+                foreach ($this->labels as $item1) {
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
+
         if (null !== $this->values) {
-            $res['Values'] = [];
-            if (null !== $this->values && \is_array($this->values)) {
-                $n = 0;
-                foreach ($this->values as $item) {
-                    $res['Values'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->values)) {
+                $res['Values'] = [];
+                $n1 = 0;
+                foreach ($this->values as $item1) {
+                    $res['Values'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -70,32 +73,36 @@ class timeSeries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return timeSeries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n             = 0;
-                foreach ($map['Labels'] as $item) {
-                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Labels'] as $item1) {
+                    $model->labels[$n1] = labels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
+
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
                 $model->values = [];
-                $n             = 0;
-                foreach ($map['Values'] as $item) {
-                    $model->values[$n++] = null !== $item ? values::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Values'] as $item1) {
+                    $model->values[$n1] = values::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteContactGroupRequest extends Model
 {
     /**
-     * @description The name of the alert group.
-     *
-     * This parameter is required.
-     * @example contact_group_2019_templatedfkXQ
-     *
      * @var string
      */
     public $contactGroupName;
@@ -23,9 +18,10 @@ class DeleteContactGroupRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactGroupName) {
@@ -35,11 +31,11 @@ class DeleteContactGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteContactGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

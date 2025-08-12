@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MetricStat extends Model
 {
@@ -48,50 +48,78 @@ class MetricStat extends Model
      */
     public $timestamp;
     protected $_name = [
-        'associated'   => 'Associated',
-        'dimensions'   => 'Dimensions',
-        'logTime'      => 'LogTime',
+        'associated' => 'Associated',
+        'dimensions' => 'Dimensions',
+        'logTime' => 'LogTime',
         'measurements' => 'Measurements',
-        'metric'       => 'Metric',
-        'namespace'    => 'Namespace',
-        'period'       => 'Period',
-        'timestamp'    => 'Timestamp',
+        'metric' => 'Metric',
+        'namespace' => 'Namespace',
+        'period' => 'Period',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()
     {
+        if (\is_array($this->associated)) {
+            Model::validateArray($this->associated);
+        }
+        if (\is_array($this->dimensions)) {
+            Model::validateArray($this->dimensions);
+        }
+        if (\is_array($this->measurements)) {
+            Model::validateArray($this->measurements);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->associated) {
-            $res['Associated'] = $this->associated;
-        }
-        if (null !== $this->dimensions) {
-            $res['Dimensions'] = [];
-            if (null !== $this->dimensions && \is_array($this->dimensions)) {
-                $n = 0;
-                foreach ($this->dimensions as $item) {
-                    $res['Dimensions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->associated)) {
+                $res['Associated'] = [];
+                foreach ($this->associated as $key1 => $value1) {
+                    $res['Associated'][$key1] = $value1;
                 }
             }
         }
+
+        if (null !== $this->dimensions) {
+            if (\is_array($this->dimensions)) {
+                $res['Dimensions'] = [];
+                $n1 = 0;
+                foreach ($this->dimensions as $item1) {
+                    $res['Dimensions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->logTime) {
             $res['LogTime'] = $this->logTime;
         }
+
         if (null !== $this->measurements) {
-            $res['Measurements'] = $this->measurements;
+            if (\is_array($this->measurements)) {
+                $res['Measurements'] = [];
+                foreach ($this->measurements as $key1 => $value1) {
+                    $res['Measurements'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->metric) {
             $res['Metric'] = $this->metric;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
@@ -99,41 +127,59 @@ class MetricStat extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MetricStat
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Associated'])) {
-            $model->associated = $map['Associated'];
-        }
-        if (isset($map['Dimensions'])) {
-            if (!empty($map['Dimensions'])) {
-                $model->dimensions = [];
-                $n                 = 0;
-                foreach ($map['Dimensions'] as $item) {
-                    $model->dimensions[$n++] = null !== $item ? Dimension::fromMap($item) : $item;
+            if (!empty($map['Associated'])) {
+                $model->associated = [];
+                foreach ($map['Associated'] as $key1 => $value1) {
+                    $model->associated[$key1] = $value1;
                 }
             }
         }
+
+        if (isset($map['Dimensions'])) {
+            if (!empty($map['Dimensions'])) {
+                $model->dimensions = [];
+                $n1 = 0;
+                foreach ($map['Dimensions'] as $item1) {
+                    $model->dimensions[$n1] = Dimension::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['LogTime'])) {
             $model->logTime = $map['LogTime'];
         }
+
         if (isset($map['Measurements'])) {
-            $model->measurements = $map['Measurements'];
+            if (!empty($map['Measurements'])) {
+                $model->measurements = [];
+                foreach ($map['Measurements'] as $key1 => $value1) {
+                    $model->measurements[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Metric'])) {
             $model->metric = $map['Metric'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }

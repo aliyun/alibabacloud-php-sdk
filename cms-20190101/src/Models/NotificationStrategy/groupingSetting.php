@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\NotificationStrategy;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\NotificationStrategy\groupingSetting\groupingItems;
-use AlibabaCloud\Tea\Model;
 
 class groupingSetting extends Model
 {
@@ -35,37 +35,46 @@ class groupingSetting extends Model
     public $times;
     protected $_name = [
         'enableRawAlertDispatching' => 'EnableRawAlertDispatching',
-        'groupingItems'             => 'GroupingItems',
-        'periodMin'                 => 'PeriodMin',
-        'silenceSec'                => 'SilenceSec',
-        'times'                     => 'Times',
+        'groupingItems' => 'GroupingItems',
+        'periodMin' => 'PeriodMin',
+        'silenceSec' => 'SilenceSec',
+        'times' => 'Times',
     ];
 
     public function validate()
     {
+        if (\is_array($this->groupingItems)) {
+            Model::validateArray($this->groupingItems);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableRawAlertDispatching) {
             $res['EnableRawAlertDispatching'] = $this->enableRawAlertDispatching;
         }
+
         if (null !== $this->groupingItems) {
-            $res['GroupingItems'] = [];
-            if (null !== $this->groupingItems && \is_array($this->groupingItems)) {
-                $n = 0;
-                foreach ($this->groupingItems as $item) {
-                    $res['GroupingItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->groupingItems)) {
+                $res['GroupingItems'] = [];
+                $n1 = 0;
+                foreach ($this->groupingItems as $item1) {
+                    $res['GroupingItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->periodMin) {
             $res['PeriodMin'] = $this->periodMin;
         }
+
         if (null !== $this->silenceSec) {
             $res['SilenceSec'] = $this->silenceSec;
         }
+
         if (null !== $this->times) {
             $res['Times'] = $this->times;
         }
@@ -73,32 +82,37 @@ class groupingSetting extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return groupingSetting
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableRawAlertDispatching'])) {
             $model->enableRawAlertDispatching = $map['EnableRawAlertDispatching'];
         }
+
         if (isset($map['GroupingItems'])) {
             if (!empty($map['GroupingItems'])) {
                 $model->groupingItems = [];
-                $n                    = 0;
-                foreach ($map['GroupingItems'] as $item) {
-                    $model->groupingItems[$n++] = null !== $item ? groupingItems::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['GroupingItems'] as $item1) {
+                    $model->groupingItems[$n1] = groupingItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PeriodMin'])) {
             $model->periodMin = $map['PeriodMin'];
         }
+
         if (isset($map['SilenceSec'])) {
             $model->silenceSec = $map['SilenceSec'];
         }
+
         if (isset($map['Times'])) {
             $model->times = $map['Times'];
         }

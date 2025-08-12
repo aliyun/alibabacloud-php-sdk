@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\MigrationJob\plan\targets;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class httpRequestTarget extends Model
 {
@@ -24,23 +24,26 @@ class httpRequestTarget extends Model
     public $url;
     protected $_name = [
         'contentType' => 'ContentType',
-        'method'      => 'Method',
-        'url'         => 'Url',
+        'method' => 'Method',
+        'url' => 'Url',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contentType) {
             $res['ContentType'] = $this->contentType;
         }
+
         if (null !== $this->method) {
             $res['Method'] = $this->method;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -48,20 +51,22 @@ class httpRequestTarget extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return httpRequestTarget
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContentType'])) {
             $model->contentType = $map['ContentType'];
         }
+
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

@@ -4,79 +4,67 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\PutHybridMonitorMetricDataRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutHybridMonitorMetricDataRequest\metricList\labels;
-use AlibabaCloud\Tea\Model;
 
 class metricList extends Model
 {
     /**
-     * @description The tags of the metric.
-     *
-     * Valid values of N: 1 to 100.
-     * @example app、ip、hostName等标识信息
-     *
      * @var labels[]
      */
     public $labels;
 
     /**
-     * @description The metric name.
-     *
-     * This parameter is required.
-     * @example CPU_Usage
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The time when the monitoring data is imported. The value is a timestamp.
-     *
-     * Unit: milliseconds. By default, the current time is used.
-     * @example 1640776119473
-     *
      * @var int
      */
     public $TS;
 
     /**
-     * @description The value of the metric.
-     *
-     * This parameter is required.
-     * @example 90
-     *
      * @var string
      */
     public $value;
     protected $_name = [
         'labels' => 'Labels',
-        'name'   => 'Name',
-        'TS'     => 'TS',
-        'value'  => 'Value',
+        'name' => 'Name',
+        'TS' => 'TS',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->labels) {
-            $res['Labels'] = [];
-            if (null !== $this->labels && \is_array($this->labels)) {
-                $n = 0;
-                foreach ($this->labels as $item) {
-                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->labels)) {
+                $res['Labels'] = [];
+                $n1 = 0;
+                foreach ($this->labels as $item1) {
+                    $res['Labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->TS) {
             $res['TS'] = $this->TS;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -84,29 +72,33 @@ class metricList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metricList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n             = 0;
-                foreach ($map['Labels'] as $item) {
-                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Labels'] as $item1) {
+                    $model->labels[$n1] = labels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['TS'])) {
             $model->TS = $map['TS'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

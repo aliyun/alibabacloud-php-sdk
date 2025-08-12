@@ -4,40 +4,32 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutEventRuleTargetsRequest\contactParameters;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutEventRuleTargetsRequest\fcParameters;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutEventRuleTargetsRequest\mnsParameters;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutEventRuleTargetsRequest\openApiParameters;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutEventRuleTargetsRequest\slsParameters;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutEventRuleTargetsRequest\webhookParameters;
-use AlibabaCloud\Tea\Model;
 
 class PutEventRuleTargetsRequest extends Model
 {
     /**
-     * @description The information about the alert contact groups that receive alert notifications.
-     *
      * @var contactParameters[]
      */
     public $contactParameters;
 
     /**
-     * @description The information about the recipients in Function Compute.
-     *
      * @var fcParameters[]
      */
     public $fcParameters;
 
     /**
-     * @description The notifications of Simple Message Queue (formerly MNS) (SMQ).
-     *
      * @var mnsParameters[]
      */
     public $mnsParameters;
 
     /**
-     * @description The parameters of API callback notification.
-     *
      * @var openApiParameters[]
      */
     public $openApiParameters;
@@ -48,103 +40,126 @@ class PutEventRuleTargetsRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the alert rule.
-     *
-     * This parameter is required.
-     * @example testEventRule
-     *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @description The information about the recipients in Simple Log Service.
-     *
      * @var slsParameters[]
      */
     public $slsParameters;
 
     /**
-     * @description The information about the callback URLs that are used to receive alert notifications.
-     *
      * @var webhookParameters[]
      */
     public $webhookParameters;
     protected $_name = [
         'contactParameters' => 'ContactParameters',
-        'fcParameters'      => 'FcParameters',
-        'mnsParameters'     => 'MnsParameters',
+        'fcParameters' => 'FcParameters',
+        'mnsParameters' => 'MnsParameters',
         'openApiParameters' => 'OpenApiParameters',
-        'regionId'          => 'RegionId',
-        'ruleName'          => 'RuleName',
-        'slsParameters'     => 'SlsParameters',
+        'regionId' => 'RegionId',
+        'ruleName' => 'RuleName',
+        'slsParameters' => 'SlsParameters',
         'webhookParameters' => 'WebhookParameters',
     ];
 
     public function validate()
     {
+        if (\is_array($this->contactParameters)) {
+            Model::validateArray($this->contactParameters);
+        }
+        if (\is_array($this->fcParameters)) {
+            Model::validateArray($this->fcParameters);
+        }
+        if (\is_array($this->mnsParameters)) {
+            Model::validateArray($this->mnsParameters);
+        }
+        if (\is_array($this->openApiParameters)) {
+            Model::validateArray($this->openApiParameters);
+        }
+        if (\is_array($this->slsParameters)) {
+            Model::validateArray($this->slsParameters);
+        }
+        if (\is_array($this->webhookParameters)) {
+            Model::validateArray($this->webhookParameters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactParameters) {
-            $res['ContactParameters'] = [];
-            if (null !== $this->contactParameters && \is_array($this->contactParameters)) {
-                $n = 0;
-                foreach ($this->contactParameters as $item) {
-                    $res['ContactParameters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->contactParameters)) {
+                $res['ContactParameters'] = [];
+                $n1 = 0;
+                foreach ($this->contactParameters as $item1) {
+                    $res['ContactParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->fcParameters) {
-            $res['FcParameters'] = [];
-            if (null !== $this->fcParameters && \is_array($this->fcParameters)) {
-                $n = 0;
-                foreach ($this->fcParameters as $item) {
-                    $res['FcParameters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fcParameters)) {
+                $res['FcParameters'] = [];
+                $n1 = 0;
+                foreach ($this->fcParameters as $item1) {
+                    $res['FcParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->mnsParameters) {
-            $res['MnsParameters'] = [];
-            if (null !== $this->mnsParameters && \is_array($this->mnsParameters)) {
-                $n = 0;
-                foreach ($this->mnsParameters as $item) {
-                    $res['MnsParameters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->mnsParameters)) {
+                $res['MnsParameters'] = [];
+                $n1 = 0;
+                foreach ($this->mnsParameters as $item1) {
+                    $res['MnsParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->openApiParameters) {
-            $res['OpenApiParameters'] = [];
-            if (null !== $this->openApiParameters && \is_array($this->openApiParameters)) {
-                $n = 0;
-                foreach ($this->openApiParameters as $item) {
-                    $res['OpenApiParameters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->openApiParameters)) {
+                $res['OpenApiParameters'] = [];
+                $n1 = 0;
+                foreach ($this->openApiParameters as $item1) {
+                    $res['OpenApiParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
+
         if (null !== $this->slsParameters) {
-            $res['SlsParameters'] = [];
-            if (null !== $this->slsParameters && \is_array($this->slsParameters)) {
-                $n = 0;
-                foreach ($this->slsParameters as $item) {
-                    $res['SlsParameters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->slsParameters)) {
+                $res['SlsParameters'] = [];
+                $n1 = 0;
+                foreach ($this->slsParameters as $item1) {
+                    $res['SlsParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->webhookParameters) {
-            $res['WebhookParameters'] = [];
-            if (null !== $this->webhookParameters && \is_array($this->webhookParameters)) {
-                $n = 0;
-                foreach ($this->webhookParameters as $item) {
-                    $res['WebhookParameters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->webhookParameters)) {
+                $res['WebhookParameters'] = [];
+                $n1 = 0;
+                foreach ($this->webhookParameters as $item1) {
+                    $res['WebhookParameters'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -152,71 +167,84 @@ class PutEventRuleTargetsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PutEventRuleTargetsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactParameters'])) {
             if (!empty($map['ContactParameters'])) {
                 $model->contactParameters = [];
-                $n                        = 0;
-                foreach ($map['ContactParameters'] as $item) {
-                    $model->contactParameters[$n++] = null !== $item ? contactParameters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ContactParameters'] as $item1) {
+                    $model->contactParameters[$n1] = contactParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['FcParameters'])) {
             if (!empty($map['FcParameters'])) {
                 $model->fcParameters = [];
-                $n                   = 0;
-                foreach ($map['FcParameters'] as $item) {
-                    $model->fcParameters[$n++] = null !== $item ? fcParameters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FcParameters'] as $item1) {
+                    $model->fcParameters[$n1] = fcParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['MnsParameters'])) {
             if (!empty($map['MnsParameters'])) {
                 $model->mnsParameters = [];
-                $n                    = 0;
-                foreach ($map['MnsParameters'] as $item) {
-                    $model->mnsParameters[$n++] = null !== $item ? mnsParameters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MnsParameters'] as $item1) {
+                    $model->mnsParameters[$n1] = mnsParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['OpenApiParameters'])) {
             if (!empty($map['OpenApiParameters'])) {
                 $model->openApiParameters = [];
-                $n                        = 0;
-                foreach ($map['OpenApiParameters'] as $item) {
-                    $model->openApiParameters[$n++] = null !== $item ? openApiParameters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OpenApiParameters'] as $item1) {
+                    $model->openApiParameters[$n1] = openApiParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
+
         if (isset($map['SlsParameters'])) {
             if (!empty($map['SlsParameters'])) {
                 $model->slsParameters = [];
-                $n                    = 0;
-                foreach ($map['SlsParameters'] as $item) {
-                    $model->slsParameters[$n++] = null !== $item ? slsParameters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SlsParameters'] as $item1) {
+                    $model->slsParameters[$n1] = slsParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['WebhookParameters'])) {
             if (!empty($map['WebhookParameters'])) {
                 $model->webhookParameters = [];
-                $n                        = 0;
-                foreach ($map['WebhookParameters'] as $item) {
-                    $model->webhookParameters[$n++] = null !== $item ? webhookParameters::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['WebhookParameters'] as $item1) {
+                    $model->webhookParameters[$n1] = webhookParameters::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

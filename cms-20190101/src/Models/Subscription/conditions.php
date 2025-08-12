@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\Subscription;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class conditions extends Model
 {
@@ -23,24 +23,27 @@ class conditions extends Model
      */
     public $value;
     protected $_name = [
-        'field'    => 'Field',
+        'field' => 'Field',
         'operator' => 'Operator',
-        'value'    => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->field) {
             $res['Field'] = $this->field;
         }
+
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -48,20 +51,22 @@ class conditions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return conditions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Field'])) {
             $model->field = $map['Field'];
         }
+
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

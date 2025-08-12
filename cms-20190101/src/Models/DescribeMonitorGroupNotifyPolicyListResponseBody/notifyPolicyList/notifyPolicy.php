@@ -4,83 +4,66 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorGroupNotifyPolicyListResponseBody\notifyPolicyList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class notifyPolicy extends Model
 {
     /**
-     * @description The end of the time range to query.
-     *
-     * Unit: milliseconds.
-     * @example 1551761781273
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The ID of the application group.
-     *
-     * @example 6780****
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The policy ID.
-     *
-     * @example 123****
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The beginning of the time range to query.
-     *
-     * Unit: milliseconds.
-     * @example 1551761781273
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description The policy type.
-     *
-     * @example PauseNotify
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'groupId'   => 'GroupId',
-        'id'        => 'Id',
+        'endTime' => 'EndTime',
+        'groupId' => 'GroupId',
+        'id' => 'Id',
         'startTime' => 'StartTime',
-        'type'      => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -88,26 +71,30 @@ class notifyPolicy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return notifyPolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

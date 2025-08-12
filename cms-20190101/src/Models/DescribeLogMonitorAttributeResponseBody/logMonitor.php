@@ -4,197 +4,188 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeLogMonitorAttributeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeLogMonitorAttributeResponseBody\logMonitor\aggregates;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeLogMonitorAttributeResponseBody\logMonitor\valueFilter;
-use AlibabaCloud\Tea\Model;
 
 class logMonitor extends Model
 {
     /**
-     * @description The aggregate functions.
-     *
      * @var aggregates[]
      */
     public $aggregates;
 
     /**
-     * @description The time when the log monitoring metric was created.
-     *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
-     * @example 1547431398000
-     *
      * @var int
      */
     public $gmtCreate;
 
     /**
-     * @description The ID of the application group.
-     *
-     * @example 12345
-     *
      * @var int
      */
     public $groupId;
 
     /**
-     * @description The dimension based on which the data is grouped. This parameter is equivalent to the GROUP BY clause in SQL statements. If no dimension is specified, all data is aggregated based on the aggregate function.
-     *
      * @var string[]
      */
     public $groupbys;
 
     /**
-     * @description The ID returned by Log Service.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $logId;
 
     /**
-     * @description The extended field. The extended field allows you to perform basic operations on the aggregation results.
-     *
-     * Assume that you have calculated TotalNumber and 5XXNumber by aggregating the data. TotalNumber indicates the total number of HTTP requests, and 5XXNumber indicates the number of HTTP requests whose status code is greater than 499. You can calculate the server error rate by adding the following formula to the extended field: 5XXNumber/TotalNumber\\*100.
-     * @example {"extend":{"errorPercent":"5XXNumber/TotalNumber*100"}}
-     *
      * @var string
      */
     public $metricExpress;
 
     /**
-     * @description The name of the log monitoring metric. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-     *
-     * @example cpu_total
-     *
      * @var string
      */
     public $metricName;
 
     /**
-     * @description The name of the Log Service Logstore.
-     *
-     * @example test-logstore
-     *
      * @var string
      */
     public $slsLogstore;
 
     /**
-     * @description The name of the Log Service project.
-     *
-     * @example test-project
-     *
      * @var string
      */
     public $slsProject;
 
     /**
-     * @description The ID of the region where the Log Service Logstore resides.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $slsRegionId;
 
     /**
-     * @description The size of the tumbling window for calculation. Unit: seconds. The system performs an aggregation for each tumbling window.
-     *
      * @var string[]
      */
     public $tumblingwindows;
 
     /**
-     * @description The condition that is used to filter logs. The ValueFilter and ValueFilterRelation parameters are used in pair. The filter condition is equivalent to the WHERE clause in SQL statements.
-     *
-     * If no filter condition is specified, all logs are processed. Assume that logs contain the Level field, which may be set to Error. If you need to calculate the number of times that logs of the Error level appear every minute, you can set the filter condition to Level=Error and count the number of logs that meet this condition.
      * @var valueFilter[]
      */
     public $valueFilter;
 
     /**
-     * @description The logical operator that is used between log filter conditions. The ValueFilter and ValueFilterRelation parameters are used in pair. Valid values:
-     *
-     *   and
-     *   or
-     *
-     * @example and
-     *
      * @var string
      */
     public $valueFilterRelation;
     protected $_name = [
-        'aggregates'          => 'Aggregates',
-        'gmtCreate'           => 'GmtCreate',
-        'groupId'             => 'GroupId',
-        'groupbys'            => 'Groupbys',
-        'logId'               => 'LogId',
-        'metricExpress'       => 'MetricExpress',
-        'metricName'          => 'MetricName',
-        'slsLogstore'         => 'SlsLogstore',
-        'slsProject'          => 'SlsProject',
-        'slsRegionId'         => 'SlsRegionId',
-        'tumblingwindows'     => 'Tumblingwindows',
-        'valueFilter'         => 'ValueFilter',
+        'aggregates' => 'Aggregates',
+        'gmtCreate' => 'GmtCreate',
+        'groupId' => 'GroupId',
+        'groupbys' => 'Groupbys',
+        'logId' => 'LogId',
+        'metricExpress' => 'MetricExpress',
+        'metricName' => 'MetricName',
+        'slsLogstore' => 'SlsLogstore',
+        'slsProject' => 'SlsProject',
+        'slsRegionId' => 'SlsRegionId',
+        'tumblingwindows' => 'Tumblingwindows',
+        'valueFilter' => 'ValueFilter',
         'valueFilterRelation' => 'ValueFilterRelation',
     ];
 
     public function validate()
     {
+        if (\is_array($this->aggregates)) {
+            Model::validateArray($this->aggregates);
+        }
+        if (\is_array($this->groupbys)) {
+            Model::validateArray($this->groupbys);
+        }
+        if (\is_array($this->tumblingwindows)) {
+            Model::validateArray($this->tumblingwindows);
+        }
+        if (\is_array($this->valueFilter)) {
+            Model::validateArray($this->valueFilter);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aggregates) {
-            $res['Aggregates'] = [];
-            if (null !== $this->aggregates && \is_array($this->aggregates)) {
-                $n = 0;
-                foreach ($this->aggregates as $item) {
-                    $res['Aggregates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->aggregates)) {
+                $res['Aggregates'] = [];
+                $n1 = 0;
+                foreach ($this->aggregates as $item1) {
+                    $res['Aggregates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->groupbys) {
-            $res['Groupbys'] = $this->groupbys;
-        }
-        if (null !== $this->logId) {
-            $res['LogId'] = $this->logId;
-        }
-        if (null !== $this->metricExpress) {
-            $res['MetricExpress'] = $this->metricExpress;
-        }
-        if (null !== $this->metricName) {
-            $res['MetricName'] = $this->metricName;
-        }
-        if (null !== $this->slsLogstore) {
-            $res['SlsLogstore'] = $this->slsLogstore;
-        }
-        if (null !== $this->slsProject) {
-            $res['SlsProject'] = $this->slsProject;
-        }
-        if (null !== $this->slsRegionId) {
-            $res['SlsRegionId'] = $this->slsRegionId;
-        }
-        if (null !== $this->tumblingwindows) {
-            $res['Tumblingwindows'] = $this->tumblingwindows;
-        }
-        if (null !== $this->valueFilter) {
-            $res['ValueFilter'] = [];
-            if (null !== $this->valueFilter && \is_array($this->valueFilter)) {
-                $n = 0;
-                foreach ($this->valueFilter as $item) {
-                    $res['ValueFilter'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->groupbys)) {
+                $res['Groupbys'] = [];
+                $n1 = 0;
+                foreach ($this->groupbys as $item1) {
+                    $res['Groupbys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (null !== $this->logId) {
+            $res['LogId'] = $this->logId;
+        }
+
+        if (null !== $this->metricExpress) {
+            $res['MetricExpress'] = $this->metricExpress;
+        }
+
+        if (null !== $this->metricName) {
+            $res['MetricName'] = $this->metricName;
+        }
+
+        if (null !== $this->slsLogstore) {
+            $res['SlsLogstore'] = $this->slsLogstore;
+        }
+
+        if (null !== $this->slsProject) {
+            $res['SlsProject'] = $this->slsProject;
+        }
+
+        if (null !== $this->slsRegionId) {
+            $res['SlsRegionId'] = $this->slsRegionId;
+        }
+
+        if (null !== $this->tumblingwindows) {
+            if (\is_array($this->tumblingwindows)) {
+                $res['Tumblingwindows'] = [];
+                $n1 = 0;
+                foreach ($this->tumblingwindows as $item1) {
+                    $res['Tumblingwindows'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (null !== $this->valueFilter) {
+            if (\is_array($this->valueFilter)) {
+                $res['ValueFilter'] = [];
+                $n1 = 0;
+                foreach ($this->valueFilter as $item1) {
+                    $res['ValueFilter'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
+                }
+            }
+        }
+
         if (null !== $this->valueFilterRelation) {
             $res['ValueFilterRelation'] = $this->valueFilterRelation;
         }
@@ -202,66 +193,90 @@ class logMonitor extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logMonitor
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Aggregates'])) {
             if (!empty($map['Aggregates'])) {
                 $model->aggregates = [];
-                $n                 = 0;
-                foreach ($map['Aggregates'] as $item) {
-                    $model->aggregates[$n++] = null !== $item ? aggregates::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Aggregates'] as $item1) {
+                    $model->aggregates[$n1] = aggregates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['Groupbys'])) {
             if (!empty($map['Groupbys'])) {
-                $model->groupbys = $map['Groupbys'];
-            }
-        }
-        if (isset($map['LogId'])) {
-            $model->logId = $map['LogId'];
-        }
-        if (isset($map['MetricExpress'])) {
-            $model->metricExpress = $map['MetricExpress'];
-        }
-        if (isset($map['MetricName'])) {
-            $model->metricName = $map['MetricName'];
-        }
-        if (isset($map['SlsLogstore'])) {
-            $model->slsLogstore = $map['SlsLogstore'];
-        }
-        if (isset($map['SlsProject'])) {
-            $model->slsProject = $map['SlsProject'];
-        }
-        if (isset($map['SlsRegionId'])) {
-            $model->slsRegionId = $map['SlsRegionId'];
-        }
-        if (isset($map['Tumblingwindows'])) {
-            if (!empty($map['Tumblingwindows'])) {
-                $model->tumblingwindows = $map['Tumblingwindows'];
-            }
-        }
-        if (isset($map['ValueFilter'])) {
-            if (!empty($map['ValueFilter'])) {
-                $model->valueFilter = [];
-                $n                  = 0;
-                foreach ($map['ValueFilter'] as $item) {
-                    $model->valueFilter[$n++] = null !== $item ? valueFilter::fromMap($item) : $item;
+                $model->groupbys = [];
+                $n1 = 0;
+                foreach ($map['Groupbys'] as $item1) {
+                    $model->groupbys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
+
+        if (isset($map['LogId'])) {
+            $model->logId = $map['LogId'];
+        }
+
+        if (isset($map['MetricExpress'])) {
+            $model->metricExpress = $map['MetricExpress'];
+        }
+
+        if (isset($map['MetricName'])) {
+            $model->metricName = $map['MetricName'];
+        }
+
+        if (isset($map['SlsLogstore'])) {
+            $model->slsLogstore = $map['SlsLogstore'];
+        }
+
+        if (isset($map['SlsProject'])) {
+            $model->slsProject = $map['SlsProject'];
+        }
+
+        if (isset($map['SlsRegionId'])) {
+            $model->slsRegionId = $map['SlsRegionId'];
+        }
+
+        if (isset($map['Tumblingwindows'])) {
+            if (!empty($map['Tumblingwindows'])) {
+                $model->tumblingwindows = [];
+                $n1 = 0;
+                foreach ($map['Tumblingwindows'] as $item1) {
+                    $model->tumblingwindows[$n1] = $item1;
+                    ++$n1;
+                }
+            }
+        }
+
+        if (isset($map['ValueFilter'])) {
+            if (!empty($map['ValueFilter'])) {
+                $model->valueFilter = [];
+                $n1 = 0;
+                foreach ($map['ValueFilter'] as $item1) {
+                    $model->valueFilter[$n1] = valueFilter::fromMap($item1);
+                    ++$n1;
+                }
+            }
+        }
+
         if (isset($map['ValueFilterRelation'])) {
             $model->valueFilterRelation = $map['ValueFilterRelation'];
         }

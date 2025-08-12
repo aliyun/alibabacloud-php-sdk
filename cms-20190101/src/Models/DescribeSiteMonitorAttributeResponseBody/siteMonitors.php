@@ -4,26 +4,20 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\customSchedule;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\ispCities;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\vpcConfig;
-use AlibabaCloud\Tea\Model;
 
 class siteMonitors extends Model
 {
     /**
-     * @description The URL that is monitored by the site monitoring task.
-     *
-     * @example https://aliyun.com
-     *
      * @var string
      */
     public $address;
 
     /**
-     * @example PC
-     *
      * @var string
      */
     public $agentGroup;
@@ -34,63 +28,36 @@ class siteMonitors extends Model
     public $customSchedule;
 
     /**
-     * @description The interval at which the site monitoring task is executed. Unit: minutes. Valid values: 1, 5, 15, 30, and 60.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $interval;
 
     /**
-     * @description The information of detection points. The information includes the carriers that provide the detection points and the cities where the detection points reside.
-     *
      * @var ispCities
      */
     public $ispCities;
 
     /**
-     * @description The extended options of the site monitoring task. The options vary based on the specified protocol. For more information, see [CreateSiteMonitor](https://help.aliyun.com/document_detail/115048.html).
-     *
      * @var optionJson
      */
     public $optionJson;
 
     /**
-     * @description The ID of the site monitoring task.
-     *
-     * @example cc641dff-c19d-45f3-ad0a-818a0c4f****
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description The name of the site monitoring task.
-     *
-     * @example test123
-     *
      * @var string
      */
     public $taskName;
 
     /**
-     * @description The status of the site monitoring task. Valid values:
-     *
-     *   1: The task is enabled.
-     *   2: The task is disabled.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $taskState;
 
     /**
-     * @description The protocol that is used by the site monitoring task. Valid values: HTTP, HTTPS, PING, TCP, UDP, DNS, SMTP, POP3, and FTP.
-     *
-     * @example HTTP
-     *
      * @var string
      */
     public $taskType;
@@ -100,101 +67,134 @@ class siteMonitors extends Model
      */
     public $vpcConfig;
     protected $_name = [
-        'address'        => 'Address',
-        'agentGroup'     => 'AgentGroup',
+        'address' => 'Address',
+        'agentGroup' => 'AgentGroup',
         'customSchedule' => 'CustomSchedule',
-        'interval'       => 'Interval',
-        'ispCities'      => 'IspCities',
-        'optionJson'     => 'OptionJson',
-        'taskId'         => 'TaskId',
-        'taskName'       => 'TaskName',
-        'taskState'      => 'TaskState',
-        'taskType'       => 'TaskType',
-        'vpcConfig'      => 'VpcConfig',
+        'interval' => 'Interval',
+        'ispCities' => 'IspCities',
+        'optionJson' => 'OptionJson',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
+        'taskState' => 'TaskState',
+        'taskType' => 'TaskType',
+        'vpcConfig' => 'VpcConfig',
     ];
 
     public function validate()
     {
+        if (null !== $this->customSchedule) {
+            $this->customSchedule->validate();
+        }
+        if (null !== $this->ispCities) {
+            $this->ispCities->validate();
+        }
+        if (null !== $this->optionJson) {
+            $this->optionJson->validate();
+        }
+        if (null !== $this->vpcConfig) {
+            $this->vpcConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->address) {
             $res['Address'] = $this->address;
         }
+
         if (null !== $this->agentGroup) {
             $res['AgentGroup'] = $this->agentGroup;
         }
+
         if (null !== $this->customSchedule) {
-            $res['CustomSchedule'] = null !== $this->customSchedule ? $this->customSchedule->toMap() : null;
+            $res['CustomSchedule'] = null !== $this->customSchedule ? $this->customSchedule->toArray($noStream) : $this->customSchedule;
         }
+
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
+
         if (null !== $this->ispCities) {
-            $res['IspCities'] = null !== $this->ispCities ? $this->ispCities->toMap() : null;
+            $res['IspCities'] = null !== $this->ispCities ? $this->ispCities->toArray($noStream) : $this->ispCities;
         }
+
         if (null !== $this->optionJson) {
-            $res['OptionJson'] = null !== $this->optionJson ? $this->optionJson->toMap() : null;
+            $res['OptionJson'] = null !== $this->optionJson ? $this->optionJson->toArray($noStream) : $this->optionJson;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
+
         if (null !== $this->taskState) {
             $res['TaskState'] = $this->taskState;
         }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
+
         if (null !== $this->vpcConfig) {
-            $res['VpcConfig'] = null !== $this->vpcConfig ? $this->vpcConfig->toMap() : null;
+            $res['VpcConfig'] = null !== $this->vpcConfig ? $this->vpcConfig->toArray($noStream) : $this->vpcConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return siteMonitors
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
         }
+
         if (isset($map['AgentGroup'])) {
             $model->agentGroup = $map['AgentGroup'];
         }
+
         if (isset($map['CustomSchedule'])) {
             $model->customSchedule = customSchedule::fromMap($map['CustomSchedule']);
         }
+
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
+
         if (isset($map['IspCities'])) {
             $model->ispCities = ispCities::fromMap($map['IspCities']);
         }
+
         if (isset($map['OptionJson'])) {
             $model->optionJson = optionJson::fromMap($map['OptionJson']);
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }
+
         if (isset($map['TaskState'])) {
             $model->taskState = $map['TaskState'];
         }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }
+
         if (isset($map['VpcConfig'])) {
             $model->vpcConfig = vpcConfig::fromMap($map['VpcConfig']);
         }

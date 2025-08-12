@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class expectExistString extends Model
 {
@@ -18,29 +18,45 @@ class expectExistString extends Model
 
     public function validate()
     {
+        if (\is_array($this->expectExistString)) {
+            Model::validateArray($this->expectExistString);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expectExistString) {
-            $res['expect_exist_string'] = $this->expectExistString;
+            if (\is_array($this->expectExistString)) {
+                $res['expect_exist_string'] = [];
+                $n1 = 0;
+                foreach ($this->expectExistString as $item1) {
+                    $res['expect_exist_string'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return expectExistString
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['expect_exist_string'])) {
             if (!empty($map['expect_exist_string'])) {
-                $model->expectExistString = $map['expect_exist_string'];
+                $model->expectExistString = [];
+                $n1 = 0;
+                foreach ($map['expect_exist_string'] as $item1) {
+                    $model->expectExistString[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

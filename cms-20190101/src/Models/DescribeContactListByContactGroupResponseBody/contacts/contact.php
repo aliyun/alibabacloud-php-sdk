@@ -4,82 +4,70 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeContactListByContactGroupResponseBody\contacts;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeContactListByContactGroupResponseBody\contacts\contact\channels;
-use AlibabaCloud\Tea\Model;
 
 class contact extends Model
 {
     /**
-     * @description The alert notification methods.
-     *
      * @var channels
      */
     public $channels;
 
     /**
-     * @description The time when the alert contact was created.
-     *
-     * Unit: milliseconds.
-     * @example 1552314252000
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description The description of the alert contact.
-     *
-     * @example ECS
-     *
      * @var string
      */
     public $desc;
 
     /**
-     * @description The name of the alert contact.
-     *
-     * @example Alice
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The time when the alert contact was modified.
-     *
-     * Unit: milliseconds.
-     * @example 1552314252000
-     *
      * @var int
      */
     public $updateTime;
     protected $_name = [
-        'channels'   => 'Channels',
+        'channels' => 'Channels',
         'createTime' => 'CreateTime',
-        'desc'       => 'Desc',
-        'name'       => 'Name',
+        'desc' => 'Desc',
+        'name' => 'Name',
         'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
     {
+        if (null !== $this->channels) {
+            $this->channels->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channels) {
-            $res['Channels'] = null !== $this->channels ? $this->channels->toMap() : null;
+            $res['Channels'] = null !== $this->channels ? $this->channels->toArray($noStream) : $this->channels;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -87,26 +75,30 @@ class contact extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contact
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Channels'])) {
             $model->channels = channels::fromMap($map['Channels']);
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

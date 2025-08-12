@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\MigrationJob\plan;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class groups extends Model
 {
@@ -19,19 +19,31 @@ class groups extends Model
     public $name;
     protected $_name = [
         'contacts' => 'Contacts',
-        'name'     => 'Name',
+        'name' => 'Name',
     ];
 
     public function validate()
     {
+        if (\is_array($this->contacts)) {
+            Model::validateArray($this->contacts);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contacts) {
-            $res['Contacts'] = $this->contacts;
+            if (\is_array($this->contacts)) {
+                $res['Contacts'] = [];
+                $n1 = 0;
+                foreach ($this->contacts as $item1) {
+                    $res['Contacts'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -39,19 +51,25 @@ class groups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return groups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Contacts'])) {
             if (!empty($map['Contacts'])) {
-                $model->contacts = $map['Contacts'];
+                $model->contacts = [];
+                $n1 = 0;
+                foreach ($map['Contacts'] as $item1) {
+                    $model->contacts[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

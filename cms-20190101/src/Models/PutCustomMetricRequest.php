@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutCustomMetricRequest\metricList;
-use AlibabaCloud\Tea\Model;
 
 class PutCustomMetricRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var metricList[]
      */
     public $metricList;
@@ -22,25 +20,31 @@ class PutCustomMetricRequest extends Model
     public $regionId;
     protected $_name = [
         'metricList' => 'MetricList',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->metricList)) {
+            Model::validateArray($this->metricList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metricList) {
-            $res['MetricList'] = [];
-            if (null !== $this->metricList && \is_array($this->metricList)) {
-                $n = 0;
-                foreach ($this->metricList as $item) {
-                    $res['MetricList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->metricList)) {
+                $res['MetricList'] = [];
+                $n1 = 0;
+                foreach ($this->metricList as $item1) {
+                    $res['MetricList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -48,23 +52,25 @@ class PutCustomMetricRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PutCustomMetricRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MetricList'])) {
             if (!empty($map['MetricList'])) {
                 $model->metricList = [];
-                $n                 = 0;
-                foreach ($map['MetricList'] as $item) {
-                    $model->metricList[$n++] = null !== $item ? metricList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MetricList'] as $item1) {
+                    $model->metricList[$n1] = metricList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

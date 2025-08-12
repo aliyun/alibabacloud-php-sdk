@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\CreateInstantSiteMonitorResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class createResultList extends Model
 {
     /**
-     * @description The ID of the instant test task.
-     *
-     * @example 2c8dbdf9-a3ab-46a1-85a4-f094965e****
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description The name of the instant test task.
-     *
-     * @example task1
-     *
      * @var string
      */
     public $taskName;
     protected $_name = [
-        'taskId'   => 'TaskId',
+        'taskId' => 'TaskId',
         'taskName' => 'TaskName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
@@ -47,17 +41,18 @@ class createResultList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return createResultList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }

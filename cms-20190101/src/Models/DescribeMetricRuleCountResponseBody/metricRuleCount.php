@@ -4,81 +4,66 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleCountResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class metricRuleCount extends Model
 {
     /**
-     * @description The number of alert rules with active alerts.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $alarm;
 
     /**
-     * @description The number of disabled alert rules.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $disable;
 
     /**
-     * @description The number of alert rules without data.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $nodata;
 
     /**
-     * @description The number of alert rules without active alerts.
-     *
-     * @example 40
-     *
      * @var int
      */
     public $ok;
 
     /**
-     * @description The total number of alert rules.
-     *
-     * @example 45
-     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'alarm'   => 'Alarm',
+        'alarm' => 'Alarm',
         'disable' => 'Disable',
-        'nodata'  => 'Nodata',
-        'ok'      => 'Ok',
-        'total'   => 'Total',
+        'nodata' => 'Nodata',
+        'ok' => 'Ok',
+        'total' => 'Total',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alarm) {
             $res['Alarm'] = $this->alarm;
         }
+
         if (null !== $this->disable) {
             $res['Disable'] = $this->disable;
         }
+
         if (null !== $this->nodata) {
             $res['Nodata'] = $this->nodata;
         }
+
         if (null !== $this->ok) {
             $res['Ok'] = $this->ok;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -86,26 +71,30 @@ class metricRuleCount extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metricRuleCount
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Alarm'])) {
             $model->alarm = $map['Alarm'];
         }
+
         if (isset($map['Disable'])) {
             $model->disable = $map['Disable'];
         }
+
         if (isset($map['Nodata'])) {
             $model->nodata = $map['Nodata'];
         }
+
         if (isset($map['Ok'])) {
             $model->ok = $map['Ok'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

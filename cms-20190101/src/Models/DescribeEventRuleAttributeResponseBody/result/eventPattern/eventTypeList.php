@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeEventRuleAttributeResponseBody\result\eventPattern;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class eventTypeList extends Model
 {
@@ -18,29 +18,45 @@ class eventTypeList extends Model
 
     public function validate()
     {
+        if (\is_array($this->eventTypeList)) {
+            Model::validateArray($this->eventTypeList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventTypeList) {
-            $res['EventTypeList'] = $this->eventTypeList;
+            if (\is_array($this->eventTypeList)) {
+                $res['EventTypeList'] = [];
+                $n1 = 0;
+                foreach ($this->eventTypeList as $item1) {
+                    $res['EventTypeList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return eventTypeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventTypeList'])) {
             if (!empty($map['EventTypeList'])) {
-                $model->eventTypeList = $map['EventTypeList'];
+                $model->eventTypeList = [];
+                $n1 = 0;
+                foreach ($map['EventTypeList'] as $item1) {
+                    $model->eventTypeList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

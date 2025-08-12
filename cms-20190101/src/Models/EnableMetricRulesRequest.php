@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EnableMetricRulesRequest extends Model
 {
@@ -14,50 +14,63 @@ class EnableMetricRulesRequest extends Model
     public $regionId;
 
     /**
-     * @description The IDs of the alert rules.
-     *
-     * This parameter is required.
-     * @example ab05733c97b7ce239fb1b53393dc1697c123****
-     *
      * @var string[]
      */
     public $ruleId;
     protected $_name = [
         'regionId' => 'RegionId',
-        'ruleId'   => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ruleId)) {
+            Model::validateArray($this->ruleId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->ruleId) {
-            $res['RuleId'] = $this->ruleId;
+            if (\is_array($this->ruleId)) {
+                $res['RuleId'] = [];
+                $n1 = 0;
+                foreach ($this->ruleId as $item1) {
+                    $res['RuleId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EnableMetricRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RuleId'])) {
             if (!empty($map['RuleId'])) {
-                $model->ruleId = $map['RuleId'];
+                $model->ruleId = [];
+                $n1 = 0;
+                foreach ($map['RuleId'] as $item1) {
+                    $model->ruleId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

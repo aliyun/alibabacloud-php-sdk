@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\MigrationJob\source\targets;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class content extends Model
 {
@@ -38,36 +38,42 @@ class content extends Model
      */
     public $url;
     protected $_name = [
-        'group'        => 'Group',
-        'level'        => 'Level',
-        'method'       => 'Method',
-        'region'       => 'Region',
+        'group' => 'Group',
+        'level' => 'Level',
+        'method' => 'Method',
+        'region' => 'Region',
         'resourcePath' => 'ResourcePath',
-        'url'          => 'Url',
+        'url' => 'Url',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->group) {
             $res['Group'] = $this->group;
         }
+
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
+
         if (null !== $this->method) {
             $res['Method'] = $this->method;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->resourcePath) {
             $res['ResourcePath'] = $this->resourcePath;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -75,29 +81,34 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Group'])) {
             $model->group = $map['Group'];
         }
+
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
+
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['ResourcePath'])) {
             $model->resourcePath = $map['ResourcePath'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\NotificationStrategy\escalationSetting;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class customChannels extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $channelType;
@@ -25,24 +23,37 @@ class customChannels extends Model
      */
     public $templateUuid;
     protected $_name = [
-        'channelType'  => 'ChannelType',
-        'severities'   => 'Severities',
+        'channelType' => 'ChannelType',
+        'severities' => 'Severities',
         'templateUuid' => 'TemplateUuid',
     ];
 
     public function validate()
     {
+        if (\is_array($this->severities)) {
+            Model::validateArray($this->severities);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channelType) {
             $res['ChannelType'] = $this->channelType;
         }
+
         if (null !== $this->severities) {
-            $res['Severities'] = $this->severities;
+            if (\is_array($this->severities)) {
+                $res['Severities'] = [];
+                $n1 = 0;
+                foreach ($this->severities as $item1) {
+                    $res['Severities'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->templateUuid) {
             $res['TemplateUuid'] = $this->templateUuid;
         }
@@ -50,22 +61,29 @@ class customChannels extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customChannels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelType'])) {
             $model->channelType = $map['ChannelType'];
         }
+
         if (isset($map['Severities'])) {
             if (!empty($map['Severities'])) {
-                $model->severities = $map['Severities'];
+                $model->severities = [];
+                $n1 = 0;
+                foreach ($map['Severities'] as $item1) {
+                    $model->severities[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['TemplateUuid'])) {
             $model->templateUuid = $map['TemplateUuid'];
         }

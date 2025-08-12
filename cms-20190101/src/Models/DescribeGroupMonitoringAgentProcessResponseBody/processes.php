@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeGroupMonitoringAgentProcessResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeGroupMonitoringAgentProcessResponseBody\processes\process;
-use AlibabaCloud\Tea\Model;
 
 class processes extends Model
 {
@@ -19,17 +19,22 @@ class processes extends Model
 
     public function validate()
     {
+        if (\is_array($this->process)) {
+            Model::validateArray($this->process);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->process) {
-            $res['Process'] = [];
-            if (null !== $this->process && \is_array($this->process)) {
-                $n = 0;
-                foreach ($this->process as $item) {
-                    $res['Process'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->process)) {
+                $res['Process'] = [];
+                $n1 = 0;
+                foreach ($this->process as $item1) {
+                    $res['Process'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class processes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return processes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Process'])) {
             if (!empty($map['Process'])) {
                 $model->process = [];
-                $n              = 0;
-                foreach ($map['Process'] as $item) {
-                    $model->process[$n++] = null !== $item ? process::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Process'] as $item1) {
+                    $model->process[$n1] = process::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

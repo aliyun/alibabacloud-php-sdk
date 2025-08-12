@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\CreateMetricRuleTemplateRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateMetricRuleTemplateRequest\alertTemplates\escalations;
-use AlibabaCloud\Tea\Model;
 
 class alertTemplates extends Model
 {
@@ -15,109 +15,89 @@ class alertTemplates extends Model
     public $escalations;
 
     /**
-     * @description The abbreviation of the Alibaba Cloud service name.
-     *
-     * This parameter is required.
-     * @example ecs
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description The name of the metric. Valid values of N: 1 to 200.
-     *
-     * This parameter is required.
-     * @example cpu_total
-     *
      * @var string
      */
     public $metricName;
 
     /**
-     * @description The namespace of the cloud service. Valid values of N: 1 to 200.
-     *
-     * This parameter is required.
-     * @example acs_ecs_dashboard
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The aggregation period of monitoring data. Unit: seconds.
-     *
-     * Valid values of N: 1 to 200.
-     * @example 60
-     *
      * @var int
      */
     public $period;
 
     /**
-     * @description The name of the alert rule. Valid values of N: 1 to 200.
-     *
-     * This parameter is required.
      * @var string
      */
     public $ruleName;
 
     /**
-     * @description The extended field selectors. Valid values of N: 1 to 200.
-     *
-     * @example {"disk":"/"}
-     *
      * @var string
      */
     public $selector;
 
     /**
-     * @description The callback URL to which a POST request is sent when an alert is triggered based on the alert rule.
-     *
-     * @example http://ww.aliyun.com
-     *
      * @var string
      */
     public $webhook;
     protected $_name = [
         'escalations' => 'Escalations',
-        'category'    => 'Category',
-        'metricName'  => 'MetricName',
-        'namespace'   => 'Namespace',
-        'period'      => 'Period',
-        'ruleName'    => 'RuleName',
-        'selector'    => 'Selector',
-        'webhook'     => 'Webhook',
+        'category' => 'Category',
+        'metricName' => 'MetricName',
+        'namespace' => 'Namespace',
+        'period' => 'Period',
+        'ruleName' => 'RuleName',
+        'selector' => 'Selector',
+        'webhook' => 'Webhook',
     ];
 
     public function validate()
     {
+        if (null !== $this->escalations) {
+            $this->escalations->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->escalations) {
-            $res['Escalations'] = null !== $this->escalations ? $this->escalations->toMap() : null;
+            $res['Escalations'] = null !== $this->escalations ? $this->escalations->toArray($noStream) : $this->escalations;
         }
+
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
+
         if (null !== $this->selector) {
             $res['Selector'] = $this->selector;
         }
+
         if (null !== $this->webhook) {
             $res['Webhook'] = $this->webhook;
         }
@@ -125,35 +105,42 @@ class alertTemplates extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return alertTemplates
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Escalations'])) {
             $model->escalations = escalations::fromMap($map['Escalations']);
         }
+
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
+
         if (isset($map['Selector'])) {
             $model->selector = $map['Selector'];
         }
+
         if (isset($map['Webhook'])) {
             $model->webhook = $map['Webhook'];
         }

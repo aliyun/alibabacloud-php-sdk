@@ -4,82 +4,73 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorGroupDynamicRulesResponseBody\resource;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorGroupDynamicRulesResponseBody\resource\resource\filters;
-use AlibabaCloud\Tea\Model;
 
 class resource extends Model
 {
     /**
-     * @description The type of the cloud service to which the dynamic rule belongs. Valid values:
-     *
-     *   ecs: Elastic Compute Service (ECS)
-     *   rds: ApsaraDB RDS
-     *   slb: Server Load Balancer (SLB)
-     *
-     * @example ecs
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description The filter condition. Valid values:
-     *
-     *   and: queries the instances that meet all alert rules.
-     *   or: queries the instances that meet any alert rule.
-     *
-     * @example and
-     *
      * @var string
      */
     public $filterRelation;
 
     /**
-     * @description The dynamic rules of the application group.
-     *
      * @var filters
      */
     public $filters;
     protected $_name = [
-        'category'       => 'Category',
+        'category' => 'Category',
         'filterRelation' => 'FilterRelation',
-        'filters'        => 'Filters',
+        'filters' => 'Filters',
     ];
 
     public function validate()
     {
+        if (null !== $this->filters) {
+            $this->filters->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->filterRelation) {
             $res['FilterRelation'] = $this->filterRelation;
         }
+
         if (null !== $this->filters) {
-            $res['Filters'] = null !== $this->filters ? $this->filters->toMap() : null;
+            $res['Filters'] = null !== $this->filters ? $this->filters->toArray($noStream) : $this->filters;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['FilterRelation'])) {
             $model->filterRelation = $map['FilterRelation'];
         }
+
         if (isset($map['Filters'])) {
             $model->filters = filters::fromMap($map['Filters']);
         }

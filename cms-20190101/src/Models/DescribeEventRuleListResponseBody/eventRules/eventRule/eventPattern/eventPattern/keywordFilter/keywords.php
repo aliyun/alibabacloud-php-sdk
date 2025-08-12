@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeEventRuleListResponseBody\eventRules\eventRule\eventPattern\eventPattern\keywordFilter;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class keywords extends Model
 {
@@ -18,29 +18,45 @@ class keywords extends Model
 
     public function validate()
     {
+        if (\is_array($this->keywords)) {
+            Model::validateArray($this->keywords);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keywords) {
-            $res['Keywords'] = $this->keywords;
+            if (\is_array($this->keywords)) {
+                $res['Keywords'] = [];
+                $n1 = 0;
+                foreach ($this->keywords as $item1) {
+                    $res['Keywords'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return keywords
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Keywords'])) {
             if (!empty($map['Keywords'])) {
-                $model->keywords = $map['Keywords'];
+                $model->keywords = [];
+                $n1 = 0;
+                foreach ($map['Keywords'] as $item1) {
+                    $model->keywords[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

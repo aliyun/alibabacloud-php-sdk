@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class quicTarget extends Model
 {
@@ -18,29 +18,45 @@ class quicTarget extends Model
 
     public function validate()
     {
+        if (\is_array($this->quicTarget)) {
+            Model::validateArray($this->quicTarget);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->quicTarget) {
-            $res['quic_target'] = $this->quicTarget;
+            if (\is_array($this->quicTarget)) {
+                $res['quic_target'] = [];
+                $n1 = 0;
+                foreach ($this->quicTarget as $item1) {
+                    $res['quic_target'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return quicTarget
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['quic_target'])) {
             if (!empty($map['quic_target'])) {
-                $model->quicTarget = $map['quic_target'];
+                $model->quicTarget = [];
+                $n1 = 0;
+                foreach ($map['quic_target'] as $item1) {
+                    $model->quicTarget[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

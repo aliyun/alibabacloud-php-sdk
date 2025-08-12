@@ -4,59 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMonitorGroupDynamicRulesResponseBody\resource\resource\filters;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filter extends Model
 {
     /**
-     * @description The method that is used to filter the instances. Valid values:
-     *
-     *   contains: contains
-     *   startWith: starts with a prefix
-     *   endWith: ends with a suffix
-     *
-     * @example contains
-     *
      * @var string
      */
     public $function;
 
     /**
-     * @description The instance name.
-     *
-     * @example hostName
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The value of the dynamic rule.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $value;
     protected $_name = [
         'function' => 'Function',
-        'name'     => 'Name',
-        'value'    => 'Value',
+        'name' => 'Name',
+        'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->function) {
             $res['Function'] = $this->function;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -64,20 +51,22 @@ class filter extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Function'])) {
             $model->function = $map['Function'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

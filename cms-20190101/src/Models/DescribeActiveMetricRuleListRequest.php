@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeActiveMetricRuleListRequest extends Model
 {
     /**
-     * @description The abbreviation of the cloud service that supports initiative alert rules.
-     *
-     * This parameter is required.
-     * @example ecs
-     *
      * @var string
      */
     public $product;
@@ -23,9 +18,10 @@ class DescribeActiveMetricRuleListRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->product) {
@@ -35,11 +31,11 @@ class DescribeActiveMetricRuleListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeActiveMetricRuleListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

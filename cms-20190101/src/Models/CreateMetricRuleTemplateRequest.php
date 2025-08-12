@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateMetricRuleTemplateRequest\alertTemplates;
-use AlibabaCloud\Tea\Model;
 
 class CreateMetricRuleTemplateRequest extends Model
 {
@@ -15,20 +15,11 @@ class CreateMetricRuleTemplateRequest extends Model
     public $alertTemplates;
 
     /**
-     * @description The description of the alert template.
-     *
-     * @example ECS_Template1
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the alert template.
-     *
-     * This parameter is required.
-     * @example Template1
-     *
      * @var string
      */
     public $name;
@@ -39,33 +30,41 @@ class CreateMetricRuleTemplateRequest extends Model
     public $regionId;
     protected $_name = [
         'alertTemplates' => 'AlertTemplates',
-        'description'    => 'Description',
-        'name'           => 'Name',
-        'regionId'       => 'RegionId',
+        'description' => 'Description',
+        'name' => 'Name',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->alertTemplates)) {
+            Model::validateArray($this->alertTemplates);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertTemplates) {
-            $res['AlertTemplates'] = [];
-            if (null !== $this->alertTemplates && \is_array($this->alertTemplates)) {
-                $n = 0;
-                foreach ($this->alertTemplates as $item) {
-                    $res['AlertTemplates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->alertTemplates)) {
+                $res['AlertTemplates'] = [];
+                $n1 = 0;
+                foreach ($this->alertTemplates as $item1) {
+                    $res['AlertTemplates'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -73,29 +72,33 @@ class CreateMetricRuleTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateMetricRuleTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertTemplates'])) {
             if (!empty($map['AlertTemplates'])) {
                 $model->alertTemplates = [];
-                $n                     = 0;
-                foreach ($map['AlertTemplates'] as $item) {
-                    $model->alertTemplates[$n++] = null !== $item ? alertTemplates::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AlertTemplates'] as $item1) {
+                    $model->alertTemplates[$n1] = alertTemplates::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

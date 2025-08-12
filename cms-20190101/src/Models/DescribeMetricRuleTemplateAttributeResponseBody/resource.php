@@ -4,78 +4,70 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleTemplateAttributeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleTemplateAttributeResponseBody\resource\alertTemplates;
-use AlibabaCloud\Tea\Model;
 
 class resource extends Model
 {
     /**
-     * @description The queried alert templates.
-     *
      * @var alertTemplates
      */
     public $alertTemplates;
 
     /**
-     * @description The description of the alert template.
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the alert template.
-     *
-     * @example ECS_Template1
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The version of the alert template.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $restVersion;
 
     /**
-     * @description The ID of the alert template.
-     *
-     * @example 70****
-     *
      * @var string
      */
     public $templateId;
     protected $_name = [
         'alertTemplates' => 'AlertTemplates',
-        'description'    => 'Description',
-        'name'           => 'Name',
-        'restVersion'    => 'RestVersion',
-        'templateId'     => 'TemplateId',
+        'description' => 'Description',
+        'name' => 'Name',
+        'restVersion' => 'RestVersion',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
     {
+        if (null !== $this->alertTemplates) {
+            $this->alertTemplates->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertTemplates) {
-            $res['AlertTemplates'] = null !== $this->alertTemplates ? $this->alertTemplates->toMap() : null;
+            $res['AlertTemplates'] = null !== $this->alertTemplates ? $this->alertTemplates->toArray($noStream) : $this->alertTemplates;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->restVersion) {
             $res['RestVersion'] = $this->restVersion;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -83,26 +75,30 @@ class resource extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlertTemplates'])) {
             $model->alertTemplates = alertTemplates::fromMap($map['AlertTemplates']);
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RestVersion'])) {
             $model->restVersion = $map['RestVersion'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeUnhealthyHostAvailabilityResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeUnhealthyHostAvailabilityResponseBody\unhealthyList\nodeTaskInstance;
-use AlibabaCloud\Tea\Model;
 
 class unhealthyList extends Model
 {
@@ -19,17 +19,22 @@ class unhealthyList extends Model
 
     public function validate()
     {
+        if (\is_array($this->nodeTaskInstance)) {
+            Model::validateArray($this->nodeTaskInstance);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeTaskInstance) {
-            $res['NodeTaskInstance'] = [];
-            if (null !== $this->nodeTaskInstance && \is_array($this->nodeTaskInstance)) {
-                $n = 0;
-                foreach ($this->nodeTaskInstance as $item) {
-                    $res['NodeTaskInstance'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodeTaskInstance)) {
+                $res['NodeTaskInstance'] = [];
+                $n1 = 0;
+                foreach ($this->nodeTaskInstance as $item1) {
+                    $res['NodeTaskInstance'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class unhealthyList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return unhealthyList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeTaskInstance'])) {
             if (!empty($map['NodeTaskInstance'])) {
                 $model->nodeTaskInstance = [];
-                $n                       = 0;
-                foreach ($map['NodeTaskInstance'] as $item) {
-                    $model->nodeTaskInstance[$n++] = null !== $item ? nodeTaskInstance::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['NodeTaskInstance'] as $item1) {
+                    $model->nodeTaskInstance[$n1] = nodeTaskInstance::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

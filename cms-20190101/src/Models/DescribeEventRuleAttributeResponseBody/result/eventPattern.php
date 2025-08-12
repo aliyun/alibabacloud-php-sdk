@@ -4,25 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeEventRuleAttributeResponseBody\result;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeEventRuleAttributeResponseBody\result\eventPattern\eventTypeList;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeEventRuleAttributeResponseBody\result\eventPattern\keywordFilterObj;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeEventRuleAttributeResponseBody\result\eventPattern\levelList;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeEventRuleAttributeResponseBody\result\eventPattern\nameList;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeEventRuleAttributeResponseBody\result\eventPattern\statusList;
-use AlibabaCloud\Tea\Model;
 
 class eventPattern extends Model
 {
     /**
-     * @description The types of the event-triggered alert rules.
-     *
      * @var eventTypeList
      */
     public $eventTypeList;
 
     /**
-     * @description The keyword for filtering.
-     *
      * @var keywordFilterObj
      */
     public $keywordFilterObj;
@@ -38,19 +34,11 @@ class eventPattern extends Model
     public $nameList;
 
     /**
-     * @description The name of the cloud service.
-     *
-     * @example CloudMonitor
-     *
      * @var string
      */
     public $product;
 
     /**
-     * @description Indicates that logs are filtered based on the specified SQL statement. If the specified conditions are met, an alert is triggered.
-     *
-     * @example ycccluster1 and (i-23ij0o82612 or Executed1) or Asimulated not 222
-     *
      * @var string
      */
     public $SQLFilter;
@@ -60,73 +48,101 @@ class eventPattern extends Model
      */
     public $statusList;
     protected $_name = [
-        'eventTypeList'    => 'EventTypeList',
+        'eventTypeList' => 'EventTypeList',
         'keywordFilterObj' => 'KeywordFilterObj',
-        'levelList'        => 'LevelList',
-        'nameList'         => 'NameList',
-        'product'          => 'Product',
-        'SQLFilter'        => 'SQLFilter',
-        'statusList'       => 'StatusList',
+        'levelList' => 'LevelList',
+        'nameList' => 'NameList',
+        'product' => 'Product',
+        'SQLFilter' => 'SQLFilter',
+        'statusList' => 'StatusList',
     ];
 
     public function validate()
     {
+        if (null !== $this->eventTypeList) {
+            $this->eventTypeList->validate();
+        }
+        if (null !== $this->keywordFilterObj) {
+            $this->keywordFilterObj->validate();
+        }
+        if (null !== $this->levelList) {
+            $this->levelList->validate();
+        }
+        if (null !== $this->nameList) {
+            $this->nameList->validate();
+        }
+        if (null !== $this->statusList) {
+            $this->statusList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventTypeList) {
-            $res['EventTypeList'] = null !== $this->eventTypeList ? $this->eventTypeList->toMap() : null;
+            $res['EventTypeList'] = null !== $this->eventTypeList ? $this->eventTypeList->toArray($noStream) : $this->eventTypeList;
         }
+
         if (null !== $this->keywordFilterObj) {
-            $res['KeywordFilterObj'] = null !== $this->keywordFilterObj ? $this->keywordFilterObj->toMap() : null;
+            $res['KeywordFilterObj'] = null !== $this->keywordFilterObj ? $this->keywordFilterObj->toArray($noStream) : $this->keywordFilterObj;
         }
+
         if (null !== $this->levelList) {
-            $res['LevelList'] = null !== $this->levelList ? $this->levelList->toMap() : null;
+            $res['LevelList'] = null !== $this->levelList ? $this->levelList->toArray($noStream) : $this->levelList;
         }
+
         if (null !== $this->nameList) {
-            $res['NameList'] = null !== $this->nameList ? $this->nameList->toMap() : null;
+            $res['NameList'] = null !== $this->nameList ? $this->nameList->toArray($noStream) : $this->nameList;
         }
+
         if (null !== $this->product) {
             $res['Product'] = $this->product;
         }
+
         if (null !== $this->SQLFilter) {
             $res['SQLFilter'] = $this->SQLFilter;
         }
+
         if (null !== $this->statusList) {
-            $res['StatusList'] = null !== $this->statusList ? $this->statusList->toMap() : null;
+            $res['StatusList'] = null !== $this->statusList ? $this->statusList->toArray($noStream) : $this->statusList;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return eventPattern
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventTypeList'])) {
             $model->eventTypeList = eventTypeList::fromMap($map['EventTypeList']);
         }
+
         if (isset($map['KeywordFilterObj'])) {
             $model->keywordFilterObj = keywordFilterObj::fromMap($map['KeywordFilterObj']);
         }
+
         if (isset($map['LevelList'])) {
             $model->levelList = levelList::fromMap($map['LevelList']);
         }
+
         if (isset($map['NameList'])) {
             $model->nameList = nameList::fromMap($map['NameList']);
         }
+
         if (isset($map['Product'])) {
             $model->product = $map['Product'];
         }
+
         if (isset($map['SQLFilter'])) {
             $model->SQLFilter = $map['SQLFilter'];
         }
+
         if (isset($map['StatusList'])) {
             $model->statusList = statusList::fromMap($map['StatusList']);
         }

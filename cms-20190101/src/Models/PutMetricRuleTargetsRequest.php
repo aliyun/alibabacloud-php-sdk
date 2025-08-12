@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20190101\Models\PutMetricRuleTargetsRequest\targets;
-use AlibabaCloud\Tea\Model;
 
 class PutMetricRuleTargetsRequest extends Model
 {
@@ -15,47 +15,46 @@ class PutMetricRuleTargetsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the alert rule.
-     *
-     * This parameter is required.
-     * @example ae06917_75a8c43178ab66****
-     *
      * @var string
      */
     public $ruleId;
 
     /**
-     * @description None.
-     *
-     * This parameter is required.
      * @var targets[]
      */
     public $targets;
     protected $_name = [
         'regionId' => 'RegionId',
-        'ruleId'   => 'RuleId',
-        'targets'  => 'Targets',
+        'ruleId' => 'RuleId',
+        'targets' => 'Targets',
     ];
 
     public function validate()
     {
+        if (\is_array($this->targets)) {
+            Model::validateArray($this->targets);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
+
         if (null !== $this->targets) {
-            $res['Targets'] = [];
-            if (null !== $this->targets && \is_array($this->targets)) {
-                $n = 0;
-                foreach ($this->targets as $item) {
-                    $res['Targets'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->targets)) {
+                $res['Targets'] = [];
+                $n1 = 0;
+                foreach ($this->targets as $item1) {
+                    $res['Targets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,26 +62,29 @@ class PutMetricRuleTargetsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PutMetricRuleTargetsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
+
         if (isset($map['Targets'])) {
             if (!empty($map['Targets'])) {
                 $model->targets = [];
-                $n              = 0;
-                foreach ($map['Targets'] as $item) {
-                    $model->targets[$n++] = null !== $item ? targets::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Targets'] as $item1) {
+                    $model->targets[$n1] = targets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
