@@ -24,6 +24,11 @@ class applicationClientSecret extends Model
     public $clientSecret;
 
     /**
+     * @var int
+     */
+    public $expirationTime;
+
+    /**
      * @var string
      */
     public $instanceId;
@@ -46,6 +51,7 @@ class applicationClientSecret extends Model
         'applicationId' => 'ApplicationId',
         'clientId' => 'ClientId',
         'clientSecret' => 'ClientSecret',
+        'expirationTime' => 'ExpirationTime',
         'instanceId' => 'InstanceId',
         'lastUsedTime' => 'LastUsedTime',
         'secretId' => 'SecretId',
@@ -70,6 +76,10 @@ class applicationClientSecret extends Model
 
         if (null !== $this->clientSecret) {
             $res['ClientSecret'] = $this->clientSecret;
+        }
+
+        if (null !== $this->expirationTime) {
+            $res['ExpirationTime'] = $this->expirationTime;
         }
 
         if (null !== $this->instanceId) {
@@ -109,6 +119,10 @@ class applicationClientSecret extends Model
 
         if (isset($map['ClientSecret'])) {
             $model->clientSecret = $map['ClientSecret'];
+        }
+
+        if (isset($map['ExpirationTime'])) {
+            $model->expirationTime = $map['ExpirationTime'];
         }
 
         if (isset($map['InstanceId'])) {

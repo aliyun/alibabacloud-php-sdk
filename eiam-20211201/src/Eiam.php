@@ -742,6 +742,10 @@ class Eiam extends OpenApiClient
             @$query['ApplicationId'] = $request->applicationId;
         }
 
+        if (null !== $request->expirationTime) {
+            @$query['ExpirationTime'] = $request->expirationTime;
+        }
+
         if (null !== $request->instanceId) {
             @$query['InstanceId'] = $request->instanceId;
         }

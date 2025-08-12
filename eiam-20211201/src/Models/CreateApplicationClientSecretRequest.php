@@ -14,11 +14,17 @@ class CreateApplicationClientSecretRequest extends Model
     public $applicationId;
 
     /**
+     * @var int
+     */
+    public $expirationTime;
+
+    /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'applicationId' => 'ApplicationId',
+        'expirationTime' => 'ExpirationTime',
         'instanceId' => 'InstanceId',
     ];
 
@@ -32,6 +38,10 @@ class CreateApplicationClientSecretRequest extends Model
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
+        }
+
+        if (null !== $this->expirationTime) {
+            $res['ExpirationTime'] = $this->expirationTime;
         }
 
         if (null !== $this->instanceId) {
@@ -51,6 +61,10 @@ class CreateApplicationClientSecretRequest extends Model
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
+        }
+
+        if (isset($map['ExpirationTime'])) {
+            $model->expirationTime = $map['ExpirationTime'];
         }
 
         if (isset($map['InstanceId'])) {

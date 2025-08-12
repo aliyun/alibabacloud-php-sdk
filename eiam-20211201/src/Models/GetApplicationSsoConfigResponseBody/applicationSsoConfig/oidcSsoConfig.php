@@ -15,6 +15,11 @@ class oidcSsoConfig extends Model
     public $accessTokenEffectiveTime;
 
     /**
+     * @var string
+     */
+    public $allowedPublicClient;
+
+    /**
      * @var int
      */
     public $codeEffectiveTime;
@@ -85,6 +90,7 @@ class oidcSsoConfig extends Model
     public $subjectIdExpression;
     protected $_name = [
         'accessTokenEffectiveTime' => 'AccessTokenEffectiveTime',
+        'allowedPublicClient' => 'AllowedPublicClient',
         'codeEffectiveTime' => 'CodeEffectiveTime',
         'customClaims' => 'CustomClaims',
         'grantScopes' => 'GrantScopes',
@@ -132,6 +138,10 @@ class oidcSsoConfig extends Model
         $res = [];
         if (null !== $this->accessTokenEffectiveTime) {
             $res['AccessTokenEffectiveTime'] = $this->accessTokenEffectiveTime;
+        }
+
+        if (null !== $this->allowedPublicClient) {
+            $res['AllowedPublicClient'] = $this->allowedPublicClient;
         }
 
         if (null !== $this->codeEffectiveTime) {
@@ -252,6 +262,10 @@ class oidcSsoConfig extends Model
         $model = new self();
         if (isset($map['AccessTokenEffectiveTime'])) {
             $model->accessTokenEffectiveTime = $map['AccessTokenEffectiveTime'];
+        }
+
+        if (isset($map['AllowedPublicClient'])) {
+            $model->allowedPublicClient = $map['AllowedPublicClient'];
         }
 
         if (isset($map['CodeEffectiveTime'])) {
