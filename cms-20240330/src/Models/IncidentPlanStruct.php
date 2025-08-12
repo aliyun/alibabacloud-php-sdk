@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IncidentPlanStruct extends Model
 {
@@ -94,68 +94,106 @@ class IncidentPlanStruct extends Model
         'workspace' => 'workspace',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->corporation)) {
+            Model::validateArray($this->corporation);
+        }
+        if (\is_array($this->escalationId)) {
+            Model::validateArray($this->escalationId);
+        }
+        if (\is_array($this->groupBy)) {
+            Model::validateArray($this->groupBy);
+        }
+        if (\is_array($this->resourceFiled)) {
+            Model::validateArray($this->resourceFiled);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoRecoverSeconds) {
             $res['autoRecoverSeconds'] = $this->autoRecoverSeconds;
         }
+
         if (null !== $this->closeExpire) {
             $res['closeExpire'] = $this->closeExpire;
         }
+
         if (null !== $this->corporation) {
-            $res['corporation'] = [];
-            if (null !== $this->corporation && \is_array($this->corporation)) {
-                $n = 0;
-                foreach ($this->corporation as $item) {
-                    $res['corporation'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->corporation)) {
+                $res['corporation'] = [];
+                $n1 = 0;
+                foreach ($this->corporation as $item1) {
+                    $res['corporation'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->escalationId) {
-            $res['escalationId'] = $this->escalationId;
+            if (\is_array($this->escalationId)) {
+                $res['escalationId'] = [];
+                $n1 = 0;
+                foreach ($this->escalationId as $item1) {
+                    $res['escalationId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->gmtCreate) {
             $res['gmtCreate'] = $this->gmtCreate;
         }
+
         if (null !== $this->gmtModified) {
             $res['gmtModified'] = $this->gmtModified;
         }
+
         if (null !== $this->groupBy) {
-            $res['groupBy'] = [];
-            if (null !== $this->groupBy && \is_array($this->groupBy)) {
-                $n = 0;
-                foreach ($this->groupBy as $item) {
-                    $res['groupBy'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->groupBy)) {
+                $res['groupBy'] = [];
+                $n1 = 0;
+                foreach ($this->groupBy as $item1) {
+                    $res['groupBy'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->incidentPlanId) {
             $res['incidentPlanId'] = $this->incidentPlanId;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->resourceFiled) {
-            $res['resourceFiled'] = [];
-            if (null !== $this->resourceFiled && \is_array($this->resourceFiled)) {
-                $n = 0;
-                foreach ($this->resourceFiled as $item) {
-                    $res['resourceFiled'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceFiled)) {
+                $res['resourceFiled'] = [];
+                $n1 = 0;
+                foreach ($this->resourceFiled as $item1) {
+                    $res['resourceFiled'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
         }
+
         if (null !== $this->workspace) {
             $res['workspace'] = $this->workspace;
         }
@@ -163,73 +201,94 @@ class IncidentPlanStruct extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IncidentPlanStruct
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['autoRecoverSeconds'])) {
             $model->autoRecoverSeconds = $map['autoRecoverSeconds'];
         }
+
         if (isset($map['closeExpire'])) {
             $model->closeExpire = $map['closeExpire'];
         }
+
         if (isset($map['corporation'])) {
             if (!empty($map['corporation'])) {
                 $model->corporation = [];
-                $n = 0;
-                foreach ($map['corporation'] as $item) {
-                    $model->corporation[$n++] = null !== $item ? IncidentPlanCorporationStruct::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['corporation'] as $item1) {
+                    $model->corporation[$n1] = IncidentPlanCorporationStruct::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['escalationId'])) {
             if (!empty($map['escalationId'])) {
-                $model->escalationId = $map['escalationId'];
+                $model->escalationId = [];
+                $n1 = 0;
+                foreach ($map['escalationId'] as $item1) {
+                    $model->escalationId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['gmtCreate'])) {
             $model->gmtCreate = $map['gmtCreate'];
         }
+
         if (isset($map['gmtModified'])) {
             $model->gmtModified = $map['gmtModified'];
         }
+
         if (isset($map['groupBy'])) {
             if (!empty($map['groupBy'])) {
                 $model->groupBy = [];
-                $n = 0;
-                foreach ($map['groupBy'] as $item) {
-                    $model->groupBy[$n++] = null !== $item ? IncidentPlanFieldPath::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['groupBy'] as $item1) {
+                    $model->groupBy[$n1] = IncidentPlanFieldPath::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['incidentPlanId'])) {
             $model->incidentPlanId = $map['incidentPlanId'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['resourceFiled'])) {
             if (!empty($map['resourceFiled'])) {
                 $model->resourceFiled = [];
-                $n = 0;
-                foreach ($map['resourceFiled'] as $item) {
-                    $model->resourceFiled[$n++] = null !== $item ? IncidentPlanFieldPath::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['resourceFiled'] as $item1) {
+                    $model->resourceFiled[$n1] = IncidentPlanFieldPath::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];
         }
+
         if (isset($map['workspace'])) {
             $model->workspace = $map['workspace'];
         }

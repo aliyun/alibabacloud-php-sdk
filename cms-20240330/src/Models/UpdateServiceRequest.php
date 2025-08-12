@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateServiceRequest extends Model
 {
     /**
-     * @example {"language":"java"}
-     *
      * @var string
      */
     public $attributes;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example api-monitor-test
-     *
      * @var string
      */
     public $displayName;
 
     /**
-     * @example Stopped
-     *
      * @var string
      */
     public $serviceStatus;
@@ -42,20 +34,26 @@ class UpdateServiceRequest extends Model
         'serviceStatus' => 'serviceStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attributes) {
             $res['attributes'] = $this->attributes;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->displayName) {
             $res['displayName'] = $this->displayName;
         }
+
         if (null !== $this->serviceStatus) {
             $res['serviceStatus'] = $this->serviceStatus;
         }
@@ -63,23 +61,26 @@ class UpdateServiceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateServiceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['attributes'])) {
             $model->attributes = $map['attributes'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['displayName'])) {
             $model->displayName = $map['displayName'];
         }
+
         if (isset($map['serviceStatus'])) {
             $model->serviceStatus = $map['serviceStatus'];
         }

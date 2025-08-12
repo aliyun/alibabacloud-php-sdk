@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition\compositeEscalation;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class escalations extends Model
 {
@@ -40,23 +40,30 @@ class escalations extends Model
         'threshold' => 'threshold',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->comparisonOperator) {
             $res['comparisonOperator'] = $this->comparisonOperator;
         }
+
         if (null !== $this->metricName) {
             $res['metricName'] = $this->metricName;
         }
+
         if (null !== $this->period) {
             $res['period'] = $this->period;
         }
+
         if (null !== $this->statistics) {
             $res['statistics'] = $this->statistics;
         }
+
         if (null !== $this->threshold) {
             $res['threshold'] = $this->threshold;
         }
@@ -64,26 +71,30 @@ class escalations extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return escalations
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['comparisonOperator'])) {
             $model->comparisonOperator = $map['comparisonOperator'];
         }
+
         if (isset($map['metricName'])) {
             $model->metricName = $map['metricName'];
         }
+
         if (isset($map['period'])) {
             $model->period = $map['period'];
         }
+
         if (isset($map['statistics'])) {
             $model->statistics = $map['statistics'];
         }
+
         if (isset($map['threshold'])) {
             $model->threshold = $map['threshold'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\SubscriptionForModify\pushingSetting;
-use AlibabaCloud\Tea\Model;
 
 class SubscriptionForModify extends Model
 {
@@ -30,8 +30,6 @@ class SubscriptionForModify extends Model
     public $pushingSetting;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $subscriptionName;
@@ -43,23 +41,36 @@ class SubscriptionForModify extends Model
         'subscriptionName' => 'subscriptionName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->filterSetting) {
+            $this->filterSetting->validate();
+        }
+        if (null !== $this->pushingSetting) {
+            $this->pushingSetting->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->filterSetting) {
-            $res['filterSetting'] = null !== $this->filterSetting ? $this->filterSetting->toMap() : null;
+            $res['filterSetting'] = null !== $this->filterSetting ? $this->filterSetting->toArray($noStream) : $this->filterSetting;
         }
+
         if (null !== $this->notifyStrategyId) {
             $res['notifyStrategyId'] = $this->notifyStrategyId;
         }
+
         if (null !== $this->pushingSetting) {
-            $res['pushingSetting'] = null !== $this->pushingSetting ? $this->pushingSetting->toMap() : null;
+            $res['pushingSetting'] = null !== $this->pushingSetting ? $this->pushingSetting->toArray($noStream) : $this->pushingSetting;
         }
+
         if (null !== $this->subscriptionName) {
             $res['subscriptionName'] = $this->subscriptionName;
         }
@@ -67,26 +78,30 @@ class SubscriptionForModify extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubscriptionForModify
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['filterSetting'])) {
             $model->filterSetting = FilterSetting::fromMap($map['filterSetting']);
         }
+
         if (isset($map['notifyStrategyId'])) {
             $model->notifyStrategyId = $map['notifyStrategyId'];
         }
+
         if (isset($map['pushingSetting'])) {
             $model->pushingSetting = pushingSetting::fromMap($map['pushingSetting']);
         }
+
         if (isset($map['subscriptionName'])) {
             $model->subscriptionName = $map['subscriptionName'];
         }

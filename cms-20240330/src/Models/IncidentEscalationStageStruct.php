@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IncidentEscalationStageStruct extends Model
 {
@@ -64,41 +64,56 @@ class IncidentEscalationStageStruct extends Model
         'waitToNextStageTime' => 'waitToNextStageTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->contact)) {
+            Model::validateArray($this->contact);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contact) {
-            $res['contact'] = [];
-            if (null !== $this->contact && \is_array($this->contact)) {
-                $n = 0;
-                foreach ($this->contact as $item) {
-                    $res['contact'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->contact)) {
+                $res['contact'] = [];
+                $n1 = 0;
+                foreach ($this->contact as $item1) {
+                    $res['contact'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->cycleNotifyCount) {
             $res['cycleNotifyCount'] = $this->cycleNotifyCount;
         }
+
         if (null !== $this->cycleNotifyTime) {
             $res['cycleNotifyTime'] = $this->cycleNotifyTime;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->effectTime) {
             $res['effectTime'] = $this->effectTime;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->stageIndex) {
             $res['stageIndex'] = $this->stageIndex;
         }
+
         if (null !== $this->timeZone) {
             $res['timeZone'] = $this->timeZone;
         }
+
         if (null !== $this->waitToNextStageTime) {
             $res['waitToNextStageTime'] = $this->waitToNextStageTime;
         }
@@ -106,44 +121,53 @@ class IncidentEscalationStageStruct extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IncidentEscalationStageStruct
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['contact'])) {
             if (!empty($map['contact'])) {
                 $model->contact = [];
-                $n = 0;
-                foreach ($map['contact'] as $item) {
-                    $model->contact[$n++] = null !== $item ? IncidentContactStruct::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['contact'] as $item1) {
+                    $model->contact[$n1] = IncidentContactStruct::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['cycleNotifyCount'])) {
             $model->cycleNotifyCount = $map['cycleNotifyCount'];
         }
+
         if (isset($map['cycleNotifyTime'])) {
             $model->cycleNotifyTime = $map['cycleNotifyTime'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['effectTime'])) {
             $model->effectTime = $map['effectTime'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['stageIndex'])) {
             $model->stageIndex = $map['stageIndex'];
         }
+
         if (isset($map['timeZone'])) {
             $model->timeZone = $map['timeZone'];
         }
+
         if (isset($map['waitToNextStageTime'])) {
             $model->waitToNextStageTime = $map['waitToNextStageTime'];
         }

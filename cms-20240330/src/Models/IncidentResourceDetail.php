@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IncidentResourceDetail extends Model
 {
@@ -28,17 +28,30 @@ class IncidentResourceDetail extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->resourceId)) {
+            Model::validateArray($this->resourceId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extraId) {
             $res['extraId'] = $this->extraId;
         }
+
         if (null !== $this->resourceId) {
-            $res['resourceId'] = $this->resourceId;
+            if (\is_array($this->resourceId)) {
+                $res['resourceId'] = [];
+                foreach ($this->resourceId as $key1 => $value1) {
+                    $res['resourceId'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -46,20 +59,27 @@ class IncidentResourceDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IncidentResourceDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['extraId'])) {
             $model->extraId = $map['extraId'];
         }
+
         if (isset($map['resourceId'])) {
-            $model->resourceId = $map['resourceId'];
+            if (!empty($map['resourceId'])) {
+                $model->resourceId = [];
+                foreach ($map['resourceId'] as $key1 => $value1) {
+                    $model->resourceId[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

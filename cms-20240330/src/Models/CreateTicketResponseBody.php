@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateTicketResponseBody extends Model
 {
     /**
-     * @example eyJ***************.eyJ******************.KUT****************
-     *
      * @var string
      */
     public $ticket;
@@ -18,9 +16,12 @@ class CreateTicketResponseBody extends Model
         'ticket' => 'ticket',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ticket) {
@@ -30,11 +31,11 @@ class CreateTicketResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTicketResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

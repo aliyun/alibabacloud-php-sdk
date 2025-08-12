@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceObservabilityResponseBody\entryPointInfo;
-use AlibabaCloud\Tea\Model;
 
 class GetServiceObservabilityResponseBody extends Model
 {
@@ -25,15 +25,11 @@ class GetServiceObservabilityResponseBody extends Model
     public $quotas;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example 4852B9B5-345C-5CBC-A15F-786D83ECCBBA
-     *
      * @var string
      */
     public $requestId;
@@ -44,15 +40,11 @@ class GetServiceObservabilityResponseBody extends Model
     public $settings;
 
     /**
-     * @example Running
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example apm
-     *
      * @var string
      */
     public $type;
@@ -73,35 +65,65 @@ class GetServiceObservabilityResponseBody extends Model
         'workspace' => 'workspace',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->entryPointInfo) {
+            $this->entryPointInfo->validate();
+        }
+        if (\is_array($this->quotas)) {
+            Model::validateArray($this->quotas);
+        }
+        if (\is_array($this->settings)) {
+            Model::validateArray($this->settings);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entryPointInfo) {
-            $res['entryPointInfo'] = null !== $this->entryPointInfo ? $this->entryPointInfo->toMap() : null;
+            $res['entryPointInfo'] = null !== $this->entryPointInfo ? $this->entryPointInfo->toArray($noStream) : $this->entryPointInfo;
         }
+
         if (null !== $this->feeType) {
             $res['feeType'] = $this->feeType;
         }
+
         if (null !== $this->quotas) {
-            $res['quotas'] = $this->quotas;
+            if (\is_array($this->quotas)) {
+                $res['quotas'] = [];
+                foreach ($this->quotas as $key1 => $value1) {
+                    $res['quotas'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->settings) {
-            $res['settings'] = $this->settings;
+            if (\is_array($this->settings)) {
+                $res['settings'] = [];
+                foreach ($this->settings as $key1 => $value1) {
+                    $res['settings'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->workspace) {
             $res['workspace'] = $this->workspace;
         }
@@ -109,38 +131,56 @@ class GetServiceObservabilityResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetServiceObservabilityResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['entryPointInfo'])) {
             $model->entryPointInfo = entryPointInfo::fromMap($map['entryPointInfo']);
         }
+
         if (isset($map['feeType'])) {
             $model->feeType = $map['feeType'];
         }
+
         if (isset($map['quotas'])) {
-            $model->quotas = $map['quotas'];
+            if (!empty($map['quotas'])) {
+                $model->quotas = [];
+                foreach ($map['quotas'] as $key1 => $value1) {
+                    $model->quotas[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['settings'])) {
-            $model->settings = $map['settings'];
+            if (!empty($map['settings'])) {
+                $model->settings = [];
+                foreach ($map['settings'] as $key1 => $value1) {
+                    $model->settings[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['workspace'])) {
             $model->workspace = $map['workspace'];
         }

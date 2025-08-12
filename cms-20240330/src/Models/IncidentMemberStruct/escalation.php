@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\IncidentMemberStruct;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class escalation extends Model
 {
@@ -40,23 +40,30 @@ class escalation extends Model
         'title' => 'title',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->incidentEscalationId) {
             $res['incidentEscalationId'] = $this->incidentEscalationId;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->stageIndex) {
             $res['stageIndex'] = $this->stageIndex;
         }
+
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
@@ -64,26 +71,30 @@ class escalation extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return escalation
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['incidentEscalationId'])) {
             $model->incidentEscalationId = $map['incidentEscalationId'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['stageIndex'])) {
             $model->stageIndex = $map['stageIndex'];
         }
+
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }

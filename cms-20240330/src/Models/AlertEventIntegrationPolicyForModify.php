@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AlertEventIntegrationPolicyForModify extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $alertEventIntegrationPolicyName;
@@ -48,32 +46,47 @@ class AlertEventIntegrationPolicyForModify extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->filterSetting) {
+            $this->filterSetting->validate();
+        }
+        if (\is_array($this->transformerSetting)) {
+            Model::validateArray($this->transformerSetting);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertEventIntegrationPolicyName) {
             $res['alertEventIntegrationPolicyName'] = $this->alertEventIntegrationPolicyName;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->filterSetting) {
-            $res['filterSetting'] = null !== $this->filterSetting ? $this->filterSetting->toMap() : null;
+            $res['filterSetting'] = null !== $this->filterSetting ? $this->filterSetting->toArray($noStream) : $this->filterSetting;
         }
+
         if (null !== $this->integrationSetting) {
             $res['integrationSetting'] = $this->integrationSetting;
         }
+
         if (null !== $this->transformerSetting) {
-            $res['transformerSetting'] = [];
-            if (null !== $this->transformerSetting && \is_array($this->transformerSetting)) {
-                $n = 0;
-                foreach ($this->transformerSetting as $item) {
-                    $res['transformerSetting'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->transformerSetting)) {
+                $res['transformerSetting'] = [];
+                $n1 = 0;
+                foreach ($this->transformerSetting as $item1) {
+                    $res['transformerSetting'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -81,35 +94,41 @@ class AlertEventIntegrationPolicyForModify extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AlertEventIntegrationPolicyForModify
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['alertEventIntegrationPolicyName'])) {
             $model->alertEventIntegrationPolicyName = $map['alertEventIntegrationPolicyName'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['filterSetting'])) {
             $model->filterSetting = FilterSetting::fromMap($map['filterSetting']);
         }
+
         if (isset($map['integrationSetting'])) {
             $model->integrationSetting = $map['integrationSetting'];
         }
+
         if (isset($map['transformerSetting'])) {
             if (!empty($map['transformerSetting'])) {
                 $model->transformerSetting = [];
-                $n = 0;
-                foreach ($map['transformerSetting'] as $item) {
-                    $model->transformerSetting[$n++] = null !== $item ? TransformAction::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['transformerSetting'] as $item1) {
+                    $model->transformerSetting[$n1] = TransformAction::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

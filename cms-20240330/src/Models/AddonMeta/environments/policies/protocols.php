@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\AddonMeta\environments\policies;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class protocols extends Model
 {
@@ -34,20 +34,26 @@ class protocols extends Model
         'name' => 'name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->icon) {
             $res['icon'] = $this->icon;
         }
+
         if (null !== $this->label) {
             $res['label'] = $this->label;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -55,23 +61,26 @@ class protocols extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return protocols
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['icon'])) {
             $model->icon = $map['icon'];
         }
+
         if (isset($map['label'])) {
             $model->label = $map['label'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

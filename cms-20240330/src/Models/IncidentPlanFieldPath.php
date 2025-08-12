@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IncidentPlanFieldPath extends Model
 {
@@ -22,35 +22,55 @@ class IncidentPlanFieldPath extends Model
         'fieldPath' => 'fieldPath',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fieldPath)) {
+            Model::validateArray($this->fieldPath);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fieldAlias) {
             $res['fieldAlias'] = $this->fieldAlias;
         }
+
         if (null !== $this->fieldPath) {
-            $res['fieldPath'] = $this->fieldPath;
+            if (\is_array($this->fieldPath)) {
+                $res['fieldPath'] = [];
+                $n1 = 0;
+                foreach ($this->fieldPath as $item1) {
+                    $res['fieldPath'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IncidentPlanFieldPath
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fieldAlias'])) {
             $model->fieldAlias = $map['fieldAlias'];
         }
+
         if (isset($map['fieldPath'])) {
             if (!empty($map['fieldPath'])) {
-                $model->fieldPath = $map['fieldPath'];
+                $model->fieldPath = [];
+                $n1 = 0;
+                foreach ($map['fieldPath'] as $item1) {
+                    $model->fieldPath[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

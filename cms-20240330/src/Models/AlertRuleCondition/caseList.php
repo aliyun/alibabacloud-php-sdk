@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class caseList extends Model
 {
@@ -34,20 +34,26 @@ class caseList extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->condition) {
             $res['condition'] = $this->condition;
         }
+
         if (null !== $this->countCondition) {
             $res['countCondition'] = $this->countCondition;
         }
+
         if (null !== $this->level) {
             $res['level'] = $this->level;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -55,23 +61,26 @@ class caseList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return caseList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['condition'])) {
             $model->condition = $map['condition'];
         }
+
         if (isset($map['countCondition'])) {
             $model->countCondition = $map['countCondition'];
         }
+
         if (isset($map['level'])) {
             $model->level = $map['level'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

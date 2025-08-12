@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateServiceResponseBody extends Model
 {
     /**
-     * @example 123-0F43-23423-AC43-34234
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example em87vd@c2e25bcfe0e21ce0***
-     *
      * @var string
      */
     public $serviceId;
@@ -26,14 +22,18 @@ class UpdateServiceResponseBody extends Model
         'serviceId' => 'serviceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->serviceId) {
             $res['serviceId'] = $this->serviceId;
         }
@@ -41,17 +41,18 @@ class UpdateServiceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateServiceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['serviceId'])) {
             $model->serviceId = $map['serviceId'];
         }

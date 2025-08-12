@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RumDnsResponse extends Model
 {
@@ -28,17 +28,22 @@ class RumDnsResponse extends Model
         'result' => 'result',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['domain'] = $this->domain;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->result) {
             $res['result'] = $this->result;
         }
@@ -46,20 +51,22 @@ class RumDnsResponse extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RumDnsResponse
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['domain'])) {
             $model->domain = $map['domain'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['result'])) {
             $model->result = $map['result'];
         }

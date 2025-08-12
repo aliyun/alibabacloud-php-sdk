@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\FilterSetting;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class conditions extends Model
 {
@@ -28,17 +28,22 @@ class conditions extends Model
         'value' => 'value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->field) {
             $res['field'] = $this->field;
         }
+
         if (null !== $this->op) {
             $res['op'] = $this->op;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -46,20 +51,22 @@ class conditions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return conditions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['field'])) {
             $model->field = $map['field'];
         }
+
         if (isset($map['op'])) {
             $model->op = $map['op'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

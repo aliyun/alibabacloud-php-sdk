@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\SubscriptionForView\pushingSetting;
-use AlibabaCloud\Tea\Model;
 
 class SubscriptionForView extends Model
 {
@@ -45,8 +45,6 @@ class SubscriptionForView extends Model
     public $subscriptionId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $subscriptionName;
@@ -79,41 +77,60 @@ class SubscriptionForView extends Model
         'workspace' => 'workspace',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->filterSetting) {
+            $this->filterSetting->validate();
+        }
+        if (null !== $this->pushingSetting) {
+            $this->pushingSetting->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
         }
+
         if (null !== $this->filterSetting) {
-            $res['filterSetting'] = null !== $this->filterSetting ? $this->filterSetting->toMap() : null;
+            $res['filterSetting'] = null !== $this->filterSetting ? $this->filterSetting->toArray($noStream) : $this->filterSetting;
         }
+
         if (null !== $this->notifyStrategyId) {
             $res['notifyStrategyId'] = $this->notifyStrategyId;
         }
+
         if (null !== $this->pushingSetting) {
-            $res['pushingSetting'] = null !== $this->pushingSetting ? $this->pushingSetting->toMap() : null;
+            $res['pushingSetting'] = null !== $this->pushingSetting ? $this->pushingSetting->toArray($noStream) : $this->pushingSetting;
         }
+
         if (null !== $this->subscriptionId) {
             $res['subscriptionId'] = $this->subscriptionId;
         }
+
         if (null !== $this->subscriptionName) {
             $res['subscriptionName'] = $this->subscriptionName;
         }
+
         if (null !== $this->updateTime) {
             $res['updateTime'] = $this->updateTime;
         }
+
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
         }
+
         if (null !== $this->workspace) {
             $res['workspace'] = $this->workspace;
         }
@@ -121,44 +138,54 @@ class SubscriptionForView extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubscriptionForView
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
         }
+
         if (isset($map['filterSetting'])) {
             $model->filterSetting = FilterSetting::fromMap($map['filterSetting']);
         }
+
         if (isset($map['notifyStrategyId'])) {
             $model->notifyStrategyId = $map['notifyStrategyId'];
         }
+
         if (isset($map['pushingSetting'])) {
             $model->pushingSetting = pushingSetting::fromMap($map['pushingSetting']);
         }
+
         if (isset($map['subscriptionId'])) {
             $model->subscriptionId = $map['subscriptionId'];
         }
+
         if (isset($map['subscriptionName'])) {
             $model->subscriptionName = $map['subscriptionName'];
         }
+
         if (isset($map['updateTime'])) {
             $model->updateTime = $map['updateTime'];
         }
+
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];
         }
+
         if (isset($map['workspace'])) {
             $model->workspace = $map['workspace'];
         }

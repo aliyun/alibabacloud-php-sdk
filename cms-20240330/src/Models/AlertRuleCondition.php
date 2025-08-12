@@ -4,25 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition\caseList;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition\compareList;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition\compositeEscalation;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition\expressEscalation;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition\simpleEscalation;
-use AlibabaCloud\Tea\Model;
 
 class AlertRuleCondition extends Model
 {
     /**
-     * @description type=SLS_CONDITION时指定，满足条件几次后告警，默认为1
-     *
      * @var int
      */
     public $alertCount;
 
     /**
-     * @description type=SLS_CONDITION时指定
-     *
      * @var caseList[]
      */
     public $caseList;
@@ -48,8 +44,6 @@ class AlertRuleCondition extends Model
     public $expressEscalation;
 
     /**
-     * @description 无数据时按什么级别告警，不指定则不对无数据报警
-     *
      * @var string
      */
     public $noDataAlertLevel;
@@ -75,10 +69,6 @@ class AlertRuleCondition extends Model
     public $simpleEscalation;
 
     /**
-     * @description 规则条件类型，可选值：SLS_CONDITION
-     *
-     * This parameter is required.
-     *
      * @var string
      */
     public $type;
@@ -97,56 +87,87 @@ class AlertRuleCondition extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->caseList)) {
+            Model::validateArray($this->caseList);
+        }
+        if (\is_array($this->compareList)) {
+            Model::validateArray($this->compareList);
+        }
+        if (null !== $this->compositeEscalation) {
+            $this->compositeEscalation->validate();
+        }
+        if (null !== $this->expressEscalation) {
+            $this->expressEscalation->validate();
+        }
+        if (null !== $this->simpleEscalation) {
+            $this->simpleEscalation->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertCount) {
             $res['alertCount'] = $this->alertCount;
         }
+
         if (null !== $this->caseList) {
-            $res['caseList'] = [];
-            if (null !== $this->caseList && \is_array($this->caseList)) {
-                $n = 0;
-                foreach ($this->caseList as $item) {
-                    $res['caseList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->caseList)) {
+                $res['caseList'] = [];
+                $n1 = 0;
+                foreach ($this->caseList as $item1) {
+                    $res['caseList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->compareList) {
-            $res['compareList'] = [];
-            if (null !== $this->compareList && \is_array($this->compareList)) {
-                $n = 0;
-                foreach ($this->compareList as $item) {
-                    $res['compareList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->compareList)) {
+                $res['compareList'] = [];
+                $n1 = 0;
+                foreach ($this->compareList as $item1) {
+                    $res['compareList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->compositeEscalation) {
-            $res['compositeEscalation'] = null !== $this->compositeEscalation ? $this->compositeEscalation->toMap() : null;
+            $res['compositeEscalation'] = null !== $this->compositeEscalation ? $this->compositeEscalation->toArray($noStream) : $this->compositeEscalation;
         }
+
         if (null !== $this->escalationType) {
             $res['escalationType'] = $this->escalationType;
         }
+
         if (null !== $this->expressEscalation) {
-            $res['expressEscalation'] = null !== $this->expressEscalation ? $this->expressEscalation->toMap() : null;
+            $res['expressEscalation'] = null !== $this->expressEscalation ? $this->expressEscalation->toArray($noStream) : $this->expressEscalation;
         }
+
         if (null !== $this->noDataAlertLevel) {
             $res['noDataAlertLevel'] = $this->noDataAlertLevel;
         }
+
         if (null !== $this->noDataAppendValue) {
             $res['noDataAppendValue'] = $this->noDataAppendValue;
         }
+
         if (null !== $this->noDataPolicy) {
             $res['noDataPolicy'] = $this->noDataPolicy;
         }
+
         if (null !== $this->relation) {
             $res['relation'] = $this->relation;
         }
+
         if (null !== $this->simpleEscalation) {
-            $res['simpleEscalation'] = null !== $this->simpleEscalation ? $this->simpleEscalation->toMap() : null;
+            $res['simpleEscalation'] = null !== $this->simpleEscalation ? $this->simpleEscalation->toArray($noStream) : $this->simpleEscalation;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -154,59 +175,72 @@ class AlertRuleCondition extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AlertRuleCondition
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['alertCount'])) {
             $model->alertCount = $map['alertCount'];
         }
+
         if (isset($map['caseList'])) {
             if (!empty($map['caseList'])) {
                 $model->caseList = [];
-                $n = 0;
-                foreach ($map['caseList'] as $item) {
-                    $model->caseList[$n++] = null !== $item ? caseList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['caseList'] as $item1) {
+                    $model->caseList[$n1] = caseList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['compareList'])) {
             if (!empty($map['compareList'])) {
                 $model->compareList = [];
-                $n = 0;
-                foreach ($map['compareList'] as $item) {
-                    $model->compareList[$n++] = null !== $item ? compareList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['compareList'] as $item1) {
+                    $model->compareList[$n1] = compareList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['compositeEscalation'])) {
             $model->compositeEscalation = compositeEscalation::fromMap($map['compositeEscalation']);
         }
+
         if (isset($map['escalationType'])) {
             $model->escalationType = $map['escalationType'];
         }
+
         if (isset($map['expressEscalation'])) {
             $model->expressEscalation = expressEscalation::fromMap($map['expressEscalation']);
         }
+
         if (isset($map['noDataAlertLevel'])) {
             $model->noDataAlertLevel = $map['noDataAlertLevel'];
         }
+
         if (isset($map['noDataAppendValue'])) {
             $model->noDataAppendValue = $map['noDataAppendValue'];
         }
+
         if (isset($map['noDataPolicy'])) {
             $model->noDataPolicy = $map['noDataPolicy'];
         }
+
         if (isset($map['relation'])) {
             $model->relation = $map['relation'];
         }
+
         if (isset($map['simpleEscalation'])) {
             $model->simpleEscalation = simpleEscalation::fromMap($map['simpleEscalation']);
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

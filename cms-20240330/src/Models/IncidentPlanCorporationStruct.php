@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IncidentPlanCorporationStruct extends Model
 {
@@ -22,14 +22,18 @@ class IncidentPlanCorporationStruct extends Model
         'robotId' => 'robotId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channel) {
             $res['channel'] = $this->channel;
         }
+
         if (null !== $this->robotId) {
             $res['robotId'] = $this->robotId;
         }
@@ -37,17 +41,18 @@ class IncidentPlanCorporationStruct extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IncidentPlanCorporationStruct
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['channel'])) {
             $model->channel = $map['channel'];
         }
+
         if (isset($map['robotId'])) {
             $model->robotId = $map['robotId'];
         }

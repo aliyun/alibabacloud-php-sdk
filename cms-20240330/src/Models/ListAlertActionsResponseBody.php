@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsResponseBody\alertActions;
-use AlibabaCloud\Tea\Model;
 
 class ListAlertActionsResponseBody extends Model
 {
@@ -15,29 +15,21 @@ class ListAlertActionsResponseBody extends Model
     public $alertActions;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 8FDE2569-626B-5176-9844-28877A*****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 9
-     *
      * @var int
      */
     public $total;
@@ -49,29 +41,40 @@ class ListAlertActionsResponseBody extends Model
         'total' => 'total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->alertActions)) {
+            Model::validateArray($this->alertActions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertActions) {
-            $res['alertActions'] = [];
-            if (null !== $this->alertActions && \is_array($this->alertActions)) {
-                $n = 0;
-                foreach ($this->alertActions as $item) {
-                    $res['alertActions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->alertActions)) {
+                $res['alertActions'] = [];
+                $n1 = 0;
+                foreach ($this->alertActions as $item1) {
+                    $res['alertActions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->total) {
             $res['total'] = $this->total;
         }
@@ -79,32 +82,37 @@ class ListAlertActionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAlertActionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['alertActions'])) {
             if (!empty($map['alertActions'])) {
                 $model->alertActions = [];
-                $n = 0;
-                foreach ($map['alertActions'] as $item) {
-                    $model->alertActions[$n++] = null !== $item ? alertActions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['alertActions'] as $item1) {
+                    $model->alertActions[$n1] = alertActions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['total'])) {
             $model->total = $map['total'];
         }

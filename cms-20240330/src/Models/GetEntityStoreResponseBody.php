@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetEntityStoreResponseBody extends Model
 {
     /**
-     * @example cn-heyuan
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example workspace-test-001
-     *
      * @var string
      */
     public $workspaceName;
@@ -34,17 +28,22 @@ class GetEntityStoreResponseBody extends Model
         'workspaceName' => 'workspaceName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->workspaceName) {
             $res['workspaceName'] = $this->workspaceName;
         }
@@ -52,20 +51,22 @@ class GetEntityStoreResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetEntityStoreResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['workspaceName'])) {
             $model->workspaceName = $map['workspaceName'];
         }

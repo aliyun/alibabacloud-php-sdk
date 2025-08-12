@@ -4,45 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\GetUmodelResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class commonSchemaRef extends Model
 {
     /**
-     * @example test-job-123123
-     *
      * @var string
      */
     public $group;
 
     /**
-     * @var string[]
-     */
-    public $items;
-
-    /**
-     * @example 5
-     *
      * @var string
      */
     public $version;
     protected $_name = [
         'group' => 'group',
-        'items' => 'items',
         'version' => 'version',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->group) {
             $res['group'] = $this->group;
         }
-        if (null !== $this->items) {
-            $res['items'] = $this->items;
-        }
+
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -50,22 +41,18 @@ class commonSchemaRef extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return commonSchemaRef
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['group'])) {
             $model->group = $map['group'];
         }
-        if (isset($map['items'])) {
-            if (!empty($map['items'])) {
-                $model->items = $map['items'];
-            }
-        }
+
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }

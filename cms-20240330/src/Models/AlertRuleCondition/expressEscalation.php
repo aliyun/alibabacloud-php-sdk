@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class expressEscalation extends Model
 {
@@ -28,17 +28,22 @@ class expressEscalation extends Model
         'times' => 'times',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->level) {
             $res['level'] = $this->level;
         }
+
         if (null !== $this->rawExpression) {
             $res['rawExpression'] = $this->rawExpression;
         }
+
         if (null !== $this->times) {
             $res['times'] = $this->times;
         }
@@ -46,20 +51,22 @@ class expressEscalation extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return expressEscalation
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['level'])) {
             $model->level = $map['level'];
         }
+
         if (isset($map['rawExpression'])) {
             $model->rawExpression = $map['rawExpression'];
         }
+
         if (isset($map['times'])) {
             $model->times = $map['times'];
         }

@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreatePrometheusInstanceResponseBody extends Model
 {
     /**
-     * @example rw-abc123
-     *
      * @var string
      */
     public $prometheusInstanceId;
 
     /**
-     * @description Id of the request
-     *
-     * @example 264C3E89-BE6E-5F82-A484-CE9C2196C7DC
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +22,18 @@ class CreatePrometheusInstanceResponseBody extends Model
         'requestId' => 'requestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->prometheusInstanceId) {
             $res['prometheusInstanceId'] = $this->prometheusInstanceId;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class CreatePrometheusInstanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePrometheusInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['prometheusInstanceId'])) {
             $model->prometheusInstanceId = $map['prometheusInstanceId'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

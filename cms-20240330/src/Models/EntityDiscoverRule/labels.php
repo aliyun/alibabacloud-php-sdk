@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\EntityDiscoverRule;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class labels extends Model
 {
@@ -28,41 +28,63 @@ class labels extends Model
         'tagValues' => 'tagValues',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tagValues)) {
+            Model::validateArray($this->tagValues);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->op) {
             $res['op'] = $this->op;
         }
+
         if (null !== $this->tagKey) {
             $res['tagKey'] = $this->tagKey;
         }
+
         if (null !== $this->tagValues) {
-            $res['tagValues'] = $this->tagValues;
+            if (\is_array($this->tagValues)) {
+                $res['tagValues'] = [];
+                $n1 = 0;
+                foreach ($this->tagValues as $item1) {
+                    $res['tagValues'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return labels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['op'])) {
             $model->op = $map['op'];
         }
+
         if (isset($map['tagKey'])) {
             $model->tagKey = $map['tagKey'];
         }
+
         if (isset($map['tagValues'])) {
             if (!empty($map['tagValues'])) {
-                $model->tagValues = $map['tagValues'];
+                $model->tagValues = [];
+                $n1 = 0;
+                foreach ($map['tagValues'] as $item1) {
+                    $model->tagValues[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

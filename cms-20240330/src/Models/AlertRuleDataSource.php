@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleDataSource\dsList;
-use AlibabaCloud\Tea\Model;
 
 class AlertRuleDataSource extends Model
 {
@@ -20,8 +20,6 @@ class AlertRuleDataSource extends Model
     public $dsList;
 
     /**
-     * @description 实例id，当type=PROMETHEUS_DS/ENTERPRISE_DS时必填，为prometheus实例的clusterId或指标仓库名称
-     *
      * @var string
      */
     public $instanceId;
@@ -37,10 +35,6 @@ class AlertRuleDataSource extends Model
     public $regionId;
 
     /**
-     * @description 数据源类型
-     *
-     * This parameter is required.
-     *
      * @var string
      */
     public $type;
@@ -53,32 +47,44 @@ class AlertRuleDataSource extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dsList)) {
+            Model::validateArray($this->dsList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appType) {
             $res['appType'] = $this->appType;
         }
+
         if (null !== $this->dsList) {
-            $res['dsList'] = [];
-            if (null !== $this->dsList && \is_array($this->dsList)) {
-                $n = 0;
-                foreach ($this->dsList as $item) {
-                    $res['dsList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dsList)) {
+                $res['dsList'] = [];
+                $n1 = 0;
+                foreach ($this->dsList as $item1) {
+                    $res['dsList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
+
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
         }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -86,35 +92,41 @@ class AlertRuleDataSource extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AlertRuleDataSource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['appType'])) {
             $model->appType = $map['appType'];
         }
+
         if (isset($map['dsList'])) {
             if (!empty($map['dsList'])) {
                 $model->dsList = [];
-                $n = 0;
-                foreach ($map['dsList'] as $item) {
-                    $model->dsList[$n++] = null !== $item ? dsList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['dsList'] as $item1) {
+                    $model->dsList[$n1] = dsList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
+
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
         }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

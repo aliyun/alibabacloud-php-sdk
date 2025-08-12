@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IncidentEventStruct extends Model
 {
@@ -94,50 +94,90 @@ class IncidentEventStruct extends Model
         'userId' => 'userId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dimension)) {
+            Model::validateArray($this->dimension);
+        }
+        if (\is_array($this->groupBy)) {
+            Model::validateArray($this->groupBy);
+        }
+        if (\is_array($this->resource)) {
+            Model::validateArray($this->resource);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoRecoverTime) {
             $res['autoRecoverTime'] = $this->autoRecoverTime;
         }
+
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
+
         if (null !== $this->dimension) {
-            $res['dimension'] = $this->dimension;
+            if (\is_array($this->dimension)) {
+                $res['dimension'] = [];
+                foreach ($this->dimension as $key1 => $value1) {
+                    $res['dimension'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->groupBy) {
-            $res['groupBy'] = $this->groupBy;
+            if (\is_array($this->groupBy)) {
+                $res['groupBy'] = [];
+                foreach ($this->groupBy as $key1 => $value1) {
+                    $res['groupBy'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->incidentEventId) {
             $res['incidentEventId'] = $this->incidentEventId;
         }
+
         if (null !== $this->incidentId) {
             $res['incidentId'] = $this->incidentId;
         }
+
         if (null !== $this->lastTime) {
             $res['lastTime'] = $this->lastTime;
         }
+
         if (null !== $this->recoverTime) {
             $res['recoverTime'] = $this->recoverTime;
         }
+
         if (null !== $this->resource) {
-            $res['resource'] = $this->resource;
+            if (\is_array($this->resource)) {
+                $res['resource'] = [];
+                foreach ($this->resource as $key1 => $value1) {
+                    $res['resource'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->time) {
             $res['time'] = $this->time;
         }
+
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
+
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
         }
@@ -145,53 +185,81 @@ class IncidentEventStruct extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IncidentEventStruct
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['autoRecoverTime'])) {
             $model->autoRecoverTime = $map['autoRecoverTime'];
         }
+
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }
+
         if (isset($map['dimension'])) {
-            $model->dimension = $map['dimension'];
+            if (!empty($map['dimension'])) {
+                $model->dimension = [];
+                foreach ($map['dimension'] as $key1 => $value1) {
+                    $model->dimension[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['groupBy'])) {
-            $model->groupBy = $map['groupBy'];
+            if (!empty($map['groupBy'])) {
+                $model->groupBy = [];
+                foreach ($map['groupBy'] as $key1 => $value1) {
+                    $model->groupBy[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['incidentEventId'])) {
             $model->incidentEventId = $map['incidentEventId'];
         }
+
         if (isset($map['incidentId'])) {
             $model->incidentId = $map['incidentId'];
         }
+
         if (isset($map['lastTime'])) {
             $model->lastTime = $map['lastTime'];
         }
+
         if (isset($map['recoverTime'])) {
             $model->recoverTime = $map['recoverTime'];
         }
+
         if (isset($map['resource'])) {
-            $model->resource = $map['resource'];
+            if (!empty($map['resource'])) {
+                $model->resource = [];
+                foreach ($map['resource'] as $key1 => $value1) {
+                    $model->resource[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['time'])) {
             $model->time = $map['time'];
         }
+
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }
+
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];
         }

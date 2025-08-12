@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleCondition\compositeEscalation\escalations;
-use AlibabaCloud\Tea\Model;
 
 class compositeEscalation extends Model
 {
@@ -35,26 +35,36 @@ class compositeEscalation extends Model
         'times' => 'times',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->escalations)) {
+            Model::validateArray($this->escalations);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->escalations) {
-            $res['escalations'] = [];
-            if (null !== $this->escalations && \is_array($this->escalations)) {
-                $n = 0;
-                foreach ($this->escalations as $item) {
-                    $res['escalations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->escalations)) {
+                $res['escalations'] = [];
+                $n1 = 0;
+                foreach ($this->escalations as $item1) {
+                    $res['escalations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->level) {
             $res['level'] = $this->level;
         }
+
         if (null !== $this->relation) {
             $res['relation'] = $this->relation;
         }
+
         if (null !== $this->times) {
             $res['times'] = $this->times;
         }
@@ -62,29 +72,33 @@ class compositeEscalation extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return compositeEscalation
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['escalations'])) {
             if (!empty($map['escalations'])) {
                 $model->escalations = [];
-                $n = 0;
-                foreach ($map['escalations'] as $item) {
-                    $model->escalations[$n++] = null !== $item ? escalations::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['escalations'] as $item1) {
+                    $model->escalations[$n1] = escalations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['level'])) {
             $model->level = $map['level'];
         }
+
         if (isset($map['relation'])) {
             $model->relation = $map['relation'];
         }
+
         if (isset($map['times'])) {
             $model->times = $map['times'];
         }

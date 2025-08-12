@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\MergeRobot;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class extend extends Model
 {
@@ -46,26 +46,34 @@ class extend extends Model
         'token' => 'token',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cardTemplate) {
             $res['cardTemplate'] = $this->cardTemplate;
         }
+
         if (null !== $this->dailyNoc) {
             $res['dailyNoc'] = $this->dailyNoc;
         }
+
         if (null !== $this->dailyNocTime) {
             $res['dailyNocTime'] = $this->dailyNocTime;
         }
+
         if (null !== $this->dingSignKey) {
             $res['dingSignKey'] = $this->dingSignKey;
         }
+
         if (null !== $this->enableOutgoing) {
             $res['enableOutgoing'] = $this->enableOutgoing;
         }
+
         if (null !== $this->token) {
             $res['token'] = $this->token;
         }
@@ -73,29 +81,34 @@ class extend extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return extend
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cardTemplate'])) {
             $model->cardTemplate = $map['cardTemplate'];
         }
+
         if (isset($map['dailyNoc'])) {
             $model->dailyNoc = $map['dailyNoc'];
         }
+
         if (isset($map['dailyNocTime'])) {
             $model->dailyNocTime = $map['dailyNocTime'];
         }
+
         if (isset($map['dingSignKey'])) {
             $model->dingSignKey = $map['dingSignKey'];
         }
+
         if (isset($map['enableOutgoing'])) {
             $model->enableOutgoing = $map['enableOutgoing'];
         }
+
         if (isset($map['token'])) {
             $model->token = $map['token'];
         }

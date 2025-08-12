@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PrometheusManagedInstance extends Model
 {
@@ -52,29 +52,38 @@ class PrometheusManagedInstance extends Model
         'workspace' => 'workspace',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
+
         if (null !== $this->instanceType) {
             $res['instanceType'] = $this->instanceType;
         }
+
         if (null !== $this->prometheusInstanceId) {
             $res['prometheusInstanceId'] = $this->prometheusInstanceId;
         }
+
         if (null !== $this->prometheusInstanceName) {
             $res['prometheusInstanceName'] = $this->prometheusInstanceName;
         }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->workspace) {
             $res['workspace'] = $this->workspace;
         }
@@ -82,32 +91,38 @@ class PrometheusManagedInstance extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PrometheusManagedInstance
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
+
         if (isset($map['instanceType'])) {
             $model->instanceType = $map['instanceType'];
         }
+
         if (isset($map['prometheusInstanceId'])) {
             $model->prometheusInstanceId = $map['prometheusInstanceId'];
         }
+
         if (isset($map['prometheusInstanceName'])) {
             $model->prometheusInstanceName = $map['prometheusInstanceName'];
         }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['workspace'])) {
             $model->workspace = $map['workspace'];
         }

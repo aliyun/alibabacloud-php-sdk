@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\ListAlertActionsResponseBody\alertActions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class essParam extends Model
 {
     /**
-     * @example testId
-     *
      * @var string
      */
     public $essGroupId;
 
     /**
-     * @example testId
-     *
      * @var string
      */
     public $essRuleId;
 
     /**
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
@@ -34,17 +28,22 @@ class essParam extends Model
         'regionId' => 'regionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->essGroupId) {
             $res['essGroupId'] = $this->essGroupId;
         }
+
         if (null !== $this->essRuleId) {
             $res['essRuleId'] = $this->essRuleId;
         }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
@@ -52,20 +51,22 @@ class essParam extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return essParam
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['essGroupId'])) {
             $model->essGroupId = $map['essGroupId'];
         }
+
         if (isset($map['essRuleId'])) {
             $model->essRuleId = $map['essRuleId'];
         }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }

@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetUmodelDataRequest extends Model
 {
     /**
-     * @example {
-     * "filter": {
-     * "domains": []
-     * },
-     * "offset": 0,
-     * "size": 100000
-     * }
-     *
      * @var mixed
      */
     public $content;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ListData
-     *
      * @var string
      */
     public $method;
@@ -34,14 +22,18 @@ class GetUmodelDataRequest extends Model
         'method' => 'method',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->method) {
             $res['method'] = $this->method;
         }
@@ -49,17 +41,18 @@ class GetUmodelDataRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUmodelDataRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['method'])) {
             $model->method = $map['method'];
         }

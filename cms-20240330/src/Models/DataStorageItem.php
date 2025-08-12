@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DataStorageItem extends Model
 {
@@ -40,23 +40,30 @@ class DataStorageItem extends Model
         'storeType' => 'storeType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataType) {
             $res['dataType'] = $this->dataType;
         }
+
         if (null !== $this->project) {
             $res['project'] = $this->project;
         }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
+
         if (null !== $this->storeName) {
             $res['storeName'] = $this->storeName;
         }
+
         if (null !== $this->storeType) {
             $res['storeType'] = $this->storeType;
         }
@@ -64,26 +71,30 @@ class DataStorageItem extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DataStorageItem
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dataType'])) {
             $model->dataType = $map['dataType'];
         }
+
         if (isset($map['project'])) {
             $model->project = $map['project'];
         }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
+
         if (isset($map['storeName'])) {
             $model->storeName = $map['storeName'];
         }
+
         if (isset($map['storeType'])) {
             $model->storeType = $map['storeType'];
         }

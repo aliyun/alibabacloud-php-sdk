@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\IncidentMemberStruct;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class contacts extends Model
 {
@@ -22,14 +22,18 @@ class contacts extends Model
         'contactMask' => 'contactMask',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channel) {
             $res['channel'] = $this->channel;
         }
+
         if (null !== $this->contactMask) {
             $res['contactMask'] = $this->contactMask;
         }
@@ -37,17 +41,18 @@ class contacts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contacts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['channel'])) {
             $model->channel = $map['channel'];
         }
+
         if (isset($map['contactMask'])) {
             $model->contactMask = $map['contactMask'];
         }

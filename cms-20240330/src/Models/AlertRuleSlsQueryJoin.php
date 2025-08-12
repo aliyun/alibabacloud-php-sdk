@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleSlsQueryJoin\conditions;
-use AlibabaCloud\Tea\Model;
 
 class AlertRuleSlsQueryJoin extends Model
 {
@@ -15,20 +15,6 @@ class AlertRuleSlsQueryJoin extends Model
     public $conditions;
 
     /**
-     * @description 集合操作类型。
-     * ● CrossJoin： 笛卡尔积
-     * ● FullJoin：全联
-     * ● InnerJoin：内联
-     * ● LeftExclude： 左斥
-     * ● RightExclude：右斥
-     * ● LeftJoin：左联
-     * ● RightJoin：右联
-     * ● NoJoin：不合并
-     * ● Concat： 拼接
-     * https://help.aliyun.com/zh/sls/user-guide/set-query-statistics-statement
-     *
-     * This parameter is required.
-     *
      * @var string
      */
     public $type;
@@ -37,20 +23,28 @@ class AlertRuleSlsQueryJoin extends Model
         'type' => 'type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->conditions)) {
+            Model::validateArray($this->conditions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conditions) {
-            $res['conditions'] = [];
-            if (null !== $this->conditions && \is_array($this->conditions)) {
-                $n = 0;
-                foreach ($this->conditions as $item) {
-                    $res['conditions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->conditions)) {
+                $res['conditions'] = [];
+                $n1 = 0;
+                foreach ($this->conditions as $item1) {
+                    $res['conditions'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -58,23 +52,25 @@ class AlertRuleSlsQueryJoin extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AlertRuleSlsQueryJoin
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['conditions'])) {
             if (!empty($map['conditions'])) {
                 $model->conditions = [];
-                $n = 0;
-                foreach ($map['conditions'] as $item) {
-                    $model->conditions[$n++] = null !== $item ? conditions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['conditions'] as $item1) {
+                    $model->conditions[$n1] = conditions::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

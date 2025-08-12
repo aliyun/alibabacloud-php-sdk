@@ -4,12 +4,12 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\EntityDiscoverRule\annotations;
 use AlibabaCloud\SDK\Cms\V20240330\Models\EntityDiscoverRule\fieldRules;
 use AlibabaCloud\SDK\Cms\V20240330\Models\EntityDiscoverRule\ipMatchRule;
 use AlibabaCloud\SDK\Cms\V20240330\Models\EntityDiscoverRule\labels;
 use AlibabaCloud\SDK\Cms\V20240330\Models\EntityDiscoverRule\tags;
-use AlibabaCloud\Tea\Model;
 
 class EntityDiscoverRule extends Model
 {
@@ -69,65 +69,126 @@ class EntityDiscoverRule extends Model
         'tags' => 'tags',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->annotations)) {
+            Model::validateArray($this->annotations);
+        }
+        if (\is_array($this->entityTypes)) {
+            Model::validateArray($this->entityTypes);
+        }
+        if (\is_array($this->fieldRules)) {
+            Model::validateArray($this->fieldRules);
+        }
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
+        }
+        if (\is_array($this->ipMatchRule)) {
+            Model::validateArray($this->ipMatchRule);
+        }
+        if (\is_array($this->labels)) {
+            Model::validateArray($this->labels);
+        }
+        if (\is_array($this->regionIds)) {
+            Model::validateArray($this->regionIds);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->annotations) {
-            $res['annotations'] = [];
-            if (null !== $this->annotations && \is_array($this->annotations)) {
-                $n = 0;
-                foreach ($this->annotations as $item) {
-                    $res['annotations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->annotations)) {
+                $res['annotations'] = [];
+                $n1 = 0;
+                foreach ($this->annotations as $item1) {
+                    $res['annotations'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->entityTypes) {
-            $res['entityTypes'] = $this->entityTypes;
+            if (\is_array($this->entityTypes)) {
+                $res['entityTypes'] = [];
+                $n1 = 0;
+                foreach ($this->entityTypes as $item1) {
+                    $res['entityTypes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->fieldRules) {
-            $res['fieldRules'] = [];
-            if (null !== $this->fieldRules && \is_array($this->fieldRules)) {
-                $n = 0;
-                foreach ($this->fieldRules as $item) {
-                    $res['fieldRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fieldRules)) {
+                $res['fieldRules'] = [];
+                $n1 = 0;
+                foreach ($this->fieldRules as $item1) {
+                    $res['fieldRules'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->instanceIds) {
-            $res['instanceIds'] = $this->instanceIds;
+            if (\is_array($this->instanceIds)) {
+                $res['instanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['instanceIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->ipMatchRule) {
-            $res['ipMatchRule'] = [];
-            if (null !== $this->ipMatchRule && \is_array($this->ipMatchRule)) {
-                $n = 0;
-                foreach ($this->ipMatchRule as $item) {
-                    $res['ipMatchRule'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ipMatchRule)) {
+                $res['ipMatchRule'] = [];
+                $n1 = 0;
+                foreach ($this->ipMatchRule as $item1) {
+                    $res['ipMatchRule'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->labels) {
-            $res['labels'] = [];
-            if (null !== $this->labels && \is_array($this->labels)) {
-                $n = 0;
-                foreach ($this->labels as $item) {
-                    $res['labels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->labels)) {
+                $res['labels'] = [];
+                $n1 = 0;
+                foreach ($this->labels as $item1) {
+                    $res['labels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->regionIds) {
-            $res['regionIds'] = $this->regionIds;
+            if (\is_array($this->regionIds)) {
+                $res['regionIds'] = [];
+                $n1 = 0;
+                foreach ($this->regionIds as $item1) {
+                    $res['regionIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->tags) {
-            $res['tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -135,74 +196,102 @@ class EntityDiscoverRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EntityDiscoverRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['annotations'])) {
             if (!empty($map['annotations'])) {
                 $model->annotations = [];
-                $n = 0;
-                foreach ($map['annotations'] as $item) {
-                    $model->annotations[$n++] = null !== $item ? annotations::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['annotations'] as $item1) {
+                    $model->annotations[$n1] = annotations::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['entityTypes'])) {
             if (!empty($map['entityTypes'])) {
-                $model->entityTypes = $map['entityTypes'];
+                $model->entityTypes = [];
+                $n1 = 0;
+                foreach ($map['entityTypes'] as $item1) {
+                    $model->entityTypes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['fieldRules'])) {
             if (!empty($map['fieldRules'])) {
                 $model->fieldRules = [];
-                $n = 0;
-                foreach ($map['fieldRules'] as $item) {
-                    $model->fieldRules[$n++] = null !== $item ? fieldRules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['fieldRules'] as $item1) {
+                    $model->fieldRules[$n1] = fieldRules::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['instanceIds'])) {
             if (!empty($map['instanceIds'])) {
-                $model->instanceIds = $map['instanceIds'];
+                $model->instanceIds = [];
+                $n1 = 0;
+                foreach ($map['instanceIds'] as $item1) {
+                    $model->instanceIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['ipMatchRule'])) {
             if (!empty($map['ipMatchRule'])) {
                 $model->ipMatchRule = [];
-                $n = 0;
-                foreach ($map['ipMatchRule'] as $item) {
-                    $model->ipMatchRule[$n++] = null !== $item ? ipMatchRule::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ipMatchRule'] as $item1) {
+                    $model->ipMatchRule[$n1] = ipMatchRule::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['labels'])) {
             if (!empty($map['labels'])) {
                 $model->labels = [];
-                $n = 0;
-                foreach ($map['labels'] as $item) {
-                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['labels'] as $item1) {
+                    $model->labels[$n1] = labels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['regionIds'])) {
             if (!empty($map['regionIds'])) {
-                $model->regionIds = $map['regionIds'];
+                $model->regionIds = [];
+                $n1 = 0;
+                foreach ($map['regionIds'] as $item1) {
+                    $model->regionIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
         }
+
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
                 $model->tags = [];
-                $n = 0;
-                foreach ($map['tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1] = tags::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

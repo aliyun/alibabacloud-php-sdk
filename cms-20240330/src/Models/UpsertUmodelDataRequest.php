@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpsertUmodelDataRequest extends Model
 {
@@ -14,8 +14,6 @@ class UpsertUmodelDataRequest extends Model
     public $elements;
 
     /**
-     * @example Upsert
-     *
      * @var string
      */
     public $method;
@@ -24,14 +22,28 @@ class UpsertUmodelDataRequest extends Model
         'method' => 'method',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->elements)) {
+            Model::validateArray($this->elements);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->elements) {
-            $res['elements'] = $this->elements;
+            if (\is_array($this->elements)) {
+                $res['elements'] = [];
+                $n1 = 0;
+                foreach ($this->elements as $item1) {
+                    $res['elements'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->method) {
             $res['method'] = $this->method;
         }
@@ -39,19 +51,25 @@ class UpsertUmodelDataRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpsertUmodelDataRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['elements'])) {
             if (!empty($map['elements'])) {
-                $model->elements = $map['elements'];
+                $model->elements = [];
+                $n1 = 0;
+                foreach ($map['elements'] as $item1) {
+                    $model->elements[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['method'])) {
             $model->method = $map['method'];
         }

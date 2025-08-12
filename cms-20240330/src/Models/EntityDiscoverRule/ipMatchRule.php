@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\EntityDiscoverRule;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ipMatchRule extends Model
 {
@@ -22,14 +22,18 @@ class ipMatchRule extends Model
         'ipFieldKey' => 'ipFieldKey',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipCIDR) {
             $res['ipCIDR'] = $this->ipCIDR;
         }
+
         if (null !== $this->ipFieldKey) {
             $res['ipFieldKey'] = $this->ipFieldKey;
         }
@@ -37,17 +41,18 @@ class ipMatchRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipMatchRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ipCIDR'])) {
             $model->ipCIDR = $map['ipCIDR'];
         }
+
         if (isset($map['ipFieldKey'])) {
             $model->ipFieldKey = $map['ipFieldKey'];
         }

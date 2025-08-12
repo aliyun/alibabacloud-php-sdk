@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AlertRuleAlertMetricInputParamValue extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $value;
@@ -26,14 +22,18 @@ class AlertRuleAlertMetricInputParamValue extends Model
         'value' => 'value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -41,17 +41,18 @@ class AlertRuleAlertMetricInputParamValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AlertRuleAlertMetricInputParamValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

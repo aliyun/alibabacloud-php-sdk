@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MergeWebhook extends Model
 {
@@ -82,44 +82,66 @@ class MergeWebhook extends Model
         'webhook' => 'webhook',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->gmtModified)) {
+            Model::validateArray($this->gmtModified);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contentType) {
             $res['contentType'] = $this->contentType;
         }
+
         if (null !== $this->extend) {
             $res['extend'] = $this->extend;
         }
+
         if (null !== $this->gmtCreate) {
             $res['gmtCreate'] = $this->gmtCreate;
         }
+
         if (null !== $this->gmtModified) {
-            $res['gmtModified'] = $this->gmtModified;
+            if (\is_array($this->gmtModified)) {
+                $res['gmtModified'] = [];
+                foreach ($this->gmtModified as $key1 => $value1) {
+                    $res['gmtModified'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->headers) {
             $res['headers'] = $this->headers;
         }
+
         if (null !== $this->identifier) {
             $res['identifier'] = $this->identifier;
         }
+
         if (null !== $this->lang) {
             $res['lang'] = $this->lang;
         }
+
         if (null !== $this->method) {
             $res['method'] = $this->method;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->source) {
             $res['source'] = $this->source;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->webhook) {
             $res['webhook'] = $this->webhook;
         }
@@ -127,47 +149,63 @@ class MergeWebhook extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MergeWebhook
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['contentType'])) {
             $model->contentType = $map['contentType'];
         }
+
         if (isset($map['extend'])) {
             $model->extend = $map['extend'];
         }
+
         if (isset($map['gmtCreate'])) {
             $model->gmtCreate = $map['gmtCreate'];
         }
+
         if (isset($map['gmtModified'])) {
-            $model->gmtModified = $map['gmtModified'];
+            if (!empty($map['gmtModified'])) {
+                $model->gmtModified = [];
+                foreach ($map['gmtModified'] as $key1 => $value1) {
+                    $model->gmtModified[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['headers'])) {
             $model->headers = $map['headers'];
         }
+
         if (isset($map['identifier'])) {
             $model->identifier = $map['identifier'];
         }
+
         if (isset($map['lang'])) {
             $model->lang = $map['lang'];
         }
+
         if (isset($map['method'])) {
             $model->method = $map['method'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['source'])) {
             $model->source = $map['source'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['webhook'])) {
             $model->webhook = $map['webhook'];
         }

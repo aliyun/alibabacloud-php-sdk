@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListServicesRequest extends Model
 {
     /**
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example 7-b81a-4bc9-bbfa-a50cc6988667
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example apm
-     *
      * @var string
      */
     public $serviceType;
@@ -34,17 +28,22 @@ class ListServicesRequest extends Model
         'serviceType' => 'serviceType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->serviceType) {
             $res['serviceType'] = $this->serviceType;
         }
@@ -52,20 +51,22 @@ class ListServicesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListServicesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['serviceType'])) {
             $model->serviceType = $map['serviceType'];
         }

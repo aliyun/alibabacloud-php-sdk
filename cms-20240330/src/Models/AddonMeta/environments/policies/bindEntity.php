@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\AddonMeta\environments\policies;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class bindEntity extends Model
 {
@@ -34,20 +34,26 @@ class bindEntity extends Model
         'vpcIdFieldKey' => 'vpcIdFieldKey',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entityGroupMode) {
             $res['entityGroupMode'] = $this->entityGroupMode;
         }
+
         if (null !== $this->entityType) {
             $res['entityType'] = $this->entityType;
         }
+
         if (null !== $this->singleEntityMode) {
             $res['singleEntityMode'] = $this->singleEntityMode;
         }
+
         if (null !== $this->vpcIdFieldKey) {
             $res['vpcIdFieldKey'] = $this->vpcIdFieldKey;
         }
@@ -55,23 +61,26 @@ class bindEntity extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bindEntity
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['entityGroupMode'])) {
             $model->entityGroupMode = $map['entityGroupMode'];
         }
+
         if (isset($map['entityType'])) {
             $model->entityType = $map['entityType'];
         }
+
         if (isset($map['singleEntityMode'])) {
             $model->singleEntityMode = $map['singleEntityMode'];
         }
+
         if (isset($map['vpcIdFieldKey'])) {
             $model->vpcIdFieldKey = $map['vpcIdFieldKey'];
         }

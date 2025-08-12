@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cms\V20240330\Models\AlertRuleAlertMetricFilterDef\supportedOpts;
-use AlibabaCloud\Tea\Model;
 
 class AlertRuleAlertMetricFilterDef extends Model
 {
@@ -59,38 +59,52 @@ class AlertRuleAlertMetricFilterDef extends Model
         'supportedOpts' => 'supportedOpts',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->supportedOpts)) {
+            Model::validateArray($this->supportedOpts);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dim) {
             $res['dim'] = $this->dim;
         }
+
         if (null !== $this->dimDisabled) {
             $res['dimDisabled'] = $this->dimDisabled;
         }
+
         if (null !== $this->displayNameCn) {
             $res['displayNameCn'] = $this->displayNameCn;
         }
+
         if (null !== $this->displayNameEn) {
             $res['displayNameEn'] = $this->displayNameEn;
         }
+
         if (null !== $this->hidden) {
             $res['hidden'] = $this->hidden;
         }
+
         if (null !== $this->labelDisabled) {
             $res['labelDisabled'] = $this->labelDisabled;
         }
+
         if (null !== $this->opt) {
             $res['opt'] = $this->opt;
         }
+
         if (null !== $this->supportedOpts) {
-            $res['supportedOpts'] = [];
-            if (null !== $this->supportedOpts && \is_array($this->supportedOpts)) {
-                $n = 0;
-                foreach ($this->supportedOpts as $item) {
-                    $res['supportedOpts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->supportedOpts)) {
+                $res['supportedOpts'] = [];
+                $n1 = 0;
+                foreach ($this->supportedOpts as $item1) {
+                    $res['supportedOpts'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -98,41 +112,49 @@ class AlertRuleAlertMetricFilterDef extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AlertRuleAlertMetricFilterDef
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dim'])) {
             $model->dim = $map['dim'];
         }
+
         if (isset($map['dimDisabled'])) {
             $model->dimDisabled = $map['dimDisabled'];
         }
+
         if (isset($map['displayNameCn'])) {
             $model->displayNameCn = $map['displayNameCn'];
         }
+
         if (isset($map['displayNameEn'])) {
             $model->displayNameEn = $map['displayNameEn'];
         }
+
         if (isset($map['hidden'])) {
             $model->hidden = $map['hidden'];
         }
+
         if (isset($map['labelDisabled'])) {
             $model->labelDisabled = $map['labelDisabled'];
         }
+
         if (isset($map['opt'])) {
             $model->opt = $map['opt'];
         }
+
         if (isset($map['supportedOpts'])) {
             if (!empty($map['supportedOpts'])) {
                 $model->supportedOpts = [];
-                $n = 0;
-                foreach ($map['supportedOpts'] as $item) {
-                    $model->supportedOpts[$n++] = null !== $item ? supportedOpts::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['supportedOpts'] as $item1) {
+                    $model->supportedOpts[$n1] = supportedOpts::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

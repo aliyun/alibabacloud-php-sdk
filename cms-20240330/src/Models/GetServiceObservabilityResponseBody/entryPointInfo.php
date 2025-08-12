@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\GetServiceObservabilityResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class entryPointInfo extends Model
 {
@@ -19,10 +19,6 @@ class entryPointInfo extends Model
     public $privateDomain;
 
     /**
-     * @description SLS Project
-     *
-     * @example proj-xtrace-xxxxx
-     *
      * @var string
      */
     public $project;
@@ -38,20 +34,26 @@ class entryPointInfo extends Model
         'publicDomain' => 'publicDomain',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authToken) {
             $res['authToken'] = $this->authToken;
         }
+
         if (null !== $this->privateDomain) {
             $res['privateDomain'] = $this->privateDomain;
         }
+
         if (null !== $this->project) {
             $res['project'] = $this->project;
         }
+
         if (null !== $this->publicDomain) {
             $res['publicDomain'] = $this->publicDomain;
         }
@@ -59,23 +61,26 @@ class entryPointInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return entryPointInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['authToken'])) {
             $model->authToken = $map['authToken'];
         }
+
         if (isset($map['privateDomain'])) {
             $model->privateDomain = $map['privateDomain'];
         }
+
         if (isset($map['project'])) {
             $model->project = $map['project'];
         }
+
         if (isset($map['publicDomain'])) {
             $model->publicDomain = $map['publicDomain'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models\IncidentMemberStruct;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class acknowledge extends Model
 {
@@ -22,14 +22,18 @@ class acknowledge extends Model
         'verifyTime' => 'verifyTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->breakLevel) {
             $res['breakLevel'] = $this->breakLevel;
         }
+
         if (null !== $this->verifyTime) {
             $res['verifyTime'] = $this->verifyTime;
         }
@@ -37,17 +41,18 @@ class acknowledge extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return acknowledge
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['breakLevel'])) {
             $model->breakLevel = $map['breakLevel'];
         }
+
         if (isset($map['verifyTime'])) {
             $model->verifyTime = $map['verifyTime'];
         }

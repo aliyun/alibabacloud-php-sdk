@@ -4,41 +4,26 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\SDK\Cms\V20240330\Models\CreateUmodelRequest\commonSchemaRef;
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateUmodelRequest extends Model
 {
     /**
-     * @var commonSchemaRef[]
-     */
-    public $commonSchemaRef;
-
-    /**
-     * @example workspace test
-     *
      * @var string
      */
     public $description;
     protected $_name = [
-        'commonSchemaRef' => 'commonSchemaRef',
         'description' => 'description',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->commonSchemaRef) {
-            $res['commonSchemaRef'] = [];
-            if (null !== $this->commonSchemaRef && \is_array($this->commonSchemaRef)) {
-                $n = 0;
-                foreach ($this->commonSchemaRef as $item) {
-                    $res['commonSchemaRef'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -46,23 +31,14 @@ class CreateUmodelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateUmodelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['commonSchemaRef'])) {
-            if (!empty($map['commonSchemaRef'])) {
-                $model->commonSchemaRef = [];
-                $n = 0;
-                foreach ($map['commonSchemaRef'] as $item) {
-                    $model->commonSchemaRef[$n++] = null !== $item ? commonSchemaRef::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }

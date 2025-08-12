@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20240330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AlertEventIntegrationPolicyForView extends Model
 {
@@ -14,8 +14,6 @@ class AlertEventIntegrationPolicyForView extends Model
     public $alertEventIntegrationPolicyId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $alertEventIntegrationPolicyName;
@@ -90,53 +88,75 @@ class AlertEventIntegrationPolicyForView extends Model
         'workspace' => 'workspace',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->filterSetting) {
+            $this->filterSetting->validate();
+        }
+        if (\is_array($this->transformerSetting)) {
+            Model::validateArray($this->transformerSetting);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alertEventIntegrationPolicyId) {
             $res['alertEventIntegrationPolicyId'] = $this->alertEventIntegrationPolicyId;
         }
+
         if (null !== $this->alertEventIntegrationPolicyName) {
             $res['alertEventIntegrationPolicyName'] = $this->alertEventIntegrationPolicyName;
         }
+
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
         }
+
         if (null !== $this->filterSetting) {
-            $res['filterSetting'] = null !== $this->filterSetting ? $this->filterSetting->toMap() : null;
+            $res['filterSetting'] = null !== $this->filterSetting ? $this->filterSetting->toArray($noStream) : $this->filterSetting;
         }
+
         if (null !== $this->integrationSetting) {
             $res['integrationSetting'] = $this->integrationSetting;
         }
+
         if (null !== $this->token) {
             $res['token'] = $this->token;
         }
+
         if (null !== $this->transformerSetting) {
-            $res['transformerSetting'] = [];
-            if (null !== $this->transformerSetting && \is_array($this->transformerSetting)) {
-                $n = 0;
-                foreach ($this->transformerSetting as $item) {
-                    $res['transformerSetting'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->transformerSetting)) {
+                $res['transformerSetting'] = [];
+                $n1 = 0;
+                foreach ($this->transformerSetting as $item1) {
+                    $res['transformerSetting'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->updateTime) {
             $res['updateTime'] = $this->updateTime;
         }
+
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
         }
+
         if (null !== $this->workspace) {
             $res['workspace'] = $this->workspace;
         }
@@ -144,56 +164,69 @@ class AlertEventIntegrationPolicyForView extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AlertEventIntegrationPolicyForView
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['alertEventIntegrationPolicyId'])) {
             $model->alertEventIntegrationPolicyId = $map['alertEventIntegrationPolicyId'];
         }
+
         if (isset($map['alertEventIntegrationPolicyName'])) {
             $model->alertEventIntegrationPolicyName = $map['alertEventIntegrationPolicyName'];
         }
+
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
         }
+
         if (isset($map['filterSetting'])) {
             $model->filterSetting = FilterSetting::fromMap($map['filterSetting']);
         }
+
         if (isset($map['integrationSetting'])) {
             $model->integrationSetting = $map['integrationSetting'];
         }
+
         if (isset($map['token'])) {
             $model->token = $map['token'];
         }
+
         if (isset($map['transformerSetting'])) {
             if (!empty($map['transformerSetting'])) {
                 $model->transformerSetting = [];
-                $n = 0;
-                foreach ($map['transformerSetting'] as $item) {
-                    $model->transformerSetting[$n++] = null !== $item ? TransformAction::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['transformerSetting'] as $item1) {
+                    $model->transformerSetting[$n1] = TransformAction::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['updateTime'])) {
             $model->updateTime = $map['updateTime'];
         }
+
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];
         }
+
         if (isset($map['workspace'])) {
             $model->workspace = $map['workspace'];
         }
