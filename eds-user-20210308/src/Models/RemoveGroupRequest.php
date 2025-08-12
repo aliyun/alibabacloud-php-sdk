@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveGroupRequest extends Model
 {
     /**
-     * @example ug-12341234****
-     *
      * @var string
      */
     public $groupId;
@@ -24,35 +22,55 @@ class RemoveGroupRequest extends Model
         'groupIds' => 'GroupIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->groupIds)) {
+            Model::validateArray($this->groupIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->groupIds) {
-            $res['GroupIds'] = $this->groupIds;
+            if (\is_array($this->groupIds)) {
+                $res['GroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->groupIds as $item1) {
+                    $res['GroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['GroupIds'])) {
             if (!empty($map['GroupIds'])) {
-                $model->groupIds = $map['GroupIds'];
+                $model->groupIds = [];
+                $n1 = 0;
+                foreach ($map['GroupIds'] as $item1) {
+                    $model->groupIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

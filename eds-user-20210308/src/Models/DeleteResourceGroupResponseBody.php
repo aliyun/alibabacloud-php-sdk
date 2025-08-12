@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteResourceGroupResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 2463A343-BD32-5803-959E-9A8472A1***
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class DeleteResourceGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class DeleteResourceGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteResourceGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateResourceGroupResponseBody extends Model
 {
     /**
-     * @example 868B8926-2E7A-5BE7-9897-E811E994****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example rg-ckf3cx7isinhk***
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -26,14 +22,18 @@ class CreateResourceGroupResponseBody extends Model
         'resourceGroupId' => 'ResourceGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -41,17 +41,18 @@ class CreateResourceGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateResourceGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

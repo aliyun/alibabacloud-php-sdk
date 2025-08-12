@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateOrgResponseBody extends Model
 {
     /**
-     * @example org-evk12ozjvmlxl****
-     *
      * @var string
      */
     public $orgId;
 
     /**
-     * @example 7A2C3803-C975-5871-A232-80A91009****
-     *
      * @var string
      */
     public $requestId;
@@ -26,14 +22,18 @@ class CreateOrgResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,17 +41,18 @@ class CreateOrgResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateOrgResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

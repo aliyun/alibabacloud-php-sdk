@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersResponseBody\users;
-use AlibabaCloud\Tea\Model;
 
 class DescribeUsersResponseBody extends Model
 {
     /**
-     * @description The token that determines the start point of the next query. If this parameter is left empty, all results are returned.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a4883
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The convenience accounts.
-     *
      * @var users[]
      */
     public $users;
@@ -39,23 +29,32 @@ class DescribeUsersResponseBody extends Model
         'users' => 'Users',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->users)) {
+            Model::validateArray($this->users);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->users) {
-            $res['Users'] = [];
-            if (null !== $this->users && \is_array($this->users)) {
-                $n = 0;
-                foreach ($this->users as $item) {
-                    $res['Users'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->users)) {
+                $res['Users'] = [];
+                $n1 = 0;
+                foreach ($this->users as $item1) {
+                    $res['Users'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -63,26 +62,29 @@ class DescribeUsersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUsersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {
                 $model->users = [];
-                $n = 0;
-                foreach ($map['Users'] as $item) {
-                    $model->users[$n++] = null !== $item ? users::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Users'] as $item1) {
+                    $model->users[$n1] = users::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

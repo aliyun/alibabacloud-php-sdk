@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\ListPropertyValueResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class propertyValueInfos extends Model
 {
     /**
-     * @description The value of the property.
-     *
-     * @example HR
-     *
      * @var string
      */
     public $propertyValue;
 
     /**
-     * @description The ID of the property value.
-     *
-     * @example 978
-     *
      * @var int
      */
     public $propertyValueId;
@@ -30,14 +22,18 @@ class propertyValueInfos extends Model
         'propertyValueId' => 'PropertyValueId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->propertyValue) {
             $res['PropertyValue'] = $this->propertyValue;
         }
+
         if (null !== $this->propertyValueId) {
             $res['PropertyValueId'] = $this->propertyValueId;
         }
@@ -45,17 +41,18 @@ class propertyValueInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return propertyValueInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PropertyValue'])) {
             $model->propertyValue = $map['PropertyValue'];
         }
+
         if (isset($map['PropertyValueId'])) {
             $model->propertyValueId = $map['PropertyValueId'];
         }

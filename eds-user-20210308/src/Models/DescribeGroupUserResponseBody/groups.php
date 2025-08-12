@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeGroupUserResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class groups extends Model
 {
     /**
-     * @example ug-91mvbosdjsdfh****
-     *
      * @var string
      */
     public $groupId;
@@ -21,8 +19,6 @@ class groups extends Model
     public $groupName;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $userCount;
@@ -32,17 +28,22 @@ class groups extends Model
         'userCount' => 'UserCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->userCount) {
             $res['UserCount'] = $this->userCount;
         }
@@ -50,20 +51,22 @@ class groups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return groups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['UserCount'])) {
             $model->userCount = $map['UserCount'];
         }

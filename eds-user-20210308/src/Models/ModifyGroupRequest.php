@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyGroupRequest extends Model
 {
@@ -14,17 +14,11 @@ class ModifyGroupRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ug-12341234****
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $newGroupName;
@@ -34,17 +28,22 @@ class ModifyGroupRequest extends Model
         'newGroupName' => 'NewGroupName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->newGroupName) {
             $res['NewGroupName'] = $this->newGroupName;
         }
@@ -52,20 +51,22 @@ class ModifyGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['NewGroupName'])) {
             $model->newGroupName = $map['NewGroupName'];
         }

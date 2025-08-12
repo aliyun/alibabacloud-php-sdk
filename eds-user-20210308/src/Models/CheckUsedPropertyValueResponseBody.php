@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckUsedPropertyValueResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The number of convenience accounts that are associated with the specified custom property value.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $useCount;
@@ -30,14 +22,18 @@ class CheckUsedPropertyValueResponseBody extends Model
         'useCount' => 'UseCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->useCount) {
             $res['UseCount'] = $this->useCount;
         }
@@ -45,17 +41,18 @@ class CheckUsedPropertyValueResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckUsedPropertyValueResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UseCount'])) {
             $model->useCount = $map['UseCount'];
         }

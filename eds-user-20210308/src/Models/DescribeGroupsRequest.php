@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeGroupsRequest extends Model
 {
     /**
-     * @example ENTERPRISE
-     *
      * @var string
      */
     public $bizType;
 
     /**
-     * @example ug-12341234****
-     *
      * @var string
      */
     public $groupId;
@@ -38,8 +34,6 @@ class DescribeGroupsRequest extends Model
     public $pageSize;
 
     /**
-     * @example co-0esnf80jab***
-     *
      * @var string
      */
     public $solutionId;
@@ -58,29 +52,38 @@ class DescribeGroupsRequest extends Model
         'transferFileNeedApproval' => 'TransferFileNeedApproval',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->solutionId) {
             $res['SolutionId'] = $this->solutionId;
         }
+
         if (null !== $this->transferFileNeedApproval) {
             $res['TransferFileNeedApproval'] = $this->transferFileNeedApproval;
         }
@@ -88,32 +91,38 @@ class DescribeGroupsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeGroupsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['SolutionId'])) {
             $model->solutionId = $map['SolutionId'];
         }
+
         if (isset($map['TransferFileNeedApproval'])) {
             $model->transferFileNeedApproval = $map['TransferFileNeedApproval'];
         }

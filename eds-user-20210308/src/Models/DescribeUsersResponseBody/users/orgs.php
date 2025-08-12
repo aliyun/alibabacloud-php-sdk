@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeUsersResponseBody\users;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class orgs extends Model
 {
     /**
-     * @description The organization ID.
-     *
-     * @example org-4mdgc1cocc59z****
-     *
      * @var string
      */
     public $orgId;
 
     /**
-     * @description The organization name.
-     *
-     * @example Organization 1
-     *
      * @var string
      */
     public $orgName;
@@ -36,17 +28,22 @@ class orgs extends Model
         'orgNamePath' => 'OrgNamePath',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
         }
+
         if (null !== $this->orgName) {
             $res['OrgName'] = $this->orgName;
         }
+
         if (null !== $this->orgNamePath) {
             $res['OrgNamePath'] = $this->orgNamePath;
         }
@@ -54,20 +51,22 @@ class orgs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return orgs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
         }
+
         if (isset($map['OrgName'])) {
             $model->orgName = $map['OrgName'];
         }
+
         if (isset($map['OrgNamePath'])) {
             $model->orgNamePath = $map['OrgNamePath'];
         }

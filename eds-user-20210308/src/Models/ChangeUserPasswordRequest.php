@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ChangeUserPasswordRequest extends Model
 {
     /**
-     * @example alice***
-     *
      * @var string
      */
     public $endUserId;
 
     /**
-     * @example Admin@12***
-     *
      * @var string
      */
     public $newPassword;
@@ -26,14 +22,18 @@ class ChangeUserPasswordRequest extends Model
         'newPassword' => 'NewPassword',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
+
         if (null !== $this->newPassword) {
             $res['NewPassword'] = $this->newPassword;
         }
@@ -41,17 +41,18 @@ class ChangeUserPasswordRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ChangeUserPasswordRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
+
         if (isset($map['NewPassword'])) {
             $model->newPassword = $map['NewPassword'];
         }

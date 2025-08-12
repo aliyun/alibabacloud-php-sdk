@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\ThirdApp\oidcSsoConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class endpoints extends Model
 {
@@ -64,35 +64,46 @@ class endpoints extends Model
         'userinfoEndpoint' => 'UserinfoEndpoint',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authorizationEndpoint) {
             $res['AuthorizationEndpoint'] = $this->authorizationEndpoint;
         }
+
         if (null !== $this->discoveryEndpoint) {
             $res['DiscoveryEndpoint'] = $this->discoveryEndpoint;
         }
+
         if (null !== $this->guestAuthorizationEndpoint) {
             $res['GuestAuthorizationEndpoint'] = $this->guestAuthorizationEndpoint;
         }
+
         if (null !== $this->issuer) {
             $res['Issuer'] = $this->issuer;
         }
+
         if (null !== $this->jwksEndpoint) {
             $res['JwksEndpoint'] = $this->jwksEndpoint;
         }
+
         if (null !== $this->logoutEndpoint) {
             $res['LogoutEndpoint'] = $this->logoutEndpoint;
         }
+
         if (null !== $this->revokeEndpoint) {
             $res['RevokeEndpoint'] = $this->revokeEndpoint;
         }
+
         if (null !== $this->tokenEndpoint) {
             $res['TokenEndpoint'] = $this->tokenEndpoint;
         }
+
         if (null !== $this->userinfoEndpoint) {
             $res['UserinfoEndpoint'] = $this->userinfoEndpoint;
         }
@@ -100,38 +111,46 @@ class endpoints extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return endpoints
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthorizationEndpoint'])) {
             $model->authorizationEndpoint = $map['AuthorizationEndpoint'];
         }
+
         if (isset($map['DiscoveryEndpoint'])) {
             $model->discoveryEndpoint = $map['DiscoveryEndpoint'];
         }
+
         if (isset($map['GuestAuthorizationEndpoint'])) {
             $model->guestAuthorizationEndpoint = $map['GuestAuthorizationEndpoint'];
         }
+
         if (isset($map['Issuer'])) {
             $model->issuer = $map['Issuer'];
         }
+
         if (isset($map['JwksEndpoint'])) {
             $model->jwksEndpoint = $map['JwksEndpoint'];
         }
+
         if (isset($map['LogoutEndpoint'])) {
             $model->logoutEndpoint = $map['LogoutEndpoint'];
         }
+
         if (isset($map['RevokeEndpoint'])) {
             $model->revokeEndpoint = $map['RevokeEndpoint'];
         }
+
         if (isset($map['TokenEndpoint'])) {
             $model->tokenEndpoint = $map['TokenEndpoint'];
         }
+
         if (isset($map['UserinfoEndpoint'])) {
             $model->userinfoEndpoint = $map['UserinfoEndpoint'];
         }

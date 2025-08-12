@@ -4,16 +4,12 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\CreateUsersRequest\users;
-use AlibabaCloud\Tea\Model;
 
 class CreateUsersRequest extends Model
 {
     /**
-     * @description The date on which the convenience users are automatically locked.
-     *
-     * @example 2023-03-03
-     *
      * @var string
      */
     public $autoLockTime;
@@ -24,10 +20,6 @@ class CreateUsersRequest extends Model
     public $isLocalAdmin;
 
     /**
-     * @description The initial password. If this parameter is left empty, an email for password reset is sent to the specified email address.
-     *
-     * @example Test123****
-     *
      * @var string
      */
     public $password;
@@ -38,12 +30,6 @@ class CreateUsersRequest extends Model
     public $passwordExpireDays;
 
     /**
-     * @description The information about the convenience user.
-     *
-     * This parameter is required.
-     *
-     * @example CreateUsers
-     *
      * @var users[]
      */
     public $users;
@@ -55,29 +41,40 @@ class CreateUsersRequest extends Model
         'users' => 'Users',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->users)) {
+            Model::validateArray($this->users);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoLockTime) {
             $res['AutoLockTime'] = $this->autoLockTime;
         }
+
         if (null !== $this->isLocalAdmin) {
             $res['IsLocalAdmin'] = $this->isLocalAdmin;
         }
+
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
+
         if (null !== $this->passwordExpireDays) {
             $res['PasswordExpireDays'] = $this->passwordExpireDays;
         }
+
         if (null !== $this->users) {
-            $res['Users'] = [];
-            if (null !== $this->users && \is_array($this->users)) {
-                $n = 0;
-                foreach ($this->users as $item) {
-                    $res['Users'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->users)) {
+                $res['Users'] = [];
+                $n1 = 0;
+                foreach ($this->users as $item1) {
+                    $res['Users'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -85,32 +82,37 @@ class CreateUsersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateUsersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoLockTime'])) {
             $model->autoLockTime = $map['AutoLockTime'];
         }
+
         if (isset($map['IsLocalAdmin'])) {
             $model->isLocalAdmin = $map['IsLocalAdmin'];
         }
+
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
+
         if (isset($map['PasswordExpireDays'])) {
             $model->passwordExpireDays = $map['PasswordExpireDays'];
         }
+
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {
                 $model->users = [];
-                $n = 0;
-                foreach ($map['Users'] as $item) {
-                    $model->users[$n++] = null !== $item ? users::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Users'] as $item1) {
+                    $model->users[$n1] = users::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Edsuser\V20210308\Models\ListPropertyResponseBody\properties;
-use AlibabaCloud\Tea\Model;
 
 class ListPropertyResponseBody extends Model
 {
     /**
-     * @description The token that is used for the next query. If this parameter is empty, all results have been returned.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a4883
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The information about the properties.
-     *
      * @var properties[]
      */
     public $properties;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-     *
      * @var string
      */
     public $requestId;
@@ -39,23 +29,32 @@ class ListPropertyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->properties)) {
+            Model::validateArray($this->properties);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->properties) {
-            $res['Properties'] = [];
-            if (null !== $this->properties && \is_array($this->properties)) {
-                $n = 0;
-                foreach ($this->properties as $item) {
-                    $res['Properties'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->properties)) {
+                $res['Properties'] = [];
+                $n1 = 0;
+                foreach ($this->properties as $item1) {
+                    $res['Properties'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,26 +62,29 @@ class ListPropertyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPropertyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['Properties'])) {
             if (!empty($map['Properties'])) {
                 $model->properties = [];
-                $n = 0;
-                foreach ($map['Properties'] as $item) {
-                    $model->properties[$n++] = null !== $item ? properties::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Properties'] as $item1) {
+                    $model->properties[$n1] = properties::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

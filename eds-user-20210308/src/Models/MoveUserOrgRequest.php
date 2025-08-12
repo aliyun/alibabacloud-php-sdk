@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MoveUserOrgRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $endUserIds;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example org-4mdgc1cocc59z****
-     *
      * @var string
      */
     public $orgId;
@@ -28,14 +22,28 @@ class MoveUserOrgRequest extends Model
         'orgId' => 'OrgId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->endUserIds)) {
+            Model::validateArray($this->endUserIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endUserIds) {
-            $res['EndUserIds'] = $this->endUserIds;
+            if (\is_array($this->endUserIds)) {
+                $res['EndUserIds'] = [];
+                $n1 = 0;
+                foreach ($this->endUserIds as $item1) {
+                    $res['EndUserIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
         }
@@ -43,19 +51,25 @@ class MoveUserOrgRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MoveUserOrgRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndUserIds'])) {
             if (!empty($map['EndUserIds'])) {
-                $model->endUserIds = $map['EndUserIds'];
+                $model->endUserIds = [];
+                $n1 = 0;
+                foreach ($map['EndUserIds'] as $item1) {
+                    $model->endUserIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
         }

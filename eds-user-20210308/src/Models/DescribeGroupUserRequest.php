@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeGroupUserRequest extends Model
 {
     /**
-     * @example ENTERPRISE
-     *
      * @var string
      */
     public $bizType;
@@ -21,8 +19,6 @@ class DescribeGroupUserRequest extends Model
     public $filter;
 
     /**
-     * @example ug-12341234****
-     *
      * @var string
      */
     public $groupId;
@@ -38,8 +34,6 @@ class DescribeGroupUserRequest extends Model
     public $nextToken;
 
     /**
-     * @example co-0esnf80jab***
-     *
      * @var string
      */
     public $solutionId;
@@ -52,26 +46,34 @@ class DescribeGroupUserRequest extends Model
         'solutionId' => 'SolutionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
+
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->solutionId) {
             $res['SolutionId'] = $this->solutionId;
         }
@@ -79,29 +81,34 @@ class DescribeGroupUserRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeGroupUserRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
+
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['SolutionId'])) {
             $model->solutionId = $map['SolutionId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models\DescribeGroupsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class groups extends Model
 {
@@ -24,8 +24,6 @@ class groups extends Model
     public $description;
 
     /**
-     * @example ug-2412ojkwtybd****
-     *
      * @var string
      */
     public $groupId;
@@ -54,29 +52,46 @@ class groups extends Model
         'userCount' => 'UserCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->authedResources)) {
+            Model::validateArray($this->authedResources);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authedResources) {
-            $res['AuthedResources'] = $this->authedResources;
+            if (\is_array($this->authedResources)) {
+                $res['AuthedResources'] = [];
+                foreach ($this->authedResources as $key1 => $value1) {
+                    $res['AuthedResources'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->transferFileNeedApproval) {
             $res['TransferFileNeedApproval'] = $this->transferFileNeedApproval;
         }
+
         if (null !== $this->userCount) {
             $res['UserCount'] = $this->userCount;
         }
@@ -84,32 +99,43 @@ class groups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return groups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthedResources'])) {
-            $model->authedResources = $map['AuthedResources'];
+            if (!empty($map['AuthedResources'])) {
+                $model->authedResources = [];
+                foreach ($map['AuthedResources'] as $key1 => $value1) {
+                    $model->authedResources[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['TransferFileNeedApproval'])) {
             $model->transferFileNeedApproval = $map['TransferFileNeedApproval'];
         }
+
         if (isset($map['UserCount'])) {
             $model->userCount = $map['UserCount'];
         }

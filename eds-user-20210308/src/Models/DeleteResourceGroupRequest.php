@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteResourceGroupRequest extends Model
 {
     /**
-     * @description >  The ID of the resource group that you want to delete.
-     *
-     *   If you also specify ResourceGroupIds, both parameters take effect.
-     *
-     * @example rg-aj01tck67a0szp***
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description >  The IDs of the resource groups that you want to delete.
-     *
-     *   If you also specify ResourceGroupId, both parameters take effect.
-     *
      * @var string[]
      */
     public $resourceGroupIds;
@@ -32,35 +22,55 @@ class DeleteResourceGroupRequest extends Model
         'resourceGroupIds' => 'ResourceGroupIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->resourceGroupIds)) {
+            Model::validateArray($this->resourceGroupIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->resourceGroupIds) {
-            $res['ResourceGroupIds'] = $this->resourceGroupIds;
+            if (\is_array($this->resourceGroupIds)) {
+                $res['ResourceGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->resourceGroupIds as $item1) {
+                    $res['ResourceGroupIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteResourceGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['ResourceGroupIds'])) {
             if (!empty($map['ResourceGroupIds'])) {
-                $model->resourceGroupIds = $map['ResourceGroupIds'];
+                $model->resourceGroupIds = [];
+                $n1 = 0;
+                foreach ($map['ResourceGroupIds'] as $item1) {
+                    $model->resourceGroupIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

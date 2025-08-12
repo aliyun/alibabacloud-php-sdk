@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Edsuser\V20210308\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveOrgRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example org-5yy5icj981xe5****
-     *
      * @var string
      */
     public $orgId;
@@ -20,9 +16,12 @@ class RemoveOrgRequest extends Model
         'orgId' => 'OrgId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orgId) {
@@ -32,11 +31,11 @@ class RemoveOrgRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveOrgRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
