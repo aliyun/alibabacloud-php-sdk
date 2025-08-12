@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveAISubtitleResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveAISubtitleResponseBody\subtitleConfigs\subtitleConfig;
-use AlibabaCloud\Tea\Model;
 
 class subtitleConfigs extends Model
 {
@@ -17,17 +17,24 @@ class subtitleConfigs extends Model
         'subtitleConfig' => 'SubtitleConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->subtitleConfig)) {
+            Model::validateArray($this->subtitleConfig);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->subtitleConfig) {
-            $res['SubtitleConfig'] = [];
-            if (null !== $this->subtitleConfig && \is_array($this->subtitleConfig)) {
-                $n = 0;
-                foreach ($this->subtitleConfig as $item) {
-                    $res['SubtitleConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subtitleConfig)) {
+                $res['SubtitleConfig'] = [];
+                $n1 = 0;
+                foreach ($this->subtitleConfig as $item1) {
+                    $res['SubtitleConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class subtitleConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return subtitleConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SubtitleConfig'])) {
             if (!empty($map['SubtitleConfig'])) {
                 $model->subtitleConfig = [];
-                $n = 0;
-                foreach ($map['SubtitleConfig'] as $item) {
-                    $model->subtitleConfig[$n++] = null !== $item ? subtitleConfig::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SubtitleConfig'] as $item1) {
+                    $model->subtitleConfig[$n1] = subtitleConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

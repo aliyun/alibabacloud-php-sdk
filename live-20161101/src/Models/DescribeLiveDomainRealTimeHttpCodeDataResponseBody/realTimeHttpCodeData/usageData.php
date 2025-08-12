@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainRealTimeHttpCodeDataResponseBody\realTimeHttpCodeData;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainRealTimeHttpCodeDataResponseBody\realTimeHttpCodeData\usageData\value;
-use AlibabaCloud\Tea\Model;
 
 class usageData extends Model
 {
     /**
-     * @description The timestamp of the data returned.
-     *
-     * @example 2015-11-30T05:39:00Z
-     *
      * @var string
      */
     public $timeStamp;
 
     /**
-     * @description The proportions of HTTP status codes.
-     *
      * @var value
      */
     public $value;
@@ -29,32 +23,40 @@ class usageData extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->value) {
+            $this->value->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
+
         if (null !== $this->value) {
-            $res['Value'] = null !== $this->value ? $this->value->toMap() : null;
+            $res['Value'] = null !== $this->value ? $this->value->toArray($noStream) : $this->value;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return usageData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }
+
         if (isset($map['Value'])) {
             $model->value = value::fromMap($map['Value']);
         }

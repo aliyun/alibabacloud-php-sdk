@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamCountResponseBody\streamCountInfos;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLiveStreamCountResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example FCFFE4A4-F34F-4EEF-B401-36A01689AFBC
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The statistics of the live streams.
-     *
      * @var streamCountInfos
      */
     public $streamCountInfos;
@@ -29,32 +23,40 @@ class DescribeLiveStreamCountResponseBody extends Model
         'streamCountInfos' => 'StreamCountInfos',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->streamCountInfos) {
+            $this->streamCountInfos->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->streamCountInfos) {
-            $res['StreamCountInfos'] = null !== $this->streamCountInfos ? $this->streamCountInfos->toMap() : null;
+            $res['StreamCountInfos'] = null !== $this->streamCountInfos ? $this->streamCountInfos->toArray($noStream) : $this->streamCountInfos;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveStreamCountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StreamCountInfos'])) {
             $model->streamCountInfos = streamCountInfos::fromMap($map['StreamCountInfos']);
         }

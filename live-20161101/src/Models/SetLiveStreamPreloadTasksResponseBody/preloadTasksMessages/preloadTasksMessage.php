@@ -4,34 +4,21 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\SetLiveStreamPreloadTasksResponseBody\preloadTasksMessages;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class preloadTasksMessage extends Model
 {
     /**
-     * @description Indicates whether the prefetch task is successful. Valid values:
-     *
-     *   Successfully
-     *   InternalError
-     *
-     * @example Successfully
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The streaming URL.
-     *
      * @var string
      */
     public $playUrl;
 
     /**
-     * @description The ID of the prefetch task.
-     *
-     * @example yourTaskId
-     *
      * @var string
      */
     public $taskId;
@@ -41,17 +28,22 @@ class preloadTasksMessage extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->playUrl) {
             $res['PlayUrl'] = $this->playUrl;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -59,20 +51,22 @@ class preloadTasksMessage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return preloadTasksMessage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['PlayUrl'])) {
             $model->playUrl = $map['PlayUrl'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

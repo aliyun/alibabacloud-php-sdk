@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamBitRateDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamBitRateDataResponseBody\frameRateAndBitRateInfos\frameRateAndBitRateInfo;
-use AlibabaCloud\Tea\Model;
 
 class frameRateAndBitRateInfos extends Model
 {
@@ -17,17 +17,24 @@ class frameRateAndBitRateInfos extends Model
         'frameRateAndBitRateInfo' => 'FrameRateAndBitRateInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->frameRateAndBitRateInfo)) {
+            Model::validateArray($this->frameRateAndBitRateInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->frameRateAndBitRateInfo) {
-            $res['FrameRateAndBitRateInfo'] = [];
-            if (null !== $this->frameRateAndBitRateInfo && \is_array($this->frameRateAndBitRateInfo)) {
-                $n = 0;
-                foreach ($this->frameRateAndBitRateInfo as $item) {
-                    $res['FrameRateAndBitRateInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->frameRateAndBitRateInfo)) {
+                $res['FrameRateAndBitRateInfo'] = [];
+                $n1 = 0;
+                foreach ($this->frameRateAndBitRateInfo as $item1) {
+                    $res['FrameRateAndBitRateInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class frameRateAndBitRateInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return frameRateAndBitRateInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FrameRateAndBitRateInfo'])) {
             if (!empty($map['FrameRateAndBitRateInfo'])) {
                 $model->frameRateAndBitRateInfo = [];
-                $n = 0;
-                foreach ($map['FrameRateAndBitRateInfo'] as $item) {
-                    $model->frameRateAndBitRateInfo[$n++] = null !== $item ? frameRateAndBitRateInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FrameRateAndBitRateInfo'] as $item1) {
+                    $model->frameRateAndBitRateInfo[$n1] = frameRateAndBitRateInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

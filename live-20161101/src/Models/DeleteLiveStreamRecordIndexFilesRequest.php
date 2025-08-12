@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteLiveStreamRecordIndexFilesRequest extends Model
 {
     /**
-     * @description The name of the application to which the live stream belongs.
-     *
-     * This parameter is required.
-     *
-     * @example liveApp****
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description The name of the main streaming domain.
-     *
-     * This parameter is required.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
@@ -36,12 +24,6 @@ class DeleteLiveStreamRecordIndexFilesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The index file IDs.
-     *
-     * This parameter is required.
-     *
-     * @example c4d7f0a4-b506-43f9-8de3-07732c3f****
-     *
      * @var string[]
      */
     public $recordId;
@@ -52,26 +34,11 @@ class DeleteLiveStreamRecordIndexFilesRequest extends Model
     public $regionId;
 
     /**
-     * @description Specifies whether to delete the corresponding file in Object Storage Service (OSS) synchronously. Valid values:
-     *
-     *   **true**: The corresponding file in OSS is deleted.
-     *   **false**: The corresponding file in OSS is not deleted.
-     *
-     * This parameter is required.
-     *
-     * @example true
-     *
      * @var string
      */
     public $removeFile;
 
     /**
-     * @description The name of the live stream.
-     *
-     * This parameter is required.
-     *
-     * @example liveStream****
-     *
      * @var string
      */
     public $streamName;
@@ -85,29 +52,48 @@ class DeleteLiveStreamRecordIndexFilesRequest extends Model
         'streamName' => 'StreamName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->recordId)) {
+            Model::validateArray($this->recordId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->recordId) {
-            $res['RecordId'] = $this->recordId;
+            if (\is_array($this->recordId)) {
+                $res['RecordId'] = [];
+                $n1 = 0;
+                foreach ($this->recordId as $item1) {
+                    $res['RecordId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->removeFile) {
             $res['RemoveFile'] = $this->removeFile;
         }
+
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
         }
@@ -115,34 +101,45 @@ class DeleteLiveStreamRecordIndexFilesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteLiveStreamRecordIndexFilesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RecordId'])) {
             if (!empty($map['RecordId'])) {
-                $model->recordId = $map['RecordId'];
+                $model->recordId = [];
+                $n1 = 0;
+                foreach ($map['RecordId'] as $item1) {
+                    $model->recordId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RemoveFile'])) {
             $model->removeFile = $map['RemoveFile'];
         }
+
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
         }

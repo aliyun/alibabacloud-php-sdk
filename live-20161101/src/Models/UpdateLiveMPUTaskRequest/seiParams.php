@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\UpdateLiveMPUTaskRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\UpdateLiveMPUTaskRequest\seiParams\layoutVolume;
 use AlibabaCloud\SDK\Live\V20161101\Models\UpdateLiveMPUTaskRequest\seiParams\passThrough;
-use AlibabaCloud\Tea\Model;
 
 class seiParams extends Model
 {
     /**
-     * @description The layout and volume SEI. If you leave this parameter empty, the default layout and volume SEI is used.
-     *
      * @var layoutVolume
      */
     public $layoutVolume;
 
     /**
-     * @description Specifies whether to pass through the SEI.
-     *
      * @var passThrough
      */
     public $passThrough;
@@ -28,32 +24,43 @@ class seiParams extends Model
         'passThrough' => 'PassThrough',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->layoutVolume) {
+            $this->layoutVolume->validate();
+        }
+        if (null !== $this->passThrough) {
+            $this->passThrough->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->layoutVolume) {
-            $res['LayoutVolume'] = null !== $this->layoutVolume ? $this->layoutVolume->toMap() : null;
+            $res['LayoutVolume'] = null !== $this->layoutVolume ? $this->layoutVolume->toArray($noStream) : $this->layoutVolume;
         }
+
         if (null !== $this->passThrough) {
-            $res['PassThrough'] = null !== $this->passThrough ? $this->passThrough->toMap() : null;
+            $res['PassThrough'] = null !== $this->passThrough ? $this->passThrough->toArray($noStream) : $this->passThrough;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return seiParams
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LayoutVolume'])) {
             $model->layoutVolume = layoutVolume::fromMap($map['LayoutVolume']);
         }
+
         if (isset($map['PassThrough'])) {
             $model->passThrough = passThrough::fromMap($map['PassThrough']);
         }

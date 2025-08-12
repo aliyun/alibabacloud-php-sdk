@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainMonitoringUsageDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainMonitoringUsageDataResponseBody\monitoringData\monitoringDataItem;
-use AlibabaCloud\Tea\Model;
 
 class monitoringData extends Model
 {
@@ -17,17 +17,24 @@ class monitoringData extends Model
         'monitoringDataItem' => 'MonitoringDataItem',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->monitoringDataItem)) {
+            Model::validateArray($this->monitoringDataItem);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->monitoringDataItem) {
-            $res['MonitoringDataItem'] = [];
-            if (null !== $this->monitoringDataItem && \is_array($this->monitoringDataItem)) {
-                $n = 0;
-                foreach ($this->monitoringDataItem as $item) {
-                    $res['MonitoringDataItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->monitoringDataItem)) {
+                $res['MonitoringDataItem'] = [];
+                $n1 = 0;
+                foreach ($this->monitoringDataItem as $item1) {
+                    $res['MonitoringDataItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class monitoringData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return monitoringData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MonitoringDataItem'])) {
             if (!empty($map['MonitoringDataItem'])) {
                 $model->monitoringDataItem = [];
-                $n = 0;
-                foreach ($map['MonitoringDataItem'] as $item) {
-                    $model->monitoringDataItem[$n++] = null !== $item ? monitoringDataItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MonitoringDataItem'] as $item1) {
+                    $model->monitoringDataItem[$n1] = monitoringDataItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

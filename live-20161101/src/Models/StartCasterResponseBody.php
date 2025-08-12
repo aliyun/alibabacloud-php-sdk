@@ -4,31 +4,23 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\StartCasterResponseBody\pgmSceneInfos;
 use AlibabaCloud\SDK\Live\V20161101\Models\StartCasterResponseBody\pvwSceneInfos;
-use AlibabaCloud\Tea\Model;
 
 class StartCasterResponseBody extends Model
 {
     /**
-     * @description The PGM scenes.
-     *
      * @var pgmSceneInfos
      */
     public $pgmSceneInfos;
 
     /**
-     * @description The PVW scenes.
-     *
      * @var pvwSceneInfos
      */
     public $pvwSceneInfos;
 
     /**
-     * @description The request ID.
-     *
-     * @example 6EBD1AC4-C34D-4AE1-963E-B688A228BE31
-     *
      * @var string
      */
     public $requestId;
@@ -38,17 +30,28 @@ class StartCasterResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->pgmSceneInfos) {
+            $this->pgmSceneInfos->validate();
+        }
+        if (null !== $this->pvwSceneInfos) {
+            $this->pvwSceneInfos->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pgmSceneInfos) {
-            $res['PgmSceneInfos'] = null !== $this->pgmSceneInfos ? $this->pgmSceneInfos->toMap() : null;
+            $res['PgmSceneInfos'] = null !== $this->pgmSceneInfos ? $this->pgmSceneInfos->toArray($noStream) : $this->pgmSceneInfos;
         }
+
         if (null !== $this->pvwSceneInfos) {
-            $res['PvwSceneInfos'] = null !== $this->pvwSceneInfos ? $this->pvwSceneInfos->toMap() : null;
+            $res['PvwSceneInfos'] = null !== $this->pvwSceneInfos ? $this->pvwSceneInfos->toArray($noStream) : $this->pvwSceneInfos;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -56,20 +59,22 @@ class StartCasterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartCasterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PgmSceneInfos'])) {
             $model->pgmSceneInfos = pgmSceneInfos::fromMap($map['PgmSceneInfos']);
         }
+
         if (isset($map['PvwSceneInfos'])) {
             $model->pvwSceneInfos = pvwSceneInfos::fromMap($map['PvwSceneInfos']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

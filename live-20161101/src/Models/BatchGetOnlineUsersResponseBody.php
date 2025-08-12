@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\BatchGetOnlineUsersResponseBody\result;
-use AlibabaCloud\Tea\Model;
 
 class BatchGetOnlineUsersResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 16A96B9A-****-CB92E68F4CD8
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The returned results.
-     *
      * @var result
      */
     public $result;
@@ -29,32 +23,40 @@ class BatchGetOnlineUsersResponseBody extends Model
         'result' => 'Result',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->result) {
+            $this->result->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
+            $res['Result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchGetOnlineUsersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
             $model->result = result::fromMap($map['Result']);
         }

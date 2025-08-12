@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAllCustomTemplatesRequest extends Model
 {
@@ -19,10 +19,6 @@ class GetAllCustomTemplatesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the user.
-     *
-     * @example 25346073170691****
-     *
      * @var string
      */
     public $userId;
@@ -32,17 +28,22 @@ class GetAllCustomTemplatesRequest extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -50,20 +51,22 @@ class GetAllCustomTemplatesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAllCustomTemplatesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

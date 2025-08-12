@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeLiveIpInfoRequest extends Model
 {
     /**
-     * @description The IP address that you want to check. You can specify only one IP address in each call.
-     *
-     * This parameter is required.
-     *
-     * @example 192.168.0.1
-     *
      * @var string
      */
     public $IP;
@@ -34,17 +28,22 @@ class DescribeLiveIpInfoRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->IP) {
             $res['IP'] = $this->IP;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -52,20 +51,22 @@ class DescribeLiveIpInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveIpInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IP'])) {
             $model->IP = $map['IP'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

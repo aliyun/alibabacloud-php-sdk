@@ -4,9 +4,10 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\StartRtcCloudRecordingRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\StartRtcCloudRecordingRequest\storageParams\fileInfo;
 use AlibabaCloud\SDK\Live\V20161101\Models\StartRtcCloudRecordingRequest\storageParams\OSSParams;
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\SDK\Live\V20161101\Models\StartRtcCloudRecordingRequest\storageParams\vodParams;
 
 class storageParams extends Model
 {
@@ -21,65 +22,93 @@ class storageParams extends Model
     public $OSSParams;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $storageType;
+
+    /**
+     * @var vodParams
+     */
+    public $vodParams;
     protected $_name = [
         'fileInfo' => 'FileInfo',
         'OSSParams' => 'OSSParams',
         'storageType' => 'StorageType',
+        'vodParams' => 'VodParams',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fileInfo)) {
+            Model::validateArray($this->fileInfo);
+        }
+        if (null !== $this->OSSParams) {
+            $this->OSSParams->validate();
+        }
+        if (null !== $this->vodParams) {
+            $this->vodParams->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileInfo) {
-            $res['FileInfo'] = [];
-            if (null !== $this->fileInfo && \is_array($this->fileInfo)) {
-                $n = 0;
-                foreach ($this->fileInfo as $item) {
-                    $res['FileInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fileInfo)) {
+                $res['FileInfo'] = [];
+                $n1 = 0;
+                foreach ($this->fileInfo as $item1) {
+                    $res['FileInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->OSSParams) {
-            $res['OSSParams'] = null !== $this->OSSParams ? $this->OSSParams->toMap() : null;
+            $res['OSSParams'] = null !== $this->OSSParams ? $this->OSSParams->toArray($noStream) : $this->OSSParams;
         }
+
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
+        }
+
+        if (null !== $this->vodParams) {
+            $res['VodParams'] = null !== $this->vodParams ? $this->vodParams->toArray($noStream) : $this->vodParams;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return storageParams
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileInfo'])) {
             if (!empty($map['FileInfo'])) {
                 $model->fileInfo = [];
-                $n = 0;
-                foreach ($map['FileInfo'] as $item) {
-                    $model->fileInfo[$n++] = null !== $item ? fileInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FileInfo'] as $item1) {
+                    $model->fileInfo[$n1] = fileInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['OSSParams'])) {
             $model->OSSParams = OSSParams::fromMap($map['OSSParams']);
         }
+
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
+        }
+
+        if (isset($map['VodParams'])) {
+            $model->vodParams = vodParams::fromMap($map['VodParams']);
         }
 
         return $model;

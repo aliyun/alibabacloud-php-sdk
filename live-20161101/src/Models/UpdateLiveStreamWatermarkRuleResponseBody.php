@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateLiveStreamWatermarkRuleResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 5c6a2a0df228-4a64-af62-20e91b9676b3
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class UpdateLiveStreamWatermarkRuleResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class UpdateLiveStreamWatermarkRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateLiveStreamWatermarkRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

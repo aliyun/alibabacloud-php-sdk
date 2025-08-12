@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\AddCasterProgramResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\AddCasterProgramResponseBody\episodeIds\episodeId;
-use AlibabaCloud\Tea\Model;
 
 class episodeIds extends Model
 {
@@ -17,17 +17,24 @@ class episodeIds extends Model
         'episodeId' => 'EpisodeId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->episodeId)) {
+            Model::validateArray($this->episodeId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->episodeId) {
-            $res['EpisodeId'] = [];
-            if (null !== $this->episodeId && \is_array($this->episodeId)) {
-                $n = 0;
-                foreach ($this->episodeId as $item) {
-                    $res['EpisodeId'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->episodeId)) {
+                $res['EpisodeId'] = [];
+                $n1 = 0;
+                foreach ($this->episodeId as $item1) {
+                    $res['EpisodeId'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class episodeIds extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return episodeIds
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EpisodeId'])) {
             if (!empty($map['EpisodeId'])) {
                 $model->episodeId = [];
-                $n = 0;
-                foreach ($map['EpisodeId'] as $item) {
-                    $model->episodeId[$n++] = null !== $item ? episodeId::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['EpisodeId'] as $item1) {
+                    $model->episodeId[$n1] = episodeId::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

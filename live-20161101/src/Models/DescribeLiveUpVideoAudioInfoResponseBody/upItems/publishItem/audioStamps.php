@@ -4,29 +4,37 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUpVideoAudioInfoResponseBody\upItems\publishItem;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUpVideoAudioInfoResponseBody\upItems\publishItem\audioStamps\audioStamps;
 
 class audioStamps extends Model
 {
     /**
-     * @var audioStamps\audioStamps[]
+     * @var audioStamps[]
      */
     public $audioStamps;
     protected $_name = [
         'audioStamps' => 'AudioStamps',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->audioStamps)) {
+            Model::validateArray($this->audioStamps);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->audioStamps) {
-            $res['AudioStamps'] = [];
-            if (null !== $this->audioStamps && \is_array($this->audioStamps)) {
-                $n = 0;
-                foreach ($this->audioStamps as $item) {
-                    $res['AudioStamps'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->audioStamps)) {
+                $res['AudioStamps'] = [];
+                $n1 = 0;
+                foreach ($this->audioStamps as $item1) {
+                    $res['AudioStamps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +42,21 @@ class audioStamps extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return audioStamps
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AudioStamps'])) {
             if (!empty($map['AudioStamps'])) {
                 $model->audioStamps = [];
-                $n = 0;
-                foreach ($map['AudioStamps'] as $item) {
-                    $model->audioStamps[$n++] = null !== $item ? audioStamps\audioStamps::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AudioStamps'] as $item1) {
+                    $model->audioStamps[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

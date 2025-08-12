@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainLimitResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainLimitResponseBody\liveDomainLimitList\liveDomainLimit;
-use AlibabaCloud\Tea\Model;
 
 class liveDomainLimitList extends Model
 {
@@ -17,17 +17,24 @@ class liveDomainLimitList extends Model
         'liveDomainLimit' => 'LiveDomainLimit',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->liveDomainLimit)) {
+            Model::validateArray($this->liveDomainLimit);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->liveDomainLimit) {
-            $res['LiveDomainLimit'] = [];
-            if (null !== $this->liveDomainLimit && \is_array($this->liveDomainLimit)) {
-                $n = 0;
-                foreach ($this->liveDomainLimit as $item) {
-                    $res['LiveDomainLimit'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->liveDomainLimit)) {
+                $res['LiveDomainLimit'] = [];
+                $n1 = 0;
+                foreach ($this->liveDomainLimit as $item1) {
+                    $res['LiveDomainLimit'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class liveDomainLimitList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return liveDomainLimitList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LiveDomainLimit'])) {
             if (!empty($map['LiveDomainLimit'])) {
                 $model->liveDomainLimit = [];
-                $n = 0;
-                foreach ($map['LiveDomainLimit'] as $item) {
-                    $model->liveDomainLimit[$n++] = null !== $item ? liveDomainLimit::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LiveDomainLimit'] as $item1) {
+                    $model->liveDomainLimit[$n1] = liveDomainLimit::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

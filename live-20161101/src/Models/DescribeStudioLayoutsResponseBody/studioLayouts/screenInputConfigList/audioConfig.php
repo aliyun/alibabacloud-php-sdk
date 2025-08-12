@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeStudioLayoutsResponseBody\studioLayouts\screenInputConfigList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class audioConfig extends Model
 {
     /**
-     * @description The corresponding channel.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $validChannel;
 
     /**
-     * @description The volume.
-     *
-     * @example 1.0
-     *
      * @var float
      */
     public $volumeRate;
@@ -30,14 +22,18 @@ class audioConfig extends Model
         'volumeRate' => 'VolumeRate',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->validChannel) {
             $res['ValidChannel'] = $this->validChannel;
         }
+
         if (null !== $this->volumeRate) {
             $res['VolumeRate'] = $this->volumeRate;
         }
@@ -45,17 +41,18 @@ class audioConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return audioConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ValidChannel'])) {
             $model->validChannel = $map['ValidChannel'];
         }
+
         if (isset($map['VolumeRate'])) {
             $model->volumeRate = $map['VolumeRate'];
         }

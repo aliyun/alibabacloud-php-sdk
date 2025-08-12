@@ -4,32 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\ModifyCasterProgramRequest\episode;
-use AlibabaCloud\Tea\Model;
 
 class ModifyCasterProgramRequest extends Model
 {
     /**
-     * @description The ID of the production studio.
-     *
-     *   If the production studio was created by calling the [CreateCaster](https://help.aliyun.com/document_detail/2848009.html) operation, check the value of the response parameter CasterId to obtain the ID.
-     *   If the production studio was created by using the ApsaraVideo Live console, obtain the ID on the **Production Studio Management** page. To go to the page, log on to the **ApsaraVideo Live console** and click **Production Studios** in the left-side navigation pane.
-     *
-     * >  You can find the ID of the production studio in the Instance ID/Name column.
-     *
-     * This parameter is required.
-     *
-     * @example a2b8e671-2fe5-4642-a2ec-bf93880e****
-     *
      * @var string
      */
     public $casterId;
 
     /**
-     * @description The episodes.
-     *
-     * This parameter is required.
-     *
      * @var episode[]
      */
     public $episode;
@@ -50,26 +35,36 @@ class ModifyCasterProgramRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->episode)) {
+            Model::validateArray($this->episode);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
+
         if (null !== $this->episode) {
-            $res['Episode'] = [];
-            if (null !== $this->episode && \is_array($this->episode)) {
-                $n = 0;
-                foreach ($this->episode as $item) {
-                    $res['Episode'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->episode)) {
+                $res['Episode'] = [];
+                $n1 = 0;
+                foreach ($this->episode as $item1) {
+                    $res['Episode'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -77,29 +72,33 @@ class ModifyCasterProgramRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyCasterProgramRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }
+
         if (isset($map['Episode'])) {
             if (!empty($map['Episode'])) {
                 $model->episode = [];
-                $n = 0;
-                foreach ($map['Episode'] as $item) {
-                    $model->episode[$n++] = null !== $item ? episode::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Episode'] as $item1) {
+                    $model->episode[$n1] = episode::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

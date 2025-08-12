@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListRtcMPUTaskDetailResponseBody\MPUTasks;
-use AlibabaCloud\Tea\Model;
 
 class ListRtcMPUTaskDetailResponseBody extends Model
 {
     /**
-     * @description The parameters that you configured when you called the StartLiveMPUTask operation to create the tasks.
-     *
      * @var MPUTasks[]
      */
     public $MPUTasks;
 
     /**
-     * @description The request ID.
-     *
-     * @example ******3B-0E1A-586A-AC29-742247******
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class ListRtcMPUTaskDetailResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->MPUTasks)) {
+            Model::validateArray($this->MPUTasks);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->MPUTasks) {
-            $res['MPUTasks'] = [];
-            if (null !== $this->MPUTasks && \is_array($this->MPUTasks)) {
-                $n = 0;
-                foreach ($this->MPUTasks as $item) {
-                    $res['MPUTasks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->MPUTasks)) {
+                $res['MPUTasks'] = [];
+                $n1 = 0;
+                foreach ($this->MPUTasks as $item1) {
+                    $res['MPUTasks'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class ListRtcMPUTaskDetailResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRtcMPUTaskDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MPUTasks'])) {
             if (!empty($map['MPUTasks'])) {
                 $model->MPUTasks = [];
-                $n = 0;
-                foreach ($map['MPUTasks'] as $item) {
-                    $model->MPUTasks[$n++] = null !== $item ? MPUTasks::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MPUTasks'] as $item1) {
+                    $model->MPUTasks[$n1] = MPUTasks::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

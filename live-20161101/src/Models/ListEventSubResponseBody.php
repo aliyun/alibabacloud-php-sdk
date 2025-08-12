@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListEventSubResponseBody\subscribers;
-use AlibabaCloud\Tea\Model;
 
 class ListEventSubResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example AE050E24-BE9B-1E79-BB30-7EA0BBAE7F08
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The events.
-     *
      * @var subscribers[]
      */
     public $subscribers;
@@ -29,20 +23,28 @@ class ListEventSubResponseBody extends Model
         'subscribers' => 'Subscribers',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->subscribers)) {
+            Model::validateArray($this->subscribers);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->subscribers) {
-            $res['Subscribers'] = [];
-            if (null !== $this->subscribers && \is_array($this->subscribers)) {
-                $n = 0;
-                foreach ($this->subscribers as $item) {
-                    $res['Subscribers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subscribers)) {
+                $res['Subscribers'] = [];
+                $n1 = 0;
+                foreach ($this->subscribers as $item1) {
+                    $res['Subscribers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -50,23 +52,25 @@ class ListEventSubResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListEventSubResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Subscribers'])) {
             if (!empty($map['Subscribers'])) {
                 $model->subscribers = [];
-                $n = 0;
-                foreach ($map['Subscribers'] as $item) {
-                    $model->subscribers[$n++] = null !== $item ? subscribers::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Subscribers'] as $item1) {
+                    $model->subscribers[$n1] = subscribers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

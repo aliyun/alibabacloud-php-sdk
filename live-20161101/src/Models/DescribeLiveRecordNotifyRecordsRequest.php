@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeLiveRecordNotifyRecordsRequest extends Model
 {
     /**
-     * @description The name of the application to which the live stream belongs.
-     *
-     * @example liveApp****
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description The main streaming domain.
-     *
-     * This parameter is required.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-     *
-     * This parameter is required.
-     *
-     * @example 2023-02-10T21:03:47Z
-     *
      * @var string
      */
     public $endTime;
@@ -45,23 +29,11 @@ class DescribeLiveRecordNotifyRecordsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number. Default value: 1. Valid values: 1 to 100000.
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Valid values: 1 to 500. Default value: 20.
-     *
-     * This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -72,35 +44,16 @@ class DescribeLiveRecordNotifyRecordsRequest extends Model
     public $regionId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-     *
-     * >  You can query data within the last seven days.
-     *
-     * This parameter is required.
-     *
-     * @example 2023-02-10T21:03:47Z
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description Specifies whether the callback is successful. Valid values:
-     *
-     *   success
-     *   failed
-     *
-     * @example success
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description The name of the live stream.
-     *
-     * @example liveStream****
-     *
      * @var string
      */
     public $streamName;
@@ -117,38 +70,50 @@ class DescribeLiveRecordNotifyRecordsRequest extends Model
         'streamName' => 'StreamName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
         }
@@ -156,41 +121,50 @@ class DescribeLiveRecordNotifyRecordsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveRecordNotifyRecordsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
         }

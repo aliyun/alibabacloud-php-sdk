@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteLiveAppRecordConfigResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 6EBD1AC4-C34D-4AE1-963E-B688A228BE31
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class DeleteLiveAppRecordConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class DeleteLiveAppRecordConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteLiveAppRecordConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\BatchGetOnlineUsersResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\BatchGetOnlineUsersResponseBody\result\onlineUsers;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @description The information about users.
-     *
      * @var onlineUsers[]
      */
     public $onlineUsers;
@@ -19,17 +17,24 @@ class result extends Model
         'onlineUsers' => 'OnlineUsers',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->onlineUsers)) {
+            Model::validateArray($this->onlineUsers);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->onlineUsers) {
-            $res['OnlineUsers'] = [];
-            if (null !== $this->onlineUsers && \is_array($this->onlineUsers)) {
-                $n = 0;
-                foreach ($this->onlineUsers as $item) {
-                    $res['OnlineUsers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->onlineUsers)) {
+                $res['OnlineUsers'] = [];
+                $n1 = 0;
+                foreach ($this->onlineUsers as $item1) {
+                    $res['OnlineUsers'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OnlineUsers'])) {
             if (!empty($map['OnlineUsers'])) {
                 $model->onlineUsers = [];
-                $n = 0;
-                foreach ($map['OnlineUsers'] as $item) {
-                    $model->onlineUsers[$n++] = null !== $item ? onlineUsers::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OnlineUsers'] as $item1) {
+                    $model->onlineUsers[$n1] = onlineUsers::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

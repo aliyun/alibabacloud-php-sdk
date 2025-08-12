@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterLayoutsResponseBody\layouts\layout;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterLayoutsResponseBody\layouts\layout\audioLayers\audioLayer;
-use AlibabaCloud\Tea\Model;
 
 class audioLayers extends Model
 {
@@ -17,17 +17,24 @@ class audioLayers extends Model
         'audioLayer' => 'AudioLayer',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->audioLayer)) {
+            Model::validateArray($this->audioLayer);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->audioLayer) {
-            $res['AudioLayer'] = [];
-            if (null !== $this->audioLayer && \is_array($this->audioLayer)) {
-                $n = 0;
-                foreach ($this->audioLayer as $item) {
-                    $res['AudioLayer'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->audioLayer)) {
+                $res['AudioLayer'] = [];
+                $n1 = 0;
+                foreach ($this->audioLayer as $item1) {
+                    $res['AudioLayer'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class audioLayers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return audioLayers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AudioLayer'])) {
             if (!empty($map['AudioLayer'])) {
                 $model->audioLayer = [];
-                $n = 0;
-                foreach ($map['AudioLayer'] as $item) {
-                    $model->audioLayer[$n++] = null !== $item ? audioLayer::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AudioLayer'] as $item1) {
+                    $model->audioLayer[$n1] = audioLayer::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

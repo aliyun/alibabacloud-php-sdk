@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamsNotifyRecordsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamsNotifyRecordsResponseBody\notifyRecordsInfo\liveStreamNotifyRecordsInfo;
-use AlibabaCloud\Tea\Model;
 
 class notifyRecordsInfo extends Model
 {
@@ -17,17 +17,24 @@ class notifyRecordsInfo extends Model
         'liveStreamNotifyRecordsInfo' => 'LiveStreamNotifyRecordsInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->liveStreamNotifyRecordsInfo)) {
+            Model::validateArray($this->liveStreamNotifyRecordsInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->liveStreamNotifyRecordsInfo) {
-            $res['LiveStreamNotifyRecordsInfo'] = [];
-            if (null !== $this->liveStreamNotifyRecordsInfo && \is_array($this->liveStreamNotifyRecordsInfo)) {
-                $n = 0;
-                foreach ($this->liveStreamNotifyRecordsInfo as $item) {
-                    $res['LiveStreamNotifyRecordsInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->liveStreamNotifyRecordsInfo)) {
+                $res['LiveStreamNotifyRecordsInfo'] = [];
+                $n1 = 0;
+                foreach ($this->liveStreamNotifyRecordsInfo as $item1) {
+                    $res['LiveStreamNotifyRecordsInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class notifyRecordsInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return notifyRecordsInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LiveStreamNotifyRecordsInfo'])) {
             if (!empty($map['LiveStreamNotifyRecordsInfo'])) {
                 $model->liveStreamNotifyRecordsInfo = [];
-                $n = 0;
-                foreach ($map['LiveStreamNotifyRecordsInfo'] as $item) {
-                    $model->liveStreamNotifyRecordsInfo[$n++] = null !== $item ? liveStreamNotifyRecordsInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LiveStreamNotifyRecordsInfo'] as $item1) {
+                    $model->liveStreamNotifyRecordsInfo[$n1] = liveStreamNotifyRecordsInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

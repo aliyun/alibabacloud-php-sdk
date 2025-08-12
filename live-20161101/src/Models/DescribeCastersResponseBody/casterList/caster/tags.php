@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeCastersResponseBody\casterList\caster;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeCastersResponseBody\casterList\caster\tags\tag;
-use AlibabaCloud\Tea\Model;
 
 class tags extends Model
 {
@@ -17,17 +17,24 @@ class tags extends Model
         'tag' => 'tag',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tag) {
-            $res['tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['tag'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class tags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['tag'])) {
             if (!empty($map['tag'])) {
                 $model->tag = [];
-                $n = 0;
-                foreach ($map['tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['tag'] as $item1) {
+                    $model->tag[$n1] = tag::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

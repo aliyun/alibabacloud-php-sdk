@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeHlsLiveStreamRealTimeBpsDataResponseBody\usageData\streamInfos;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class infos extends Model
 {
     /**
-     * @description The bandwidth. Unit: bit/s.
-     *
-     * @example 11440.88
-     *
      * @var float
      */
     public $downFlow;
 
     /**
-     * @description The number of online users.
-     *
-     * @example 1
-     *
      * @var float
      */
     public $online;
 
     /**
-     * @description The bitrate.
-     *
-     * @example 1028
-     *
      * @var string
      */
     public $rate;
@@ -40,17 +28,22 @@ class infos extends Model
         'rate' => 'Rate',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->downFlow) {
             $res['DownFlow'] = $this->downFlow;
         }
+
         if (null !== $this->online) {
             $res['Online'] = $this->online;
         }
+
         if (null !== $this->rate) {
             $res['Rate'] = $this->rate;
         }
@@ -58,20 +51,22 @@ class infos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return infos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DownFlow'])) {
             $model->downFlow = $map['DownFlow'];
         }
+
         if (isset($map['Online'])) {
             $model->online = $map['Online'];
         }
+
         if (isset($map['Rate'])) {
             $model->rate = $map['Rate'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\ListLiveRealtimeLogDeliveryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListLiveRealtimeLogDeliveryResponseBody\content\realtimeLogDeliveryInfo;
-use AlibabaCloud\Tea\Model;
 
 class content extends Model
 {
@@ -17,17 +17,24 @@ class content extends Model
         'realtimeLogDeliveryInfo' => 'RealtimeLogDeliveryInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->realtimeLogDeliveryInfo)) {
+            Model::validateArray($this->realtimeLogDeliveryInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->realtimeLogDeliveryInfo) {
-            $res['RealtimeLogDeliveryInfo'] = [];
-            if (null !== $this->realtimeLogDeliveryInfo && \is_array($this->realtimeLogDeliveryInfo)) {
-                $n = 0;
-                foreach ($this->realtimeLogDeliveryInfo as $item) {
-                    $res['RealtimeLogDeliveryInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->realtimeLogDeliveryInfo)) {
+                $res['RealtimeLogDeliveryInfo'] = [];
+                $n1 = 0;
+                foreach ($this->realtimeLogDeliveryInfo as $item1) {
+                    $res['RealtimeLogDeliveryInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RealtimeLogDeliveryInfo'])) {
             if (!empty($map['RealtimeLogDeliveryInfo'])) {
                 $model->realtimeLogDeliveryInfo = [];
-                $n = 0;
-                foreach ($map['RealtimeLogDeliveryInfo'] as $item) {
-                    $model->realtimeLogDeliveryInfo[$n++] = null !== $item ? realtimeLogDeliveryInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RealtimeLogDeliveryInfo'] as $item1) {
+                    $model->realtimeLogDeliveryInfo[$n1] = realtimeLogDeliveryInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

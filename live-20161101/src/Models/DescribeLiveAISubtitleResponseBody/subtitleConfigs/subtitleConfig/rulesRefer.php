@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveAISubtitleResponseBody\subtitleConfigs\subtitleConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rulesRefer extends Model
 {
@@ -16,29 +16,47 @@ class rulesRefer extends Model
         'rulesId' => 'RulesId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->rulesId)) {
+            Model::validateArray($this->rulesId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rulesId) {
-            $res['RulesId'] = $this->rulesId;
+            if (\is_array($this->rulesId)) {
+                $res['RulesId'] = [];
+                $n1 = 0;
+                foreach ($this->rulesId as $item1) {
+                    $res['RulesId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rulesRefer
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RulesId'])) {
             if (!empty($map['RulesId'])) {
-                $model->rulesId = $map['RulesId'];
+                $model->rulesId = [];
+                $n1 = 0;
+                foreach ($map['RulesId'] as $item1) {
+                    $model->rulesId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDetectNotifyConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class liveDetectNotifyConfig extends Model
 {
     /**
-     * @description The main streaming domain.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The callback URL.
-     *
-     * @example http://aliyundoc.com
-     *
      * @var string
      */
     public $notifyUrl;
@@ -30,14 +22,18 @@ class liveDetectNotifyConfig extends Model
         'notifyUrl' => 'NotifyUrl',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->notifyUrl) {
             $res['NotifyUrl'] = $this->notifyUrl;
         }
@@ -45,17 +41,18 @@ class liveDetectNotifyConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return liveDetectNotifyConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['NotifyUrl'])) {
             $model->notifyUrl = $map['NotifyUrl'];
         }

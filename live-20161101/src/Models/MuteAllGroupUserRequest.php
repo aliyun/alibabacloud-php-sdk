@@ -4,52 +4,26 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MuteAllGroupUserRequest extends Model
 {
     /**
-     * @description The ID of the interactive messaging application.
-     *
-     * This parameter is required.
-     *
-     * @example VKL3***
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The mode in which system messages are broadcasted. Valid values:
-     *
-     *   0: specifies that system messages are not broadcasted.
-     *   1: specifies that system messages are broadcasted to specified users.
-     *   2: specifies that system messages are broadcasted to the message group.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $broadCastType;
 
     /**
-     * @description The ID of the message group.
-     *
-     * This parameter is required.
-     *
-     * @example AE35-****-T95F
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The ID of the user who performs the operation.
-     *
-     * This parameter is required.
-     *
-     * @example de1**a0
-     *
      * @var string
      */
     public $operatorUserId;
@@ -60,20 +34,26 @@ class MuteAllGroupUserRequest extends Model
         'operatorUserId' => 'OperatorUserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->broadCastType) {
             $res['BroadCastType'] = $this->broadCastType;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->operatorUserId) {
             $res['OperatorUserId'] = $this->operatorUserId;
         }
@@ -81,23 +61,26 @@ class MuteAllGroupUserRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MuteAllGroupUserRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['BroadCastType'])) {
             $model->broadCastType = $map['BroadCastType'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['OperatorUserId'])) {
             $model->operatorUserId = $map['OperatorUserId'];
         }

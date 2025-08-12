@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeRtcCloudRecordingFilesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeRtcCloudRecordingFilesResponseBody\taskInfo\recordFileList;
-use AlibabaCloud\Tea\Model;
 
 class taskInfo extends Model
 {
@@ -15,15 +15,11 @@ class taskInfo extends Model
     public $recordFileList;
 
     /**
-     * @example RUNNING
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example ******73-8501-****-8ac1-72295a******
-     *
      * @var string
      */
     public $taskId;
@@ -33,17 +29,25 @@ class taskInfo extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->recordFileList) {
+            $this->recordFileList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recordFileList) {
-            $res['RecordFileList'] = null !== $this->recordFileList ? $this->recordFileList->toMap() : null;
+            $res['RecordFileList'] = null !== $this->recordFileList ? $this->recordFileList->toArray($noStream) : $this->recordFileList;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -51,20 +55,22 @@ class taskInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return taskInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecordFileList'])) {
             $model->recordFileList = recordFileList::fromMap($map['RecordFileList']);
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

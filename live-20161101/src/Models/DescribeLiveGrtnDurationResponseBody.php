@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveGrtnDurationResponseBody\streamDetailData;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLiveGrtnDurationResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 4B460F8B-993C-4F48-B98A-910811DEBFEB
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The details of the co-streaming usage data.
-     *
      * @var streamDetailData
      */
     public $streamDetailData;
@@ -29,32 +23,40 @@ class DescribeLiveGrtnDurationResponseBody extends Model
         'streamDetailData' => 'StreamDetailData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->streamDetailData) {
+            $this->streamDetailData->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->streamDetailData) {
-            $res['StreamDetailData'] = null !== $this->streamDetailData ? $this->streamDetailData->toMap() : null;
+            $res['StreamDetailData'] = null !== $this->streamDetailData ? $this->streamDetailData->toArray($noStream) : $this->streamDetailData;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveGrtnDurationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StreamDetailData'])) {
             $model->streamDetailData = streamDetailData::fromMap($map['StreamDetailData']);
         }

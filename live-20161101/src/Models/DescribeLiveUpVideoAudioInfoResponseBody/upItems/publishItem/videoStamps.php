@@ -4,29 +4,37 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUpVideoAudioInfoResponseBody\upItems\publishItem;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUpVideoAudioInfoResponseBody\upItems\publishItem\videoStamps\videoStamps;
 
 class videoStamps extends Model
 {
     /**
-     * @var videoStamps\videoStamps[]
+     * @var videoStamps[]
      */
     public $videoStamps;
     protected $_name = [
         'videoStamps' => 'VideoStamps',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->videoStamps)) {
+            Model::validateArray($this->videoStamps);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->videoStamps) {
-            $res['VideoStamps'] = [];
-            if (null !== $this->videoStamps && \is_array($this->videoStamps)) {
-                $n = 0;
-                foreach ($this->videoStamps as $item) {
-                    $res['VideoStamps'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->videoStamps)) {
+                $res['VideoStamps'] = [];
+                $n1 = 0;
+                foreach ($this->videoStamps as $item1) {
+                    $res['VideoStamps'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +42,21 @@ class videoStamps extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return videoStamps
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VideoStamps'])) {
             if (!empty($map['VideoStamps'])) {
                 $model->videoStamps = [];
-                $n = 0;
-                foreach ($map['VideoStamps'] as $item) {
-                    $model->videoStamps[$n++] = null !== $item ? videoStamps\videoStamps::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VideoStamps'] as $item1) {
+                    $model->videoStamps[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

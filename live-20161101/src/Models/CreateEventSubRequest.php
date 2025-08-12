@@ -4,65 +4,31 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateEventSubRequest extends Model
 {
     /**
-     * @description The application ID.
-     *
-     * This parameter is required.
-     *
-     * @example 9qb1****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The callback URL. For more information about the content of the messages that are sent to the callback URL, see the Callback section in this topic.
-     *
-     * This parameter is required.
-     *
-     * @example http://****.com/callback
-     *
      * @var string
      */
     public $callbackUrl;
 
     /**
-     * @description The channel ID. You can call the [ListEventSub](https://help.aliyun.com/document_detail/2628135.html) operation to query the channel ID.
-     *
-     * >
-     *
-     *   This parameter is required if you specify the Users.N parameter.
-     *
-     *   If you set this parameter to \\* or do not specify this parameter, all channels are subscribed to.
-     *
-     *   Each application ID allows only one all-channel subscription.
-     *
-     * @example 123333
-     *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description Subscribe to events.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $events;
 
     /**
-     * @description The user whose events you want to subscribe to. If you leave this parameter empty, the events of all users in the channel are subscribed to, including the events of the streamer and viewers. Specify this parameter in the following format:
-     *
-     * Users.1=****
-     * Users.2=****
-     * ......
-     *
      * @var string[]
      */
     public $users;
@@ -74,55 +40,96 @@ class CreateEventSubRequest extends Model
         'users' => 'Users',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->events)) {
+            Model::validateArray($this->events);
+        }
+        if (\is_array($this->users)) {
+            Model::validateArray($this->users);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->callbackUrl) {
             $res['CallbackUrl'] = $this->callbackUrl;
         }
+
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
+
         if (null !== $this->events) {
-            $res['Events'] = $this->events;
+            if (\is_array($this->events)) {
+                $res['Events'] = [];
+                $n1 = 0;
+                foreach ($this->events as $item1) {
+                    $res['Events'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->users) {
-            $res['Users'] = $this->users;
+            if (\is_array($this->users)) {
+                $res['Users'] = [];
+                $n1 = 0;
+                foreach ($this->users as $item1) {
+                    $res['Users'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateEventSubRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['CallbackUrl'])) {
             $model->callbackUrl = $map['CallbackUrl'];
         }
+
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
+
         if (isset($map['Events'])) {
             if (!empty($map['Events'])) {
-                $model->events = $map['Events'];
+                $model->events = [];
+                $n1 = 0;
+                foreach ($map['Events'] as $item1) {
+                    $model->events[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {
-                $model->users = $map['Users'];
+                $model->users = [];
+                $n1 = 0;
+                foreach ($map['Users'] as $item1) {
+                    $model->users[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

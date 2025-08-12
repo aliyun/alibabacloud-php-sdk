@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddLiveCenterTransferResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 7908F2FF-44F8-120F-9FD6-85AE4B6C19EC
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class AddLiveCenterTransferResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class AddLiveCenterTransferResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddLiveCenterTransferResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

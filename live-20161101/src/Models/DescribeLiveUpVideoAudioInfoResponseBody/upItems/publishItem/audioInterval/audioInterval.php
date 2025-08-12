@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUpVideoAudioInfoResponseBody\upItems\publishItem\audioInterval;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class audioInterval extends Model
 {
     /**
-     * @description The maximum audio frame interval. Unit: milliseconds.
-     *
-     * @example 1538134750408
-     *
      * @var int
      */
     public $time;
 
     /**
-     * @description The query time. The value is a UNIX timestamp in milliseconds.
-     *
-     * @example 254
-     *
      * @var int
      */
     public $value;
@@ -30,14 +22,18 @@ class audioInterval extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -45,17 +41,18 @@ class audioInterval extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return audioInterval
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

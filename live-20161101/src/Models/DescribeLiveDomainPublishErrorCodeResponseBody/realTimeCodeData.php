@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainPublishErrorCodeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainPublishErrorCodeResponseBody\realTimeCodeData\codeData;
-use AlibabaCloud\Tea\Model;
 
 class realTimeCodeData extends Model
 {
     /**
-     * @description The proportions of error codes.
-     *
      * @var codeData[]
      */
     public $codeData;
 
     /**
-     * @description The timestamp of the data returned.
-     *
-     * @example 2016-06-29T09:01:00Z
-     *
      * @var string
      */
     public $timeStamp;
@@ -29,20 +23,28 @@ class realTimeCodeData extends Model
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->codeData)) {
+            Model::validateArray($this->codeData);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->codeData) {
-            $res['CodeData'] = [];
-            if (null !== $this->codeData && \is_array($this->codeData)) {
-                $n = 0;
-                foreach ($this->codeData as $item) {
-                    $res['CodeData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->codeData)) {
+                $res['CodeData'] = [];
+                $n1 = 0;
+                foreach ($this->codeData as $item1) {
+                    $res['CodeData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -50,23 +52,25 @@ class realTimeCodeData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return realTimeCodeData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CodeData'])) {
             if (!empty($map['CodeData'])) {
                 $model->codeData = [];
-                $n = 0;
-                foreach ($map['CodeData'] as $item) {
-                    $model->codeData[$n++] = null !== $item ? codeData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CodeData'] as $item1) {
+                    $model->codeData[$n1] = codeData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

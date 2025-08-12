@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveAudioAuditNotifyConfigResponseBody\liveAudioAuditNotifyConfigList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLiveAudioAuditNotifyConfigResponseBody extends Model
 {
     /**
-     * @description The configuration of callbacks for audio moderation results.
-     *
      * @var liveAudioAuditNotifyConfigList
      */
     public $liveAudioAuditNotifyConfigList;
 
     /**
-     * @description The request ID.
-     *
-     * @example B908FF89-B03C-4831-B55B-48D2A******
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeLiveAudioAuditNotifyConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->liveAudioAuditNotifyConfigList) {
+            $this->liveAudioAuditNotifyConfigList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->liveAudioAuditNotifyConfigList) {
-            $res['LiveAudioAuditNotifyConfigList'] = null !== $this->liveAudioAuditNotifyConfigList ? $this->liveAudioAuditNotifyConfigList->toMap() : null;
+            $res['LiveAudioAuditNotifyConfigList'] = null !== $this->liveAudioAuditNotifyConfigList ? $this->liveAudioAuditNotifyConfigList->toArray($noStream) : $this->liveAudioAuditNotifyConfigList;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeLiveAudioAuditNotifyConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveAudioAuditNotifyConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LiveAudioAuditNotifyConfigList'])) {
             $model->liveAudioAuditNotifyConfigList = liveAudioAuditNotifyConfigList::fromMap($map['LiveAudioAuditNotifyConfigList']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

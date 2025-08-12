@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\StartRtcCloudRecordingRequest\mixLayoutParams;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class mixBackground extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $renderMode;
 
     /**
-     * @example https://xxxx.com/photos/my-test-picture.png
-     *
      * @var string
      */
     public $url;
@@ -26,14 +22,18 @@ class mixBackground extends Model
         'url' => 'Url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->renderMode) {
             $res['RenderMode'] = $this->renderMode;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -41,17 +41,18 @@ class mixBackground extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mixBackground
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RenderMode'])) {
             $model->renderMode = $map['RenderMode'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

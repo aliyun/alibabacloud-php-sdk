@@ -4,70 +4,41 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeChannelUsersResponseBody extends Model
 {
     /**
-     * @description The list of streamers/co-streamers.
-     *
      * @var string[]
      */
     public $interactiveUserList;
 
     /**
-     * @description The number of co-streamers.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $interactiveUserNumber;
 
     /**
-     * @description Indicates whether the channel exists. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * > After all users leave the channel, the system requires a few seconds to clear the cache. If you call the operation during this period, the value of this parameter is true, and the value of InteractiveUserNumber and LiveUserNumber is 0.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isChannelExists;
 
     /**
-     * @description The list of viewers.
-     *
      * @var string[]
      */
     public $liveUserList;
 
     /**
-     * @description The number of viewers.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $liveUserNumber;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example AD86847D-1F36-18C8-A995-5EEA340B3202
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The UTC timestamp when the response is returned.
-     *
-     * @example 1691027655
-     *
      * @var int
      */
     public $timestamp;
@@ -81,29 +52,58 @@ class DescribeChannelUsersResponseBody extends Model
         'timestamp' => 'Timestamp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->interactiveUserList)) {
+            Model::validateArray($this->interactiveUserList);
+        }
+        if (\is_array($this->liveUserList)) {
+            Model::validateArray($this->liveUserList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->interactiveUserList) {
-            $res['InteractiveUserList'] = $this->interactiveUserList;
+            if (\is_array($this->interactiveUserList)) {
+                $res['InteractiveUserList'] = [];
+                $n1 = 0;
+                foreach ($this->interactiveUserList as $item1) {
+                    $res['InteractiveUserList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->interactiveUserNumber) {
             $res['InteractiveUserNumber'] = $this->interactiveUserNumber;
         }
+
         if (null !== $this->isChannelExists) {
             $res['IsChannelExists'] = $this->isChannelExists;
         }
+
         if (null !== $this->liveUserList) {
-            $res['LiveUserList'] = $this->liveUserList;
+            if (\is_array($this->liveUserList)) {
+                $res['LiveUserList'] = [];
+                $n1 = 0;
+                foreach ($this->liveUserList as $item1) {
+                    $res['LiveUserList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->liveUserNumber) {
             $res['LiveUserNumber'] = $this->liveUserNumber;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
@@ -111,36 +111,52 @@ class DescribeChannelUsersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeChannelUsersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InteractiveUserList'])) {
             if (!empty($map['InteractiveUserList'])) {
-                $model->interactiveUserList = $map['InteractiveUserList'];
+                $model->interactiveUserList = [];
+                $n1 = 0;
+                foreach ($map['InteractiveUserList'] as $item1) {
+                    $model->interactiveUserList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['InteractiveUserNumber'])) {
             $model->interactiveUserNumber = $map['InteractiveUserNumber'];
         }
+
         if (isset($map['IsChannelExists'])) {
             $model->isChannelExists = $map['IsChannelExists'];
         }
+
         if (isset($map['LiveUserList'])) {
             if (!empty($map['LiveUserList'])) {
-                $model->liveUserList = $map['LiveUserList'];
+                $model->liveUserList = [];
+                $n1 = 0;
+                foreach ($map['LiveUserList'] as $item1) {
+                    $model->liveUserList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['LiveUserNumber'])) {
             $model->liveUserNumber = $map['LiveUserNumber'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }

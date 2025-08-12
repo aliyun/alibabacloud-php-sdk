@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CopyCasterResponseBody extends Model
 {
     /**
-     * @description The ID of the new production studio.
-     *
-     * @example 1909f043-e3d3-49e9-82d6-4329ec4a****
-     *
      * @var string
      */
     public $casterId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class CopyCasterResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class CopyCasterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CopyCasterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

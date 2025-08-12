@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLivePackageConfigResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLivePackageConfigResponseBody\livePackageConfigList\livePackageConfig;
-use AlibabaCloud\Tea\Model;
 
 class livePackageConfigList extends Model
 {
@@ -17,17 +17,24 @@ class livePackageConfigList extends Model
         'livePackageConfig' => 'LivePackageConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->livePackageConfig)) {
+            Model::validateArray($this->livePackageConfig);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->livePackageConfig) {
-            $res['LivePackageConfig'] = [];
-            if (null !== $this->livePackageConfig && \is_array($this->livePackageConfig)) {
-                $n = 0;
-                foreach ($this->livePackageConfig as $item) {
-                    $res['LivePackageConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->livePackageConfig)) {
+                $res['LivePackageConfig'] = [];
+                $n1 = 0;
+                foreach ($this->livePackageConfig as $item1) {
+                    $res['LivePackageConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class livePackageConfigList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return livePackageConfigList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LivePackageConfig'])) {
             if (!empty($map['LivePackageConfig'])) {
                 $model->livePackageConfig = [];
-                $n = 0;
-                foreach ($map['LivePackageConfig'] as $item) {
-                    $model->livePackageConfig[$n++] = null !== $item ? livePackageConfig::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LivePackageConfig'] as $item1) {
+                    $model->livePackageConfig[$n1] = livePackageConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

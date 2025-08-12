@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterConfigResponseBody\transcodeConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterConfigResponseBody\transcodeConfig\customParams\video;
-use AlibabaCloud\Tea\Model;
 
 class customParams extends Model
 {
     /**
-     * @description The video parameters.
-     *
      * @var video
      */
     public $video;
@@ -19,23 +17,29 @@ class customParams extends Model
         'video' => 'video',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->video) {
+            $this->video->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->video) {
-            $res['video'] = null !== $this->video ? $this->video->toMap() : null;
+            $res['video'] = null !== $this->video ? $this->video->toArray($noStream) : $this->video;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customParams
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

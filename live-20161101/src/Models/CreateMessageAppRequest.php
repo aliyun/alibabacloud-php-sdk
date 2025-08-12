@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateMessageAppRequest extends Model
 {
     /**
-     * @description The configurations of the application.
-     *
      * @var string[]
      */
     public $appConfig;
 
     /**
-     * @description The name of the interactive message application. The name must be 2 to 16 characters in length.
-     *
-     * This parameter is required.
-     *
-     * @example test
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description The extended fields.
-     *
      * @var string[]
      */
     public $extension;
@@ -38,40 +28,73 @@ class CreateMessageAppRequest extends Model
         'extension' => 'Extension',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->appConfig)) {
+            Model::validateArray($this->appConfig);
+        }
+        if (\is_array($this->extension)) {
+            Model::validateArray($this->extension);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appConfig) {
-            $res['AppConfig'] = $this->appConfig;
+            if (\is_array($this->appConfig)) {
+                $res['AppConfig'] = [];
+                foreach ($this->appConfig as $key1 => $value1) {
+                    $res['AppConfig'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->extension) {
-            $res['Extension'] = $this->extension;
+            if (\is_array($this->extension)) {
+                $res['Extension'] = [];
+                foreach ($this->extension as $key1 => $value1) {
+                    $res['Extension'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateMessageAppRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppConfig'])) {
-            $model->appConfig = $map['AppConfig'];
+            if (!empty($map['AppConfig'])) {
+                $model->appConfig = [];
+                foreach ($map['AppConfig'] as $key1 => $value1) {
+                    $model->appConfig[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['Extension'])) {
-            $model->extension = $map['Extension'];
+            if (!empty($map['Extension'])) {
+                $model->extension = [];
+                foreach ($map['Extension'] as $key1 => $value1) {
+                    $model->extension[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

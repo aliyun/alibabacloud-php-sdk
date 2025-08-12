@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DeleteMessageAppResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description Indicates whether the application was deleted. Valid values:
-     *
-     *   true: The application was deleted.
-     *   false: The application failed to be deleted.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -23,9 +16,12 @@ class result extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->success) {
@@ -35,11 +31,11 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

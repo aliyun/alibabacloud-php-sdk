@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EditShowAndReplaceResponseBody extends Model
 {
     /**
-     * @description The information about the editing task. The following fields are included:
-     *
-     *   **vodId**: the ID of the VOD file.
-     *   **mediaid**: the ID of the media file.
-     *   **jobId**: the ID of the editing task.
-     *
-     * @example {         "vodId": "3e34733b40b9a96ccf5c1ff6f69****",         "mediaid": "eb1861d2c9a842340e989dd56****",         "jobId": "7d2fbc380b0e08e55fe98733764****"     }
-     *
      * @var string
      */
     public $jobInfo;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
-     *
      * @var string
      */
     public $requestId;
@@ -34,14 +22,18 @@ class EditShowAndReplaceResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobInfo) {
             $res['JobInfo'] = $this->jobInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,17 +41,18 @@ class EditShowAndReplaceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EditShowAndReplaceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobInfo'])) {
             $model->jobInfo = $map['JobInfo'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

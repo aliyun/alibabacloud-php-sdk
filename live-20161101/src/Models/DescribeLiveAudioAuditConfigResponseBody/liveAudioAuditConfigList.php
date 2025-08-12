@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveAudioAuditConfigResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveAudioAuditConfigResponseBody\liveAudioAuditConfigList\liveAudioAuditConfig;
-use AlibabaCloud\Tea\Model;
 
 class liveAudioAuditConfigList extends Model
 {
@@ -17,17 +17,24 @@ class liveAudioAuditConfigList extends Model
         'liveAudioAuditConfig' => 'LiveAudioAuditConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->liveAudioAuditConfig)) {
+            Model::validateArray($this->liveAudioAuditConfig);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->liveAudioAuditConfig) {
-            $res['LiveAudioAuditConfig'] = [];
-            if (null !== $this->liveAudioAuditConfig && \is_array($this->liveAudioAuditConfig)) {
-                $n = 0;
-                foreach ($this->liveAudioAuditConfig as $item) {
-                    $res['LiveAudioAuditConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->liveAudioAuditConfig)) {
+                $res['LiveAudioAuditConfig'] = [];
+                $n1 = 0;
+                foreach ($this->liveAudioAuditConfig as $item1) {
+                    $res['LiveAudioAuditConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class liveAudioAuditConfigList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return liveAudioAuditConfigList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LiveAudioAuditConfig'])) {
             if (!empty($map['LiveAudioAuditConfig'])) {
                 $model->liveAudioAuditConfig = [];
-                $n = 0;
-                foreach ($map['LiveAudioAuditConfig'] as $item) {
-                    $model->liveAudioAuditConfig[$n++] = null !== $item ? liveAudioAuditConfig::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LiveAudioAuditConfig'] as $item1) {
+                    $model->liveAudioAuditConfig[$n1] = liveAudioAuditConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

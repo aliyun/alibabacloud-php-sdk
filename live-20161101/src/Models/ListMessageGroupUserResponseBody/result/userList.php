@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\ListMessageGroupUserResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userList extends Model
 {
     /**
-     * @description The time when the user joined the message group. The value is a UTC timestamp.
-     *
-     * @example 12**45
-     *
      * @var int
      */
     public $joinTime;
 
     /**
-     * @description The ID of the user.
-     *
-     * @example de1**a0,hu**9
-     *
      * @var string
      */
     public $userId;
@@ -30,14 +22,18 @@ class userList extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->joinTime) {
             $res['JoinTime'] = $this->joinTime;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -45,17 +41,18 @@ class userList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JoinTime'])) {
             $model->joinTime = $map['JoinTime'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

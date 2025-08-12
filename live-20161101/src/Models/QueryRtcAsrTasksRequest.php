@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryRtcAsrTasksRequest extends Model
 {
@@ -19,10 +19,6 @@ class QueryRtcAsrTasksRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the task that you want to query. If you do not specify this parameter, all running tasks under your UID are queried.
-     *
-     * @example asr-a6ac15e0-9118-4b4c-9e64-306163a0****
-     *
      * @var string
      */
     public $taskId;
@@ -32,17 +28,22 @@ class QueryRtcAsrTasksRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -50,20 +51,22 @@ class QueryRtcAsrTasksRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryRtcAsrTasksRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

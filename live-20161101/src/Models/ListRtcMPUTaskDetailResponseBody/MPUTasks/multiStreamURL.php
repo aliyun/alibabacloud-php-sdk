@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\ListRtcMPUTaskDetailResponseBody\MPUTasks;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class multiStreamURL extends Model
 {
     /**
-     * @description Indicates whether stream relay is performed by using Alibaba Cloud CDN. Valid values:
-     *
-     *   false: Stream relay is performed by using a CDN service that is not Alibaba Cloud CDN.
-     *   true: Stream relay is performed by using Alibaba Cloud CDN.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $isAliCdn;
 
     /**
-     * @description The ingest URL.
-     *
-     * @example rtmp://example.com/live/stream****
-     *
      * @var string
      */
     public $URL;
@@ -33,14 +22,18 @@ class multiStreamURL extends Model
         'URL' => 'URL',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isAliCdn) {
             $res['IsAliCdn'] = $this->isAliCdn;
         }
+
         if (null !== $this->URL) {
             $res['URL'] = $this->URL;
         }
@@ -48,17 +41,18 @@ class multiStreamURL extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return multiStreamURL
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsAliCdn'])) {
             $model->isAliCdn = $map['IsAliCdn'];
         }
+
         if (isset($map['URL'])) {
             $model->URL = $map['URL'];
         }

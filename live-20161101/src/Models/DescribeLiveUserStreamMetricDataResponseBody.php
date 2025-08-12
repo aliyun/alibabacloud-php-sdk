@@ -4,51 +4,37 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUserStreamMetricDataResponseBody\streamDetailData;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLiveUserStreamMetricDataResponseBody extends Model
 {
     /**
-     * @example test.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description YYYY-MM-DDThh:mm:ssZ
-     *
-     * @example 2015-12-10T21:00:00Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 2015-12-10T20:00:00Z
-     *
      * @var string
      */
     public $startTime;
@@ -59,8 +45,6 @@ class DescribeLiveUserStreamMetricDataResponseBody extends Model
     public $streamDetailData;
 
     /**
-     * @example 50
-     *
      * @var int
      */
     public $totalCount;
@@ -75,38 +59,52 @@ class DescribeLiveUserStreamMetricDataResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->streamDetailData)) {
+            Model::validateArray($this->streamDetailData);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->streamDetailData) {
-            $res['StreamDetailData'] = [];
-            if (null !== $this->streamDetailData && \is_array($this->streamDetailData)) {
-                $n = 0;
-                foreach ($this->streamDetailData as $item) {
-                    $res['StreamDetailData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->streamDetailData)) {
+                $res['StreamDetailData'] = [];
+                $n1 = 0;
+                foreach ($this->streamDetailData as $item1) {
+                    $res['StreamDetailData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -114,41 +112,49 @@ class DescribeLiveUserStreamMetricDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveUserStreamMetricDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['StreamDetailData'])) {
             if (!empty($map['StreamDetailData'])) {
                 $model->streamDetailData = [];
-                $n = 0;
-                foreach ($map['StreamDetailData'] as $item) {
-                    $model->streamDetailData[$n++] = null !== $item ? streamDetailData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['StreamDetailData'] as $item1) {
+                    $model->streamDetailData[$n1] = streamDetailData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

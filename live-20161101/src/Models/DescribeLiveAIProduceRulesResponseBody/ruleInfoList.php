@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveAIProduceRulesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveAIProduceRulesResponseBody\ruleInfoList\ruleInfo;
-use AlibabaCloud\Tea\Model;
 
 class ruleInfoList extends Model
 {
@@ -17,17 +17,24 @@ class ruleInfoList extends Model
         'ruleInfo' => 'RuleInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ruleInfo)) {
+            Model::validateArray($this->ruleInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ruleInfo) {
-            $res['RuleInfo'] = [];
-            if (null !== $this->ruleInfo && \is_array($this->ruleInfo)) {
-                $n = 0;
-                foreach ($this->ruleInfo as $item) {
-                    $res['RuleInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ruleInfo)) {
+                $res['RuleInfo'] = [];
+                $n1 = 0;
+                foreach ($this->ruleInfo as $item1) {
+                    $res['RuleInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class ruleInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RuleInfo'])) {
             if (!empty($map['RuleInfo'])) {
                 $model->ruleInfo = [];
-                $n = 0;
-                foreach ($map['RuleInfo'] as $item) {
-                    $model->ruleInfo[$n++] = null !== $item ? ruleInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RuleInfo'] as $item1) {
+                    $model->ruleInfo[$n1] = ruleInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\StartCasterResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\StartCasterResponseBody\pvwSceneInfos\sceneInfo;
-use AlibabaCloud\Tea\Model;
 
 class pvwSceneInfos extends Model
 {
@@ -17,17 +17,24 @@ class pvwSceneInfos extends Model
         'sceneInfo' => 'SceneInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->sceneInfo)) {
+            Model::validateArray($this->sceneInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sceneInfo) {
-            $res['SceneInfo'] = [];
-            if (null !== $this->sceneInfo && \is_array($this->sceneInfo)) {
-                $n = 0;
-                foreach ($this->sceneInfo as $item) {
-                    $res['SceneInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sceneInfo)) {
+                $res['SceneInfo'] = [];
+                $n1 = 0;
+                foreach ($this->sceneInfo as $item1) {
+                    $res['SceneInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class pvwSceneInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pvwSceneInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SceneInfo'])) {
             if (!empty($map['SceneInfo'])) {
                 $model->sceneInfo = [];
-                $n = 0;
-                foreach ($map['SceneInfo'] as $item) {
-                    $model->sceneInfo[$n++] = null !== $item ? sceneInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SceneInfo'] as $item1) {
+                    $model->sceneInfo[$n1] = sceneInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

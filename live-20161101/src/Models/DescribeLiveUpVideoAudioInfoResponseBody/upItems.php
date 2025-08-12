@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUpVideoAudioInfoResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUpVideoAudioInfoResponseBody\upItems\publishItem;
-use AlibabaCloud\Tea\Model;
 
 class upItems extends Model
 {
@@ -17,17 +17,24 @@ class upItems extends Model
         'publishItem' => 'PublishItem',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->publishItem)) {
+            Model::validateArray($this->publishItem);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->publishItem) {
-            $res['PublishItem'] = [];
-            if (null !== $this->publishItem && \is_array($this->publishItem)) {
-                $n = 0;
-                foreach ($this->publishItem as $item) {
-                    $res['PublishItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->publishItem)) {
+                $res['PublishItem'] = [];
+                $n1 = 0;
+                foreach ($this->publishItem as $item1) {
+                    $res['PublishItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class upItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return upItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PublishItem'])) {
             if (!empty($map['PublishItem'])) {
                 $model->publishItem = [];
-                $n = 0;
-                foreach ($map['PublishItem'] as $item) {
-                    $model->publishItem[$n++] = null !== $item ? publishItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PublishItem'] as $item1) {
+                    $model->publishItem[$n1] = publishItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

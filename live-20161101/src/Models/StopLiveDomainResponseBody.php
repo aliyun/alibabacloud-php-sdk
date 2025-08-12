@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopLiveDomainResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 324AEFFF-308C-4DA7-8CD3-01B277B98F28
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class StopLiveDomainResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class StopLiveDomainResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopLiveDomainResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveCenterStreamRateDataResponseBody\rateDatas;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLiveCenterStreamRateDataResponseBody extends Model
 {
     /**
-     * @description The list of frame rates and bitrates.
-     *
      * @var rateDatas[]
      */
     public $rateDatas;
 
     /**
-     * @description The request ID.
-     *
-     * @example B6E125BE-E9B8-1103-8684-A3585CB632F1
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class DescribeLiveCenterStreamRateDataResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->rateDatas)) {
+            Model::validateArray($this->rateDatas);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rateDatas) {
-            $res['RateDatas'] = [];
-            if (null !== $this->rateDatas && \is_array($this->rateDatas)) {
-                $n = 0;
-                foreach ($this->rateDatas as $item) {
-                    $res['RateDatas'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->rateDatas)) {
+                $res['RateDatas'] = [];
+                $n1 = 0;
+                foreach ($this->rateDatas as $item1) {
+                    $res['RateDatas'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class DescribeLiveCenterStreamRateDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveCenterStreamRateDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RateDatas'])) {
             if (!empty($map['RateDatas'])) {
                 $model->rateDatas = [];
-                $n = 0;
-                foreach ($map['RateDatas'] as $item) {
-                    $model->rateDatas[$n++] = null !== $item ? rateDatas::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RateDatas'] as $item1) {
+                    $model->rateDatas[$n1] = rateDatas::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

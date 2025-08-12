@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamDetailFrameRateAndBitRateDataResponseBody\frameRateAndBitRateInfos;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLiveStreamDetailFrameRateAndBitRateDataResponseBody extends Model
 {
     /**
-     * @description The audio and video frame rates and bitrates at each time granularity.
-     *
      * @var frameRateAndBitRateInfos[]
      */
     public $frameRateAndBitRateInfos;
 
     /**
-     * @description The request ID.
-     *
-     * @example BC858082-736F-4A25-867B-E5B67C85ACF7
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,28 @@ class DescribeLiveStreamDetailFrameRateAndBitRateDataResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->frameRateAndBitRateInfos)) {
+            Model::validateArray($this->frameRateAndBitRateInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->frameRateAndBitRateInfos) {
-            $res['FrameRateAndBitRateInfos'] = [];
-            if (null !== $this->frameRateAndBitRateInfos && \is_array($this->frameRateAndBitRateInfos)) {
-                $n = 0;
-                foreach ($this->frameRateAndBitRateInfos as $item) {
-                    $res['FrameRateAndBitRateInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->frameRateAndBitRateInfos)) {
+                $res['FrameRateAndBitRateInfos'] = [];
+                $n1 = 0;
+                foreach ($this->frameRateAndBitRateInfos as $item1) {
+                    $res['FrameRateAndBitRateInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +52,25 @@ class DescribeLiveStreamDetailFrameRateAndBitRateDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveStreamDetailFrameRateAndBitRateDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FrameRateAndBitRateInfos'])) {
             if (!empty($map['FrameRateAndBitRateInfos'])) {
                 $model->frameRateAndBitRateInfos = [];
-                $n = 0;
-                foreach ($map['FrameRateAndBitRateInfos'] as $item) {
-                    $model->frameRateAndBitRateInfos[$n++] = null !== $item ? frameRateAndBitRateInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FrameRateAndBitRateInfos'] as $item1) {
+                    $model->frameRateAndBitRateInfos[$n1] = frameRateAndBitRateInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

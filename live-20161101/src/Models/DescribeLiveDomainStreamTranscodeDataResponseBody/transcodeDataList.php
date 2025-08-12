@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainStreamTranscodeDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainStreamTranscodeDataResponseBody\transcodeDataList\transcodeData;
-use AlibabaCloud\Tea\Model;
 
 class transcodeDataList extends Model
 {
@@ -17,17 +17,24 @@ class transcodeDataList extends Model
         'transcodeData' => 'TranscodeData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->transcodeData)) {
+            Model::validateArray($this->transcodeData);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->transcodeData) {
-            $res['TranscodeData'] = [];
-            if (null !== $this->transcodeData && \is_array($this->transcodeData)) {
-                $n = 0;
-                foreach ($this->transcodeData as $item) {
-                    $res['TranscodeData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->transcodeData)) {
+                $res['TranscodeData'] = [];
+                $n1 = 0;
+                foreach ($this->transcodeData as $item1) {
+                    $res['TranscodeData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class transcodeDataList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return transcodeDataList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TranscodeData'])) {
             if (!empty($map['TranscodeData'])) {
                 $model->transcodeData = [];
-                $n = 0;
-                foreach ($map['TranscodeData'] as $item) {
-                    $model->transcodeData[$n++] = null !== $item ? transcodeData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TranscodeData'] as $item1) {
+                    $model->transcodeData[$n1] = transcodeData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\StartPlaylistResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\StartPlaylistResponseBody\streamInfo\streams;
-use AlibabaCloud\Tea\Model;
 
 class streamInfo extends Model
 {
     /**
-     * @description The name of the application.
-     *
-     * @example liveApp****
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description The main streaming domain.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The name of the live stream.
-     *
-     * @example liveStream****
-     *
      * @var string
      */
     public $streamName;
 
     /**
-     * @description The streaming URLs.
-     *
      * @var streams
      */
     public $streams;
@@ -49,44 +35,56 @@ class streamInfo extends Model
         'streams' => 'Streams',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->streams) {
+            $this->streams->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
         }
+
         if (null !== $this->streams) {
-            $res['Streams'] = null !== $this->streams ? $this->streams->toMap() : null;
+            $res['Streams'] = null !== $this->streams ? $this->streams->toArray($noStream) : $this->streams;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return streamInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
         }
+
         if (isset($map['Streams'])) {
             $model->streams = streams::fromMap($map['Streams']);
         }

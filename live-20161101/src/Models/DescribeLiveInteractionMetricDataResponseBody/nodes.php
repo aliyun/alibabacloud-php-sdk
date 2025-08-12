@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveInteractionMetricDataResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nodes extends Model
 {
     /**
-     * @description The time when the metric was queried. The value is a UNIX timestamp. Unit: milliseconds.
-     *
-     * @example 1548670257000
-     *
      * @var string
      */
     public $timestamp;
 
     /**
-     * @description The value of the metric.
-     *
-     * @example 66.670000
-     *
      * @var string
      */
     public $value;
@@ -30,14 +22,18 @@ class nodes extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -45,17 +41,18 @@ class nodes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

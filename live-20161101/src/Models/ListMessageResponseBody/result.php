@@ -4,26 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\ListMessageResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListMessageResponseBody\result\messageList;
-use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
     /**
-     * @description Indicates whether the current page is followed by another page. Valid values:
-     *
-     *   true: The current page is followed by another page.
-     *   false: The current page is not followed by another page.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $hasMore;
 
     /**
-     * @description Details about the messages.
-     *
      * @var messageList[]
      */
     public $messageList;
@@ -32,20 +23,28 @@ class result extends Model
         'messageList' => 'MessageList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->messageList)) {
+            Model::validateArray($this->messageList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hasMore) {
             $res['HasMore'] = $this->hasMore;
         }
+
         if (null !== $this->messageList) {
-            $res['MessageList'] = [];
-            if (null !== $this->messageList && \is_array($this->messageList)) {
-                $n = 0;
-                foreach ($this->messageList as $item) {
-                    $res['MessageList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->messageList)) {
+                $res['MessageList'] = [];
+                $n1 = 0;
+                foreach ($this->messageList as $item1) {
+                    $res['MessageList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -53,23 +52,25 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HasMore'])) {
             $model->hasMore = $map['HasMore'];
         }
+
         if (isset($map['MessageList'])) {
             if (!empty($map['MessageList'])) {
                 $model->messageList = [];
-                $n = 0;
-                foreach ($map['MessageList'] as $item) {
-                    $model->messageList[$n++] = null !== $item ? messageList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MessageList'] as $item1) {
+                    $model->messageList[$n1] = messageList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

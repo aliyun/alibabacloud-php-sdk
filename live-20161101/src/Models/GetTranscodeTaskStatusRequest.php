@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTranscodeTaskStatusRequest extends Model
 {
@@ -40,23 +40,30 @@ class GetTranscodeTaskStatusRequest extends Model
         'transcodingTemplate' => 'TranscodingTemplate',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->app) {
             $res['App'] = $this->app;
         }
+
         if (null !== $this->pushDomain) {
             $res['PushDomain'] = $this->pushDomain;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
         }
+
         if (null !== $this->transcodingTemplate) {
             $res['TranscodingTemplate'] = $this->transcodingTemplate;
         }
@@ -64,26 +71,30 @@ class GetTranscodeTaskStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTranscodeTaskStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['App'])) {
             $model->app = $map['App'];
         }
+
         if (isset($map['PushDomain'])) {
             $model->pushDomain = $map['PushDomain'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
         }
+
         if (isset($map['TranscodingTemplate'])) {
             $model->transcodingTemplate = $map['TranscodingTemplate'];
         }

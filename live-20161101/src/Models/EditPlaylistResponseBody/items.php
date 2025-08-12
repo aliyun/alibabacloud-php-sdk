@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\EditPlaylistResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\EditPlaylistResponseBody\items\failedItems;
 use AlibabaCloud\SDK\Live\V20161101\Models\EditPlaylistResponseBody\items\successItems;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
     /**
-     * @description The episodes that failed to be added.
-     *
      * @var failedItems[]
      */
     public $failedItems;
 
     /**
-     * @description The episodes that were added.
-     *
      * @var successItems[]
      */
     public $successItems;
@@ -28,26 +24,38 @@ class items extends Model
         'successItems' => 'SuccessItems',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->failedItems)) {
+            Model::validateArray($this->failedItems);
+        }
+        if (\is_array($this->successItems)) {
+            Model::validateArray($this->successItems);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failedItems) {
-            $res['FailedItems'] = [];
-            if (null !== $this->failedItems && \is_array($this->failedItems)) {
-                $n = 0;
-                foreach ($this->failedItems as $item) {
-                    $res['FailedItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->failedItems)) {
+                $res['FailedItems'] = [];
+                $n1 = 0;
+                foreach ($this->failedItems as $item1) {
+                    $res['FailedItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->successItems) {
-            $res['SuccessItems'] = [];
-            if (null !== $this->successItems && \is_array($this->successItems)) {
-                $n = 0;
-                foreach ($this->successItems as $item) {
-                    $res['SuccessItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->successItems)) {
+                $res['SuccessItems'] = [];
+                $n1 = 0;
+                foreach ($this->successItems as $item1) {
+                    $res['SuccessItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -55,29 +63,32 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedItems'])) {
             if (!empty($map['FailedItems'])) {
                 $model->failedItems = [];
-                $n = 0;
-                foreach ($map['FailedItems'] as $item) {
-                    $model->failedItems[$n++] = null !== $item ? failedItems::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FailedItems'] as $item1) {
+                    $model->failedItems[$n1] = failedItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SuccessItems'])) {
             if (!empty($map['SuccessItems'])) {
                 $model->successItems = [];
-                $n = 0;
-                foreach ($map['SuccessItems'] as $item) {
-                    $model->successItems[$n++] = null !== $item ? successItems::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SuccessItems'] as $item1) {
+                    $model->successItems[$n1] = successItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

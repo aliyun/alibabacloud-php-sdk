@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterConfigResponseBody\recordConfig\recordFormat;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class recordFormat extends Model
 {
     /**
-     * @description The length of the recording.
-     *
-     * @example 3600
-     *
      * @var int
      */
     public $cycleDuration;
 
     /**
-     * @description The format of the recording.
-     *
-     * @example M3U8
-     *
      * @var string
      */
     public $format;
 
     /**
-     * @description The name of the recording.
-     *
-     * @example record/{liveApp****}/{liveStream****}
-     *
      * @var string
      */
     public $ossObjectPrefix;
 
     /**
-     * @description The name of the segment.
-     *
-     * @example record/{liveApp****}/{liveStream****}/{UnixTimestamp****}
-     *
      * @var string
      */
     public $sliceOssObjectPrefix;
@@ -50,20 +34,26 @@ class recordFormat extends Model
         'sliceOssObjectPrefix' => 'SliceOssObjectPrefix',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cycleDuration) {
             $res['CycleDuration'] = $this->cycleDuration;
         }
+
         if (null !== $this->format) {
             $res['Format'] = $this->format;
         }
+
         if (null !== $this->ossObjectPrefix) {
             $res['OssObjectPrefix'] = $this->ossObjectPrefix;
         }
+
         if (null !== $this->sliceOssObjectPrefix) {
             $res['SliceOssObjectPrefix'] = $this->sliceOssObjectPrefix;
         }
@@ -71,23 +61,26 @@ class recordFormat extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recordFormat
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CycleDuration'])) {
             $model->cycleDuration = $map['CycleDuration'];
         }
+
         if (isset($map['Format'])) {
             $model->format = $map['Format'];
         }
+
         if (isset($map['OssObjectPrefix'])) {
             $model->ossObjectPrefix = $map['OssObjectPrefix'];
         }
+
         if (isset($map['SliceOssObjectPrefix'])) {
             $model->sliceOssObjectPrefix = $map['SliceOssObjectPrefix'];
         }

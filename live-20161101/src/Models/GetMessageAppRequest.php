@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMessageAppRequest extends Model
 {
     /**
-     * @description The ID of the interactive messaging application.
-     *
-     * This parameter is required.
-     *
-     * @example VKL3***
-     *
      * @var string
      */
     public $appId;
@@ -22,9 +16,12 @@ class GetMessageAppRequest extends Model
         'appId' => 'AppId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
@@ -34,11 +31,11 @@ class GetMessageAppRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMessageAppRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

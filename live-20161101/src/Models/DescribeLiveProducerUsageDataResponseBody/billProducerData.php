@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveProducerUsageDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveProducerUsageDataResponseBody\billProducerData\billProducerDataItem;
-use AlibabaCloud\Tea\Model;
 
 class billProducerData extends Model
 {
@@ -17,17 +17,24 @@ class billProducerData extends Model
         'billProducerDataItem' => 'BillProducerDataItem',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->billProducerDataItem)) {
+            Model::validateArray($this->billProducerDataItem);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->billProducerDataItem) {
-            $res['BillProducerDataItem'] = [];
-            if (null !== $this->billProducerDataItem && \is_array($this->billProducerDataItem)) {
-                $n = 0;
-                foreach ($this->billProducerDataItem as $item) {
-                    $res['BillProducerDataItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->billProducerDataItem)) {
+                $res['BillProducerDataItem'] = [];
+                $n1 = 0;
+                foreach ($this->billProducerDataItem as $item1) {
+                    $res['BillProducerDataItem'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class billProducerData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return billProducerData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BillProducerDataItem'])) {
             if (!empty($map['BillProducerDataItem'])) {
                 $model->billProducerDataItem = [];
-                $n = 0;
-                foreach ($map['BillProducerDataItem'] as $item) {
-                    $model->billProducerDataItem[$n++] = null !== $item ? billProducerDataItem::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BillProducerDataItem'] as $item1) {
+                    $model->billProducerDataItem[$n1] = billProducerDataItem::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

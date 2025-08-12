@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamsTotalCountResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamsTotalCountResponseBody\streamCountList\streamCountInfos;
-use AlibabaCloud\Tea\Model;
 
 class streamCountList extends Model
 {
@@ -17,17 +17,24 @@ class streamCountList extends Model
         'streamCountInfos' => 'StreamCountInfos',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->streamCountInfos)) {
+            Model::validateArray($this->streamCountInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->streamCountInfos) {
-            $res['StreamCountInfos'] = [];
-            if (null !== $this->streamCountInfos && \is_array($this->streamCountInfos)) {
-                $n = 0;
-                foreach ($this->streamCountInfos as $item) {
-                    $res['StreamCountInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->streamCountInfos)) {
+                $res['StreamCountInfos'] = [];
+                $n1 = 0;
+                foreach ($this->streamCountInfos as $item1) {
+                    $res['StreamCountInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class streamCountList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return streamCountList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StreamCountInfos'])) {
             if (!empty($map['StreamCountInfos'])) {
                 $model->streamCountInfos = [];
-                $n = 0;
-                foreach ($map['StreamCountInfos'] as $item) {
-                    $model->streamCountInfos[$n++] = null !== $item ? streamCountInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['StreamCountInfos'] as $item1) {
+                    $model->streamCountInfos[$n1] = streamCountInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\UpdateRtcCloudRecordingRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\UpdateRtcCloudRecordingRequest\subscribeParams\subscribeUserIdList;
-use AlibabaCloud\Tea\Model;
 
 class subscribeParams extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var subscribeUserIdList[]
      */
     public $subscribeUserIdList;
@@ -19,17 +17,24 @@ class subscribeParams extends Model
         'subscribeUserIdList' => 'SubscribeUserIdList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->subscribeUserIdList)) {
+            Model::validateArray($this->subscribeUserIdList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->subscribeUserIdList) {
-            $res['SubscribeUserIdList'] = [];
-            if (null !== $this->subscribeUserIdList && \is_array($this->subscribeUserIdList)) {
-                $n = 0;
-                foreach ($this->subscribeUserIdList as $item) {
-                    $res['SubscribeUserIdList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subscribeUserIdList)) {
+                $res['SubscribeUserIdList'] = [];
+                $n1 = 0;
+                foreach ($this->subscribeUserIdList as $item1) {
+                    $res['SubscribeUserIdList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -37,20 +42,21 @@ class subscribeParams extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return subscribeParams
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SubscribeUserIdList'])) {
             if (!empty($map['SubscribeUserIdList'])) {
                 $model->subscribeUserIdList = [];
-                $n = 0;
-                foreach ($map['SubscribeUserIdList'] as $item) {
-                    $model->subscribeUserIdList[$n++] = null !== $item ? subscribeUserIdList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SubscribeUserIdList'] as $item1) {
+                    $model->subscribeUserIdList[$n1] = subscribeUserIdList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

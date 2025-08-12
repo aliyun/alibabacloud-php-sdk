@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainPushBpsDataResponseBody\bpsDataPerInterval;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataModule extends Model
 {
     /**
-     * @description The bandwidth. Unit: bit/s.
-     *
-     * @example 11288111
-     *
      * @var string
      */
     public $bpsValue;
 
     /**
-     * @description The timestamp of the data returned.
-     *
-     * @example 2017-12-10T20:00:00Z
-     *
      * @var string
      */
     public $timeStamp;
@@ -30,14 +22,18 @@ class dataModule extends Model
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bpsValue) {
             $res['BpsValue'] = $this->bpsValue;
         }
+
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -45,17 +41,18 @@ class dataModule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataModule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BpsValue'])) {
             $model->bpsValue = $map['BpsValue'];
         }
+
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainSnapshotDataResponseBody\snapshotDataInfos;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class snapshotDataInfo extends Model
 {
     /**
-     * @description The date.
-     *
-     * @example 20180209
-     *
      * @var string
      */
     public $date;
 
     /**
-     * @description The total number of snapshots that were captured on the day.
-     *
-     * @example 110
-     *
      * @var int
      */
     public $total;
@@ -30,14 +22,18 @@ class snapshotDataInfo extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->date) {
             $res['Date'] = $this->date;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -45,17 +41,18 @@ class snapshotDataInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return snapshotDataInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

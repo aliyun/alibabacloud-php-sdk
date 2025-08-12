@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveTerminalsRequest extends Model
 {
     /**
-     * @description The ID of the application. You can specify only one application ID in each request.
-     *
-     * This parameter is required.
-     *
-     * @example aec****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The ID of the channel. You can specify only one channel ID in each request.
-     *
-     * This parameter is required.
-     *
-     * @example testId
-     *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description The IDs of the users that you want to remove.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $terminalIds;
@@ -44,41 +28,63 @@ class RemoveTerminalsRequest extends Model
         'terminalIds' => 'TerminalIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->terminalIds)) {
+            Model::validateArray($this->terminalIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
+
         if (null !== $this->terminalIds) {
-            $res['TerminalIds'] = $this->terminalIds;
+            if (\is_array($this->terminalIds)) {
+                $res['TerminalIds'] = [];
+                $n1 = 0;
+                foreach ($this->terminalIds as $item1) {
+                    $res['TerminalIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveTerminalsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
+
         if (isset($map['TerminalIds'])) {
             if (!empty($map['TerminalIds'])) {
-                $model->terminalIds = $map['TerminalIds'];
+                $model->terminalIds = [];
+                $n1 = 0;
+                foreach ($map['TerminalIds'] as $item1) {
+                    $model->terminalIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

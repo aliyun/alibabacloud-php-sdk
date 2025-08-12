@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateRtcCloudRecordingShrinkRequest extends Model
 {
@@ -14,17 +14,11 @@ class UpdateRtcCloudRecordingShrinkRequest extends Model
     public $mixLayoutParamsShrink;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $subscribeParamsShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ******73-8501-****-8ac1-72295a******
-     *
      * @var string
      */
     public $taskId;
@@ -34,17 +28,22 @@ class UpdateRtcCloudRecordingShrinkRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mixLayoutParamsShrink) {
             $res['MixLayoutParams'] = $this->mixLayoutParamsShrink;
         }
+
         if (null !== $this->subscribeParamsShrink) {
             $res['SubscribeParams'] = $this->subscribeParamsShrink;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -52,20 +51,22 @@ class UpdateRtcCloudRecordingShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateRtcCloudRecordingShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MixLayoutParams'])) {
             $model->mixLayoutParamsShrink = $map['MixLayoutParams'];
         }
+
         if (isset($map['SubscribeParams'])) {
             $model->subscribeParamsShrink = $map['SubscribeParams'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

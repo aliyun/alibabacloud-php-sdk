@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SendLiveMessageGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the message, which is a unique identifier that can be used to delete the message. The ID can be up to 64 bytes in length and can contain letters and digits.
-     *
-     * @example 169830****
-     *
      * @var string
      */
     public $msgTid;
 
     /**
-     * @description The request ID.
-     *
-     * @example E4C1245F-597B-1BD1-B9BB-9D220E99****
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class SendLiveMessageGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->msgTid) {
             $res['MsgTid'] = $this->msgTid;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class SendLiveMessageGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SendLiveMessageGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MsgTid'])) {
             $model->msgTid = $map['MsgTid'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

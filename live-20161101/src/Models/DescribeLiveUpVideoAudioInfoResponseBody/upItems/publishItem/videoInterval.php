@@ -4,29 +4,37 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUpVideoAudioInfoResponseBody\upItems\publishItem;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUpVideoAudioInfoResponseBody\upItems\publishItem\videoInterval\videoInterval;
 
 class videoInterval extends Model
 {
     /**
-     * @var videoInterval\videoInterval[]
+     * @var videoInterval[]
      */
     public $videoInterval;
     protected $_name = [
         'videoInterval' => 'VideoInterval',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->videoInterval)) {
+            Model::validateArray($this->videoInterval);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->videoInterval) {
-            $res['VideoInterval'] = [];
-            if (null !== $this->videoInterval && \is_array($this->videoInterval)) {
-                $n = 0;
-                foreach ($this->videoInterval as $item) {
-                    $res['VideoInterval'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->videoInterval)) {
+                $res['VideoInterval'] = [];
+                $n1 = 0;
+                foreach ($this->videoInterval as $item1) {
+                    $res['VideoInterval'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +42,21 @@ class videoInterval extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return videoInterval
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VideoInterval'])) {
             if (!empty($map['VideoInterval'])) {
                 $model->videoInterval = [];
-                $n = 0;
-                foreach ($map['VideoInterval'] as $item) {
-                    $model->videoInterval[$n++] = null !== $item ? videoInterval\videoInterval::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VideoInterval'] as $item1) {
+                    $model->videoInterval[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\ListEdgeTranscodeJobResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListEdgeTranscodeJobResponseBody\jobList\job;
-use AlibabaCloud\Tea\Model;
 
 class jobList extends Model
 {
@@ -17,17 +17,24 @@ class jobList extends Model
         'job' => 'Job',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->job)) {
+            Model::validateArray($this->job);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->job) {
-            $res['Job'] = [];
-            if (null !== $this->job && \is_array($this->job)) {
-                $n = 0;
-                foreach ($this->job as $item) {
-                    $res['Job'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->job)) {
+                $res['Job'] = [];
+                $n1 = 0;
+                foreach ($this->job as $item1) {
+                    $res['Job'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class jobList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return jobList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Job'])) {
             if (!empty($map['Job'])) {
                 $model->job = [];
-                $n = 0;
-                foreach ($map['Job'] as $item) {
-                    $model->job[$n++] = null !== $item ? job::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Job'] as $item1) {
+                    $model->job[$n1] = job::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

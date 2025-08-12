@@ -4,36 +4,21 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\StartLiveMPUTaskRequest\transcodeParams\layout\userPanes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userInfo extends Model
 {
     /**
-     * @description The ID of the channel where the user is. If the user is in the same channel, you can leave this parameter empty. We recommend that you specify this parameter when you perform stream mixing across channels.
-     *
-     * @example yourChannelId
-     *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description The type of the video source. This parameter is valid only when you set StreamType to 2. Valid values:
-     *
-     *   **camera** (default)
-     *   **shareScreen**
-     *
-     * @example camera
-     *
      * @var string
      */
     public $sourceType;
 
     /**
-     * @description The user ID.
-     *
-     * @example yourSubUserId
-     *
      * @var string
      */
     public $userId;
@@ -43,17 +28,22 @@ class userInfo extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
+
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -61,20 +51,22 @@ class userInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
+
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

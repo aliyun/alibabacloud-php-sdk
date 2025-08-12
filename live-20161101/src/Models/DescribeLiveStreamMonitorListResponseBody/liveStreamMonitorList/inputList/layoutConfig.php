@@ -4,43 +4,26 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamMonitorListResponseBody\liveStreamMonitorList\inputList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class layoutConfig extends Model
 {
     /**
-     * @description The fill type. Set this value to none.
-     *
-     * @example none
-     *
      * @var string
      */
     public $fillMode;
 
     /**
-     * @description The position of the layer, in the format of [unk][x,y][unk]. The values of x and y need to be normalized.
-     *
      * @var float[]
      */
     public $positionNormalized;
 
     /**
-     * @description The reference position of the element. Valid values:
-     *
-     *   topLeft
-     *   topRight
-     *   bottomLeft
-     *   bottomRight
-     *
-     * @example topLeft
-     *
      * @var string
      */
     public $positionRefer;
 
     /**
-     * @description The size of the layer. Unit: bytes.
-     *
      * @var float[]
      */
     public $sizeNormalized;
@@ -51,49 +34,88 @@ class layoutConfig extends Model
         'sizeNormalized' => 'SizeNormalized',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->positionNormalized)) {
+            Model::validateArray($this->positionNormalized);
+        }
+        if (\is_array($this->sizeNormalized)) {
+            Model::validateArray($this->sizeNormalized);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fillMode) {
             $res['FillMode'] = $this->fillMode;
         }
+
         if (null !== $this->positionNormalized) {
-            $res['PositionNormalized'] = $this->positionNormalized;
+            if (\is_array($this->positionNormalized)) {
+                $res['PositionNormalized'] = [];
+                $n1 = 0;
+                foreach ($this->positionNormalized as $item1) {
+                    $res['PositionNormalized'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->positionRefer) {
             $res['PositionRefer'] = $this->positionRefer;
         }
+
         if (null !== $this->sizeNormalized) {
-            $res['SizeNormalized'] = $this->sizeNormalized;
+            if (\is_array($this->sizeNormalized)) {
+                $res['SizeNormalized'] = [];
+                $n1 = 0;
+                foreach ($this->sizeNormalized as $item1) {
+                    $res['SizeNormalized'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return layoutConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FillMode'])) {
             $model->fillMode = $map['FillMode'];
         }
+
         if (isset($map['PositionNormalized'])) {
             if (!empty($map['PositionNormalized'])) {
-                $model->positionNormalized = $map['PositionNormalized'];
+                $model->positionNormalized = [];
+                $n1 = 0;
+                foreach ($map['PositionNormalized'] as $item1) {
+                    $model->positionNormalized[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['PositionRefer'])) {
             $model->positionRefer = $map['PositionRefer'];
         }
+
         if (isset($map['SizeNormalized'])) {
             if (!empty($map['SizeNormalized'])) {
-                $model->sizeNormalized = $map['SizeNormalized'];
+                $model->sizeNormalized = [];
+                $n1 = 0;
+                foreach ($map['SizeNormalized'] as $item1) {
+                    $model->sizeNormalized[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

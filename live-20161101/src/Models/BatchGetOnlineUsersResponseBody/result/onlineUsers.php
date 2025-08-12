@@ -4,36 +4,21 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\BatchGetOnlineUsersResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class onlineUsers extends Model
 {
     /**
-     * @description The time when the user joined the group. The value is a UTC timestamp. Unit: milliseconds.
-     *
-     * @example 12**45
-     *
      * @var int
      */
     public $joinTime;
 
     /**
-     * @description Indicates whether the user is online. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $online;
 
     /**
-     * @description The ID of the user.
-     *
-     * @example de1**a0
-     *
      * @var string
      */
     public $userId;
@@ -43,17 +28,22 @@ class onlineUsers extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->joinTime) {
             $res['JoinTime'] = $this->joinTime;
         }
+
         if (null !== $this->online) {
             $res['Online'] = $this->online;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -61,20 +51,22 @@ class onlineUsers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return onlineUsers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JoinTime'])) {
             $model->joinTime = $map['JoinTime'];
         }
+
         if (isset($map['Online'])) {
             $model->online = $map['Online'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

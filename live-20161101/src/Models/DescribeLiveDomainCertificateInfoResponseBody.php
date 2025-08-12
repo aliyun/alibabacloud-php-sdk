@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainCertificateInfoResponseBody\certInfos;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLiveDomainCertificateInfoResponseBody extends Model
 {
     /**
-     * @description The certificate information.
-     *
      * @var certInfos
      */
     public $certInfos;
 
     /**
-     * @description The request ID.
-     *
-     * @example 5C1E43DC-9E51-4771-82C0-7D5ECEB547A1
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeLiveDomainCertificateInfoResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->certInfos) {
+            $this->certInfos->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certInfos) {
-            $res['CertInfos'] = null !== $this->certInfos ? $this->certInfos->toMap() : null;
+            $res['CertInfos'] = null !== $this->certInfos ? $this->certInfos->toArray($noStream) : $this->certInfos;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeLiveDomainCertificateInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveDomainCertificateInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertInfos'])) {
             $model->certInfos = certInfos::fromMap($map['CertInfos']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

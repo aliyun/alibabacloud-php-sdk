@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListLiveMessageGroupsResponseBody\groupList;
-use AlibabaCloud\Tea\Model;
 
 class ListLiveMessageGroupsResponseBody extends Model
 {
     /**
-     * @description Details about the groups.
-     *
      * @var groupList[]
      */
     public $groupList;
 
     /**
-     * @description Indicates whether the current page is followed by another page.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $hasmore;
 
     /**
-     * @description The starting page number for the next query. This parameter is returned only if the value of Hasmore is true.
-     *
-     * @example 1001
-     *
      * @var string
      */
     public $nextpageToken;
 
     /**
-     * @description The request ID.
-     *
-     * @example B5D95365-5A46-1A6A-BBF5-C7B6BDED****
-     *
      * @var string
      */
     public $requestId;
@@ -49,26 +35,36 @@ class ListLiveMessageGroupsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->groupList)) {
+            Model::validateArray($this->groupList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupList) {
-            $res['GroupList'] = [];
-            if (null !== $this->groupList && \is_array($this->groupList)) {
-                $n = 0;
-                foreach ($this->groupList as $item) {
-                    $res['GroupList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->groupList)) {
+                $res['GroupList'] = [];
+                $n1 = 0;
+                foreach ($this->groupList as $item1) {
+                    $res['GroupList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->hasmore) {
             $res['Hasmore'] = $this->hasmore;
         }
+
         if (null !== $this->nextpageToken) {
             $res['NextpageToken'] = $this->nextpageToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -76,29 +72,33 @@ class ListLiveMessageGroupsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListLiveMessageGroupsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupList'])) {
             if (!empty($map['GroupList'])) {
                 $model->groupList = [];
-                $n = 0;
-                foreach ($map['GroupList'] as $item) {
-                    $model->groupList[$n++] = null !== $item ? groupList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['GroupList'] as $item1) {
+                    $model->groupList[$n1] = groupList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['Hasmore'])) {
             $model->hasmore = $map['Hasmore'];
         }
+
         if (isset($map['NextpageToken'])) {
             $model->nextpageToken = $map['NextpageToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

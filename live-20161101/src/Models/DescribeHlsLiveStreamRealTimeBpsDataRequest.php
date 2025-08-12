@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeHlsLiveStreamRealTimeBpsDataRequest extends Model
 {
     /**
-     * @description The domain names to query. Separate them with commas (,). A domain name cannot contain double-byte characters.
-     *
-     * @example live.aiyun.com
-     *
      * @var string
      */
     public $domainName;
@@ -28,12 +24,6 @@ class DescribeHlsLiveStreamRealTimeBpsDataRequest extends Model
     public $regionId;
 
     /**
-     * @description The timestamp.
-     *
-     * This parameter is required.
-     *
-     * @example 2018-08-08T00:00:00Z
-     *
      * @var string
      */
     public $time;
@@ -44,20 +34,26 @@ class DescribeHlsLiveStreamRealTimeBpsDataRequest extends Model
         'time' => 'Time',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
@@ -65,23 +61,26 @@ class DescribeHlsLiveStreamRealTimeBpsDataRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeHlsLiveStreamRealTimeBpsDataRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }

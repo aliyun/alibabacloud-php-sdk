@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainMappingResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainMappingResponseBody\liveDomainModels\liveDomainModel;
-use AlibabaCloud\Tea\Model;
 
 class liveDomainModels extends Model
 {
@@ -17,17 +17,24 @@ class liveDomainModels extends Model
         'liveDomainModel' => 'LiveDomainModel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->liveDomainModel)) {
+            Model::validateArray($this->liveDomainModel);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->liveDomainModel) {
-            $res['LiveDomainModel'] = [];
-            if (null !== $this->liveDomainModel && \is_array($this->liveDomainModel)) {
-                $n = 0;
-                foreach ($this->liveDomainModel as $item) {
-                    $res['LiveDomainModel'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->liveDomainModel)) {
+                $res['LiveDomainModel'] = [];
+                $n1 = 0;
+                foreach ($this->liveDomainModel as $item1) {
+                    $res['LiveDomainModel'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class liveDomainModels extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return liveDomainModels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LiveDomainModel'])) {
             if (!empty($map['LiveDomainModel'])) {
                 $model->liveDomainModel = [];
-                $n = 0;
-                foreach ($map['LiveDomainModel'] as $item) {
-                    $model->liveDomainModel[$n++] = null !== $item ? liveDomainModel::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LiveDomainModel'] as $item1) {
+                    $model->liveDomainModel[$n1] = liveDomainModel::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

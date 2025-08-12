@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamBitRateDataResponseBody\frameRateAndBitRateInfos;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLiveStreamBitRateDataResponseBody extends Model
 {
     /**
-     * @description The frame rates and bitrates of the live stream.
-     *
      * @var frameRateAndBitRateInfos
      */
     public $frameRateAndBitRateInfos;
 
     /**
-     * @description The request ID.
-     *
-     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeLiveStreamBitRateDataResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->frameRateAndBitRateInfos) {
+            $this->frameRateAndBitRateInfos->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->frameRateAndBitRateInfos) {
-            $res['FrameRateAndBitRateInfos'] = null !== $this->frameRateAndBitRateInfos ? $this->frameRateAndBitRateInfos->toMap() : null;
+            $res['FrameRateAndBitRateInfos'] = null !== $this->frameRateAndBitRateInfos ? $this->frameRateAndBitRateInfos->toArray($noStream) : $this->frameRateAndBitRateInfos;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeLiveStreamBitRateDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveStreamBitRateDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FrameRateAndBitRateInfos'])) {
             $model->frameRateAndBitRateInfos = frameRateAndBitRateInfos::fromMap($map['FrameRateAndBitRateInfos']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,50 +4,32 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\QueryLiveDomainMultiStreamListResponseBody\onlineStreams;
-use AlibabaCloud\Tea\Model;
 
 class QueryLiveDomainMultiStreamListResponseBody extends Model
 {
     /**
-     * @description The online streams returned.
-     *
      * @var onlineStreams[]
      */
     public $onlineStreams;
 
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The request ID.
-     *
-     * @example CF60DB6A-7FD6-426E-9288-122CC1A5****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 19
-     *
      * @var int
      */
     public $totalCount;
@@ -59,29 +41,40 @@ class QueryLiveDomainMultiStreamListResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->onlineStreams)) {
+            Model::validateArray($this->onlineStreams);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->onlineStreams) {
-            $res['OnlineStreams'] = [];
-            if (null !== $this->onlineStreams && \is_array($this->onlineStreams)) {
-                $n = 0;
-                foreach ($this->onlineStreams as $item) {
-                    $res['OnlineStreams'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->onlineStreams)) {
+                $res['OnlineStreams'] = [];
+                $n1 = 0;
+                foreach ($this->onlineStreams as $item1) {
+                    $res['OnlineStreams'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -89,32 +82,37 @@ class QueryLiveDomainMultiStreamListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryLiveDomainMultiStreamListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OnlineStreams'])) {
             if (!empty($map['OnlineStreams'])) {
                 $model->onlineStreams = [];
-                $n = 0;
-                foreach ($map['OnlineStreams'] as $item) {
-                    $model->onlineStreams[$n++] = null !== $item ? onlineStreams::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OnlineStreams'] as $item1) {
+                    $model->onlineStreams[$n1] = onlineStreams::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

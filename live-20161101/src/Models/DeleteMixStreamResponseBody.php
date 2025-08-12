@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteMixStreamResponseBody extends Model
 {
     /**
-     * @description The ID of the stream mixing task.
-     *
-     * @example 749b7594-86d6-37b1-513b-e1e19845****
-     *
      * @var string
      */
     public $mixStreamId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example BE9407FF-F897-4DBD-338D-98A750AD805F
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class DeleteMixStreamResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mixStreamId) {
             $res['MixStreamId'] = $this->mixStreamId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class DeleteMixStreamResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteMixStreamResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MixStreamId'])) {
             $model->mixStreamId = $map['MixStreamId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

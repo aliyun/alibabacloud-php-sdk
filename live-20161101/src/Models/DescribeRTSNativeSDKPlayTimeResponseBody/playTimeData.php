@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeRTSNativeSDKPlayTimeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class playTimeData extends Model
 {
     /**
-     * @description The average playback duration within the period of time.
-     *
-     * @example 1000
-     *
      * @var string
      */
     public $playTime;
 
     /**
-     * @description The average stuttering duration within the period of time.
-     *
-     * @example 100
-     *
      * @var string
      */
     public $stallTime;
 
     /**
-     * @description The timestamp of the returned data.
-     *
-     * @example 2021-12-10T20:00:00Z
-     *
      * @var string
      */
     public $timeStamp;
@@ -40,17 +28,22 @@ class playTimeData extends Model
         'timeStamp' => 'TimeStamp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->playTime) {
             $res['PlayTime'] = $this->playTime;
         }
+
         if (null !== $this->stallTime) {
             $res['StallTime'] = $this->stallTime;
         }
+
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -58,20 +51,22 @@ class playTimeData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return playTimeData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PlayTime'])) {
             $model->playTime = $map['PlayTime'];
         }
+
         if (isset($map['StallTime'])) {
             $model->stallTime = $map['StallTime'];
         }
+
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

@@ -4,29 +4,37 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterConfigResponseBody\recordConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterConfigResponseBody\recordConfig\recordFormat\recordFormat;
 
 class recordFormat extends Model
 {
     /**
-     * @var recordFormat\recordFormat[]
+     * @var recordFormat[]
      */
     public $recordFormat;
     protected $_name = [
         'recordFormat' => 'RecordFormat',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->recordFormat)) {
+            Model::validateArray($this->recordFormat);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recordFormat) {
-            $res['RecordFormat'] = [];
-            if (null !== $this->recordFormat && \is_array($this->recordFormat)) {
-                $n = 0;
-                foreach ($this->recordFormat as $item) {
-                    $res['RecordFormat'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->recordFormat)) {
+                $res['RecordFormat'] = [];
+                $n1 = 0;
+                foreach ($this->recordFormat as $item1) {
+                    $res['RecordFormat'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +42,21 @@ class recordFormat extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recordFormat
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecordFormat'])) {
             if (!empty($map['RecordFormat'])) {
                 $model->recordFormat = [];
-                $n = 0;
-                foreach ($map['RecordFormat'] as $item) {
-                    $model->recordFormat[$n++] = null !== $item ? recordFormat\recordFormat::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RecordFormat'] as $item1) {
+                    $model->recordFormat[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

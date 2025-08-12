@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainDetailResponseBody\domainDetail;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLiveDomainDetailResponseBody extends Model
 {
     /**
-     * @description The configuration details of the domain name.
-     *
      * @var domainDetail
      */
     public $domainDetail;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 09ABE829-6CD3-4FE0-AFEE-556113E29727
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeLiveDomainDetailResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->domainDetail) {
+            $this->domainDetail->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainDetail) {
-            $res['DomainDetail'] = null !== $this->domainDetail ? $this->domainDetail->toMap() : null;
+            $res['DomainDetail'] = null !== $this->domainDetail ? $this->domainDetail->toArray($noStream) : $this->domainDetail;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeLiveDomainDetailResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveDomainDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainDetail'])) {
             $model->domainDetail = domainDetail::fromMap($map['DomainDetail']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

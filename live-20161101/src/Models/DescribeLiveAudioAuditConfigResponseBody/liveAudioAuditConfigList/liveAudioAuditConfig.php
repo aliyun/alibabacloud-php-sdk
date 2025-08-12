@@ -4,50 +4,32 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveAudioAuditConfigResponseBody\liveAudioAuditConfigList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveAudioAuditConfigResponseBody\liveAudioAuditConfigList\liveAudioAuditConfig\scenes;
-use AlibabaCloud\Tea\Model;
 
 class liveAudioAuditConfig extends Model
 {
     /**
-     * @description The name of the application to which the live stream belongs.
-     *
-     * @example liveApp****
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description The business type. You can specify a model. The default value is the domain name.
-     *
-     * @example example.edu
-     *
      * @var string
      */
     public $bizType;
 
     /**
-     * @description The main streaming domain.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The moderation scenarios.
-     *
      * @var scenes
      */
     public $scenes;
 
     /**
-     * @description The name of the live stream.
-     *
-     * @example liveStream****
-     *
      * @var string
      */
     public $streamName;
@@ -59,23 +41,33 @@ class liveAudioAuditConfig extends Model
         'streamName' => 'StreamName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->scenes) {
+            $this->scenes->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->scenes) {
-            $res['Scenes'] = null !== $this->scenes ? $this->scenes->toMap() : null;
+            $res['Scenes'] = null !== $this->scenes ? $this->scenes->toArray($noStream) : $this->scenes;
         }
+
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
         }
@@ -83,26 +75,30 @@ class liveAudioAuditConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return liveAudioAuditConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['Scenes'])) {
             $model->scenes = scenes::fromMap($map['Scenes']);
         }
+
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
         }

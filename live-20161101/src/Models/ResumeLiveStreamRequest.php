@@ -4,39 +4,21 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResumeLiveStreamRequest extends Model
 {
     /**
-     * @description The name of the application to which the live stream belongs. You can specify an asterisk (\\*) as the value to match all applications. You can view the application name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
-     *
-     * This parameter is required.
-     *
-     * @example liveApp****
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description The ingest domain.
-     *
-     * This parameter is required.
-     *
-     * @example demo.aliyundoc.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description Specifies whether the live stream is ingested by a streamer or played by a client. Set the value to **publisher**, which specifies that the live stream is ingested by a streamer.
-     *
-     * This parameter is required.
-     *
-     * @example publisher
-     *
      * @var string
      */
     public $liveStreamType;
@@ -52,12 +34,6 @@ class ResumeLiveStreamRequest extends Model
     public $securityToken;
 
     /**
-     * @description The name of the ingested stream. You can view the stream name on the [Stream Management](https://help.aliyun.com/document_detail/197397.html) page of the ApsaraVideo Live console.
-     *
-     * This parameter is required.
-     *
-     * @example liveStream****
-     *
      * @var string
      */
     public $streamName;
@@ -70,26 +46,34 @@ class ResumeLiveStreamRequest extends Model
         'streamName' => 'StreamName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->liveStreamType) {
             $res['LiveStreamType'] = $this->liveStreamType;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
         }
@@ -97,29 +81,34 @@ class ResumeLiveStreamRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResumeLiveStreamRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['LiveStreamType'])) {
             $model->liveStreamType = $map['LiveStreamType'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
         }

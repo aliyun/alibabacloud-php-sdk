@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamMonitorListResponseBody\liveStreamMonitorList\inputList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class playConfig extends Model
 {
     /**
-     * @description The volume. Valid values: 0 to 1. The value is rounded to two decimal places.
-     *
-     * @example 0.50
-     *
      * @var float
      */
     public $volumeRate;
@@ -20,9 +16,12 @@ class playConfig extends Model
         'volumeRate' => 'VolumeRate',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->volumeRate) {
@@ -32,11 +31,11 @@ class playConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return playConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeRtcCloudRecordingFilesResponseBody\taskInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRtcCloudRecordingFilesResponseBody extends Model
 {
     /**
-     * @example ******58-5876-****-83CA-B56278******
-     *
      * @var string
      */
     public $requestId;
@@ -25,32 +23,40 @@ class DescribeRtcCloudRecordingFilesResponseBody extends Model
         'taskInfo' => 'TaskInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->taskInfo) {
+            $this->taskInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskInfo) {
-            $res['TaskInfo'] = null !== $this->taskInfo ? $this->taskInfo->toMap() : null;
+            $res['TaskInfo'] = null !== $this->taskInfo ? $this->taskInfo->toArray($noStream) : $this->taskInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRtcCloudRecordingFilesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskInfo'])) {
             $model->taskInfo = taskInfo::fromMap($map['TaskInfo']);
         }

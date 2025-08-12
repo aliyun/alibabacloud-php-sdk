@@ -4,70 +4,33 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\ModifyCasterLayoutRequest\audioLayer;
 use AlibabaCloud\SDK\Live\V20161101\Models\ModifyCasterLayoutRequest\videoLayer;
-use AlibabaCloud\Tea\Model;
 
 class ModifyCasterLayoutRequest extends Model
 {
     /**
-     * @description The audio layers.
-     *
-     * This parameter is required.
-     *
      * @var audioLayer[]
      */
     public $audioLayer;
 
     /**
-     * @description The location IDs of the video layers, which are in the same order as the video layers.
-     *
-     * For more information, see [AddCasterVideoResource](https://help.aliyun.com/document_detail/2848020.html).
-     *
-     * This parameter is required.
-     *
-     * @example RV02
-     *
      * @var string[]
      */
     public $blendList;
 
     /**
-     * @description The ID of the production studio.
-     *
-     *   If the production studio was created by calling the [CreateCaster](https://help.aliyun.com/document_detail/2848009.html) operation, check the value of the response parameter CasterId to obtain the ID.
-     *   If the production studio was created by using the ApsaraVideo Live console, obtain the ID on the **Production Studio Management** page. To go to the page, log on to the **ApsaraVideo Live console** and click **Production Studios** in the left-side navigation pane.
-     *
-     * >  You can find the ID of the production studio in the Instance ID/Name column.
-     *
-     * This parameter is required.
-     *
-     * @example LIVEPRODUCER_POST-cn-0pp1czt****
-     *
      * @var string
      */
     public $casterId;
 
     /**
-     * @description The ID of the layout. If the layout was added by calling the [AddCasterLayout](https://help.aliyun.com/document_detail/2848025.html) operation, check the value of the response parameter LayoutId to obtain the ID.
-     *
-     * This parameter is required.
-     *
-     * @example 21926b36-7dd2-4fde-ae25-51b5bc8e****
-     *
      * @var string
      */
     public $layoutId;
 
     /**
-     * @description The location IDs of the audio layers, which are in the same order as the audio layers.
-     *
-     * For more information, see [AddCasterVideoResource](https://help.aliyun.com/document_detail/2848020.html).
-     *
-     * This parameter is required.
-     *
-     * @example RV02
-     *
      * @var string[]
      */
     public $mixList;
@@ -83,10 +46,6 @@ class ModifyCasterLayoutRequest extends Model
     public $regionId;
 
     /**
-     * @description The video layers.
-     *
-     * This parameter is required.
-     *
      * @var videoLayer[]
      */
     public $videoLayer;
@@ -101,44 +60,82 @@ class ModifyCasterLayoutRequest extends Model
         'videoLayer' => 'VideoLayer',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->audioLayer)) {
+            Model::validateArray($this->audioLayer);
+        }
+        if (\is_array($this->blendList)) {
+            Model::validateArray($this->blendList);
+        }
+        if (\is_array($this->mixList)) {
+            Model::validateArray($this->mixList);
+        }
+        if (\is_array($this->videoLayer)) {
+            Model::validateArray($this->videoLayer);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->audioLayer) {
-            $res['AudioLayer'] = [];
-            if (null !== $this->audioLayer && \is_array($this->audioLayer)) {
-                $n = 0;
-                foreach ($this->audioLayer as $item) {
-                    $res['AudioLayer'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->audioLayer)) {
+                $res['AudioLayer'] = [];
+                $n1 = 0;
+                foreach ($this->audioLayer as $item1) {
+                    $res['AudioLayer'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->blendList) {
-            $res['BlendList'] = $this->blendList;
+            if (\is_array($this->blendList)) {
+                $res['BlendList'] = [];
+                $n1 = 0;
+                foreach ($this->blendList as $item1) {
+                    $res['BlendList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
+
         if (null !== $this->layoutId) {
             $res['LayoutId'] = $this->layoutId;
         }
+
         if (null !== $this->mixList) {
-            $res['MixList'] = $this->mixList;
+            if (\is_array($this->mixList)) {
+                $res['MixList'] = [];
+                $n1 = 0;
+                foreach ($this->mixList as $item1) {
+                    $res['MixList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->videoLayer) {
-            $res['VideoLayer'] = [];
-            if (null !== $this->videoLayer && \is_array($this->videoLayer)) {
-                $n = 0;
-                foreach ($this->videoLayer as $item) {
-                    $res['VideoLayer'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->videoLayer)) {
+                $res['VideoLayer'] = [];
+                $n1 = 0;
+                foreach ($this->videoLayer as $item1) {
+                    $res['VideoLayer'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -146,51 +143,70 @@ class ModifyCasterLayoutRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyCasterLayoutRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AudioLayer'])) {
             if (!empty($map['AudioLayer'])) {
                 $model->audioLayer = [];
-                $n = 0;
-                foreach ($map['AudioLayer'] as $item) {
-                    $model->audioLayer[$n++] = null !== $item ? audioLayer::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AudioLayer'] as $item1) {
+                    $model->audioLayer[$n1] = audioLayer::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['BlendList'])) {
             if (!empty($map['BlendList'])) {
-                $model->blendList = $map['BlendList'];
+                $model->blendList = [];
+                $n1 = 0;
+                foreach ($map['BlendList'] as $item1) {
+                    $model->blendList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }
+
         if (isset($map['LayoutId'])) {
             $model->layoutId = $map['LayoutId'];
         }
+
         if (isset($map['MixList'])) {
             if (!empty($map['MixList'])) {
-                $model->mixList = $map['MixList'];
+                $model->mixList = [];
+                $n1 = 0;
+                foreach ($map['MixList'] as $item1) {
+                    $model->mixList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['VideoLayer'])) {
             if (!empty($map['VideoLayer'])) {
                 $model->videoLayer = [];
-                $n = 0;
-                foreach ($map['VideoLayer'] as $item) {
-                    $model->videoLayer[$n++] = null !== $item ? videoLayer::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VideoLayer'] as $item1) {
+                    $model->videoLayer[$n1] = videoLayer::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

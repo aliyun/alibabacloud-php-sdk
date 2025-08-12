@@ -4,67 +4,41 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\ListLiveMessageGroupsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class groupList extends Model
 {
     /**
-     * @description The list of the IDs of the group administrators.
-     *
      * @var string[]
      */
     public $adminList;
 
     /**
-     * @description The time when the group was created. The value is a UNIX timestamp. Unit: seconds.
-     *
-     * @example 1698299727
-     *
      * @var int
      */
     public $createtime;
 
     /**
-     * @description The ID of the group creator.
-     *
-     * @example user_77
-     *
      * @var string
      */
     public $creatorId;
 
     /**
-     * @description Indicates whether the group is deleted.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $delete;
 
     /**
-     * @description The ID of the group.
-     *
-     * @example cU9MeBqf****
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The additional information about the group.
-     *
-     * @example testgroupinfo
-     *
      * @var string
      */
     public $groupInfo;
 
     /**
-     * @description The name of the group.
-     *
-     * @example mytestgroup
-     *
      * @var string
      */
     public $groupName;
@@ -78,29 +52,48 @@ class groupList extends Model
         'groupName' => 'GroupName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->adminList)) {
+            Model::validateArray($this->adminList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->adminList) {
-            $res['AdminList'] = $this->adminList;
+            if (\is_array($this->adminList)) {
+                $res['AdminList'] = [];
+                $n1 = 0;
+                foreach ($this->adminList as $item1) {
+                    $res['AdminList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->createtime) {
             $res['Createtime'] = $this->createtime;
         }
+
         if (null !== $this->creatorId) {
             $res['CreatorId'] = $this->creatorId;
         }
+
         if (null !== $this->delete) {
             $res['Delete'] = $this->delete;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->groupInfo) {
             $res['GroupInfo'] = $this->groupInfo;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
@@ -108,34 +101,45 @@ class groupList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return groupList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdminList'])) {
             if (!empty($map['AdminList'])) {
-                $model->adminList = $map['AdminList'];
+                $model->adminList = [];
+                $n1 = 0;
+                foreach ($map['AdminList'] as $item1) {
+                    $model->adminList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Createtime'])) {
             $model->createtime = $map['Createtime'];
         }
+
         if (isset($map['CreatorId'])) {
             $model->creatorId = $map['CreatorId'];
         }
+
         if (isset($map['Delete'])) {
             $model->delete = $map['Delete'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['GroupInfo'])) {
             $model->groupInfo = $map['GroupInfo'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }

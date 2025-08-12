@@ -4,60 +4,36 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveCertificateListResponseBody\certificateListModel\certList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class cert extends Model
 {
     /**
-     * @description The ID of the certificate.
-     *
-     * @example 123456
-     *
      * @var int
      */
     public $certId;
 
     /**
-     * @description The name of the certificate.
-     *
-     * @example Cert-****
-     *
      * @var string
      */
     public $certName;
 
     /**
-     * @description The Common Name (CN) attribute of the certificate.
-     *
-     * @example example.net
-     *
      * @var string
      */
     public $common;
 
     /**
-     * @description The fingerprint of the certificate.
-     *
-     * @example ****
-     *
      * @var string
      */
     public $fingerprint;
 
     /**
-     * @description The certificate authority (CA) that issued the certificate.
-     *
-     * @example *****
-     *
      * @var string
      */
     public $issuer;
 
     /**
-     * @description The time when the certificate was issued. Unit: seconds.
-     *
-     * @example 1512388659
-     *
      * @var int
      */
     public $lastTime;
@@ -70,26 +46,34 @@ class cert extends Model
         'lastTime' => 'LastTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certId) {
             $res['CertId'] = $this->certId;
         }
+
         if (null !== $this->certName) {
             $res['CertName'] = $this->certName;
         }
+
         if (null !== $this->common) {
             $res['Common'] = $this->common;
         }
+
         if (null !== $this->fingerprint) {
             $res['Fingerprint'] = $this->fingerprint;
         }
+
         if (null !== $this->issuer) {
             $res['Issuer'] = $this->issuer;
         }
+
         if (null !== $this->lastTime) {
             $res['LastTime'] = $this->lastTime;
         }
@@ -97,29 +81,34 @@ class cert extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cert
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertId'])) {
             $model->certId = $map['CertId'];
         }
+
         if (isset($map['CertName'])) {
             $model->certName = $map['CertName'];
         }
+
         if (isset($map['Common'])) {
             $model->common = $map['Common'];
         }
+
         if (isset($map['Fingerprint'])) {
             $model->fingerprint = $map['Fingerprint'];
         }
+
         if (isset($map['Issuer'])) {
             $model->issuer = $map['Issuer'];
         }
+
         if (isset($map['LastTime'])) {
             $model->lastTime = $map['LastTime'];
         }

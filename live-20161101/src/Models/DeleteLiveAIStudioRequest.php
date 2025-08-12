@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteLiveAIStudioRequest extends Model
 {
@@ -19,12 +19,6 @@ class DeleteLiveAIStudioRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the template. You can obtain the ID from the response to the CreateLiveAIStudio operation.
-     *
-     * This parameter is required.
-     *
-     * @example 369ced1f-c33a-49e5-91da-bdaae3d6c1c2
-     *
      * @var string
      */
     public $studioId;
@@ -34,17 +28,22 @@ class DeleteLiveAIStudioRequest extends Model
         'studioId' => 'StudioId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->studioId) {
             $res['StudioId'] = $this->studioId;
         }
@@ -52,20 +51,22 @@ class DeleteLiveAIStudioRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteLiveAIStudioRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['StudioId'])) {
             $model->studioId = $map['StudioId'];
         }

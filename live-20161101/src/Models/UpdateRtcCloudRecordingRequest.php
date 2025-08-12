@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\UpdateRtcCloudRecordingRequest\mixLayoutParams;
 use AlibabaCloud\SDK\Live\V20161101\Models\UpdateRtcCloudRecordingRequest\subscribeParams;
-use AlibabaCloud\Tea\Model;
 
 class UpdateRtcCloudRecordingRequest extends Model
 {
@@ -16,17 +16,11 @@ class UpdateRtcCloudRecordingRequest extends Model
     public $mixLayoutParams;
 
     /**
-     * @description This parameter is required.
-     *
      * @var subscribeParams
      */
     public $subscribeParams;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ******73-8501-****-8ac1-72295a******
-     *
      * @var string
      */
     public $taskId;
@@ -36,17 +30,28 @@ class UpdateRtcCloudRecordingRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->mixLayoutParams) {
+            $this->mixLayoutParams->validate();
+        }
+        if (null !== $this->subscribeParams) {
+            $this->subscribeParams->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mixLayoutParams) {
-            $res['MixLayoutParams'] = null !== $this->mixLayoutParams ? $this->mixLayoutParams->toMap() : null;
+            $res['MixLayoutParams'] = null !== $this->mixLayoutParams ? $this->mixLayoutParams->toArray($noStream) : $this->mixLayoutParams;
         }
+
         if (null !== $this->subscribeParams) {
-            $res['SubscribeParams'] = null !== $this->subscribeParams ? $this->subscribeParams->toMap() : null;
+            $res['SubscribeParams'] = null !== $this->subscribeParams ? $this->subscribeParams->toArray($noStream) : $this->subscribeParams;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -54,20 +59,22 @@ class UpdateRtcCloudRecordingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateRtcCloudRecordingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MixLayoutParams'])) {
             $model->mixLayoutParams = mixLayoutParams::fromMap($map['MixLayoutParams']);
         }
+
         if (isset($map['SubscribeParams'])) {
             $model->subscribeParams = subscribeParams::fromMap($map['SubscribeParams']);
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

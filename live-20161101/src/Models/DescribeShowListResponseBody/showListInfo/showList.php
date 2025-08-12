@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeShowListResponseBody\showListInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeShowListResponseBody\showListInfo\showList\show;
-use AlibabaCloud\Tea\Model;
 
 class showList extends Model
 {
@@ -17,17 +17,24 @@ class showList extends Model
         'show' => 'Show',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->show)) {
+            Model::validateArray($this->show);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->show) {
-            $res['Show'] = [];
-            if (null !== $this->show && \is_array($this->show)) {
-                $n = 0;
-                foreach ($this->show as $item) {
-                    $res['Show'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->show)) {
+                $res['Show'] = [];
+                $n1 = 0;
+                foreach ($this->show as $item1) {
+                    $res['Show'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class showList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return showList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Show'])) {
             if (!empty($map['Show'])) {
                 $model->show = [];
-                $n = 0;
-                foreach ($map['Show'] as $item) {
-                    $model->show[$n++] = null !== $item ? show::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Show'] as $item1) {
+                    $model->show[$n1] = show::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

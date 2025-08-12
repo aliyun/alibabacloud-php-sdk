@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainLogExTtlResponseBody\domainLogDetails\domainLogDetail;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class pageInfos extends Model
 {
@@ -28,17 +28,22 @@ class pageInfos extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageIndex) {
             $res['PageIndex'] = $this->pageIndex;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -46,20 +51,22 @@ class pageInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pageInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageIndex'])) {
             $model->pageIndex = $map['PageIndex'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

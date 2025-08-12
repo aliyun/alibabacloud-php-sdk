@@ -4,42 +4,21 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetLiveDomainMultiStreamOptimalModeRequest extends Model
 {
     /**
-     * @description The application name.
-     *
-     * This parameter is required.
-     *
-     * @example testapp
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description The main streaming domain.
-     *
-     * This parameter is required.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description Specifies whether to enable the auto mode of dual-stream disaster recovery. Valid values:
-     *
-     *   **on**: enables the auto mode.
-     *   **off**: disables the auto mode.
-     *
-     * This parameter is required.
-     *
-     * @example on
-     *
      * @var string
      */
     public $optimalMode;
@@ -50,12 +29,6 @@ class SetLiveDomainMultiStreamOptimalModeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The name of the live stream.
-     *
-     * This parameter is required.
-     *
-     * @example teststream
-     *
      * @var string
      */
     public $streamName;
@@ -67,23 +40,30 @@ class SetLiveDomainMultiStreamOptimalModeRequest extends Model
         'streamName' => 'StreamName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->optimalMode) {
             $res['OptimalMode'] = $this->optimalMode;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
         }
@@ -91,26 +71,30 @@ class SetLiveDomainMultiStreamOptimalModeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetLiveDomainMultiStreamOptimalModeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['OptimalMode'])) {
             $model->optimalMode = $map['OptimalMode'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
         }

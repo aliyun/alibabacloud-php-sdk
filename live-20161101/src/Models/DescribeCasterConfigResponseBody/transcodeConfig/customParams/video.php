@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterConfigResponseBody\transcodeConfig\customParams;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class video extends Model
 {
     /**
-     * @description The video bitrate.
-     *
-     * @example 300
-     *
      * @var int
      */
     public $bitrate;
 
     /**
-     * @description The video frame rate.
-     *
-     * @example 300
-     *
      * @var int
      */
     public $fps;
 
     /**
-     * @description The video height. Unit: pixels.
-     *
-     * @example 720
-     *
      * @var int
      */
     public $height;
 
     /**
-     * @description The video width. Unit: pixels.
-     *
-     * @example 1080
-     *
      * @var int
      */
     public $width;
@@ -50,20 +34,26 @@ class video extends Model
         'width' => 'width',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bitrate) {
             $res['bitrate'] = $this->bitrate;
         }
+
         if (null !== $this->fps) {
             $res['fps'] = $this->fps;
         }
+
         if (null !== $this->height) {
             $res['height'] = $this->height;
         }
+
         if (null !== $this->width) {
             $res['width'] = $this->width;
         }
@@ -71,23 +61,26 @@ class video extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return video
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['bitrate'])) {
             $model->bitrate = $map['bitrate'];
         }
+
         if (isset($map['fps'])) {
             $model->fps = $map['fps'];
         }
+
         if (isset($map['height'])) {
             $model->height = $map['height'];
         }
+
         if (isset($map['width'])) {
             $model->width = $map['width'];
         }

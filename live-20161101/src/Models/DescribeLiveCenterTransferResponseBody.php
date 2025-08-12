@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveCenterTransferResponseBody\liveCenterTransferInfoList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLiveCenterTransferResponseBody extends Model
 {
     /**
-     * @description The stream relay information.
-     *
      * @var liveCenterTransferInfoList
      */
     public $liveCenterTransferInfoList;
 
     /**
-     * @description The request ID.
-     *
-     * @example C4865B85-664B-19D3-BB16-C62FB83C8226
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeLiveCenterTransferResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->liveCenterTransferInfoList) {
+            $this->liveCenterTransferInfoList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->liveCenterTransferInfoList) {
-            $res['LiveCenterTransferInfoList'] = null !== $this->liveCenterTransferInfoList ? $this->liveCenterTransferInfoList->toMap() : null;
+            $res['LiveCenterTransferInfoList'] = null !== $this->liveCenterTransferInfoList ? $this->liveCenterTransferInfoList->toArray($noStream) : $this->liveCenterTransferInfoList;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeLiveCenterTransferResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveCenterTransferResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LiveCenterTransferInfoList'])) {
             $model->liveCenterTransferInfoList = liveCenterTransferInfoList::fromMap($map['LiveCenterTransferInfoList']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamMergeResponseBody\liveStreamMergeList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLiveStreamMergeResponseBody extends Model
 {
     /**
-     * @description Live stream information list.
-     *
      * @var liveStreamMergeList
      */
     public $liveStreamMergeList;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeLiveStreamMergeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->liveStreamMergeList) {
+            $this->liveStreamMergeList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->liveStreamMergeList) {
-            $res['LiveStreamMergeList'] = null !== $this->liveStreamMergeList ? $this->liveStreamMergeList->toMap() : null;
+            $res['LiveStreamMergeList'] = null !== $this->liveStreamMergeList ? $this->liveStreamMergeList->toArray($noStream) : $this->liveStreamMergeList;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeLiveStreamMergeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveStreamMergeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LiveStreamMergeList'])) {
             $model->liveStreamMergeList = liveStreamMergeList::fromMap($map['LiveStreamMergeList']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

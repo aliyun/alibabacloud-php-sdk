@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainPushTrafficDataResponseBody\trafficDataPerInterval;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataModule extends Model
 {
     /**
-     * @description The timestamp of the data returned.
-     *
-     * @example 2017-12-10T20:05:00Z
-     *
      * @var string
      */
     public $timeStamp;
 
     /**
-     * @description The traffic. Unit: bytes.
-     *
-     * @example 1288111
-     *
      * @var string
      */
     public $trafficValue;
@@ -30,14 +22,18 @@ class dataModule extends Model
         'trafficValue' => 'TrafficValue',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
+
         if (null !== $this->trafficValue) {
             $res['TrafficValue'] = $this->trafficValue;
         }
@@ -45,17 +41,18 @@ class dataModule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataModule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }
+
         if (isset($map['TrafficValue'])) {
             $model->trafficValue = $map['TrafficValue'];
         }

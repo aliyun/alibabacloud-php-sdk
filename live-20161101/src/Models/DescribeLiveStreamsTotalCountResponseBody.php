@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamsTotalCountResponseBody\streamCountList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLiveStreamsTotalCountResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example String	FCFFE4A4-F34F-4EEF-B401-36A01689AFBC
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The statistics about the live streams.
-     *
      * @var streamCountList
      */
     public $streamCountList;
@@ -29,32 +23,40 @@ class DescribeLiveStreamsTotalCountResponseBody extends Model
         'streamCountList' => 'StreamCountList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->streamCountList) {
+            $this->streamCountList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->streamCountList) {
-            $res['StreamCountList'] = null !== $this->streamCountList ? $this->streamCountList->toMap() : null;
+            $res['StreamCountList'] = null !== $this->streamCountList ? $this->streamCountList->toArray($noStream) : $this->streamCountList;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveStreamsTotalCountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StreamCountList'])) {
             $model->streamCountList = streamCountList::fromMap($map['StreamCountList']);
         }

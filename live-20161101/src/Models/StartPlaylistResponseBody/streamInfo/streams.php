@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\StartPlaylistResponseBody\streamInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\StartPlaylistResponseBody\streamInfo\streams\stream;
-use AlibabaCloud\Tea\Model;
 
 class streams extends Model
 {
@@ -17,17 +17,24 @@ class streams extends Model
         'stream' => 'Stream',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->stream)) {
+            Model::validateArray($this->stream);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->stream) {
-            $res['Stream'] = [];
-            if (null !== $this->stream && \is_array($this->stream)) {
-                $n = 0;
-                foreach ($this->stream as $item) {
-                    $res['Stream'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->stream)) {
+                $res['Stream'] = [];
+                $n1 = 0;
+                foreach ($this->stream as $item1) {
+                    $res['Stream'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class streams extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return streams
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Stream'])) {
             if (!empty($map['Stream'])) {
                 $model->stream = [];
-                $n = 0;
-                foreach ($map['Stream'] as $item) {
-                    $model->stream[$n++] = null !== $item ? stream::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Stream'] as $item1) {
+                    $model->stream[$n1] = stream::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeLiveStreamMergeRequest extends Model
 {
     /**
-     * @description The name of the application that generates the output stream. You can view the application name on the [Primary/Secondary Stream Mixing Settings](https://help.aliyun.com/document_detail/606583.html) page of the ApsaraVideo Live console.
-     *
-     * @example app
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description The streaming domain.
-     *
-     * This parameter is required.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
@@ -34,13 +24,6 @@ class DescribeLiveStreamMergeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The streaming protocol. Valid values:
-     *
-     *   **rtmp**: This is the default value.
-     *   **rtc**
-     *
-     * @example rtmp
-     *
      * @var string
      */
     public $protocol;
@@ -51,10 +34,6 @@ class DescribeLiveStreamMergeRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the output stream. You can view the stream name on the [Primary/Secondary Stream Mixing Settings](https://help.aliyun.com/document_detail/606583.html) page of the ApsaraVideo Live console.
-     *
-     * @example StreamName
-     *
      * @var string
      */
     public $streamName;
@@ -67,26 +46,34 @@ class DescribeLiveStreamMergeRequest extends Model
         'streamName' => 'StreamName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
         }
@@ -94,29 +81,34 @@ class DescribeLiveStreamMergeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveStreamMergeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
         }

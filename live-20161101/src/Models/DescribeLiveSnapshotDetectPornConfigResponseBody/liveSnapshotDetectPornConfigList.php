@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveSnapshotDetectPornConfigResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveSnapshotDetectPornConfigResponseBody\liveSnapshotDetectPornConfigList\liveSnapshotDetectPornConfig;
-use AlibabaCloud\Tea\Model;
 
 class liveSnapshotDetectPornConfigList extends Model
 {
@@ -17,17 +17,24 @@ class liveSnapshotDetectPornConfigList extends Model
         'liveSnapshotDetectPornConfig' => 'LiveSnapshotDetectPornConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->liveSnapshotDetectPornConfig)) {
+            Model::validateArray($this->liveSnapshotDetectPornConfig);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->liveSnapshotDetectPornConfig) {
-            $res['LiveSnapshotDetectPornConfig'] = [];
-            if (null !== $this->liveSnapshotDetectPornConfig && \is_array($this->liveSnapshotDetectPornConfig)) {
-                $n = 0;
-                foreach ($this->liveSnapshotDetectPornConfig as $item) {
-                    $res['LiveSnapshotDetectPornConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->liveSnapshotDetectPornConfig)) {
+                $res['LiveSnapshotDetectPornConfig'] = [];
+                $n1 = 0;
+                foreach ($this->liveSnapshotDetectPornConfig as $item1) {
+                    $res['LiveSnapshotDetectPornConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class liveSnapshotDetectPornConfigList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return liveSnapshotDetectPornConfigList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LiveSnapshotDetectPornConfig'])) {
             if (!empty($map['LiveSnapshotDetectPornConfig'])) {
                 $model->liveSnapshotDetectPornConfig = [];
-                $n = 0;
-                foreach ($map['LiveSnapshotDetectPornConfig'] as $item) {
-                    $model->liveSnapshotDetectPornConfig[$n++] = null !== $item ? liveSnapshotDetectPornConfig::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LiveSnapshotDetectPornConfig'] as $item1) {
+                    $model->liveSnapshotDetectPornConfig[$n1] = liveSnapshotDetectPornConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

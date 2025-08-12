@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLivePullStreamConfigResponseBody\liveAppRecordList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLivePullStreamConfigResponseBody extends Model
 {
     /**
-     * @description Details about the stream pulling configurations.
-     *
      * @var liveAppRecordList
      */
     public $liveAppRecordList;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example A3136B58-5876-4168-83CA-B562781981A0
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeLivePullStreamConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->liveAppRecordList) {
+            $this->liveAppRecordList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->liveAppRecordList) {
-            $res['LiveAppRecordList'] = null !== $this->liveAppRecordList ? $this->liveAppRecordList->toMap() : null;
+            $res['LiveAppRecordList'] = null !== $this->liveAppRecordList ? $this->liveAppRecordList->toArray($noStream) : $this->liveAppRecordList;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeLivePullStreamConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLivePullStreamConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LiveAppRecordList'])) {
             $model->liveAppRecordList = liveAppRecordList::fromMap($map['LiveAppRecordList']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

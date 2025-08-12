@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeMixStreamListResponseBody\mixStreamList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeMixStreamListResponseBody extends Model
 {
     /**
-     * @description Details about the stream mixing tasks.
-     *
      * @var mixStreamList[]
      */
     public $mixStreamList;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example BC1E78D3-FA8B-4457-DEE2-6093E1232254
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of tasks.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $total;
@@ -39,23 +29,32 @@ class DescribeMixStreamListResponseBody extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->mixStreamList)) {
+            Model::validateArray($this->mixStreamList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mixStreamList) {
-            $res['MixStreamList'] = [];
-            if (null !== $this->mixStreamList && \is_array($this->mixStreamList)) {
-                $n = 0;
-                foreach ($this->mixStreamList as $item) {
-                    $res['MixStreamList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->mixStreamList)) {
+                $res['MixStreamList'] = [];
+                $n1 = 0;
+                foreach ($this->mixStreamList as $item1) {
+                    $res['MixStreamList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -63,26 +62,29 @@ class DescribeMixStreamListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeMixStreamListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MixStreamList'])) {
             if (!empty($map['MixStreamList'])) {
                 $model->mixStreamList = [];
-                $n = 0;
-                foreach ($map['MixStreamList'] as $item) {
-                    $model->mixStreamList[$n++] = null !== $item ? mixStreamList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MixStreamList'] as $item1) {
+                    $model->mixStreamList[$n1] = mixStreamList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

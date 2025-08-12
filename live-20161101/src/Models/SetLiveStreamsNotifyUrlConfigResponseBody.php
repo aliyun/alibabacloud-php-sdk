@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetLiveStreamsNotifyUrlConfigResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 40A4F36D-A7CC-473A-88E7-154F92242566
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class SetLiveStreamsNotifyUrlConfigResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class SetLiveStreamsNotifyUrlConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetLiveStreamsNotifyUrlConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

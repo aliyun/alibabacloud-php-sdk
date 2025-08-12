@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddLiveDomainPlayMappingRequest extends Model
 {
@@ -14,23 +14,11 @@ class AddLiveDomainPlayMappingRequest extends Model
     public $ownerId;
 
     /**
-     * @description The sub-streaming domain.
-     *
-     * This parameter is required.
-     *
-     * @example example.aliyundoc.com
-     *
      * @var string
      */
     public $playDomain;
 
     /**
-     * @description The main streaming domain.
-     *
-     * This parameter is required.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $pullDomain;
@@ -46,20 +34,26 @@ class AddLiveDomainPlayMappingRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->playDomain) {
             $res['PlayDomain'] = $this->playDomain;
         }
+
         if (null !== $this->pullDomain) {
             $res['PullDomain'] = $this->pullDomain;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -67,23 +61,26 @@ class AddLiveDomainPlayMappingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddLiveDomainPlayMappingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PlayDomain'])) {
             $model->playDomain = $map['PlayDomain'];
         }
+
         if (isset($map['PullDomain'])) {
             $model->pullDomain = $map['PullDomain'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

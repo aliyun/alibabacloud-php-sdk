@@ -4,70 +4,42 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamTranscodeMetricDataResponseBody\streamDetailData;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLiveStreamTranscodeMetricDataResponseBody extends Model
 {
     /**
-     * @description The domain name.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The end of the time range during which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-     *
-     * @example 2023-06-11T02:46:40Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description A pagination token. When you call this operation, up to 5,000 rows of data can be returned per query. If the number of rows exceeds 5,000, the response includes a pagination token that is used in the next request to retrieve a new page of results.
-     *
-     * When you specify the token in the next query, data continues to be obtained from the end of the previous query.
-     *
-     * @example UjsM9x3aVcJi9a0-ArwJUTTC67C***37C0=
-     *
      * @var string
      */
     public $nextPageToken;
 
     /**
-     * @description The number of rows returned.
-     *
-     * @example 5000
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The beginning of the time range during which data was queried. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-     *
-     * @example 2023-06-11T03:46:40Z
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description The data array returned.
-     *
      * @var streamDetailData
      */
     public $streamDetailData;
@@ -81,62 +53,80 @@ class DescribeLiveStreamTranscodeMetricDataResponseBody extends Model
         'streamDetailData' => 'StreamDetailData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->streamDetailData) {
+            $this->streamDetailData->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->nextPageToken) {
             $res['NextPageToken'] = $this->nextPageToken;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->streamDetailData) {
-            $res['StreamDetailData'] = null !== $this->streamDetailData ? $this->streamDetailData->toMap() : null;
+            $res['StreamDetailData'] = null !== $this->streamDetailData ? $this->streamDetailData->toArray($noStream) : $this->streamDetailData;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveStreamTranscodeMetricDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['NextPageToken'])) {
             $model->nextPageToken = $map['NextPageToken'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['StreamDetailData'])) {
             $model->streamDetailData = streamDetailData::fromMap($map['StreamDetailData']);
         }

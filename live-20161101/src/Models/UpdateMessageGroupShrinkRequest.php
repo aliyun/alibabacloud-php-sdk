@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateMessageGroupShrinkRequest extends Model
 {
     /**
-     * @description The ID of the interactive messaging application.
-     *
-     * This parameter is required.
-     *
-     * @example VKL3***
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The extended field.
-     *
      * @var string
      */
     public $extensionShrink;
 
     /**
-     * @description The ID of the message group.
-     *
-     * This parameter is required.
-     *
-     * @example AE35-****-T95F
-     *
      * @var string
      */
     public $groupId;
@@ -42,17 +28,22 @@ class UpdateMessageGroupShrinkRequest extends Model
         'groupId' => 'GroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->extensionShrink) {
             $res['Extension'] = $this->extensionShrink;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -60,20 +51,22 @@ class UpdateMessageGroupShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateMessageGroupShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['Extension'])) {
             $model->extensionShrink = $map['Extension'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }

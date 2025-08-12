@@ -4,36 +4,21 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\RemoveTerminalsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class terminals extends Model
 {
     /**
-     * @description The returned status code. A value of 0 indicates that the request is successful. If the request fails, an error message is returned.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The ID of the user.
-     *
-     * @example 1811****
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The result of removing the specified users from the channel. Valid values:
-     *
-     *   Success
-     *   Failed
-     *
-     * @example Success
-     *
      * @var string
      */
     public $message;
@@ -43,17 +28,22 @@ class terminals extends Model
         'message' => 'Message',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -61,20 +51,22 @@ class terminals extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return terminals
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

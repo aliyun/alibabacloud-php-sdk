@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\StartRtcCloudRecordingRequest\storageParams;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OSSParams extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example mytest-bucket
-     *
      * @var string
      */
     public $OSSBucket;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example oss-cn-shanghai.aliyuncs.com
-     *
      * @var string
      */
     public $OSSEndpoint;
@@ -30,14 +22,18 @@ class OSSParams extends Model
         'OSSEndpoint' => 'OSSEndpoint',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->OSSBucket) {
             $res['OSSBucket'] = $this->OSSBucket;
         }
+
         if (null !== $this->OSSEndpoint) {
             $res['OSSEndpoint'] = $this->OSSEndpoint;
         }
@@ -45,17 +41,18 @@ class OSSParams extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OSSParams
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OSSBucket'])) {
             $model->OSSBucket = $map['OSSBucket'];
         }
+
         if (isset($map['OSSEndpoint'])) {
             $model->OSSEndpoint = $map['OSSEndpoint'];
         }

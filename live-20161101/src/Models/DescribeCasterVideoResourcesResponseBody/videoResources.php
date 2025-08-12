@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterVideoResourcesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterVideoResourcesResponseBody\videoResources\videoResource;
-use AlibabaCloud\Tea\Model;
 
 class videoResources extends Model
 {
@@ -17,17 +17,24 @@ class videoResources extends Model
         'videoResource' => 'VideoResource',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->videoResource)) {
+            Model::validateArray($this->videoResource);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->videoResource) {
-            $res['VideoResource'] = [];
-            if (null !== $this->videoResource && \is_array($this->videoResource)) {
-                $n = 0;
-                foreach ($this->videoResource as $item) {
-                    $res['VideoResource'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->videoResource)) {
+                $res['VideoResource'] = [];
+                $n1 = 0;
+                foreach ($this->videoResource as $item1) {
+                    $res['VideoResource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class videoResources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return videoResources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VideoResource'])) {
             if (!empty($map['VideoResource'])) {
                 $model->videoResource = [];
-                $n = 0;
-                foreach ($map['VideoResource'] as $item) {
-                    $model->videoResource[$n++] = null !== $item ? videoResource::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VideoResource'] as $item1) {
+                    $model->videoResource[$n1] = videoResource::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

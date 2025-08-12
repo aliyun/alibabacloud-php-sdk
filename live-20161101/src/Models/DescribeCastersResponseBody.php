@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeCastersResponseBody\casterList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCastersResponseBody extends Model
 {
     /**
-     * @description The production studios.
-     *
      * @var casterList
      */
     public $casterList;
 
     /**
-     * @description The request ID.
-     *
-     * @example 5c6a2a0df228-4a64- af62-20e91b9676b3
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The number of production studios.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $total;
@@ -39,17 +29,25 @@ class DescribeCastersResponseBody extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->casterList) {
+            $this->casterList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->casterList) {
-            $res['CasterList'] = null !== $this->casterList ? $this->casterList->toMap() : null;
+            $res['CasterList'] = null !== $this->casterList ? $this->casterList->toArray($noStream) : $this->casterList;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -57,20 +55,22 @@ class DescribeCastersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCastersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CasterList'])) {
             $model->casterList = casterList::fromMap($map['CasterList']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

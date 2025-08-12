@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAutoShowListTasksRequest extends Model
 {
     /**
-     * @description The ID of the production studio for which you want to query scheduled tasks.
-     *
-     * >  If the scheduled tasks were created by calling the [InitializeAutoShowListTask](https://help.aliyun.com/document_detail/2848056.html) operation, check the value of the response parameter CasterId to obtain the ID. If you do not specify this parameter, the system queries all the scheduled tasks that belong to the user specified by the OwnerId parameter.
-     *
-     * @example 53200b81-b761-4c10-842a-a0726d97****
-     *
      * @var string
      */
     public $casterId;
@@ -34,17 +28,22 @@ class DescribeAutoShowListTasksRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->casterId) {
             $res['CasterId'] = $this->casterId;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -52,20 +51,22 @@ class DescribeAutoShowListTasksRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAutoShowListTasksRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CasterId'])) {
             $model->casterId = $map['CasterId'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

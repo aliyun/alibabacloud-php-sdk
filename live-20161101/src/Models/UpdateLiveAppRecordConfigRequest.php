@@ -4,79 +4,38 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\UpdateLiveAppRecordConfigRequest\recordFormat;
 use AlibabaCloud\SDK\Live\V20161101\Models\UpdateLiveAppRecordConfigRequest\transcodeRecordFormat;
-use AlibabaCloud\Tea\Model;
 
 class UpdateLiveAppRecordConfigRequest extends Model
 {
     /**
-     * @description The name of the application to which the live stream belongs.
-     *
-     * This parameter is required.
-     *
-     * @example liveApp****
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description The interruption duration for merge. If the stream interruption duration exceeds the specified duration, a new recording is generated. The value of this parameter ranges from 15 to 21600 seconds.
-     *
-     * @example 180
-     *
      * @var int
      */
     public $delayTime;
 
     /**
-     * @description The main streaming domain.
-     *
-     * This parameter is required.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The recording end time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-     *
-     * >  The time range that is specified by the EndTime and StartTime parameters must be less than or equal to seven days. If the value exceeds seven days, ApsaraVideo Live considers seven days as the time range. This parameter takes effect only for the live stream specified by the StreamName parameter. If the StreamName parameter is not specified, this parameter does not take effect.
-     *
-     * @example 2018-04-16T09:57:21Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description Specifies whether to enable on-demand recording. Valid values:
-     *
-     *   **0**: disables on-demand recording.
-     *   **1**: enables on-demand recording by using the HTTP callback method.
-     *   **2**: enables on-demand recording by parsing the stream ingest parameters.
-     *   **7**: By default, ApsaraVideo Live does not automatically record live streams. You can call the [RealTimeRecordCommand](https://help.aliyun.com/document_detail/2847882.html) operation to manually start or stop recording.
-     *
-     * >  If you set the OnDemand parameter to **1**, you need to call the [AddLiveRecordNotifyConfig](https://help.aliyun.com/document_detail/2847891.html) operation to configure the OnDemandUrl parameter. Otherwise, ApsaraVideo Live does not perform on-demand recording.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $onDemand;
 
     /**
-     * @description The endpoint of the Object Storage Service (OSS) bucket.
-     *
-     * To store live stream recordings in OSS, you need to create an OSS bucket in advance. For more information, see [Configure OSS](https://help.aliyun.com/document_detail/84932.html).
-     *
-     * This parameter is required.
-     *
-     * @example learn.developer.aliyundoc.com
-     *
      * @var string
      */
     public $ossEndpoint;
@@ -87,8 +46,6 @@ class UpdateLiveAppRecordConfigRequest extends Model
     public $ownerId;
 
     /**
-     * @description The recording details.
-     *
      * @var recordFormat[]
      */
     public $recordFormat;
@@ -99,35 +56,21 @@ class UpdateLiveAppRecordConfigRequest extends Model
     public $securityToken;
 
     /**
-     * @description The recording start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-     *
-     * >  The start time must be within seven days after the stream ingest starts. This parameter takes effect only for the live stream specified by the StreamName parameter. If the StreamName parameter is not specified, this parameter does not take effect.
-     *
-     * @example 2018-04-10T09:57:21Z
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description The name of the live stream.
-     *
-     * @example teststream
-     *
      * @var string
      */
     public $streamName;
 
     /**
-     * @description The transcoded stream recording details.
-     *
      * @var transcodeRecordFormat[]
      */
     public $transcodeRecordFormat;
 
     /**
-     * @description The transcoding template group details.
-     *
      * @var string[]
      */
     public $transcodeTemplates;
@@ -147,125 +90,177 @@ class UpdateLiveAppRecordConfigRequest extends Model
         'transcodeTemplates' => 'TranscodeTemplates',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->recordFormat)) {
+            Model::validateArray($this->recordFormat);
+        }
+        if (\is_array($this->transcodeRecordFormat)) {
+            Model::validateArray($this->transcodeRecordFormat);
+        }
+        if (\is_array($this->transcodeTemplates)) {
+            Model::validateArray($this->transcodeTemplates);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->delayTime) {
             $res['DelayTime'] = $this->delayTime;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->onDemand) {
             $res['OnDemand'] = $this->onDemand;
         }
+
         if (null !== $this->ossEndpoint) {
             $res['OssEndpoint'] = $this->ossEndpoint;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->recordFormat) {
-            $res['RecordFormat'] = [];
-            if (null !== $this->recordFormat && \is_array($this->recordFormat)) {
-                $n = 0;
-                foreach ($this->recordFormat as $item) {
-                    $res['RecordFormat'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->recordFormat)) {
+                $res['RecordFormat'] = [];
+                $n1 = 0;
+                foreach ($this->recordFormat as $item1) {
+                    $res['RecordFormat'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
         }
+
         if (null !== $this->transcodeRecordFormat) {
-            $res['TranscodeRecordFormat'] = [];
-            if (null !== $this->transcodeRecordFormat && \is_array($this->transcodeRecordFormat)) {
-                $n = 0;
-                foreach ($this->transcodeRecordFormat as $item) {
-                    $res['TranscodeRecordFormat'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->transcodeRecordFormat)) {
+                $res['TranscodeRecordFormat'] = [];
+                $n1 = 0;
+                foreach ($this->transcodeRecordFormat as $item1) {
+                    $res['TranscodeRecordFormat'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->transcodeTemplates) {
-            $res['TranscodeTemplates'] = $this->transcodeTemplates;
+            if (\is_array($this->transcodeTemplates)) {
+                $res['TranscodeTemplates'] = [];
+                $n1 = 0;
+                foreach ($this->transcodeTemplates as $item1) {
+                    $res['TranscodeTemplates'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateLiveAppRecordConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['DelayTime'])) {
             $model->delayTime = $map['DelayTime'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['OnDemand'])) {
             $model->onDemand = $map['OnDemand'];
         }
+
         if (isset($map['OssEndpoint'])) {
             $model->ossEndpoint = $map['OssEndpoint'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RecordFormat'])) {
             if (!empty($map['RecordFormat'])) {
                 $model->recordFormat = [];
-                $n = 0;
-                foreach ($map['RecordFormat'] as $item) {
-                    $model->recordFormat[$n++] = null !== $item ? recordFormat::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RecordFormat'] as $item1) {
+                    $model->recordFormat[$n1] = recordFormat::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
         }
+
         if (isset($map['TranscodeRecordFormat'])) {
             if (!empty($map['TranscodeRecordFormat'])) {
                 $model->transcodeRecordFormat = [];
-                $n = 0;
-                foreach ($map['TranscodeRecordFormat'] as $item) {
-                    $model->transcodeRecordFormat[$n++] = null !== $item ? transcodeRecordFormat::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TranscodeRecordFormat'] as $item1) {
+                    $model->transcodeRecordFormat[$n1] = transcodeRecordFormat::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['TranscodeTemplates'])) {
             if (!empty($map['TranscodeTemplates'])) {
-                $model->transcodeTemplates = $map['TranscodeTemplates'];
+                $model->transcodeTemplates = [];
+                $n1 = 0;
+                foreach ($map['TranscodeTemplates'] as $item1) {
+                    $model->transcodeTemplates[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

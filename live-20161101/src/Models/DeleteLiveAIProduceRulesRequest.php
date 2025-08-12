@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteLiveAIProduceRulesRequest extends Model
 {
     /**
-     * @description The name of the application to which the live stream belongs.
-     *
-     * This parameter is required.
-     *
-     * @example AppName
-     *
      * @var string
      */
     public $app;
 
     /**
-     * @description The main streaming domain.
-     *
-     * This parameter is required.
-     *
-     * @example demo.aliyundoc.com
-     *
      * @var string
      */
     public $domain;
@@ -41,21 +29,11 @@ class DeleteLiveAIProduceRulesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the subtitle rule.
-     *
-     * @example 445409ec-7eaa-461d -8f29-4bec2eb9****
-     *
      * @var string
      */
     public $rulesId;
 
     /**
-     * @description The suffix of the subtitle rule.
-     *
-     * >  Set the value to the name of the subtitle template.
-     *
-     * @example et
-     *
      * @var string
      */
     public $suffixName;
@@ -68,26 +46,34 @@ class DeleteLiveAIProduceRulesRequest extends Model
         'suffixName' => 'SuffixName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->app) {
             $res['App'] = $this->app;
         }
+
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->rulesId) {
             $res['RulesId'] = $this->rulesId;
         }
+
         if (null !== $this->suffixName) {
             $res['SuffixName'] = $this->suffixName;
         }
@@ -95,29 +81,34 @@ class DeleteLiveAIProduceRulesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteLiveAIProduceRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['App'])) {
             $model->app = $map['App'];
         }
+
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RulesId'])) {
             $model->rulesId = $map['RulesId'];
         }
+
         if (isset($map['SuffixName'])) {
             $model->suffixName = $map['SuffixName'];
         }

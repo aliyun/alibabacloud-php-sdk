@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeStreamLocationBlockResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeStreamLocationBlockResponseBody\streamBlockList\streamBlock;
-use AlibabaCloud\Tea\Model;
 
 class streamBlockList extends Model
 {
@@ -17,17 +17,24 @@ class streamBlockList extends Model
         'streamBlock' => 'StreamBlock',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->streamBlock)) {
+            Model::validateArray($this->streamBlock);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->streamBlock) {
-            $res['StreamBlock'] = [];
-            if (null !== $this->streamBlock && \is_array($this->streamBlock)) {
-                $n = 0;
-                foreach ($this->streamBlock as $item) {
-                    $res['StreamBlock'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->streamBlock)) {
+                $res['StreamBlock'] = [];
+                $n1 = 0;
+                foreach ($this->streamBlock as $item1) {
+                    $res['StreamBlock'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class streamBlockList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return streamBlockList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StreamBlock'])) {
             if (!empty($map['StreamBlock'])) {
                 $model->streamBlock = [];
-                $n = 0;
-                foreach ($map['StreamBlock'] as $item) {
-                    $model->streamBlock[$n++] = null !== $item ? streamBlock::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['StreamBlock'] as $item1) {
+                    $model->streamBlock[$n1] = streamBlock::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

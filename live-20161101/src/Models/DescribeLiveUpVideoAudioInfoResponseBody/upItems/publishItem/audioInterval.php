@@ -4,29 +4,37 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUpVideoAudioInfoResponseBody\upItems\publishItem;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUpVideoAudioInfoResponseBody\upItems\publishItem\audioInterval\audioInterval;
 
 class audioInterval extends Model
 {
     /**
-     * @var audioInterval\audioInterval[]
+     * @var audioInterval[]
      */
     public $audioInterval;
     protected $_name = [
         'audioInterval' => 'AudioInterval',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->audioInterval)) {
+            Model::validateArray($this->audioInterval);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->audioInterval) {
-            $res['AudioInterval'] = [];
-            if (null !== $this->audioInterval && \is_array($this->audioInterval)) {
-                $n = 0;
-                foreach ($this->audioInterval as $item) {
-                    $res['AudioInterval'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->audioInterval)) {
+                $res['AudioInterval'] = [];
+                $n1 = 0;
+                foreach ($this->audioInterval as $item1) {
+                    $res['AudioInterval'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +42,21 @@ class audioInterval extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return audioInterval
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AudioInterval'])) {
             if (!empty($map['AudioInterval'])) {
                 $model->audioInterval = [];
-                $n = 0;
-                foreach ($map['AudioInterval'] as $item) {
-                    $model->audioInterval[$n++] = null !== $item ? audioInterval\audioInterval::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AudioInterval'] as $item1) {
+                    $model->audioInterval[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

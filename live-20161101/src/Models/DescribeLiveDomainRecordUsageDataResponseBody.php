@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainRecordUsageDataResponseBody\recordUsageData;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLiveDomainRecordUsageDataResponseBody extends Model
 {
     /**
-     * @description The end of the time range during which data was queried.
-     *
-     * @example 2021-05-10T21:00:00Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The recording data that was collected for each interval.
-     *
      * @var recordUsageData
      */
     public $recordUsageData;
 
     /**
-     * @description The request ID.
-     *
-     * @example 4B460F8B-993C-4F48-B98A-910811DEBFEB
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The beginning of the time range during which data was queried.
-     *
-     * @example 2021-05-10T20:00:00Z
-     *
      * @var string
      */
     public $startTime;
@@ -49,20 +35,29 @@ class DescribeLiveDomainRecordUsageDataResponseBody extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->recordUsageData) {
+            $this->recordUsageData->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->recordUsageData) {
-            $res['RecordUsageData'] = null !== $this->recordUsageData ? $this->recordUsageData->toMap() : null;
+            $res['RecordUsageData'] = null !== $this->recordUsageData ? $this->recordUsageData->toArray($noStream) : $this->recordUsageData;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -70,23 +65,26 @@ class DescribeLiveDomainRecordUsageDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveDomainRecordUsageDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['RecordUsageData'])) {
             $model->recordUsageData = recordUsageData::fromMap($map['RecordUsageData']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

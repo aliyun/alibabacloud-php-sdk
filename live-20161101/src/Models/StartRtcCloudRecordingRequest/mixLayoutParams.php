@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\StartRtcCloudRecordingRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\StartRtcCloudRecordingRequest\mixLayoutParams\mixBackground;
 use AlibabaCloud\SDK\Live\V20161101\Models\StartRtcCloudRecordingRequest\mixLayoutParams\userPanes;
-use AlibabaCloud\Tea\Model;
 
 class mixLayoutParams extends Model
 {
@@ -24,20 +24,31 @@ class mixLayoutParams extends Model
         'userPanes' => 'UserPanes',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->mixBackground) {
+            $this->mixBackground->validate();
+        }
+        if (\is_array($this->userPanes)) {
+            Model::validateArray($this->userPanes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mixBackground) {
-            $res['MixBackground'] = null !== $this->mixBackground ? $this->mixBackground->toMap() : null;
+            $res['MixBackground'] = null !== $this->mixBackground ? $this->mixBackground->toArray($noStream) : $this->mixBackground;
         }
+
         if (null !== $this->userPanes) {
-            $res['UserPanes'] = [];
-            if (null !== $this->userPanes && \is_array($this->userPanes)) {
-                $n = 0;
-                foreach ($this->userPanes as $item) {
-                    $res['UserPanes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->userPanes)) {
+                $res['UserPanes'] = [];
+                $n1 = 0;
+                foreach ($this->userPanes as $item1) {
+                    $res['UserPanes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -45,23 +56,25 @@ class mixLayoutParams extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mixLayoutParams
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MixBackground'])) {
             $model->mixBackground = mixBackground::fromMap($map['MixBackground']);
         }
+
         if (isset($map['UserPanes'])) {
             if (!empty($map['UserPanes'])) {
                 $model->userPanes = [];
-                $n = 0;
-                foreach ($map['UserPanes'] as $item) {
-                    $model->userPanes[$n++] = null !== $item ? userPanes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UserPanes'] as $item1) {
+                    $model->userPanes[$n1] = userPanes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

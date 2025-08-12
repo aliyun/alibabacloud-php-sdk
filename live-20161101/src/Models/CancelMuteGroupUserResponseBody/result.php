@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\CancelMuteGroupUserResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description Indicates whether the members are unmuted. Valid values:
-     *
-     *   true: The members are unmuted.
-     *   false: The members failed to be unmuted.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $success;
@@ -23,9 +16,12 @@ class result extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->success) {
@@ -35,11 +31,11 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

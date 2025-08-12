@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RestartLivePullToPushRequest extends Model
 {
@@ -14,17 +14,6 @@ class RestartLivePullToPushRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region of the live center. Valid values:
-     *
-     *   ap-southeast-1: Singapore
-     *   ap-southeast-5: Indonesia (Jakarta)
-     *   cn-beijing: China (Beijing)
-     *   cn-shanghai: China (Shanghai)
-     *
-     * This parameter is required.
-     *
-     * @example preregion
-     *
      * @var string
      */
     public $region;
@@ -35,12 +24,6 @@ class RestartLivePullToPushRequest extends Model
     public $regionId;
 
     /**
-     * @description The task ID.
-     *
-     * This parameter is required.
-     *
-     * @example 6f869419-0692-4fd5-8cf0-66cab659****
-     *
      * @var string
      */
     public $taskId;
@@ -51,20 +34,26 @@ class RestartLivePullToPushRequest extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -72,23 +61,26 @@ class RestartLivePullToPushRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RestartLivePullToPushRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

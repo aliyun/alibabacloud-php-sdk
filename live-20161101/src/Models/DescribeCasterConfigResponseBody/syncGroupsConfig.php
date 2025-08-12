@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterConfigResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterConfigResponseBody\syncGroupsConfig\syncGroup;
-use AlibabaCloud\Tea\Model;
 
 class syncGroupsConfig extends Model
 {
@@ -17,17 +17,24 @@ class syncGroupsConfig extends Model
         'syncGroup' => 'SyncGroup',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->syncGroup)) {
+            Model::validateArray($this->syncGroup);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->syncGroup) {
-            $res['SyncGroup'] = [];
-            if (null !== $this->syncGroup && \is_array($this->syncGroup)) {
-                $n = 0;
-                foreach ($this->syncGroup as $item) {
-                    $res['SyncGroup'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->syncGroup)) {
+                $res['SyncGroup'] = [];
+                $n1 = 0;
+                foreach ($this->syncGroup as $item1) {
+                    $res['SyncGroup'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class syncGroupsConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return syncGroupsConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SyncGroup'])) {
             if (!empty($map['SyncGroup'])) {
                 $model->syncGroup = [];
-                $n = 0;
-                foreach ($map['SyncGroup'] as $item) {
-                    $model->syncGroup[$n++] = null !== $item ? syncGroup::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SyncGroup'] as $item1) {
+                    $model->syncGroup[$n1] = syncGroup::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddCasterLayoutResponseBody extends Model
 {
     /**
-     * @description The ID of the layout.
-     *
-     * Record the ID as it can be used to manage the layout being created.
-     *
-     * @example 21926b36-7dd2-4fde-ae25-51b5bc8e****
-     *
      * @var string
      */
     public $layoutId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F****
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +22,18 @@ class AddCasterLayoutResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->layoutId) {
             $res['LayoutId'] = $this->layoutId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class AddCasterLayoutResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddCasterLayoutResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LayoutId'])) {
             $model->layoutId = $map['LayoutId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

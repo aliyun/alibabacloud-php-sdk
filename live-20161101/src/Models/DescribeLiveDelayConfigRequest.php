@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeLiveDelayConfigRequest extends Model
 {
     /**
-     * @description The name of the application to which the live stream belongs. You can specify an asterisk (\\*) as the value to match all applications under the domain name.
-     *
-     * This parameter is required.
-     *
-     * @example liveApp****
-     *
      * @var string
      */
     public $app;
 
     /**
-     * @description The main streaming domain.
-     *
-     * This parameter is required.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domain;
@@ -41,12 +29,6 @@ class DescribeLiveDelayConfigRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the live stream. You can specify an asterisk (\\*) as the value to match all streams in the application.
-     *
-     * This parameter is required.
-     *
-     * @example liveStream****
-     *
      * @var string
      */
     public $stream;
@@ -58,23 +40,30 @@ class DescribeLiveDelayConfigRequest extends Model
         'stream' => 'Stream',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->app) {
             $res['App'] = $this->app;
         }
+
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->stream) {
             $res['Stream'] = $this->stream;
         }
@@ -82,26 +71,30 @@ class DescribeLiveDelayConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveDelayConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['App'])) {
             $model->app = $map['App'];
         }
+
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Stream'])) {
             $model->stream = $map['Stream'];
         }

@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveProducerUsageDataResponseBody\billProducerData;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLiveProducerUsageDataResponseBody extends Model
 {
     /**
-     * @description The production studio usage data.
-     *
      * @var billProducerData
      */
     public $billProducerData;
 
     /**
-     * @description The end of the time range during which data was queried.
-     *
-     * @example 2018-09-30T16:00:00Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example C370DAF1-C838-4288-A1A0-9A87633D248E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The start of the time range for which the data was queried.
-     *
-     * @example 2018-10-31T15:59:59Z
-     *
      * @var string
      */
     public $startTime;
@@ -49,20 +35,29 @@ class DescribeLiveProducerUsageDataResponseBody extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->billProducerData) {
+            $this->billProducerData->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->billProducerData) {
-            $res['BillProducerData'] = null !== $this->billProducerData ? $this->billProducerData->toMap() : null;
+            $res['BillProducerData'] = null !== $this->billProducerData ? $this->billProducerData->toArray($noStream) : $this->billProducerData;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -70,23 +65,26 @@ class DescribeLiveProducerUsageDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveProducerUsageDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BillProducerData'])) {
             $model->billProducerData = billProducerData::fromMap($map['BillProducerData']);
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

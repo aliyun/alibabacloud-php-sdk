@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamPreloadTasksResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamPreloadTasksResponseBody\preloadTasks\preloadTask;
-use AlibabaCloud\Tea\Model;
 
 class preloadTasks extends Model
 {
@@ -17,17 +17,24 @@ class preloadTasks extends Model
         'preloadTask' => 'PreloadTask',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->preloadTask)) {
+            Model::validateArray($this->preloadTask);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->preloadTask) {
-            $res['PreloadTask'] = [];
-            if (null !== $this->preloadTask && \is_array($this->preloadTask)) {
-                $n = 0;
-                foreach ($this->preloadTask as $item) {
-                    $res['PreloadTask'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->preloadTask)) {
+                $res['PreloadTask'] = [];
+                $n1 = 0;
+                foreach ($this->preloadTask as $item1) {
+                    $res['PreloadTask'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class preloadTasks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return preloadTasks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PreloadTask'])) {
             if (!empty($map['PreloadTask'])) {
                 $model->preloadTask = [];
-                $n = 0;
-                foreach ($map['PreloadTask'] as $item) {
-                    $model->preloadTask[$n++] = null !== $item ? preloadTask::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PreloadTask'] as $item1) {
+                    $model->preloadTask[$n1] = preloadTask::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

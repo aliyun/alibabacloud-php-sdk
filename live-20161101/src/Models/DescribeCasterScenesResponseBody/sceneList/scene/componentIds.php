@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterScenesResponseBody\sceneList\scene;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class componentIds extends Model
 {
@@ -16,29 +16,47 @@ class componentIds extends Model
         'componentId' => 'componentId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->componentId)) {
+            Model::validateArray($this->componentId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->componentId) {
-            $res['componentId'] = $this->componentId;
+            if (\is_array($this->componentId)) {
+                $res['componentId'] = [];
+                $n1 = 0;
+                foreach ($this->componentId as $item1) {
+                    $res['componentId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return componentIds
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['componentId'])) {
             if (!empty($map['componentId'])) {
-                $model->componentId = $map['componentId'];
+                $model->componentId = [];
+                $n1 = 0;
+                foreach ($map['componentId'] as $item1) {
+                    $model->componentId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

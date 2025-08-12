@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLivePrivateLineAreasResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLivePrivateLineAreasResponseBody\liveAreasList\liveArea;
-use AlibabaCloud\Tea\Model;
 
 class liveAreasList extends Model
 {
@@ -17,17 +17,24 @@ class liveAreasList extends Model
         'liveArea' => 'LiveArea',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->liveArea)) {
+            Model::validateArray($this->liveArea);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->liveArea) {
-            $res['LiveArea'] = [];
-            if (null !== $this->liveArea && \is_array($this->liveArea)) {
-                $n = 0;
-                foreach ($this->liveArea as $item) {
-                    $res['LiveArea'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->liveArea)) {
+                $res['LiveArea'] = [];
+                $n1 = 0;
+                foreach ($this->liveArea as $item1) {
+                    $res['LiveArea'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class liveAreasList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return liveAreasList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LiveArea'])) {
             if (!empty($map['LiveArea'])) {
                 $model->liveArea = [];
-                $n = 0;
-                foreach ($map['LiveArea'] as $item) {
-                    $model->liveArea[$n++] = null !== $item ? liveArea::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LiveArea'] as $item1) {
+                    $model->liveArea[$n1] = liveArea::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

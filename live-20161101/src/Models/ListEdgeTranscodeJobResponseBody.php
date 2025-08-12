@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListEdgeTranscodeJobResponseBody\jobList;
-use AlibabaCloud\Tea\Model;
 
 class ListEdgeTranscodeJobResponseBody extends Model
 {
     /**
-     * @description The edge transcoding tasks.
-     *
      * @var jobList
      */
     public $jobList;
 
     /**
-     * @description The request ID.
-     *
-     * @example ******3B-0E1A-586A-AC29-742247******
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $totalCount;
@@ -39,17 +29,25 @@ class ListEdgeTranscodeJobResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->jobList) {
+            $this->jobList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobList) {
-            $res['JobList'] = null !== $this->jobList ? $this->jobList->toMap() : null;
+            $res['JobList'] = null !== $this->jobList ? $this->jobList->toArray($noStream) : $this->jobList;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -57,20 +55,22 @@ class ListEdgeTranscodeJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListEdgeTranscodeJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobList'])) {
             $model->jobList = jobList::fromMap($map['JobList']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

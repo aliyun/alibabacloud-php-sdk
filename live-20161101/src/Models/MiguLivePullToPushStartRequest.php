@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MiguLivePullToPushStartRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $miguData;
@@ -38,20 +34,26 @@ class MiguLivePullToPushStartRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->miguData) {
             $res['MiguData'] = $this->miguData;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -59,23 +61,26 @@ class MiguLivePullToPushStartRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MiguLivePullToPushStartRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['MiguData'])) {
             $model->miguData = $map['MiguData'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

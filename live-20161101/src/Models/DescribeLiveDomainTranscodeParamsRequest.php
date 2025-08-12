@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeLiveDomainTranscodeParamsRequest extends Model
 {
@@ -14,15 +14,11 @@ class DescribeLiveDomainTranscodeParamsRequest extends Model
     public $securityToken;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $app;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $pushdomain;
@@ -38,20 +34,26 @@ class DescribeLiveDomainTranscodeParamsRequest extends Model
         'templateName' => 'template_name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->app) {
             $res['app'] = $this->app;
         }
+
         if (null !== $this->pushdomain) {
             $res['pushdomain'] = $this->pushdomain;
         }
+
         if (null !== $this->templateName) {
             $res['template_name'] = $this->templateName;
         }
@@ -59,23 +61,26 @@ class DescribeLiveDomainTranscodeParamsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveDomainTranscodeParamsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['app'])) {
             $model->app = $map['app'];
         }
+
         if (isset($map['pushdomain'])) {
             $model->pushdomain = $map['pushdomain'];
         }
+
         if (isset($map['template_name'])) {
             $model->templateName = $map['template_name'];
         }

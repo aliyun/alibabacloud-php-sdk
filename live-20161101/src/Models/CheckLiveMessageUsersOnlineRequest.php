@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckLiveMessageUsersOnlineRequest extends Model
 {
     /**
-     * @description The application ID.
-     *
-     * This parameter is required.
-     *
-     * @example demo
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The data center. It must be the same as the data center that was specified when you called the [CreateLiveMessageApp](https://help.aliyun.com/document_detail/2848162.html) operation to create the interactive messaging application. Valid values: cn-shanghai and ap-southeast-1 (Singapore).
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $dataCenter;
 
     /**
-     * @description The list of users that you want to query.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $userIds;
@@ -42,41 +28,63 @@ class CheckLiveMessageUsersOnlineRequest extends Model
         'userIds' => 'UserIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->userIds)) {
+            Model::validateArray($this->userIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->dataCenter) {
             $res['DataCenter'] = $this->dataCenter;
         }
+
         if (null !== $this->userIds) {
-            $res['UserIds'] = $this->userIds;
+            if (\is_array($this->userIds)) {
+                $res['UserIds'] = [];
+                $n1 = 0;
+                foreach ($this->userIds as $item1) {
+                    $res['UserIds'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckLiveMessageUsersOnlineRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['DataCenter'])) {
             $model->dataCenter = $map['DataCenter'];
         }
+
         if (isset($map['UserIds'])) {
             if (!empty($map['UserIds'])) {
-                $model->userIds = $map['UserIds'];
+                $model->userIds = [];
+                $n1 = 0;
+                foreach ($map['UserIds'] as $item1) {
+                    $model->userIds[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

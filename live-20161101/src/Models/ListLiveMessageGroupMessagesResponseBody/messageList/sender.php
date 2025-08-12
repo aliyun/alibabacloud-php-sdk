@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\ListLiveMessageGroupMessagesResponseBody\messageList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sender extends Model
 {
     /**
-     * @description The ID of the user who sent the message.
-     *
-     * @example uid2
-     *
      * @var string
      */
     public $userId;
 
     /**
-     * @description The additional information about the user who sent the message.
-     *
-     * @example testusermeta2
-     *
      * @var string
      */
     public $userInfo;
@@ -30,14 +22,18 @@ class sender extends Model
         'userInfo' => 'UserInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
+
         if (null !== $this->userInfo) {
             $res['UserInfo'] = $this->userInfo;
         }
@@ -45,17 +41,18 @@ class sender extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sender
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
+
         if (isset($map['UserInfo'])) {
             $model->userInfo = $map['UserInfo'];
         }

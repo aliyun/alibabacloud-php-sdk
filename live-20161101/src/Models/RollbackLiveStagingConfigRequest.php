@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RollbackLiveStagingConfigRequest extends Model
 {
     /**
-     * @description The accelerated domain name.
-     *
-     * This parameter is required.
-     *
-     * @example developer.aliyundoc.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The name of the feature. For more information about how to obtain the feature name, see [DescribeLiveDomainStagingConfig](https://help.aliyun.com/document_detail/297374.html).
-     *
-     * This parameter is required.
-     *
-     * @example aliauth
-     *
      * @var string
      */
     public $functionName;
@@ -46,20 +34,26 @@ class RollbackLiveStagingConfigRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->functionName) {
             $res['FunctionName'] = $this->functionName;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -67,23 +61,26 @@ class RollbackLiveStagingConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RollbackLiveStagingConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['FunctionName'])) {
             $model->functionName = $map['FunctionName'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

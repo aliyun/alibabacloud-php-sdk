@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetLiveDomainMultiStreamConfigRequest extends Model
 {
     /**
-     * @description The main streaming domain.
-     *
-     * This parameter is required.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domain;
@@ -25,15 +19,6 @@ class SetLiveDomainMultiStreamConfigRequest extends Model
     public $ownerId;
 
     /**
-     * @description Specifies whether to enable the dual-stream disaster recovery feature. Valid values:
-     *
-     *   **on**: enables the feature.
-     *   **off**: disables the feature.
-     *
-     * This parameter is required.
-     *
-     * @example on
-     *
      * @var string
      */
     public $switch;
@@ -43,17 +28,22 @@ class SetLiveDomainMultiStreamConfigRequest extends Model
         'switch' => 'Switch',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->switch) {
             $res['Switch'] = $this->switch;
         }
@@ -61,20 +51,22 @@ class SetLiveDomainMultiStreamConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetLiveDomainMultiStreamConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Switch'])) {
             $model->switch = $map['Switch'];
         }

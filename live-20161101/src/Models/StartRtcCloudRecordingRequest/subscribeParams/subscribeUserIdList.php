@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\StartRtcCloudRecordingRequest\subscribeParams;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class subscribeUserIdList extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $sourceType;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $streamType;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example userA
-     *
      * @var string
      */
     public $userId;
@@ -36,17 +28,22 @@ class subscribeUserIdList extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
+
         if (null !== $this->streamType) {
             $res['StreamType'] = $this->streamType;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -54,20 +51,22 @@ class subscribeUserIdList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return subscribeUserIdList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }
+
         if (isset($map['StreamType'])) {
             $model->streamType = $map['StreamType'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

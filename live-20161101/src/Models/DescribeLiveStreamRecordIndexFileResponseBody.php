@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamRecordIndexFileResponseBody\recordIndexInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeLiveStreamRecordIndexFileResponseBody extends Model
 {
     /**
-     * @description The information about the index file.
-     *
      * @var recordIndexInfo
      */
     public $recordIndexInfo;
 
     /**
-     * @description The request ID.
-     *
-     * @example 5EBF2AC3-4B73-40A5-8B32-83F49D5F035E
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeLiveStreamRecordIndexFileResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->recordIndexInfo) {
+            $this->recordIndexInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recordIndexInfo) {
-            $res['RecordIndexInfo'] = null !== $this->recordIndexInfo ? $this->recordIndexInfo->toMap() : null;
+            $res['RecordIndexInfo'] = null !== $this->recordIndexInfo ? $this->recordIndexInfo->toArray($noStream) : $this->recordIndexInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeLiveStreamRecordIndexFileResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveStreamRecordIndexFileResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecordIndexInfo'])) {
             $model->recordIndexInfo = recordIndexInfo::fromMap($map['RecordIndexInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

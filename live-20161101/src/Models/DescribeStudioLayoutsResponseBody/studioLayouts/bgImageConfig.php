@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeStudioLayoutsResponseBody\studioLayouts;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class bgImageConfig extends Model
 {
     /**
-     * @description The unique ID of the material.
-     *
-     * @example k12kj31****
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The URL of the material.
-     *
-     * @example http://example.org
-     *
      * @var string
      */
     public $imageUrl;
 
     /**
-     * @description The position ID.
-     *
-     * @example RV01
-     *
      * @var string
      */
     public $locationId;
 
     /**
-     * @description The ID of the material in ApsaraVideo VOD.
-     *
-     * @example asdfas9df89asd8f9****
-     *
      * @var string
      */
     public $materialId;
@@ -50,20 +34,26 @@ class bgImageConfig extends Model
         'materialId' => 'MaterialId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
         }
+
         if (null !== $this->locationId) {
             $res['LocationId'] = $this->locationId;
         }
+
         if (null !== $this->materialId) {
             $res['MaterialId'] = $this->materialId;
         }
@@ -71,23 +61,26 @@ class bgImageConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bgImageConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
         }
+
         if (isset($map['LocationId'])) {
             $model->locationId = $map['LocationId'];
         }
+
         if (isset($map['MaterialId'])) {
             $model->materialId = $map['MaterialId'];
         }

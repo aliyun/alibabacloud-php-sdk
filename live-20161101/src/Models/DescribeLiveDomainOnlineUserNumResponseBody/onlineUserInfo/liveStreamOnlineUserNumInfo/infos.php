@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainOnlineUserNumResponseBody\onlineUserInfo\liveStreamOnlineUserNumInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveDomainOnlineUserNumResponseBody\onlineUserInfo\liveStreamOnlineUserNumInfo\infos\info;
-use AlibabaCloud\Tea\Model;
 
 class infos extends Model
 {
@@ -17,17 +17,24 @@ class infos extends Model
         'info' => 'Info',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->info)) {
+            Model::validateArray($this->info);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->info) {
-            $res['Info'] = [];
-            if (null !== $this->info && \is_array($this->info)) {
-                $n = 0;
-                foreach ($this->info as $item) {
-                    $res['Info'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->info)) {
+                $res['Info'] = [];
+                $n1 = 0;
+                foreach ($this->info as $item1) {
+                    $res['Info'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class infos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return infos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Info'])) {
             if (!empty($map['Info'])) {
                 $model->info = [];
-                $n = 0;
-                foreach ($map['Info'] as $item) {
-                    $model->info[$n++] = null !== $item ? info::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Info'] as $item1) {
+                    $model->info[$n1] = info::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

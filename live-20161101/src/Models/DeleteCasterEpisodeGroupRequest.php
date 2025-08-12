@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteCasterEpisodeGroupRequest extends Model
 {
@@ -14,12 +14,6 @@ class DeleteCasterEpisodeGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the episode list. If the episode list was added by calling the [AddCasterEpisodeGroup](https://help.aliyun.com/document_detail/2848071.html) operation, check the value of the response parameter ProgramId to obtain the ID.
-     *
-     * This parameter is required.
-     *
-     * @example a2b8e671-2fe5-4642-a2ec-bf932738****
-     *
      * @var string
      */
     public $programId;
@@ -34,17 +28,22 @@ class DeleteCasterEpisodeGroupRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->programId) {
             $res['ProgramId'] = $this->programId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -52,20 +51,22 @@ class DeleteCasterEpisodeGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteCasterEpisodeGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ProgramId'])) {
             $model->programId = $map['ProgramId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

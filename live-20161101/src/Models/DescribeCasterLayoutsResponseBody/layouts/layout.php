@@ -4,47 +4,35 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterLayoutsResponseBody\layouts;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterLayoutsResponseBody\layouts\layout\audioLayers;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterLayoutsResponseBody\layouts\layout\blendList;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterLayoutsResponseBody\layouts\layout\mixList;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterLayoutsResponseBody\layouts\layout\videoLayers;
-use AlibabaCloud\Tea\Model;
 
 class layout extends Model
 {
     /**
-     * @description The configurations of the audio layers.
-     *
      * @var audioLayers
      */
     public $audioLayers;
 
     /**
-     * @description The location IDs of the video layers, which are in the same order as the video layers.
-     *
      * @var blendList
      */
     public $blendList;
 
     /**
-     * @description The ID of the layout.
-     *
-     * @example 72d2ec7a-4cd7-4a01-974b-7cd53947****
-     *
      * @var string
      */
     public $layoutId;
 
     /**
-     * @description The location IDs of the audio layers, which are in the same order as the audio layers.
-     *
      * @var mixList
      */
     public $mixList;
 
     /**
-     * @description The configurations of the video layers, which are in the default array sequence.
-     *
      * @var videoLayers
      */
     public $videoLayers;
@@ -56,50 +44,73 @@ class layout extends Model
         'videoLayers' => 'VideoLayers',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->audioLayers) {
+            $this->audioLayers->validate();
+        }
+        if (null !== $this->blendList) {
+            $this->blendList->validate();
+        }
+        if (null !== $this->mixList) {
+            $this->mixList->validate();
+        }
+        if (null !== $this->videoLayers) {
+            $this->videoLayers->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->audioLayers) {
-            $res['AudioLayers'] = null !== $this->audioLayers ? $this->audioLayers->toMap() : null;
+            $res['AudioLayers'] = null !== $this->audioLayers ? $this->audioLayers->toArray($noStream) : $this->audioLayers;
         }
+
         if (null !== $this->blendList) {
-            $res['BlendList'] = null !== $this->blendList ? $this->blendList->toMap() : null;
+            $res['BlendList'] = null !== $this->blendList ? $this->blendList->toArray($noStream) : $this->blendList;
         }
+
         if (null !== $this->layoutId) {
             $res['LayoutId'] = $this->layoutId;
         }
+
         if (null !== $this->mixList) {
-            $res['MixList'] = null !== $this->mixList ? $this->mixList->toMap() : null;
+            $res['MixList'] = null !== $this->mixList ? $this->mixList->toArray($noStream) : $this->mixList;
         }
+
         if (null !== $this->videoLayers) {
-            $res['VideoLayers'] = null !== $this->videoLayers ? $this->videoLayers->toMap() : null;
+            $res['VideoLayers'] = null !== $this->videoLayers ? $this->videoLayers->toArray($noStream) : $this->videoLayers;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return layout
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AudioLayers'])) {
             $model->audioLayers = audioLayers::fromMap($map['AudioLayers']);
         }
+
         if (isset($map['BlendList'])) {
             $model->blendList = blendList::fromMap($map['BlendList']);
         }
+
         if (isset($map['LayoutId'])) {
             $model->layoutId = $map['LayoutId'];
         }
+
         if (isset($map['MixList'])) {
             $model->mixList = mixList::fromMap($map['MixList']);
         }
+
         if (isset($map['VideoLayers'])) {
             $model->videoLayers = videoLayers::fromMap($map['VideoLayers']);
         }

@@ -4,52 +4,26 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeLiveDomainRealTimeHttpCodeDataRequest extends Model
 {
     /**
-     * @description The streaming domain.
-     *
-     * Separate multiple domain names with commas (,).
-     *
-     * This parameter is required.
-     *
-     * @example example.com,example.aliyundoc.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-     *
-     * >  If you specify neither the StartTime parameter nor the EndTime parameter, the data of the last **1** hour is returned.
-     *
-     * @example 2015-11-30T05:40:00Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The name of the Internet service provider (ISP).
-     *
-     * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/448109.html) operation to query a list of available ISPs.
-     *
-     * @example alibaba
-     *
      * @var string
      */
     public $ispNameEn;
 
     /**
-     * @description The name of the region.
-     *
-     * You can call the [DescribeCdnRegionAndIsp](https://help.aliyun.com/document_detail/448109.html) operation to query a list of available regions.
-     *
-     * @example tianjin
-     *
      * @var string
      */
     public $locationNameEn;
@@ -65,12 +39,6 @@ class DescribeLiveDomainRealTimeHttpCodeDataRequest extends Model
     public $regionId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-     *
-     * >  If you specify neither the StartTime parameter nor the EndTime parameter, the data of the last **1** hour is returned.
-     *
-     * @example 2015-11-30T05:39:00Z
-     *
      * @var string
      */
     public $startTime;
@@ -84,29 +52,38 @@ class DescribeLiveDomainRealTimeHttpCodeDataRequest extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->ispNameEn) {
             $res['IspNameEn'] = $this->ispNameEn;
         }
+
         if (null !== $this->locationNameEn) {
             $res['LocationNameEn'] = $this->locationNameEn;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -114,32 +91,38 @@ class DescribeLiveDomainRealTimeHttpCodeDataRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveDomainRealTimeHttpCodeDataRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['IspNameEn'])) {
             $model->ispNameEn = $map['IspNameEn'];
         }
+
         if (isset($map['LocationNameEn'])) {
             $model->locationNameEn = $map['LocationNameEn'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

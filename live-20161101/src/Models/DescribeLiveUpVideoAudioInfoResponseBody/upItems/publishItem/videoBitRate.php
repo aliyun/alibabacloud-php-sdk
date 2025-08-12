@@ -4,29 +4,37 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUpVideoAudioInfoResponseBody\upItems\publishItem;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUpVideoAudioInfoResponseBody\upItems\publishItem\videoBitRate\videoBitRate;
 
 class videoBitRate extends Model
 {
     /**
-     * @var videoBitRate\videoBitRate[]
+     * @var videoBitRate[]
      */
     public $videoBitRate;
     protected $_name = [
         'videoBitRate' => 'VideoBitRate',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->videoBitRate)) {
+            Model::validateArray($this->videoBitRate);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->videoBitRate) {
-            $res['VideoBitRate'] = [];
-            if (null !== $this->videoBitRate && \is_array($this->videoBitRate)) {
-                $n = 0;
-                foreach ($this->videoBitRate as $item) {
-                    $res['VideoBitRate'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->videoBitRate)) {
+                $res['VideoBitRate'] = [];
+                $n1 = 0;
+                foreach ($this->videoBitRate as $item1) {
+                    $res['VideoBitRate'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +42,21 @@ class videoBitRate extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return videoBitRate
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VideoBitRate'])) {
             if (!empty($map['VideoBitRate'])) {
                 $model->videoBitRate = [];
-                $n = 0;
-                foreach ($map['VideoBitRate'] as $item) {
-                    $model->videoBitRate[$n++] = null !== $item ? videoBitRate\videoBitRate::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['VideoBitRate'] as $item1) {
+                    $model->videoBitRate[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

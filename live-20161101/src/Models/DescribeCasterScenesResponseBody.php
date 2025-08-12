@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterScenesResponseBody\sceneList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCasterScenesResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example The ID of the scene.
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The scenes.
-     *
      * @var sceneList
      */
     public $sceneList;
 
     /**
-     * @description The total number of entries.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $total;
@@ -39,17 +29,25 @@ class DescribeCasterScenesResponseBody extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->sceneList) {
+            $this->sceneList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->sceneList) {
-            $res['SceneList'] = null !== $this->sceneList ? $this->sceneList->toMap() : null;
+            $res['SceneList'] = null !== $this->sceneList ? $this->sceneList->toArray($noStream) : $this->sceneList;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -57,20 +55,22 @@ class DescribeCasterScenesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCasterScenesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SceneList'])) {
             $model->sceneList = sceneList::fromMap($map['SceneList']);
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUserTrafficLogResponseBody\domainLogDetails\domainLogDetail;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUserTrafficLogResponseBody\domainLogDetails\domainLogDetail\logInfos\logInfoDetail;
-use AlibabaCloud\Tea\Model;
 
 class logInfos extends Model
 {
@@ -17,17 +17,24 @@ class logInfos extends Model
         'logInfoDetail' => 'LogInfoDetail',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->logInfoDetail)) {
+            Model::validateArray($this->logInfoDetail);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logInfoDetail) {
-            $res['LogInfoDetail'] = [];
-            if (null !== $this->logInfoDetail && \is_array($this->logInfoDetail)) {
-                $n = 0;
-                foreach ($this->logInfoDetail as $item) {
-                    $res['LogInfoDetail'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logInfoDetail)) {
+                $res['LogInfoDetail'] = [];
+                $n1 = 0;
+                foreach ($this->logInfoDetail as $item1) {
+                    $res['LogInfoDetail'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class logInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogInfoDetail'])) {
             if (!empty($map['LogInfoDetail'])) {
                 $model->logInfoDetail = [];
-                $n = 0;
-                foreach ($map['LogInfoDetail'] as $item) {
-                    $model->logInfoDetail[$n++] = null !== $item ? logInfoDetail::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LogInfoDetail'] as $item1) {
+                    $model->logInfoDetail[$n1] = logInfoDetail::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

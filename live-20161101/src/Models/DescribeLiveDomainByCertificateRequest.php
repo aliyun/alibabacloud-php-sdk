@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeLiveDomainByCertificateRequest extends Model
 {
@@ -19,24 +19,11 @@ class DescribeLiveDomainByCertificateRequest extends Model
     public $regionId;
 
     /**
-     * @description The public key of the SSL certificate. You must Base64-encode the public key before you invoke the encodeURIComponent function to encode a URI component. The public key must be in the PEM format.
-     *
-     * This parameter is required.
-     *
-     * @example ******
-     *
      * @var string
      */
     public $SSLPub;
 
     /**
-     * @description Specifies whether to return only domain names with HTTPS enabled or disabled.
-     *
-     *   **true**: returns only domain names with HTTPS enabled.
-     *   **false**: The rule is disabled.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $SSLStatus;
@@ -47,20 +34,26 @@ class DescribeLiveDomainByCertificateRequest extends Model
         'SSLStatus' => 'SSLStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->SSLPub) {
             $res['SSLPub'] = $this->SSLPub;
         }
+
         if (null !== $this->SSLStatus) {
             $res['SSLStatus'] = $this->SSLStatus;
         }
@@ -68,23 +61,26 @@ class DescribeLiveDomainByCertificateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLiveDomainByCertificateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SSLPub'])) {
             $model->SSLPub = $map['SSLPub'];
         }
+
         if (isset($map['SSLStatus'])) {
             $model->SSLStatus = $map['SSLStatus'];
         }

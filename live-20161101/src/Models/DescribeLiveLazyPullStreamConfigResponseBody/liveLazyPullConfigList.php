@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveLazyPullStreamConfigResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveLazyPullStreamConfigResponseBody\liveLazyPullConfigList\liveLazyPullConfig;
-use AlibabaCloud\Tea\Model;
 
 class liveLazyPullConfigList extends Model
 {
@@ -17,17 +17,24 @@ class liveLazyPullConfigList extends Model
         'liveLazyPullConfig' => 'LiveLazyPullConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->liveLazyPullConfig)) {
+            Model::validateArray($this->liveLazyPullConfig);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->liveLazyPullConfig) {
-            $res['LiveLazyPullConfig'] = [];
-            if (null !== $this->liveLazyPullConfig && \is_array($this->liveLazyPullConfig)) {
-                $n = 0;
-                foreach ($this->liveLazyPullConfig as $item) {
-                    $res['LiveLazyPullConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->liveLazyPullConfig)) {
+                $res['LiveLazyPullConfig'] = [];
+                $n1 = 0;
+                foreach ($this->liveLazyPullConfig as $item1) {
+                    $res['LiveLazyPullConfig'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class liveLazyPullConfigList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return liveLazyPullConfigList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LiveLazyPullConfig'])) {
             if (!empty($map['LiveLazyPullConfig'])) {
                 $model->liveLazyPullConfig = [];
-                $n = 0;
-                foreach ($map['LiveLazyPullConfig'] as $item) {
-                    $model->liveLazyPullConfig[$n++] = null !== $item ? liveLazyPullConfig::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LiveLazyPullConfig'] as $item1) {
+                    $model->liveLazyPullConfig[$n1] = liveLazyPullConfig::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

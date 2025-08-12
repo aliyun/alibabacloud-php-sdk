@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyLiveRealtimeLogDeliveryRequest extends Model
 {
     /**
-     * @description The main streaming domain for which you want to modify the configuration of real-time log delivery.
-     *
-     * This parameter is required.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The name of the Logstore to which log entries are delivered.
-     *
-     * This parameter is required.
-     *
-     * @example logstore_example
-     *
      * @var string
      */
     public $logstore;
@@ -36,23 +24,11 @@ class ModifyLiveRealtimeLogDeliveryRequest extends Model
     public $ownerId;
 
     /**
-     * @description The name of the Log Service project that is used for real-time log delivery.
-     *
-     * This parameter is required.
-     *
-     * @example project_example
-     *
      * @var string
      */
     public $project;
 
     /**
-     * @description The ID of the region where the Log Service project is deployed.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $region;
@@ -70,26 +46,34 @@ class ModifyLiveRealtimeLogDeliveryRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->logstore) {
             $res['Logstore'] = $this->logstore;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -97,29 +81,34 @@ class ModifyLiveRealtimeLogDeliveryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyLiveRealtimeLogDeliveryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['Logstore'])) {
             $model->logstore = $map['Logstore'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

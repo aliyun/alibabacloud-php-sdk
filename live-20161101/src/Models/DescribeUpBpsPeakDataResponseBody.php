@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeUpBpsPeakDataResponseBody\describeUpPeakTraffics;
-use AlibabaCloud\Tea\Model;
 
 class DescribeUpBpsPeakDataResponseBody extends Model
 {
     /**
-     * @description The information about peak inbound bandwidth on each day.
-     *
      * @var describeUpPeakTraffics
      */
     public $describeUpPeakTraffics;
 
     /**
-     * @description The request ID.
-     *
-     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F****
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DescribeUpBpsPeakDataResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->describeUpPeakTraffics) {
+            $this->describeUpPeakTraffics->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->describeUpPeakTraffics) {
-            $res['DescribeUpPeakTraffics'] = null !== $this->describeUpPeakTraffics ? $this->describeUpPeakTraffics->toMap() : null;
+            $res['DescribeUpPeakTraffics'] = null !== $this->describeUpPeakTraffics ? $this->describeUpPeakTraffics->toArray($noStream) : $this->describeUpPeakTraffics;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DescribeUpBpsPeakDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUpBpsPeakDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DescribeUpPeakTraffics'])) {
             $model->describeUpPeakTraffics = describeUpPeakTraffics::fromMap($map['DescribeUpPeakTraffics']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

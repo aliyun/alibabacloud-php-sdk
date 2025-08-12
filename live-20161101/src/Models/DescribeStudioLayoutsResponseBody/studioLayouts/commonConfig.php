@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeStudioLayoutsResponseBody\studioLayouts;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class commonConfig extends Model
 {
     /**
-     * @description The ID of the channel that is bound to the video resource.
-     *
-     * @example RV01
-     *
      * @var string
      */
     public $channelId;
 
     /**
-     * @description The ID of the video resource.
-     *
-     * @example asdfasdfasdfasdfa****
-     *
      * @var string
      */
     public $videoResourceId;
@@ -30,14 +22,18 @@ class commonConfig extends Model
         'videoResourceId' => 'VideoResourceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
+
         if (null !== $this->videoResourceId) {
             $res['VideoResourceId'] = $this->videoResourceId;
         }
@@ -45,17 +41,18 @@ class commonConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return commonConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
+
         if (isset($map['VideoResourceId'])) {
             $model->videoResourceId = $map['VideoResourceId'];
         }

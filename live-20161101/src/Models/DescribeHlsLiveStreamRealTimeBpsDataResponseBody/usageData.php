@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeHlsLiveStreamRealTimeBpsDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeHlsLiveStreamRealTimeBpsDataResponseBody\usageData\streamInfos;
-use AlibabaCloud\Tea\Model;
 
 class usageData extends Model
 {
     /**
-     * @description The domain name.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description Details about the statistics on each HLS stream under the domain name.
-     *
      * @var streamInfos[]
      */
     public $streamInfos;
@@ -29,20 +23,28 @@ class usageData extends Model
         'streamInfos' => 'StreamInfos',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->streamInfos)) {
+            Model::validateArray($this->streamInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->streamInfos) {
-            $res['StreamInfos'] = [];
-            if (null !== $this->streamInfos && \is_array($this->streamInfos)) {
-                $n = 0;
-                foreach ($this->streamInfos as $item) {
-                    $res['StreamInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->streamInfos)) {
+                $res['StreamInfos'] = [];
+                $n1 = 0;
+                foreach ($this->streamInfos as $item1) {
+                    $res['StreamInfos'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -50,23 +52,25 @@ class usageData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return usageData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['StreamInfos'])) {
             if (!empty($map['StreamInfos'])) {
                 $model->streamInfos = [];
-                $n = 0;
-                foreach ($map['StreamInfos'] as $item) {
-                    $model->streamInfos[$n++] = null !== $item ? streamInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['StreamInfos'] as $item1) {
+                    $model->streamInfos[$n1] = streamInfos::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

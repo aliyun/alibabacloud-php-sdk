@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterComponentsResponseBody\components\component;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class imageLayerContent extends Model
 {
     /**
-     * @description The ID of the material from the media library.
-     *
-     * @example 6cf724c6ebfd4a59b5b3cec6f10d****
-     *
      * @var string
      */
     public $materialId;
@@ -20,9 +16,12 @@ class imageLayerContent extends Model
         'materialId' => 'MaterialId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->materialId) {
@@ -32,11 +31,11 @@ class imageLayerContent extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return imageLayerContent
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateLiveAIStudioResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 17D7526C-69AD-5761-8037-071C27358345
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the virtual studio template.
-     *
-     * @example 369ced1f-c33a-49e5-91da-bdaae3d6c1c2
-     *
      * @var string
      */
     public $studioId;
@@ -30,14 +22,18 @@ class CreateLiveAIStudioResponseBody extends Model
         'studioId' => 'StudioId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->studioId) {
             $res['StudioId'] = $this->studioId;
         }
@@ -45,17 +41,18 @@ class CreateLiveAIStudioResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateLiveAIStudioResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StudioId'])) {
             $model->studioId = $map['StudioId'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLivePrivateLineAreasResponseBody\liveAreasList\liveArea\regions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class region extends Model
 {
     /**
-     * @description The region name.
-     *
-     * @example cn-shenzhen
-     *
      * @var string
      */
     public $localName;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-shenzhen
-     *
      * @var string
      */
     public $regionId;
@@ -30,14 +22,18 @@ class region extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -45,17 +41,18 @@ class region extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return region
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

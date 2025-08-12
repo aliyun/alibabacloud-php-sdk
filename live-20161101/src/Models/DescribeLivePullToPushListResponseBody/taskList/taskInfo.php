@@ -4,146 +4,76 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLivePullToPushListResponseBody\taskList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class taskInfo extends Model
 {
     /**
-     * @description The HTTP callback URL.
-     *
-     * @example hahaha.com
-     *
      * @var string
      */
     public $callbackURL;
 
     /**
-     * @description The destination URL to which the stream is relayed.
-     *
-     * @example rtmp://qd.push.lgg.alivecdn.com/testhsc/streamhsc?live_rtmp_*******
-     *
      * @var string
      */
     public $dstUrl;
 
     /**
-     * @description The end time of the task. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-     *
-     * @example 2024-12-30T14:30:00Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The file index, which indicates the sequence of the file where the playback starts.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $fileIndex;
 
     /**
-     * @description The offset of the position where the system starts to read the video resource. Unit: seconds. Valid values: positive numbers.
-     *
-     * >
-     *
-     *   This parameter indicates an offset from the first frame.
-     *
-     *   This parameter is applicable to only video resources from ApsaraVideo VOD or a third party.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $offset;
 
     /**
-     * @description The number of playbacks after the first playback is complete. Valid values:
-     *
-     *   0 (default): specifies that the video list is played only once.
-     *   \\-1: specifies that the video list is played in loop mode.
-     *   Positive integer: specifies the number of times the video list repeats after the first playback is complete.
-     *
-     * >  This parameter is applicable to only video resources from ApsaraVideo VOD or a third party.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $repeatNumber;
 
     /**
-     * @description The number of retries allowed.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $retryCount;
 
     /**
-     * @description The retry interval. Unit: seconds.
-     *
-     * @example 60
-     *
      * @var int
      */
     public $retryInterval;
 
     /**
-     * @description The protocol of the source stream.
-     *
-     * @example flv
-     *
      * @var string
      */
     public $sourceProtocol;
 
     /**
-     * @description The type of the source stream. Valid values:
-     *
-     *   live: a live stream
-     *   vod: a list of ApsaraVideo VOD resources
-     *   url: a list of video resources from a third party
-     *
-     * @example vod
-     *
      * @var string
      */
     public $sourceType;
 
     /**
-     * @description The source URLs.
-     *
      * @var string[]
      */
     public $sourceUrls;
 
     /**
-     * @description The start time of the task. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-     *
-     * @example 2024-12-04T09:16:00Z
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description The task ID.
-     *
-     * @example fb0d4ac7-c7e3-4978-9743-0bf2f6e8****
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @description The task name.
-     *
-     * @example taskname
-     *
      * @var string
      */
     public $taskName;
@@ -164,50 +94,76 @@ class taskInfo extends Model
         'taskName' => 'TaskName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->sourceUrls)) {
+            Model::validateArray($this->sourceUrls);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callbackURL) {
             $res['CallbackURL'] = $this->callbackURL;
         }
+
         if (null !== $this->dstUrl) {
             $res['DstUrl'] = $this->dstUrl;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->fileIndex) {
             $res['FileIndex'] = $this->fileIndex;
         }
+
         if (null !== $this->offset) {
             $res['Offset'] = $this->offset;
         }
+
         if (null !== $this->repeatNumber) {
             $res['RepeatNumber'] = $this->repeatNumber;
         }
+
         if (null !== $this->retryCount) {
             $res['RetryCount'] = $this->retryCount;
         }
+
         if (null !== $this->retryInterval) {
             $res['RetryInterval'] = $this->retryInterval;
         }
+
         if (null !== $this->sourceProtocol) {
             $res['SourceProtocol'] = $this->sourceProtocol;
         }
+
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
+
         if (null !== $this->sourceUrls) {
-            $res['SourceUrls'] = $this->sourceUrls;
+            if (\is_array($this->sourceUrls)) {
+                $res['SourceUrls'] = [];
+                $n1 = 0;
+                foreach ($this->sourceUrls as $item1) {
+                    $res['SourceUrls'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
         }
@@ -215,55 +171,73 @@ class taskInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return taskInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallbackURL'])) {
             $model->callbackURL = $map['CallbackURL'];
         }
+
         if (isset($map['DstUrl'])) {
             $model->dstUrl = $map['DstUrl'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['FileIndex'])) {
             $model->fileIndex = $map['FileIndex'];
         }
+
         if (isset($map['Offset'])) {
             $model->offset = $map['Offset'];
         }
+
         if (isset($map['RepeatNumber'])) {
             $model->repeatNumber = $map['RepeatNumber'];
         }
+
         if (isset($map['RetryCount'])) {
             $model->retryCount = $map['RetryCount'];
         }
+
         if (isset($map['RetryInterval'])) {
             $model->retryInterval = $map['RetryInterval'];
         }
+
         if (isset($map['SourceProtocol'])) {
             $model->sourceProtocol = $map['SourceProtocol'];
         }
+
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }
+
         if (isset($map['SourceUrls'])) {
             if (!empty($map['SourceUrls'])) {
-                $model->sourceUrls = $map['SourceUrls'];
+                $model->sourceUrls = [];
+                $n1 = 0;
+                foreach ($map['SourceUrls'] as $item1) {
+                    $model->sourceUrls[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
         }

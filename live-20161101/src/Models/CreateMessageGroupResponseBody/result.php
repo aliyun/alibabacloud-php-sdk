@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\CreateMessageGroupResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The extended field.
-     *
-     * @example test001
-     *
      * @var mixed[]
      */
     public $extension;
 
     /**
-     * @description The ID of the message group.
-     *
-     * @example AE35-****-T95F
-     *
      * @var string
      */
     public $groupId;
@@ -30,14 +22,26 @@ class result extends Model
         'groupId' => 'GroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->extension)) {
+            Model::validateArray($this->extension);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extension) {
-            $res['Extension'] = $this->extension;
+            if (\is_array($this->extension)) {
+                $res['Extension'] = [];
+                foreach ($this->extension as $key1 => $value1) {
+                    $res['Extension'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
@@ -45,17 +49,23 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Extension'])) {
-            $model->extension = $map['Extension'];
+            if (!empty($map['Extension'])) {
+                $model->extension = [];
+                foreach ($map['Extension'] as $key1 => $value1) {
+                    $model->extension[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }

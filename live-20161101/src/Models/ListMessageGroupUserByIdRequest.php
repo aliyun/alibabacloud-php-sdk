@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListMessageGroupUserByIdRequest extends Model
 {
     /**
-     * @description The ID of the interactive messaging application.
-     *
-     * This parameter is required.
-     *
-     * @example VKL3***
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The ID of the message group.
-     *
-     * This parameter is required.
-     *
-     * @example AE35-****-T95F
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The list of users.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $userIdList;
@@ -44,41 +28,63 @@ class ListMessageGroupUserByIdRequest extends Model
         'userIdList' => 'UserIdList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->userIdList)) {
+            Model::validateArray($this->userIdList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->userIdList) {
-            $res['UserIdList'] = $this->userIdList;
+            if (\is_array($this->userIdList)) {
+                $res['UserIdList'] = [];
+                $n1 = 0;
+                foreach ($this->userIdList as $item1) {
+                    $res['UserIdList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMessageGroupUserByIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['UserIdList'])) {
             if (!empty($map['UserIdList'])) {
-                $model->userIdList = $map['UserIdList'];
+                $model->userIdList = [];
+                $n1 = 0;
+                foreach ($map['UserIdList'] as $item1) {
+                    $model->userIdList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

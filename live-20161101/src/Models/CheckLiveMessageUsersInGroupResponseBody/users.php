@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\CheckLiveMessageUsersInGroupResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class users extends Model
 {
     /**
-     * @description Indicates whether the user is in the group.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $online;
 
     /**
-     * @description The ID of the user.
-     *
-     * @example uid1
-     *
      * @var string
      */
     public $userId;
@@ -30,14 +22,18 @@ class users extends Model
         'userId' => 'UserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->online) {
             $res['Online'] = $this->online;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -45,17 +41,18 @@ class users extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return users
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Online'])) {
             $model->online = $map['Online'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

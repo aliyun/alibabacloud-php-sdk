@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DeleteLiveStreamRecordIndexFilesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DeleteLiveStreamRecordIndexFilesResponseBody\recordDeleteInfoList\recordDeleteInfo;
-use AlibabaCloud\Tea\Model;
 
 class recordDeleteInfoList extends Model
 {
@@ -17,17 +17,24 @@ class recordDeleteInfoList extends Model
         'recordDeleteInfo' => 'RecordDeleteInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->recordDeleteInfo)) {
+            Model::validateArray($this->recordDeleteInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recordDeleteInfo) {
-            $res['RecordDeleteInfo'] = [];
-            if (null !== $this->recordDeleteInfo && \is_array($this->recordDeleteInfo)) {
-                $n = 0;
-                foreach ($this->recordDeleteInfo as $item) {
-                    $res['RecordDeleteInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->recordDeleteInfo)) {
+                $res['RecordDeleteInfo'] = [];
+                $n1 = 0;
+                foreach ($this->recordDeleteInfo as $item1) {
+                    $res['RecordDeleteInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class recordDeleteInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recordDeleteInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecordDeleteInfo'])) {
             if (!empty($map['RecordDeleteInfo'])) {
                 $model->recordDeleteInfo = [];
-                $n = 0;
-                foreach ($map['RecordDeleteInfo'] as $item) {
-                    $model->recordDeleteInfo[$n++] = null !== $item ? recordDeleteInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RecordDeleteInfo'] as $item1) {
+                    $model->recordDeleteInfo[$n1] = recordDeleteInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveCertificateListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveCertificateListResponseBody\certificateListModel\certList;
-use AlibabaCloud\Tea\Model;
 
 class certificateListModel extends Model
 {
     /**
-     * @description The certificates.
-     *
      * @var certList
      */
     public $certList;
 
     /**
-     * @description The number of certificates.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $count;
@@ -29,14 +23,21 @@ class certificateListModel extends Model
         'count' => 'Count',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->certList) {
+            $this->certList->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certList) {
-            $res['CertList'] = null !== $this->certList ? $this->certList->toMap() : null;
+            $res['CertList'] = null !== $this->certList ? $this->certList->toArray($noStream) : $this->certList;
         }
+
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
@@ -44,17 +45,18 @@ class certificateListModel extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return certificateListModel
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertList'])) {
             $model->certList = certList::fromMap($map['CertList']);
         }
+
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\CreateLiveStreamRecordIndexFilesResponseBody\recordInfo;
-use AlibabaCloud\Tea\Model;
 
 class CreateLiveStreamRecordIndexFilesResponseBody extends Model
 {
     /**
-     * @description The recording configuration.
-     *
      * @var recordInfo
      */
     public $recordInfo;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 550439A3-F8EC-4CA2-BB62-B9DB43EEEF30
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class CreateLiveStreamRecordIndexFilesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->recordInfo) {
+            $this->recordInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recordInfo) {
-            $res['RecordInfo'] = null !== $this->recordInfo ? $this->recordInfo->toMap() : null;
+            $res['RecordInfo'] = null !== $this->recordInfo ? $this->recordInfo->toArray($noStream) : $this->recordInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class CreateLiveStreamRecordIndexFilesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateLiveStreamRecordIndexFilesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecordInfo'])) {
             $model->recordInfo = recordInfo::fromMap($map['RecordInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

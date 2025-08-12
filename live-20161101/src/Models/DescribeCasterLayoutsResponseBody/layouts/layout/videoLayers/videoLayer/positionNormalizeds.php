@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeCasterLayoutsResponseBody\layouts\layout\videoLayers\videoLayer;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class positionNormalizeds extends Model
 {
@@ -16,29 +16,47 @@ class positionNormalizeds extends Model
         'position' => 'Position',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->position)) {
+            Model::validateArray($this->position);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->position) {
-            $res['Position'] = $this->position;
+            if (\is_array($this->position)) {
+                $res['Position'] = [];
+                $n1 = 0;
+                foreach ($this->position as $item1) {
+                    $res['Position'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return positionNormalizeds
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Position'])) {
             if (!empty($map['Position'])) {
-                $model->position = $map['Position'];
+                $model->position = [];
+                $n1 = 0;
+                foreach ($map['Position'] as $item1) {
+                    $model->position[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

@@ -4,76 +4,51 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeStudioLayoutsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeStudioLayoutsResponseBody\studioLayouts\bgImageConfig;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeStudioLayoutsResponseBody\studioLayouts\commonConfig;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeStudioLayoutsResponseBody\studioLayouts\layerOrderConfigList;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeStudioLayoutsResponseBody\studioLayouts\mediaInputConfigList;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeStudioLayoutsResponseBody\studioLayouts\screenInputConfigList;
-use AlibabaCloud\Tea\Model;
 
 class studioLayouts extends Model
 {
     /**
-     * @description The background material configurations.
-     *
      * @var bgImageConfig
      */
     public $bgImageConfig;
 
     /**
-     * @description The common layout configurations. This parameter is returned only for a common layout.
-     *
      * @var commonConfig
      */
     public $commonConfig;
 
     /**
-     * @description The layer sorting configurations.
-     *
      * @var layerOrderConfigList[]
      */
     public $layerOrderConfigList;
 
     /**
-     * @description The ID of the layout.
-     *
-     * @example 445409ec-7eaa-461d-8f29-4bec2eb9****
-     *
      * @var string
      */
     public $layoutId;
 
     /**
-     * @description The name of the layout.
-     *
-     * @example 测试布局
-     *
      * @var string
      */
     public $layoutName;
 
     /**
-     * @description The type of the layout. Valid values:
-     *
-     *   **common**
-     *   **studio**
-     *
-     * @example studio
-     *
      * @var string
      */
     public $layoutType;
 
     /**
-     * @description The multimedia input configurations.
-     *
      * @var mediaInputConfigList[]
      */
     public $mediaInputConfigList;
 
     /**
-     * @description The input configurations for chroma key.
-     *
      * @var screenInputConfigList[]
      */
     public $screenInputConfigList;
@@ -88,50 +63,78 @@ class studioLayouts extends Model
         'screenInputConfigList' => 'ScreenInputConfigList',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->bgImageConfig) {
+            $this->bgImageConfig->validate();
+        }
+        if (null !== $this->commonConfig) {
+            $this->commonConfig->validate();
+        }
+        if (\is_array($this->layerOrderConfigList)) {
+            Model::validateArray($this->layerOrderConfigList);
+        }
+        if (\is_array($this->mediaInputConfigList)) {
+            Model::validateArray($this->mediaInputConfigList);
+        }
+        if (\is_array($this->screenInputConfigList)) {
+            Model::validateArray($this->screenInputConfigList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bgImageConfig) {
-            $res['BgImageConfig'] = null !== $this->bgImageConfig ? $this->bgImageConfig->toMap() : null;
+            $res['BgImageConfig'] = null !== $this->bgImageConfig ? $this->bgImageConfig->toArray($noStream) : $this->bgImageConfig;
         }
+
         if (null !== $this->commonConfig) {
-            $res['CommonConfig'] = null !== $this->commonConfig ? $this->commonConfig->toMap() : null;
+            $res['CommonConfig'] = null !== $this->commonConfig ? $this->commonConfig->toArray($noStream) : $this->commonConfig;
         }
+
         if (null !== $this->layerOrderConfigList) {
-            $res['LayerOrderConfigList'] = [];
-            if (null !== $this->layerOrderConfigList && \is_array($this->layerOrderConfigList)) {
-                $n = 0;
-                foreach ($this->layerOrderConfigList as $item) {
-                    $res['LayerOrderConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->layerOrderConfigList)) {
+                $res['LayerOrderConfigList'] = [];
+                $n1 = 0;
+                foreach ($this->layerOrderConfigList as $item1) {
+                    $res['LayerOrderConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->layoutId) {
             $res['LayoutId'] = $this->layoutId;
         }
+
         if (null !== $this->layoutName) {
             $res['LayoutName'] = $this->layoutName;
         }
+
         if (null !== $this->layoutType) {
             $res['LayoutType'] = $this->layoutType;
         }
+
         if (null !== $this->mediaInputConfigList) {
-            $res['MediaInputConfigList'] = [];
-            if (null !== $this->mediaInputConfigList && \is_array($this->mediaInputConfigList)) {
-                $n = 0;
-                foreach ($this->mediaInputConfigList as $item) {
-                    $res['MediaInputConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->mediaInputConfigList)) {
+                $res['MediaInputConfigList'] = [];
+                $n1 = 0;
+                foreach ($this->mediaInputConfigList as $item1) {
+                    $res['MediaInputConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->screenInputConfigList) {
-            $res['ScreenInputConfigList'] = [];
-            if (null !== $this->screenInputConfigList && \is_array($this->screenInputConfigList)) {
-                $n = 0;
-                foreach ($this->screenInputConfigList as $item) {
-                    $res['ScreenInputConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->screenInputConfigList)) {
+                $res['ScreenInputConfigList'] = [];
+                $n1 = 0;
+                foreach ($this->screenInputConfigList as $item1) {
+                    $res['ScreenInputConfigList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -139,53 +142,63 @@ class studioLayouts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return studioLayouts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BgImageConfig'])) {
             $model->bgImageConfig = bgImageConfig::fromMap($map['BgImageConfig']);
         }
+
         if (isset($map['CommonConfig'])) {
             $model->commonConfig = commonConfig::fromMap($map['CommonConfig']);
         }
+
         if (isset($map['LayerOrderConfigList'])) {
             if (!empty($map['LayerOrderConfigList'])) {
                 $model->layerOrderConfigList = [];
-                $n = 0;
-                foreach ($map['LayerOrderConfigList'] as $item) {
-                    $model->layerOrderConfigList[$n++] = null !== $item ? layerOrderConfigList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LayerOrderConfigList'] as $item1) {
+                    $model->layerOrderConfigList[$n1] = layerOrderConfigList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['LayoutId'])) {
             $model->layoutId = $map['LayoutId'];
         }
+
         if (isset($map['LayoutName'])) {
             $model->layoutName = $map['LayoutName'];
         }
+
         if (isset($map['LayoutType'])) {
             $model->layoutType = $map['LayoutType'];
         }
+
         if (isset($map['MediaInputConfigList'])) {
             if (!empty($map['MediaInputConfigList'])) {
                 $model->mediaInputConfigList = [];
-                $n = 0;
-                foreach ($map['MediaInputConfigList'] as $item) {
-                    $model->mediaInputConfigList[$n++] = null !== $item ? mediaInputConfigList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MediaInputConfigList'] as $item1) {
+                    $model->mediaInputConfigList[$n1] = mediaInputConfigList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['ScreenInputConfigList'])) {
             if (!empty($map['ScreenInputConfigList'])) {
                 $model->screenInputConfigList = [];
-                $n = 0;
-                foreach ($map['ScreenInputConfigList'] as $item) {
-                    $model->screenInputConfigList[$n++] = null !== $item ? screenInputConfigList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ScreenInputConfigList'] as $item1) {
+                    $model->screenInputConfigList[$n1] = screenInputConfigList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

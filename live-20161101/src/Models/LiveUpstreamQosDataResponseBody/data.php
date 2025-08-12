@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\LiveUpstreamQosDataResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\LiveUpstreamQosDataResponseBody\data\detailData;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -59,38 +59,52 @@ class data extends Model
         'upstreamDomain' => 'UpstreamDomain',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->detailData)) {
+            Model::validateArray($this->detailData);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cdnDomain) {
             $res['CdnDomain'] = $this->cdnDomain;
         }
+
         if (null !== $this->cdnIsp) {
             $res['CdnIsp'] = $this->cdnIsp;
         }
+
         if (null !== $this->cdnOcid) {
             $res['CdnOcid'] = $this->cdnOcid;
         }
+
         if (null !== $this->cdnProvince) {
             $res['CdnProvince'] = $this->cdnProvince;
         }
+
         if (null !== $this->detailData) {
-            $res['DetailData'] = [];
-            if (null !== $this->detailData && \is_array($this->detailData)) {
-                $n = 0;
-                foreach ($this->detailData as $item) {
-                    $res['DetailData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->detailData)) {
+                $res['DetailData'] = [];
+                $n1 = 0;
+                foreach ($this->detailData as $item1) {
+                    $res['DetailData'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->kwaiSidc) {
             $res['KwaiSidc'] = $this->kwaiSidc;
         }
+
         if (null !== $this->kwaiTsc) {
             $res['KwaiTsc'] = $this->kwaiTsc;
         }
+
         if (null !== $this->upstreamDomain) {
             $res['UpstreamDomain'] = $this->upstreamDomain;
         }
@@ -98,41 +112,49 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CdnDomain'])) {
             $model->cdnDomain = $map['CdnDomain'];
         }
+
         if (isset($map['CdnIsp'])) {
             $model->cdnIsp = $map['CdnIsp'];
         }
+
         if (isset($map['CdnOcid'])) {
             $model->cdnOcid = $map['CdnOcid'];
         }
+
         if (isset($map['CdnProvince'])) {
             $model->cdnProvince = $map['CdnProvince'];
         }
+
         if (isset($map['DetailData'])) {
             if (!empty($map['DetailData'])) {
                 $model->detailData = [];
-                $n = 0;
-                foreach ($map['DetailData'] as $item) {
-                    $model->detailData[$n++] = null !== $item ? detailData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DetailData'] as $item1) {
+                    $model->detailData[$n1] = detailData::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['KwaiSidc'])) {
             $model->kwaiSidc = $map['KwaiSidc'];
         }
+
         if (isset($map['KwaiTsc'])) {
             $model->kwaiTsc = $map['KwaiTsc'];
         }
+
         if (isset($map['UpstreamDomain'])) {
             $model->upstreamDomain = $map['UpstreamDomain'];
         }

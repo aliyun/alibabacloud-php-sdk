@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamRecordContentResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveStreamRecordContentResponseBody\recordContentInfoList\recordContentInfo;
-use AlibabaCloud\Tea\Model;
 
 class recordContentInfoList extends Model
 {
@@ -17,17 +17,24 @@ class recordContentInfoList extends Model
         'recordContentInfo' => 'RecordContentInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->recordContentInfo)) {
+            Model::validateArray($this->recordContentInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recordContentInfo) {
-            $res['RecordContentInfo'] = [];
-            if (null !== $this->recordContentInfo && \is_array($this->recordContentInfo)) {
-                $n = 0;
-                foreach ($this->recordContentInfo as $item) {
-                    $res['RecordContentInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->recordContentInfo)) {
+                $res['RecordContentInfo'] = [];
+                $n1 = 0;
+                foreach ($this->recordContentInfo as $item1) {
+                    $res['RecordContentInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class recordContentInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recordContentInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecordContentInfo'])) {
             if (!empty($map['RecordContentInfo'])) {
                 $model->recordContentInfo = [];
-                $n = 0;
-                foreach ($map['RecordContentInfo'] as $item) {
-                    $model->recordContentInfo[$n++] = null !== $item ? recordContentInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RecordContentInfo'] as $item1) {
+                    $model->recordContentInfo[$n1] = recordContentInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\ListRtcMPUEventSubRecordResponseBody\logs;
-use AlibabaCloud\Tea\Model;
 
 class ListRtcMPUEventSubRecordResponseBody extends Model
 {
     /**
-     * @description The number of entries per page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $count;
 
     /**
-     * @description Indicates whether the current page is followed by a page.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $hasMore;
 
     /**
-     * @description The callback records.
-     *
      * @var logs[]
      */
     public $logs;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example ******3B-0E1A-586A-AC29-742247******
-     *
      * @var string
      */
     public $requestId;
@@ -49,26 +35,36 @@ class ListRtcMPUEventSubRecordResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->logs)) {
+            Model::validateArray($this->logs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->hasMore) {
             $res['HasMore'] = $this->hasMore;
         }
+
         if (null !== $this->logs) {
-            $res['Logs'] = [];
-            if (null !== $this->logs && \is_array($this->logs)) {
-                $n = 0;
-                foreach ($this->logs as $item) {
-                    $res['Logs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logs)) {
+                $res['Logs'] = [];
+                $n1 = 0;
+                foreach ($this->logs as $item1) {
+                    $res['Logs'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -76,29 +72,33 @@ class ListRtcMPUEventSubRecordResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRtcMPUEventSubRecordResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['HasMore'])) {
             $model->hasMore = $map['HasMore'];
         }
+
         if (isset($map['Logs'])) {
             if (!empty($map['Logs'])) {
                 $model->logs = [];
-                $n = 0;
-                foreach ($map['Logs'] as $item) {
-                    $model->logs[$n++] = null !== $item ? logs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Logs'] as $item1) {
+                    $model->logs[$n1] = logs::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

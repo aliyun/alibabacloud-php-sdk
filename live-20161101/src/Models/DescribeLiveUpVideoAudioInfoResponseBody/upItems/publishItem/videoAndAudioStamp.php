@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUpVideoAudioInfoResponseBody\upItems\publishItem;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUpVideoAudioInfoResponseBody\upItems\publishItem\videoAndAudioStamp\vAStamp;
-use AlibabaCloud\Tea\Model;
 
 class videoAndAudioStamp extends Model
 {
@@ -17,17 +17,24 @@ class videoAndAudioStamp extends Model
         'vAStamp' => 'V_AStamp',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->vAStamp)) {
+            Model::validateArray($this->vAStamp);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vAStamp) {
-            $res['V_AStamp'] = [];
-            if (null !== $this->vAStamp && \is_array($this->vAStamp)) {
-                $n = 0;
-                foreach ($this->vAStamp as $item) {
-                    $res['V_AStamp'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->vAStamp)) {
+                $res['V_AStamp'] = [];
+                $n1 = 0;
+                foreach ($this->vAStamp as $item1) {
+                    $res['V_AStamp'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class videoAndAudioStamp extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return videoAndAudioStamp
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['V_AStamp'])) {
             if (!empty($map['V_AStamp'])) {
                 $model->vAStamp = [];
-                $n = 0;
-                foreach ($map['V_AStamp'] as $item) {
-                    $model->vAStamp[$n++] = null !== $item ? vAStamp::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['V_AStamp'] as $item1) {
+                    $model->vAStamp[$n1] = vAStamp::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

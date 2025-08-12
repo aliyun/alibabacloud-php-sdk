@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\GetMessageGroupResponseBody\result;
-use AlibabaCloud\Tea\Model;
 
 class GetMessageGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 16A96B9A-****-CB92E68F4CD8
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The returned result.
-     *
      * @var result
      */
     public $result;
@@ -29,32 +23,40 @@ class GetMessageGroupResponseBody extends Model
         'result' => 'Result',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->result) {
+            $this->result->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
+            $res['Result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMessageGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
             $model->result = result::fromMap($map['Result']);
         }

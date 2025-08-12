@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\StartCasterResponseBody\pvwSceneInfos;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sceneInfo extends Model
 {
     /**
-     * @description The ID of the scene.
-     *
-     * @example b5f8c837-ceeb-424f-b30b-68e94e86****
-     *
      * @var string
      */
     public $sceneId;
 
     /**
-     * @description The streaming URL of the PVW scene in the production studio. The value is not a stream relay URL.
-     *
-     * @example rtmp://abclive/caster/example.net
-     *
      * @var string
      */
     public $streamUrl;
@@ -30,14 +22,18 @@ class sceneInfo extends Model
         'streamUrl' => 'StreamUrl',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
         }
+
         if (null !== $this->streamUrl) {
             $res['StreamUrl'] = $this->streamUrl;
         }
@@ -45,17 +41,18 @@ class sceneInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sceneInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
         }
+
         if (isset($map['StreamUrl'])) {
             $model->streamUrl = $map['StreamUrl'];
         }

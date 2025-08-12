@@ -4,29 +4,37 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUpVideoAudioInfoResponseBody\upItems\publishItem;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Live\V20161101\Models\DescribeLiveUpVideoAudioInfoResponseBody\upItems\publishItem\avcHeaders\avcHeaders;
 
 class avcHeaders extends Model
 {
     /**
-     * @var avcHeaders\avcHeaders[]
+     * @var avcHeaders[]
      */
     public $avcHeaders;
     protected $_name = [
         'avcHeaders' => 'AvcHeaders',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->avcHeaders)) {
+            Model::validateArray($this->avcHeaders);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->avcHeaders) {
-            $res['AvcHeaders'] = [];
-            if (null !== $this->avcHeaders && \is_array($this->avcHeaders)) {
-                $n = 0;
-                foreach ($this->avcHeaders as $item) {
-                    $res['AvcHeaders'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->avcHeaders)) {
+                $res['AvcHeaders'] = [];
+                $n1 = 0;
+                foreach ($this->avcHeaders as $item1) {
+                    $res['AvcHeaders'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -34,20 +42,21 @@ class avcHeaders extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return avcHeaders
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvcHeaders'])) {
             if (!empty($map['AvcHeaders'])) {
                 $model->avcHeaders = [];
-                $n = 0;
-                foreach ($map['AvcHeaders'] as $item) {
-                    $model->avcHeaders[$n++] = null !== $item ? avcHeaders\avcHeaders::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AvcHeaders'] as $item1) {
+                    $model->avcHeaders[$n1] = self::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

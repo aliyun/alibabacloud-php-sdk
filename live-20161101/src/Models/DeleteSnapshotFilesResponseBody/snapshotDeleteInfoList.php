@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Live\V20161101\Models\DeleteSnapshotFilesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Live\V20161101\Models\DeleteSnapshotFilesResponseBody\snapshotDeleteInfoList\snapshotDeleteInfo;
-use AlibabaCloud\Tea\Model;
 
 class snapshotDeleteInfoList extends Model
 {
@@ -17,17 +17,24 @@ class snapshotDeleteInfoList extends Model
         'snapshotDeleteInfo' => 'SnapshotDeleteInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->snapshotDeleteInfo)) {
+            Model::validateArray($this->snapshotDeleteInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->snapshotDeleteInfo) {
-            $res['SnapshotDeleteInfo'] = [];
-            if (null !== $this->snapshotDeleteInfo && \is_array($this->snapshotDeleteInfo)) {
-                $n = 0;
-                foreach ($this->snapshotDeleteInfo as $item) {
-                    $res['SnapshotDeleteInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->snapshotDeleteInfo)) {
+                $res['SnapshotDeleteInfo'] = [];
+                $n1 = 0;
+                foreach ($this->snapshotDeleteInfo as $item1) {
+                    $res['SnapshotDeleteInfo'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -35,20 +42,21 @@ class snapshotDeleteInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return snapshotDeleteInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SnapshotDeleteInfo'])) {
             if (!empty($map['SnapshotDeleteInfo'])) {
                 $model->snapshotDeleteInfo = [];
-                $n = 0;
-                foreach ($map['SnapshotDeleteInfo'] as $item) {
-                    $model->snapshotDeleteInfo[$n++] = null !== $item ? snapshotDeleteInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SnapshotDeleteInfo'] as $item1) {
+                    $model->snapshotDeleteInfo[$n1] = snapshotDeleteInfo::fromMap($item1);
+                    ++$n1;
                 }
             }
         }
