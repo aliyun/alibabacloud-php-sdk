@@ -4,51 +4,26 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteNacosConfigsRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
-     * @description The IDs of configurations.
-     *
-     * This parameter is required.
-     *
-     * @example 20024,20025,20026,20027,20034,20104,20394
-     *
      * @var string
      */
     public $ids;
 
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     *
-     * @example mse_prepaid_public_cn-i7m2e32pd0n
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the namespace.
-     *
-     * This parameter is required.
-     *
-     * @example 1ef93a21-3487-4367-a859-857d8****
-     *
      * @var string
      */
     public $namespaceId;
@@ -59,20 +34,26 @@ class DeleteNacosConfigsRequest extends Model
         'namespaceId' => 'NamespaceId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->ids) {
             $res['Ids'] = $this->ids;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
@@ -80,23 +61,26 @@ class DeleteNacosConfigsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteNacosConfigsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['Ids'])) {
             $model->ids = $map['Ids'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }

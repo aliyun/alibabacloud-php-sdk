@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayDomainResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tlsCipherSuitesConfig extends Model
 {
@@ -22,35 +22,55 @@ class tlsCipherSuitesConfig extends Model
         'tlsCipherSuites' => 'TlsCipherSuites',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tlsCipherSuites)) {
+            Model::validateArray($this->tlsCipherSuites);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configType) {
             $res['ConfigType'] = $this->configType;
         }
+
         if (null !== $this->tlsCipherSuites) {
-            $res['TlsCipherSuites'] = $this->tlsCipherSuites;
+            if (\is_array($this->tlsCipherSuites)) {
+                $res['TlsCipherSuites'] = [];
+                $n1 = 0;
+                foreach ($this->tlsCipherSuites as $item1) {
+                    $res['TlsCipherSuites'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tlsCipherSuitesConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigType'])) {
             $model->configType = $map['ConfigType'];
         }
+
         if (isset($map['TlsCipherSuites'])) {
             if (!empty($map['TlsCipherSuites'])) {
-                $model->tlsCipherSuites = $map['TlsCipherSuites'];
+                $model->tlsCipherSuites = [];
+                $n1 = 0;
+                foreach ($map['TlsCipherSuites'] as $item1) {
+                    $model->tlsCipherSuites[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
 

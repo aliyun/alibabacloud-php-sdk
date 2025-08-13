@@ -4,38 +4,26 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteWafStatusResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class retry extends Model
 {
     /**
-     * @description The number of retries allowed for a request.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $attempts;
 
     /**
-     * @description The HTTP status code.
-     *
      * @var string[]
      */
     public $httpCodes;
 
     /**
-     * @description The retry condition.
-     *
      * @var string[]
      */
     public $retryOn;
 
     /**
-     * @description The retry status.
-     *
-     * @example on
-     *
      * @var string
      */
     public $status;
@@ -46,20 +34,46 @@ class retry extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->httpCodes)) {
+            Model::validateArray($this->httpCodes);
+        }
+        if (\is_array($this->retryOn)) {
+            Model::validateArray($this->retryOn);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attempts) {
             $res['Attempts'] = $this->attempts;
         }
+
         if (null !== $this->httpCodes) {
-            $res['HttpCodes'] = $this->httpCodes;
+            if (\is_array($this->httpCodes)) {
+                $res['HttpCodes'] = [];
+                $n1 = 0;
+                foreach ($this->httpCodes as $item1) {
+                    $res['HttpCodes'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->retryOn) {
-            $res['RetryOn'] = $this->retryOn;
+            if (\is_array($this->retryOn)) {
+                $res['RetryOn'] = [];
+                $n1 = 0;
+                foreach ($this->retryOn as $item1) {
+                    $res['RetryOn'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -67,27 +81,40 @@ class retry extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return retry
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attempts'])) {
             $model->attempts = $map['Attempts'];
         }
+
         if (isset($map['HttpCodes'])) {
             if (!empty($map['HttpCodes'])) {
-                $model->httpCodes = $map['HttpCodes'];
+                $model->httpCodes = [];
+                $n1 = 0;
+                foreach ($map['HttpCodes'] as $item1) {
+                    $model->httpCodes[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['RetryOn'])) {
             if (!empty($map['RetryOn'])) {
-                $model->retryOn = $map['RetryOn'];
+                $model->retryOn = [];
+                $n1 = 0;
+                foreach ($map['RetryOn'] as $item1) {
+                    $model->retryOn[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

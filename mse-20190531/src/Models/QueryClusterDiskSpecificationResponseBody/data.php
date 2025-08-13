@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\QueryClusterDiskSpecificationResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The maximum disk capacity. Unit: GB.
-     *
-     * @example 500
-     *
      * @var int
      */
     public $max;
 
     /**
-     * @description The minimum disk capacity. Unit: GB.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $min;
 
     /**
-     * @description The step size of the disk capacity.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $step;
@@ -40,17 +28,22 @@ class data extends Model
         'step' => 'Step',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->max) {
             $res['Max'] = $this->max;
         }
+
         if (null !== $this->min) {
             $res['Min'] = $this->min;
         }
+
         if (null !== $this->step) {
             $res['Step'] = $this->step;
         }
@@ -58,20 +51,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Max'])) {
             $model->max = $map['Max'];
         }
+
         if (isset($map['Min'])) {
             $model->min = $map['Min'];
         }
+
         if (isset($map['Step'])) {
             $model->step = $map['Step'];
         }

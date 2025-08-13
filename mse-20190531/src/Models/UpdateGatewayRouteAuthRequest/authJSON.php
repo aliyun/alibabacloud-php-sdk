@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteAuthRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class authJSON extends Model
 {
     /**
-     * @description The authentication type. If an empty string is passed, no authentication type is available. Valid values:
-     *
-     *   JWT
-     *
-     * @example JWT
-     *
      * @var string
      */
     public $type;
@@ -22,9 +16,12 @@ class authJSON extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->type) {
@@ -34,11 +31,11 @@ class authJSON extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return authJSON
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

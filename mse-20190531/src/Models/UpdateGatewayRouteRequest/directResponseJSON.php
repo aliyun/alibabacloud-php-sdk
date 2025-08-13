@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class directResponseJSON extends Model
 {
     /**
-     * @description The mock return value.
-     *
-     * @example hello
-     *
      * @var string
      */
     public $body;
 
     /**
-     * @description The mock return code.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $code;
@@ -30,14 +22,18 @@ class directResponseJSON extends Model
         'code' => 'Code',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
             $res['Body'] = $this->body;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -45,17 +41,18 @@ class directResponseJSON extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return directResponseJSON
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Body'])) {
             $model->body = $map['Body'];
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }

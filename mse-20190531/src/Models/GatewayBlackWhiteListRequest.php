@@ -4,59 +4,37 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GatewayBlackWhiteListRequest\filterParams;
-use AlibabaCloud\Tea\Model;
 
 class GatewayBlackWhiteListRequest extends Model
 {
     /**
-     * @description The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
-     *
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
-     * @description This parameter is unavailable for public use.
-     *
-     * @example ""
-     *
      * @var bool
      */
     public $descSort;
 
     /**
-     * @description The filter parameters.
-     *
      * @var filterParams
      */
     public $filterParams;
 
     /**
-     * @description This parameter is unavailable for public use.
-     *
-     * @example ""
-     *
      * @var string
      */
     public $orderItem;
 
     /**
-     * @description The page number. Pages start from page 1. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageSize;
@@ -69,26 +47,37 @@ class GatewayBlackWhiteListRequest extends Model
         'pageSize' => 'PageSize',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->filterParams) {
+            $this->filterParams->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->descSort) {
             $res['DescSort'] = $this->descSort;
         }
+
         if (null !== $this->filterParams) {
-            $res['FilterParams'] = null !== $this->filterParams ? $this->filterParams->toMap() : null;
+            $res['FilterParams'] = null !== $this->filterParams ? $this->filterParams->toArray($noStream) : $this->filterParams;
         }
+
         if (null !== $this->orderItem) {
             $res['OrderItem'] = $this->orderItem;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -96,29 +85,34 @@ class GatewayBlackWhiteListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GatewayBlackWhiteListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['DescSort'])) {
             $model->descSort = $map['DescSort'];
         }
+
         if (isset($map['FilterParams'])) {
             $model->filterParams = filterParams::fromMap($map['FilterParams']);
         }
+
         if (isset($map['OrderItem'])) {
             $model->orderItem = $map['OrderItem'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

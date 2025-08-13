@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListEurekaServicesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The details of the instance.
-     *
      * @var string[]
      */
     public $instancesId;
 
     /**
-     * @description The name of the service.
-     *
-     * @example CONTACTINFO
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The number of service providers. The value is in the following format: Number of healthy instances/Total number of instances.
-     *
-     * @example 1/1
-     *
      * @var string
      */
     public $upStatus;
@@ -38,17 +28,32 @@ class data extends Model
         'upStatus' => 'UpStatus',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instancesId)) {
+            Model::validateArray($this->instancesId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instancesId) {
-            $res['InstancesId'] = $this->instancesId;
+            if (\is_array($this->instancesId)) {
+                $res['InstancesId'] = [];
+                $n1 = 0;
+                foreach ($this->instancesId as $item1) {
+                    $res['InstancesId'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->upStatus) {
             $res['UpStatus'] = $this->upStatus;
         }
@@ -56,22 +61,29 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstancesId'])) {
             if (!empty($map['InstancesId'])) {
-                $model->instancesId = $map['InstancesId'];
+                $model->instancesId = [];
+                $n1 = 0;
+                foreach ($map['InstancesId'] as $item1) {
+                    $model->instancesId[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['UpStatus'])) {
             $model->upStatus = $map['UpStatus'];
         }

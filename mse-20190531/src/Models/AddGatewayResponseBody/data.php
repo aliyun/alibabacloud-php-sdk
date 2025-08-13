@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description code
-     *
-     * @example gw-5017305290e14cebbrvec4a5****
-     *
      * @var string
      */
     public $gatewayUniqueId;
@@ -20,9 +16,12 @@ class data extends Model
         'gatewayUniqueId' => 'GatewayUniqueId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gatewayUniqueId) {
@@ -32,11 +31,11 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

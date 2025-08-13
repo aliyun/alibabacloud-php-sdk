@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListGatewayZoneRequest extends Model
 {
     /**
-     * @description The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
-     *
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
@@ -20,9 +16,12 @@ class ListGatewayZoneRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
@@ -32,11 +31,11 @@ class ListGatewayZoneRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListGatewayZoneRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

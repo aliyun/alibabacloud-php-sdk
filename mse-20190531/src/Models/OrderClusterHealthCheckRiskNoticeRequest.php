@@ -4,75 +4,41 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OrderClusterHealthCheckRiskNoticeRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
-     * @description The ID of the instance.
-     *
-     * @example mse-cn-st21ri2****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description Specifies whether to disable the notification feature if the risk item occurs.
-     *
-     *   true: disabled
-     *   false: enabled
-     *
-     * @example false
-     *
      * @var bool
      */
     public $mute;
 
     /**
-     * @description A reserved parameter.
-     *
-     * @example null
-     *
      * @var string
      */
     public $noticeType;
 
     /**
-     * @description The region in which the cluster resides.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The extended request parameters in the JSON format.
-     *
-     * @example {}
-     *
      * @var string
      */
     public $requestPars;
 
     /**
-     * @description The ID of the risk item.
-     *
-     * @example 30010010001
-     *
      * @var string
      */
     public $riskCode;
@@ -86,29 +52,38 @@ class OrderClusterHealthCheckRiskNoticeRequest extends Model
         'riskCode' => 'RiskCode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->mute) {
             $res['Mute'] = $this->mute;
         }
+
         if (null !== $this->noticeType) {
             $res['NoticeType'] = $this->noticeType;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->requestPars) {
             $res['RequestPars'] = $this->requestPars;
         }
+
         if (null !== $this->riskCode) {
             $res['RiskCode'] = $this->riskCode;
         }
@@ -116,32 +91,38 @@ class OrderClusterHealthCheckRiskNoticeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OrderClusterHealthCheckRiskNoticeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Mute'])) {
             $model->mute = $map['Mute'];
         }
+
         if (isset($map['NoticeType'])) {
             $model->noticeType = $map['NoticeType'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RequestPars'])) {
             $model->requestPars = $map['RequestPars'];
         }
+
         if (isset($map['RiskCode'])) {
             $model->riskCode = $map['RiskCode'];
         }

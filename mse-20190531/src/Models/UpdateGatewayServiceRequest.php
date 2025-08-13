@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateGatewayServiceRequest extends Model
 {
     /**
-     * @example zh
-     *
      * @var string
      */
     public $acceptLanguage;
@@ -21,22 +19,16 @@ class UpdateGatewayServiceRequest extends Model
     public $dnsServerList;
 
     /**
-     * @example 501
-     *
      * @var int
      */
     public $gatewayId;
 
     /**
-     * @example gw-c9bc5afd61014165bd58f621b491*****
-     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
-     * @example 322
-     *
      * @var string
      */
     public $id;
@@ -47,34 +39,21 @@ class UpdateGatewayServiceRequest extends Model
     public $ipList;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example 80
-     *
      * @var string
      */
     public $servicePort;
 
     /**
-     * @example HTTP
-     *
      * @var string
      */
     public $serviceProtocol;
 
     /**
-     * @example {
-     * "mode": "MUTUAL",
-     * "certId": "1*****-cn-hangzhou",
-     * "caCertContent": "123",
-     * "sni": "ceshi"
-     * }
-     *
      * @var string
      */
     public $tlsSetting;
@@ -91,38 +70,70 @@ class UpdateGatewayServiceRequest extends Model
         'tlsSetting' => 'TlsSetting',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dnsServerList)) {
+            Model::validateArray($this->dnsServerList);
+        }
+        if (\is_array($this->ipList)) {
+            Model::validateArray($this->ipList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->dnsServerList) {
-            $res['DnsServerList'] = $this->dnsServerList;
+            if (\is_array($this->dnsServerList)) {
+                $res['DnsServerList'] = [];
+                $n1 = 0;
+                foreach ($this->dnsServerList as $item1) {
+                    $res['DnsServerList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
         }
+
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->ipList) {
-            $res['IpList'] = $this->ipList;
+            if (\is_array($this->ipList)) {
+                $res['IpList'] = [];
+                $n1 = 0;
+                foreach ($this->ipList as $item1) {
+                    $res['IpList'][$n1] = $item1;
+                    ++$n1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->servicePort) {
             $res['ServicePort'] = $this->servicePort;
         }
+
         if (null !== $this->serviceProtocol) {
             $res['ServiceProtocol'] = $this->serviceProtocol;
         }
+
         if (null !== $this->tlsSetting) {
             $res['TlsSetting'] = $this->tlsSetting;
         }
@@ -130,45 +141,64 @@ class UpdateGatewayServiceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateGatewayServiceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['DnsServerList'])) {
             if (!empty($map['DnsServerList'])) {
-                $model->dnsServerList = $map['DnsServerList'];
+                $model->dnsServerList = [];
+                $n1 = 0;
+                foreach ($map['DnsServerList'] as $item1) {
+                    $model->dnsServerList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
         }
+
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['IpList'])) {
             if (!empty($map['IpList'])) {
-                $model->ipList = $map['IpList'];
+                $model->ipList = [];
+                $n1 = 0;
+                foreach ($map['IpList'] as $item1) {
+                    $model->ipList[$n1] = $item1;
+                    ++$n1;
+                }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ServicePort'])) {
             $model->servicePort = $map['ServicePort'];
         }
+
         if (isset($map['ServiceProtocol'])) {
             $model->serviceProtocol = $map['ServiceProtocol'];
         }
+
         if (isset($map['TlsSetting'])) {
             $model->tlsSetting = $map['TlsSetting'];
         }

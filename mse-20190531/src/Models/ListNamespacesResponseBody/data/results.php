@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListNamespacesResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class results extends Model
 {
     /**
-     * @example 3
-     *
      * @var int
      */
     public $appCount;
 
     /**
-     * @example 2024-09-02T09:49:48.000+0000
-     *
      * @var int
      */
     public $createTime;
@@ -28,43 +24,31 @@ class results extends Model
     public $describe;
 
     /**
-     * @example 6
-     *
      * @var int
      */
     public $instanceCount;
 
     /**
-     * @example myNamespace
-     *
      * @var string
      */
     public $namespace;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @example 2024-09-02T09:49:48.000+0000
-     *
      * @var int
      */
     public $updateTime;
 
     /**
-     * @example 178*******
-     *
      * @var string
      */
     public $userId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $version;
@@ -80,35 +64,46 @@ class results extends Model
         'version' => 'Version',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appCount) {
             $res['AppCount'] = $this->appCount;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->describe) {
             $res['Describe'] = $this->describe;
         }
+
         if (null !== $this->instanceCount) {
             $res['InstanceCount'] = $this->instanceCount;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -116,38 +111,46 @@ class results extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return results
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppCount'])) {
             $model->appCount = $map['AppCount'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Describe'])) {
             $model->describe = $map['Describe'];
         }
+
         if (isset($map['InstanceCount'])) {
             $model->instanceCount = $map['InstanceCount'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }
