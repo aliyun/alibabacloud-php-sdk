@@ -12,33 +12,38 @@ class DeleteTagRequest extends Model
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'key'                  => 'Key',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'key' => 'Key',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'value'                => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()

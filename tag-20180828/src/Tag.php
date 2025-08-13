@@ -82,40 +82,40 @@ class Tag extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'us-west-1'                   => 'tag.us-east-1.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'tag.cn-hangzhou.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'tag.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'tag.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'tag.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'tag.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'tag.cn-hangzhou.aliyuncs.com',
-            'cn-edge-1'                   => 'tag.aliyuncs.com',
-            'cn-fujian'                   => 'tag.cn-hangzhou.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'tag.cn-north-2-gov-1.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'tag.aliyuncs.com',
+        $this->_endpointMap = [
+            'us-west-1' => 'tag.us-east-1.aliyuncs.com',
+            'cn-hangzhou-finance' => 'tag.cn-hangzhou.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'tag.aliyuncs.com',
+            'ap-northeast-2-pop' => 'tag.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'tag.aliyuncs.com',
+            'cn-beijing-gov-1' => 'tag.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'tag.cn-hangzhou.aliyuncs.com',
+            'cn-edge-1' => 'tag.aliyuncs.com',
+            'cn-fujian' => 'tag.cn-hangzhou.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'tag.cn-north-2-gov-1.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'tag.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'tag.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'tag.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'tag.cn-hangzhou.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'tag.cn-hangzhou.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'tag.cn-hangzhou.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'tag.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'tag.cn-qingdao-nebula.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'tag.cn-hangzhou.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'tag.aliyuncs.com',
-            'cn-shanghai-inner'           => 'tag.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'tag.cn-hangzhou.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'tag.aliyuncs.com',
+            'cn-huhehaote-nebula-1' => 'tag.cn-qingdao-nebula.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'tag.cn-hangzhou.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'tag.aliyuncs.com',
+            'cn-shanghai-inner' => 'tag.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'tag.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'tag.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'tag.cn-hangzhou.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'tag.aliyuncs.com',
-            'cn-wuhan'                    => 'tag.aliyuncs.com',
-            'cn-yushanfang'               => 'tag.aliyuncs.com',
-            'cn-zhangbei'                 => 'tag.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'tag.cn-hangzhou.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'tag.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'tag.cn-qingdao-nebula.aliyuncs.com',
-            'eu-west-1-oxs'               => 'tag.cn-shenzhen-cloudstone.aliyuncs.com',
-            'rus-west-1-pop'              => 'tag.aliyuncs.com',
+            'cn-shenzhen-inner' => 'tag.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'tag.cn-hangzhou.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'tag.aliyuncs.com',
+            'cn-wuhan' => 'tag.aliyuncs.com',
+            'cn-yushanfang' => 'tag.aliyuncs.com',
+            'cn-zhangbei' => 'tag.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'tag.cn-hangzhou.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'tag.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'tag.cn-qingdao-nebula.aliyuncs.com',
+            'eu-west-1-oxs' => 'tag.cn-shenzhen-cloudstone.aliyuncs.com',
+            'rus-west-1-pop' => 'tag.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('tag', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -154,6 +154,7 @@ class Tag extends OpenApiClient
      *
      * @param request - AttachPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AttachPolicyResponse
      *
      * @param AttachPolicyRequest $request
@@ -197,21 +198,18 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachPolicy',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachPolicy',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return AttachPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -222,6 +220,7 @@ class Tag extends OpenApiClient
      * This topic provides an example on how to call the API operation to attach the tag policy with an ID of `p-de62a0bf400e4b69****` to the current logon account. In this example, the Tag Policy feature in single-account mode is used.
      *
      * @param request - AttachPolicyRequest
+     *
      * @returns AttachPolicyResponse
      *
      * @param AttachPolicyRequest $request
@@ -240,6 +239,7 @@ class Tag extends OpenApiClient
      *
      * @param request - CheckCreatedByEnabledRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckCreatedByEnabledResponse
      *
      * @param CheckCreatedByEnabledRequest $request
@@ -275,27 +275,25 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckCreatedByEnabled',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckCreatedByEnabled',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CheckCreatedByEnabledResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckCreatedByEnabledResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckCreatedByEnabledResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 校验CreatedBy开通状态
      *
      * @param request - CheckCreatedByEnabledRequest
+     *
      * @returns CheckCreatedByEnabledResponse
      *
      * @param CheckCreatedByEnabledRequest $request
@@ -314,6 +312,7 @@ class Tag extends OpenApiClient
      *
      * @param request - CloseCreatedByRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CloseCreatedByResponse
      *
      * @param CloseCreatedByRequest $request
@@ -349,27 +348,25 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CloseCreatedBy',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CloseCreatedBy',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CloseCreatedByResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CloseCreatedByResponse::fromMap($this->execute($params, $req, $runtime));
+        return CloseCreatedByResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 关闭CreatedBy服务
      *
      * @param request - CloseCreatedByRequest
+     *
      * @returns CloseCreatedByResponse
      *
      * @param CloseCreatedByRequest $request
@@ -384,10 +381,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * 创建关联资源打TAG规则.
+     * Creates associated resource tagging rules.
      *
      * @param request - CreateAssociatedResourceRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAssociatedResourceRulesResponse
      *
      * @param CreateAssociatedResourceRulesRequest $request
@@ -423,27 +421,25 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAssociatedResourceRules',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAssociatedResourceRules',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateAssociatedResourceRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAssociatedResourceRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAssociatedResourceRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 创建关联资源打TAG规则.
+     * Creates associated resource tagging rules.
      *
      * @param request - CreateAssociatedResourceRulesRequest
+     *
      * @returns CreateAssociatedResourceRulesResponse
      *
      * @param CreateAssociatedResourceRulesRequest $request
@@ -466,6 +462,7 @@ class Tag extends OpenApiClient
      *
      * @param request - CreatePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePolicyResponse
      *
      * @param CreatePolicyRequest $request
@@ -517,21 +514,18 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePolicy',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePolicy',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -542,6 +536,7 @@ class Tag extends OpenApiClient
      * This topic provides an example on how to call the API operation to create a tag policy named `test`. In this example, the Tag Policy feature in multi-account mode is used. The tag policy defines that resources to which the `CostCenter:Beijing` or `CostCenter:Shanghai` tag is added are compliant and other resources are not compliant.
      *
      * @param request - CreatePolicyRequest
+     *
      * @returns CreatePolicyResponse
      *
      * @param CreatePolicyRequest $request
@@ -565,6 +560,7 @@ class Tag extends OpenApiClient
      *
      * @param request - CreateTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTagsResponse
      *
      * @param CreateTagsRequest $request
@@ -600,21 +596,18 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTags',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTags',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return CreateTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTagsResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -626,6 +619,7 @@ class Tag extends OpenApiClient
      * This topic provides an example on how to call the API operation to create a preset tag whose tag key is `Environment` to indicate the business environment.
      *
      * @param request - CreateTagsRequest
+     *
      * @returns CreateTagsResponse
      *
      * @param CreateTagsRequest $request
@@ -640,10 +634,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * 删除关联资源打TAG规则.
+     * Deletes an associated resource tagging rule.
      *
      * @param request - DeleteAssociatedResourceRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAssociatedResourceRuleResponse
      *
      * @param DeleteAssociatedResourceRuleRequest $request
@@ -679,27 +674,25 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAssociatedResourceRule',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAssociatedResourceRule',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteAssociatedResourceRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAssociatedResourceRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAssociatedResourceRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 删除关联资源打TAG规则.
+     * Deletes an associated resource tagging rule.
      *
      * @param request - DeleteAssociatedResourceRuleRequest
+     *
      * @returns DeleteAssociatedResourceRuleResponse
      *
      * @param DeleteAssociatedResourceRuleRequest $request
@@ -714,7 +707,7 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * 删除策略.
+     * Deletes a tag policy.
      *
      * @remarks
      * Before you delete a tag policy, make sure that the tag policy is detached from all objects to which the tag policy is attached. For more information about how to detach a tag policy, see [DetachPolicy](https://help.aliyun.com/document_detail/429724.html).
@@ -722,6 +715,7 @@ class Tag extends OpenApiClient
      *
      * @param request - DeletePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeletePolicyResponse
      *
      * @param DeletePolicyRequest $request
@@ -757,31 +751,29 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletePolicy',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePolicy',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeletePolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 删除策略.
+     * Deletes a tag policy.
      *
      * @remarks
      * Before you delete a tag policy, make sure that the tag policy is detached from all objects to which the tag policy is attached. For more information about how to detach a tag policy, see [DetachPolicy](https://help.aliyun.com/document_detail/429724.html).
      * This topic provides an example on how to call the API operation to delete the tag policy with an ID of `p-557cb141331f41c7****`.
      *
      * @param request - DeletePolicyRequest
+     *
      * @returns DeletePolicyResponse
      *
      * @param DeletePolicyRequest $request
@@ -803,6 +795,7 @@ class Tag extends OpenApiClient
      *
      * @param request - DeleteTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTagResponse
      *
      * @param DeleteTagRequest $request
@@ -842,21 +835,18 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTag',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTag',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DeleteTagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTagResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -866,6 +856,7 @@ class Tag extends OpenApiClient
      * This topic provides an example on how to call the API operation to delete the preset tag whose tag key is `Environment` and tag value is `test`.
      *
      * @param request - DeleteTagRequest
+     *
      * @returns DeleteTagResponse
      *
      * @param DeleteTagRequest $request
@@ -884,6 +875,7 @@ class Tag extends OpenApiClient
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRegionsResponse
      *
      * @param DescribeRegionsRequest $request
@@ -923,27 +915,25 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * Queries the regions where the Tag service is available.
      *
      * @param request - DescribeRegionsRequest
+     *
      * @returns DescribeRegionsResponse
      *
      * @param DescribeRegionsRequest $request
@@ -958,14 +948,16 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * 解除策略绑定.
+     * Detaches a tag policy from an object.
      *
      * @remarks
+     * ###
      * If you use the Tag Policy feature in single-account mode, you can call this API operation to detach a tag policy from the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to detach a tag policy from the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
      * This topic provides an example on how to call the API operation to detach the tag policy with an ID of `p-a3381efe2fe34a75****` from the current logon account. In this example, the Tag Policy feature in single-account mode is used.
      *
      * @param request - DetachPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetachPolicyResponse
      *
      * @param DetachPolicyRequest $request
@@ -1009,31 +1001,30 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachPolicy',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachPolicy',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DetachPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 解除策略绑定.
+     * Detaches a tag policy from an object.
      *
      * @remarks
+     * ###
      * If you use the Tag Policy feature in single-account mode, you can call this API operation to detach a tag policy from the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to detach a tag policy from the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
      * This topic provides an example on how to call the API operation to detach the tag policy with an ID of `p-a3381efe2fe34a75****` from the current logon account. In this example, the Tag Policy feature in single-account mode is used.
      *
      * @param request - DetachPolicyRequest
+     *
      * @returns DetachPolicyResponse
      *
      * @param DetachPolicyRequest $request
@@ -1052,6 +1043,7 @@ class Tag extends OpenApiClient
      *
      * @param request - DisablePolicyTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisablePolicyTypeResponse
      *
      * @param DisablePolicyTypeRequest $request
@@ -1095,27 +1087,25 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisablePolicyType',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisablePolicyType',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return DisablePolicyTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisablePolicyTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisablePolicyTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 关闭策略.
      *
      * @param request - DisablePolicyTypeRequest
+     *
      * @returns DisablePolicyTypeResponse
      *
      * @param DisablePolicyTypeRequest $request
@@ -1134,6 +1124,7 @@ class Tag extends OpenApiClient
      *
      * @param request - EnablePolicyTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnablePolicyTypeResponse
      *
      * @param EnablePolicyTypeRequest $request
@@ -1177,27 +1168,25 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnablePolicyType',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnablePolicyType',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return EnablePolicyTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnablePolicyTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnablePolicyTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
      * 开通策略.
      *
      * @param request - EnablePolicyTypeRequest
+     *
      * @returns EnablePolicyTypeResponse
      *
      * @param EnablePolicyTypeRequest $request
@@ -1220,6 +1209,7 @@ class Tag extends OpenApiClient
      *
      * @param request - GenerateConfigRuleReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GenerateConfigRuleReportResponse
      *
      * @param GenerateConfigRuleReportRequest $request
@@ -1263,21 +1253,18 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenerateConfigRuleReport',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateConfigRuleReport',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GenerateConfigRuleReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GenerateConfigRuleReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return GenerateConfigRuleReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1288,6 +1275,7 @@ class Tag extends OpenApiClient
      * This topic provides an example on how to call this API operation to generate a resource non-compliance report for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
      *
      * @param request - GenerateConfigRuleReportRequest
+     *
      * @returns GenerateConfigRuleReportResponse
      *
      * @param GenerateConfigRuleReportRequest $request
@@ -1310,6 +1298,7 @@ class Tag extends OpenApiClient
      *
      * @param request - GetConfigRuleReportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetConfigRuleReportResponse
      *
      * @param GetConfigRuleReportRequest $request
@@ -1353,21 +1342,18 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetConfigRuleReport',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetConfigRuleReport',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetConfigRuleReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetConfigRuleReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetConfigRuleReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1378,6 +1364,7 @@ class Tag extends OpenApiClient
      * This topic provides an example on how to call this API operation to query the basic information of the resource non-compliance report that is last generated for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that the ID of the report is `crp-ao0786618088006c****`.
      *
      * @param request - GetConfigRuleReportRequest
+     *
      * @returns GetConfigRuleReportResponse
      *
      * @param GetConfigRuleReportRequest $request
@@ -1392,7 +1379,7 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * 查询有效策略.
+     * Queries the information about the effective policy.
      *
      * @remarks
      * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the effective tag policy for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the effective tag policy for the Root folder, a folder other than the Root folder, or a member in the resource directory. You can also use a member of a resource directory to call this API operation to query the effective tag policy for the member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
@@ -1401,6 +1388,7 @@ class Tag extends OpenApiClient
      *
      * @param request - GetEffectivePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetEffectivePolicyResponse
      *
      * @param GetEffectivePolicyRequest $request
@@ -1444,25 +1432,22 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetEffectivePolicy',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetEffectivePolicy',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetEffectivePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetEffectivePolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetEffectivePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查询有效策略.
+     * Queries the information about the effective policy.
      *
      * @remarks
      * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the effective tag policy for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the effective tag policy for the Root folder, a folder other than the Root folder, or a member in the resource directory. You can also use a member of a resource directory to call this API operation to query the effective tag policy for the member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](https://help.aliyun.com/document_detail/417434.html).
@@ -1470,6 +1455,7 @@ class Tag extends OpenApiClient
      * This topic provides an example on how to call the API operation to query the effective tag policy for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
      *
      * @param request - GetEffectivePolicyRequest
+     *
      * @returns GetEffectivePolicyResponse
      *
      * @param GetEffectivePolicyRequest $request
@@ -1484,13 +1470,14 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * 查询策略.
+     * Queries the details of a tag policy.
      *
      * @remarks
      * This topic provides an example on how to call the API operation to query the details of the tag policy with an ID of `p-557cb141331f41c7****`.
      *
      * @param request - GetPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetPolicyResponse
      *
      * @param GetPolicyRequest $request
@@ -1526,30 +1513,28 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPolicy',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPolicy',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 查询策略.
+     * Queries the details of a tag policy.
      *
      * @remarks
      * This topic provides an example on how to call the API operation to query the details of the tag policy with an ID of `p-557cb141331f41c7****`.
      *
      * @param request - GetPolicyRequest
+     *
      * @returns GetPolicyResponse
      *
      * @param GetPolicyRequest $request
@@ -1571,6 +1556,7 @@ class Tag extends OpenApiClient
      *
      * @param request - GetPolicyEnableStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetPolicyEnableStatusResponse
      *
      * @param GetPolicyEnableStatusRequest $request
@@ -1614,21 +1600,18 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPolicyEnableStatus',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPolicyEnableStatus',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return GetPolicyEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPolicyEnableStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPolicyEnableStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1638,6 +1621,7 @@ class Tag extends OpenApiClient
      * This topic provides an example on how to call the API operation to query the status of the Tag Policy feature for the current logon account. The response shows that the Tag Policy feature in multi-account mode is enabled for the current logon account.
      *
      * @param request - GetPolicyEnableStatusRequest
+     *
      * @returns GetPolicyEnableStatusResponse
      *
      * @param GetPolicyEnableStatusRequest $request
@@ -1652,10 +1636,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * 用户已设置的关联资源打TAG规则.
+     * Search the rules for associated resources that the user has set up.
      *
      * @param request - ListAssociatedResourceRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAssociatedResourceRulesResponse
      *
      * @param ListAssociatedResourceRulesRequest $request
@@ -1703,27 +1688,25 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAssociatedResourceRules',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAssociatedResourceRules',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListAssociatedResourceRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAssociatedResourceRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAssociatedResourceRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 用户已设置的关联资源打TAG规则.
+     * Search the rules for associated resources that the user has set up.
      *
      * @param request - ListAssociatedResourceRulesRequest
+     *
      * @returns ListAssociatedResourceRulesResponse
      *
      * @param ListAssociatedResourceRulesRequest $request
@@ -1746,6 +1729,7 @@ class Tag extends OpenApiClient
      *
      * @param request - ListConfigRulesForTargetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListConfigRulesForTargetResponse
      *
      * @param ListConfigRulesForTargetRequest $request
@@ -1805,21 +1789,18 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListConfigRulesForTarget',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListConfigRulesForTarget',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListConfigRulesForTargetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListConfigRulesForTargetResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListConfigRulesForTargetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1830,6 +1811,7 @@ class Tag extends OpenApiClient
      * This topic provides an example on how to call the API operation to query the tag detection tasks for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that only one tag detection task exists.
      *
      * @param request - ListConfigRulesForTargetRequest
+     *
      * @returns ListConfigRulesForTargetResponse
      *
      * @param ListConfigRulesForTargetRequest $request
@@ -1852,6 +1834,7 @@ class Tag extends OpenApiClient
      *
      * @param request - ListPoliciesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPoliciesResponse
      *
      * @param ListPoliciesRequest $request
@@ -1903,21 +1886,18 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPolicies',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPolicies',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1928,6 +1908,7 @@ class Tag extends OpenApiClient
      * This topic provides an example on how to call the API operation to query all tag policies that are created for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that two tag policies are created.
      *
      * @param request - ListPoliciesRequest
+     *
      * @returns ListPoliciesResponse
      *
      * @param ListPoliciesRequest $request
@@ -1950,6 +1931,7 @@ class Tag extends OpenApiClient
      *
      * @param request - ListPoliciesForTargetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPoliciesForTargetResponse
      *
      * @param ListPoliciesForTargetRequest $request
@@ -1997,21 +1979,18 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPoliciesForTarget',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPoliciesForTarget',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListPoliciesForTargetResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListPoliciesForTargetResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListPoliciesForTargetResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2022,6 +2001,7 @@ class Tag extends OpenApiClient
      * This topic provides an example on how to call the API operation to query the tag policies that are attached to the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that only one tag policy is attached to the current logon account.
      *
      * @param request - ListPoliciesForTargetRequest
+     *
      * @returns ListPoliciesForTargetResponse
      *
      * @param ListPoliciesForTargetRequest $request
@@ -2043,6 +2023,7 @@ class Tag extends OpenApiClient
      *
      * @param request - ListResourcesByTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListResourcesByTagResponse
      *
      * @param ListResourcesByTagRequest $request
@@ -2102,21 +2083,18 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResourcesByTag',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListResourcesByTag',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListResourcesByTagResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListResourcesByTagResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListResourcesByTagResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2126,6 +2104,7 @@ class Tag extends OpenApiClient
      * This topic provides an example on how to call the API operation in the China (Shenzhen) region to query virtual private clouds (VPCs) to which the tag key `k1` is added. The response shows that the tag key is added to two VPCs.
      *
      * @param request - ListResourcesByTagRequest
+     *
      * @returns ListResourcesByTagResponse
      *
      * @param ListResourcesByTagRequest $request
@@ -2150,6 +2129,7 @@ class Tag extends OpenApiClient
      *
      * @param request - ListSupportResourceTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSupportResourceTypesResponse
      *
      * @param ListSupportResourceTypesRequest $request
@@ -2205,21 +2185,18 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSupportResourceTypes',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSupportResourceTypes',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListSupportResourceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSupportResourceTypesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSupportResourceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2232,6 +2209,7 @@ class Tag extends OpenApiClient
      * *   Query a list of resource types that support createdby tags. For more information, see [Example](https://api.alibabacloud.com/api/Tag/2018-08-28/ListSupportResourceTypes?tab=DEBUG\\&params=%7B%22RegionId%22:%22cn-hangzhou%22,%22SupportCode%22:%22CREATED_BY_TAG_CONSOLE_SUPPORT%22%7D).
      *
      * @param request - ListSupportResourceTypesRequest
+     *
      * @returns ListSupportResourceTypesResponse
      *
      * @param ListSupportResourceTypesRequest $request
@@ -2253,6 +2231,7 @@ class Tag extends OpenApiClient
      *
      * @param request - ListTagKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagKeysResponse
      *
      * @param ListTagKeysRequest $request
@@ -2316,21 +2295,18 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagKeys',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagKeys',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2340,6 +2316,7 @@ class Tag extends OpenApiClient
      * This topic provides an example on how to call the API operation to query the tag keys in the `cn-hangzhou` region. The response shows that the following tag keys exist: `team`, `k1`, and `k2`.
      *
      * @param request - ListTagKeysRequest
+     *
      * @returns ListTagKeysResponse
      *
      * @param ListTagKeysRequest $request
@@ -2361,6 +2338,7 @@ class Tag extends OpenApiClient
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -2416,21 +2394,18 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2440,6 +2415,7 @@ class Tag extends OpenApiClient
      * For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](https://help.aliyun.com/document_detail/171455.html).
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -2461,6 +2437,7 @@ class Tag extends OpenApiClient
      *
      * @param request - ListTagValuesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagValuesResponse
      *
      * @param ListTagValuesRequest $request
@@ -2524,21 +2501,18 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagValues',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagValues',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagValuesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2548,6 +2522,7 @@ class Tag extends OpenApiClient
      * This topic provides an example on how to call the API operation to query the values of the tag key `k1` in the `cn-hangzhou` region. The response shows that the value of the tag key `k1` is `v1`.
      *
      * @param request - ListTagValuesRequest
+     *
      * @returns ListTagValuesResponse
      *
      * @param ListTagValuesRequest $request
@@ -2570,6 +2545,7 @@ class Tag extends OpenApiClient
      *
      * @param request - ListTargetsForPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTargetsForPolicyResponse
      *
      * @param ListTargetsForPolicyRequest $request
@@ -2613,21 +2589,18 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTargetsForPolicy',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTargetsForPolicy',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ListTargetsForPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTargetsForPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTargetsForPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2638,6 +2611,7 @@ class Tag extends OpenApiClient
      * This topic provides an example on how to call the API operation to query the objects to which the tag policy with an ID of `p-de62a0bf400e4b69****` is attached. In this example, the Tag Policy feature in multi-account mode is used. The response shows that the tag policy is attached to two members in the related resource directory.
      *
      * @param request - ListTargetsForPolicyRequest
+     *
      * @returns ListTargetsForPolicyResponse
      *
      * @param ListTargetsForPolicyRequest $request
@@ -2652,13 +2626,15 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * 修改策略.
+     * Modifies a tag policy.
      *
      * @remarks
+     * ### [](#)
      * This topic provides an example on how to call the API operation to change the name of a tag policy to `test`.
      *
      * @param request - ModifyPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyPolicyResponse
      *
      * @param ModifyPolicyRequest $request
@@ -2710,30 +2686,29 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPolicy',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPolicy',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return ModifyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 修改策略.
+     * Modifies a tag policy.
      *
      * @remarks
+     * ### [](#)
      * This topic provides an example on how to call the API operation to change the name of a tag policy to `test`.
      *
      * @param request - ModifyPolicyRequest
+     *
      * @returns ModifyPolicyResponse
      *
      * @param ModifyPolicyRequest $request
@@ -2755,6 +2730,7 @@ class Tag extends OpenApiClient
      *
      * @param request - OpenCreatedByRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns OpenCreatedByResponse
      *
      * @param OpenCreatedByRequest $request
@@ -2790,21 +2766,18 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OpenCreatedBy',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OpenCreatedBy',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return OpenCreatedByResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return OpenCreatedByResponse::fromMap($this->execute($params, $req, $runtime));
+        return OpenCreatedByResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2814,6 +2787,7 @@ class Tag extends OpenApiClient
      * createdby tags can help you analyze costs and bills and manage the costs of cloud resources in an efficient manner. You can identify the creators of resources based on the createdby tags added to the resources. createdby tags are system tags that are provided by Alibaba Cloud and automatically added to resources. The key of createdby tags is `acs:tag:createdby`.
      *
      * @param request - OpenCreatedByRequest
+     *
      * @returns OpenCreatedByResponse
      *
      * @param OpenCreatedByRequest $request
@@ -2836,6 +2810,7 @@ class Tag extends OpenApiClient
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -2879,21 +2854,18 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2904,6 +2876,7 @@ class Tag extends OpenApiClient
      * For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](https://help.aliyun.com/document_detail/171455.html).
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -2926,6 +2899,7 @@ class Tag extends OpenApiClient
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -2969,21 +2943,18 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2994,6 +2965,7 @@ class Tag extends OpenApiClient
      * For information about the Alibaba Cloud services that support tags, see [Services that work with Tag](https://help.aliyun.com/document_detail/171455.html).
      *
      * @param request - UntagResourcesRequest
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -3008,10 +2980,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * 更新关联资源打TAG规则.
+     * Update the rule for tagging associated resources.
      *
      * @param request - UpdateAssociatedResourceRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateAssociatedResourceRuleResponse
      *
      * @param UpdateAssociatedResourceRuleRequest $request
@@ -3023,6 +2996,10 @@ class Tag extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->existingStatus) {
+            @$query['ExistingStatus'] = $request->existingStatus;
+        }
+
         if (null !== $request->ownerAccount) {
             @$query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -3055,27 +3032,25 @@ class Tag extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAssociatedResourceRule',
-            'version'     => '2018-08-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateAssociatedResourceRule',
+            'version' => '2018-08-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateAssociatedResourceRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAssociatedResourceRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAssociatedResourceRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * 更新关联资源打TAG规则.
+     * Update the rule for tagging associated resources.
      *
      * @param request - UpdateAssociatedResourceRuleRequest
+     *
      * @returns UpdateAssociatedResourceRuleResponse
      *
      * @param UpdateAssociatedResourceRuleRequest $request

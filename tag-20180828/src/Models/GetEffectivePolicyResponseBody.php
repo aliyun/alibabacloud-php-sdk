@@ -13,18 +13,20 @@ class GetEffectivePolicyResponseBody extends Model
      * @var string
      */
     public $effectivePolicy;
+
     /**
      * @var policyAttachments[]
      */
     public $policyAttachments;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'effectivePolicy'   => 'EffectivePolicy',
+        'effectivePolicy' => 'EffectivePolicy',
         'policyAttachments' => 'PolicyAttachments',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -45,9 +47,10 @@ class GetEffectivePolicyResponseBody extends Model
         if (null !== $this->policyAttachments) {
             if (\is_array($this->policyAttachments)) {
                 $res['PolicyAttachments'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->policyAttachments as $item1) {
-                    $res['PolicyAttachments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PolicyAttachments'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -74,9 +77,10 @@ class GetEffectivePolicyResponseBody extends Model
         if (isset($map['PolicyAttachments'])) {
             if (!empty($map['PolicyAttachments'])) {
                 $model->policyAttachments = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['PolicyAttachments'] as $item1) {
-                    $model->policyAttachments[$n1++] = policyAttachments::fromMap($item1);
+                    $model->policyAttachments[$n1] = policyAttachments::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

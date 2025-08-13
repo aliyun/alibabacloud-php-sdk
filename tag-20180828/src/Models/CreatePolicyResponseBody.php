@@ -12,18 +12,20 @@ class CreatePolicyResponseBody extends Model
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */
     public $policyName;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'policyId'   => 'PolicyId',
+        'policyId' => 'PolicyId',
         'policyName' => 'PolicyName',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

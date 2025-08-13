@@ -12,12 +12,13 @@ class targets extends Model
      * @var string
      */
     public $targetId;
+
     /**
      * @var int
      */
     public $targetType;
     protected $_name = [
-        'targetId'   => 'TargetId',
+        'targetId' => 'TargetId',
         'targetType' => 'TargetType',
     ];
 

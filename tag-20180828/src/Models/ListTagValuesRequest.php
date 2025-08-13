@@ -13,58 +13,68 @@ class ListTagValuesRequest extends Model
      * @var tagFilter
      */
     public $tagFilter;
+
     /**
      * @var string
      */
     public $fuzzyType;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $queryType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'tagFilter'            => 'TagFilter',
-        'fuzzyType'            => 'FuzzyType',
-        'key'                  => 'Key',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageSize'             => 'PageSize',
-        'queryType'            => 'QueryType',
-        'regionId'             => 'RegionId',
+        'tagFilter' => 'TagFilter',
+        'fuzzyType' => 'FuzzyType',
+        'key' => 'Key',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageSize' => 'PageSize',
+        'queryType' => 'QueryType',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceType'         => 'ResourceType',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

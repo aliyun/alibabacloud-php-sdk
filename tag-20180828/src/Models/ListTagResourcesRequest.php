@@ -12,48 +12,56 @@ class ListTagResourcesRequest extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $resourceARN;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var string
      */
     public $tags;
     protected $_name = [
-        'category'             => 'Category',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageSize'             => 'PageSize',
-        'regionId'             => 'RegionId',
-        'resourceARN'          => 'ResourceARN',
+        'category' => 'Category',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceARN' => 'ResourceARN',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'tags'                 => 'Tags',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -94,9 +102,10 @@ class ListTagResourcesRequest extends Model
         if (null !== $this->resourceARN) {
             if (\is_array($this->resourceARN)) {
                 $res['ResourceARN'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->resourceARN as $item1) {
-                    $res['ResourceARN'][$n1++] = $item1;
+                    $res['ResourceARN'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -147,9 +156,10 @@ class ListTagResourcesRequest extends Model
         if (isset($map['ResourceARN'])) {
             if (!empty($map['ResourceARN'])) {
                 $model->resourceARN = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ResourceARN'] as $item1) {
-                    $model->resourceARN[$n1++] = $item1;
+                    $model->resourceARN[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

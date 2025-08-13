@@ -12,32 +12,37 @@ class policyList extends Model
      * @var int
      */
     public $attachSeq;
+
     /**
      * @var string
      */
     public $attachTime;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */
     public $policyName;
+
     /**
      * @var string
      */
     public $targetId;
+
     /**
      * @var string
      */
     public $targetType;
     protected $_name = [
-        'attachSeq'  => 'AttachSeq',
+        'attachSeq' => 'AttachSeq',
         'attachTime' => 'AttachTime',
-        'policyId'   => 'PolicyId',
+        'policyId' => 'PolicyId',
         'policyName' => 'PolicyName',
-        'targetId'   => 'TargetId',
+        'targetId' => 'TargetId',
         'targetType' => 'TargetType',
     ];
 

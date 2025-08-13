@@ -12,30 +12,37 @@ class data extends Model
      * @var string
      */
     public $aggregatorId;
+
     /**
      * @var string
      */
     public $configRuleId;
+
     /**
      * @var string
      */
     public $policyType;
+
     /**
      * @var bool
      */
     public $remediation;
+
     /**
      * @var string
      */
     public $tagKey;
+
     /**
      * @var string
      */
     public $tagValue;
+
     /**
      * @var string
      */
     public $targetId;
+
     /**
      * @var string
      */
@@ -43,12 +50,12 @@ class data extends Model
     protected $_name = [
         'aggregatorId' => 'AggregatorId',
         'configRuleId' => 'ConfigRuleId',
-        'policyType'   => 'PolicyType',
-        'remediation'  => 'Remediation',
-        'tagKey'       => 'TagKey',
-        'tagValue'     => 'TagValue',
-        'targetId'     => 'TargetId',
-        'targetType'   => 'TargetType',
+        'policyType' => 'PolicyType',
+        'remediation' => 'Remediation',
+        'tagKey' => 'TagKey',
+        'tagValue' => 'TagValue',
+        'targetId' => 'TargetId',
+        'targetType' => 'TargetType',
     ];
 
     public function validate()

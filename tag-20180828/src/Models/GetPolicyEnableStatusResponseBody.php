@@ -13,12 +13,13 @@ class GetPolicyEnableStatusResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var statusModels[]
      */
     public $statusModels;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'statusModels' => 'StatusModels',
     ];
 
@@ -40,9 +41,10 @@ class GetPolicyEnableStatusResponseBody extends Model
         if (null !== $this->statusModels) {
             if (\is_array($this->statusModels)) {
                 $res['StatusModels'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->statusModels as $item1) {
-                    $res['StatusModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['StatusModels'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -65,9 +67,10 @@ class GetPolicyEnableStatusResponseBody extends Model
         if (isset($map['StatusModels'])) {
             if (!empty($map['StatusModels'])) {
                 $model->statusModels = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['StatusModels'] as $item1) {
-                    $model->statusModels[$n1++] = statusModels::fromMap($item1);
+                    $model->statusModels[$n1] = statusModels::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

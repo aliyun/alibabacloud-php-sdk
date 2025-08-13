@@ -12,12 +12,13 @@ class statusModels extends Model
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $userType;
     protected $_name = [
-        'status'   => 'Status',
+        'status' => 'Status',
         'userType' => 'UserType',
     ];
 

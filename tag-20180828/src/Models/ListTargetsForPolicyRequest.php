@@ -12,37 +12,43 @@ class ListTargetsForPolicyRequest extends Model
      * @var int
      */
     public $maxResult;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
     protected $_name = [
-        'maxResult'            => 'MaxResult',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'policyId'             => 'PolicyId',
-        'regionId'             => 'RegionId',
+        'maxResult' => 'MaxResult',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'policyId' => 'PolicyId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
     ];
 

@@ -13,17 +13,19 @@ class ListSupportResourceTypesResponseBody extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var supportResourceTypes[]
      */
     public $supportResourceTypes;
     protected $_name = [
-        'nextToken'            => 'NextToken',
-        'requestId'            => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'supportResourceTypes' => 'SupportResourceTypes',
     ];
 
@@ -49,9 +51,10 @@ class ListSupportResourceTypesResponseBody extends Model
         if (null !== $this->supportResourceTypes) {
             if (\is_array($this->supportResourceTypes)) {
                 $res['SupportResourceTypes'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->supportResourceTypes as $item1) {
-                    $res['SupportResourceTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportResourceTypes'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,9 +81,10 @@ class ListSupportResourceTypesResponseBody extends Model
         if (isset($map['SupportResourceTypes'])) {
             if (!empty($map['SupportResourceTypes'])) {
                 $model->supportResourceTypes = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['SupportResourceTypes'] as $item1) {
-                    $model->supportResourceTypes[$n1++] = supportResourceTypes::fromMap($item1);
+                    $model->supportResourceTypes[$n1] = supportResourceTypes::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

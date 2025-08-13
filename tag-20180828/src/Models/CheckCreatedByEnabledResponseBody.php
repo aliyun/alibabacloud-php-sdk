@@ -12,13 +12,14 @@ class CheckCreatedByEnabledResponseBody extends Model
      * @var bool
      */
     public $openStatus;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'openStatus' => 'OpenStatus',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

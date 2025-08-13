@@ -13,21 +13,24 @@ class supportResourceTypes extends Model
      * @var string
      */
     public $arnTemplate;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var supportItems[]
      */
     public $supportItems;
     protected $_name = [
-        'arnTemplate'  => 'ArnTemplate',
-        'productCode'  => 'ProductCode',
+        'arnTemplate' => 'ArnTemplate',
+        'productCode' => 'ProductCode',
         'resourceType' => 'ResourceType',
         'supportItems' => 'SupportItems',
     ];
@@ -58,9 +61,10 @@ class supportResourceTypes extends Model
         if (null !== $this->supportItems) {
             if (\is_array($this->supportItems)) {
                 $res['SupportItems'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->supportItems as $item1) {
-                    $res['SupportItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['SupportItems'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -91,9 +95,10 @@ class supportResourceTypes extends Model
         if (isset($map['SupportItems'])) {
             if (!empty($map['SupportItems'])) {
                 $model->supportItems = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['SupportItems'] as $item1) {
-                    $model->supportItems[$n1++] = supportItems::fromMap($item1);
+                    $model->supportItems[$n1] = supportItems::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

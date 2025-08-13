@@ -12,38 +12,44 @@ class GenerateConfigRuleReportRequest extends Model
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var string
      */
     public $targetId;
+
     /**
      * @var string
      */
     public $targetType;
+
     /**
      * @var string
      */
     public $userType;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'targetId'             => 'TargetId',
-        'targetType'           => 'TargetType',
-        'userType'             => 'UserType',
+        'targetId' => 'TargetId',
+        'targetType' => 'TargetType',
+        'userType' => 'UserType',
     ];
 
     public function validate()

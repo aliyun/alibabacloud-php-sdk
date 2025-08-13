@@ -12,28 +12,32 @@ class data extends Model
      * @var string
      */
     public $policyContent;
+
     /**
      * @var string
      */
     public $policyDesc;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */
     public $policyName;
+
     /**
      * @var string
      */
     public $userType;
     protected $_name = [
         'policyContent' => 'PolicyContent',
-        'policyDesc'    => 'PolicyDesc',
-        'policyId'      => 'PolicyId',
-        'policyName'    => 'PolicyName',
-        'userType'      => 'UserType',
+        'policyDesc' => 'PolicyDesc',
+        'policyId' => 'PolicyId',
+        'policyName' => 'PolicyName',
+        'userType' => 'UserType',
     ];
 
     public function validate()

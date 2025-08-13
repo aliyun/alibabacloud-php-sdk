@@ -12,43 +12,50 @@ class ListAssociatedResourceRulesRequest extends Model
      * @var int
      */
     public $maxResult;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var string[]
      */
     public $settingName;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'maxResult'            => 'MaxResult',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'maxResult' => 'MaxResult',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'settingName'          => 'SettingName',
-        'status'               => 'Status',
+        'settingName' => 'SettingName',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -89,9 +96,10 @@ class ListAssociatedResourceRulesRequest extends Model
         if (null !== $this->settingName) {
             if (\is_array($this->settingName)) {
                 $res['SettingName'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->settingName as $item1) {
-                    $res['SettingName'][$n1++] = $item1;
+                    $res['SettingName'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -138,9 +146,10 @@ class ListAssociatedResourceRulesRequest extends Model
         if (isset($map['SettingName'])) {
             if (!empty($map['SettingName'])) {
                 $model->settingName = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['SettingName'] as $item1) {
-                    $model->settingName[$n1++] = $item1;
+                    $model->settingName[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

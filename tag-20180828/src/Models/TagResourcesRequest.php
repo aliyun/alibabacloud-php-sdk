@@ -12,33 +12,38 @@ class TagResourcesRequest extends Model
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $resourceARN;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var string
      */
     public $tags;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceARN'          => 'ResourceARN',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceARN' => 'ResourceARN',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'tags'                 => 'Tags',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -67,9 +72,10 @@ class TagResourcesRequest extends Model
         if (null !== $this->resourceARN) {
             if (\is_array($this->resourceARN)) {
                 $res['ResourceARN'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->resourceARN as $item1) {
-                    $res['ResourceARN'][$n1++] = $item1;
+                    $res['ResourceARN'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -108,9 +114,10 @@ class TagResourcesRequest extends Model
         if (isset($map['ResourceARN'])) {
             if (!empty($map['ResourceARN'])) {
                 $model->resourceARN = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ResourceARN'] as $item1) {
-                    $model->resourceARN[$n1++] = $item1;
+                    $model->resourceARN[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

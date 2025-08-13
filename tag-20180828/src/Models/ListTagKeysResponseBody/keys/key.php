@@ -12,18 +12,20 @@ class key extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $key;
     protected $_name = [
-        'category'    => 'Category',
+        'category' => 'Category',
         'description' => 'Description',
-        'key'         => 'Key',
+        'key' => 'Key',
     ];
 
     public function validate()

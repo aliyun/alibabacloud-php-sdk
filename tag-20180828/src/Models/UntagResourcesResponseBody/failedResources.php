@@ -31,9 +31,10 @@ class failedResources extends Model
         if (null !== $this->failedResource) {
             if (\is_array($this->failedResource)) {
                 $res['FailedResource'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->failedResource as $item1) {
-                    $res['FailedResource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['FailedResource'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class failedResources extends Model
         if (isset($map['FailedResource'])) {
             if (!empty($map['FailedResource'])) {
                 $model->failedResource = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['FailedResource'] as $item1) {
-                    $model->failedResource[$n1++] = failedResource::fromMap($item1);
+                    $model->failedResource[$n1] = failedResource::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

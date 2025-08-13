@@ -13,13 +13,14 @@ class TagResourcesResponseBody extends Model
      * @var failedResources
      */
     public $failedResources;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'failedResources' => 'FailedResources',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class tagValueParamList extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
         'description' => 'Description',
-        'value'       => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()

@@ -11,19 +11,27 @@ class createRulesList extends Model
     /**
      * @var string
      */
+    public $existingStatus;
+
+    /**
+     * @var string
+     */
     public $settingName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string[]
      */
     public $tagKeys;
     protected $_name = [
+        'existingStatus' => 'ExistingStatus',
         'settingName' => 'SettingName',
-        'status'      => 'Status',
-        'tagKeys'     => 'TagKeys',
+        'status' => 'Status',
+        'tagKeys' => 'TagKeys',
     ];
 
     public function validate()
@@ -37,6 +45,10 @@ class createRulesList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->existingStatus) {
+            $res['ExistingStatus'] = $this->existingStatus;
+        }
+
         if (null !== $this->settingName) {
             $res['SettingName'] = $this->settingName;
         }
@@ -48,9 +60,10 @@ class createRulesList extends Model
         if (null !== $this->tagKeys) {
             if (\is_array($this->tagKeys)) {
                 $res['TagKeys'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->tagKeys as $item1) {
-                    $res['TagKeys'][$n1++] = $item1;
+                    $res['TagKeys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -66,6 +79,10 @@ class createRulesList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExistingStatus'])) {
+            $model->existingStatus = $map['ExistingStatus'];
+        }
+
         if (isset($map['SettingName'])) {
             $model->settingName = $map['SettingName'];
         }
@@ -77,9 +94,10 @@ class createRulesList extends Model
         if (isset($map['TagKeys'])) {
             if (!empty($map['TagKeys'])) {
                 $model->tagKeys = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['TagKeys'] as $item1) {
-                    $model->tagKeys[$n1++] = $item1;
+                    $model->tagKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

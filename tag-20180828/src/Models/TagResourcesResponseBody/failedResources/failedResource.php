@@ -13,13 +13,14 @@ class failedResource extends Model
      * @var string
      */
     public $resourceARN;
+
     /**
      * @var result
      */
     public $result;
     protected $_name = [
         'resourceARN' => 'ResourceARN',
-        'result'      => 'Result',
+        'result' => 'Result',
     ];
 
     public function validate()

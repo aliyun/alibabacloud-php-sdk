@@ -13,16 +13,18 @@ class ListTagKeysResponseBody extends Model
      * @var keys
      */
     public $keys;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'keys'      => 'Keys',
+        'keys' => 'Keys',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
     ];

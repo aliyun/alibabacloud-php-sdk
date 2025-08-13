@@ -12,58 +12,68 @@ class ListConfigRulesForTargetRequest extends Model
      * @var int
      */
     public $maxResult;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $policyType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var string
      */
     public $tagKey;
+
     /**
      * @var string
      */
     public $targetId;
+
     /**
      * @var string
      */
     public $targetType;
+
     /**
      * @var string
      */
     public $userType;
     protected $_name = [
-        'maxResult'            => 'MaxResult',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'policyType'           => 'PolicyType',
-        'regionId'             => 'RegionId',
+        'maxResult' => 'MaxResult',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'policyType' => 'PolicyType',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'tagKey'               => 'TagKey',
-        'targetId'             => 'TargetId',
-        'targetType'           => 'TargetType',
-        'userType'             => 'UserType',
+        'tagKey' => 'TagKey',
+        'targetId' => 'TargetId',
+        'targetType' => 'TargetType',
+        'userType' => 'UserType',
     ];
 
     public function validate()

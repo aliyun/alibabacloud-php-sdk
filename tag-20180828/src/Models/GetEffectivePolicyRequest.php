@@ -12,38 +12,44 @@ class GetEffectivePolicyRequest extends Model
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var string[]
      */
     public $tagKeys;
+
     /**
      * @var string
      */
     public $targetId;
+
     /**
      * @var string
      */
     public $targetType;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'tagKeys'              => 'TagKeys',
-        'targetId'             => 'TargetId',
-        'targetType'           => 'TargetType',
+        'tagKeys' => 'TagKeys',
+        'targetId' => 'TargetId',
+        'targetType' => 'TargetType',
     ];
 
     public function validate()
@@ -76,9 +82,10 @@ class GetEffectivePolicyRequest extends Model
         if (null !== $this->tagKeys) {
             if (\is_array($this->tagKeys)) {
                 $res['TagKeys'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->tagKeys as $item1) {
-                    $res['TagKeys'][$n1++] = $item1;
+                    $res['TagKeys'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -121,9 +128,10 @@ class GetEffectivePolicyRequest extends Model
         if (isset($map['TagKeys'])) {
             if (!empty($map['TagKeys'])) {
                 $model->tagKeys = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['TagKeys'] as $item1) {
-                    $model->tagKeys[$n1++] = $item1;
+                    $model->tagKeys[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

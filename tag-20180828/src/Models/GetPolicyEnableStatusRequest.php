@@ -12,38 +12,44 @@ class GetPolicyEnableStatusRequest extends Model
      * @var string
      */
     public $openType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var string
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $userType;
     protected $_name = [
-        'openType'             => 'OpenType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'openType' => 'OpenType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'userType'             => 'UserType',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'userType' => 'UserType',
     ];
 
     public function validate()

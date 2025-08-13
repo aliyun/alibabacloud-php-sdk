@@ -13,28 +13,32 @@ class ListTargetsForPolicyResponseBody extends Model
      * @var bool
      */
     public $isRd;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $rdId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var targets[]
      */
     public $targets;
     protected $_name = [
-        'isRd'      => 'IsRd',
+        'isRd' => 'IsRd',
         'nextToken' => 'NextToken',
-        'rdId'      => 'RdId',
+        'rdId' => 'RdId',
         'requestId' => 'RequestId',
-        'targets'   => 'Targets',
+        'targets' => 'Targets',
     ];
 
     public function validate()
@@ -67,9 +71,10 @@ class ListTargetsForPolicyResponseBody extends Model
         if (null !== $this->targets) {
             if (\is_array($this->targets)) {
                 $res['Targets'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->targets as $item1) {
-                    $res['Targets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Targets'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,9 +109,10 @@ class ListTargetsForPolicyResponseBody extends Model
         if (isset($map['Targets'])) {
             if (!empty($map['Targets'])) {
                 $model->targets = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Targets'] as $item1) {
-                    $model->targets[$n1++] = targets::fromMap($item1);
+                    $model->targets[$n1] = targets::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

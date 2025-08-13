@@ -13,10 +13,12 @@ class policyAttachments extends Model
      * @var policyList[]
      */
     public $policyList;
+
     /**
      * @var string
      */
     public $policyType;
+
     /**
      * @var string
      */
@@ -24,7 +26,7 @@ class policyAttachments extends Model
     protected $_name = [
         'policyList' => 'PolicyList',
         'policyType' => 'PolicyType',
-        'tagKey'     => 'TagKey',
+        'tagKey' => 'TagKey',
     ];
 
     public function validate()
@@ -41,9 +43,10 @@ class policyAttachments extends Model
         if (null !== $this->policyList) {
             if (\is_array($this->policyList)) {
                 $res['PolicyList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->policyList as $item1) {
-                    $res['PolicyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['PolicyList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -70,9 +73,10 @@ class policyAttachments extends Model
         if (isset($map['PolicyList'])) {
             if (!empty($map['PolicyList'])) {
                 $model->policyList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['PolicyList'] as $item1) {
-                    $model->policyList[$n1++] = policyList::fromMap($item1);
+                    $model->policyList[$n1] = policyList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

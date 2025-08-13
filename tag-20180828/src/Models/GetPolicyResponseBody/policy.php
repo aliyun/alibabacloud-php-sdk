@@ -12,23 +12,26 @@ class policy extends Model
      * @var string
      */
     public $policyContent;
+
     /**
      * @var string
      */
     public $policyDesc;
+
     /**
      * @var string
      */
     public $policyName;
+
     /**
      * @var string
      */
     public $userType;
     protected $_name = [
         'policyContent' => 'PolicyContent',
-        'policyDesc'    => 'PolicyDesc',
-        'policyName'    => 'PolicyName',
-        'userType'      => 'UserType',
+        'policyDesc' => 'PolicyDesc',
+        'policyName' => 'PolicyName',
+        'userType' => 'UserType',
     ];
 
     public function validate()

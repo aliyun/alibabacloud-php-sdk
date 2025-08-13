@@ -12,48 +12,56 @@ class ListPoliciesRequest extends Model
      * @var int
      */
     public $maxResult;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string[]
      */
     public $policyIds;
+
     /**
      * @var string[]
      */
     public $policyNames;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var string
      */
     public $userType;
     protected $_name = [
-        'maxResult'            => 'MaxResult',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'policyIds'            => 'PolicyIds',
-        'policyNames'          => 'PolicyNames',
-        'regionId'             => 'RegionId',
+        'maxResult' => 'MaxResult',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'policyIds' => 'PolicyIds',
+        'policyNames' => 'PolicyNames',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'userType'             => 'UserType',
+        'userType' => 'UserType',
     ];
 
     public function validate()
@@ -89,9 +97,10 @@ class ListPoliciesRequest extends Model
         if (null !== $this->policyIds) {
             if (\is_array($this->policyIds)) {
                 $res['PolicyIds'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->policyIds as $item1) {
-                    $res['PolicyIds'][$n1++] = $item1;
+                    $res['PolicyIds'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -99,9 +108,10 @@ class ListPoliciesRequest extends Model
         if (null !== $this->policyNames) {
             if (\is_array($this->policyNames)) {
                 $res['PolicyNames'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->policyNames as $item1) {
-                    $res['PolicyNames'][$n1++] = $item1;
+                    $res['PolicyNames'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -148,9 +158,10 @@ class ListPoliciesRequest extends Model
         if (isset($map['PolicyIds'])) {
             if (!empty($map['PolicyIds'])) {
                 $model->policyIds = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['PolicyIds'] as $item1) {
-                    $model->policyIds[$n1++] = $item1;
+                    $model->policyIds[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -158,9 +169,10 @@ class ListPoliciesRequest extends Model
         if (isset($map['PolicyNames'])) {
             if (!empty($map['PolicyNames'])) {
                 $model->policyNames = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['PolicyNames'] as $item1) {
-                    $model->policyNames[$n1++] = $item1;
+                    $model->policyNames[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

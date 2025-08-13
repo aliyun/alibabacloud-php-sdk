@@ -12,43 +12,50 @@ class ListPoliciesForTargetRequest extends Model
      * @var int
      */
     public $maxResult;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var string
      */
     public $targetId;
+
     /**
      * @var string
      */
     public $targetType;
     protected $_name = [
-        'maxResult'            => 'MaxResult',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'maxResult' => 'MaxResult',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'targetId'             => 'TargetId',
-        'targetType'           => 'TargetType',
+        'targetId' => 'TargetId',
+        'targetType' => 'TargetType',
     ];
 
     public function validate()

@@ -13,17 +13,19 @@ class tagKeyValueParamList extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var tagValueParamList[]
      */
     public $tagValueParamList;
     protected $_name = [
-        'description'       => 'Description',
-        'key'               => 'Key',
+        'description' => 'Description',
+        'key' => 'Key',
         'tagValueParamList' => 'TagValueParamList',
     ];
 
@@ -49,9 +51,10 @@ class tagKeyValueParamList extends Model
         if (null !== $this->tagValueParamList) {
             if (\is_array($this->tagValueParamList)) {
                 $res['TagValueParamList'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->tagValueParamList as $item1) {
-                    $res['TagValueParamList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TagValueParamList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -78,9 +81,10 @@ class tagKeyValueParamList extends Model
         if (isset($map['TagValueParamList'])) {
             if (!empty($map['TagValueParamList'])) {
                 $model->tagValueParamList = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['TagValueParamList'] as $item1) {
-                    $model->tagValueParamList[$n1++] = tagValueParamList::fromMap($item1);
+                    $model->tagValueParamList[$n1] = tagValueParamList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

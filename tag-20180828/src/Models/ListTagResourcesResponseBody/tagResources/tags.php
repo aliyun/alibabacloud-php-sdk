@@ -12,18 +12,20 @@ class tags extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
         'category' => 'Category',
-        'key'      => 'Key',
-        'value'    => 'Value',
+        'key' => 'Key',
+        'value' => 'Value',
     ];
 
     public function validate()

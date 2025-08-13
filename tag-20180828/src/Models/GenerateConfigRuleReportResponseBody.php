@@ -12,12 +12,13 @@ class GenerateConfigRuleReportResponseBody extends Model
      * @var string
      */
     public $reportId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'reportId'  => 'ReportId',
+        'reportId' => 'ReportId',
         'requestId' => 'RequestId',
     ];
 

@@ -12,47 +12,55 @@ class ModifyPolicyRequest extends Model
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $policyContent;
+
     /**
      * @var string
      */
     public $policyDesc;
+
     /**
      * @var string
      */
     public $policyId;
+
     /**
      * @var string
      */
     public $policyName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
     protected $_name = [
-        'dryRun'               => 'DryRun',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'policyContent'        => 'PolicyContent',
-        'policyDesc'           => 'PolicyDesc',
-        'policyId'             => 'PolicyId',
-        'policyName'           => 'PolicyName',
-        'regionId'             => 'RegionId',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'policyContent' => 'PolicyContent',
+        'policyDesc' => 'PolicyDesc',
+        'policyId' => 'PolicyId',
+        'policyName' => 'PolicyName',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
     ];
 

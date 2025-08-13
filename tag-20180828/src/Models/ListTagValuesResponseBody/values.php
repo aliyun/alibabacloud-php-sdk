@@ -30,9 +30,10 @@ class values extends Model
         if (null !== $this->value) {
             if (\is_array($this->value)) {
                 $res['Value'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->value as $item1) {
-                    $res['Value'][$n1++] = $item1;
+                    $res['Value'][$n1] = $item1;
+                    ++$n1;
                 }
             }
         }
@@ -51,9 +52,10 @@ class values extends Model
         if (isset($map['Value'])) {
             if (!empty($map['Value'])) {
                 $model->value = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Value'] as $item1) {
-                    $model->value[$n1++] = $item1;
+                    $model->value[$n1] = $item1;
+                    ++$n1;
                 }
             }
         }

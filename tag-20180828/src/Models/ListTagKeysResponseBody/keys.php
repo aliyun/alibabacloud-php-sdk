@@ -31,9 +31,10 @@ class keys extends Model
         if (null !== $this->key) {
             if (\is_array($this->key)) {
                 $res['Key'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->key as $item1) {
-                    $res['Key'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['Key'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -52,9 +53,10 @@ class keys extends Model
         if (isset($map['Key'])) {
             if (!empty($map['Key'])) {
                 $model->key = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Key'] as $item1) {
-                    $model->key[$n1++] = key::fromMap($item1);
+                    $model->key[$n1] = key::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

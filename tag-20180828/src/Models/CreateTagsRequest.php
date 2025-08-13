@@ -13,26 +13,30 @@ class CreateTagsRequest extends Model
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var tagKeyValueParamList[]
      */
     public $tagKeyValueParamList;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'tagKeyValueParamList' => 'TagKeyValueParamList',
     ];
@@ -67,9 +71,10 @@ class CreateTagsRequest extends Model
         if (null !== $this->tagKeyValueParamList) {
             if (\is_array($this->tagKeyValueParamList)) {
                 $res['TagKeyValueParamList'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->tagKeyValueParamList as $item1) {
-                    $res['TagKeyValueParamList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['TagKeyValueParamList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -104,9 +109,10 @@ class CreateTagsRequest extends Model
         if (isset($map['TagKeyValueParamList'])) {
             if (!empty($map['TagKeyValueParamList'])) {
                 $model->tagKeyValueParamList = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['TagKeyValueParamList'] as $item1) {
-                    $model->tagKeyValueParamList[$n1++] = tagKeyValueParamList::fromMap($item1);
+                    $model->tagKeyValueParamList[$n1] = tagKeyValueParamList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

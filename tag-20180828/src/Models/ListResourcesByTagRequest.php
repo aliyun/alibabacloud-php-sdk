@@ -13,53 +13,62 @@ class ListResourcesByTagRequest extends Model
      * @var tagFilter
      */
     public $tagFilter;
+
     /**
      * @var string
      */
     public $fuzzyType;
+
     /**
      * @var bool
      */
     public $includeAllTags;
+
     /**
      * @var int
      */
     public $maxResult;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'tagFilter'            => 'TagFilter',
-        'fuzzyType'            => 'FuzzyType',
-        'includeAllTags'       => 'IncludeAllTags',
-        'maxResult'            => 'MaxResult',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'tagFilter' => 'TagFilter',
+        'fuzzyType' => 'FuzzyType',
+        'includeAllTags' => 'IncludeAllTags',
+        'maxResult' => 'MaxResult',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceType'         => 'ResourceType',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

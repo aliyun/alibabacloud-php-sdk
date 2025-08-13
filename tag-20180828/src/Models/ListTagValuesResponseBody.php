@@ -13,10 +13,12 @@ class ListTagValuesResponseBody extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var values
      */
@@ -24,7 +26,7 @@ class ListTagValuesResponseBody extends Model
     protected $_name = [
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
-        'values'    => 'Values',
+        'values' => 'Values',
     ];
 
     public function validate()

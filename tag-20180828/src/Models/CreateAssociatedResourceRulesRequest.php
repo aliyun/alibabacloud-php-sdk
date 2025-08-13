@@ -13,27 +13,31 @@ class CreateAssociatedResourceRulesRequest extends Model
      * @var createRulesList[]
      */
     public $createRulesList;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
     protected $_name = [
-        'createRulesList'      => 'CreateRulesList',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'createRulesList' => 'CreateRulesList',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
     ];
 
@@ -51,9 +55,10 @@ class CreateAssociatedResourceRulesRequest extends Model
         if (null !== $this->createRulesList) {
             if (\is_array($this->createRulesList)) {
                 $res['CreateRulesList'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->createRulesList as $item1) {
-                    $res['CreateRulesList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    $res['CreateRulesList'][$n1] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                    ++$n1;
                 }
             }
         }
@@ -88,9 +93,10 @@ class CreateAssociatedResourceRulesRequest extends Model
         if (isset($map['CreateRulesList'])) {
             if (!empty($map['CreateRulesList'])) {
                 $model->createRulesList = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['CreateRulesList'] as $item1) {
-                    $model->createRulesList[$n1++] = createRulesList::fromMap($item1);
+                    $model->createRulesList[$n1] = createRulesList::fromMap($item1);
+                    ++$n1;
                 }
             }
         }

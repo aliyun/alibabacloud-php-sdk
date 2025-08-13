@@ -12,53 +12,62 @@ class ListSupportResourceTypesRequest extends Model
      * @var int
      */
     public $maxResult;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var string
      */
     public $resourceTye;
+
     /**
      * @var bool
      */
     public $showItems;
+
     /**
      * @var string
      */
     public $supportCode;
     protected $_name = [
-        'maxResult'            => 'MaxResult',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'productCode'          => 'ProductCode',
-        'regionId'             => 'RegionId',
+        'maxResult' => 'MaxResult',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'productCode' => 'ProductCode',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceTye'          => 'ResourceTye',
-        'showItems'            => 'ShowItems',
-        'supportCode'          => 'SupportCode',
+        'resourceTye' => 'ResourceTye',
+        'showItems' => 'ShowItems',
+        'supportCode' => 'SupportCode',
     ];
 
     public function validate()
